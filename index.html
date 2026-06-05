@@ -5,132 +5,150 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Super Compagnie — Kanban Board</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; height: 100vh; display: flex; flex-direction: column; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#c9d1d9;height:100vh;display:flex;flex-direction:column}
 
-/* ── Header ── */
-.header { background: #161b22; padding: 14px 24px; border-bottom: 1px solid #30363d; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
-.header h1 { font-size: 18px; color: #58a6ff; }
-.header-right { display: flex; gap: 12px; align-items: center; }
-.stats { display: flex; gap: 8px; font-size: 12px; flex-wrap: wrap; }
-.stat { padding: 3px 8px; border-radius: 10px; background: #21262d; }
-.stat.critical { background: #da3633; color: white; }
-.stat.done { background: #238636; color: white; }
-.stat.in_progress { background: #d29922; color: white; }
-.stat.blocked { background: #6e40c9; color: white; }
-.refresh-btn { background: #238636; color: white; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; }
-.refresh-btn:hover { background: #2ea043; }
-.last-updated { font-size: 11px; color: #8b949e; }
-.view-toggle { display: flex; gap: 4px; }
-.view-btn { background: #21262d; color: #8b949e; border: 1px solid #30363d; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; }
-.view-btn.active { background: #388bfd; color: white; border-color: #388bfd; }
+/* Header */
+.header{background:#161b22;padding:12px 20px;border-bottom:1px solid #30363d;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.header h1{font-size:16px;color:#58a6ff}
+.header-right{display:flex;gap:10px;align-items:center}
+.stats{display:flex;gap:6px;font-size:11px;flex-wrap:wrap}
+.stat{padding:2px 7px;border-radius:8px;background:#21262d}
+.stat.critical{background:#da3633;color:#fff}
+.stat.done{background:#238636;color:#fff}
+.stat.in_progress{background:#d29922;color:#fff}
+.stat.blocked{background:#6e40c9;color:#fff}
+.refresh-btn{background:#238636;color:#fff;border:none;padding:5px 12px;border-radius:5px;cursor:pointer;font-size:11px;font-weight:600}
+.refresh-btn:hover{background:#2ea043}
+.last-updated{font-size:10px;color:#484f58}
+.view-toggle{display:flex;gap:3px}
+.view-btn{background:#21262d;color:#8b949e;border:1px solid #30363d;padding:3px 8px;border-radius:4px;cursor:pointer;font-size:10px}
+.view-btn.active{background:#1f6feb;color:#fff;border-color:#1f6feb}
 
-/* ── Main Layout ── */
-.main { display: flex; flex: 1; overflow: hidden; }
+/* Main */
+.main{display:flex;flex:1;overflow:hidden}
 
-/* ── Board ── */
-.board { display: flex; gap: 12px; padding: 16px; overflow-x: auto; flex: 1; }
-.column { min-width: 280px; max-width: 340px; flex: 1; background: #161b22; border-radius: 8px; padding: 10px; border: 1px solid #30363d; display: flex; flex-direction: column; }
-.column-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 6px 0; margin-bottom: 6px; border-bottom: 2px solid; display: flex; justify-content: space-between; align-items: center; }
-.column-header .count { font-size: 10px; background: #30363d; padding: 1px 6px; border-radius: 8px; }
-.column.backlog .column-header { color: #8b949e; border-color: #8b949e; }
-.column.in_progress .column-header { color: #d29922; border-color: #d29922; }
-.column.review .column-header { color: #a371f7; border-color: #a371f7; }
-.column.done .column-header { color: #3fb950; border-color: #3fb950; }
-.column-content { flex: 1; overflow-y: auto; }
+/* Board columns */
+.board{display:flex;gap:10px;padding:14px;overflow-x:auto;flex:1}
+.column{min-width:260px;max-width:320px;flex:1;background:#161b22;border-radius:8px;padding:8px;border:1px solid #30363d;display:flex;flex-direction:column}
+.column-header{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:5px 0;margin-bottom:5px;border-bottom:2px solid;display:flex;justify-content:space-between}
+.column-header .count{font-size:9px;background:#30363d;padding:1px 5px;border-radius:6px}
+.column.backlog .column-header{color:#8b949e;border-color:#8b949e}
+.column.in_progress .column-header{color:#d29922;border-color:#d29922}
+.column.review .column-header{color:#a371f7;border-color:#a371f7}
+.column.done .column-header{color:#3fb950;border-color:#3fb950}
+.column-content{flex:1;overflow-y:auto}
 
-/* ── Epic Card ── */
-.epic { background: #1c2128; border: 1px solid #30363d; border-left: 3px solid #58a6ff; border-radius: 6px; padding: 10px; margin-bottom: 10px; cursor: pointer; transition: all 0.15s; }
-.epic:hover { border-color: #58a6ff; }
-.epic-header { display: flex; justify-content: space-between; align-items: flex-start; }
-.epic-id { font-size: 10px; color: #58a6ff; font-family: 'SF Mono', monospace; font-weight: 600; }
-.epic-title { font-size: 13px; font-weight: 600; margin: 4px 0; line-height: 1.3; }
-.epic-progress { height: 3px; background: #21262d; border-radius: 2px; margin: 6px 0; overflow: hidden; }
-.epic-progress-bar { height: 100%; border-radius: 2px; transition: width 0.3s; }
-.epic-progress-bar.critical { background: #da3633; }
-.epic-progress-bar.high { background: #f85149; }
-.epic-progress-bar.medium { background: #d29922; }
-.epic-progress-bar.low { background: #3fb950; }
-.epic-meta { display: flex; gap: 6px; align-items: center; font-size: 10px; color: #8b949e; }
-.epic-stories { margin-top: 6px; padding-top: 6px; border-top: 1px dashed #30363d; }
-.epic-story-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 3px; }
-.epic-story-dot.done { background: #3fb950; }
-.epic-story-dot.in_progress { background: #d29922; }
-.epic-story-dot.backlog { background: #30363d; }
-.epic-story-dot.blocked { background: #6e40c9; }
+/* Epic group wrapper */
+.epic-group{margin-bottom:8px}
+.epic-label{font-size:9px;color:#58a6ff;font-family:'SF Mono',monospace;padding:3px 6px;background:#1c2128;border-left:2px solid #1f6feb;margin-bottom:3px;border-radius:0 4px 4px 0;cursor:pointer}
+.epic-label:hover{background:#21262d}
 
-/* ── Ticket Card ── */
-.ticket { background: #21262d; border: 1px solid #30363d; border-radius: 6px; padding: 8px; margin-bottom: 6px; cursor: pointer; transition: all 0.15s; }
-.ticket:hover { border-color: #58a6ff; transform: translateY(-1px); }
-.ticket.epic-child { margin-left: 12px; border-left: 2px solid #30363d; }
-.ticket.blocked { opacity: 0.6; border-color: #6e40c9; }
-.ticket-header { display: flex; justify-content: space-between; align-items: flex-start; }
-.ticket-id { font-size: 10px; color: #8b949e; font-family: 'SF Mono', monospace; font-weight: 600; }
-.ticket-title { font-size: 12px; font-weight: 500; margin: 3px 0; line-height: 1.3; }
-.ticket-meta { display: flex; gap: 4px; margin-top: 5px; flex-wrap: wrap; align-items: center; }
-.badge { font-size: 9px; padding: 1px 5px; border-radius: 8px; font-weight: 600; text-transform: uppercase; }
-.badge.critical { background: #da3633; color: white; }
-.badge.high { background: #f85149; color: white; }
-.badge.medium { background: #d29922; color: white; }
-.badge.low { background: #3fb950; color: white; }
-.badge.infra { background: #1f6feb; color: white; }
-.badge.security { background: #8957e5; color: white; }
-.badge.performance { background: #f0883e; color: white; }
-.badge.bug { background: #f85149; color: white; }
-.badge.feature { background: #3fb950; color: white; }
-.badge.agent-request { background: #6e7681; color: white; }
-.badge.blocked { background: #6e40c9; color: white; }
-.ticket-assignee { font-size: 10px; color: #8b949e; margin-top: 3px; }
-.epic-ref { font-size: 9px; color: #58a6ff; font-family: monospace; }
+/* Ticket */
+.ticket{background:#21262d;border:1px solid #30363d;border-radius:5px;padding:7px;margin-bottom:4px;cursor:pointer;transition:border-color .15s}
+.ticket:hover{border-color:#58a6ff}
+.ticket.blocked{opacity:.5;border-color:#6e40c9}
+.ticket.epic-child{margin-left:10px;border-left:2px solid #30363d}
+.ticket-top{display:flex;justify-content:space-between;align-items:flex-start}
+.ticket-id{font-size:9px;color:#484f58;font-family:'SF Mono',monospace;font-weight:600}
+.ticket-title{font-size:11px;font-weight:500;margin:2px 0;line-height:1.3}
+.ticket-tags{display:flex;gap:3px;margin-top:4px;flex-wrap:wrap}
+.badge{font-size:8px;padding:1px 4px;border-radius:6px;font-weight:600;text-transform:uppercase}
+.badge.critical{background:#da3633;color:#fff}
+.badge.high{background:#f85149;color:#fff}
+.badge.medium{background:#d29922;color:#fff}
+.badge.low{background:#3fb950;color:#fff}
+.badge.infra{background:#1f6feb;color:#fff}
+.badge.security{background:#8957e5;color:#fff}
+.badge.bug{background:#f85149;color:#fff}
+.badge.feature{background:#3fb950;color:#fff}
+.badge.agent-request{background:#6e7681;color:#fff}
+.badge.blocked{background:#6e40c9;color:#fff}
+.ticket-assignee{font-size:9px;color:#484f58;margin-top:3px}
 
-/* ── Detail Panel (Jira-style side panel) ── */
-.detail-panel { width: 420px; background: #161b22; border-left: 1px solid #30363d; display: none; flex-direction: column; flex-shrink: 0; overflow: hidden; }
-.detail-panel.open { display: flex; }
-.detail-header { padding: 14px 18px; border-bottom: 1px solid #30363d; display: flex; justify-content: space-between; align-items: center; }
-.detail-header h2 { font-size: 14px; font-weight: 600; }
-.close-btn { background: none; border: none; color: #8b949e; font-size: 18px; cursor: pointer; padding: 2px 6px; border-radius: 4px; }
-.close-btn:hover { background: #21262d; color: #c9d1d9; }
-.detail-body { flex: 1; overflow-y: auto; padding: 18px; }
-.detail-section { margin-bottom: 18px; }
-.detail-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #8b949e; margin-bottom: 4px; }
-.detail-value { font-size: 13px; line-height: 1.4; }
-.detail-id { font-family: 'SF Mono', monospace; color: #58a6ff; font-size: 12px; }
-.detail-title { font-size: 16px; font-weight: 600; margin: 8px 0; }
-.detail-desc { font-size: 13px; color: #c9d1d9; line-height: 1.5; background: #0d1117; padding: 10px; border-radius: 6px; border: 1px solid #30363d; }
-.detail-row { display: flex; gap: 12px; margin-bottom: 12px; }
-.detail-col { flex: 1; }
-.status-select, .assignee-select { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; padding: 4px 8px; border-radius: 4px; font-size: 12px; width: 100%; }
-.comment-list { margin-top: 8px; }
-.comment { background: #0d1117; padding: 8px; border-radius: 6px; border: 1px solid #30363d; margin-bottom: 6px; font-size: 12px; }
-.comment-by { font-weight: 600; color: #58a6ff; font-size: 11px; }
-.blocked-by-list { margin-top: 4px; }
-.blocked-by-item { font-size: 11px; color: #6e40c9; padding: 2px 0; }
-.progress-display { font-size: 12px; font-weight: 600; }
-.story-list { margin-top: 6px; }
-.story-item { font-size: 11px; padding: 3px 0; display: flex; align-items: center; gap: 6px; }
-.story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.story-dot.done { background: #3fb950; }
-.story-dot.in_progress { background: #d29922; }
-.story-dot.backlog { background: #30363d; }
-.story-dot.blocked { background: #6e40c9; }
+/* Epic color bar on left of ticket */
+.epic-bar{float:left;width:3px;height:100%;border-radius:2px;margin-right:6px}
+.epic-bar.epic-0{background:#1f6feb}
+.epic-bar.epic-1{background:#a371f7}
+.epic-bar.epic-2{background:#f0883e}
+.epic-bar.epic-3{background:#3fb950}
 
-/* ── Scrollbar ── */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #484f58; }
+/* Epic progress mini bar */
+.epic-mini-progress{height:2px;background:#21262d;border-radius:1px;margin-top:3px;overflow:hidden}
+.epic-mini-bar{height:100%;border-radius:1px}
+
+/* Detail panel */
+.detail-panel{width:400px;background:#161b22;border-left:1px solid #30363d;display:none;flex-direction:column;flex-shrink:0;overflow:hidden}
+.detail-panel.open{display:flex}
+.detail-header{padding:12px 16px;border-bottom:1px solid #30363d;display:flex;justify-content:space-between;align-items:center}
+.detail-header h2{font-size:13px;font-weight:600}
+.close-btn{background:none;border:none;color:#8b949e;font-size:16px;cursor:pointer;padding:1px 5px;border-radius:3px}
+.close-btn:hover{background:#21262d}
+.detail-body{flex:1;overflow-y:auto;padding:16px}
+.detail-section{margin-bottom:14px}
+.detail-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#484f58;margin-bottom:3px}
+.detail-id{font-family:'SF Mono',monospace;color:#1f6feb;font-size:11px}
+.detail-title{font-size:15px;font-weight:600;margin:6px 0}
+.detail-desc{font-size:12px;color:#c9d1d9;line-height:1.5;background:#0d1117;padding:8px;border-radius:5px;border:1px solid #30363d}
+.detail-row{display:flex;gap:10px;margin-bottom:10px}
+.detail-col{flex:1}
+.status-select,.assignee-select{background:#21262d;color:#c9d1d9;border:1px solid #30363d;padding:3px 6px;border-radius:3px;font-size:11px;width:100%}
+.comment{padding:6px;border-radius:4px;border:1px solid #30363d;margin-bottom:4px;font-size:11px}
+.comment-by{font-weight:600;color:#1f6feb;font-size:10px}
+.blocked-item{font-size:10px;color:#6e40c9;padding:1px 0}
+.story-item{font-size:10px;padding:2px 0;display:flex;align-items:center;gap:5px}
+.story-dot{width:6px;height:6px;border-radius:50%}
+.story-dot.done{background:#3fb950}
+.story-dot.in_progress{background:#d29922}
+.story-dot.backlog{background:#30363d}
+.story-dot.blocked{background:#6e40c9}
+进度-display{font-size:11px;font-weight:600}
+
+/* Team view */
+.agent-card{background:#21262d;border:1px solid #30363d;border-radius:6px;padding:10px;margin-bottom:6px}
+.agent-top{display:flex;justify-content:space-between;align-items:center}
+.agent-emoji{font-size:20px}
+.agent-status{font-size:9px;padding:1px 6px;border-radius:6px}
+.agent-name{font-size:13px;font-weight:600;margin-top:5px;color:#c9d1d9}
+.agent-title{font-size:10px;color:#1f6feb;margin-top:1px;font-weight:500}
+.agent-role{font-size:10px;color:#484f58;margin-top:4px;line-height:1.3}
+
+/* Epic card (epics view) */
+.epic-card{background:#1c2128;border:1px solid #30363d;border-left:3px solid #58a6ff;border-radius:6px;padding:12px;margin-bottom:10px;cursor:pointer}
+.epic-card:hover{border-color:#58a6ff}
+.epic-top{display:flex;justify-content:space-between;align-items:flex-start}
+.epic-card-id{font-size:9px;color:#1f6feb;font-family:'SF Mono',monospace;font-weight:600}
+.epic-card-title{font-size:13px;font-weight:600;margin:4px 0;line-height:1.3}
+.epic-progress{height:4px;background:#21262d;border-radius:2px;margin:6px 0;overflow:hidden}
+.epic-progress-bar{height:100%;border-radius:2px;transition:width .3s}
+.epic-progress-bar.critical{background:#da3633}
+.epic-progress-bar.high{background:#f85149}
+.epic-progress-bar.medium{background:#d29922}
+.epic-progress-bar.low{background:#3fb950}
+.epic-meta{display:flex;gap:6px;align-items:center;font-size:9px;color:#484f58}
+.epic-stories-dots{margin-top:5px;padding-top:5px;border-top:1px dashed #30363d}
+.epic-story-dot{display:inline-block;width:5px;height:5px;border-radius:50%;margin-right:2px}
+.epic-story-dot.done{background:#3fb950}
+.epic-story-dot.in_progress{background:#d29922}
+.epic-story-dot.backlog{background:#30363d}
+.epic-story-dot.blocked{background:#6e40c9}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#30363d;border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:#484f58}
 </style>
 </head>
 <body>
 
-<!-- ── Header ── -->
 <div class="header">
   <h1>💎 Super Compagnie — Kanban</h1>
   <div class="stats" id="stats"></div>
   <div class="header-right">
     <div class="view-toggle">
-      <button class="view-btn active" onclick="setView('board',this)">Board</button>
-      <button class="view-btn" onclick="setView('epics',this)">Epics</button>
+      <button class="view-btn active" onclick="setView('board',this)">📋 Board</button>
+      <button class="view-btn" onclick="setView('epics',this)">📁 Epics</button>
       <button class="view-btn" onclick="setView('team',this)">👥 Team</button>
     </div>
     <span class="last-updated" id="lastUpdated"></span>
@@ -138,301 +156,290 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   </div>
 </div>
 
-<!-- ── Main ── -->
 <div class="main">
-  <!-- Board -->
   <div class="board" id="board">
     <div class="column backlog"><div class="column-header">📋 Backlog <span class="count" id="count-backlog"></span></div><div class="column-content" id="backlog"></div></div>
     <div class="column in_progress"><div class="column-header">🔧 In Progress <span class="count" id="count-in_progress"></span></div><div class="column-content" id="in_progress"></div></div>
     <div class="column review"><div class="column-header">👀 Review <span class="count" id="count-review"></span></div><div class="column-content" id="review"></div></div>
     <div class="column done"><div class="column-header">✅ Done <span class="count" id="count-done"></span></div><div class="column-content" id="done"></div></div>
   </div>
-
-  <!-- Detail Panel -->
   <div class="detail-panel" id="detailPanel">
-    <div class="detail-header">
-      <h2 id="detailTitle">Ticket Detail</h2>
-      <button class="close-btn" onclick="closeDetail()">✕</button>
-    </div>
+    <div class="detail-header"><h2 id="detailTitle">Detail</h2><button class="close-btn" onclick="closeDetail()">✕</button></div>
     <div class="detail-body" id="detailBody"></div>
   </div>
 </div>
 
 <script>
-let data = { epics: [], tickets: [], stats: {} };
-let currentView = 'board';
+var data = { epics: [], tickets: [], stats: {} };
+var currentView = 'board';
+var epicColors = ['#1f6feb','#a371f7','#f0883e','#3fb950','#f85149','#8957e5'];
 
-function loadTickets() {
-  fetch('tickets.json?t=' + Date.now())
-    .then(r => r.json())
-    .then(d => { data = d; render(); })
-    .catch(e => console.error('Failed to load:', e));
+var AGENTS = [
+  {id:'lucy',name:'Lucy',title:'Chief Operating Officer',team:'Leadership',role:'Secretary, Gatekeeper, Orchestrator',emoji:'👩‍💼',status:'active'},
+  {id:'orchestrator',name:'Zeus',title:'Team Lead',team:'Leadership',role:'Manages project teams, delegates work',emoji:'⚡',status:'active'},
+  {id:'tom',name:'Gladiator',title:'Senior Developer',team:'Project',role:'General worker — coding, file ops, research',emoji:'⚔️',status:'active'},
+  {id:'devops',name:'Thor',title:'Infrastructure Engineer',team:'Project',role:'CI/CD, Docker, deployments, monitoring',emoji:'🔨',status:'idle'},
+  {id:'qa',name:'Athena',title:'QA Lead',team:'Project',role:'Testing, bug finding, test plans',emoji:'🛡️',status:'idle'},
+  {id:'security',name:'Hades',title:'Security Specialist',team:'Project',role:'Security audits, vulnerability scanning',emoji:'💀',status:'idle'},
+  {id:'pm',name:'Iris',title:'Project Manager',team:'Project',role:'Project planning, roadmaps, documentation',emoji:'🌈',status:'idle'},
+  {id:'research',name:'Hermes',title:'Market Intel Lead',team:'Research',role:'Scans internet for money opportunities',emoji:'📡',status:'idle'},
+  {id:'business-analyst',name:'Minerva',title:'Strategy Analyst',team:'Research',role:'Competitive analysis, growth strategy',emoji:'🔮',status:'idle'},
+  {id:'data-analyst',name:'Clio',title:'Analytics Lead',team:'Research',role:'Metrics, dashboards, KPI tracking',emoji:'📊',status:'idle'},
+  {id:'data-engineer',name:'Vulcan',title:'Data Pipeline Engineer',team:'Research',role:'Data pipelines, ETL, API integrations',emoji:'🔥',status:'idle'},
+  {id:'finance',name:'Plutus',title:'Finance Director',team:'Finance',role:'Financial planning, cash flow, projections',emoji:'💰',status:'idle'},
+  {id:'accounting',name:'Hestia',title:'Head of Accounting',team:'Finance',role:'Bookkeeping, expenses, tax records',emoji:'📒',status:'idle'},
+  {id:'budget',name:'Juno',title:'Budget Manager',team:'Finance',role:'Resource allocation, cost optimization',emoji:'⚖️',status:'idle'},
+  {id:'income',name:'Fortuna',title:'Revenue Lead',team:'Finance',role:'Revenue tracking, monetization strategy',emoji:'🍀',status:'idle'},
+  {id:'sentinel',name:'Nemesis',title:'External Security Auditor',team:'Security',role:'Independent security auditor',emoji:'👁️',status:'idle'},
+  {id:'monitor',name:'Argus',title:'24/7 Watchdog',team:'Operations',role:'Infrastructure monitoring, ticket creation',emoji:'🔭',status:'active'},
+  {id:'org-excellence',name:'Metis',title:'Org Excellence Lead',team:'Operations',role:'Team structure optimization, process improvement',emoji:'🧠',status:'idle'}
+];
+
+function recalculateEpics(){
+  var tickets = data.tickets || [];
+  var epics = data.epics || [];
+  epics.forEach(function(epic){
+    var stories = tickets.filter(function(t){return t.epicId===epic.id});
+    if(stories.length===0){
+      epic.progress=0;
+      epic.status='backlog';
+      return;
+    }
+    var doneCount=stories.filter(function(s){return s.status==='done'}).length;
+    var inProgCount=stories.filter(function(s){return s.status==='in_progress'}).length;
+    var reviewCount=stories.filter(function(s){return s.status==='review'}).length;
+    epic.progress = Math.round(doneCount/stories.length*100);
+    if(doneCount===stories.length){epic.status='done'}
+    else if(inProgCount>0||reviewCount>0){epic.status='in_progress'}
+    else{epic.status='backlog'}
+    epic.updatedAt=(new Date()).toISOString();
+  });
+  // Update stats
+  data.stats.totalEpics=epics.length;
+  data.stats.totalTickets=tickets.length;
+  data.stats.backlog=tickets.filter(function(t){return t.status==='backlog'}).length;
+  data.stats.in_progress=tickets.filter(function(t){return t.status==='in_progress'}).length;
+  data.stats.review=tickets.filter(function(t){return t.status==='review'}).length;
+  data.stats.done=tickets.filter(function(t){return t.status==='done'}).length;
+  data.stats.critical=tickets.filter(function(t){return t.severity==='CRITICAL'}).length;
+  data.stats.blocked=tickets.filter(function(t){return t.blockedBy}).length;
 }
 
-function setView(view, btn) {
-  currentView = view;
-  document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+function loadTickets(){
+  fetch('tickets.json?t='+Date.now())
+    .then(function(r){return r.json()})
+    .then(function(d){data=d;recalculateEpics();render()})
+    .catch(function(e){console.error('Load failed:',e)});
+}
+
+function setView(view,btn){
+  currentView=view;
+  document.querySelectorAll('.view-btn').forEach(function(b){b.classList.remove('active')});
   btn.classList.add('active');
   render();
 }
 
-// ── Agent Roster Data ──
-const AGENTS = [
-  { id: 'lucy', name: 'Lucy', title: 'Chief Operating Officer', team: 'Leadership', role: 'Secretary, Gatekeeper, Orchestrator', emoji: '👩‍💼', status: 'active' },
-  { id: 'orchestrator', name: 'Zeus', title: 'Team Lead', team: 'Leadership', role: 'Manages project teams, delegates work', emoji: '⚡', status: 'active' },
-  { id: 'tom', name: 'Gladiator', title: 'Senior Developer', team: 'Project', role: 'General worker — coding, file ops, research', emoji: '⚔️', status: 'active' },
-  { id: 'devops', name: 'Thor', title: 'Infrastructure Engineer', team: 'Project', role: 'CI/CD, Docker, deployments, monitoring', emoji: '🔨', status: 'idle' },
-  { id: 'qa', name: 'Athena', title: 'QA Lead', team: 'Project', role: 'Testing, bug finding, test plans', emoji: '🛡️', status: 'idle' },
-  { id: 'security', name: 'Hades', title: 'Security Specialist', team: 'Project', role: 'Security audits, vulnerability scanning', emoji: '💀', status: 'idle' },
-  { id: 'pm', name: 'Iris', title: 'Project Manager', team: 'Project', role: 'Project planning, roadmaps, documentation', emoji: '🌈', status: 'idle' },
-  { id: 'research', name: 'Hermes', title: 'Market Intel Lead', team: 'Research', role: 'Scans internet for money opportunities', emoji: '📡', status: 'idle' },
-  { id: 'business-analyst', name: 'Minerva', title: 'Strategy Analyst', team: 'Research', role: 'Competitive analysis, growth strategy', emoji: '🔮', status: 'idle' },
-  { id: 'data-analyst', name: 'Clio', title: 'Analytics Lead', team: 'Research', role: 'Metrics, dashboards, KPI tracking', emoji: '📊', status: 'idle' },
-  { id: 'data-engineer', name: 'Vulcan', title: 'Data Pipeline Engineer', team: 'Research', role: 'Data pipelines, ETL, API integrations', emoji: '🔥', status: 'idle' },
-  { id: 'finance', name: 'Plutus', title: 'Finance Director', team: 'Finance', role: 'Financial planning, cash flow, projections', emoji: '💰', status: 'idle' },
-  { id: 'accounting', name: 'Hestia', title: 'Head of Accounting', team: 'Finance', role: 'Bookkeeping, expenses, tax records', emoji: '📒', status: 'idle' },
-  { id: 'budget', name: 'Juno', title: 'Budget Manager', team: 'Finance', role: 'Resource allocation, cost optimization', emoji: '⚖️', status: 'idle' },
-  { id: 'income', name: 'Fortuna', title: 'Revenue Lead', team: 'Finance', role: 'Revenue tracking, monetization strategy', emoji: '🍀', status: 'idle' },
-  { id: 'sentinel', name: 'Nemesis', title: 'External Security Auditor', team: 'Security', role: 'Independent security auditor — harsh, unbiased', emoji: '👁️', status: 'idle' },
-  { id: 'monitor', name: 'Argus', title: '24/7 Watchdog', team: 'Operations', role: 'Infrastructure monitoring, ticket creation', emoji: '🔭', status: 'active' },
-  { id: 'org-excellence', name: 'Metis', title: 'Org Excellence Lead', team: 'Operations', role: 'Team structure optimization, process improvement', emoji: '🧠', status: 'idle' }
-];
-
-function render() {
-  try {
+function render(){
+  try{
     closeDetail();
-    var board = document.getElementById('board');
-    if (currentView === 'epics') { renderEpicsView(); }
-    else if (currentView === 'team') { renderTeamView(); }
-    else { renderBoardView(); }
+    if(currentView==='epics'){renderEpicsView()}
+    else if(currentView==='team'){renderTeamView()}
+    else{renderBoardView()}
     renderStats();
-    document.getElementById('lastUpdated').textContent = 'Updated: ' + new Date().toLocaleTimeString();
-  } catch(e) {
-    console.error('Render error:', e);
-  }
+    document.getElementById('lastUpdated').textContent='Updated: '+(new Date()).toLocaleTimeString();
+  }catch(e){console.error('Render error:',e)}
 }
 
-function renderTeamView() {
-  var board = document.getElementById('board');
-  var teams = {};
-  AGENTS.forEach(function(a) {
-    if (!teams[a.team]) teams[a.team] = [];
-    teams[a.team].push(a);
-  });
-  var teamOrder = ['Leadership','Project','Research','Finance','Security','Operations'];
-  var html = '';
-  teamOrder.forEach(function(team) {
-    if (!teams[team]) return;
-    html += '<div class="column"><div class="column-header" style="color:#58a6ff;border-color:#58a6ff;">👥 ' + team + ' <span class="count">(' + teams[team].length + ')</span></div><div class="column-content">';
-    teams[team].forEach(function(a) {
-      html += '<div style="background:#21262d;border:1px solid #30363d;border-radius:8px;padding:12px;margin-bottom:8px;cursor:default;">' +
-        '<div style="display:flex;justify-content:space-between;align-items:center;">' +
-          '<span style="font-size:22px;">' + a.emoji + '</span>' +
-          '<span style="font-size:10px;padding:2px 8px;border-radius:8px;background:' + (a.status==='active'?'#238636':'#30363d') + ';color:' + (a.status==='active'?'#fff':'#8b949e') + ';">' + (a.status==='active'?'🟢 Active':'⏸️ Idle') + '</span>' +
-        '</div>' +
-        '<div style="font-size:14px;font-weight:600;margin-top:8px;color:#c9d1d9;">' + a.name + '</div>' +
-        '<div style="font-size:11px;color:#58a6ff;margin-top:2px;font-weight:500;">' + a.title + '</div>' +
-        '<div style="font-size:11px;color:#8b949e;margin-top:6px;line-height:1.4;">' + a.role + '</div>' +
-      '</div>';
-    });
-    html += '</div></div>';
-  });
-  board.innerHTML = html;
-}
+/* ─── BOARD VIEW: tickets in columns with epic color bars ─── */
+function renderBoardView(){
+  var epics = data.epics || [];
+  var tickets = data.tickets || [];
+  var byStatus = {backlog:[],in_progress:[],review:[],done:[]};
+  tickets.forEach(function(t){if(byStatus[t.status])byStatus[t.status].push(t)});
 
-function renderBoardView() {
-  const epics = data.epics || [];
-  const tickets = data.tickets || [];
-  const byStatus = { backlog: [], in_progress: [], review: [], done: [] };
-  tickets.forEach(t => { if (byStatus[t.status]) byStatus[t.status].push(t); });
+  // Build epic color map
+  var epicColorMap = {};
+  epics.forEach(function(e,i){epicColorMap[e.id]=epicColors[i%epicColors.length]});
 
-  ['backlog','in_progress','review','done'].forEach(s => {
-    const el = document.getElementById(s);
-    const colTickets = byStatus[s];
-    let html = '';
+  ['backlog','in_progress','review','done'].forEach(function(s){
+    var el=document.getElementById(s);
+    var colTickets = byStatus[s];
+    var html='';
 
-    // Group tickets by epic
-    const epicTickets = {};
-    const orphanTickets = [];
-    colTickets.forEach(t => {
-      if (t.epicId) {
-        if (!epicTickets[t.epicId]) epicTickets[t.epicId] = [];
-        epicTickets[t.epicId].push(t);
-      } else { orphanTickets.push(t); }
+    // Group by epic
+    var epicGroups = {};
+    var orphans = [];
+    colTickets.forEach(function(t){
+      if(t.epicId && epicColorMap[t.epicId]){
+        if(!epicGroups[t.epicId])epicGroups[t.epicId]=[];
+        epicGroups[t.epicId].push(t);
+      } else {orphans.push(t)}
     });
 
-    // Render epics with their stories
-    epics.forEach(epic => {
-      if (epicTickets[epic.id] && epicTickets[epic.id].length > 0) {
-        html += epicHTML(epic, epicTickets[epic.id]);
+    // Render epic groups
+    epics.forEach(function(epic){
+      if(epicGroups[epic.id]){
+        html+='<div class="epic-group">';
+        html+='<div class="epic-label" onclick="openEpicDetail(\''+epic.id+'\')">⬆ '+epic.id+': '+epic.title+'</div>';
+        epicGroups[epic.id].forEach(function(t){
+          html+=ticketHTML(t,epicColorMap[t.epicId]);
+        });
+        html+='</div>';
       }
     });
 
-    // Render orphan tickets (no epic)
-    orphanTickets.forEach(t => { html += ticketHTML(t); });
+    // Render orphans
+    orphans.forEach(function(t){html+=ticketHTML(t,null)});
 
-    el.innerHTML = html || '<div style="color:#30363d;font-size:11px;padding:16px;text-align:center;">No tickets</div>';
-    document.getElementById('count-' + s).textContent = '(' + colTickets.length + ')';
+    el.innerHTML = html || '<div style="color:#30363d;font-size:10px;padding:14px;text-align:center;">No tickets</div>';
+    document.getElementById('count-'+s).textContent='('+colTickets.length+')';
   });
 }
 
-function renderEpicsView() {
+function ticketHTML(t,epicColor){
+  var blocked=!!t.blockedBy;
+  var colorBar = epicColor ? '<div class="epic-bar" style="background:'+epicColor+'"></div>' : '';
+  return '<div class="ticket'+(blocked?' blocked':'')+(t.epicId?' epic-child':'')+'" onclick="openTicketDetail(\''+t.id+'\')">'+
+    colorBar+
+    '<div class="ticket-top"><span class="ticket-id">'+t.id+'</span>'+(blocked?'<span class="badge blocked">⛔ BLOCKED</span>':'')+'</div>'+
+    '<div class="ticket-title">'+t.title+'</div>'+
+    '<div class="ticket-tags">'+
+      '<span class="badge '+(t.severity||'').toLowerCase()+'">'+(t.severity||'')+'</span>'+
+      '<span class="badge '+(t.category||'bug')+'">'+(t.category||'bug')+'</span>'+
+      (t.epicId?'<span style="font-size:8px;color:#1f6feb;font-family:monospace">⬆ '+t.epicId+'</span>':'')+
+    '</div>'+
+    '<div class="ticket-assignee">'+(t.assigned_to?'👤 '+t.assigned_to:'👤 Unassigned')+'</div>'+
+  '</div>';
+}
+
+/* ─── EPICS VIEW: only epics with progress and linked stories ─── */
+function renderEpicsView(){
   var epics = data.epics || [];
   var tickets = data.tickets || [];
   var board = document.getElementById('board');
   var html = '';
-  epics.forEach(function(e) {
-    var epicTickets = tickets.filter(function(t) { return t.epicId === e.id; });
-    html += epicHTML(e, epicTickets, true);
+  epics.forEach(function(e){
+    var stories = tickets.filter(function(t){return t.epicId===e.id});
+    var doneCount = stories.filter(function(s){return s.status==='done'}).length;
+    var progress = stories.length ? Math.round(doneCount/stories.length*100) : 0;
+    var blockedCount = stories.filter(function(s){return s.blockedBy}).length;
+    html+='<div class="epic-card" onclick="openEpicDetail(\''+e.id+'\')">'+
+      '<div class="epic-top"><span class="epic-card-id">'+e.id+'</span><span class="badge '+(e.priority||'')+'">'+(e.priority||'')+'</span></div>'+
+      '<div class="epic-card-title">'+e.title+'</div>'+
+      '<div class="epic-progress"><div class="epic-progress-bar '+(e.priority||'medium')+'" style="width:'+progress+'%"></div></div>'+
+      '<div class="epic-meta">'+
+        '<span>👤 '+(e.assignee||'Unassigned')+'</span>'+
+        '<span>📁 '+(e.team||'—')+'</span>'+
+        '<span>'+progress+'% ('+doneCount+'/'+stories.length+' done)</span>'+
+        (blockedCount?'<span class="badge blocked">'+blockedCount+' blocked</span>':'')+
+      '</div>'+
+      '<div class="epic-stories-dots">'+
+        stories.map(function(s){return '<span class="epic-story-dot '+s.status+'" title="'+s.id+': '+s.title+'"></span>'}).join('')+
+      '</div>'+
+    '</div>';
   });
-  if (!epics.length) html = '<div style="color:#30363d;font-size:13px;padding:40px;text-align:center;width:100%;">No epics yet</div>';
+  if(!epics.length) html='<div style="color:#30363d;font-size:12px;padding:40px;text-align:center;width:100%;">No epics yet</div>';
   board.innerHTML = html;
 }
 
-function epicHTML(epic, stories, fullWidth) {
-  const progressColor = epic.priority || 'medium';
-  const blockedStories = stories.filter(t => t.blockedBy);
-  return '<div class="epic" style="' + (fullWidth ? 'min-width:300px;max-width:400px;' : '') + '" onclick="openEpicDetail(\'' + epic.id + '\')">' +
-    '<div class="epic-header">' +
-      '<span class="epic-id">' + epic.id + '</span>' +
-      '<span class="badge ' + progressColor + '">' + (epic.priority||'') + '</span>' +
-    '</div>' +
-    '<div class="epic-title">' + epic.title + '</div>' +
-    '<div class="epic-progress"><div class="epic-progress-bar ' + progressColor + '" style="width:' + (epic.progress||0) + '%"></div></div>' +
-    '<div class="epic-meta">' +
-      '<span>👤 ' + (epic.assignee||'Unassigned') + '</span>' +
-      '<span>📁 ' + (epic.team||'—') + '</span>' +
-      '<span>' + stories.length + ' stories</span>' +
-      (blockedStories.length ? '<span class="badge blocked">' + blockedStories.length + ' blocked</span>' : '') +
-    '</div>' +
-    '<div class="epic-stories">' +
-      stories.map(s => '<span class="epic-story-dot ' + s.status + '" title="' + s.id + ': ' + s.title + '"></span>').join('') +
-    '</div>' +
-  '</div>';
+/* ─── TEAM VIEW ─── */
+function renderTeamView(){
+  var board = document.getElementById('board');
+  var teams = {};
+  AGENTS.forEach(function(a){if(!teams[a.team])teams[a.team]=[];teams[a.team].push(a)});
+  var order = ['Leadership','Project','Research','Finance','Security','Operations'];
+  var html = '';
+  order.forEach(function(team){
+    if(!teams[team])return;
+    html+='<div class="column"><div class="column-header" style="color:#58a6ff;border-color:#58a6ff;">👥 '+team+' <span class="count">('+teams[team].length+')</span></div><div class="column-content">';
+    teams[team].forEach(function(a){
+      html+='<div class="agent-card">'+
+        '<div class="agent-top"><span class="agent-emoji">'+a.emoji+'</span><span class="agent-status" style="background:'+(a.status==='active'?'#238636':'#30363d')+';color:'+(a.status==='active'?'#fff':'#8b949e')+';">'+(a.status==='active'?'🟢 Active':'⏸️ Idle')+'</span></div>'+
+        '<div class="agent-name">'+a.name+'</div>'+
+        '<div class="agent-title">'+a.title+'</div>'+
+        '<div class="agent-role">'+a.role+'</div>'+
+      '</div>';
+    });
+    html+='</div></div>';
+  });
+  board.innerHTML = html;
 }
 
-function ticketHTML(t) {
-  const isBlocked = !!t.blockedBy;
-  return '<div class="ticket' + (isBlocked ? ' blocked' : '') + '" onclick="openTicketDetail(\'' + t.id + '\')">' +
-    '<div class="ticket-header">' +
-      '<span class="ticket-id">' + t.id + '</span>' +
-      (t.blockedBy ? '<span class="badge blocked">⛔ BLOCKED</span>' : '') +
-    '</div>' +
-    '<div class="ticket-title">' + t.title + '</div>' +
-    '<div class="ticket-meta">' +
-      '<span class="badge ' + (t.severity||'').toLowerCase() + '">' + (t.severity||'') + '</span>' +
-      '<span class="badge ' + (t.category||'bug') + '">' + (t.category||'bug') + '</span>' +
-      (t.epicId ? '<span class="epic-ref">⬆ ' + t.epicId + '</span>' : '') +
-    '</div>' +
-    '<div class="ticket-assignee">' + (t.assigned_to ? '👤 ' + t.assigned_to : '👤 Unassigned') + '</div>' +
-  '</div>';
+/* ─── DETAIL PANELS ─── */
+function openTicketDetail(id){
+  var t = (data.tickets||[]).find(function(x){return x.id===id});
+  if(!t)return;
+  var epic = t.epicId ? (data.epics||[]).find(function(e){return e.id===t.epicId}) : null;
+  var blocker = t.blockedBy ? (data.tickets||[]).find(function(x){return x.id===t.blockedBy}) : null;
+  var body = document.getElementById('detailBody');
+  document.getElementById('detailTitle').textContent = t.id+' — '+t.title;
+  body.innerHTML=
+    '<div class="detail-section"><div class="detail-id">'+t.id+(epic?' · <span style="color:#1f6feb">⬆ '+epic.id+': '+epic.title+'</span>':'')+'</div><div class="detail-title">'+t.title+'</div></div>'+
+    '<div class="detail-section"><div class="detail-label">Description</div><div class="detail-desc">'+(t.description||'No description')+'</div></div>'+
+    '<div class="detail-row">'+
+      '<div class="detail-col"><div class="detail-label">Status</div><select class="status-select" onchange="updateStatus(\''+t.id+'\',this.value)"><option value="backlog"'+(t.status==='backlog'?' selected':'')+'>📋 Backlog</option><option value="in_progress"'+(t.status==='in_progress'?' selected':'')+'>🔧 In Progress</option><option value="review"'+(t.status==='review'?' selected':'')+'>👀 Review</option><option value="done"'+(t.status==='done'?' selected':'')+'>✅ Done</option></select></div>'+
+      '<div class="detail-col"><div class="detail-label">Assignee</div><input class="assignee-select" value="'+(t.assigned_to||'')+'" placeholder="Assign to..." onchange="updateAssignee(\''+t.id+'\',this.value)"></div>'+
+    '</div>'+
+    '<div class="detail-row">'+
+      '<div class="detail-col"><div class="detail-label">Severity</div><span class="badge '+(t.severity||'').toLowerCase()+'">'+(t.severity||'')+'</span></div>'+
+      '<div class="detail-col"><div class="detail-label">Category</div><span class="badge '+(t.category||'bug')+'">'+(t.category||'bug')+'</span></div>'+
+      '<div class="detail-col"><div class="detail-label">Team</div><span style="font-size:11px;color:#484f58">'+(t.team||'—')+'</span></div>'+
+    '</div>'+
+    (blocker?'<div class="detail-section"><div class="detail-label">⛔ Blocked By</div><div class="blocked-item" style="cursor:pointer;color:#6e40c9" onclick="openTicketDetail(\''+blocker.id+'\')">'+blocker.id+': '+blocker.title+'</div></div>':'')+
+    (t.blocks?'<div class="detail-section"><div class="detail-label">Blocks</div><div class="blocked-item">'+t.blocks+'</div></div>':'')+
+    '<div class="detail-section"><div class="detail-label">Comments</div>'+(t.comments&&t.comments.length?t.comments.map(function(c){return '<div class="comment"><span class="comment-by">'+c.by+':</span> '+c.text+'</div>'}).join(''):'<div style="color:#30363d;font-size:10px">No comments</div>')+'</div>';
+  document.getElementById('detailPanel').classList.add('open');
 }
 
-function openTicketDetail(id) {
-  const t = (data.tickets || []).find(x => x.id === id);
-  if (!t) return;
-  const panel = document.getElementById('detailPanel');
-  const body = document.getElementById('detailBody');
-  const epic = t.epicId ? (data.epics || []).find(e => e.id === t.epicId) : null;
-  const blocker = t.blockedBy ? (data.tickets || []).find(x => x.id === t.blockedBy) : null;
-  const blockedByEpics = epic && (data.tickets || []).filter(x => x.blockedBy && (data.epics || []).find(e => e.id === x.epicId && e.id === epic.id));
-
-  body.innerHTML =
-    '<div class="detail-section"><div class="detail-id">' + t.id + (epic ? ' · <span style="color:#58a6ff">⬆ ' + epic.id + ': ' + epic.title + '</span>' : '') + '</div>' +
-    '<div class="detail-title">' + t.title + '</div></div>' +
-    '<div class="detail-section"><div class="detail-label">Description</div><div class="detail-desc">' + (t.description||'No description') + '</div></div>' +
-    '<div class="detail-row">' +
-      '<div class="detail-col"><div class="detail-label">Status</div><select class="status-select" onchange="updateTicketStatus(\'' + t.id + '\',this.value)">' +
-        '<option value="backlog"' + (t.status==='backlog'?' selected':'') + '>📋 Backlog</option>' +
-        '<option value="in_progress"' + (t.status==='in_progress'?' selected':'') + '>🔧 In Progress</option>' +
-        '<option value="review"' + (t.status==='review'?' selected':'') + '>👀 Review</option>' +
-        '<option value="done"' + (t.status==='done'?' selected':'') + '>✅ Done</option>' +
-      '</select></div>' +
-      '<div class="detail-col"><div class="detail-label">Assignee</div><input class="assignee-select" value="' + (t.assigned_to||'') + '" placeholder="Assign to..." onchange="updateTicketAssignee(\'' + t.id + '\',this.value)"></div>' +
-    '</div>' +
-    '<div class="detail-row">' +
-      '<div class="detail-col"><div class="detail-label">Severity</div><span class="badge ' + (t.severity||'').toLowerCase() + '">' + (t.severity||'') + '</span></div>' +
-      '<div class="detail-col"><div class="detail-label">Category</div><span class="badge ' + (t.category||'bug') + '">' + (t.category||'bug') + '</span></div>' +
-      '<div class="detail-col"><div class="detail-label">Team</div><span style="font-size:12px;color:#8b949e">' + (t.team||'—') + '</span></div>' +
-    '</div>' +
-    (blocker ? '<div class="detail-section"><div class="detail-label">⛔ Blocked By</div><div class="blocked-by-item" style="cursor:pointer;color:#6e40c9" onclick="openTicketDetail(\'' + blocker.id + '\')">' + blocker.id + ': ' + blocker.title + '</div></div>' : '') +
-    (t.blocks ? '<div class="detail-section"><div class="detail-label">Blocks</div><div class="blocked-by-item">' + t.blocks + '</div></div>' : '') +
-    '<div class="detail-section"><div class="detail-label">Comments</div><div class="comment-list">' +
-      (t.comments && t.comments.length ? t.comments.map(c => '<div class="comment"><span class="comment-by">' + c.by + ':</span> ' + c.text + '</div>').join('') : '<div style="color:#30363d;font-size:11px">No comments</div>') +
-    '</div></div>';
-
-  panel.classList.add('open');
+function openEpicDetail(id){
+  var e = (data.epics||[]).find(function(x){return x.id===id});
+  if(!e)return;
+  var stories = (data.tickets||[]).filter(function(t){return t.epicId===e.id});
+  var doneCount = stories.filter(function(s){return s.status==='done'}).length;
+  var progress = stories.length ? Math.round(doneCount/stories.length*100) : 0;
+  var body = document.getElementById('detailBody');
+  document.getElementById('detailTitle').textContent = e.id+' — EPIC';
+  body.innerHTML=
+    '<div class="detail-section"><div class="detail-id" style="color:#1f6feb">'+e.id+' · EPIC</div><div class="detail-title">'+e.title+'</div></div>'+
+    '<div class="detail-section"><div class="detail-label">Description</div><div class="detail-desc">'+(e.description||'No description')+'</div></div>'+
+    '<div class="detail-section"><div class="detail-label">Progress</div><div class="epic-progress" style="height:6px"><div class="epic-progress-bar '+(e.priority||'medium')+'" style="width:'+progress+'%"></div></div><div class="进度-display" style="margin-top:3px">'+progress+'% ('+doneCount+'/'+stories.length+' stories done)</div></div>'+
+    '<div class="detail-row">'+
+      '<div class="detail-col"><div class="detail-label">Priority</div><span class="badge '+(e.priority||'')+'">'+(e.priority||'')+'</span></div>'+
+      '<div class="detail-col"><div class="detail-label">Team</div><span style="font-size:11px">'+(e.team||'—')+'</span></div>'+
+      '<div class="detail-col"><div class="detail-label">Assignee</div><span style="font-size:11px">'+(e.assignee||'Unassigned')+'</span></div>'+
+    '</div>'+
+    '<div class="detail-section"><div class="detail-label">Linked Stories ('+stories.length+')</div>'+
+      stories.map(function(s){return '<div class="story-item" style="cursor:pointer" onclick="openTicketDetail(\''+s.id+'\')"><span class="story-dot '+s.status+'"></span><span style="font-family:monospace;font-size:9px;color:#1f6feb">'+s.id+'</span> '+s.title+(s.blockedBy?' <span class="badge blocked" style="font-size:7px">BLOCKED</span>':'')+'</div>'}).join('')+
+    '</div>';
+  document.getElementById('detailPanel').classList.add('open');
 }
 
-function openEpicDetail(id) {
-  const e = (data.epics || []).find(x => x.id === id);
-  if (!e) return;
-  const stories = (data.tickets || []).filter(t => t.epicId === e.id);
-  const panel = document.getElementById('detailPanel');
-  const body = document.getElementById('detailBody');
+function closeDetail(){document.getElementById('detailPanel').classList.remove('open')}
 
-  body.innerHTML =
-    '<div class="detail-section"><div class="detail-id" style="color:#58a6ff">' + e.id + ' · EPIC</div>' +
-    '<div class="detail-title">' + e.title + '</div></div>' +
-    '<div class="detail-section"><div class="detail-label">Description</div><div class="detail-desc">' + (e.description||'No description') + '</div></div>' +
-    '<div class="detail-section"><div class="detail-label">Progress</div>' +
-      '<div class="epic-progress" style="height:6px;margin-top:4px"><div class="epic-progress-bar ' + (e.priority||'medium') + '" style="width:' + (e.progress||0) + '%"></div></div>' +
-      '<div class="progress-display" style="margin-top:4px">' + (e.progress||0) + '% complete</div>' +
-    '</div>' +
-    '<div class="detail-row">' +
-      '<div class="detail-col"><div class="detail-label">Priority</div><span class="badge ' + (e.priority||'') + '">' + (e.priority||'') + '</span></div>' +
-      '<div class="detail-col"><div class="detail-label">Team</div><span style="font-size:12px">' + (e.team||'—') + '</span></div>' +
-      '<div class="detail-col"><div class="detail-label">Assignee</div><span style="font-size:12px">' + (e.assignee||'Unassigned') + '</span></div>' +
-    '</div>' +
-    '<div class="detail-section"><div class="detail-label">Stories (' + stories.length + ')</div><div class="story-list">' +
-      stories.map(s => '<div class="story-item" style="cursor:pointer" onclick="openTicketDetail(\'' + s.id + '\')">' +
-        '<span class="story-dot ' + s.status + '"></span>' +
-        '<span class="epic-ref">' + s.id + '</span> ' + s.title +
-        (s.blockedBy ? ' <span class="badge blocked" style="font-size:8px">BLOCKED</span>' : '') +
-      '</div>').join('') +
-    '</div></div>';
-
-  panel.classList.add('open');
+function updateStatus(id,status){
+  var t=data.tickets.find(function(x){return x.id===id});
+  if(t){t.status=status;t.updatedAt=(new Date()).toISOString();render()}
+}
+function updateAssignee(id,assignee){
+  var t=data.tickets.find(function(x){return x.id===id});
+  if(t){t.assigned_to=assignee;t.updatedAt=(new Date()).toISOString()}
 }
 
-function closeDetail() {
-  document.getElementById('detailPanel').classList.remove('open');
+function renderStats(){
+  var s=data.stats||{};
+  document.getElementById('stats').innerHTML=
+    '<span class="stat critical">🔴 Critical: '+(s.critical||0)+'</span>'+
+    '<span class="stat blocked">⛔ Blocked: '+(s.blocked||0)+'</span>'+
+    '<span class="stat">📋 Backlog: '+(s.backlog||0)+'</span>'+
+    '<span class="stat in_progress">🔧 In Progress: '+(s.in_progress||0)+'</span>'+
+    '<span class="stat">👀 Review: '+(s.review||0)+'</span>'+
+    '<span class="stat done">✅ Done: '+(s.done||0)+'</span>'+
+    '<span class="stat" style="background:#1f6feb">📁 Epics: '+(data.epics||[]).length+'</span>';
 }
 
-function updateTicketStatus(id, status) {
-  const t = data.tickets.find(x => x.id === id);
-  if (t) { t.status = status; t.updatedAt = new Date().toISOString(); saveData(); render(); }
-}
-
-function updateTicketAssignee(id, assignee) {
-  const t = data.tickets.find(x => x.id === id);
-  if (t) { t.assigned_to = assignee; t.updatedAt = new Date().toISOString(); saveData(); }
-}
-
-function saveData() {
-  // In a real implementation, this would POST to a server
-  // For now, the data lives in the JSON file and agents update it
-  console.log('Data updated (save to server not implemented in static mode)');
-}
-
-function renderStats() {
-  const s = data.stats || {};
-  document.getElementById('stats').innerHTML =
-    '<span class="stat critical">🔴 Critical: ' + (s.critical||0) + '</span>' +
-    '<span class="stat blocked">⛔ Blocked: ' + (s.blocked||0) + '</span>' +
-    '<span class="stat">📋 Backlog: ' + (s.backlog||0) + '</span>' +
-    '<span class="stat in_progress">🔧 In Progress: ' + (s.in_progress||0) + '</span>' +
-    '<span class="stat">👀 Review: ' + (s.review||0) + '</span>' +
-    '<span class="stat done">✅ Done: ' + (s.done||0) + '</span>' +
-    '<span class="stat" style="background:#1f6feb">📁 Epics: ' + (data.epics||[]).length + '</span>';
-}
-
-// Close panel on Escape
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
-
-// Auto-refresh
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDetail()});
 loadTickets();
-setInterval(loadTickets, 30000);
+setInterval(loadTickets,30000);
 </script>
 </body>
 </html>
