@@ -199,40 +199,44 @@ const AGENTS = [
 ];
 
 function render() {
-  closeDetail();
-  if (currentView === 'epics') { renderEpicsView(); }
-  else if (currentView === 'team') { renderTeamView(); }
-  else { renderBoardView(); }
-  renderStats();
-  document.getElementById('lastUpdated').textContent = 'Updated: ' + new Date().toLocaleTimeString();
+  try {
+    closeDetail();
+    var board = document.getElementById('board');
+    if (currentView === 'epics') { renderEpicsView(); }
+    else if (currentView === 'team') { renderTeamView(); }
+    else { renderBoardView(); }
+    renderStats();
+    document.getElementById('lastUpdated').textContent = 'Updated: ' + new Date().toLocaleTimeString();
+  } catch(e) {
+    console.error('Render error:', e);
+  }
 }
 
 function renderTeamView() {
-  const board = document.getElementById('board');
-  const teams = {};
-  AGENTS.forEach(a => {
+  var board = document.getElementById('board');
+  var teams = {};
+  AGENTS.forEach(function(a) {
     if (!teams[a.team]) teams[a.team] = [];
     teams[a.team].push(a);
   });
-  const teamOrder = ['Leadership', 'Project', 'Research', 'Finance', 'Security', 'Operations'];
-  let html = '<div style="display:flex;gap:20px;padding:20px;overflow-x:auto;flex:1;">';
-  teamOrder.forEach(team => {
+  var teamOrder = ['Leadership','Project','Research','Finance','Security','Operations'];
+  var html = '';
+  teamOrder.forEach(function(team) {
     if (!teams[team]) return;
-    html += '<div style="min-width:260px;flex:1;"><div style="font-size:13px;font-weight:700;color:#58a6ff;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid #30363d;">' + team + ' (' + teams[team].length + ')</div>';
-    teams[team].forEach(a => {
-      html += '<div style="background:#21262d;border:1px solid #30363d;border-radius:8px;padding:12px;margin-bottom:8px;">' +
+    html += '<div class="column"><div class="column-header" style="color:#58a6ff;border-color:#58a6ff;">👥 ' + team + ' <span class="count">(' + teams[team].length + ')</span></div><div class="column-content">';
+    teams[team].forEach(function(a) {
+      html += '<div style="background:#21262d;border:1px solid #30363d;border-radius:8px;padding:12px;margin-bottom:8px;cursor:default;">' +
         '<div style="display:flex;justify-content:space-between;align-items:center;">' +
-          '<span style="font-size:18px;">' + a.emoji + '</span>' +
-          '<span style="font-size:10px;padding:2px 6px;border-radius:8px;background:' + (a.status==='active'?'#238636':'#30363d') + ';">' + (a.status==='active'?'🟢 Active':'⏸️ Idle') + '</span>' +
+          '<span style="font-size:22px;">' + a.emoji + '</span>' +
+          '<span style="font-size:10px;padding:2px 8px;border-radius:8px;background:' + (a.status==='active'?'#238636':'#30363d') + ';color:' + (a.status==='active'?'#fff':'#8b949e') + ';">' + (a.status==='active'?'🟢 Active':'⏸️ Idle') + '</span>' +
         '</div>' +
-        '<div style="font-size:14px;font-weight:600;margin-top:6px;">' + a.name + '</div>' +
-        '<div style="font-size:11px;color:#58a6ff;margin-top:2px;">' + a.title + '</div>' +
-        '<div style="font-size:11px;color:#8b949e;margin-top:4px;line-height:1.3;">' + a.role + '</div>' +
+        '<div style="font-size:14px;font-weight:600;margin-top:8px;color:#c9d1d9;">' + a.name + '</div>' +
+        '<div style="font-size:11px;color:#58a6ff;margin-top:2px;font-weight:500;">' + a.title + '</div>' +
+        '<div style="font-size:11px;color:#8b949e;margin-top:6px;line-height:1.4;">' + a.role + '</div>' +
       '</div>';
     });
-    html += '</div>';
+    html += '</div></div>';
   });
-  html += '</div>';
   board.innerHTML = html;
 }
 
@@ -273,15 +277,16 @@ function renderBoardView() {
 }
 
 function renderEpicsView() {
-  const epics = data.epics || [];
-  const tickets = data.tickets || [];
-  const board = document.getElementById('board');
-  board.innerHTML = '<div style="padding:20px;display:flex;gap:16px;flex-wrap:wrap;overflow:auto;">' +
-    epics.map(e => {
-      const epicTickets = tickets.filter(t => t.epicId === e.id);
-      return epicHTML(e, epicTickets, true);
-    }).join('') +
-    '</div>';
+  var epics = data.epics || [];
+  var tickets = data.tickets || [];
+  var board = document.getElementById('board');
+  var html = '';
+  epics.forEach(function(e) {
+    var epicTickets = tickets.filter(function(t) { return t.epicId === e.id; });
+    html += epicHTML(e, epicTickets, true);
+  });
+  if (!epics.length) html = '<div style="color:#30363d;font-size:13px;padding:40px;text-align:center;width:100%;">No epics yet</div>';
+  board.innerHTML = html;
 }
 
 function epicHTML(epic, stories, fullWidth) {
