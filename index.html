@@ -1,4 +1,3 @@
-<!-- v2 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -218,20 +217,38 @@ function render(){
   }catch(e){console.error(e)}
 }
 
-/* ─── BOARD ─── */
+/* ─── BOARD: epics shown in their calculated status column, stories grouped underneath ─── */
 function rBoard(){
   var ep=D.epics||[],tk=D.tickets||[];
-  var bs={bg:[],ip:[],rv:[],dn:[]};
-  tk.forEach(function(t){if(bs[t.status])bs[t.status].push(t)});
+  // recalc ensures epic.status is up to date
   var ecm={};ep.forEach(function(e,i){ecm[e.id]=EC[i%EC.length]});
+  // Group stories by epic
+  var byEpic={};ep.forEach(function(e){byEpic[e.id]=[]});
+  var orphans=[];
+  tk.forEach(function(t){
+    if(t.epicId&&byEpic[t.epicId]) byEpic[t.epicId].push(t);
+    else orphans.push(t);
+  });
+  // Render each column: epics in their status column + unassigned tickets
   ['bg','ip','rv','dn'].forEach(function(s){
-    var el=document.getElementById(s),ct=bs[s],h='';
-    var eg={},orph=[];
-    ct.forEach(function(t){if(t.epicId&&ecm[t.epicId]){if(!eg[t.epicId])eg[t.epicId]=[];eg[t.epicId].push(t)}else{orph.push(t)}});
-    ep.forEach(function(e){if(eg[e.id]){h+='<div class="eg"><div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+'</div>';eg[e.id].forEach(function(t){h+=tkHTML(t,ecm[t.epicId])});h+='</div>'}});
-    orph.forEach(function(t){h+=tkHTML(t,null)});
+    var el=document.getElementById(s),h='';
+    // Epics whose calculated status matches this column
+    ep.forEach(function(e){
+      if(e.status!==s||!byEpic[e.id].length) return;
+      var stories=byEpic[e.id];
+      var done=stories.filter(function(x){return x.status==='done'}).length;
+      h+='<div class="eg">';
+      h+='<div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' ('+done+'/'+stories.length+')</div>';
+      stories.forEach(function(t){h+=tkHTML(t,ecm[t.epicId])});
+      h+='</div>';
+    });
+    // Orphan tickets (no epic) in their status column
+    orphans.forEach(function(t){if(t.status===s) h+=tkHTML(t,null)});
     el.innerHTML=h||'<div style="color:#30363d;font-size:9px;padding:12px;text-align:center">Empty</div>';
-    document.getElementById('c-'+s).textContent='('+ct.length+')';
+    // Count = epics in this column + orphan tickets
+    var epicCount=ep.filter(function(e){return e.status===s&&byEpic[e.id].length>0}).length;
+    var orphanCount=orphans.filter(function(t){return t.status===s}).length;
+    document.getElementById('c-'+s).textContent='('+(epicCount+orphanCount)+')';
   });
 }
 
