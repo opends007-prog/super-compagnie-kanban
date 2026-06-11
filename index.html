@@ -3,47 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Super Compagnie — Kanban</title>
+<title>Super Compagnie — Kanban Board</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#c9d1d9;height:100vh;display:flex;flex-direction:column;overflow:hidden}
-.hdr{background:#161b22;padding:10px 18px;border-bottom:1px solid #30363d;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
-.hdr h1{font-size:15px;color:#58a6ff}
-.hdr-r{display:flex;gap:8px;align-items:center}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0d1117;color:#c9d1d9;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+/* Header */
+.hdr{background:#161b22;padding:10px 20px;border-bottom:1px solid #30363d;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;gap:10px}
+.hdr-left{display:flex;align-items:center;gap:12px}
+.hdr h1{font-size:15px;color:#58a6ff;font-weight:600}
+.hdr-right{display:flex;gap:8px;align-items:center}
 .stats{display:flex;gap:5px;font-size:10px;flex-wrap:wrap}
-.stat{padding:2px 6px;border-radius:7px;background:#21262d}
+.stat{padding:2px 6px;border-radius:6px;background:#21262d}
 .stat.c{background:#da3633;color:#fff}
 .stat.d{background:#238636;color:#fff}
 .stat.i{background:#d29922;color:#fff}
 .stat.b{background:#6e40c9;color:#fff}
-.btn{background:#238636;color:#fff;border:none;padding:4px 10px;border-radius:4px;cursor:pointer;font-size:10px;font-weight:600}
-.btn:hover{background:#2ea043}
-.vu{display:flex;gap:2px}
-.vb{background:#21262d;color:#8b949e;border:1px solid #30363d;padding:3px 8px;border-radius:3px;cursor:pointer;font-size:10px}
-.vb.act{background:#1f6feb;color:#fff;border-color:#1f6feb}
+.btn{background:#21262d;color:#c9d1d9;border:1px solid #30363d;padding:4px 10px;border-radius:4px;cursor:pointer;font-size:10px;font-weight:500}
+.btn:hover{background:#30363d}
+.btn.pri{background:#238636;color:#fff;border-color:#238636}
+.btn.pri:hover{background:#2ea043}
+.vu{display:flex;gap:2px;background:#0d1117;border:1px solid #30363d;border-radius:4px;padding:2px}
+.vb{background:transparent;color:#8b949e;border:none;padding:3px 10px;border-radius:3px;cursor:pointer;font-size:10px;font-weight:500}
+.vb.act{background:#21262d;color:#c9d1d9;box-shadow:0 1px 2px rgba(0,0,0,.3)}
 .ts{font-size:9px;color:#484f58}
+.jira-link{color:#58a6ff;text-decoration:none;font-size:10px}
+.jira-link:hover{text-decoration:underline}
+
+/* Main */
 .main{display:flex;flex:1;overflow:hidden}
+
+/* Board columns */
 .board{display:flex;gap:8px;padding:12px;overflow-x:auto;flex:1}
-.col{min-width:250px;max-width:300px;flex:1;background:#161b22;border-radius:6px;padding:8px;border:1px solid #30363d;display:flex;flex-direction:column}
-.ch{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 0;margin-bottom:4px;border-bottom:2px solid;display:flex;justify-content:space-between}
-.ch .cnt{font-size:8px;background:#30363d;padding:1px 4px;border-radius:5px}
-.bl .ch{color:#8b949e;border-color:#8b949e}
-.ip .ch{color:#d29922;border-color:#d29922}
-.rv .ch{color:#a371f7;border-color:#a371f7}
-.dn .ch{color:#3fb950;border-color:#3fb950}
+.col{min-width:240px;max-width:300px;flex:1;background:#161b22;border-radius:6px;padding:8px;border:1px solid #30363d;display:flex;flex-direction:column;max-height:calc(100vh - 70px)}
+.ch{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:4px 0;margin-bottom:4px;border-bottom:2px solid;display:flex;justify-content:space-between;align-items:center}
+.ch .cnt{font-size:8px;background:#30363d;padding:1px 5px;border-radius:5px}
 .cc{flex:1;overflow-y:auto}
+
+/* Column colors */
+.bl .ch{color:#8b949e;border-color:#8b949e}
+.pl .ch{color:#f0883e;border-color:#f0883e}
+.ip .ch{color:#d29922;border-color:#d29922}
+.rv .ch{color:#bc8cff;border-color:#bc8cff}
+.iv .ch{color:#8957e5;border-color:#8957e5}
+.dn .ch{color:#3fb950;border-color:#3fb950}
+.ws .ch{color:#6e7681;border-color:#6e7681}
+
 /* Epic group */
-.eg{margin-bottom:6px}
-.el{font-size:8px;color:#1f6feb;font-family:monospace;padding:2px 5px;background:#1c2128;border-left:2px solid #1f6feb;margin-bottom:2px;border-radius:0 3px 3px 0;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eg{margin-bottom:6px;background:#1c2128;border-radius:4px;border:1px solid #21262d}
+.el{font-size:8px;color:#58a6ff;font-family:'SF Mono',monospace;padding:3px 6px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-bottom:1px solid #21262d}
 .el:hover{background:#21262d}
+.ep-progress{height:2px;background:#21262d;overflow:hidden}
+.ep-bar{height:100%;background:#58a6ff;transition:width .3s}
+
 /* Ticket */
 .tk{background:#21262d;border:1px solid #30363d;border-radius:4px;padding:6px;margin-bottom:3px;cursor:pointer;transition:border-color .1s}
 .tk:hover{border-color:#58a6ff}
 .tk.blk{opacity:.5;border-color:#6e40c9}
-.tk.ec{margin-left:8px;border-left:2px solid #30363d}
 .tk-t{display:flex;justify-content:space-between;align-items:flex-start}
-.tk-id{font-size:8px;color:#484f58;font-family:monospace;font-weight:600}
-.tk-title{font-size:11px;font-weight:500;margin:2px 0;line-height:1.3}
+.tk-id{font-size:8px;color:#484f58;font-family:'SF Mono',monospace;font-weight:600}
+.tk-title{font-size:11px;font-weight:500;margin:2px 0;line-height:1.3;color:#c9d1d9}
 .tk-tags{display:flex;gap:3px;margin-top:3px;flex-wrap:wrap;align-items:center}
 .badge{font-size:7px;padding:1px 4px;border-radius:5px;font-weight:600;text-transform:uppercase}
 .badge.c{background:#da3633;color:#fff}
@@ -56,99 +75,121 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .badge.fe{background:#3fb950;color:#fff}
 .badge.ar{background:#6e7681;color:#fff}
 .badge.bl{background:#6e40c9;color:#fff}
-.tk-asg{font-size:9px;color:#484f58;margin-top:2px}
-.tk-ep{font-size:8px;color:#1f6feb;font-family:monospace}
+.tk-asg{font-size:9px;color:#8b949e;margin-top:2px}
+.tk-ep{font-size:8px;color:#58a6ff;font-family:monospace}
+
 /* Epic color bar */
 .ecb{float:left;width:3px;min-height:100%;border-radius:2px;margin-right:5px}
+
 /* Detail panel */
-.dp{width:380px;background:#161b22;border-left:1px solid #30363d;display:none;flex-direction:column;flex-shrink:0;overflow:hidden}
+.dp{width:400px;background:#161b22;border-left:1px solid #30363d;display:none;flex-direction:column;flex-shrink:0;overflow:hidden}
 .dp.op{display:flex}
-.dp-h{padding:10px 14px;border-bottom:1px solid #30363d;display:flex;justify-content:space-between;align-items:center}
-.dp-h h2{font-size:12px;font-weight:600}
-.dp-x{background:none;border:none;color:#8b949e;font-size:14px;cursor:pointer;padding:1px 4px;border-radius:3px}
+.dp-h{padding:12px 16px;border-bottom:1px solid #30363d;display:flex;justify-content:space-between;align-items:center}
+.dp-h h2{font-size:13px;font-weight:600}
+.dp-x{background:none;border:none;color:#8b949e;font-size:16px;cursor:pointer;padding:1px 5px;border-radius:3px}
 .dp-x:hover{background:#21262d}
-.dp-b{flex:1;overflow-y:auto;padding:14px}
-.ds{margin-bottom:12px}
-.dl{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#484f58;margin-bottom:2px}
-.dv{font-size:11px;line-height:1.4}
-.di{font-family:monospace;color:#1f6feb;font-size:10px}
-.dt{font-size:14px;font-weight:600;margin:5px 0}
-.dd{font-size:11px;color:#c9d1d9;line-height:1.5;background:#0d1117;padding:7px;border-radius:4px;border:1px solid #30363d}
+.dp-b{flex:1;overflow-y:auto;padding:16px}
+.ds{margin-bottom:14px}
+.dl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#484f58;margin-bottom:3px}
+.di{font-family:'SF Mono',monospace;color:#58a6ff;font-size:11px}
+.dt{font-size:15px;font-weight:600;margin:6px 0}
+.dd{font-size:12px;color:#c9d1d9;line-height:1.5;background:#0d1117;padding:8px;border-radius:5px;border:1px solid #30363d}
 .dr{display:flex;gap:8px;margin-bottom:8px}
 .dc{flex:1}
-.ss,.as{background:#21262d;color:#c9d1d9;border:1px solid #30363d;padding:2px 5px;border-radius:3px;font-size:10px;width:100%}
-.cm{padding:5px;border-radius:3px;border:1px solid #30363d;margin-bottom:3px;font-size:10px}
-.cm-by{font-weight:600;color:#1f6feb;font-size:9px}
-.bi{font-size:9px;color:#6e40c9;padding:1px 0}
-.si{font-size:9px;padding:1px 0;display:flex;align-items:center;gap:4px}
-.sd{width:5px;height:5px;border-radius:50%}
+.ss,.as{background:#21262d;color:#c9d1d9;border:1px solid #30363d;padding:3px 6px;border-radius:3px;font-size:11px;width:100%}
+.cm{padding:6px;border-radius:4px;border:1px solid #30363d;margin-bottom:4px;font-size:11px}
+.cm-by{font-weight:600;color:#58a6ff;font-size:10px}
+.bi{font-size:10px;color:#6e40c9;padding:1px 0;cursor:pointer}
+.bi:hover{text-decoration:underline}
+.si{font-size:10px;padding:2px 0;display:flex;align-items:center;gap:5px;cursor:pointer}
+.si:hover{color:#58a6ff}
+.sd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 .sd.done{background:#3fb950}
 .sd.in_progress{background:#d29922}
 .sd.backlog{background:#30363d}
+.sd.in_validation{background:#8957e5}
+.sd.review{background:#bc8cff}
+.sd.planned{background:#f0883e}
 .sd.blocked{background:#6e40c9}
-.pd{font-size:10px;font-weight:600}
-/* Epic card (epics view) */
-.ec{background:#1c2128;border:1px solid #30363d;border-left:3px solid #58a6ff;border-radius:5px;padding:10px;margin-bottom:8px;cursor:pointer}
-.ec:hover{border-color:#58a6ff}
-.ec-t{display:flex;justify-content:space-between;align-items:flex-start}
-.ec-id{font-size:8px;color:#1f6feb;font-family:monospace;font-weight:600}
-.ec-title{font-size:12px;font-weight:600;margin:3px 0;line-height:1.3}
-.ep{height:3px;background:#21262d;border-radius:1px;margin:5px 0;overflow:hidden}
-.epb{height:100%;border-radius:1px;transition:width .3s}
-.epb.c{background:#da3633}
-.epb.h{background:#f85149}
-.epb.m{background:#d29922}
-.epb.l{background:#3fb950}
-.em{display:flex;gap:5px;align-items:center;font-size:8px;color:#484f58}
-.esd{margin-top:4px;padding-top:4px;border-top:1px dashed #30363d}
-.esdot{display:inline-block;width:4px;height:4px;border-radius:50%;margin-right:1px}
-.esdot.done{background:#3fb950}
-.esdot.in_progress{background:#d29922}
-.esdot.backlog{background:#30363d}
-.esdot.blocked{background:#6e40c9}
+.pd{font-size:11px;font-weight:600}
+
+/* List view */
+.lv{flex:1;overflow-y:auto;padding:12px}
+.lv-table{width:100%;border-collapse:collapse;font-size:11px}
+.lv-th{text-align:left;padding:6px 8px;background:#161b22;border-bottom:1px solid #30363d;color:#8b949e;font-weight:600;text-transform:uppercase;font-size:9px;letter-spacing:.5px}
+.lv-tr:hover{background:#1c2128}
+.lv-td{padding:6px 8px;border-bottom:1px solid #21262d;vertical-align:top}
+.lv-key{font-family:'SF Mono',monospace;color:#58a6ff;font-size:10px}
+.lv-title{color:#c9d1d9;font-weight:500}
+.lv-asg{color:#8b949e}
+.lv-status{display:inline-block;padding:1px 6px;border-radius:8px;font-size:8px;font-weight:600;text-transform:uppercase}
+.lv-status.backlog{background:#21262d;color:#8b949e}
+.lv-status.planned{background:#f0883e20;color:#f0883e}
+.lv-status.in_progress{background:#d2992220;color:#d29922}
+.lv-status.review{background:#bc8cff20;color:#bc8cff}
+.lv-status.in_validation{background:#8957e520;color:#8957e5}
+.lv-status.done{background:#23863620;color:#3fb950}
+.lv-status.waiting{background:#6e768120;color:#6e7681}
+.lv-epic{font-family:'SF Mono',monospace;color:#58a6ff;font-size:9px}
+
+/* Backlog view */
+.bg-view{flex:1;overflow-y:auto;padding:12px}
+.bg-section{margin-bottom:16px}
+.bg-sh{font-size:12px;font-weight:600;color:#58a6ff;margin-bottom:6px;padding-bottom:3px;border-bottom:1px solid #21262d}
+.bg-item{background:#21262d;border:1px solid #30363d;border-radius:4px;padding:8px;margin-bottom:3px;cursor:pointer}
+.bg-item:hover{border-color:#58a6ff}
+.bg-title{font-size:11px;font-weight:500;color:#c9d1d9}
+.bg-meta{display:flex;gap:6px;margin-top:3px;align-items:center}
+
 /* Agent card (team view) */
 .ac{background:#21262d;border:1px solid #30363d;border-radius:5px;padding:8px;margin-bottom:5px}
 .at{display:flex;justify-content:space-between;align-items:center}
-.ae{font-size:18px}
-.ast{font-size:8px;padding:1px 5px;border-radius:5px}
-.an{font-size:12px;font-weight:600;margin-top:4px;color:#c9d1d9}
-.at2{font-size:9px;color:#1f6feb;margin-top:1px;font-weight:500}
-.ar2{font-size:9px;color:#484f58;margin-top:3px;line-height:1.3}
-/* Story view */
-.sv-ticket{background:#21262d;border:1px solid #30363d;border-radius:4px;padding:8px;margin-bottom:4px;cursor:pointer}
-.sv-ticket:hover{border-color:#58a6ff}
-.sv-epic{font-size:8px;color:#1f6feb;font-family:monospace;margin-bottom:2px}
-.sv-title{font-size:11px;font-weight:500;margin:2px 0}
-.sv-meta{display:flex;gap:4px;align-items:center;margin-top:3px}
-.sv-agent{font-size:9px;color:#58a6ff;font-weight:600}
+.ae{font-size:20px}
+.ast{font-size:9px;padding:1px 6px;border-radius:6px}
+.an{font-size:13px;font-weight:600;margin-top:5px;color:#c9d1d9}
+.at2{font-size:10px;color:#58a6ff;margin-top:1px;font-weight:500}
+.ar2{font-size:10px;color:#484f58;margin-top:4px;line-height:1.3}
+
 /* Scrollbar */
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:#30363d;border-radius:2px}
+::-webkit-scrollbar-thumb:hover{background:#484f58}
 </style>
 </head>
 <body>
 <div class="hdr">
-  <h1>💎 Super Compagnie — Kanban</h1>
+  <div class="hdr-left">
+    <h1>💎 Super Compagnie — Kanban</h1>
+    <a class="jira-link" href="https://opends007.atlassian.net/jira/software/projects/TD/boards/2" target="_blank">View in Jira →</a>
+  </div>
   <div class="stats" id="stats"></div>
-  <div class="hdr-r">
+  <div class="hdr-right">
     <div class="vu">
-      <button class="vb act" id="vb-board" onclick="goView('board')">📋 Board</button>
-      <button class="vb" id="vb-epics" onclick="goView('epics')">📁 Epics</button>
-      <button class="vb" id="vb-stories" onclick="goView('stories')">📖 Stories</button>
+      <button class="vb act" id="vb-kanban" onclick="goView('kanban')">📋 Kanban</button>
+      <button class="vb" id="vb-list" onclick="goView('list')">📝 List</button>
+      <button class="vb" id="vb-backlog" onclick="goView('backlog')">📦 Backlog</button>
       <button class="vb" id="vb-team" onclick="goView('team')">👥 Team</button>
     </div>
     <span class="ts" id="ts"></span>
-    <button class="btn" onclick="loadData()">↻ Refresh</button>
+    <button class="btn pri" onclick="loadData()">↻ Refresh</button>
   </div>
 </div>
 <div class="main">
-  <div class="board" id="board">
-    <div class="col bl"><div class="ch">📋 Backlog <span class="cnt" id="c-bg"></span></div><div class="cc" id="bg"></div></div>
-    <div class="col ip"><div class="ch">🔧 In Progress <span class="cnt" id="c-ip"></span></div><div class="cc" id="ip"></div></div>
-    <div class="col rv"><div class="ch">👀 Review <span class="cnt" id="c-rv"></span></div><div class="cc" id="rv"></div></div>
-    <div class="col dn"><div class="ch">✅ Done <span class="cnt" id="c-dn"></span></div><div class="cc" id="dn"></div></div>
+  <div id="board-view" style="display:flex;flex:1;overflow:hidden">
+    <div class="board" id="board">
+      <div class="col bl"><div class="ch">📋 To Do <span class="cnt" id="c-bg"></span></div><div class="cc" id="bg"></div></div>
+      <div class="col pl"><div class="ch">📌 Planned <span class="cnt" id="c-pl"></span></div><div class="cc" id="pl"></div></div>
+      <div class="col ip"><div class="ch">🔧 In Progress <span class="cnt" id="c-ip"></span></div><div class="cc" id="ip"></div></div>
+      <div class="col rv"><div class="ch">👀 In Review <span class="cnt" id="c-rv"></span></div><div class="cc" id="rv"></div></div>
+      <div class="col iv"><div class="ch">🔍 In Validation <span class="cnt" id="c-iv"></span></div><div class="cc" id="iv"></div></div>
+      <div class="col dn"><div class="ch">✅ Done <span class="cnt" id="c-dn"></span></div><div class="cc" id="dn"></div></div>
+      <div class="col ws"><div class="ch">⏳ Waiting <span class="cnt" id="c-ws"></span></div><div class="cc" id="ws"></div></div>
+    </div>
   </div>
+  <div id="list-view" class="lv" style="display:none"></div>
+  <div id="backlog-view" class="bg-view" style="display:none"></div>
+  <div id="team-view" style="display:none;padding:12px;overflow-y:auto;flex:1"></div>
   <div class="dp" id="dp">
     <div class="dp-h"><h2 id="dtitle">Detail</h2><button class="dp-x" onclick="closeDetail()">✕</button></div>
     <div class="dp-b" id="db"></div>
@@ -157,7 +198,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <script>
 var D={epics:[],tickets:[],stats:{}};
 var CV='board';
-var EC=['#1f6feb','#a371f7','#f0883e','#3fb950','#f85149','#8957e5'];
+var EC=['#1f6feb','#a371f7','#f0883e','#3fb950','#f85149','#8957e5','#d29922','#bc8cff'];
+var SM={backlog:'bg',planned:'pl',in_progress:'ip',review:'rv',in_validation:'iv',done:'dn',waiting:'ws'};
 
 var AGENTS=[
   {id:'lucy',name:'Lucy',title:'COO',team:'Leadership',role:'Secretary, Gatekeeper',emoji:'👩‍💼',status:'active'},
@@ -191,64 +233,58 @@ function recalc(){
   var tk=D.tickets||[], ep=D.epics||[];
   ep.forEach(function(e){
     var st=tk.filter(function(t){return t.epicId===e.id});
-    if(!st.length){e.progress=0;e.status='backlog';return}
+    if(!st.length){e.progress=0;e.col='bg';return}
     var dn=st.filter(function(s){return s.status==='done'}).length;
-    var ip=st.filter(function(s){return s.status==='in_progress'}).length;
-    var rv=st.filter(function(s){return s.status==='review'}).length;
+    var active=st.filter(function(s){return s.status in {in_progress:1,review:1,in_validation:1,planned:1}}).length;
     e.progress=Math.round(dn/st.length*100);
-    e.status=(dn===st.length)?'done':(ip>0||rv>0)?'in_progress':'backlog';
+    e.col=(dn===st.length)?'dn':(active>0)?'ip':'bg';
   });
-  D.stats={totalEpics:ep.length,totalTickets:tk.length,backlog:tk.filter(function(t){return t.status==='backlog'}).length,in_progress:tk.filter(function(t){return t.status==='in_progress'}).length,review:tk.filter(function(t){return t.status==='review'}).length,done:tk.filter(function(t){return t.status==='done'}).length,critical:tk.filter(function(t){return t.severity==='CRITICAL'}).length,blocked:tk.filter(function(t){return t.blockedBy}).length};
+  tk.forEach(function(t){t.col=SM[t.status]||'bg'});
+  D.stats={totalEpics:ep.length,totalTickets:tk.length,bg:tk.filter(function(t){return t.col==='bg'}).length,pl:tk.filter(function(t){return t.col==='pl'}).length,ip:tk.filter(function(t){return t.col==='ip'}).length,rv:tk.filter(function(t){return t.col==='rv'}).length,iv:tk.filter(function(t){return t.col==='iv'}).length,dn:tk.filter(function(t){return t.col==='dn'}).length,ws:tk.filter(function(t){return t.col==='ws'}).length,critical:tk.filter(function(t){return t.severity==='CRITICAL'}).length,blocked:tk.filter(function(t){return t.blockedBy}).length};
 }
 
 function goView(v){
   CV=v;
   document.querySelectorAll('.vb').forEach(function(b){b.classList.remove('act')});
   document.getElementById('vb-'+v).classList.add('act');
+  document.getElementById('board-view').style.display=(v==='kanban')?'flex':'none';
+  document.getElementById('list-view').style.display=(v==='list')?'block':'none';
+  document.getElementById('backlog-view').style.display=(v==='backlog')?'block':'none';
+  document.getElementById('team-view').style.display=(v==='team')?'block':'none';
   render();
 }
 
 function render(){
   try{
     closeDetail();
-    if(CV==='epics'){rEpics()}else if(CV==='team'){rTeam()}else if(CV==='stories'){rStories()}else{rBoard()}
+    if(CV==='kanban'){rBoard()}else if(CV==='list'){rList()}else if(CV==='backlog'){rBacklog()}else if(CV==='team'){rTeam()}
     rStats();
     document.getElementById('ts').textContent='Updated: '+(new Date()).toLocaleTimeString();
   }catch(e){console.error(e)}
 }
 
-/* ─── BOARD: epics shown in their calculated status column, stories grouped underneath ─── */
+/* ─── KANBAN VIEW ─── */
 function rBoard(){
   var ep=D.epics||[],tk=D.tickets||[];
-  // recalc ensures epic.status is up to date
   var ecm={};ep.forEach(function(e,i){ecm[e.id]=EC[i%EC.length]});
-  // Group stories by epic
   var byEpic={};ep.forEach(function(e){byEpic[e.id]=[]});
   var orphans=[];
-  tk.forEach(function(t){
-    if(t.epicId&&byEpic[t.epicId]) byEpic[t.epicId].push(t);
-    else orphans.push(t);
-  });
-  // Render each column: epics in their status column + unassigned tickets
-  ['bg','ip','rv','dn'].forEach(function(s){
+  tk.forEach(function(t){if(t.epicId&&byEpic[t.epicId])byEpic[t.epicId].push(t);else orphans.push(t)});
+  ['bg','pl','ip','rv','iv','dn','ws'].forEach(function(s){
     var el=document.getElementById(s),h='';
-    // Epics whose calculated status matches this column
     ep.forEach(function(e){
-      if(e.status!==s||!byEpic[e.id].length) return;
-      var stories=byEpic[e.id];
-      var done=stories.filter(function(x){return x.status==='done'}).length;
-      h+='<div class="eg">';
-      h+='<div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' ('+done+'/'+stories.length+')</div>';
-      stories.forEach(function(t){h+=tkHTML(t,ecm[t.epicId])});
+      if(e.col!==s||!byEpic[e.id].length)return;
+      var st=byEpic[e.id],dn=st.filter(function(x){return x.status==='done'}).length;
+      h+='<div class="eg"><div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' ('+e.progress+'%)</div>';
+      h+='<div class="ep-progress"><div class="ep-bar" style="width:'+e.progress+'%"></div></div>';
+      st.forEach(function(t){h+=tkHTML(t,ecm[t.epicId])});
       h+='</div>';
     });
-    // Orphan tickets (no epic) in their status column
-    orphans.forEach(function(t){if(t.status===s) h+=tkHTML(t,null)});
+    orphans.forEach(function(t){if(t.col===s)h+=tkHTML(t,null)});
     el.innerHTML=h||'<div style="color:#30363d;font-size:9px;padding:12px;text-align:center">Empty</div>';
-    // Count = epics in this column + orphan tickets
-    var epicCount=ep.filter(function(e){return e.status===s&&byEpic[e.id].length>0}).length;
-    var orphanCount=orphans.filter(function(t){return t.status===s}).length;
-    document.getElementById('c-'+s).textContent='('+(epicCount+orphanCount)+')';
+    var ec=ep.filter(function(e){return e.col===s&&byEpic[e.id].length>0}).length;
+    var oc=orphans.filter(function(t){return t.col===s}).length;
+    document.getElementById('c-'+s).textContent='('+(ec+oc)+')';
   });
 }
 
@@ -263,89 +299,83 @@ function tkHTML(t,ec){
   '</div>';
 }
 
-/* ─── EPICS ─── */
-function rEpics(){
-  var ep=D.epics||[],tk=D.tickets||[],b=document.getElementById('board'),h='';
+/* ─── LIST VIEW ─── */
+function rList(){
+  var el=document.getElementById('list-view'),h='';
+  h+='<table class="lv-table"><thead><tr>';
+  h+='<th class="lv-th">Key</th><th class="lv-th">Title</th><th class="lv-th">Epic</th><th class="lv-th">Status</th><th class="lv-th">Priority</th><th class="lv-th">Assignee</th>';
+  h+='</tr></thead><tbody>';
+  var all=[];
+  (D.epics||[]).forEach(function(e){all.push({key:e.id,title:e.title,epic:'-',status:e.status,priority:e.priority||'Medium',assignee:e.assignee||'-',isEpic:true,progress:e.progress})});
+  (D.tickets||[]).forEach(function(e){all.push({key:e.id,title:e.title,epic:e.epicId||'-',status:e.status,priority:e.severity,assignee:e.assigned_to||'-',isEpic:false,epicId:e.epicId})});
+  all.forEach(function(item){
+    var st=item.status.replace(/_/g,' ');
+    h+='<tr class="lv-tr" onclick="'+(item.isEpic?'openED':'openTD')+'(\''+item.key+'\')">';
+    h+='<td class="lv-td"><span class="lv-key">'+item.key+'</span></td>';
+    h+='<td class="lv-td"><span class="lv-title">'+(item.isEpic?'📁 ':'')+item.title+'</span></td>';
+    h+='<td class="lv-td"><span class="lv-epic">'+item.epic+'</span></td>';
+    h+='<td class="lv-td"><span class="lv-status '+item.status+'">'+st+'</span></td>';
+    h+='<td class="lv-td"><span class="badge '+(item.priority||'').toLowerCase()+'">'+item.priority+'</span></td>';
+    h+='<td class="lv-td"><span class="lv-asg">'+item.assignee+'</span></td>';
+    h+='</tr>';
+  });
+  h+='</tbody></table>';
+  el.innerHTML=h;
+}
+
+/* ─── BACKLOG VIEW ─── */
+function rBacklog(){
+  var el=document.getElementById('backlog-view'),h='';
+  var ep=D.epics||[],tk=D.tickets||[];
+  // Group by epic
+  var byEpic={};ep.forEach(function(e){byEpic[e.id]=[]});
+  var orphans=[];
+  tk.forEach(function(t){if(t.epicId&&byEpic[t.epicId])byEpic[t.epicId].push(t);else orphans.push(t)});
+
   ep.forEach(function(e){
-    var st=tk.filter(function(t){return t.epicId===e.id});
-    var dn=st.filter(function(s){return s.status==='done'}).length;
-    var pct=st.length?Math.round(dn/st.length*100):0;
-    var bc=(e.priority||'medium');
-    var blk=st.filter(function(s){return s.blockedBy}).length;
-    h+='<div class="ec" onclick="openED(\''+e.id+'\')">'+
-      '<div class="ec-t"><span class="ec-id">'+e.id+'</span><span class="badge '+bc+'">'+(e.priority||'')+'</span></div>'+
-      '<div class="ec-title">'+e.title+'</div>'+
-      '<div class="ep"><div class="epb '+bc+'" style="width:'+pct+'%"></div></div>'+
-      '<div class="em"><span>👤 '+(e.assignee||'—')+'</span><span>📁 '+(e.team||'—')+'</span><span>'+pct+'% ('+dn+'/'+st.length+')</span>'+(blk?'<span class="badge bl">'+blk+' blocked</span>':'')+'</div>'+
-      '<div class="esd">'+st.map(function(s){return '<span class="esdot '+s.status+'" title="'+s.id+': '+s.title+'"></span>'}).join('')+'</div>'+
-    '</div>';
-  });
-  if(!ep.length)h='<div style="color:#30363d;font-size:11px;padding:30px;text-align:center;width:100%">No epics</div>';
-  b.innerHTML=h;
-}
-
-/* ─── STORIES (agent-focused) ─── */
-function rStories(){
-  var tk=D.tickets||[],ep=D.epics||[],b=document.getElementById('board'),h='';
-  // Group by assigned agent
-  var byAgent={};
-  var unassigned=[];
-  tk.forEach(function(t){
-    if(t.assigned_to){
-      if(!byAgent[t.assigned_to])byAgent[t.assigned_to]=[];
-      byAgent[t.assigned_to].push(t);
-    }else{unassigned.push(t)}
-  });
-  // Render each agent's column
-  var agentNames=Object.keys(byAgent).sort();
-  agentNames.forEach(function(name){
-    var agent=AGENTS.find(function(a){return a.name===name});
-    var emoji=agent?agent.emoji:'👤';
-    var title=agent?name+' ('+agent.title+')':name;
-    var stories=byAgent[name];
-    h+='<div class="col"><div class="ch" style="color:#58a6ff;border-color:#58a6ff;">'+emoji+' '+title+' <span class="cnt">('+stories.length+')</span></div><div class="cc">';
-    stories.forEach(function(t){
-      var epic=ep.find(function(e){return e.id===t.epicId});
-      h+='<div class="sv-ticket'+(t.blockedBy?' blk':'')+'" onclick="openTD(\''+t.id+'\')">'+
-        (epic?'<div class="sv-epic">⬆ '+epic.id+': '+epic.title+'</div>':'')+
-        '<div class="sv-title">'+t.title+'</div>'+
-        '<div class="sv-meta"><span class="badge '+(t.severity||'').toLowerCase()+'">'+(t.severity||'')+'</span><span class="badge '+(t.category||'bug')+'">'+(t.category||'bug')+'</span><span class="sv-agent">'+t.status.replace(/_/g,' ')+'</span></div>'+
-      '</div>';
+    var st=byEpic[e.id]||[];
+    h+='<div class="bg-section">';
+    h+='<div class="bg-sh">📁 '+e.id+': '+e.title+' ('+e.progress+'%)</div>';
+    if(!st.length)h+='<div style="color:#484f58;font-size:10px;padding:4px 0">No stories yet</div>';
+    st.forEach(function(t){
+      h+='<div class="bg-item" onclick="openTD(\''+t.id+'\')">';
+      h+='<div class="bg-title">'+t.title+'</div>';
+      h+='<div class="bg-meta"><span class="badge '+(t.severity||'').toLowerCase()+'">'+t.severity+'</span><span class="badge '+(t.category||'bug')+'">'+t.category+'</span><span style="font-size:9px;color:#8b949e">'+t.status.replace(/_/g,' ')+'</span>'+(t.assigned_to?'<span style="font-size:9px;color:#58a6ff">👤 '+t.assigned_to+'</span>':'')+'</div>';
+      h+='</div>';
     });
-    h+='</div></div>';
+    h+='</div>';
   });
-  // Unassigned column
-  if(unassigned.length||!agentNames.length){
-    h+='<div class="col"><div class="ch" style="color:#f0883e;border-color:#f0883e;">❓ Unassigned <span class="cnt">('+unassigned.length+')</span></div><div class="cc">';
-    unassigned.forEach(function(t){
-      var epic=ep.find(function(e){return e.id===t.epicId});
-      h+='<div class="sv-ticket'+(t.blockedBy?' blk':'')+'" onclick="openTD(\''+t.id+'\')">'+
-        (epic?'<div class="sv-epic">⬆ '+epic.id+': '+epic.title+'</div>':'')+
-        '<div class="sv-title">'+t.title+'</div>'+
-        '<div class="sv-meta"><span class="badge '+(t.severity||'').toLowerCase()+'">'+(t.severity||'')+'</span><span class="badge '+(t.category||'bug')+'">'+(t.category||'bug')+'</span></div>'+
-      '</div>';
+  if(orphans.length){
+    h+='<div class="bg-section"><div class="bg-sh">📋 Unassigned Tickets</div>';
+    orphans.forEach(function(t){
+      h+='<div class="bg-item" onclick="openTD(\''+t.id+'\')">';
+      h+='<div class="bg-title">'+t.title+'</div>';
+      h+='<div class="bg-meta"><span class="badge '+(t.severity||'').toLowerCase()+'">'+t.severity+'</span><span class="badge '+(t.category||'bug')+'">'+t.category+'</span></div>';
+      h+='</div>';
     });
-    h+='</div></div>';
+    h+='</div>';
   }
-  b.innerHTML=h;
+  el.innerHTML=h;
 }
 
-/* ─── TEAM ─── */
+/* ─── TEAM VIEW ─── */
 function rTeam(){
-  var b=document.getElementById('board'),teams={};
+  var el=document.getElementById('team-view'),teams={};
   AGENTS.forEach(function(a){if(!teams[a.team])teams[a.team]=[];teams[a.team].push(a)});
   var order=['Leadership','Project','Research','Finance','Security','Operations'];
   var h='';
   order.forEach(function(tm){
     if(!teams[tm])return;
-    h+='<div class="col"><div class="ch" style="color:#58a6ff;border-color:#58a6ff;">👥 '+tm+' <span class="cnt">('+teams[tm].length+')</span></div><div class="cc">';
+    h+='<div style="margin-bottom:16px"><div style="font-size:12px;font-weight:600;color:#58a6ff;margin-bottom:8px;padding-bottom:3px;border-bottom:1px solid #21262d;">👥 '+tm+' ('+teams[tm].length+')</div>';
+    h+='<div style="display:flex;gap:8px;flex-wrap:wrap">';
     teams[tm].forEach(function(a){
-      h+='<div class="ac"><div class="at"><span class="ae">'+a.emoji+'</span><span class="ast" style="background:'+(a.status==='active'?'#238636':'#30363d')+';color:'+(a.status==='active'?'#fff':'#8b949e')+';">'+(a.status==='active'?'Active':'Idle')+'</span></div>'+
-      '<div class="an">'+a.name+'</div><div class="at2">'+a.title+'</div><div class="ar2">'+a.role+'</div></div>';
+      h+='<div class="ac" style="min-width:200px;flex:1;max-width:280px">';
+      h+='<div class="at"><span class="ae">'+a.emoji+'</span><span class="ast" style="background:'+(a.status==='active'?'#238636':'#30363d')+';color:'+(a.status==='active'?'#fff':'#8b949e')+';">'+(a.status==='active'?'Active':'Idle')+'</span></div>';
+      h+='<div class="an">'+a.name+'</div><div class="at2">'+a.title+'</div><div class="ar2">'+a.role+'</div></div>';
     });
     h+='</div></div>';
   });
-  b.innerHTML=h;
+  el.innerHTML=h;
 }
 
 /* ─── DETAIL PANELS ─── */
@@ -356,12 +386,12 @@ function openTD(id){
   var blk=t.blockedBy?(D.tickets||[]).find(function(x){return x.id===t.blockedBy}):null;
   document.getElementById('dtitle').textContent=t.id+' — '+t.title;
   var h='';
-  h+='<div class="ds"><div class="di">'+t.id+(epic?' · <span style="color:#1f6feb">⬆ '+epic.id+': '+epic.title+'</span>':'')+'</div><div class="dt">'+t.title+'</div></div>';
+  h+='<div class="ds"><div class="di">'+t.id+(epic?' · <span style="color:#58a6ff">⬆ '+epic.id+': '+epic.title+'</span>':'')+'</div><div class="dt">'+t.title+'</div></div>';
   h+='<div class="ds"><div class="dl">Description</div><div class="dd">'+(t.description||'No description')+'</div></div>';
-  h+='<div class="dr"><div class="dc"><div class="dl">Status</div><select class="ss" onchange="uStatus(\''+t.id+'\',this.value)"><option value="backlog"'+(t.status==='backlog'?' selected':'')+'>Backlog</option><option value="in_progress"'+(t.status==='in_progress'?' selected':'')+'>In Progress</option><option value="review"'+(t.status==='review'?' selected':'')+'>Review</option><option value="done"'+(t.status==='done'?' selected':'')+'>Done</option></select></div>';
+  h+='<div class="dr"><div class="dc"><div class="dl">Status</div><select class="ss" onchange="uStatus(\''+t.id+'\',this.value)"><option value="backlog"'+(t.status==='backlog'?' selected':'')+'>To Do</option><option value="planned"'+(t.status==='planned'?' selected':'')+'>Planned</option><option value="in_progress"'+(t.status==='in_progress'?' selected':'')+'>In Progress</option><option value="review"'+(t.status==='review'?' selected':'')+'>In Review</option><option value="in_validation"'+(t.status==='in_validation'?' selected':'')+'>In Validation</option><option value="done"'+(t.status==='done'?' selected':'')+'>Done</option><option value="waiting"'+(t.status==='waiting'?' selected':'')+'>Waiting</option></select></div>';
   h+='<div class="dc"><div class="dl">Assignee</div><input class="as" value="'+(t.assigned_to||'')+'" placeholder="Assign to..." onchange="uAssign(\''+t.id+'\',this.value)"></div></div>';
   h+='<div class="dr"><div class="dc"><div class="dl">Severity</div><span class="badge '+(t.severity||'').toLowerCase()+'">'+(t.severity||'')+'</span></div><div class="dc"><div class="dl">Category</div><span class="badge '+(t.category||'bug')+'">'+(t.category||'bug')+'</span></div><div class="dc"><div class="dl">Team</div><span style="font-size:10px;color:#484f58">'+(t.team||'—')+'</span></div></div>';
-  if(blk)h+='<div class="ds"><div class="dl">⛔ Blocked By</div><div class="bi" style="cursor:pointer;color:#6e40c9" onclick="openTD(\''+blk.id+'\')">'+blk.id+': '+blk.title+'</div></div>';
+  if(blk)h+='<div class="ds"><div class="dl">⛔ Blocked By</div><div class="bi" onclick="openTD(\''+blk.id+'\')">'+blk.id+': '+blk.title+'</div></div>';
   if(t.blocks)h+='<div class="ds"><div class="dl">Blocks</div><div class="bi">'+t.blocks+'</div></div>';
   h+='<div class="ds"><div class="dl">Comments</div>'+(t.comments&&t.comments.length?t.comments.map(function(c){return '<div class="cm"><span class="cm-by">'+c.by+':</span> '+c.text+'</div>'}).join(''):'<div style="color:#30363d;font-size:9px">No comments</div>')+'</div>';
   document.getElementById('db').innerHTML=h;
@@ -376,11 +406,11 @@ function openED(id){
   var pct=st.length?Math.round(dn/st.length*100):0;
   document.getElementById('dtitle').textContent=e.id+' — EPIC';
   var h='';
-  h+='<div class="ds"><div class="di" style="color:#1f6feb">'+e.id+' · EPIC</div><div class="dt">'+e.title+'</div></div>';
+  h+='<div class="ds"><div class="di" style="color:#58a6ff">'+e.id+' · EPIC</div><div class="dt">'+e.title+'</div></div>';
   h+='<div class="ds"><div class="dl">Description</div><div class="dd">'+(e.description||'No description')+'</div></div>';
-  h+='<div class="ds"><div class="dl">Progress</div><div class="ep" style="height:5px"><div class="epb '+(e.priority||'medium')+'" style="width:'+pct+'%"></div></div><div class="pd" style="margin-top:3px">'+pct+'% ('+dn+'/'+st.length+' stories done)</div></div>';
+  h+='<div class="ds"><div class="dl">Progress</div><div class="ep" style="height:5px"><div class="epb" style="width:'+pct+'%"></div></div><div class="pd" style="margin-top:3px">'+pct+'% ('+dn+'/'+st.length+' stories done)</div></div>';
   h+='<div class="dr"><div class="dc"><div class="dl">Priority</div><span class="badge '+(e.priority||'')+'">'+(e.priority||'')+'</span></div><div class="dc"><div class="dl">Team</div><span style="font-size:10px">'+(e.team||'—')+'</span></div><div class="dc"><div class="dl">Assignee</div><span style="font-size:10px">'+(e.assignee||'Unassigned')+'</span></div></div>';
-  h+='<div class="ds"><div class="dl">Linked Stories ('+st.length+')</div>'+st.map(function(s){return '<div class="si" style="cursor:pointer" onclick="openTD(\''+s.id+'\')"><span class="sd '+s.status+'"></span><span style="font-family:monospace;font-size:8px;color:#1f6feb">'+s.id+'</span> '+s.title+(s.blockedBy?' <span class="badge bl" style="font-size:6px">BLOCKED</span>':'')+'</div>'}).join('')+'</div>';
+  h+='<div class="ds"><div class="dl">Linked Stories ('+st.length+')</div>'+st.map(function(s){return '<div class="si" onclick="openTD(\''+s.id+'\')"><span class="sd '+s.status+'"></span><span style="font-family:monospace;font-size:8px;color:#58a6ff">'+s.id+'</span> '+s.title+(s.blockedBy?' <span class="badge bl" style="font-size:6px">BLOCKED</span>':'')+'</div>'}).join('')+'</div>';
   document.getElementById('db').innerHTML=h;
   document.getElementById('dp').classList.add('op');
 }
@@ -394,11 +424,10 @@ function rStats(){
   document.getElementById('stats').innerHTML=
     '<span class="stat c">Critical: '+(s.critical||0)+'</span>'+
     '<span class="stat b">Blocked: '+(s.blocked||0)+'</span>'+
-    '<span class="stat">Backlog: '+(s.backlog||0)+'</span>'+
-    '<span class="stat i">In Progress: '+(s.in_progress||0)+'</span>'+
-    '<span class="stat">Review: '+(s.review||0)+'</span>'+
-    '<span class="stat d">Done: '+(s.done||0)+'</span>'+
-    '<span class="stat" style="background:#1f6feb">Epics: '+(D.epics||[]).length+'</span>';
+    '<span class="stat">To Do: '+(s.bg||0)+'</span>'+
+    '<span class="stat i">In Progress: '+(s.ip||0)+'</span>'+
+    '<span class="stat">Done: '+(s.dn||0)+'</span>'+
+    '<span class="stat d">Epics: '+(D.epics||[]).length+'</span>';
 }
 
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDetail()});

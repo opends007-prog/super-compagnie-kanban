@@ -33,6 +33,19 @@
       "updatedAt": "2026-06-03T00:00:00Z"
     },
     {
+      "id": "EPIC-004",
+      "title": "Agent Requests & Add-ons",
+      "description": "Requests for new agents, role changes, and team additions. Includes ML Engineer requests, new role proposals, and team expansion.",
+      "status": "in_progress",
+      "priority": "medium",
+      "team": "any",
+      "assignee": "Lucy",
+      "progress": 0,
+      "storyIds": ["TICKET-006"],
+      "createdAt": "2026-06-05T00:00:00Z",
+      "updatedAt": "2026-06-05T00:00:00Z"
+    },
+    {
       "id": "EPIC-003",
       "title": "Platform Security Hardening",
       "description": "Continuous security improvement across all infrastructure, code, and agent workspaces.",
@@ -150,10 +163,10 @@
       "description": "Data Engineer is overloaded with ML/AI pipeline work. Need dedicated ML Engineer agent to handle model training, inference, and AI feature development.",
       "severity": "MEDIUM",
       "category": "agent-request",
-      "status": "review",
+      "status": "in_validation",
       "assigned_to": "Lucy",
-      "team": "data-engineer",
-      "epicId": null,
+      "team": "any",
+      "epicId": "EPIC-004",
       "blockedBy": null,
       "blocks": null,
       "created_by": "data-engineer",
