@@ -3,17 +3,13 @@
     {
       "id": "EPIC-001",
       "title": "Deploy Full Agent Team to VM",
-      "description": "Deploy all agent workspaces, cron jobs, and daily automation to the VM. This is the foundation for everything else.",
+      "description": "Deploy all agent workspaces, cron jobs, and daily automation to the VM. Foundation for everything.",
       "status": "in_progress",
       "priority": "critical",
       "team": "devops",
       "assignee": "Zeus",
       "progress": 33,
-      "storyIds": [
-        "TICKET-003",
-        "TICKET-004",
-        "TICKET-002"
-      ],
+      "storyIds": ["TICKET-003","TICKET-004","TICKET-002"],
       "createdAt": "2026-06-03T00:00:00Z",
       "updatedAt": "2026-06-04T00:00:00Z"
     },
@@ -26,24 +22,9 @@
       "team": "any",
       "assignee": null,
       "progress": 0,
-      "storyIds": [
-        "TICKET-005"
-      ],
+      "storyIds": ["TICKET-005"],
       "createdAt": "2026-06-03T00:00:00Z",
       "updatedAt": "2026-06-03T00:00:00Z"
-    },
-    {
-      "id": "EPIC-004",
-      "title": "Agent Requests & Add-ons",
-      "description": "Requests for new agents, role changes, and team additions. Includes ML Engineer requests, new role proposals, and team expansion.",
-      "status": "in_progress",
-      "priority": "medium",
-      "team": "any",
-      "assignee": "Lucy",
-      "progress": 0,
-      "storyIds": ["TICKET-006"],
-      "createdAt": "2026-06-05T00:00:00Z",
-      "updatedAt": "2026-06-05T00:00:00Z"
     },
     {
       "id": "EPIC-003",
@@ -54,140 +35,62 @@
       "team": "security",
       "assignee": "Athena",
       "progress": 100,
-      "storyIds": [
-        "TICKET-001"
-      ],
+      "storyIds": ["TICKET-001"],
       "createdAt": "2026-06-03T00:00:00Z",
       "updatedAt": "2026-06-04T00:00:00Z"
+    },
+    {
+      "id": "EPIC-004",
+      "title": "Agent Requests & Add-ons",
+      "description": "Requests for new agents, role changes, and team additions.",
+      "status": "in_progress",
+      "priority": "medium",
+      "team": "any",
+      "assignee": "Lucy",
+      "progress": 0,
+      "storyIds": ["TICKET-006"],
+      "createdAt": "2026-06-05T00:00:00Z",
+      "updatedAt": "2026-06-05T00:00:00Z"
+    },
+    {
+      "id": "EPIC-005",
+      "title": "Jira Management Team",
+      "description": "Team dedicated to managing the Jira board. Creates issues, sets dates, applies labels, maintains board hygiene.",
+      "status": "in_progress",
+      "priority": "high",
+      "team": "operations",
+      "assignee": "Lucy",
+      "progress": 0,
+      "storyIds": ["TICKET-007","TICKET-008","TICKET-009","TICKET-010","TICKET-011"],
+      "createdAt": "2026-06-05T00:00:00Z",
+      "updatedAt": "2026-06-05T00:00:00Z"
+    },
+    {
+      "id": "EPIC-006",
+      "title": "Revenue & Business Development",
+      "description": "All revenue-generating projects, business analysis, market research, and monetization strategies.",
+      "status": "backlog",
+      "priority": "high",
+      "team": "any",
+      "assignee": null,
+      "progress": 0,
+      "storyIds": [],
+      "createdAt": "2026-06-05T00:00:00Z",
+      "updatedAt": "2026-06-05T00:00:00Z"
     }
   ],
   "tickets": [
-    {
-      "id": "TICKET-001",
-      "title": "Set up 24/7 monitoring for all services",
-      "description": "Deploy Monitoring Agent to continuously check gateway, voice bot, disk, memory, CPU, ports, logs, and SSL certs every 5 minutes.",
-      "severity": "HIGH",
-      "category": "infra",
-      "status": "done",
-      "assigned_to": "Gladiator",
-      "team": "devops",
-      "epicId": "EPIC-003",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "monitor",
-      "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-04T00:00:00Z",
-      "comments": [
-        {
-          "by": "Lucy",
-          "text": "Monitoring Agent deployed and running."
-        }
-      ]
-    },
-    {
-      "id": "TICKET-002",
-      "title": "Deploy Kanban web dashboard",
-      "description": "Set up the Kanban board web dashboard with GitHub Pages hosting. Fix nested directory issue.",
-      "severity": "HIGH",
-      "category": "feature",
-      "status": "done",
-      "assigned_to": "Gladiator",
-      "team": "devops",
-      "epicId": "EPIC-001",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "org-excellence",
-      "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-04T00:00:00Z",
-      "comments": []
-    },
-    {
-      "id": "TICKET-003",
-      "title": "Deploy all agent workspaces to VM",
-      "description": "Run all setup scripts: setup-agent-team.sh, setup-audit-team.sh, setup-research-agent.sh, setup-business-division.sh, setup-monitoring.sh, setup-org-excellence.sh",
-      "severity": "CRITICAL",
-      "category": "infra",
-      "status": "backlog",
-      "assigned_to": null,
-      "team": "devops",
-      "epicId": "EPIC-001",
-      "blockedBy": null,
-      "blocks": "TICKET-004",
-      "created_by": "org-excellence",
-      "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-03T00:00:00Z",
-      "comments": []
-    },
-    {
-      "id": "TICKET-004",
-      "title": "Set up daily automated cron jobs on VM",
-      "description": "Install all cron jobs: monitoring (5min), org-review (6am), research (7am), audit (8am), finance (9am), improvement (10am), data (11am), backup (11pm)",
-      "severity": "HIGH",
-      "category": "infra",
-      "status": "backlog",
-      "assigned_to": null,
-      "team": "devops",
-      "epicId": "EPIC-001",
-      "blockedBy": "TICKET-003",
-      "blocks": null,
-      "created_by": "org-excellence",
-      "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-03T00:00:00Z",
-      "comments": []
-    },
-    {
-      "id": "TICKET-005",
-      "title": "Identify first revenue-generating project",
-      "description": "Research and identify the first project to build for revenue. Use Research Agent \u2192 Business Analyst \u2192 pick opportunity \u2192 Orchestrator builds MVP.",
-      "severity": "CRITICAL",
-      "category": "feature",
-      "status": "backlog",
-      "assigned_to": null,
-      "team": "any",
-      "epicId": "EPIC-002",
-      "blockedBy": "TICKET-003",
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-03T00:00:00Z",
-      "comments": [
-        {
-          "by": "CEO",
-          "text": "Top priority. Make money."
-        }
-      ]
-    },
-    {
-      "id": "TICKET-006",
-      "title": "Agent Request: ML Engineer needed",
-      "description": "Data Engineer is overloaded with ML/AI pipeline work. Need dedicated ML Engineer agent to handle model training, inference, and AI feature development.",
-      "severity": "MEDIUM",
-      "category": "agent-request",
-      "status": "in_validation",
-      "assigned_to": "Lucy",
-      "team": "any",
-      "epicId": "EPIC-004",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "data-engineer",
-      "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-03T00:00:00Z",
-      "comments": [
-        {
-          "by": "Lucy",
-          "text": "Pending CEO approval."
-        }
-      ]
-    }
+    {"id":"TICKET-001","title":"Set up 24/7 monitoring for all services","description":"Deploy Monitoring Agent to check gateway, voice bot, disk, memory, CPU, ports, logs every 5 min.","severity":"HIGH","category":"infra","status":"done","assigned_to":"Gladiator","team":"devops","epicId":"EPIC-003","blockedBy":null,"blocks":null,"created_by":"monitor","createdAt":"2026-06-03T00:00:00Z","updatedAt":"2026-06-04T00:00:00Z","comments":[{"by":"Lucy","text":"Monitoring Agent deployed."}]},
+    {"id":"TICKET-002","title":"Deploy Kanban + Jira boards","description":"Set up Kanban web dashboard and Jira board. Configure workflows, labels, and agent access.","severity":"HIGH","category":"feature","status":"done","assigned_to":"Gladiator","team":"devops","epicId":"EPIC-001","blockedBy":null,"blocks":null,"created_by":"org-excellence","createdAt":"2026-06-03T00:00:00Z","updatedAt":"2026-06-05T00:00:00Z","comments":[]},
+    {"id":"TICKET-003","title":"Deploy all agent workspaces to VM","description":"Run all setup scripts: setup-agent-team.sh, setup-audit-team.sh, setup-research-agent.sh, setup-business-division.sh, setup-monitoring.sh, setup-org-excellence.sh","severity":"CRITICAL","category":"infra","status":"in_progress","assigned_to":"Gladiator","team":"devops","epicId":"EPIC-001","blockedBy":null,"blocks":"TICKET-004","created_by":"org-excellence","createdAt":"2026-06-03T00:00:00Z","updatedAt":"2026-06-05T00:00:00Z","comments":[]},
+    {"id":"TICKET-004","title":"Set up daily cron jobs on VM","description":"Install cron: monitoring (5min), org-review (6am), research (7am), audit (8am), finance (9am), improvement (10am), data (11am), backup (11pm)","severity":"HIGH","category":"infra","status":"backlog","assigned_to":null,"team":"devops","epicId":"EPIC-001","blockedBy":"TICKET-003","blocks":null,"created_by":"org-excellence","createdAt":"2026-06-03T00:00:00Z","updatedAt":"2026-06-05T00:00:00Z","comments":[]},
+    {"id":"TICKET-005","title":"Identify first revenue project","description":"Research and identify the first project to build for revenue. Research Agent → Business Analyst → pick opportunity → Orchestrator builds MVP.","severity":"CRITICAL","category":"feature","status":"backlog","assigned_to":null,"team":"any","epicId":"EPIC-002","blockedBy":"TICKET-003","blocks":null,"created_by":"CEO","createdAt":"2026-06-03T00:00:00Z","updatedAt":"2026-06-05T00:00:00Z","comments":[{"by":"CEO","text":"Top priority. Make money."}]},
+    {"id":"TICKET-006","title":"Agent Request: ML Engineer needed","description":"Data Engineer overloaded with ML/AI pipeline work. Need dedicated ML Engineer agent for model training and AI features.","severity":"MEDIUM","category":"agent-request","status":"in_validation","assigned_to":"Lucy","team":"any","epicId":"EPIC-004","blockedBy":null,"blocks":null,"created_by":"data-engineer","createdAt":"2026-06-03T00:00:00Z","updatedAt":"2026-06-05T00:00:00Z","comments":[{"by":"Lucy","text":"Pending CEO approval."}]},
+    {"id":"TICKET-007","title":"Issue Creator - Create and update Jira issues","description":"Create new Jira issues based on agent work requests. Ensures proper formatting, labels, and epic associations.","severity":"HIGH","category":"feature","status":"in_progress","assigned_to":null,"team":"operations","epicId":"EPIC-005","blockedBy":null,"blocks":null,"created_by":"CEO","createdAt":"2026-06-05T00:00:00Z","updatedAt":"2026-06-05T00:00:00Z","comments":[]},
+    {"id":"TICKET-008","title":"Label Manager - Apply agent labels","description":"Manages label system. Ensures agent name is first label. Maintains consistency across all tickets.","severity":"MEDIUM","category":"feature","status":"backlog","assigned_to":null,"team":"operations","epicId":"EPIC-005","blockedBy":null,"blocks":null,"created_by":"CEO","createdAt":"2026-06-05T00:00:00Z","updatedAt":"2026-06-05T00:00:00Z","comments":[]},
+    {"id":"TICKET-009","title":"Schedule Manager - Set dates and deadlines","description":"Sets start dates and deadlines on all Jira issues. Tracks due dates and escalates overdue items.","severity":"MEDIUM","category":"feature","status":"backlog","assigned_to":null,"team":"operations","epicId":"EPIC-005","blockedBy":null,"blocks":null,"created_by":"CEO","createdAt":"2026-06-05T00:00:00Z","updatedAt":"2026-06-05T00:00:00Z","comments":[]},
+    {"id":"TICKET-010","title":"Board Hygiene - Maintain board cleanliness","description":"Ensures Jira board is clean and up to date. Moves tickets to correct status. Archives completed items.","severity":"MEDIUM","category":"feature","status":"backlog","assigned_to":null,"team":"operations","epicId":"EPIC-005","blockedBy":null,"blocks":null,"created_by":"CEO","createdAt":"2026-06-05T00:00:00Z","updatedAt":"2026-06-05T00:00:00Z","comments":[]},
+    {"id":"TICKET-011","title":"Epic Linker - Associate issues with epics","description":"Ensures all stories/tasks are linked to parent epics. Maintains epic hierarchy. Reports progress.","severity":"MEDIUM","category":"feature","status":"backlog","assigned_to":null,"team":"operations","epicId":"EPIC-005","blockedBy":null,"blocks":null,"created_by":"CEO","createdAt":"2026-06-05T00:00:00Z","updatedAt":"2026-06-05T00:00:00Z","comments":[]}
   ],
-  "stats": {
-    "totalTickets": 6,
-    "totalEpics": 3,
-    "backlog": 3,
-    "in_progress": 0,
-    "review": 1,
-    "done": 2,
-    "critical": 2,
-    "blocked": 2
-  }
+  "stats":{"totalTickets":11,"totalEpics":6,"backlog":5,"in_progress":3,"review":0,"done":2,"critical":3,"blocked":2}
 }
