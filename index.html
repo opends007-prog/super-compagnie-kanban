@@ -200,6 +200,13 @@ a:hover{text-decoration:underline}
 .agent-name{font-size:13px;font-weight:600;color:var(--text)}
 .agent-title{font-size:10px;color:var(--blue);margin-top:2px;font-weight:500}
 .agent-role{font-size:9px;color:var(--text3);margin-top:4px;line-height:1.3}
+.agent-progress{margin-top:6px}
+.progress-bar{height:4px;background:var(--bg4);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .3s}
+.progress-text{font-size:8px;color:var(--text3);margin-top:2px;font-family:var(--font-mono)}
+.agent-ticket-list{margin-top:4px;border-top:1px solid var(--border);padding-top:3px}
+.agent-ticket-item{font-size:8px;color:var(--text2);padding:1px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.agent-no-tickets{color:var(--text3);font-size:9px;margin-top:4px;font-style:italic}
 .agent-tickets{font-size:9px;color:var(--text2);margin-top:4px;font-family:var(--font-mono)}
 
 /* ═══ NOTIFICATIONS ═══ */
@@ -463,10 +470,20 @@ function rTeam(){
     if(!el){console.error('view-team element not found');return;}
     var teams={};
     var agents=D.agents||[];
+    var tickets=D.tickets||[];
     console.log('rTeam: rendering', agents.length, 'agents');
     agents.forEach(function(a){
       if(!a.team)return;
       if(!teams[a.team])teams[a.team]=[];
+      // Calculate progress from tickets
+      var agentTickets=tickets.filter(function(t){return t.assigned_to===a.name});
+      var done=agentTickets.filter(function(t){return t.status==='done'}).length;
+      var total=agentTickets.length;
+      var progress=total>0?Math.round(done/total*100):0;
+      a._progress=progress;
+      a._done=done;
+      a._total=total;
+      a._tickets=agentTickets;
       teams[a.team].push(a);
     });
     var order=['Leadership','Project','Research','Finance','Security','Operations'],h='';
@@ -474,12 +491,27 @@ function rTeam(){
       if(!teams[tm])return;
       h+='<div class="team-section"><div class="team-sh">👥 '+tm+' ('+teams[tm].length+')</div><div class="team-grid">';
       teams[tm].forEach(function(a){
-        var activeTickets=(D.tickets||[]).filter(function(t){return t.assigned_to===a.name});
-        var inProgress=activeTickets.filter(function(t){return t.status==='in_progress'}).length;
-        h+='<div class="agent-card"><div class="agent-top"><span class="agent-emoji">'+(a.emoji||'👤')+'</span><span class="agent-status '+(a.status==='active'?'active':'idle')+'">'+(a.status==='active'?'● Active':'○ Idle')+'</span></div>';
+        var barWidth=10;
+        var filled=Math.round(barWidth*a._progress/100);
+        var bar='█'.repeat(filled)+'░'.repeat(barWidth-filled);
+        var statusIcon=a._progress===100?'✅':(a._done>0?'🔄':'⏳');
+        if(a._total===0) statusIcon='💤';
+        h+='<div class="agent-card"><div class="agent-top"><span class="agent-emoji">'+(a.emoji||'👤')+'</span><span class="agent-status '+(a.status==='active'?'active':'idle')+'">'+statusIcon+' '+(a.status==='active'?'Active':'Idle')+'</span></div>';
         h+='<div class="agent-name">'+a.name+'</div><div class="agent-title">'+a.title+'</div>';
         h+='<div class="agent-role">'+a.role+'</div>';
-        if(activeTickets.length)h+='<div class="agent-tickets">📋 '+activeTickets.length+' tickets ('+inProgress+' active)</div>';
+        if(a._total>0){
+          h+='<div class="agent-progress"><div class="progress-bar"><div class="progress-fill" style="width:'+a._progress+'%"></div></div>';
+          h+='<div class="progress-text">'+bar+' '+a._progress+'% ('+a._done+'/'+a._total+')</div></div>';
+          // Show ticket list
+          h+='<div class="agent-ticket-list">';
+          a._tickets.forEach(function(t){
+            var tIcon=t.status==='done'?'✅':(t.status==='in_progress'?'🔄':'📋');
+            h+='<div class="agent-ticket-item">'+tIcon+' '+t.id+': '+t.title.substring(0,35)+'</div>';
+          });
+          h+='</div>';
+        } else {
+          h+='<div class="agent-no-tickets">💤 No tickets assigned</div>';
+        }
         h+='</div>';
       });
       h+='</div></div>';
