@@ -319,7 +319,11 @@ function goView(v){
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
   document.getElementById('tab-'+v).classList.add('active');
   ['kanban','list','backlog','team'].forEach(function(view){
-    document.getElementById('view-'+view).style.display=(v===view)?'':'none';
+    var el=document.getElementById('view-'+view);
+    if(v===view){
+      if(view==='kanban')el.style.display='flex';
+      else el.style.display='block';
+    }else{el.style.display='none';}
   });
   closeDetail();
   render();
@@ -517,5 +521,3 @@ setInterval(loadData,30000);
 </script>
 </body>
 </html>
-<!-- cache-bust: 1781227703 -->
-<!-- rebuilt: Thu Jun 11 21:36:15 EDT 2026 -->
