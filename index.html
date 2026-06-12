@@ -297,7 +297,13 @@ var COL_NAMES={todo:'📋 To Do',planned:'📌 Planned',progress:'🔧 In Progre
 function loadData(){
   fetch('tickets.json?t='+Date.now())
     .then(r=>r.json())
-    .then(d=>{D=d;recalc();render();showNotif('Data synced','success');})
+    .then(d=>{
+      D=d;
+      console.log('Loaded:', D.epics.length, 'epics,', D.tickets.length, 'tickets,', (D.agents||[]).length, 'agents');
+      recalc();
+      render();
+      showNotif('Data synced: ' + D.tickets.length + ' tickets, ' + (D.agents||[]).length + ' agents', 'success');
+    })
     .catch(e=>{console.error(e);showNotif('Sync failed','error');});
 }
 
