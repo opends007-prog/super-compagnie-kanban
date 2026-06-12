@@ -336,8 +336,13 @@ function goView(v){
 }
 
 function render(){
-  if(CV==='kanban'){rBoard()}else if(CV==='list'){rList()}else if(CV==='backlog'){rBacklog()}else if(CV==='team'){rTeam()}
-  rStats();
+  try{
+    if(CV==='kanban'){rBoard()}else if(CV==='list'){rList()}else if(CV==='backlog'){rBacklog()}else if(CV==='team'){rTeam()}
+    rStats();
+  }catch(e){
+    console.error('Render error:', e);
+    showNotif('Render error: ' + e.message, 'error');
+  }
 }
 
 function rStats(){
@@ -453,24 +458,38 @@ function rBacklog(){
 
 /* ═══ TEAM VIEW ═══ */
 function rTeam(){
-  var el=document.getElementById('view-team'),teams={};
-  (D.agents||[]).forEach(function(a){if(!teams[a.team])teams[a.team]=[];teams[a.team].push(a)});
-  var order=['Leadership','Project','Research','Finance','Security','Operations'],h='';
-  order.forEach(function(tm){
-    if(!teams[tm])return;
-    h+='<div class="team-section"><div class="team-sh">👥 '+tm+' ('+teams[tm].length+')</div><div class="team-grid">';
-    teams[tm].forEach(function(a){
-      var activeTickets=(D.tickets||[]).filter(function(t){return t.assigned_to===a.name});
-      var inProgress=activeTickets.filter(function(t){return t.status==='in_progress'}).length;
-      h+='<div class="agent-card"><div class="agent-top"><span class="agent-emoji">'+a.emoji+'</span><span class="agent-status '+(a.status==='active'?'active':'idle')+'">'+(a.status==='active'?'● Active':'○ Idle')+'</span></div>';
-      h+='<div class="agent-name">'+a.name+'</div><div class="agent-title">'+a.title+'</div>';
-      h+='<div class="agent-role">'+a.role+'</div>';
-      if(activeTickets.length)h+='<div class="agent-tickets">📋 '+activeTickets.length+' tickets ('+inProgress+' active)</div>';
-      h+='</div>';
+  try{
+    var el=document.getElementById('view-team');
+    if(!el){console.error('view-team element not found');return;}
+    var teams={};
+    var agents=D.agents||[];
+    console.log('rTeam: rendering', agents.length, 'agents');
+    agents.forEach(function(a){
+      if(!a.team)return;
+      if(!teams[a.team])teams[a.team]=[];
+      teams[a.team].push(a);
     });
-    h+='</div></div>';
-  });
-  el.innerHTML=h;
+    var order=['Leadership','Project','Research','Finance','Security','Operations'],h='';
+    order.forEach(function(tm){
+      if(!teams[tm])return;
+      h+='<div class="team-section"><div class="team-sh">👥 '+tm+' ('+teams[tm].length+')</div><div class="team-grid">';
+      teams[tm].forEach(function(a){
+        var activeTickets=(D.tickets||[]).filter(function(t){return t.assigned_to===a.name});
+        var inProgress=activeTickets.filter(function(t){return t.status==='in_progress'}).length;
+        h+='<div class="agent-card"><div class="agent-top"><span class="agent-emoji">'+(a.emoji||'👤')+'</span><span class="agent-status '+(a.status==='active'?'active':'idle')+'">'+(a.status==='active'?'● Active':'○ Idle')+'</span></div>';
+        h+='<div class="agent-name">'+a.name+'</div><div class="agent-title">'+a.title+'</div>';
+        h+='<div class="agent-role">'+a.role+'</div>';
+        if(activeTickets.length)h+='<div class="agent-tickets">📋 '+activeTickets.length+' tickets ('+inProgress+' active)</div>';
+        h+='</div>';
+      });
+      h+='</div></div>';
+    });
+    if(!h) h='<div class="empty">No agents found. Check tickets.json loaded correctly.</div>';
+    el.innerHTML=h;
+    console.log('rTeam: rendered successfully');
+  }catch(e){
+    console.error('rTeam error:', e);
+  }
 }
 
 /* ═══ DETAIL PANELS ═══ */
