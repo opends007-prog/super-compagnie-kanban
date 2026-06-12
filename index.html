@@ -69,17 +69,17 @@ a:hover{text-decoration:underline}
 .tab.active .num{background:var(--blue);color:#fff}
 
 /* ═══ MAIN ═══ */
-.main{display:flex;flex:1;overflow:hidden;position:relative}
+.main{display:flex;flex:1;overflow:hidden;position:relative;height:calc(100vh - 90px)}
 
 /* ═══ BOARD VIEW ═══ */
-.board{display:flex;gap:10px;padding:12px;overflow-x:auto;flex:1;align-items:flex-start}
+.board{display:flex;gap:10px;padding:12px;overflow-x:auto;overflow-y:auto;flex:1;align-items:flex-start;height:100%}
 .col{min-width:260px;max-width:320px;flex:1;background:var(--bg2);border-radius:var(--radius2);border:1px solid var(--border);display:flex;flex-direction:column;max-height:calc(100vh - 130px);transition:var(--transition)}
 .col:hover{border-color:var(--border2);box-shadow:var(--shadow)}
 .col-hdr{padding:8px 10px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
 .col-title{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px}
 .col-dot{width:8px;height:8px;border-radius:50%}
 .col-cnt{font-size:9px;padding:1px 5px;border-radius:6px;background:var(--bg4);color:var(--text3);font-weight:600}
-.col-body{flex:1;overflow-y:auto;padding:6px}
+.col-body{flex:1;overflow-y:auto;padding:6px;min-height:0}
 
 /* Column colors */
 .col-todo .col-dot{background:var(--text3)}
