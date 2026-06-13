@@ -200,6 +200,11 @@ a:hover{text-decoration:underline}
 .agent-name{font-size:13px;font-weight:600;color:var(--text)}
 .agent-title{font-size:10px;color:var(--blue);margin-top:2px;font-weight:500}
 .agent-role{font-size:9px;color:var(--text3);margin-top:4px;line-height:1.3}
+.agent-status-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:10px;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+.agent-status-badge.idle{background:rgba(6,182,212,.15);color:var(--cyan);border:1px solid rgba(6,182,212,.3)}
+.agent-status-badge.working{background:rgba(34,197,94,.15);color:var(--green);border:1px solid rgba(34,197,94,.3)}
+.agent-status-badge.not-active{background:rgba(239,68,68,.15);color:var(--red);border:1px solid rgba(239,68,68,.3)}
+.agent-status-badge.troubleshooting{background:rgba(245,158,11,.15);color:var(--orange);border:1px solid rgba(245,158,11,.3)}
 .agent-progress{margin-top:6px}
 .progress-bar{height:4px;background:var(--bg4);border-radius:2px;overflow:hidden}
 .progress-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .3s}
@@ -491,26 +496,45 @@ function rTeam(){
       if(!teams[tm])return;
       h+='<div class="team-section"><div class="team-sh">👥 '+tm+' ('+teams[tm].length+')</div><div class="team-grid">';
       teams[tm].forEach(function(a){
+        // Determine real status based on work
+        var realStatus='idle'; // default: active but not working
+        if(a._total===0) {
+          realStatus='idle'; // available but no tickets
+        } else if(a._tickets.some(function(t){return t.status==='in_progress'})) {
+          realStatus='working'; // actively working on something
+        } else if(a._tickets.every(function(t){return t.status==='done'})) {
+          realStatus='idle'; // all done, available for new work
+        }
+        // Check if agent has been idle too long (no files modified recently)
+        // For now, use ticket status to determine
+
         var barWidth=10;
         var filled=Math.round(barWidth*a._progress/100);
         var bar='█'.repeat(filled)+'░'.repeat(barWidth-filled);
-        var statusIcon=a._progress===100?'✅':(a._done>0?'🔄':'⏳');
-        if(a._total===0) statusIcon='💤';
-        h+='<div class="agent-card"><div class="agent-top"><span class="agent-emoji">'+(a.emoji||'👤')+'</span><span class="agent-status '+(a.status==='active'?'active':'idle')+'">'+statusIcon+' '+(a.status==='active'?'Active':'Idle')+'</span></div>';
+
+        // Status badge
+        var badgeClass='idle';
+        var badgeIcon='💤';
+        var badgeText='IDLE';
+        if(realStatus==='working'){badgeClass='working';badgeIcon='🔨';badgeText='WORKING';}
+        else if(realStatus==='not-active'){badgeClass='not-active';badgeIcon='🔴';badgeText='NOT ACTIVE';}
+        else if(realStatus==='troubleshooting'){badgeClass='troubleshooting';badgeIcon='🔧';badgeText='TROUBLESHOOTING';}
+
+        h+='<div class="agent-card">';
+        h+='<div class="agent-top"><span class="agent-emoji">'+(a.emoji||'👤')+'</span><span class="agent-status-badge '+badgeClass+'">'+badgeIcon+' '+badgeText+'</span></div>';
         h+='<div class="agent-name">'+a.name+'</div><div class="agent-title">'+a.title+'</div>';
         h+='<div class="agent-role">'+a.role+'</div>';
         if(a._total>0){
           h+='<div class="agent-progress"><div class="progress-bar"><div class="progress-fill" style="width:'+a._progress+'%"></div></div>';
           h+='<div class="progress-text">'+bar+' '+a._progress+'% ('+a._done+'/'+a._total+')</div></div>';
-          // Show ticket list
           h+='<div class="agent-ticket-list">';
           a._tickets.forEach(function(t){
-            var tIcon=t.status==='done'?'✅':(t.status==='in_progress'?'🔄':'📋');
+            var tIcon=t.status==='done'?'✅':(t.status==='in_progress'?'🔨':'📋');
             h+='<div class="agent-ticket-item">'+tIcon+' '+t.id+': '+t.title.substring(0,35)+'</div>';
           });
           h+='</div>';
         } else {
-          h+='<div class="agent-no-tickets">💤 No tickets assigned</div>';
+          h+='<div class="agent-no-tickets">💤 Available — no tickets assigned</div>';
         }
         h+='</div>';
       });
