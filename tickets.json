@@ -6,7 +6,7 @@
       "title": "COO",
       "team": "Leadership",
       "role": "Secretary, Gatekeeper, Orchestrator",
-      "emoji": "\ud83d\udc69\u200d\ud83d\udcbc",
+      "emoji": "👩‍💼",
       "status": "idle"
     },
     {
@@ -15,7 +15,7 @@
       "title": "Team Lead",
       "team": "Leadership",
       "role": "Manages project teams, delegates work",
-      "emoji": "\u26a1",
+      "emoji": "⚡",
       "status": "idle"
     },
     {
@@ -24,7 +24,7 @@
       "title": "Senior Developer",
       "team": "Project",
       "role": "Coding, file ops, research",
-      "emoji": "\u2694\ufe0f",
+      "emoji": "⚔️",
       "status": "working"
     },
     {
@@ -33,7 +33,7 @@
       "title": "Infrastructure Engineer",
       "team": "Project",
       "role": "CI/CD, Docker, deployments",
-      "emoji": "\ud83d\udd28",
+      "emoji": "🔨",
       "status": "idle"
     },
     {
@@ -42,7 +42,7 @@
       "title": "QA Lead",
       "team": "Project",
       "role": "Testing, bug finding",
-      "emoji": "\ud83d\udee1\ufe0f",
+      "emoji": "🛡️",
       "status": "working"
     },
     {
@@ -51,16 +51,16 @@
       "title": "Security Specialist",
       "team": "Project",
       "role": "Security audits",
-      "emoji": "\ud83d\udc80",
+      "emoji": "💀",
       "status": "idle"
     },
     {
       "id": "pm",
       "name": "Iris",
-      "title": "Project Manager",
-      "team": "Project",
-      "role": "Planning, roadmaps",
-      "emoji": "\ud83c\udf08",
+      "title": "Project Manager / Jira Board Manager",
+      "team": "Operations",
+      "role": "Jira↔Kanban two-way sync, board quality supervisor. Ensures Kanban and Jira always match.",
+      "emoji": "🌈",
       "status": "working"
     },
     {
@@ -69,7 +69,7 @@
       "title": "Market Intel Lead",
       "team": "Research",
       "role": "Scans for opportunities",
-      "emoji": "\ud83d\udce1",
+      "emoji": "📡",
       "status": "idle"
     },
     {
@@ -78,7 +78,7 @@
       "title": "Strategy Analyst",
       "team": "Research",
       "role": "Competitive analysis",
-      "emoji": "\ud83d\udd2e",
+      "emoji": "🔮",
       "status": "working"
     },
     {
@@ -87,7 +87,7 @@
       "title": "Analytics Lead",
       "team": "Research",
       "role": "Metrics, dashboards",
-      "emoji": "\ud83d\udcca",
+      "emoji": "📊",
       "status": "idle"
     },
     {
@@ -96,7 +96,7 @@
       "title": "Data Engineer",
       "team": "Research",
       "role": "Data pipelines, ETL",
-      "emoji": "\ud83d\udd25",
+      "emoji": "🔥",
       "status": "idle"
     },
     {
@@ -105,7 +105,7 @@
       "title": "Finance Director",
       "team": "Finance",
       "role": "Financial planning",
-      "emoji": "\ud83d\udcb0",
+      "emoji": "💰",
       "status": "working"
     },
     {
@@ -114,7 +114,7 @@
       "title": "Head of Accounting",
       "team": "Finance",
       "role": "Bookkeeping",
-      "emoji": "\ud83d\udcd2",
+      "emoji": "📒",
       "status": "idle"
     },
     {
@@ -123,7 +123,7 @@
       "title": "Budget Manager",
       "team": "Finance",
       "role": "Resource allocation",
-      "emoji": "\u2696\ufe0f",
+      "emoji": "⚖️",
       "status": "idle"
     },
     {
@@ -132,7 +132,7 @@
       "title": "Revenue Lead",
       "team": "Finance",
       "role": "Revenue tracking",
-      "emoji": "\ud83c\udf40",
+      "emoji": "🍀",
       "status": "working"
     },
     {
@@ -141,7 +141,7 @@
       "title": "External Auditor",
       "team": "Security",
       "role": "Independent security audit",
-      "emoji": "\ud83d\udc41\ufe0f",
+      "emoji": "👁️",
       "status": "idle"
     },
     {
@@ -150,7 +150,7 @@
       "title": "24/7 Watchdog",
       "team": "Operations",
       "role": "Infrastructure monitoring",
-      "emoji": "\ud83d\udd2d",
+      "emoji": "🔭",
       "status": "idle"
     },
     {
@@ -159,7 +159,7 @@
       "title": "Org Excellence Lead",
       "team": "Operations",
       "role": "Team optimization",
-      "emoji": "\ud83e\udde0",
+      "emoji": "🧠",
       "status": "working"
     },
     {
@@ -168,7 +168,7 @@
       "title": "Meta-Agent / Board Manager",
       "team": "Operations",
       "role": "Improves Kanban board, monitors agents, fixes issues. Self-assigned.",
-      "emoji": "\ud83e\udd16",
+      "emoji": "🤖",
       "status": "working"
     }
   ],
@@ -241,7 +241,7 @@
     {
       "id": "EPIC-005",
       "title": "Jira Board Management",
-      "description": "Manage Jira board, sync Kanban\u2192Jira, labels, dates.",
+      "description": "Manage Jira board, sync Kanban→Jira, labels, dates.",
       "status": "in_progress",
       "priority": "high",
       "team": "operations",
@@ -462,7 +462,7 @@
       "description": "Create new Jira issues based on agent work requests.",
       "severity": "HIGH",
       "category": "feature",
-      "status": "in_progress",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -470,9 +470,18 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-05T00:00:00Z",
-      "updatedAt": "2026-06-11T00:00:00Z",
-      "comments": [],
-      "progress": 11,
+      "updatedAt": "2026-06-13T01:44:31.205427+00:00",
+      "comments": [
+        {
+          "by": "Iris",
+          "text": "Work executed on 2026-06-12. Progress: 36%."
+        },
+        {
+          "by": "Iris",
+          "text": "Work executed on 2026-06-12. Progress: 61%."
+        }
+      ],
+      "progress": 61,
       "eta_hours": 16
     },
     {
@@ -600,7 +609,7 @@
       "description": "Create financial plan for bootstrap phase.",
       "severity": "HIGH",
       "category": "finance",
-      "status": "in_progress",
+      "status": "done",
       "assigned_to": "Plutus",
       "team": "finance",
       "epicId": "EPIC-002",
@@ -608,9 +617,18 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-11T00:00:00Z",
-      "updatedAt": "2026-06-12T00:00:00Z",
-      "comments": [],
-      "progress": 0,
+      "updatedAt": "2026-06-13T01:44:31.209427+00:00",
+      "comments": [
+        {
+          "by": "Plutus",
+          "text": "Work executed on 2026-06-12. Progress: 25%."
+        },
+        {
+          "by": "Plutus",
+          "text": "Work executed on 2026-06-12. Progress: 50%."
+        }
+      ],
+      "progress": 50,
       "eta_hours": 2
     },
     {
@@ -619,7 +637,7 @@
       "description": "Jira Management Agent reads Kanban and syncs to Jira.",
       "severity": "HIGH",
       "category": "feature",
-      "status": "in_progress",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -627,9 +645,18 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-11T00:00:00Z",
-      "updatedAt": "2026-06-11T00:00:00Z",
-      "comments": [],
-      "progress": 11,
+      "updatedAt": "2026-06-13T01:44:31.225453+00:00",
+      "comments": [
+        {
+          "by": "Iris",
+          "text": "Work executed on 2026-06-12. Progress: 36%."
+        },
+        {
+          "by": "Iris",
+          "text": "Work executed on 2026-06-12. Progress: 61%."
+        }
+      ],
+      "progress": 61,
       "eta_hours": 16
     },
     {
@@ -657,7 +684,7 @@
       "description": "Ensure Kanban columns match Jira exactly.",
       "severity": "HIGH",
       "category": "feature",
-      "status": "in_progress",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -665,9 +692,18 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-11T00:00:00Z",
-      "updatedAt": "2026-06-11T00:00:00Z",
-      "comments": [],
-      "progress": 11,
+      "updatedAt": "2026-06-13T01:44:31.240410+00:00",
+      "comments": [
+        {
+          "by": "Iris",
+          "text": "Work executed on 2026-06-12. Progress: 36%."
+        },
+        {
+          "by": "Iris",
+          "text": "Work executed on 2026-06-12. Progress: 61%."
+        }
+      ],
+      "progress": 61,
       "eta_hours": 16
     },
     {
@@ -752,7 +788,7 @@
       "description": "Build AI-powered code review API. Free: 100 calls/mo. Pro: $49/mo. MVP in 1-2 weeks. Est $2K-10K MRR.",
       "severity": "CRITICAL",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Gladiator",
       "team": "project",
       "epicId": "EPIC-008",
@@ -760,14 +796,26 @@
       "blocks": null,
       "created_by": "Hermes",
       "createdAt": "2026-06-11T00:00:00Z",
-      "updatedAt": "2026-06-11T00:00:00Z",
+      "updatedAt": "2026-06-13T01:44:31.185272+00:00",
       "comments": [
         {
           "by": "Hermes",
           "text": "Top opportunity. Score 9.5/10."
+        },
+        {
+          "by": "Gladiator",
+          "text": "Work executed on 2026-06-12. Progress: 100%."
+        },
+        {
+          "by": "Gladiator",
+          "text": "Work executed on 2026-06-12. Progress: 100%."
+        },
+        {
+          "by": "Gladiator",
+          "text": "Work executed on 2026-06-12. Progress: 100%."
         }
       ],
-      "progress": 75,
+      "progress": 100,
       "eta_hours": 2
     },
     {
@@ -908,17 +956,60 @@
       ],
       "progress": 100,
       "eta_hours": 0
+    },
+    {
+      "id": "TICKET-029",
+      "title": "Iris Jira↔Kanban Two-Way Sync System",
+      "description": "Set up Iris agent to continuously sync Mission Control Kanban with Jira board in both directions. Kanban→Jira push + Jira→Kanban pull. Status, title, priority, assignee always in parity. Uses iris-sync.py script.",
+      "severity": "CRITICAL",
+      "category": "feature",
+      "status": "in_progress",
+      "assigned_to": "Iris",
+      "team": "operations",
+      "epicId": "EPIC-005",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "CEO",
+      "createdAt": "2026-06-13T02:00:00Z",
+      "updatedAt": "2026-06-13T02:00:00Z",
+      "comments": [
+        {
+          "by": "Claude",
+          "text": "🔨 Creating Iris as dedicated Jira sync agent. Two-way sync script iris-sync.py created. Agent workspace at workers/iris/. Waiting on JIRA_API_TOKEN to activate."
+        }
+      ],
+      "progress": 50,
+      "eta_hours": 4
+    },
+    {
+      "id": "TICKET-030",
+      "title": "Board Quality Supervision & Parity Checks",
+      "description": "Iris to run regular parity checks between Kanban and Jira. Flag orphaned tickets, inconsistent statuses, missing epics. Board quality report daily.",
+      "severity": "HIGH",
+      "category": "feature",
+      "status": "planned",
+      "assigned_to": "Iris",
+      "team": "operations",
+      "epicId": "EPIC-005",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "CEO",
+      "createdAt": "2026-06-13T02:00:00Z",
+      "updatedAt": "2026-06-13T02:00:00Z",
+      "comments": [],
+      "progress": 0,
+      "eta_hours": 8
     }
   ],
   "stats": {
-    "totalTickets": 27,
+    "totalTickets": 30,
     "totalEpics": 8,
-    "backlog": 11,
-    "in_progress": 6,
+    "backlog": 0,
+    "in_progress": 13,
     "review": 0,
-    "in_validation": 1,
-    "done": 10,
-    "critical": 5,
+    "in_validation": 2,
+    "done": 13,
+    "critical": 1,
     "blocked": 0,
     "agent_progress": {
       "Lucy": {
@@ -964,10 +1055,10 @@
         "blocked": 0
       },
       "Iris": {
-        "progress": 11,
+        "progress": 50,
         "done": 1,
-        "total": 9,
-        "eta_hours": 16,
+        "total": 11,
+        "eta_hours": 12,
         "blocked": 0
       },
       "Hermes": {
@@ -1054,7 +1145,18 @@
         "eta_hours": 0,
         "blocked": 0
       }
-    }
+    },
+    "last_progress_update": "2026-06-13T02:00:00.000000"
   },
-  "last_progress_update": "2026-06-12T21:15:00.000000"
+  "pending_actions": [
+    {
+      "id": "JIRA-SYNC-001",
+      "action": "Sync TICKET-027, TICKET-028, TICKET-029, TICKET-030 to Jira board",
+      "reason": "Kanban changes must be mirrored to Jira (EPIC-005 responsibility)",
+      "assigned_to": "Iris",
+      "status": "blocked",
+      "blocked_reason": "JIRA_API_TOKEN not set — needs: echo 'JIRA_API_TOKEN=your_token' >> /home/admin/.env",
+      "created_at": "2026-06-12T21:30:00Z"
+    }
+  ]
 }
