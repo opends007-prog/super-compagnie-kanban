@@ -6,7 +6,7 @@
       "title": "COO",
       "team": "Leadership",
       "role": "Secretary, Gatekeeper, Orchestrator",
-      "emoji": "\ud83d\udc69\u200d\ud83d\udcbc",
+      "emoji": "👩‍💼",
       "status": "idle"
     },
     {
@@ -15,7 +15,7 @@
       "title": "Team Lead",
       "team": "Leadership",
       "role": "Manages project teams, delegates work",
-      "emoji": "\u26a1",
+      "emoji": "⚡",
       "status": "idle"
     },
     {
@@ -24,7 +24,7 @@
       "title": "Senior Developer",
       "team": "Project",
       "role": "Coding, file ops, research",
-      "emoji": "\u2694\ufe0f",
+      "emoji": "⚔️",
       "status": "working"
     },
     {
@@ -33,7 +33,7 @@
       "title": "Infrastructure Engineer",
       "team": "Project",
       "role": "CI/CD, Docker, deployments",
-      "emoji": "\ud83d\udd28",
+      "emoji": "🔨",
       "status": "idle"
     },
     {
@@ -42,7 +42,7 @@
       "title": "QA Lead",
       "team": "Project",
       "role": "Testing, bug finding",
-      "emoji": "\ud83d\udee1\ufe0f",
+      "emoji": "🛡️",
       "status": "working"
     },
     {
@@ -51,7 +51,7 @@
       "title": "Security Specialist",
       "team": "Project",
       "role": "Security audits",
-      "emoji": "\ud83d\udc80",
+      "emoji": "💀",
       "status": "idle"
     },
     {
@@ -59,8 +59,8 @@
       "name": "Iris",
       "title": "Project Manager / Jira Board Manager",
       "team": "Operations",
-      "role": "Jira\u2194Kanban two-way sync, board quality supervisor. Ensures Kanban and Jira always match.",
-      "emoji": "\ud83c\udf08",
+      "role": "Jira↔Kanban two-way sync, board quality supervisor. Ensures Kanban and Jira always match.",
+      "emoji": "🌈",
       "status": "working"
     },
     {
@@ -69,7 +69,7 @@
       "title": "Market Intel Lead",
       "team": "Research",
       "role": "Scans for opportunities",
-      "emoji": "\ud83d\udce1",
+      "emoji": "📡",
       "status": "idle"
     },
     {
@@ -78,7 +78,7 @@
       "title": "Strategy Analyst",
       "team": "Research",
       "role": "Competitive analysis",
-      "emoji": "\ud83d\udd2e",
+      "emoji": "🔮",
       "status": "working"
     },
     {
@@ -87,7 +87,7 @@
       "title": "Analytics Lead",
       "team": "Research",
       "role": "Metrics, dashboards",
-      "emoji": "\ud83d\udcca",
+      "emoji": "📊",
       "status": "idle"
     },
     {
@@ -96,7 +96,7 @@
       "title": "Data Engineer",
       "team": "Research",
       "role": "Data pipelines, ETL",
-      "emoji": "\ud83d\udd25",
+      "emoji": "🔥",
       "status": "idle"
     },
     {
@@ -105,7 +105,7 @@
       "title": "Finance Director",
       "team": "Finance",
       "role": "Financial planning",
-      "emoji": "\ud83d\udcb0",
+      "emoji": "💰",
       "status": "working"
     },
     {
@@ -114,7 +114,7 @@
       "title": "Head of Accounting",
       "team": "Finance",
       "role": "Bookkeeping",
-      "emoji": "\ud83d\udcd2",
+      "emoji": "📒",
       "status": "idle"
     },
     {
@@ -123,7 +123,7 @@
       "title": "Budget Manager",
       "team": "Finance",
       "role": "Resource allocation",
-      "emoji": "\u2696\ufe0f",
+      "emoji": "⚖️",
       "status": "idle"
     },
     {
@@ -132,7 +132,7 @@
       "title": "Revenue Lead",
       "team": "Finance",
       "role": "Revenue tracking",
-      "emoji": "\ud83c\udf40",
+      "emoji": "🍀",
       "status": "working"
     },
     {
@@ -141,7 +141,7 @@
       "title": "External Auditor",
       "team": "Security",
       "role": "Independent security audit",
-      "emoji": "\ud83d\udc41\ufe0f",
+      "emoji": "👁️",
       "status": "idle"
     },
     {
@@ -150,7 +150,7 @@
       "title": "24/7 Watchdog",
       "team": "Operations",
       "role": "Infrastructure monitoring",
-      "emoji": "\ud83d\udd2d",
+      "emoji": "🔭",
       "status": "idle"
     },
     {
@@ -159,7 +159,7 @@
       "title": "Org Excellence Lead",
       "team": "Operations",
       "role": "Team optimization",
-      "emoji": "\ud83e\udde0",
+      "emoji": "🧠",
       "status": "working"
     },
     {
@@ -168,7 +168,25 @@
       "title": "Meta-Agent / Board Manager",
       "team": "Operations",
       "role": "Improves Kanban board, monitors agents, fixes issues. Self-assigned.",
-      "emoji": "\ud83e\udd16",
+      "emoji": "🤖",
+      "status": "working"
+    },
+    {
+      "id": "analyst",
+      "name": "Analyst",
+      "title": "Data Analyst",
+      "team": "Research",
+      "role": "Data analysis, reports, dashboards, SQL queries, metrics.",
+      "emoji": "📈",
+      "status": "working"
+    },
+    {
+      "id": "doer",
+      "name": "Doer",
+      "title": "General Worker",
+      "team": "Operations",
+      "role": "General worker — coding, file ops, research, anything needed.",
+      "emoji": "🔧",
       "status": "working"
     }
   ],
@@ -241,7 +259,7 @@
     {
       "id": "EPIC-005",
       "title": "Jira Board Management",
-      "description": "Manage Jira board, sync Kanban\u2192Jira, labels, dates.",
+      "description": "Manage Jira board, sync Kanban→Jira, labels, dates.",
       "status": "in_progress",
       "priority": "high",
       "team": "operations",
@@ -410,6 +428,32 @@
       "priority": "high",
       "team": "leadership",
       "assignee": "Zeus",
+      "progress": 0,
+      "storyIds": [],
+      "createdAt": "2026-06-13T00:00:00Z",
+      "updatedAt": "2026-06-13T00:00:00Z"
+    },
+    {
+      "id": "EPIC-017",
+      "title": "Data Analysis & Business Intelligence",
+      "description": "Deep data analysis, business intelligence reports, KPI tracking, revenue analytics, agent performance metrics. Turn data into actionable insights.",
+      "status": "in_progress",
+      "priority": "high",
+      "team": "research",
+      "assignee": "Analyst",
+      "progress": 0,
+      "storyIds": [],
+      "createdAt": "2026-06-13T00:00:00Z",
+      "updatedAt": "2026-06-13T00:00:00Z"
+    },
+    {
+      "id": "EPIC-018",
+      "title": "General Operations & Task Execution",
+      "description": "General-purpose task execution, overflow work, exploratory tasks, coding support. Fill gaps where other agents are overloaded.",
+      "status": "in_progress",
+      "priority": "medium",
+      "team": "operations",
+      "assignee": "Doer",
       "progress": 0,
       "storyIds": [],
       "createdAt": "2026-06-13T00:00:00Z",
@@ -601,7 +645,7 @@
       "description": "Manages label system. Agent name first label.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -609,14 +653,18 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-05T00:00:00Z",
-      "updatedAt": "2026-06-13T01:59:05.046432+00:00",
+      "updatedAt": "2026-06-13T10:54:48.099477+00:00",
       "comments": [
         {
           "by": "Iris",
           "text": "Work executed on 2026-06-12. Progress: 36%."
+        },
+        {
+          "by": "Iris",
+          "text": "Work executed on 2026-06-13. Progress: 61%."
         }
       ],
-      "progress": 36,
+      "progress": 61,
       "eta_hours": 16,
       "jira_key": "TD-50"
     },
@@ -959,7 +1007,7 @@
       "description": "Build AI agent behavior validation tool. Starter: $99/mo. Zero-competition.",
       "severity": "HIGH",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Athena",
       "team": "security",
       "epicId": "EPIC-008",
@@ -967,7 +1015,7 @@
       "blocks": null,
       "created_by": "Hermes",
       "createdAt": "2026-06-11T00:00:00Z",
-      "updatedAt": "2026-06-13T01:59:05.029560+00:00",
+      "updatedAt": "2026-06-13T10:51:59.425605+00:00",
       "comments": [
         {
           "by": "Hermes",
@@ -976,9 +1024,13 @@
         {
           "by": "Athena",
           "text": "Work executed on 2026-06-12. Progress: 25%."
+        },
+        {
+          "by": "Athena",
+          "text": "Work executed on 2026-06-13. Progress: 50%."
         }
       ],
-      "progress": 25,
+      "progress": 50,
       "eta_hours": 6,
       "jira_key": "TD-41"
     },
@@ -1070,7 +1122,7 @@
       "comments": [
         {
           "by": "Claude",
-          "text": "\u2705 Mobile-first overhaul completed: single-column board with picker, swipe gestures, pull-to-refresh, light/dark theme toggle, offline detection, bottom sheet detail panel, larger touch targets, improved empty states."
+          "text": "✅ Mobile-first overhaul completed: single-column board with picker, swipe gestures, pull-to-refresh, light/dark theme toggle, offline detection, bottom sheet detail panel, larger touch targets, improved empty states."
         }
       ],
       "progress": 100,
@@ -1095,7 +1147,7 @@
       "comments": [
         {
           "by": "Claude",
-          "text": "\u2705 All features deployed: pull-to-refresh gesture, light/dark theme toggle with localStorage, improved empty states with emoji illustrations, offline detection banner."
+          "text": "✅ All features deployed: pull-to-refresh gesture, light/dark theme toggle with localStorage, improved empty states with emoji illustrations, offline detection banner."
         }
       ],
       "progress": 100,
@@ -1104,8 +1156,8 @@
     },
     {
       "id": "TICKET-029",
-      "title": "Iris Jira\u2194Kanban Two-Way Sync System",
-      "description": "Set up Iris agent to continuously sync Mission Control Kanban with Jira board in both directions. Kanban\u2192Jira push + Jira\u2192Kanban pull. Status, title, priority, assignee always in parity. Uses iris-sync.py script.",
+      "title": "Iris Jira↔Kanban Two-Way Sync System",
+      "description": "Set up Iris agent to continuously sync Mission Control Kanban with Jira board in both directions. Kanban→Jira push + Jira→Kanban pull. Status, title, priority, assignee always in parity. Uses iris-sync.py script.",
       "severity": "CRITICAL",
       "category": "feature",
       "status": "done",
@@ -1120,11 +1172,11 @@
       "comments": [
         {
           "by": "Claude",
-          "text": "\ud83d\udd28 Creating Iris as dedicated Jira sync agent. Two-way sync script iris-sync.py created. Agent workspace at workers/iris/."
+          "text": "🔨 Creating Iris as dedicated Jira sync agent. Two-way sync script iris-sync.py created. Agent workspace at workers/iris/."
         },
         {
           "by": "Iris",
-          "text": "\u2705 Sync system operational. 30 Kanban tickets pushed to Jira (TD-68\u2192TD-97). Two-way sync script iris-sync.py working. Parity check passing."
+          "text": "✅ Sync system operational. 30 Kanban tickets pushed to Jira (TD-68→TD-97). Two-way sync script iris-sync.py working. Parity check passing."
         }
       ],
       "progress": 100,
@@ -1149,7 +1201,7 @@
       "comments": [
         {
           "by": "Iris",
-          "text": "\u2705 Board quality supervision active. Parity check system working \u2014 verified 30/30 tickets match between Kanban and Jira."
+          "text": "✅ Board quality supervision active. Parity check system working — verified 30/30 tickets match between Kanban and Jira."
         }
       ],
       "progress": 100,
@@ -1162,7 +1214,7 @@
       "description": "Deploy monitoring agent for gateway, voice bot, disk, memory, CPU, ports, logs. Create alerting rules and notification channels.",
       "severity": "HIGH",
       "category": "infra",
-      "status": "in_progress",
+      "status": "done",
       "assigned_to": "Argus",
       "team": "operations",
       "epicId": "EPIC-009",
@@ -1170,9 +1222,18 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-13T00:00:00Z",
-      "comments": [],
-      "progress": 0,
+      "updatedAt": "2026-06-13T10:54:48.060990+00:00",
+      "comments": [
+        {
+          "by": "Argus",
+          "text": "Work executed on 2026-06-13. Progress: 25%."
+        },
+        {
+          "by": "Argus",
+          "text": "Work executed on 2026-06-13. Progress: 50%."
+        }
+      ],
+      "progress": 50,
       "eta_hours": 16,
       "jira_key": "TD-112"
     },
@@ -1198,11 +1259,11 @@
     },
     {
       "id": "TICKET-033",
-      "title": "Security audit \u2014 all agent workspaces",
+      "title": "Security audit — all agent workspaces",
       "description": "Comprehensive security audit of all 18 agent workspaces. Check for exposed keys, insecure configs, permission issues.",
       "severity": "HIGH",
       "category": "security",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Hades",
       "team": "project",
       "epicId": "EPIC-011",
@@ -1210,9 +1271,14 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-13T00:00:00Z",
-      "comments": [],
-      "progress": 0,
+      "updatedAt": "2026-06-13T10:54:48.079549+00:00",
+      "comments": [
+        {
+          "by": "Hades",
+          "text": "Work executed on 2026-06-13. Progress: 25%."
+        }
+      ],
+      "progress": 25,
       "eta_hours": 16,
       "jira_key": "TD-114"
     },
@@ -1302,7 +1368,7 @@
       "description": "Establish work delegation process, team coordination framework. Ensure all agents have clear tasks and no one is idle.",
       "severity": "HIGH",
       "category": "feature",
-      "status": "in_progress",
+      "status": "done",
       "assigned_to": "Zeus",
       "team": "leadership",
       "epicId": "EPIC-016",
@@ -1310,22 +1376,183 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-13T00:00:00Z",
+      "updatedAt": "2026-06-13T10:54:48.079976+00:00",
+      "comments": [
+        {
+          "by": "Zeus",
+          "text": "Work executed on 2026-06-13. Progress: 25%."
+        },
+        {
+          "by": "Zeus",
+          "text": "Work executed on 2026-06-13. Progress: 50%."
+        }
+      ],
+      "progress": 50,
+      "eta_hours": 16,
+      "jira_key": "TD-119"
+    },
+    {
+      "id": "TICKET-039",
+      "title": "Agent performance metrics dashboard",
+      "description": "Create a dashboard tracking agent productivity: tickets completed, time per task, success rate, idle time. Helps identify bottlenecks.",
+      "severity": "HIGH",
+      "category": "feature",
+      "status": "in_progress",
+      "assigned_to": "Analyst",
+      "team": "research",
+      "epicId": "EPIC-017",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "CEO",
+      "createdAt": "2026-06-13T00:00:00Z",
       "updatedAt": "2026-06-13T00:00:00Z",
       "comments": [],
       "progress": 0,
-      "eta_hours": 16,
-      "jira_key": "TD-119"
+      "eta_hours": 32
+    },
+    {
+      "id": "TICKET-040",
+      "title": "Revenue analytics & financial reporting",
+      "description": "Build revenue tracking reports, burn rate analysis, runway projections, income per project breakdown. Daily/weekly financial summaries.",
+      "severity": "HIGH",
+      "category": "finance",
+      "status": "in_progress",
+      "assigned_to": "Analyst",
+      "team": "research",
+      "epicId": "EPIC-017",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "CEO",
+      "createdAt": "2026-06-13T00:00:00Z",
+      "updatedAt": "2026-06-13T00:00:00Z",
+      "comments": [],
+      "progress": 0,
+      "eta_hours": 40
+    },
+    {
+      "id": "TICKET-041",
+      "title": "Board quality metrics & parity reports",
+      "description": "Analyze Kanban vs Jira sync quality. Track sync latency, mismatch rates, duplicate detection. Weekly board health report.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "planned",
+      "assigned_to": "Analyst",
+      "team": "research",
+      "epicId": "EPIC-017",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "CEO",
+      "createdAt": "2026-06-13T00:00:00Z",
+      "updatedAt": "2026-06-13T00:00:00Z",
+      "comments": [],
+      "progress": 0,
+      "eta_hours": 24
+    },
+    {
+      "id": "TICKET-042",
+      "title": "Workload distribution analysis",
+      "description": "Analyze ticket distribution across agents. Identify overloaded and underutilized agents. Recommend task rebalancing.",
+      "severity": "MEDIUM",
+      "category": "research",
+      "status": "in_progress",
+      "assigned_to": "Analyst",
+      "team": "research",
+      "epicId": "EPIC-017",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "CEO",
+      "createdAt": "2026-06-13T00:00:00Z",
+      "updatedAt": "2026-06-13T00:00:00Z",
+      "comments": [],
+      "progress": 0,
+      "eta_hours": 16
+    },
+    {
+      "id": "TICKET-043",
+      "title": "Code quality audit & cleanup",
+      "description": "Review all agent workspace code for quality, consistency, and security. Fix lint issues, update dependencies, improve documentation.",
+      "severity": "MEDIUM",
+      "category": "qa",
+      "status": "in_progress",
+      "assigned_to": "Doer",
+      "team": "operations",
+      "epicId": "EPIC-018",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "CEO",
+      "createdAt": "2026-06-13T00:00:00Z",
+      "updatedAt": "2026-06-13T00:00:00Z",
+      "comments": [],
+      "progress": 0,
+      "eta_hours": 24
+    },
+    {
+      "id": "TICKET-044",
+      "title": "Automate Kanban column sync with Jira",
+      "description": "Build automated sync between Kanban board columns and Jira statuses. Eliminate manual mapping. Use iris-sync.py as foundation.",
+      "severity": "HIGH",
+      "category": "feature",
+      "status": "in_progress",
+      "assigned_to": "Doer",
+      "team": "operations",
+      "epicId": "EPIC-018",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "CEO",
+      "createdAt": "2026-06-13T00:00:00Z",
+      "updatedAt": "2026-06-13T00:00:00Z",
+      "comments": [],
+      "progress": 0,
+      "eta_hours": 32
+    },
+    {
+      "id": "TICKET-045",
+      "title": "Dependency mapping for EPIC-008 revenue projects",
+      "description": "Break down EPIC-008 revenue projects into child tasks with explicit owners and dependencies. Create visible task dependency graph.",
+      "severity": "HIGH",
+      "category": "feature",
+      "status": "planned",
+      "assigned_to": "Doer",
+      "team": "operations",
+      "epicId": "EPIC-018",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "CEO",
+      "createdAt": "2026-06-13T00:00:00Z",
+      "updatedAt": "2026-06-13T00:00:00Z",
+      "comments": [],
+      "progress": 0,
+      "eta_hours": 16
+    },
+    {
+      "id": "TICKET-046",
+      "title": "Agent onboarding documentation",
+      "description": "Create comprehensive onboarding docs for new agents: setup guide, role descriptions, workflow examples, best practices.",
+      "severity": "MEDIUM",
+      "category": "documentation",
+      "status": "planned",
+      "assigned_to": "Doer",
+      "team": "operations",
+      "epicId": "EPIC-018",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "CEO",
+      "createdAt": "2026-06-13T00:00:00Z",
+      "updatedAt": "2026-06-13T00:00:00Z",
+      "comments": [],
+      "progress": 0,
+      "eta_hours": 24
     }
   ],
   "stats": {
-    "totalTickets": 38,
-    "totalEpics": 16,
+    "totalTickets": 46,
+    "totalEpics": 18,
     "backlog": 0,
-    "in_progress": 14,
+    "in_progress": 16,
     "review": 0,
-    "in_validation": 4,
-    "done": 14,
-    "critical": 1,
+    "in_validation": 2,
+    "done": 20,
+    "critical": 0,
     "blocked": 0,
     "agent_progress": {
       "Lucy": {
@@ -1447,6 +1674,20 @@
         "eta_hours": 16,
         "blocked": 0
       },
+      "Analyst": {
+        "progress": 0,
+        "done": 0,
+        "total": 4,
+        "eta_hours": 112,
+        "blocked": 0
+      },
+      "Doer": {
+        "progress": 0,
+        "done": 0,
+        "total": 4,
+        "eta_hours": 96,
+        "blocked": 0
+      },
       "Metis": {
         "progress": 0,
         "done": 0,
@@ -1462,7 +1703,7 @@
         "blocked": 0
       }
     },
-    "last_progress_update": "2026-06-13T03:00:00.000000"
+    "last_progress_update": "2026-06-13T07:00:00.000000"
   },
   "pending_actions": [
     {
