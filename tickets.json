@@ -867,7 +867,7 @@
       "description": "Improve the Kanban board design and functionality. Monitor agent activity. Fix any broken functionality.",
       "severity": "HIGH",
       "category": "feature",
-      "status": "in_progress",
+      "status": "done",
       "assigned_to": "Claude",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -875,20 +875,49 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-11T00:00:00Z",
-      "updatedAt": "2026-06-11T00:00:00Z",
-      "comments": [],
-      "progress": 0,
-      "eta_hours": 2
+      "updatedAt": "2026-06-12T21:00:00Z",
+      "comments": [
+        {
+          "by": "Claude",
+          "text": "✅ Mobile-first overhaul completed: single-column board with picker, swipe gestures, pull-to-refresh, light/dark theme toggle, offline detection, bottom sheet detail panel, larger touch targets, improved empty states."
+        }
+      ],
+      "progress": 100,
+      "eta_hours": 0
+    },
+    {
+      "id": "TICKET-028",
+      "title": "Kanban v2: Pull-to-refresh, Theme Toggle, Empty States, Offline Detection",
+      "description": "Add pull-to-refresh on mobile, light/dark mode toggle with persistence, improved empty states with illustrations, and offline connectivity detection banner.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "done",
+      "assigned_to": "Claude",
+      "team": "operations",
+      "epicId": "EPIC-005",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "CEO",
+      "createdAt": "2026-06-12T21:00:00Z",
+      "updatedAt": "2026-06-12T21:00:00Z",
+      "comments": [
+        {
+          "by": "Claude",
+          "text": "✅ All features deployed: pull-to-refresh gesture, light/dark theme toggle with localStorage, improved empty states with emoji illustrations, offline detection banner."
+        }
+      ],
+      "progress": 100,
+      "eta_hours": 0
     }
   ],
   "stats": {
-    "totalTickets": 26,
+    "totalTickets": 27,
     "totalEpics": 8,
     "backlog": 11,
     "in_progress": 6,
     "review": 0,
     "in_validation": 1,
-    "done": 8,
+    "done": 10,
     "critical": 5,
     "blocked": 0,
     "agent_progress": {
@@ -1019,13 +1048,13 @@
         "blocked": 0
       },
       "Claude": {
-        "progress": 0,
-        "done": 0,
-        "total": 1,
-        "eta_hours": 2,
+        "progress": 100,
+        "done": 2,
+        "total": 2,
+        "eta_hours": 0,
         "blocked": 0
       }
     }
   },
-  "last_progress_update": "2026-06-12T19:39:09.814338"
+  "last_progress_update": "2026-06-12T21:15:00.000000"
 }

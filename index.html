@@ -386,6 +386,31 @@ a{color:var(--blue);text-decoration:none}
 
 /* ═══ EMPTY STATE ═══ */
 .empty{display:flex;align-items:center;justify-content:center;height:60px;color:var(--text3);font-size:11px;text-align:center;padding:10px}
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:120px;color:var(--text3);font-size:13px;text-align:center;padding:20px;gap:8px}
+.empty-state .empty-icon{font-size:32px;opacity:.5}
+.empty-state .empty-text{color:var(--text3);font-size:12px;line-height:1.4}
+.empty-state .empty-hint{color:var(--text3);font-size:10px;opacity:.7}
+
+/* ═══ THEME TOGGLE ═══ */
+.theme-btn{background:none;border:1px solid var(--border);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;transition:var(--transition)}
+.theme-btn:active{transform:scale(.9);background:var(--bg4)}
+
+/* ═══ PULL TO REFRESH ═══ */
+.ptr-indicator{display:none;justify-content:center;align-items:center;gap:8px;padding:8px;color:var(--text3);font-size:11px;background:var(--bg2);flex-shrink:0}
+.ptr-indicator.visible{display:flex}
+.ptr-indicator .ptr-arrow{transition:transform .2s}
+.ptr-indicator.ptr-ready .ptr-arrow{transform:rotate(180deg)}
+.ptr-indicator.ptr-loading .ptr-arrow{animation:spin .6s linear infinite}
+
+/* ═══ OFFLINE BANNER ═══ */
+.offline-banner{display:none;background:var(--orange);color:#000;padding:8px 16px;text-align:center;font-size:12px;font-weight:600;flex-shrink:0;z-index:101}
+.offline-banner.visible{display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* ═══ LIGHT THEME ═══ */
+body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8f0;--border2:#cbd5e1;--text:#0f172a;--text2:#475569;--text3:#94a3b8}
+.light .hdr{background:linear-gradient(135deg,#fff 0%,#f8fafc 100%)}
+.light .col,.light .dp,.light .agent-card,.light .lv-card,.light .bg-item,.light .tk,.light .ds-desc,.light .cm,.light .eg{background:var(--bg3)}
+.light .tk:hover{border-color:var(--border2)}
 
 /* ═══════════════════════════════════════════════════════════════
    RESPONSIVE — TABLET & MOBILE
@@ -469,6 +494,7 @@ a{color:var(--blue);text-decoration:none}
     <a class="btn jira-link" href="https://opends007.atlassian.net/jira/software/projects/TD/boards/2" target="_blank" rel="noopener">📋 <span class="jira-text">Jira →</span></a>
     <button class="btn btn-icon" onclick="toggleFullscreen()" title="Fullscreen" aria-label="Fullscreen">⛶</button>
     <button class="btn btn-pri" onclick="loadData()">↻ Sync</button>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">🌙</button>
   </div>
 </div>
 
@@ -479,6 +505,12 @@ a{color:var(--blue);text-decoration:none}
   <button class="tab" id="tab-backlog" onclick="goView('backlog')">📦 Backlog</button>
   <button class="tab" id="tab-team" onclick="goView('team')">👥 Team <span class="num">18</span></button>
 </div>
+
+<!-- ═══ OFFLINE BANNER ═══ -->
+<div class="offline-banner" id="offlineBanner">📡 You are offline — data may be stale</div>
+
+<!-- ═══ PULL TO REFRESH (mobile) ═══ -->
+<div class="ptr-indicator" id="ptrIndicator"><span class="ptr-arrow">↻</span> <span id="ptrText">Pull to refresh</span></div>
 
 <!-- ═══ COLUMN PICKER (mobile) ═══ -->
 <div class="col-picker" id="colPicker"></div>
@@ -609,7 +641,7 @@ function rBoard(){
       if(t.col===s)html+=tkHTML(t,null);
     });
 
-    if(!epicsInCol.length&&!orphansInCol.length)html+='<div class="empty">No items</div>';
+    if(!epicsInCol.length&&!orphansInCol.length)html+='<div class="empty-state"><span class="empty-icon">📭</span><span class="empty-text">No items here</span><span class="empty-hint">Tickets will appear when added to this column</span></div>';
     html+='</div></div>';
   });
 
@@ -661,7 +693,7 @@ function rBoardMobile(){
     if(t.col===s)html+=tkHTML(t,null);
   });
 
-  if(!epicsInCol.length&&!orphansInCol.length)html+='<div class="empty">No items in this column</div>';
+  if(!epicsInCol.length&&!orphansInCol.length)html+='<div class="empty-state"><span class="empty-icon">📭</span><span class="empty-text">No items in this column</span><span class="empty-hint">Swipe left/right to check other columns</span></div>';
   html+='</div></div>';
 
   document.getElementById('view-kanban-mobile').innerHTML=html;
@@ -906,6 +938,88 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDetail(
     var dy=e.changedTouches[0].clientY-startY;
     if(dy>80&&dp.classList.contains('op')){
       closeDetail();
+    }
+  },{passive:true});
+})();
+
+/* ═══ THEME TOGGLE ═══ */
+function toggleTheme(){
+  var isLight=document.body.classList.toggle('light');
+  var btn=document.getElementById('themeBtn');
+  if(btn)btn.textContent=isLight?'☀️':'🌙';
+  try{localStorage.setItem('mc-theme',isLight?'light':'dark')}catch(e){}
+}
+(function(){
+  try{
+    var t=localStorage.getItem('mc-theme');
+    if(t==='light'){document.body.classList.add('light');var b=document.getElementById('themeBtn');if(b)b.textContent='☀️'}
+  }catch(e){}
+})();
+
+/* ═══ OFFLINE DETECTION ═══ */
+function updateOnlineStatus(){
+  var banner=document.getElementById('offlineBanner');
+  if(!banner)return;
+  if(!navigator.onLine){
+    banner.classList.add('visible');
+    showNotif('📡 You are offline','error');
+  }else{
+    banner.classList.remove('visible');
+    showNotif('📡 Back online — syncing...','success');
+    loadData();
+  }
+}
+window.addEventListener('online',updateOnlineStatus);
+window.addEventListener('offline',updateOnlineStatus);
+
+/* ═══ PULL TO REFRESH (mobile) ═══ */
+(function(){
+  var ptr=document.getElementById('ptrIndicator');
+  var ptrText=document.getElementById('ptrText');
+  var startY=0,curY=0,pulling=false,refreshing=false;
+  var threshold=80;
+  var mainEl=document.querySelector('.main');
+  if(!ptr||!mainEl)return;
+
+  mainEl.addEventListener('touchstart',function(e){
+    if(mainEl.scrollTop>0)return;
+    startY=e.touches[0].clientY;
+    pulling=true;
+    ptr.classList.remove('ptr-ready','ptr-loading');
+  },{passive:true});
+
+  mainEl.addEventListener('touchmove',function(e){
+    if(!pulling||refreshing)return;
+    curY=e.touches[0].clientY;
+    var dy=curY-startY;
+    if(dy>0&&mainEl.scrollTop<=0){
+      e.preventDefault();
+      if(dy>threshold){
+        ptr.classList.add('ptr-ready');
+        ptrText.textContent='Release to refresh';
+      }else{
+        ptr.classList.remove('ptr-ready');
+        ptrText.textContent='Pull to refresh';
+      }
+      ptr.style.transform='translateY('+Math.min(dy*.3,60)+'px)';
+    }
+  },{passive:false});
+
+  mainEl.addEventListener('touchend',function(e){
+    if(!pulling)return;
+    pulling=false;
+    ptr.style.transform='';
+    if(ptr.classList.contains('ptr-ready')&&!refreshing){
+      refreshing=true;
+      ptr.classList.remove('ptr-ready');
+      ptr.classList.add('ptr-loading');
+      ptrText.textContent='Syncing...';
+      loadData();
+      setTimeout(function(){
+        refreshing=false;
+        ptr.classList.remove('ptr-loading');
+        ptrText.textContent='Pull to refresh';
+      },1000);
     }
   },{passive:true});
 })();
