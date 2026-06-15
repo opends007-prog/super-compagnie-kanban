@@ -181,13 +181,12 @@ a{color:var(--blue);text-decoration:none}
 .col-body{flex:1;overflow-y:auto;padding:8px;min-height:0;-webkit-overflow-scrolling:touch}
 
 /* Column colors */
-.col-todo .col-dot{background:var(--text3)}.col-todo .col-title{color:var(--text3)}
+.col-backlog .col-dot{background:var(--text3)}.col-backlog .col-title{color:var(--text3)}
 .col-planned .col-dot{background:var(--orange)}.col-planned .col-title{color:var(--orange)}
 .col-progress .col-dot{background:var(--blue);animation:blink 1.5s ease-in-out infinite}.col-progress .col-title{color:var(--blue)}
-.col-review .col-dot{background:var(--purple)}.col-review .col-title{color:var(--purple)}
+.col-waiting .col-dot{background:var(--text3);opacity:.5}.col-waiting .col-title{color:var(--text3);opacity:.7}
 .col-validation .col-dot{background:var(--cyan)}.col-validation .col-title{color:var(--cyan)}
 .col-done .col-dot{background:var(--green)}.col-done .col-title{color:var(--green)}
-.col-waiting .col-dot{background:var(--text3);opacity:.5}.col-waiting .col-title{color:var(--text3);opacity:.7}
 
 /* ═══ TICKET CARD ═══ */
 .tk{
@@ -285,7 +284,7 @@ a{color:var(--blue);text-decoration:none}
 .sd{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .sd.done{background:var(--green)}.sd.in_progress{background:var(--blue)}
 .sd.backlog{background:var(--border2)}.sd.in_validation{background:var(--cyan)}
-.sd.review{background:var(--purple)}.sd.planned{background:var(--orange)}
+.sd.planned{background:var(--orange)}.sd.waiting{background:var(--border2)}
 .sd.blocked{background:var(--red)}
 .pd{font-size:12px;font-weight:600}
 .progress{height:5px;background:var(--bg4);border-radius:3px;margin:6px 0;overflow:hidden}
@@ -331,6 +330,41 @@ a{color:var(--blue);text-decoration:none}
 .bg-title{font-size:12px;font-weight:500;color:var(--text)}
 .bg-meta{display:flex;gap:6px;margin-top:4px;align-items:center;font-size:10px;color:var(--text3);flex-wrap:wrap}
 
+/* ═══ ACTIVITY VIEW ═══ */
+.activity-view{flex:1;overflow:auto;padding:12px;display:none;min-height:0;-webkit-overflow-scrolling:touch}
+.activity-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px;flex-wrap:wrap}
+.activity-title{font-size:14px;font-weight:600;color:var(--text)}
+.activity-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.activity-filter{padding:4px 8px;border-radius:4px;border:1px solid var(--border);background:var(--bg3);color:var(--text);font-size:11px;min-height:28px}
+.activity-filter:focus{border-color:var(--blue);outline:none}
+.activity-btn{padding:4px 10px;border-radius:4px;border:1px solid var(--border);background:var(--bg3);color:var(--text);font-size:11px;cursor:pointer;min-height:28px;transition:var(--transition)}
+.activity-btn:hover{background:var(--bg4)}
+.activity-btn.paused{background:var(--orange);color:#000;border-color:var(--orange)}
+.activity-list{display:flex;flex-direction:column;gap:4px}
+.activity-item{display:flex;gap:10px;padding:8px 10px;background:var(--bg3);border-radius:var(--radius);border:1px solid var(--border);transition:var(--transition)}
+.activity-item:hover{border-color:var(--border2)}
+.activity-item.new{animation:fadeIn .3s ease}
+.activity-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;background:var(--bg4)}
+.activity-content{flex:1;min-width:0}
+.activity-meta{display:flex;gap:8px;align-items:center;margin-bottom:2px}
+.activity-agent{font-size:11px;font-weight:600;color:var(--blue)}
+.activity-time{font-size:10px;color:var(--text3);font-family:var(--font-mono)}
+.activity-type{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:600;text-transform:uppercase}
+.activity-type.jira_update{background:rgba(59,130,246,.2);color:var(--blue)}
+.activity-type.status_change{background:rgba(34,197,94,.2);color:var(--green)}
+.activity-type.comment{background:rgba(245,158,11,.2);color:var(--orange)}
+.activity-type.assignment{background:rgba(168,85,247,.2);color:var(--purple)}
+.activity-type.system{background:rgba(100,116,139,.2);color:var(--text3)}
+.activity-text{font-size:12px;color:var(--text);line-height:1.3}
+.activity-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:200px;color:var(--text3);font-size:12px;gap:8px}
+.activity-empty-icon{font-size:32px;opacity:.5}
+.activity-stats{font-size:10px;color:var(--text3);font-family:var(--font-mono)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){
+  .activity-hdr{flex-direction:column;align-items:stretch}
+  .activity-controls{justify-content:space-between}
+  .activity-filter{flex:1}
+}
 /* ═══ TEAM VIEW ═══ */
 .team-view{flex:1;overflow:auto;padding:12px;display:none;min-height:0;-webkit-overflow-scrolling:touch}
 .team-section{margin-bottom:18px}
@@ -504,6 +538,7 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
   <button class="tab" id="tab-list" onclick="goView('list')">📝 List</button>
   <button class="tab" id="tab-backlog" onclick="goView('backlog')">📦 Backlog</button>
   <button class="tab" id="tab-team" onclick="goView('team')">👥 Team <span class="num">18</span></button>
+  <button class="tab" id="tab-activity" onclick="goView('activity')">⚡ Activity <span class="num" id="activity-count">0</span></button>
 </div>
 
 <!-- ═══ OFFLINE BANNER ═══ -->
@@ -528,6 +563,8 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
   <div id="view-backlog" class="bg-view"></div>
   <!-- Team View -->
   <div id="view-team" class="team-view"></div>
+  <!-- Activity View -->
+  <div id="view-activity" class="activity-view"></div>
   <!-- Detail Panel -->
   <div class="dp" id="dp">
     <div class="dp-hdr"><h2 id="dtitle">Detail</h2><button class="dp-close" onclick="closeDetail()" aria-label="Close">✕</button></div>
@@ -540,10 +577,10 @@ var D={epics:[],tickets:[],stats:{}};
 var CV='kanban';
 var mobileColIdx=0;
 
-var COL_MAP={backlog:'todo',planned:'planned',in_progress:'progress',review:'review',in_validation:'validation',done:'done',waiting:'waiting'};
-var COL_ORDER=['todo','planned','progress','review','validation','done','waiting'];
-var COL_NAMES={todo:'📋 To Do',planned:'📌 Planned',progress:'🔧 In Progress',review:'👀 Review',validation:'🔍 Validation',done:'✅ Done',waiting:'⏳ Waiting'};
-var COL_DOTS={todo:'#64748b',planned:'#f59e0b',progress:'#3b82f6',review:'#a855f7',validation:'#06b6d4',done:'#22c55e',waiting:'#64748b'};
+var COL_MAP={backlog:'backlog',planned:'planned',in_progress:'progress',review:'validation',in_validation:'validation',done:'done',waiting:'waiting'};
+var COL_ORDER=['backlog','planned','progress','waiting','validation','done'];
+var COL_NAMES={backlog:'📦 Backlog',planned:'📌 Planned',progress:'🔧 In Progress',waiting:'⏳ Waiting for Support',validation:'🔍 In Validation',done:'✅ Done'};
+var COL_DOTS={backlog:'#64748b',planned:'#f59e0b',progress:'#3b82f6',waiting:'#64748b',validation:'#06b6d4',done:'#22c55e'};
 
 function loadData(){
   fetch('tickets.json?t='+Date.now())
@@ -562,20 +599,20 @@ function recalc(){
   var tk=D.tickets||[],ep=D.epics||[];
   ep.forEach(function(e){
     var st=tk.filter(function(t){return t.epicId===e.id});
-    if(!st.length){e.progress=0;e.col='todo';return}
+    if(!st.length){e.progress=0;e.col='backlog';return}
     var dn=st.filter(function(s){return s.status==='done'}).length;
-    var active=st.filter(function(s){return s.status in {in_progress:1,review:1,in_validation:1,planned:1}}).length;
+    var active=st.filter(function(s){return s.status in {in_progress:1,waiting:1,in_validation:1,planned:1}}).length;
     e.progress=Math.round(dn/st.length*100);
-    e.col=(dn===st.length)?'done':(active>0)?'progress':'todo';
+    e.col=(dn===st.length)?'done':(active>0)?'progress':'backlog';
   });
-  tk.forEach(function(t){t.col=COL_MAP[t.status]||'todo'});
+  tk.forEach(function(t){t.col=COL_MAP[t.status]||'backlog'});
 }
 
 function goView(v){
   CV=v;
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
   document.getElementById('tab-'+v).classList.add('active');
-  ['kanban','list','backlog','team'].forEach(function(view){
+  ['kanban','list','backlog','team','activity'].forEach(function(view){
     var el=document.getElementById('view-'+view);
     if(el){if(v===view){el.style.display=(view==='kanban')?'flex':'block'}else{el.style.display='none';}}
   });
@@ -587,6 +624,7 @@ function goView(v){
   if(dots){dots.style.display=(v==='kanban')?'flex':'none';}
   closeDetail();
   render();
+  if(v==='activity'){startActivityStream();}else{stopActivityStream();}
 }
 
 function render(){
@@ -604,7 +642,7 @@ function render(){
 
 function rStats(){
   var tk=D.tickets||[],ep=D.epics||[];
-  var active=tk.filter(function(t){return t.status in {in_progress:1,review:1,in_validation:1,planned:1}}).length;
+  var active=tk.filter(function(t){return t.status in {in_progress:1,waiting:1,in_validation:1,planned:1}}).length;
   document.getElementById('badge-epics').textContent=ep.length+' Epics';
   document.getElementById('badge-tickets').textContent=tk.length+' Tickets';
   document.getElementById('badge-active').textContent=active+' Active';
@@ -881,7 +919,7 @@ function openTD(id){
   h+='<div class="ds"><div class="ds-id">'+t.id+(epic?' · ⬆ '+epic.id+': '+epic.title:'')+'</div><div class="ds-title">'+t.title+'</div></div>';
   h+='<div class="ds"><div class="ds-label">Description</div><div class="ds-desc">'+(t.description||'No description')+'</div></div>';
   h+='<div class="ds-row"><div class="ds-col"><div class="ds-label">Status</div><select class="ds-select" onchange="uStatus(\''+t.id+'\',this.value)">';
-  ['backlog','planned','in_progress','review','in_validation','done','waiting'].forEach(function(s){
+  ['backlog','planned','in_progress','waiting','in_validation','done'].forEach(function(s){
     h+='<option value="'+s+'"'+(t.status===s?' selected':'')+'>'+s.replace(/_/g,' ')+'</option>';
   });
   h+='</select></div>';
