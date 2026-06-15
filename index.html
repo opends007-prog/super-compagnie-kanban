@@ -341,8 +341,8 @@ a{color:var(--blue);text-decoration:none}
 .activity-btn:hover{background:var(--bg4)}
 .activity-btn.paused{background:var(--orange);color:#000;border-color:var(--orange)}
 .activity-list{display:flex;flex-direction:column;gap:4px}
-.activity-item{display:flex;gap:10px;padding:8px 10px;background:var(--bg3);border-radius:var(--radius);border:1px solid var(--border);transition:var(--transition)}
-.activity-item:hover{border-color:var(--border2)}
+.activity-item{display:flex;gap:10px;padding:8px 10px;background:var(--bg3);border-radius:var(--radius);border:1px solid var(--border);transition:var(--transition);cursor:pointer}
+.activity-item:hover{border-color:var(--border2);background:var(--bg4)}
 .activity-item.new{animation:fadeIn .3s ease}
 .activity-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;background:var(--bg4)}
 .activity-content{flex:1;min-width:0}
@@ -791,12 +791,37 @@ function tkHTML(t,ec){
 }
 
 /* ═══ LIST VIEW ═══ */
+var listSearchQuery='';
+
+function listSetSearch(v){
+  listSearchQuery=v.toLowerCase();
+  rList();
+}
+
 function rList(){
   var el=document.getElementById('view-list'),h='';
+  // Search bar
+  h+='<div style="margin-bottom:8px;display:flex;gap:6px;align-items:center">';
+  h+='<input class="ds-input" type="text" placeholder="🔍 Search tickets, epics, agents..." value="'+listSearchQuery+'" oninput="listSetSearch(this.value)" style="flex:1;min-height:32px;font-size:12px">';
+  if(listSearchQuery) h+='<button class="btn" onclick="listSetSearch(\'\')" style="min-height:32px;font-size:11px">✕ Clear</button>';
+  h+='</div>';
   h+='<table class="lv-table"><thead><tr><th class="lv-th">Key</th><th class="lv-th">Title</th><th class="lv-th">Epic</th><th class="lv-th">Status</th><th class="lv-th">Priority</th><th class="lv-th">Assignee</th></tr></thead><tbody>';
   var all=[];
   (D.epics||[]).forEach(function(e){all.push({key:e.id,title:e.title,epic:'-',status:e.status,priority:e.priority||'Medium',assignee:e.assignee||'-',isEpic:true,progress:e.progress})});
   (D.tickets||[]).forEach(function(e){all.push({key:e.id,title:e.title,epic:e.epicId||'-',status:e.status,priority:e.severity,assignee:e.assigned_to||'-',isEpic:false})});
+  // Filter by search
+  if(listSearchQuery){
+    all=all.filter(function(item){
+      return item.key.toLowerCase().indexOf(listSearchQuery)!==-1||
+             item.title.toLowerCase().indexOf(listSearchQuery)!==-1||
+             item.epic.toLowerCase().indexOf(listSearchQuery)!==-1||
+             item.assignee.toLowerCase().indexOf(listSearchQuery)!==-1||
+             item.status.toLowerCase().indexOf(listSearchQuery)!==-1;
+    });
+  }
+  if(all.length===0){
+    h+='<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--text3);font-size:12px">No results found</td></tr>';
+  }
   all.forEach(function(item){
     var st=item.status.replace(/_/g,' ');
     h+='<tr class="lv-tr" onclick="'+(item.isEpic?'openED':'openTD')+'(\''+item.key+'\')">';
@@ -821,6 +846,10 @@ function rList(){
     h+='</div>';
   });
   h+='</div>';
+  // Result count
+  if(listSearchQuery){
+    h+='<div style="text-align:center;padding:8px;color:var(--text3);font-size:11px">Showing '+all.length+' results</div>';
+  }
 
   el.innerHTML=h;
 }
@@ -1098,12 +1127,10 @@ function stopActivityStream(){
 }
 
 function activityLoadHistory(){
-  // Generate historical events from current ticket data
   var events=[];
   var tickets=D.tickets||[];
   var epics=D.epics||[];
   var now=Date.now();
-  // Add ticket status changes from comments
   tickets.forEach(function(t){
     if(t.comments&&t.comments.length>0){
       t.comments.forEach(function(c,i){
@@ -1112,35 +1139,48 @@ function activityLoadHistory(){
           agent:t.assigned_to||'Unknown',
           emoji:agentEmoji(t.assigned_to),
           type:'comment',
-          content:t.id+': '+c.text,
-          ticketId:t.id
+          content:c.text.substring(0,80),
+          ticketId:t.id,
+          ticketTitle:t.title
         });
       });
     }
-    // Add assignment event
     if(t.assigned_to){
       events.push({
         timestamp:now-300000,
         agent:t.assigned_to,
         emoji:agentEmoji(t.assigned_to),
         type:'assignment',
-        content:t.id+' assigned: '+t.title.substring(0,50),
-        ticketId:t.id
+        content:'Assigned: '+t.title.substring(0,60),
+        ticketId:t.id,
+        ticketTitle:t.title
       });
     }
-    // Add status event
     if(t.status==='in_progress'||t.status==='done'){
       events.push({
         timestamp:now-600000,
         agent:t.assigned_to||'Unknown',
         emoji:agentEmoji(t.assigned_to),
         type:'status_change',
-        content:t.id+' moved to '+t.status.replace(/_/g,' ')+': '+t.title.substring(0,50),
-        ticketId:t.id
+        content:t.status.replace(/_/g,' ')+': '+t.title.substring(0,60),
+        ticketId:t.id,
+        ticketTitle:t.title
       });
     }
   });
-  // Sort by timestamp descending
+  epics.forEach(function(e){
+    var st=(D.tickets||[]).filter(function(x){return x.epicId===e.id});
+    var dn=st.filter(function(x){return x.status==='done'}).length;
+    events.push({
+      timestamp:now-900000,
+      agent:e.assignee||'Unknown',
+      emoji:agentEmoji(e.assignee),
+      type:'system',
+      content:e.id+' ('+dn+'/'+st.length+' done): '+e.title.substring(0,50),
+      epicId:e.id,
+      ticketTitle:e.title
+    });
+  });
   events.sort(function(a,b){return b.timestamp-a.timestamp});
   activityEvents=events.slice(0,100);
   activityUpdateFilterOptions();
@@ -1149,8 +1189,18 @@ function activityLoadHistory(){
 
 function activityFetchEvents(){
   if(activityPaused)return;
-  // Re-generate events from current ticket data (works without backend)
   activityLoadHistory();
+}
+
+function activityOpenItem(e){
+  if(e.ticketId){
+    var t=(D.tickets||[]).find(function(x){return x.id===e.ticketId});
+    if(t){openTD(t.id);return;}
+  }
+  if(e.epicId){
+    var ep=(D.epics||[]).find(function(x){return x.id===e.epicId});
+    if(ep){openED(ep.id);return;}
+  }
 }
 
 function activityRender(){
@@ -1163,31 +1213,26 @@ function activityRender(){
     if(activityFilterKeyword&&e.content.toLowerCase().indexOf(activityFilterKeyword.toLowerCase())===-1)return false;
     return true;
   });
-  // Update badge
   if(countBadge)countBadge.textContent=String(filtered.length);
-  // Update stats
   if(stats)stats.textContent='Showing '+filtered.length+' of '+activityEvents.length+' events';
   if(filtered.length===0){
-    list.innerHTML='<div class="empty-state activity-empty"><span class="empty-icon">📭</span><span>No activity matching filters</span></div>';
+    list.innerHTML='<div class="empty-state activity-empty"><span class="empty-icon">📭</span><span>No activity matching filters or data still loading...</span></div>';
     return;
   }
   var html='';
   filtered.slice(0,50).forEach(function(e){
     var timeStr=new Date(e.timestamp).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
-    html+='<div class="activity-item'+(e._new?' new':'')+'">';
+    var ref=e.ticketId?'Ticket: '+e.ticketId:(e.epicId?'Epic: '+e.epicId:'');
+    html+='<div class="activity-item'+(e._new?' new':'')+'" onclick="activityOpenItem('+JSON.stringify(e).replace(/"/g,'&quot;')+')" style="cursor:pointer">';
     html+='<div class="activity-avatar">'+(e.emoji||'🤖')+'</div>';
     html+='<div class="activity-content">';
-    html+='<div class="activity-meta"><span class="activity-agent">'+(e.agent||'System')+'</span><span class="activity-time">'+timeStr+'</span><span class="activity-type '+e.type+'">'+e.type.replace(/_/g,' ')+'</span></div>';
+    html+='<div class="activity-meta"><span class="activity-agent">'+(e.agent||'System')+'</span><span class="activity-time">'+timeStr+'</span><span class="activity-type '+e.type+'">'+e.type.replace(/_/g,' ')+'</span><span style="font-size:9px;color:var(--blue);margin-left:4px">'+ref+'</span></div>';
     html+='<div class="activity-text">'+escapeHtml(e.content)+'</div>';
     html+='</div></div>';
   });
   list.innerHTML=html;
-  // Auto-scroll to top if not paused
-  if(!activityPaused){
-    list.scrollTop=0;
-  }
+  if(!activityPaused){list.scrollTop=0;}
 }
-
 function activityUpdateFilterOptions(){
   var sel=document.getElementById('activity-agent-filter');
   if(!sel)return;
