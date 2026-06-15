@@ -1062,6 +1062,178 @@ window.addEventListener('offline',updateOnlineStatus);
   },{passive:true});
 })();
 
+/* ═══ ACTIVITY STREAM ═══ */
+var activityEvents=[];
+var activityPoll=null;
+var activityPaused=false;
+var activityFilterAgent='';
+var activityFilterKeyword='';
+
+function startActivityStream(){
+  var el=document.getElementById('view-activity');
+  if(!el)return;
+  // Render initial structure
+  el.innerHTML='<div class="activity-hdr"><div class="activity-title">⚡ Agent Activity Stream</div><div class="activity-controls"><select class="activity-filter" id="activity-agent-filter" onchange="activitySetAgent(this.value)"><option value="">All Agents</option></select><input class="activity-filter" id="activity-keyword-filter" type="text" placeholder="Filter by keyword..." oninput="activitySetKeyword(this.value)" style="min-width:120px"><button class="activity-btn" id="activity-pause-btn" onclick="activityTogglePause()">⏸ Pause</button><button class="activity-btn" onclick="activityClear()">🗑 Clear</button></div></div><div class="activity-stats" id="activity-stats"></div><div class="activity-list" id="activity-list"><div class="empty-state activity-empty"><span class="empty-icon">📡</span><span>Waiting for agent activity...</span></div></div>';
+  // Load historical events
+  activityLoadHistory();
+  // Start polling
+  activityPoll=setInterval(activityFetchEvents,5000);
+  activityFetchEvents();
+}
+
+function stopActivityStream(){
+  if(activityPoll){clearInterval(activityPoll);activityPoll=null;}
+}
+
+function activityLoadHistory(){
+  // Generate historical events from current ticket data
+  var events=[];
+  var tickets=D.tickets||[];
+  var epics=D.epics||[];
+  var now=Date.now();
+  // Add ticket status changes from comments
+  tickets.forEach(function(t){
+    if(t.comments&&t.comments.length>0){
+      t.comments.forEach(function(c,i){
+        events.push({
+          timestamp:now-(t.comments.length-i)*60000,
+          agent:t.assigned_to||'Unknown',
+          emoji:agentEmoji(t.assigned_to),
+          type:'comment',
+          content:t.id+': '+c.text,
+          ticketId:t.id
+        });
+      });
+    }
+    // Add assignment event
+    if(t.assigned_to){
+      events.push({
+        timestamp:now-300000,
+        agent:t.assigned_to,
+        emoji:agentEmoji(t.assigned_to),
+        type:'assignment',
+        content:t.id+' assigned: '+t.title.substring(0,50),
+        ticketId:t.id
+      });
+    }
+    // Add status event
+    if(t.status==='in_progress'||t.status==='done'){
+      events.push({
+        timestamp:now-600000,
+        agent:t.assigned_to||'Unknown',
+        emoji:agentEmoji(t.assigned_to),
+        type:'status_change',
+        content:t.id+' moved to '+t.status.replace(/_/g,' ')+': '+t.title.substring(0,50),
+        ticketId:t.id
+      });
+    }
+  });
+  // Sort by timestamp descending
+  events.sort(function(a,b){return b.timestamp-a.timestamp});
+  activityEvents=events.slice(0,100);
+  activityUpdateFilterOptions();
+  activityRender();
+}
+
+function activityFetchEvents(){
+  if(activityPaused)return;
+  // Poll for new events from the server
+  fetch('agent-activity.json?t='+Date.now())
+    .then(function(r){return r.json()})
+    .then(function(data){
+      if(data&&data.events&&data.events.length>0){
+        var newEvents=data.events.filter(function(e){
+          return!activityEvents.some(function(ex){return ex.timestamp===e.timestamp+':'+e.content});
+        });
+        if(newEvents.length>0){
+          activityEvents=activityEvents.concat(newEvents);
+          activityEvents.sort(function(a,b){return b.timestamp-a.timestamp});
+          activityEvents=activityEvents.slice(0,200);
+          activityUpdateFilterOptions();
+          activityRender();
+        }
+      }
+    })
+    .catch(function(){/* Silently fail if endpoint not available */});
+}
+
+function activityRender(){
+  var list=document.getElementById('activity-list');
+  var stats=document.getElementById('activity-stats');
+  var countBadge=document.getElementById('activity-count');
+  if(!list)return;
+  var filtered=activityEvents.filter(function(e){
+    if(activityFilterAgent&&e.agent!==activityFilterAgent)return false;
+    if(activityFilterKeyword&&e.content.toLowerCase().indexOf(activityFilterKeyword.toLowerCase())===-1)return false;
+    return true;
+  });
+  // Update badge
+  if(countBadge)countBadge.textContent=String(filtered.length);
+  // Update stats
+  if(stats)stats.textContent='Showing '+filtered.length+' of '+activityEvents.length+' events';
+  if(filtered.length===0){
+    list.innerHTML='<div class="empty-state activity-empty"><span class="empty-icon">📭</span><span>No activity matching filters</span></div>';
+    return;
+  }
+  var html='';
+  filtered.slice(0,50).forEach(function(e){
+    var timeStr=new Date(e.timestamp).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+    html+='<div class="activity-item'+(e._new?' new':'')+'">';
+    html+='<div class="activity-avatar">'+(e.emoji||'🤖')+'</div>';
+    html+='<div class="activity-content">';
+    html+='<div class="activity-meta"><span class="activity-agent">'+(e.agent||'System')+'</span><span class="activity-time">'+timeStr+'</span><span class="activity-type '+e.type+'">'+e.type.replace(/_/g,' ')+'</span></div>';
+    html+='<div class="activity-text">'+escapeHtml(e.content)+'</div>';
+    html+='</div></div>';
+  });
+  list.innerHTML=html;
+  // Auto-scroll to top if not paused
+  if(!activityPaused){
+    list.scrollTop=0;
+  }
+}
+
+function activityUpdateFilterOptions(){
+  var sel=document.getElementById('agent-filter');
+  if(!sel)return;
+  var agents={};
+  activityEvents.forEach(function(e){if(e.agent)agents[e.agent]=true});
+  var current=sel.value;
+  var html='<option value="">All Agents</option>';
+  Object.keys(agents).sort().forEach(function(a){
+    html+='<option value="'+a+'"'+(a===current?' selected':'')+'>'+a+'</option>';
+  });
+  sel.innerHTML=html;
+}
+
+function activitySetAgent(v){
+  activityFilterAgent=v;
+  activityRender();
+}
+
+function activitySetKeyword(v){
+  activityFilterKeyword=v;
+  activityRender();
+}
+
+function activityTogglePause(){
+  activityPaused=!activityPaused;
+  var btn=document.getElementById('activity-pause-btn');
+  if(btn){
+    btn.textContent=activityPaused?'▶ Resume':'⏸ Pause';
+    btn.classList.toggle('paused',activityPaused);
+  }
+}
+
+function activityClear(){
+  activityEvents=[];
+  activityRender();
+}
+
+function agentEmoji(name){
+  var emojis={'Lucy':'👩‍💼','Zeus':'⚡','Gladiator':'⚔️','Thor':'🔨','Athena':'🛡️','Hades':'💀','Iris':'🌈','Hermes':'📡','Minerva':'🔮','Clio':'📊','Vulcan':'🔥','Plutus':'💰','Hestia':'📒','Juno':'⚖️','Fortuna':'🍀','Nemesis':'👁️','Argus':'🔭','Metis':'🧠','Claude':'🤖','Analyst':'📈','Doer':'🔧','Sentinel':'🛡️'};
+  return emojis[name]||'🤖';
+}
+
 loadData();
 setInterval(loadData,30000);
 </script>
