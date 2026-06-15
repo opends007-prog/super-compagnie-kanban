@@ -590,6 +590,10 @@ function loadData(){
       console.log('Loaded:',D.epics.length,'epics,',D.tickets.length,'tickets,',(D.agents||[]).length,'agents');
       recalc();
       render();
+      // Refresh activity stream with new ticket data
+      if(CV==='activity'){
+        activityLoadHistory();
+      }
       showNotif('Data synced: '+D.tickets.length+' tickets, '+(D.agents||[]).length+' agents','success');
     })
     .catch(e=>{console.error(e);showNotif('Sync failed','error');});
@@ -1145,24 +1149,8 @@ function activityLoadHistory(){
 
 function activityFetchEvents(){
   if(activityPaused)return;
-  // Poll for new events from the server
-  fetch('agent-activity.json?t='+Date.now())
-    .then(function(r){return r.json()})
-    .then(function(data){
-      if(data&&data.events&&data.events.length>0){
-        var newEvents=data.events.filter(function(e){
-          return!activityEvents.some(function(ex){return ex.timestamp===e.timestamp+':'+e.content});
-        });
-        if(newEvents.length>0){
-          activityEvents=activityEvents.concat(newEvents);
-          activityEvents.sort(function(a,b){return b.timestamp-a.timestamp});
-          activityEvents=activityEvents.slice(0,200);
-          activityUpdateFilterOptions();
-          activityRender();
-        }
-      }
-    })
-    .catch(function(){/* Silently fail if endpoint not available */});
+  // Re-generate events from current ticket data (works without backend)
+  activityLoadHistory();
 }
 
 function activityRender(){
@@ -1201,7 +1189,7 @@ function activityRender(){
 }
 
 function activityUpdateFilterOptions(){
-  var sel=document.getElementById('agent-filter');
+  var sel=document.getElementById('activity-agent-filter');
   if(!sel)return;
   var agents={};
   activityEvents.forEach(function(e){if(e.agent)agents[e.agent]=true});
