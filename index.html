@@ -577,10 +577,10 @@ var D={epics:[],tickets:[],stats:{}};
 var CV='kanban';
 var mobileColIdx=0;
 
-var COL_MAP={backlog:'backlog',planned:'planned',in_progress:'progress',waiting:'waiting',in_validation:'validation',done:'done'};
-var COL_ORDER=['backlog','planned','progress','waiting','validation','done'];
-var COL_NAMES={backlog:'📦 Backlog',planned:'📌 Planned',progress:'🔧 In Progress',waiting:'⏳ Waiting for Support',validation:'🔍 In Validation',done:'✅ Done'};
-var COL_DOTS={backlog:'#64748b',planned:'#f59e0b',progress:'#3b82f6',waiting:'#64748b',validation:'#06b6d4',done:'#22c55e'};
+// Column = Status. Stories appear in the column matching their status.
+var COL_ORDER=['backlog','planned','in_progress','waiting','in_validation','done'];
+var COL_NAMES={backlog:'📦 Backlog',planned:'📌 Planned',in_progress:'🔧 In Progress',waiting:'⏳ Waiting for Support',in_validation:'🔍 In Validation',done:'✅ Done'};
+var COL_DOTS={backlog:'#64748b',planned:'#f59e0b',in_progress:'#3b82f6',waiting:'#64748b',in_validation:'#06b6d4',done:'#22c55e'};
 
 function loadData(){
   fetch('tickets.json?t='+Date.now())
@@ -603,13 +603,13 @@ function recalc(){
   var tk=D.tickets||[],ep=D.epics||[];
   ep.forEach(function(e){
     var st=tk.filter(function(t){return t.epicId===e.id});
-    if(!st.length){e.progress=0;e.col='backlog';return}
+    if(!st.length){e.progress=0;e.status='backlog';return}
     var dn=st.filter(function(s){return s.status==='done'}).length;
     var active=st.filter(function(s){return s.status in {in_progress:1,waiting:1,in_validation:1,planned:1}}).length;
     e.progress=Math.round(dn/st.length*100);
-    e.col=(dn===st.length)?'done':(active>0)?'progress':'backlog';
+    e.status=(dn===st.length)?'done':(active>0)?'in_progress':'backlog';
   });
-  tk.forEach(function(t){t.col=COL_MAP[t.status]||'backlog'});
+  // Column = Status. No col field needed.
 }
 
 function goView(v){
@@ -664,8 +664,8 @@ function rBoard(){
   COL_ORDER.forEach(function(s){
     var colName=COL_NAMES[s];
     var colClass='col-'+s;
-    var epicsInCol=ep.filter(function(e){return e.col===s});
-    var orphansInCol=orphans.filter(function(t){return t.col===s});
+    var epicsInCol=ep.filter(function(e){return e.status===s});
+    var orphansInCol=orphans.filter(function(t){return t.status===s});
     // Count all work items: each epic counts as 1 + its child tickets, plus orphan tickets
     var cnt=orphansInCol.length;
     epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length});
@@ -673,7 +673,7 @@ function rBoard(){
     html+='<div class="col '+colClass+'"><div class="col-hdr"><div class="col-title"><span class="col-dot"></span>'+colName+'</div><span class="col-cnt">('+cnt+')</span></div><div class="col-body">';
 
     ep.forEach(function(e){
-      if(e.col!==s)return;
+      if(e.status!==s)return;
       var st=byEpic[e.id]||[],dn=st.filter(function(x){return x.status==='done'}).length;
       html+='<div class="eg"><div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' <span style="color:var(--text3)">['+dn+'/'+st.length+']</span></div>';
       html+='<div class="ep-bar"><div class="ep-bar-fill"style="width:'+e.progress+'%"></div></div>';
@@ -682,7 +682,7 @@ function rBoard(){
     });
 
     orphans.forEach(function(t){
-      if(t.col===s)html+=tkHTML(t,null);
+      if(t.status===s)html+=tkHTML(t,null);
     });
 
     if(!epicsInCol.length&&!orphansInCol.length)html+='<div class="empty-state"><span class="empty-icon">📭</span><span class="empty-text">No items here</span><span class="empty-hint">Stories will appear when added to this column</span></div>';
@@ -704,8 +704,8 @@ function rBoardMobile(){
   var pickerHtml='';
   var dotsHtml='';
   COL_ORDER.forEach(function(s,i){
-    var epicsInCol=ep.filter(function(e){return e.col===s});
-    var orphansInCol=orphans.filter(function(t){return t.col===s});
+    var epicsInCol=ep.filter(function(e){return e.status===s});
+    var orphansInCol=orphans.filter(function(t){return t.status===s});
     // Count all work items: each epic counts as 1 + its child tickets, plus orphan tickets
     var cnt=orphansInCol.length;
     epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length});
@@ -729,7 +729,7 @@ function rBoardMobile(){
   var html='<div class="board-mobile-col '+colClass+'"><div class="col-hdr"><div class="col-title"><span class="col-dot"></span>'+colName+'</div><span class="col-cnt">('+cnt+')</span></div><div class="col-body">';
 
   ep.forEach(function(e){
-    if(e.col!==s)return;
+    if(e.status!==s)return;
     var st=byEpic[e.id]||[],dn=st.filter(function(x){return x.status==='done'}).length;
     html+='<div class="eg"><div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' <span style="color:var(--text3)">['+dn+'/'+st.length+']</span></div>';
     html+='<div class="ep-bar"><div class="ep-bar-fill" style="width:'+e.progress+'%"></div></div>';
@@ -738,7 +738,7 @@ function rBoardMobile(){
   });
 
   orphans.forEach(function(t){
-    if(t.col===s)html+=tkHTML(t,null);
+    if(t.status===s)html+=tkHTML(t,null);
   });
 
   if(!epicsInCol.length&&!orphansInCol.length)html+='<div class="empty-state"><span class="empty-icon">📭</span><span class="empty-text">No items in this column</span><span class="empty-hint">Swipe left/right to check other columns</span></div>';

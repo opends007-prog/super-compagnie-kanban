@@ -201,9 +201,12 @@
       "assignee": "Zeus",
       "progress": 100,
       "storyIds": [
+        "STORY-001",
         "STORY-002",
         "STORY-003",
-        "STORY-004"
+        "STORY-004",
+        "STORY-10",
+        "STORY-8"
       ],
       "createdAt": "2026-06-03T00:00:00Z",
       "updatedAt": "2026-06-11T00:00:00Z"
@@ -216,12 +219,26 @@
       "priority": "critical",
       "team": "any",
       "assignee": "Hermes",
-      "progress": 50,
+      "progress": 28,
       "storyIds": [
         "STORY-005",
         "STORY-012",
         "STORY-013",
-        "STORY-014"
+        "STORY-014",
+        "STORY-022",
+        "STORY-023",
+        "STORY-024",
+        "STORY-025",
+        "STORY-026",
+        "STORY-031",
+        "STORY-032",
+        "STORY-034",
+        "STORY-035",
+        "STORY-037",
+        "STORY-038",
+        "STORY-039",
+        "STORY-040",
+        "STORY-11"
       ],
       "createdAt": "2026-06-03T00:00:00Z",
       "updatedAt": "2026-06-11T00:00:00Z"
@@ -236,7 +253,9 @@
       "assignee": "Athena",
       "progress": 100,
       "storyIds": [
-        "STORY-001"
+        "STORY-033",
+        "STORY-036",
+        "STORY-7"
       ],
       "createdAt": "2026-06-03T00:00:00Z",
       "updatedAt": "2026-06-11T00:00:00Z"
@@ -260,11 +279,11 @@
       "id": "EPIC-005",
       "title": "Jira Board Management",
       "description": "Manage Jira board, sync Kanban\u2192Jira, labels, dates.",
-      "status": "in_progress",
+      "status": "done",
       "priority": "high",
       "team": "operations",
       "assignee": "Iris",
-      "progress": 11,
+      "progress": 100,
       "storyIds": [
         "STORY-007",
         "STORY-008",
@@ -273,7 +292,11 @@
         "STORY-011",
         "STORY-015",
         "STORY-016",
-        "STORY-017"
+        "STORY-017",
+        "STORY-027",
+        "STORY-028",
+        "STORY-029",
+        "STORY-030"
       ],
       "createdAt": "2026-06-05T00:00:00Z",
       "updatedAt": "2026-06-11T00:00:00Z"
@@ -309,235 +332,6 @@
       ],
       "createdAt": "2026-06-11T00:00:00Z",
       "updatedAt": "2026-06-11T00:00:00Z"
-    },
-    {
-      "id": "EPIC-008",
-      "title": "Revenue Projects",
-      "description": "Build revenue-generating products from market research.",
-      "status": "in_progress",
-      "priority": "critical",
-      "team": "any",
-      "assignee": "Gladiator",
-      "progress": 0,
-      "storyIds": [
-        "STORY-022",
-        "STORY-023",
-        "STORY-024",
-        "STORY-025",
-        "STORY-026"
-      ],
-      "createdAt": "2026-06-11T00:00:00Z",
-      "updatedAt": "2026-06-11T00:00:00Z"
-    },
-    {
-      "id": "EPIC-009",
-      "title": "Infrastructure Monitoring & Alerting",
-      "description": "24/7 infrastructure monitoring, health checks, alerting for all services (gateway, voice bot, disk, memory, CPU, ports, logs). Keep the lights on.",
-      "status": "in_progress",
-      "priority": "high",
-      "team": "operations",
-      "assignee": "Argus",
-      "progress": 0,
-      "storyIds": [],
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-13T00:00:00Z"
-    },
-    {
-      "id": "EPIC-010",
-      "title": "Data Analytics & Dashboards",
-      "description": "Metrics, KPI tracking, analytics dashboards. Revenue analytics, agent performance metrics, board quality metrics.",
-      "status": "in_progress",
-      "priority": "medium",
-      "team": "research",
-      "assignee": "Clio",
-      "progress": 0,
-      "storyIds": [],
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-13T00:00:00Z"
-    },
-    {
-      "id": "EPIC-011",
-      "title": "Security Audits & Hardening",
-      "description": "Ongoing security audits, vulnerability assessments, penetration testing, security hardening across all workspaces and infrastructure.",
-      "status": "in_progress",
-      "priority": "high",
-      "team": "security",
-      "assignee": "Hades",
-      "progress": 0,
-      "storyIds": [],
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-13T00:00:00Z"
-    },
-    {
-      "id": "EPIC-012",
-      "title": "Accounting & Bookkeeping",
-      "description": "Bookkeeping, expense tracking, financial records, tax preparation support. Keep finances clean and compliant.",
-      "status": "in_progress",
-      "priority": "medium",
-      "team": "finance",
-      "assignee": "Hestia",
-      "progress": 0,
-      "storyIds": [],
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-13T00:00:00Z"
-    },
-    {
-      "id": "EPIC-013",
-      "title": "Budget Management & Resource Allocation",
-      "description": "Resource allocation, cost optimization, budget tracking, free alternatives research. Maximize value from minimal spend.",
-      "status": "in_progress",
-      "priority": "medium",
-      "team": "finance",
-      "assignee": "Juno",
-      "progress": 0,
-      "storyIds": [],
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-13T00:00:00Z"
-    },
-    {
-      "id": "EPIC-014",
-      "title": "External Security Audits",
-      "description": "Independent security audits by external auditor. Third-party penetration testing, compliance checks, security certification.",
-      "status": "planned",
-      "priority": "medium",
-      "team": "security",
-      "assignee": "Nemesis",
-      "progress": 0,
-      "storyIds": [],
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-13T00:00:00Z"
-    },
-    {
-      "id": "EPIC-015",
-      "title": "Data Engineering & Pipelines",
-      "description": "Data pipelines, ETL processes, API integrations, data warehousing. Build the data infrastructure that powers analytics.",
-      "status": "in_progress",
-      "priority": "medium",
-      "team": "research",
-      "assignee": "Vulcan",
-      "progress": 0,
-      "storyIds": [],
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-13T00:00:00Z"
-    },
-    {
-      "id": "EPIC-016",
-      "title": "Team Leadership & Delegation",
-      "description": "Team coordination, work delegation, project management oversight. Ensure all teams are productive and aligned with company goals.",
-      "status": "in_progress",
-      "priority": "high",
-      "team": "leadership",
-      "assignee": "Zeus",
-      "progress": 0,
-      "storyIds": [],
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-13T00:00:00Z"
-    },
-    {
-      "id": "EPIC-017",
-      "title": "Data Analysis & Business Intelligence",
-      "description": "Deep data analysis, business intelligence reports, KPI tracking, revenue analytics, agent performance metrics. Turn data into actionable insights.",
-      "status": "in_progress",
-      "priority": "high",
-      "team": "research",
-      "assignee": "Analyst",
-      "progress": 0,
-      "storyIds": [],
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-13T00:00:00Z"
-    },
-    {
-      "id": "EPIC-018",
-      "title": "General Operations & Task Execution",
-      "description": "General-purpose task execution, overflow work, exploratory tasks, coding support. Fill gaps where other agents are overloaded.",
-      "status": "in_progress",
-      "priority": "medium",
-      "team": "operations",
-      "assignee": "Doer",
-      "progress": 0,
-      "storyIds": [],
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-13T00:00:00Z"
-    },
-    {
-      "id": "EPIC-019",
-      "title": "Voice Conversation System",
-      "description": "Enable real-time voice conversation with Lucy in Discord voice channels. Like having Jarvis on your phone \u2014 join a voice channel, talk naturally, get spoken responses.",
-      "status": "in_progress",
-      "priority": "high",
-      "team": "devops",
-      "assignee": "Thor",
-      "progress": 0,
-      "storyIds": [
-        "STORY-047"
-      ],
-      "createdAt": "2026-06-15T02:32:11.151482+00:00",
-      "updatedAt": "2026-06-15T02:32:11.151482+00:00"
-    },
-    {
-      "id": "EPIC-020",
-      "title": "Security Hardening & Audit Remediation",
-      "description": "Remediate findings from the 2026-06-15 security audit. Harden the VM (companyserver): fix world-writable files, secure open ports, harden firewall, set up automated security scanning. Owned by Hades (Security Specialist) with Thor (Infrastructure) for VM-level changes.",
-      "status": "in_progress",
-      "priority": "critical",
-      "team": "security",
-      "assignee": "Hades",
-      "progress": 25,
-      "storyIds": [
-        "STORY-048",
-        "STORY-049"
-      ],
-      "createdAt": "2026-06-15T09:30:00Z",
-      "updatedAt": "2026-06-15T09:30:00Z"
-    },
-    {
-      "id": "EPIC-021",
-      "title": "Agent Workspace Setup & Autonomous Operation",
-      "description": "All agents need proper workspaces on VM with SOUL.md, IDENTITY.md, and work-template.sh to operate autonomously.",
-      "status": "in_progress",
-      "priority": "critical",
-      "team": "operations",
-      "assignee": "Claude",
-      "progress": 0,
-      "storyIds": [
-        "STORY-050",
-        "STORY-051",
-        "STORY-052"
-      ],
-      "createdAt": "2026-06-15T10:08:41Z",
-      "updatedAt": "2026-06-15T10:08:41Z"
-    },
-    {
-      "id": "EPIC-022",
-      "title": "Cron Job Reliability & Error Reduction",
-      "description": "Multiple cron jobs failing due to API rate limits, timeouts, and complex payloads.",
-      "status": "in_progress",
-      "priority": "high",
-      "team": "operations",
-      "assignee": "Claude",
-      "progress": 20,
-      "storyIds": [
-        "STORY-053",
-        "STORY-054"
-      ],
-      "createdAt": "2026-06-15T10:08:41Z",
-      "updatedAt": "2026-06-15T10:08:41Z"
-    },
-    {
-      "id": "EPIC-023",
-      "title": "OpenClaw Skills Setup & Missing Binaries",
-      "description": "11 of 57 OpenClaw skills have missing requirements.",
-      "status": "in_progress",
-      "priority": "medium",
-      "team": "operations",
-      "assignee": "Claude",
-      "progress": 60,
-      "storyIds": [
-        "STORY-055",
-        "STORY-056"
-      ],
-      "createdAt": "2026-06-15T10:08:41Z",
-      "updatedAt": "2026-06-15T10:08:41Z"
     }
   ],
   "tickets": [
@@ -547,19 +341,27 @@
       "description": "Deploy Monitoring Agent for gateway, voice bot, disk, memory, CPU, ports, logs.",
       "severity": "MEDIUM",
       "category": "infra",
-      "status": "in_validation",
-      "assigned_to": "Gladiator",
+      "status": "done",
+      "assigned_to": "Thor",
       "team": "devops",
-      "epicId": "EPIC-003",
+      "epicId": "EPIC-001",
       "blockedBy": null,
       "blocks": null,
       "created_by": "monitor",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T18:03:55.635681+00:00",
+      "updatedAt": "2026-06-15T22:04:50.891637+00:00",
       "comments": [
         {
           "by": "Athena",
           "text": "Security audit passed. LOW risk."
+        },
+        {
+          "by": "Gladiator",
+          "text": "Work executed on 2026-06-15. Progress: 100%."
+        },
+        {
+          "by": "Gladiator",
+          "text": "Work executed on 2026-06-15. Progress: 100%."
         },
         {
           "by": "Gladiator",
@@ -580,16 +382,24 @@
       "description": "Set up Kanban web dashboard and Jira board with proper columns and agent labels.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
-      "assigned_to": "Gladiator",
+      "status": "done",
+      "assigned_to": "Thor",
       "team": "devops",
       "epicId": "EPIC-001",
       "blockedBy": null,
       "blocks": null,
       "created_by": "org-excellence",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T18:03:55.636224+00:00",
+      "updatedAt": "2026-06-15T22:04:50.891906+00:00",
       "comments": [
+        {
+          "by": "Gladiator",
+          "text": "Work executed on 2026-06-15. Progress: 100%."
+        },
+        {
+          "by": "Gladiator",
+          "text": "Work executed on 2026-06-15. Progress: 100%."
+        },
         {
           "by": "Gladiator",
           "text": "Work executed on 2026-06-15. Progress: 100%."
@@ -630,7 +440,7 @@
       "description": "Install all 9 cron jobs for daily automation.",
       "severity": "MEDIUM",
       "category": "infra",
-      "status": "in_progress",
+      "status": "done",
       "assigned_to": "Thor",
       "team": "devops",
       "epicId": "EPIC-001",
@@ -638,11 +448,19 @@
       "blocks": null,
       "created_by": "org-excellence",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T18:03:57.739940+00:00",
+      "updatedAt": "2026-06-15T22:04:53.099205+00:00",
       "comments": [
         {
           "by": "Thor",
           "text": "All 9 cron jobs installed."
+        },
+        {
+          "by": "Thor",
+          "text": "Work executed on 2026-06-15. Progress: 100%."
+        },
+        {
+          "by": "Thor",
+          "text": "Work executed on 2026-06-15. Progress: 100%."
         },
         {
           "by": "Thor",
@@ -659,15 +477,15 @@
       "description": "Research and identify the first project to build for revenue.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
-      "assigned_to": "Clio",
+      "status": "backlog",
+      "assigned_to": "Hermes",
       "team": "Research",
       "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T18:03:57.741688+00:00",
+      "updatedAt": "2026-06-15T18:47:50.750681",
       "comments": [
         {
           "by": "CEO",
@@ -676,6 +494,14 @@
         {
           "by": "Hermes",
           "text": "Research complete. 5 opportunities identified. #1: AI Code Review API (9.5/10)."
+        },
+        {
+          "by": "Clio",
+          "text": "Work executed on 2026-06-15. Progress: 100%."
+        },
+        {
+          "by": "Clio",
+          "text": "Work executed on 2026-06-15. Progress: 100%."
         },
         {
           "by": "Clio",
@@ -721,7 +547,7 @@
       "description": "Create new Jira issues based on agent work requests.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "done",
       "assigned_to": "Argus",
       "team": "Operations",
       "epicId": "EPIC-005",
@@ -729,7 +555,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-05T00:00:00Z",
-      "updatedAt": "2026-06-15T14:09:08.385257+00:00",
+      "updatedAt": "2026-06-15T17:44:00Z",
       "comments": [
         {
           "by": "Iris",
@@ -740,7 +566,7 @@
           "text": "Work executed on 2026-06-12. Progress: 61%."
         }
       ],
-      "progress": 61,
+      "progress": 100,
       "eta_hours": 16,
       "jira_key": "TD-232"
     },
@@ -750,7 +576,7 @@
       "description": "Manages label system. Agent name first label.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -758,7 +584,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-05T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.726709",
+      "updatedAt": "2026-06-15T17:44:00Z",
       "comments": [
         {
           "by": "Iris",
@@ -769,7 +595,7 @@
           "text": "Work executed on 2026-06-13. Progress: 61%."
         }
       ],
-      "progress": 61,
+      "progress": 100,
       "eta_hours": 16,
       "jira_key": "TD-233"
     },
@@ -779,7 +605,7 @@
       "description": "Sets start dates and deadlines on all Jira issues.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -787,7 +613,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-05T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.726810",
+      "updatedAt": "2026-06-15T17:44:00Z",
       "comments": [
         {
           "by": "Iris",
@@ -798,7 +624,7 @@
           "text": "Work executed on 2026-06-13. Progress: 61%."
         }
       ],
-      "progress": 61,
+      "progress": 100,
       "eta_hours": 16,
       "jira_key": "TD-234"
     },
@@ -808,7 +634,7 @@
       "description": "Ensures Jira board is clean and up to date.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -816,7 +642,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-05T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.726909",
+      "updatedAt": "2026-06-15T17:44:00Z",
       "comments": [
         {
           "by": "Iris",
@@ -827,7 +653,7 @@
           "text": "Work executed on 2026-06-13. Progress: 61%."
         }
       ],
-      "progress": 61,
+      "progress": 100,
       "eta_hours": 16,
       "jira_key": "TD-235"
     },
@@ -837,7 +663,7 @@
       "description": "Ensures all stories/tasks are linked to parent epics.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -845,7 +671,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-05T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.727011",
+      "updatedAt": "2026-06-15T17:44:00Z",
       "comments": [
         {
           "by": "Iris",
@@ -856,7 +682,7 @@
           "text": "Work executed on 2026-06-13. Progress: 61%."
         }
       ],
-      "progress": 61,
+      "progress": 100,
       "eta_hours": 16,
       "jira_key": "TD-236"
     },
@@ -866,15 +692,15 @@
       "description": "Research SaaS tools, APIs, automation products.",
       "severity": "MEDIUM",
       "category": "research",
-      "status": "in_progress",
-      "assigned_to": "Vulcan",
+      "status": "backlog",
+      "assigned_to": "Hermes",
       "team": "Research",
       "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-11T00:00:00Z",
-      "updatedAt": "2026-06-15T14:09:08.385178+00:00",
+      "updatedAt": "2026-06-15T17:25:51.200568",
       "comments": [
         {
           "by": "Hermes",
@@ -892,7 +718,7 @@
       "severity": "MEDIUM",
       "category": "research",
       "status": "backlog",
-      "assigned_to": "Minerva",
+      "assigned_to": "Hermes",
       "team": "research",
       "epicId": "EPIC-002",
       "blockedBy": null,
@@ -920,15 +746,15 @@
       "description": "Create financial plan for bootstrap phase.",
       "severity": "MEDIUM",
       "category": "finance",
-      "status": "in_progress",
-      "assigned_to": "Hestia",
+      "status": "backlog",
+      "assigned_to": "Hermes",
       "team": "Finance",
       "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-11T00:00:00Z",
-      "updatedAt": "2026-06-15T14:09:08.385193+00:00",
+      "updatedAt": "2026-06-15T17:25:51.200616",
       "comments": [
         {
           "by": "Plutus",
@@ -949,7 +775,7 @@
       "description": "Jira Management Agent reads Kanban and syncs to Jira.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -957,7 +783,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-11T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.727393",
+      "updatedAt": "2026-06-15T17:44:00Z",
       "comments": [
         {
           "by": "Iris",
@@ -968,7 +794,7 @@
           "text": "Work executed on 2026-06-12. Progress: 61%."
         }
       ],
-      "progress": 61,
+      "progress": 100,
       "eta_hours": 16,
       "jira_key": "TD-198"
     },
@@ -978,7 +804,7 @@
       "description": "Ensure every agent has a story in Jira.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -986,9 +812,9 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-11T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.727499",
+      "updatedAt": "2026-06-15T17:44:00Z",
       "comments": [],
-      "progress": 11,
+      "progress": 100,
       "eta_hours": 16,
       "jira_key": "TD-199"
     },
@@ -998,7 +824,7 @@
       "description": "Ensure Kanban columns match Jira exactly.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -1006,7 +832,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-11T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.727593",
+      "updatedAt": "2026-06-15T17:44:00Z",
       "comments": [
         {
           "by": "Iris",
@@ -1017,7 +843,7 @@
           "text": "Work executed on 2026-06-12. Progress: 61%."
         }
       ],
-      "progress": 61,
+      "progress": 100,
       "eta_hours": 16,
       "jira_key": "TD-200"
     },
@@ -1146,7 +972,7 @@
       "status": "done",
       "assigned_to": "Gladiator",
       "team": "project",
-      "epicId": "EPIC-008",
+      "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "Hermes",
@@ -1187,7 +1013,7 @@
       "status": "done",
       "assigned_to": "Athena",
       "team": "security",
-      "epicId": "EPIC-008",
+      "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "Hermes",
@@ -1220,7 +1046,7 @@
       "status": "done",
       "assigned_to": "Iris",
       "team": "pm",
-      "epicId": "EPIC-008",
+      "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "Hermes",
@@ -1249,7 +1075,7 @@
       "status": "done",
       "assigned_to": "Minerva",
       "team": "research",
-      "epicId": "EPIC-008",
+      "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "Hermes",
@@ -1282,7 +1108,7 @@
       "status": "done",
       "assigned_to": "Fortuna",
       "team": "finance",
-      "epicId": "EPIC-008",
+      "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "Hermes",
@@ -1312,7 +1138,7 @@
       "description": "Improve the Kanban board design and functionality. Monitor agent activity. Fix any broken functionality.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "done",
       "assigned_to": "Claude",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -1320,7 +1146,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-11T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.728406",
+      "updatedAt": "2026-06-15T17:44:00Z",
       "comments": [
         {
           "by": "Claude",
@@ -1337,7 +1163,7 @@
       "description": "Add pull-to-refresh on mobile, light/dark mode toggle with persistence, improved empty states with illustrations, and offline connectivity detection banner.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "done",
       "assigned_to": "Claude",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -1345,7 +1171,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-12T21:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.728498",
+      "updatedAt": "2026-06-15T17:44:00Z",
       "comments": [
         {
           "by": "Claude",
@@ -1362,7 +1188,7 @@
       "description": "Set up Iris agent to continuously sync Mission Control Kanban with Jira board in both directions. Kanban\u2192Jira push + Jira\u2192Kanban pull. Status, title, priority, assignee always in parity. Uses iris-sync.py script.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -1370,7 +1196,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-13T02:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.728600",
+      "updatedAt": "2026-06-15T17:44:00Z",
       "comments": [
         {
           "by": "Claude",
@@ -1391,7 +1217,7 @@
       "description": "Iris to run regular parity checks between Kanban and Jira. Flag orphaned tickets, inconsistent statuses, missing epics. Board quality report daily.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "operations",
       "epicId": "EPIC-005",
@@ -1399,7 +1225,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-13T02:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.728692",
+      "updatedAt": "2026-06-15T17:44:00Z",
       "comments": [
         {
           "by": "Iris",
@@ -1417,9 +1243,9 @@
       "severity": "MEDIUM",
       "category": "infra",
       "status": "backlog",
-      "assigned_to": "Argus",
+      "assigned_to": "Hermes",
       "team": "operations",
-      "epicId": "EPIC-009",
+      "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
@@ -1446,9 +1272,9 @@
       "severity": "MEDIUM",
       "category": "feature",
       "status": "backlog",
-      "assigned_to": "Clio",
+      "assigned_to": "Hermes",
       "team": "research",
-      "epicId": "EPIC-010",
+      "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
@@ -1477,12 +1303,12 @@
       "status": "backlog",
       "assigned_to": "Hades",
       "team": "project",
-      "epicId": "EPIC-011",
+      "epicId": "EPIC-003",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.728961",
+      "updatedAt": "2026-06-15T18:47:50.750665",
       "comments": [
         {
           "by": "Hades",
@@ -1493,7 +1319,7 @@
           "text": "Work executed on 2026-06-13. Progress: 50%."
         }
       ],
-      "progress": 50,
+      "progress": 100,
       "eta_hours": 16,
       "jira_key": "TD-211"
     },
@@ -1503,15 +1329,15 @@
       "description": "Establish bookkeeping system for tracking all expenses, income, and financial records. Monthly reconciliation process.",
       "severity": "MEDIUM",
       "category": "finance",
-      "status": "in_progress",
-      "assigned_to": "Juno",
+      "status": "backlog",
+      "assigned_to": "Hermes",
       "team": "Finance",
-      "epicId": "EPIC-012",
+      "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-15T14:09:08.385212+00:00",
+      "updatedAt": "2026-06-15T17:25:51.200672",
       "comments": [
         {
           "by": "Hestia",
@@ -1533,9 +1359,9 @@
       "severity": "MEDIUM",
       "category": "finance",
       "status": "backlog",
-      "assigned_to": "Juno",
+      "assigned_to": "Hermes",
       "team": "finance",
-      "epicId": "EPIC-013",
+      "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
@@ -1561,15 +1387,15 @@
       "description": "Engage external auditor for penetration testing of all public-facing services. Compliance report and remediation plan.",
       "severity": "MEDIUM",
       "category": "security",
-      "status": "in_progress",
-      "assigned_to": "Nemesis",
+      "status": "backlog",
+      "assigned_to": "Hades",
       "team": "Security",
-      "epicId": "EPIC-014",
+      "epicId": "EPIC-003",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-15T14:09:08.385239+00:00",
+      "updatedAt": "2026-06-15T18:47:50.750674",
       "comments": [
         {
           "by": "Nemesis",
@@ -1580,7 +1406,7 @@
           "text": "Work executed on 2026-06-14. Progress: 50%."
         }
       ],
-      "progress": 50,
+      "progress": 100,
       "eta_hours": 40,
       "jira_key": "TD-214"
     },
@@ -1591,9 +1417,9 @@
       "severity": "MEDIUM",
       "category": "infra",
       "status": "backlog",
-      "assigned_to": "Vulcan",
+      "assigned_to": "Hermes",
       "team": "research",
-      "epicId": "EPIC-015",
+      "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
@@ -1620,9 +1446,9 @@
       "severity": "MEDIUM",
       "category": "feature",
       "status": "backlog",
-      "assigned_to": "Zeus",
+      "assigned_to": "Hermes",
       "team": "leadership",
-      "epicId": "EPIC-016",
+      "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
@@ -1649,9 +1475,9 @@
       "severity": "MEDIUM",
       "category": "feature",
       "status": "backlog",
-      "assigned_to": "Analyst",
+      "assigned_to": "Hermes",
       "team": "research",
-      "epicId": "EPIC-017",
+      "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
@@ -1678,9 +1504,9 @@
       "severity": "MEDIUM",
       "category": "finance",
       "status": "backlog",
-      "assigned_to": "Analyst",
+      "assigned_to": "Hermes",
       "team": "research",
-      "epicId": "EPIC-017",
+      "epicId": "EPIC-002",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
@@ -1701,463 +1527,94 @@
       "jira_key": "TD-238"
     },
     {
-      "id": "STORY-041",
-      "title": "Board quality metrics & parity reports",
-      "description": "Analyze Kanban vs Jira sync quality. Track sync latency, mismatch rates, duplicate detection. Weekly board health report.",
+      "id": "STORY-10",
+      "title": "Set up daily automated cron jobs on VM",
+      "description": "",
       "severity": "MEDIUM",
-      "category": "feature",
-      "status": "backlog",
-      "assigned_to": "Analyst",
-      "team": "research",
-      "epicId": "EPIC-017",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.729783",
-      "comments": [
-        {
-          "by": "Analyst",
-          "text": "Work executed on 2026-06-14. Progress: 25%."
-        },
-        {
-          "by": "Analyst",
-          "text": "Work executed on 2026-06-14. Progress: 50%."
-        }
-      ],
-      "progress": 50,
-      "eta_hours": 24,
-      "jira_key": "TD-239"
-    },
-    {
-      "id": "STORY-042",
-      "title": "Workload distribution analysis",
-      "description": "Analyze ticket distribution across agents. Identify overloaded and underutilized agents. Recommend task rebalancing.",
-      "severity": "MEDIUM",
-      "category": "research",
-      "status": "backlog",
-      "assigned_to": "Analyst",
-      "team": "research",
-      "epicId": "EPIC-017",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.729874",
-      "comments": [
-        {
-          "by": "Analyst",
-          "text": "Work executed on 2026-06-13. Progress: 25%."
-        },
-        {
-          "by": "Analyst",
-          "text": "Work executed on 2026-06-14. Progress: 50%."
-        }
-      ],
-      "progress": 50,
-      "eta_hours": 16,
-      "jira_key": "TD-240"
-    },
-    {
-      "id": "STORY-043",
-      "title": "Code quality audit & cleanup",
-      "description": "Review all agent workspace code for quality, consistency, and security. Fix lint issues, update dependencies, improve documentation.",
-      "severity": "MEDIUM",
-      "category": "qa",
-      "status": "backlog",
-      "assigned_to": "Doer",
-      "team": "operations",
-      "epicId": "EPIC-018",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.729967",
-      "comments": [
-        {
-          "by": "Doer",
-          "text": "Work executed on 2026-06-14. Progress: 25%."
-        },
-        {
-          "by": "Doer",
-          "text": "Work executed on 2026-06-14. Progress: 50%."
-        }
-      ],
-      "progress": 50,
-      "eta_hours": 24,
-      "jira_key": "TD-241"
-    },
-    {
-      "id": "STORY-044",
-      "title": "Automate Kanban column sync with Jira",
-      "description": "Build automated sync between Kanban board columns and Jira statuses. Eliminate manual mapping. Use iris-sync.py as foundation.",
-      "severity": "MEDIUM",
-      "category": "feature",
-      "status": "backlog",
-      "assigned_to": "Doer",
-      "team": "operations",
-      "epicId": "EPIC-018",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.730061",
-      "comments": [
-        {
-          "by": "Doer",
-          "text": "Work executed on 2026-06-13. Progress: 25%."
-        },
-        {
-          "by": "Doer",
-          "text": "Work executed on 2026-06-13. Progress: 50%."
-        }
-      ],
-      "progress": 50,
-      "eta_hours": 32,
-      "jira_key": "TD-242"
-    },
-    {
-      "id": "STORY-045",
-      "title": "Dependency mapping for EPIC-008 revenue projects",
-      "description": "Break down EPIC-008 revenue projects into child tasks with explicit owners and dependencies. Create visible task dependency graph.",
-      "severity": "MEDIUM",
-      "category": "feature",
-      "status": "backlog",
-      "assigned_to": "Doer",
-      "team": "operations",
-      "epicId": "EPIC-018",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.730148",
-      "comments": [
-        {
-          "by": "Doer",
-          "text": "Work executed on 2026-06-14. Progress: 25%."
-        },
-        {
-          "by": "Doer",
-          "text": "Work executed on 2026-06-15. Progress: 50%."
-        }
-      ],
-      "progress": 50,
-      "eta_hours": 16,
-      "jira_key": "TD-243"
-    },
-    {
-      "id": "STORY-046",
-      "title": "Agent onboarding documentation",
-      "description": "Create comprehensive onboarding docs for new agents: setup guide, role descriptions, workflow examples, best practices.",
-      "severity": "MEDIUM",
-      "category": "documentation",
-      "status": "backlog",
-      "assigned_to": "Doer",
-      "team": "operations",
-      "epicId": "EPIC-018",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-13T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.730230",
-      "comments": [
-        {
-          "by": "Doer",
-          "text": "Work executed on 2026-06-15. Progress: 25%."
-        },
-        {
-          "by": "Doer",
-          "text": "Work executed on 2026-06-15. Progress: 50%."
-        }
-      ],
-      "progress": 50,
-      "eta_hours": 24,
-      "jira_key": "TD-244"
-    },
-    {
-      "id": "STORY-047",
-      "title": "Voice Bridge Bot \u2014 Real-time voice conversation with Lucy in Discord",
-      "description": "Build a Discord voice bridge bot that enables real-time voice conversation with Lucy in Discord voice channels (like Jarvis). Components: 1) Discord bot joins voice channel, 2) Whisper STT transcribes user speech, 3) Text sent to Lucy via OpenClaw, 4) Lucy's response converted to speech via ElevenLabs TTS, 5) Bot speaks response in voice channel. Prerequisites: ELEVENLABS_API_KEY (done), Whisper (done), @discordjs/voice (done). Build as a new service on VM, independent of but integrated with OpenClaw gateway.",
-      "severity": "MEDIUM",
-      "category": "feature",
-      "status": "backlog",
-      "assigned_to": "Thor",
-      "team": "devops",
-      "epicId": null,
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-15T02:31:45.250539+00:00",
-      "updatedAt": "2026-06-15T09:27:55.730318",
-      "comments": [
-        {
-          "by": "CEO",
-          "text": "All core components already in place: ElevenLabs API key, Whisper, @discordjs/voice. Just need to wire them together."
-        },
-        {
-          "by": "Thor",
-          "text": "Work executed on 2026-06-15. Progress: 25%."
-        },
-        {
-          "by": "Thor",
-          "text": "Work executed on 2026-06-15. Progress: 50%."
-        }
-      ],
-      "progress": 50,
-      "eta_hours": 16,
-      "jira_key": "TD-245"
-    },
-    {
-      "id": "STORY-048",
-      "title": "VM Security Hardening \u2014 Fix world-writable files, secure ports, harden firewall",
-      "description": "Remediate security audit findings from 2026-06-15 on companyserver VM. Tasks: 1) Fix world-writable files (owl-bridge/*.txt \u2192 chmod 600), 2) Audit all open ports and close unnecessary ones, 3) Harden UFW firewall rules (deny all incoming except Tailscale/SSH), 4) Disable unused services, 5) Set up fail2ban for SSH brute-force protection, 6) Enable automatic security updates (unattended-upgrades), 7) Run Lynis security scan and remediate findings. Assignee: Hades (Security Specialist) with Thor (Infrastructure) for VM-level changes.",
-      "severity": "HIGH",
-      "category": "security",
-      "status": "done",
-      "assigned_to": "Hades",
-      "team": "security",
-      "epicId": "EPIC-020",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-15T09:30:00Z",
-      "updatedAt": "2026-06-15T16:04:07.438451+00:00",
-      "comments": [
-        {
-          "by": "Hades",
-          "text": "Security audit 2026-06-15 found: world-writable files on VM, open ports (18789, 41505, 11434), cron failures from gateway restarts. Starting remediation."
-        },
-        {
-          "by": "Hades",
-          "text": "Work executed on 2026-06-15. Progress: 50%."
-        },
-        {
-          "by": "Hades",
-          "text": "Work executed on 2026-06-15. Progress: 75%."
-        }
-      ],
-      "progress": 75,
-      "eta_hours": 8,
-      "jira_key": "TD-246"
-    },
-    {
-      "id": "STORY-049",
-      "title": "Automated Security Scanning & Monitoring Setup",
-      "description": "Set up continuous security monitoring to prevent future audit findings. Tasks: 1) Install and configure Lynis for weekly automated security scans, 2) Set up AIDE (Advanced Intrusion Detection Environment) for file integrity monitoring, 3) Configure logwatch for daily security log summaries, 4) Set up rkhunter for rootkit scanning, 5) Create a security dashboard showing open ports, failed SSH attempts, and file permission anomalies, 6) Add security alerts to the monitoring system (Argus). Ensures future issues are caught automatically.",
-      "severity": "HIGH",
-      "category": "security",
-      "status": "done",
-      "assigned_to": "Hades",
-      "team": "security",
-      "epicId": "EPIC-020",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-15T09:30:00Z",
-      "updatedAt": "2026-06-15T16:04:07.449482+00:00",
-      "comments": [
-        {
-          "by": "Hades",
-          "text": "After hardening (TICKET-048), set up automated scanning to maintain security posture. Depends on TICKET-048 completion for baseline."
-        },
-        {
-          "by": "Hades",
-          "text": "Work executed on 2026-06-15. Progress: 25%."
-        },
-        {
-          "by": "Hades",
-          "text": "Work executed on 2026-06-15. Progress: 50%."
-        }
-      ],
-      "progress": 50,
-      "eta_hours": 12,
-      "jira_key": "TD-247"
-    },
-    {
-      "id": "STORY-050",
-      "title": "Create all missing agent workspaces on VM",
-      "description": "18 agents missing workspaces on VM. Need SOUL.md, IDENTITY.md, work-template.sh for each.",
-      "severity": "CRITICAL",
-      "category": "infra",
-      "status": "done",
-      "assigned_to": "Claude",
-      "team": "operations",
-      "epicId": "EPIC-021",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-15T10:08:41Z",
-      "updatedAt": "2026-06-15T16:04:07.399863+00:00",
-      "comments": [
-        {
-          "by": "Claude",
-          "text": "Discovered during system scan"
-        },
-        {
-          "by": "Claude",
-          "text": "Work executed on 2026-06-15. Progress: 25%."
-        },
-        {
-          "by": "Claude",
-          "text": "Work executed on 2026-06-15. Progress: 50%."
-        }
-      ],
-      "progress": 50,
-      "eta_hours": 4,
-      "jira_key": "TD-248"
-    },
-    {
-      "id": "STORY-051",
-      "title": "Implement agent self-assignment from Kanban backlog",
-      "description": "Agents should autonomously pick up planned/in_progress tickets from Kanban backlog.",
-      "severity": "HIGH",
       "category": "feature",
       "status": "done",
-      "assigned_to": "Iris",
-      "team": "operations",
-      "epicId": "EPIC-021",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-15T10:08:41Z",
-      "updatedAt": "2026-06-15T18:03:55.634625+00:00",
-      "comments": [
-        {
-          "by": "Iris",
-          "text": "Work executed on 2026-06-15. Progress: 25%."
-        },
-        {
-          "by": "Iris",
-          "text": "Work executed on 2026-06-15. Progress: 50%."
-        }
-      ],
-      "progress": 50,
-      "eta_hours": 8,
-      "jira_key": "TD-249"
-    },
-    {
-      "id": "STORY-052",
-      "title": "Implement per-agent progress logging to memory/",
-      "description": "Each agent should log work progress to memory/ files for Lucy status reports.",
-      "severity": "MEDIUM",
-      "category": "feature",
-      "status": "in_progress",
-      "assigned_to": "Metis",
-      "team": "operations",
-      "epicId": "EPIC-021",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-15T10:08:41Z",
-      "updatedAt": "2026-06-15T10:08:41Z",
-      "comments": [],
-      "progress": 0,
-      "eta_hours": 16,
-      "jira_key": "TD-250"
-    },
-    {
-      "id": "STORY-053",
-      "title": "Fix Work Executor 2h cron job persistent failures",
-      "description": "Work Executor cron keeps failing with Agent couldn't generate a response.",
-      "severity": "HIGH",
-      "category": "bug",
-      "status": "done",
-      "assigned_to": "Claude",
-      "team": "operations",
-      "epicId": "EPIC-022",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-15T10:08:41Z",
-      "updatedAt": "2026-06-15T16:04:07.472042+00:00",
-      "comments": [
-        {
-          "by": "Claude",
-          "text": "Work executed on 2026-06-15. Progress: 35%."
-        },
-        {
-          "by": "Claude",
-          "text": "Work executed on 2026-06-15. Progress: 60%."
-        }
-      ],
-      "progress": 60,
-      "eta_hours": 4,
-      "jira_key": "TD-251"
-    },
-    {
-      "id": "STORY-054",
-      "title": "Fix Hourly Check-in to actively process planned tickets",
-      "description": "Hourly Check-in should move planned to in_progress and assign work.",
-      "severity": "MEDIUM",
-      "category": "feature",
-      "status": "in_progress",
-      "assigned_to": "Lucy",
-      "team": "operations",
-      "epicId": "EPIC-022",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-15T10:08:41Z",
-      "updatedAt": "2026-06-15T10:08:41Z",
-      "comments": [],
-      "progress": 50,
-      "eta_hours": 2,
-      "jira_key": "TD-252"
-    },
-    {
-      "id": "STORY-055",
-      "title": "Install remaining missing skill binaries (gog, ordercli)",
-      "description": "gog and ordercli not available via npm/pip/apt on Linux VM.",
-      "severity": "MEDIUM",
-      "category": "infra",
-      "status": "in_progress",
-      "assigned_to": "Thor",
-      "team": "devops",
-      "epicId": "EPIC-023",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-15T10:08:41Z",
-      "updatedAt": "2026-06-15T10:08:41Z",
-      "comments": [],
-      "progress": 0,
-      "eta_hours": 8,
-      "jira_key": "TD-253"
-    },
-    {
-      "id": "STORY-056",
-      "title": "Configure API key-based skills (goplaces, whisper, trello, sherpa)",
-      "description": "4 skills need API keys: GOOGLE_PLACES_API_KEY, OPENAI_API_KEY, TRELLO_API_KEY, SHERPA_ONNX dirs.",
-      "severity": "LOW",
-      "category": "feature",
-      "status": "in_progress",
-      "assigned_to": "CEO",
+      "assigned_to": "open_ds",
       "team": "any",
-      "epicId": "EPIC-023",
+      "epicId": "EPIC-001",
       "blockedBy": null,
       "blocks": null,
-      "created_by": "CEO",
-      "createdAt": "2026-06-15T10:08:41Z",
-      "updatedAt": "2026-06-15T10:08:41Z",
-      "comments": [
-        {
-          "by": "Claude",
-          "text": "Waiting on CEO to provide API keys"
-        }
-      ],
+      "created_by": "sync",
+      "createdAt": "2026-06-15T17:25:51.200441",
+      "updatedAt": "2026-06-15T17:25:51.200444",
+      "comments": [],
+      "progress": 100,
+      "eta_hours": 0,
+      "jira_key": "TD-10"
+    },
+    {
+      "id": "STORY-11",
+      "title": "Identify first revenue-generating project",
+      "description": "",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "in_progress",
+      "assigned_to": "Hermes",
+      "team": "any",
+      "epicId": "EPIC-002",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "sync",
+      "createdAt": "2026-06-15T17:25:51.200452",
+      "updatedAt": "2026-06-15T17:25:51.200453",
+      "comments": [],
       "progress": 0,
-      "eta_hours": 2,
-      "jira_key": "TD-254"
+      "eta_hours": 0,
+      "jira_key": "TD-11"
+    },
+    {
+      "id": "STORY-7",
+      "title": "Set up 24/7 monitoring for all services",
+      "description": "",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "done",
+      "assigned_to": "",
+      "team": "any",
+      "epicId": "EPIC-003",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "sync",
+      "createdAt": "2026-06-15T17:25:51.200457",
+      "updatedAt": "2026-06-15T17:25:51.200458",
+      "comments": [],
+      "progress": 100,
+      "eta_hours": 0,
+      "jira_key": "TD-7"
+    },
+    {
+      "id": "STORY-8",
+      "title": "Deploy Kanban web dashboard",
+      "description": "",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "done",
+      "assigned_to": "",
+      "team": "any",
+      "epicId": "EPIC-001",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "sync",
+      "createdAt": "2026-06-15T17:25:51.200461",
+      "updatedAt": "2026-06-15T17:25:51.200462",
+      "comments": [],
+      "progress": 100,
+      "eta_hours": 0,
+      "jira_key": "TD-8"
     }
   ],
   "stats": {
-    "totalTickets": 56,
-    "totalEpics": 23,
-    "backlog": 31,
-    "in_progress": 12,
+    "totalTickets": 44,
+    "totalEpics": 7,
+    "backlog": 29,
+    "in_progress": 6,
     "review": 0,
-    "in_validation": 2,
-    "done": 11,
+    "in_validation": 0,
+    "done": 9,
     "critical": 0,
     "blocked": 0,
     "agent_progress": {
@@ -2309,7 +1766,7 @@
         "blocked": 0
       }
     },
-    "last_progress_update": "2026-06-15T18:03:57.741744+00:00",
+    "last_progress_update": "2026-06-15T22:04:53.099840+00:00",
     "planned": 0
   },
   "pending_actions": [
@@ -2323,5 +1780,5 @@
       "created_at": "2026-06-12T21:30:00Z"
     }
   ],
-  "last_progress_update": "2026-06-15T10:22:29.102827"
+  "last_progress_update": "2026-06-15T18:47:50.750689"
 }
