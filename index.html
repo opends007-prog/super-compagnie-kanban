@@ -720,8 +720,8 @@ function rBoardMobile(){
   var s=COL_ORDER[mobileColIdx];
   var colName=COL_NAMES[s];
   var colClass='col-'+s;
-  var epicsInCol=ep.filter(function(e){return e.col===s});
-  var orphansInCol=orphans.filter(function(t){return t.col===s});
+  var epicsInCol=ep.filter(function(e){return e.status===s});
+  var orphansInCol=orphans.filter(function(t){return t.status===s});
   // Count all work items: each epic counts as 1 + its child tickets, plus orphan tickets
   var cnt=orphansInCol.length;
   epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length});
