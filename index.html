@@ -662,7 +662,9 @@ function rBoard(){
     var colClass='col-'+s;
     var epicsInCol=ep.filter(function(e){return e.col===s});
     var orphansInCol=orphans.filter(function(t){return t.col===s});
-    var cnt=epicsInCol.length+orphansInCol.length;
+    // Count all work items: each epic counts as 1 + its child tickets, plus orphan tickets
+    var cnt=orphansInCol.length;
+    epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length});
 
     html+='<div class="col '+colClass+'"><div class="col-hdr"><div class="col-title"><span class="col-dot"></span>'+colName+'</div><span class="col-cnt">('+cnt+')</span></div><div class="col-body">';
 
@@ -670,7 +672,7 @@ function rBoard(){
       if(e.col!==s)return;
       var st=byEpic[e.id]||[],dn=st.filter(function(x){return x.status==='done'}).length;
       html+='<div class="eg"><div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' <span style="color:var(--text3)">['+dn+'/'+st.length+']</span></div>';
-      html+='<div class="ep-bar"><div class="ep-bar-fill" style="width:'+e.progress+'%"></div></div>';
+      html+='<div class="ep-bar"><div class="ep-bar-fill"style="width:'+e.progress+'%"></div></div>';
       st.forEach(function(t){html+=tkHTML(t,ecm[t.epicId])});
       html+='</div>';
     });
@@ -700,7 +702,9 @@ function rBoardMobile(){
   COL_ORDER.forEach(function(s,i){
     var epicsInCol=ep.filter(function(e){return e.col===s});
     var orphansInCol=orphans.filter(function(t){return t.col===s});
-    var cnt=epicsInCol.length+orphansInCol.length;
+    // Count all work items: each epic counts as 1 + its child tickets, plus orphan tickets
+    var cnt=orphansInCol.length;
+    epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length});
     var activeClass=(i===mobileColIdx)?' active':'';
     pickerHtml+='<div class="col-pick'+activeClass+'" onclick="switchMobileCol('+i+')"><span class="col-pick-dot" style="background:'+COL_DOTS[s]+'"></span>'+COL_NAMES[s]+' <span class="col-pick-cnt">('+cnt+')</span></div>';
     dotsHtml+='<div class="col-dot-ind'+activeClass+'" id="cdot-'+i+'"></div>';
@@ -714,7 +718,9 @@ function rBoardMobile(){
   var colClass='col-'+s;
   var epicsInCol=ep.filter(function(e){return e.col===s});
   var orphansInCol=orphans.filter(function(t){return t.col===s});
-  var cnt=epicsInCol.length+orphansInCol.length;
+  // Count all work items: each epic counts as 1 + its child tickets, plus orphan tickets
+  var cnt=orphansInCol.length;
+  epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length});
 
   var html='<div class="board-mobile-col '+colClass+'"><div class="col-hdr"><div class="col-title"><span class="col-dot"></span>'+colName+'</div><span class="col-cnt">('+cnt+')</span></div><div class="col-body">';
 
@@ -1072,13 +1078,15 @@ var activityFilterKeyword='';
 function startActivityStream(){
   var el=document.getElementById('view-activity');
   if(!el)return;
-  // Render initial structure
-  el.innerHTML='<div class="activity-hdr"><div class="activity-title">⚡ Agent Activity Stream</div><div class="activity-controls"><select class="activity-filter" id="activity-agent-filter" onchange="activitySetAgent(this.value)"><option value="">All Agents</option></select><input class="activity-filter" id="activity-keyword-filter" type="text" placeholder="Filter by keyword..." oninput="activitySetKeyword(this.value)" style="min-width:120px"><button class="activity-btn" id="activity-pause-btn" onclick="activityTogglePause()">⏸ Pause</button><button class="activity-btn" onclick="activityClear()">🗑 Clear</button></div></div><div class="activity-stats" id="activity-stats"></div><div class="activity-list" id="activity-list"><div class="empty-state activity-empty"><span class="empty-icon">📡</span><span>Waiting for agent activity...</span></div></div>';
-  // Load historical events
+  // Only build HTML once
+  if(!document.getElementById('activity-list')){
+    el.innerHTML='<div class="activity-hdr"><div class="activity-title">⚡ Agent Activity Stream</div><div class="activity-controls"><select class="activity-filter" id="activity-agent-filter" onchange="activitySetAgent(this.value)"><option value="">All Agents</option></select><input class="activity-filter" id="activity-keyword-filter" type="text" placeholder="Filter by keyword..." oninput="activitySetKeyword(this.value)" style="min-width:120px"><button class="activity-btn" id="activity-pause-btn" onclick="activityTogglePause()">⏸ Pause</button><button class="activity-btn" onclick="activityClear()">🗑 Clear</button></div></div><div class="activity-stats" id="activity-stats"></div><div class="activity-list" id="activity-list"></div>';
+  }
+  // Load historical events from ticket data
   activityLoadHistory();
-  // Start polling
+  // Start polling for new events
+  if(activityPoll)clearInterval(activityPoll);
   activityPoll=setInterval(activityFetchEvents,5000);
-  activityFetchEvents();
 }
 
 function stopActivityStream(){
