@@ -188,7 +188,7 @@ a{color:var(--blue);text-decoration:none}
 .col-validation .col-dot{background:var(--cyan)}.col-validation .col-title{color:var(--cyan)}
 .col-done .col-dot{background:var(--green)}.col-done .col-title{color:var(--green)}
 
-/* ═══ TICKET CARD ═══ */
+/* ═══ STORY CARD ═══ */
 .tk{
   background:var(--bg3);border:1px solid var(--border);
   border-radius:var(--radius);padding:10px;
@@ -520,7 +520,7 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
     <div class="hdr-badges">
       <span class="badge badge-live">● LIVE</span>
       <span class="badge badge-count" id="badge-epics">0 Epics</span>
-      <span class="badge badge-count" id="badge-tickets">0 Tickets</span>
+      <span class="badge badge-count" id="badge-stories">0 Stories</span>
       <span class="badge badge-count" id="badge-active">0 Active</span>
     </div>
   </div>
@@ -577,7 +577,7 @@ var D={epics:[],tickets:[],stats:{}};
 var CV='kanban';
 var mobileColIdx=0;
 
-var COL_MAP={backlog:'backlog',planned:'planned',in_progress:'progress',review:'validation',in_validation:'validation',done:'done',waiting:'waiting'};
+var COL_MAP={backlog:'backlog',planned:'planned',in_progress:'progress',waiting:'waiting',in_validation:'validation',done:'done'};
 var COL_ORDER=['backlog','planned','progress','waiting','validation','done'];
 var COL_NAMES={backlog:'📦 Backlog',planned:'📌 Planned',progress:'🔧 In Progress',waiting:'⏳ Waiting for Support',validation:'🔍 In Validation',done:'✅ Done'};
 var COL_DOTS={backlog:'#64748b',planned:'#f59e0b',progress:'#3b82f6',waiting:'#64748b',validation:'#06b6d4',done:'#22c55e'};
@@ -587,14 +587,14 @@ function loadData(){
     .then(r=>r.json())
     .then(d=>{
       D=d;
-      console.log('Loaded:',D.epics.length,'epics,',D.tickets.length,'tickets,',(D.agents||[]).length,'agents');
+      console.log('Loaded:',D.epics.length,'epics,',D.tickets.length,'stories,',(D.agents||[]).length,'agents');
       recalc();
       render();
       // Refresh activity stream with new ticket data
       if(CV==='activity'){
         activityLoadHistory();
       }
-      showNotif('Data synced: '+D.tickets.length+' tickets, '+(D.agents||[]).length+' agents','success');
+      showNotif('Data synced: '+D.tickets.length+' stories, '+(D.agents||[]).length+' agents','success');
     })
     .catch(e=>{console.error(e);showNotif('Sync failed','error');});
 }
@@ -648,7 +648,7 @@ function rStats(){
   var tk=D.tickets||[],ep=D.epics||[];
   var active=tk.filter(function(t){return t.status in {in_progress:1,waiting:1,in_validation:1,planned:1}}).length;
   document.getElementById('badge-epics').textContent=ep.length+' Epics';
-  document.getElementById('badge-tickets').textContent=tk.length+' Tickets';
+  document.getElementById('badge-stories').textContent=tk.length+' Stories';
   document.getElementById('badge-active').textContent=active+' Active';
 }
 
@@ -685,7 +685,7 @@ function rBoard(){
       if(t.col===s)html+=tkHTML(t,null);
     });
 
-    if(!epicsInCol.length&&!orphansInCol.length)html+='<div class="empty-state"><span class="empty-icon">📭</span><span class="empty-text">No items here</span><span class="empty-hint">Tickets will appear when added to this column</span></div>';
+    if(!epicsInCol.length&&!orphansInCol.length)html+='<div class="empty-state"><span class="empty-icon">📭</span><span class="empty-text">No items here</span><span class="empty-hint">Stories will appear when added to this column</span></div>';
     html+='</div></div>';
   });
 

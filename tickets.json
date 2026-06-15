@@ -201,9 +201,9 @@
       "assignee": "Zeus",
       "progress": 100,
       "storyIds": [
-        "TICKET-002",
-        "TICKET-003",
-        "TICKET-004"
+        "STORY-002",
+        "STORY-003",
+        "STORY-004"
       ],
       "createdAt": "2026-06-03T00:00:00Z",
       "updatedAt": "2026-06-11T00:00:00Z"
@@ -218,10 +218,10 @@
       "assignee": "Hermes",
       "progress": 50,
       "storyIds": [
-        "TICKET-005",
-        "TICKET-012",
-        "TICKET-013",
-        "TICKET-014"
+        "STORY-005",
+        "STORY-012",
+        "STORY-013",
+        "STORY-014"
       ],
       "createdAt": "2026-06-03T00:00:00Z",
       "updatedAt": "2026-06-11T00:00:00Z"
@@ -236,7 +236,7 @@
       "assignee": "Athena",
       "progress": 100,
       "storyIds": [
-        "TICKET-001"
+        "STORY-001"
       ],
       "createdAt": "2026-06-03T00:00:00Z",
       "updatedAt": "2026-06-11T00:00:00Z"
@@ -251,7 +251,7 @@
       "assignee": "Lucy",
       "progress": 0,
       "storyIds": [
-        "TICKET-006"
+        "STORY-006"
       ],
       "createdAt": "2026-06-05T00:00:00Z",
       "updatedAt": "2026-06-11T00:00:00Z"
@@ -266,14 +266,14 @@
       "assignee": "Iris",
       "progress": 11,
       "storyIds": [
-        "TICKET-007",
-        "TICKET-008",
-        "TICKET-009",
-        "TICKET-010",
-        "TICKET-011",
-        "TICKET-015",
-        "TICKET-016",
-        "TICKET-017"
+        "STORY-007",
+        "STORY-008",
+        "STORY-009",
+        "STORY-010",
+        "STORY-011",
+        "STORY-015",
+        "STORY-016",
+        "STORY-017"
       ],
       "createdAt": "2026-06-05T00:00:00Z",
       "updatedAt": "2026-06-11T00:00:00Z"
@@ -288,8 +288,8 @@
       "assignee": "Athena",
       "progress": 0,
       "storyIds": [
-        "TICKET-018",
-        "TICKET-019"
+        "STORY-018",
+        "STORY-019"
       ],
       "createdAt": "2026-06-11T00:00:00Z",
       "updatedAt": "2026-06-11T00:00:00Z"
@@ -304,8 +304,8 @@
       "assignee": "Metis",
       "progress": 0,
       "storyIds": [
-        "TICKET-020",
-        "TICKET-021"
+        "STORY-020",
+        "STORY-021"
       ],
       "createdAt": "2026-06-11T00:00:00Z",
       "updatedAt": "2026-06-11T00:00:00Z"
@@ -320,11 +320,11 @@
       "assignee": "Gladiator",
       "progress": 0,
       "storyIds": [
-        "TICKET-022",
-        "TICKET-023",
-        "TICKET-024",
-        "TICKET-025",
-        "TICKET-026"
+        "STORY-022",
+        "STORY-023",
+        "STORY-024",
+        "STORY-025",
+        "STORY-026"
       ],
       "createdAt": "2026-06-11T00:00:00Z",
       "updatedAt": "2026-06-11T00:00:00Z"
@@ -469,7 +469,7 @@
       "assignee": "Thor",
       "progress": 0,
       "storyIds": [
-        "TICKET-047"
+        "STORY-047"
       ],
       "createdAt": "2026-06-15T02:32:11.151482+00:00",
       "updatedAt": "2026-06-15T02:32:11.151482+00:00"
@@ -484,8 +484,8 @@
       "assignee": "Hades",
       "progress": 25,
       "storyIds": [
-        "TICKET-048",
-        "TICKET-049"
+        "STORY-048",
+        "STORY-049"
       ],
       "createdAt": "2026-06-15T09:30:00Z",
       "updatedAt": "2026-06-15T09:30:00Z"
@@ -500,9 +500,9 @@
       "assignee": "Claude",
       "progress": 0,
       "storyIds": [
-        "TICKET-050",
-        "TICKET-051",
-        "TICKET-052"
+        "STORY-050",
+        "STORY-051",
+        "STORY-052"
       ],
       "createdAt": "2026-06-15T10:08:41Z",
       "updatedAt": "2026-06-15T10:08:41Z"
@@ -517,8 +517,8 @@
       "assignee": "Claude",
       "progress": 20,
       "storyIds": [
-        "TICKET-053",
-        "TICKET-054"
+        "STORY-053",
+        "STORY-054"
       ],
       "createdAt": "2026-06-15T10:08:41Z",
       "updatedAt": "2026-06-15T10:08:41Z"
@@ -533,8 +533,8 @@
       "assignee": "Claude",
       "progress": 60,
       "storyIds": [
-        "TICKET-055",
-        "TICKET-056"
+        "STORY-055",
+        "STORY-056"
       ],
       "createdAt": "2026-06-15T10:08:41Z",
       "updatedAt": "2026-06-15T10:08:41Z"
@@ -542,12 +542,12 @@
   ],
   "tickets": [
     {
-      "id": "TICKET-001",
+      "id": "STORY-001",
       "title": "Set up 24/7 monitoring",
       "description": "Deploy Monitoring Agent for gateway, voice bot, disk, memory, CPU, ports, logs.",
       "severity": "MEDIUM",
       "category": "infra",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Gladiator",
       "team": "devops",
       "epicId": "EPIC-003",
@@ -555,11 +555,15 @@
       "blocks": null,
       "created_by": "monitor",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T14:09:08.474863+00:00",
+      "updatedAt": "2026-06-15T18:03:55.635681+00:00",
       "comments": [
         {
           "by": "Athena",
           "text": "Security audit passed. LOW risk."
+        },
+        {
+          "by": "Gladiator",
+          "text": "Work executed on 2026-06-15. Progress: 100%."
         },
         {
           "by": "Gladiator",
@@ -571,12 +575,12 @@
       "jira_key": "TD-228"
     },
     {
-      "id": "TICKET-002",
+      "id": "STORY-002",
       "title": "Deploy Kanban + Jira boards",
       "description": "Set up Kanban web dashboard and Jira board with proper columns and agent labels.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Gladiator",
       "team": "devops",
       "epicId": "EPIC-001",
@@ -584,14 +588,19 @@
       "blocks": null,
       "created_by": "org-excellence",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.726191",
-      "comments": [],
-      "progress": 75,
+      "updatedAt": "2026-06-15T18:03:55.636224+00:00",
+      "comments": [
+        {
+          "by": "Gladiator",
+          "text": "Work executed on 2026-06-15. Progress: 100%."
+        }
+      ],
+      "progress": 100,
       "eta_hours": 2,
       "jira_key": "TD-229"
     },
     {
-      "id": "TICKET-003",
+      "id": "STORY-003",
       "title": "Deploy all agent workspaces to VM",
       "description": "Run all setup scripts for 17 agent workspaces.",
       "severity": "CRITICAL",
@@ -616,12 +625,12 @@
       "jira_key": "TD-9"
     },
     {
-      "id": "TICKET-004",
+      "id": "STORY-004",
       "title": "Set up daily cron jobs on VM",
       "description": "Install all 9 cron jobs for daily automation.",
       "severity": "MEDIUM",
       "category": "infra",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Thor",
       "team": "devops",
       "epicId": "EPIC-001",
@@ -629,11 +638,15 @@
       "blocks": null,
       "created_by": "org-excellence",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T09:27:55.726343",
+      "updatedAt": "2026-06-15T18:03:57.739940+00:00",
       "comments": [
         {
           "by": "Thor",
           "text": "All 9 cron jobs installed."
+        },
+        {
+          "by": "Thor",
+          "text": "Work executed on 2026-06-15. Progress: 100%."
         }
       ],
       "progress": 100,
@@ -641,12 +654,12 @@
       "jira_key": "TD-230"
     },
     {
-      "id": "TICKET-005",
+      "id": "STORY-005",
       "title": "Identify first revenue project",
       "description": "Research and identify the first project to build for revenue.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Clio",
       "team": "Research",
       "epicId": "EPIC-002",
@@ -654,7 +667,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T14:09:08.385151+00:00",
+      "updatedAt": "2026-06-15T18:03:57.741688+00:00",
       "comments": [
         {
           "by": "CEO",
@@ -663,6 +676,10 @@
         {
           "by": "Hermes",
           "text": "Research complete. 5 opportunities identified. #1: AI Code Review API (9.5/10)."
+        },
+        {
+          "by": "Clio",
+          "text": "Work executed on 2026-06-15. Progress: 100%."
         }
       ],
       "progress": 100,
@@ -670,7 +687,7 @@
       "jira_key": "TD-231"
     },
     {
-      "id": "TICKET-006",
+      "id": "STORY-006",
       "title": "Agent Request: ML Engineer needed",
       "description": "Data Engineer overloaded with ML/AI pipeline work.",
       "severity": "MEDIUM",
@@ -699,7 +716,7 @@
       "jira_key": "TD-12"
     },
     {
-      "id": "TICKET-007",
+      "id": "STORY-007",
       "title": "Issue Creator - Create Jira issues",
       "description": "Create new Jira issues based on agent work requests.",
       "severity": "MEDIUM",
@@ -728,7 +745,7 @@
       "jira_key": "TD-232"
     },
     {
-      "id": "TICKET-008",
+      "id": "STORY-008",
       "title": "Label Manager - Apply agent labels",
       "description": "Manages label system. Agent name first label.",
       "severity": "MEDIUM",
@@ -757,7 +774,7 @@
       "jira_key": "TD-233"
     },
     {
-      "id": "TICKET-009",
+      "id": "STORY-009",
       "title": "Schedule Manager - Set dates",
       "description": "Sets start dates and deadlines on all Jira issues.",
       "severity": "MEDIUM",
@@ -786,7 +803,7 @@
       "jira_key": "TD-234"
     },
     {
-      "id": "TICKET-010",
+      "id": "STORY-010",
       "title": "Board Hygiene - Maintain board",
       "description": "Ensures Jira board is clean and up to date.",
       "severity": "MEDIUM",
@@ -815,7 +832,7 @@
       "jira_key": "TD-235"
     },
     {
-      "id": "TICKET-011",
+      "id": "STORY-011",
       "title": "Epic Linker - Link issues to epics",
       "description": "Ensures all stories/tasks are linked to parent epics.",
       "severity": "MEDIUM",
@@ -844,7 +861,7 @@
       "jira_key": "TD-236"
     },
     {
-      "id": "TICKET-012",
+      "id": "STORY-012",
       "title": "Market research - SaaS opportunities",
       "description": "Research SaaS tools, APIs, automation products.",
       "severity": "MEDIUM",
@@ -869,7 +886,7 @@
       "jira_key": "TD-195"
     },
     {
-      "id": "TICKET-013",
+      "id": "STORY-013",
       "title": "Competitive analysis",
       "description": "Analyze competitors in AI agent space.",
       "severity": "MEDIUM",
@@ -898,7 +915,7 @@
       "jira_key": "TD-196"
     },
     {
-      "id": "TICKET-014",
+      "id": "STORY-014",
       "title": "Financial planning - Bootstrap budget",
       "description": "Create financial plan for bootstrap phase.",
       "severity": "MEDIUM",
@@ -927,7 +944,7 @@
       "jira_key": "TD-197"
     },
     {
-      "id": "TICKET-015",
+      "id": "STORY-015",
       "title": "Sync Kanban to Jira",
       "description": "Jira Management Agent reads Kanban and syncs to Jira.",
       "severity": "MEDIUM",
@@ -956,7 +973,7 @@
       "jira_key": "TD-198"
     },
     {
-      "id": "TICKET-016",
+      "id": "STORY-016",
       "title": "Create Jira issues for all agents",
       "description": "Ensure every agent has a story in Jira.",
       "severity": "MEDIUM",
@@ -976,7 +993,7 @@
       "jira_key": "TD-199"
     },
     {
-      "id": "TICKET-017",
+      "id": "STORY-017",
       "title": "Board column mapping",
       "description": "Ensure Kanban columns match Jira exactly.",
       "severity": "MEDIUM",
@@ -1005,7 +1022,7 @@
       "jira_key": "TD-200"
     },
     {
-      "id": "TICKET-018",
+      "id": "STORY-018",
       "title": "Code review - All agent workspaces",
       "description": "Review all agent workspace code for quality and security.",
       "severity": "MEDIUM",
@@ -1034,7 +1051,7 @@
       "jira_key": "TD-201"
     },
     {
-      "id": "TICKET-019",
+      "id": "STORY-019",
       "title": "Write test suite for agent tools",
       "description": "Create automated tests for agent tooling.",
       "severity": "MEDIUM",
@@ -1063,7 +1080,7 @@
       "jira_key": "TD-202"
     },
     {
-      "id": "TICKET-020",
+      "id": "STORY-020",
       "title": "Create LESSONS.md template",
       "description": "Template for agents to document learnings after each project.",
       "severity": "MEDIUM",
@@ -1092,7 +1109,7 @@
       "jira_key": "TD-203"
     },
     {
-      "id": "TICKET-021",
+      "id": "STORY-021",
       "title": "Implement knowledge sharing protocol",
       "description": "Process for agents to share lessons across team.",
       "severity": "MEDIUM",
@@ -1121,7 +1138,7 @@
       "jira_key": "TD-204"
     },
     {
-      "id": "TICKET-022",
+      "id": "STORY-022",
       "title": "MVP: AI Code Review API",
       "description": "Build AI-powered code review API. Free: 100 calls/mo. Pro: $49/mo. MVP in 1-2 weeks. Est $2K-10K MRR.",
       "severity": "CRITICAL",
@@ -1162,7 +1179,7 @@
       "jira_key": "TD-40"
     },
     {
-      "id": "TICKET-023",
+      "id": "STORY-023",
       "title": "MVP: AI Agent Safety Scanner",
       "description": "Build AI agent behavior validation tool. Starter: $99/mo. Zero-competition.",
       "severity": "HIGH",
@@ -1195,7 +1212,7 @@
       "jira_key": "TD-41"
     },
     {
-      "id": "TICKET-024",
+      "id": "STORY-024",
       "title": "API Docs & Landing Page",
       "description": "Create API documentation and landing page for Code Review API.",
       "severity": "MEDIUM",
@@ -1224,7 +1241,7 @@
       "jira_key": "TD-42"
     },
     {
-      "id": "TICKET-025",
+      "id": "STORY-025",
       "title": "Competitor Intelligence API",
       "description": "Build competitor tracking API. Starter: $29/mo. Est $1K-5K MRR.",
       "severity": "MEDIUM",
@@ -1257,7 +1274,7 @@
       "jira_key": "TD-43"
     },
     {
-      "id": "TICKET-026",
+      "id": "STORY-026",
       "title": "SMB Automation Micro-SaaS",
       "description": "Build automation tool for small businesses. $19/mo.",
       "severity": "LOW",
@@ -1290,7 +1307,7 @@
       "jira_key": "TD-44"
     },
     {
-      "id": "TICKET-027",
+      "id": "STORY-027",
       "title": "Kanban Board Improvement & Agent Monitoring",
       "description": "Improve the Kanban board design and functionality. Monitor agent activity. Fix any broken functionality.",
       "severity": "MEDIUM",
@@ -1315,7 +1332,7 @@
       "jira_key": "TD-205"
     },
     {
-      "id": "TICKET-028",
+      "id": "STORY-028",
       "title": "Kanban v2: Pull-to-refresh, Theme Toggle, Empty States, Offline Detection",
       "description": "Add pull-to-refresh on mobile, light/dark mode toggle with persistence, improved empty states with illustrations, and offline connectivity detection banner.",
       "severity": "MEDIUM",
@@ -1340,7 +1357,7 @@
       "jira_key": "TD-206"
     },
     {
-      "id": "TICKET-029",
+      "id": "STORY-029",
       "title": "Iris Jira\u2194Kanban Two-Way Sync System",
       "description": "Set up Iris agent to continuously sync Mission Control Kanban with Jira board in both directions. Kanban\u2192Jira push + Jira\u2192Kanban pull. Status, title, priority, assignee always in parity. Uses iris-sync.py script.",
       "severity": "MEDIUM",
@@ -1369,7 +1386,7 @@
       "jira_key": "TD-207"
     },
     {
-      "id": "TICKET-030",
+      "id": "STORY-030",
       "title": "Board Quality Supervision & Parity Checks",
       "description": "Iris to run regular parity checks between Kanban and Jira. Flag orphaned tickets, inconsistent statuses, missing epics. Board quality report daily.",
       "severity": "MEDIUM",
@@ -1394,7 +1411,7 @@
       "jira_key": "TD-208"
     },
     {
-      "id": "TICKET-031",
+      "id": "STORY-031",
       "title": "Setup monitoring dashboards & alerting rules",
       "description": "Deploy monitoring agent for gateway, voice bot, disk, memory, CPU, ports, logs. Create alerting rules and notification channels.",
       "severity": "MEDIUM",
@@ -1423,7 +1440,7 @@
       "jira_key": "TD-209"
     },
     {
-      "id": "TICKET-032",
+      "id": "STORY-032",
       "title": "Create KPI dashboards & metrics tracking",
       "description": "Build analytics dashboards for agent performance, revenue tracking, board quality metrics, and company KPIs.",
       "severity": "MEDIUM",
@@ -1452,7 +1469,7 @@
       "jira_key": "TD-210"
     },
     {
-      "id": "TICKET-033",
+      "id": "STORY-033",
       "title": "Security audit \u2014 all agent workspaces",
       "description": "Comprehensive security audit of all 18 agent workspaces. Check for exposed keys, insecure configs, permission issues.",
       "severity": "MEDIUM",
@@ -1481,7 +1498,7 @@
       "jira_key": "TD-211"
     },
     {
-      "id": "TICKET-034",
+      "id": "STORY-034",
       "title": "Setup bookkeeping system & expense tracking",
       "description": "Establish bookkeeping system for tracking all expenses, income, and financial records. Monthly reconciliation process.",
       "severity": "MEDIUM",
@@ -1510,7 +1527,7 @@
       "jira_key": "TD-212"
     },
     {
-      "id": "TICKET-035",
+      "id": "STORY-035",
       "title": "Resource allocation & cost optimization",
       "description": "Create resource allocation framework. Identify free alternatives, optimize cloud costs, track spending across all workspaces.",
       "severity": "MEDIUM",
@@ -1539,7 +1556,7 @@
       "jira_key": "TD-213"
     },
     {
-      "id": "TICKET-036",
+      "id": "STORY-036",
       "title": "External penetration testing",
       "description": "Engage external auditor for penetration testing of all public-facing services. Compliance report and remediation plan.",
       "severity": "MEDIUM",
@@ -1568,7 +1585,7 @@
       "jira_key": "TD-214"
     },
     {
-      "id": "TICKET-037",
+      "id": "STORY-037",
       "title": "Build data pipelines & ETL processes",
       "description": "Design and build data pipelines for analytics. ETL processes for agent performance data, revenue data, and board metrics.",
       "severity": "MEDIUM",
@@ -1597,7 +1614,7 @@
       "jira_key": "TD-215"
     },
     {
-      "id": "TICKET-038",
+      "id": "STORY-038",
       "title": "Team coordination & work delegation framework",
       "description": "Establish work delegation process, team coordination framework. Ensure all agents have clear tasks and no one is idle.",
       "severity": "MEDIUM",
@@ -1626,7 +1643,7 @@
       "jira_key": "TD-216"
     },
     {
-      "id": "TICKET-039",
+      "id": "STORY-039",
       "title": "Agent performance metrics dashboard",
       "description": "Create a dashboard tracking agent productivity: tickets completed, time per task, success rate, idle time. Helps identify bottlenecks.",
       "severity": "MEDIUM",
@@ -1655,7 +1672,7 @@
       "jira_key": "TD-237"
     },
     {
-      "id": "TICKET-040",
+      "id": "STORY-040",
       "title": "Revenue analytics & financial reporting",
       "description": "Build revenue tracking reports, burn rate analysis, runway projections, income per project breakdown. Daily/weekly financial summaries.",
       "severity": "MEDIUM",
@@ -1684,7 +1701,7 @@
       "jira_key": "TD-238"
     },
     {
-      "id": "TICKET-041",
+      "id": "STORY-041",
       "title": "Board quality metrics & parity reports",
       "description": "Analyze Kanban vs Jira sync quality. Track sync latency, mismatch rates, duplicate detection. Weekly board health report.",
       "severity": "MEDIUM",
@@ -1713,7 +1730,7 @@
       "jira_key": "TD-239"
     },
     {
-      "id": "TICKET-042",
+      "id": "STORY-042",
       "title": "Workload distribution analysis",
       "description": "Analyze ticket distribution across agents. Identify overloaded and underutilized agents. Recommend task rebalancing.",
       "severity": "MEDIUM",
@@ -1742,7 +1759,7 @@
       "jira_key": "TD-240"
     },
     {
-      "id": "TICKET-043",
+      "id": "STORY-043",
       "title": "Code quality audit & cleanup",
       "description": "Review all agent workspace code for quality, consistency, and security. Fix lint issues, update dependencies, improve documentation.",
       "severity": "MEDIUM",
@@ -1771,7 +1788,7 @@
       "jira_key": "TD-241"
     },
     {
-      "id": "TICKET-044",
+      "id": "STORY-044",
       "title": "Automate Kanban column sync with Jira",
       "description": "Build automated sync between Kanban board columns and Jira statuses. Eliminate manual mapping. Use iris-sync.py as foundation.",
       "severity": "MEDIUM",
@@ -1800,7 +1817,7 @@
       "jira_key": "TD-242"
     },
     {
-      "id": "TICKET-045",
+      "id": "STORY-045",
       "title": "Dependency mapping for EPIC-008 revenue projects",
       "description": "Break down EPIC-008 revenue projects into child tasks with explicit owners and dependencies. Create visible task dependency graph.",
       "severity": "MEDIUM",
@@ -1829,7 +1846,7 @@
       "jira_key": "TD-243"
     },
     {
-      "id": "TICKET-046",
+      "id": "STORY-046",
       "title": "Agent onboarding documentation",
       "description": "Create comprehensive onboarding docs for new agents: setup guide, role descriptions, workflow examples, best practices.",
       "severity": "MEDIUM",
@@ -1858,7 +1875,7 @@
       "jira_key": "TD-244"
     },
     {
-      "id": "TICKET-047",
+      "id": "STORY-047",
       "title": "Voice Bridge Bot \u2014 Real-time voice conversation with Lucy in Discord",
       "description": "Build a Discord voice bridge bot that enables real-time voice conversation with Lucy in Discord voice channels (like Jarvis). Components: 1) Discord bot joins voice channel, 2) Whisper STT transcribes user speech, 3) Text sent to Lucy via OpenClaw, 4) Lucy's response converted to speech via ElevenLabs TTS, 5) Bot speaks response in voice channel. Prerequisites: ELEVENLABS_API_KEY (done), Whisper (done), @discordjs/voice (done). Build as a new service on VM, independent of but integrated with OpenClaw gateway.",
       "severity": "MEDIUM",
@@ -1891,12 +1908,12 @@
       "jira_key": "TD-245"
     },
     {
-      "id": "TICKET-048",
+      "id": "STORY-048",
       "title": "VM Security Hardening \u2014 Fix world-writable files, secure ports, harden firewall",
       "description": "Remediate security audit findings from 2026-06-15 on companyserver VM. Tasks: 1) Fix world-writable files (owl-bridge/*.txt \u2192 chmod 600), 2) Audit all open ports and close unnecessary ones, 3) Harden UFW firewall rules (deny all incoming except Tailscale/SSH), 4) Disable unused services, 5) Set up fail2ban for SSH brute-force protection, 6) Enable automatic security updates (unattended-upgrades), 7) Run Lynis security scan and remediate findings. Assignee: Hades (Security Specialist) with Thor (Infrastructure) for VM-level changes.",
       "severity": "HIGH",
       "category": "security",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Hades",
       "team": "security",
       "epicId": "EPIC-020",
@@ -1904,7 +1921,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-15T09:30:00Z",
-      "updatedAt": "2026-06-15T14:09:08.451533+00:00",
+      "updatedAt": "2026-06-15T16:04:07.438451+00:00",
       "comments": [
         {
           "by": "Hades",
@@ -1913,19 +1930,23 @@
         {
           "by": "Hades",
           "text": "Work executed on 2026-06-15. Progress: 50%."
+        },
+        {
+          "by": "Hades",
+          "text": "Work executed on 2026-06-15. Progress: 75%."
         }
       ],
-      "progress": 50,
+      "progress": 75,
       "eta_hours": 8,
       "jira_key": "TD-246"
     },
     {
-      "id": "TICKET-049",
+      "id": "STORY-049",
       "title": "Automated Security Scanning & Monitoring Setup",
       "description": "Set up continuous security monitoring to prevent future audit findings. Tasks: 1) Install and configure Lynis for weekly automated security scans, 2) Set up AIDE (Advanced Intrusion Detection Environment) for file integrity monitoring, 3) Configure logwatch for daily security log summaries, 4) Set up rkhunter for rootkit scanning, 5) Create a security dashboard showing open ports, failed SSH attempts, and file permission anomalies, 6) Add security alerts to the monitoring system (Argus). Ensures future issues are caught automatically.",
       "severity": "HIGH",
       "category": "security",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Hades",
       "team": "security",
       "epicId": "EPIC-020",
@@ -1933,7 +1954,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-15T09:30:00Z",
-      "updatedAt": "2026-06-15T14:09:08.471433+00:00",
+      "updatedAt": "2026-06-15T16:04:07.449482+00:00",
       "comments": [
         {
           "by": "Hades",
@@ -1942,19 +1963,23 @@
         {
           "by": "Hades",
           "text": "Work executed on 2026-06-15. Progress: 25%."
+        },
+        {
+          "by": "Hades",
+          "text": "Work executed on 2026-06-15. Progress: 50%."
         }
       ],
-      "progress": 25,
+      "progress": 50,
       "eta_hours": 12,
       "jira_key": "TD-247"
     },
     {
-      "id": "TICKET-050",
+      "id": "STORY-050",
       "title": "Create all missing agent workspaces on VM",
       "description": "18 agents missing workspaces on VM. Need SOUL.md, IDENTITY.md, work-template.sh for each.",
       "severity": "CRITICAL",
       "category": "infra",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Claude",
       "team": "operations",
       "epicId": "EPIC-021",
@@ -1962,7 +1987,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-15T10:08:41Z",
-      "updatedAt": "2026-06-15T14:09:08.386812+00:00",
+      "updatedAt": "2026-06-15T16:04:07.399863+00:00",
       "comments": [
         {
           "by": "Claude",
@@ -1971,19 +1996,23 @@
         {
           "by": "Claude",
           "text": "Work executed on 2026-06-15. Progress: 25%."
+        },
+        {
+          "by": "Claude",
+          "text": "Work executed on 2026-06-15. Progress: 50%."
         }
       ],
-      "progress": 25,
+      "progress": 50,
       "eta_hours": 4,
       "jira_key": "TD-248"
     },
     {
-      "id": "TICKET-051",
+      "id": "STORY-051",
       "title": "Implement agent self-assignment from Kanban backlog",
       "description": "Agents should autonomously pick up planned/in_progress tickets from Kanban backlog.",
       "severity": "HIGH",
       "category": "feature",
-      "status": "planned",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "operations",
       "epicId": "EPIC-021",
@@ -1991,19 +2020,28 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-15T10:08:41Z",
-      "updatedAt": "2026-06-15T10:08:41Z",
-      "comments": [],
-      "progress": 0,
+      "updatedAt": "2026-06-15T18:03:55.634625+00:00",
+      "comments": [
+        {
+          "by": "Iris",
+          "text": "Work executed on 2026-06-15. Progress: 25%."
+        },
+        {
+          "by": "Iris",
+          "text": "Work executed on 2026-06-15. Progress: 50%."
+        }
+      ],
+      "progress": 50,
       "eta_hours": 8,
       "jira_key": "TD-249"
     },
     {
-      "id": "TICKET-052",
+      "id": "STORY-052",
       "title": "Implement per-agent progress logging to memory/",
       "description": "Each agent should log work progress to memory/ files for Lucy status reports.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "planned",
+      "status": "in_progress",
       "assigned_to": "Metis",
       "team": "operations",
       "epicId": "EPIC-021",
@@ -2018,12 +2056,12 @@
       "jira_key": "TD-250"
     },
     {
-      "id": "TICKET-053",
+      "id": "STORY-053",
       "title": "Fix Work Executor 2h cron job persistent failures",
       "description": "Work Executor cron keeps failing with Agent couldn't generate a response.",
       "severity": "HIGH",
       "category": "bug",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Claude",
       "team": "operations",
       "epicId": "EPIC-022",
@@ -2031,19 +2069,23 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-15T10:08:41Z",
-      "updatedAt": "2026-06-15T14:09:08.471576+00:00",
+      "updatedAt": "2026-06-15T16:04:07.472042+00:00",
       "comments": [
         {
           "by": "Claude",
           "text": "Work executed on 2026-06-15. Progress: 35%."
+        },
+        {
+          "by": "Claude",
+          "text": "Work executed on 2026-06-15. Progress: 60%."
         }
       ],
-      "progress": 35,
+      "progress": 60,
       "eta_hours": 4,
       "jira_key": "TD-251"
     },
     {
-      "id": "TICKET-054",
+      "id": "STORY-054",
       "title": "Fix Hourly Check-in to actively process planned tickets",
       "description": "Hourly Check-in should move planned to in_progress and assign work.",
       "severity": "MEDIUM",
@@ -2063,12 +2105,12 @@
       "jira_key": "TD-252"
     },
     {
-      "id": "TICKET-055",
+      "id": "STORY-055",
       "title": "Install remaining missing skill binaries (gog, ordercli)",
       "description": "gog and ordercli not available via npm/pip/apt on Linux VM.",
       "severity": "MEDIUM",
       "category": "infra",
-      "status": "planned",
+      "status": "in_progress",
       "assigned_to": "Thor",
       "team": "devops",
       "epicId": "EPIC-023",
@@ -2083,12 +2125,12 @@
       "jira_key": "TD-253"
     },
     {
-      "id": "TICKET-056",
+      "id": "STORY-056",
       "title": "Configure API key-based skills (goplaces, whisper, trello, sherpa)",
       "description": "4 skills need API keys: GOOGLE_PLACES_API_KEY, OPENAI_API_KEY, TRELLO_API_KEY, SHERPA_ONNX dirs.",
       "severity": "LOW",
       "category": "feature",
-      "status": "planned",
+      "status": "in_progress",
       "assigned_to": "CEO",
       "team": "any",
       "epicId": "EPIC-023",
@@ -2111,12 +2153,12 @@
   "stats": {
     "totalTickets": 56,
     "totalEpics": 23,
-    "backlog": 33,
-    "in_progress": 9,
+    "backlog": 31,
+    "in_progress": 12,
     "review": 0,
-    "in_validation": 4,
-    "done": 6,
-    "critical": 1,
+    "in_validation": 2,
+    "done": 11,
+    "critical": 0,
     "blocked": 0,
     "agent_progress": {
       "Lucy": {
@@ -2267,7 +2309,7 @@
         "blocked": 0
       }
     },
-    "last_progress_update": "2026-06-15T14:09:08.474905+00:00",
+    "last_progress_update": "2026-06-15T18:03:57.741744+00:00",
     "planned": 0
   },
   "pending_actions": [
