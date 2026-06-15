@@ -795,17 +795,41 @@ var listSearchQuery='';
 
 function listSetSearch(v){
   listSearchQuery=v.toLowerCase();
-  rList();
+  rListBody();
 }
 
 function rList(){
-  var el=document.getElementById('view-list'),h='';
-  // Search bar
-  h+='<div style="margin-bottom:8px;display:flex;gap:6px;align-items:center">';
-  h+='<input class="ds-input" type="text" placeholder="🔍 Search tickets, epics, agents..." value="'+listSearchQuery+'" oninput="listSetSearch(this.value)" style="flex:1;min-height:32px;font-size:12px">';
-  if(listSearchQuery) h+='<button class="btn" onclick="listSetSearch(\'\')" style="min-height:32px;font-size:11px">✕ Clear</button>';
-  h+='</div>';
-  h+='<table class="lv-table"><thead><tr><th class="lv-th">Key</th><th class="lv-th">Title</th><th class="lv-th">Epic</th><th class="lv-th">Status</th><th class="lv-th">Priority</th><th class="lv-th">Assignee</th></tr></thead><tbody>';
+  var el=document.getElementById('view-list');
+  if(!el)return;
+  // Build search bar once
+  if(!document.getElementById('list-search-wrap')){
+    el.innerHTML='<div id="list-search-wrap" style="margin-bottom:8px;display:flex;gap:6px;align-items:center">'+
+      '<input class="ds-input" id="list-search-input" type="text" placeholder="🔍 Search tickets, epics, agents..." value="'+listSearchQuery+'" oninput="listSetSearch(this.value)" style="flex:1;min-height:32px;font-size:12px">'+
+      (listSearchQuery?'<button class="btn" onclick="listSetSearch(\'\')" style="min-height:32px;font-size:11px">✕ Clear</button>':'')+
+      '</div><div id="list-table-wrap"></div><div id="list-cards-wrap"></div><div id="list-result-count"></div>';
+  } else {
+    // Just update the clear button visibility
+    var wrap=document.getElementById('list-search-wrap');
+    var hasBtn=wrap.querySelector('.ds-input+button');
+    if(listSearchQuery&&!hasBtn){
+      var btn=document.createElement('button');
+      btn.className='btn';btn.textContent='✕ Clear';btn.style.minHeight='32px';btn.style.fontSize='11px';
+      btn.onclick=function(){listSetSearch('')};
+      wrap.appendChild(btn);
+    } else if(!listSearchQuery&&hasBtn){
+      hasBtn.remove();
+    }
+  }
+  rListBody();
+}
+
+function rListBody(){
+  var el=document.getElementById('view-list');
+  if(!el)return;
+  var tableWrap=document.getElementById('list-table-wrap');
+  var cardsWrap=document.getElementById('list-cards-wrap');
+  var countWrap=document.getElementById('list-result-count');
+  if(!tableWrap)return; // Not initialized yet
   var all=[];
   (D.epics||[]).forEach(function(e){all.push({key:e.id,title:e.title,epic:'-',status:e.status,priority:e.priority||'Medium',assignee:e.assignee||'-',isEpic:true,progress:e.progress})});
   (D.tickets||[]).forEach(function(e){all.push({key:e.id,title:e.title,epic:e.epicId||'-',status:e.status,priority:e.severity,assignee:e.assigned_to||'-',isEpic:false})});
@@ -819,39 +843,41 @@ function rList(){
              item.status.toLowerCase().indexOf(listSearchQuery)!==-1;
     });
   }
+  // Build table
+  var th='<table class="lv-table"><thead><tr><th class="lv-th">Key</th><th class="lv-th">Title</th><th class="lv-th">Epic</th><th class="lv-th">Status</th><th class="lv-th">Priority</th><th class="lv-th">Assignee</th></tr></thead><tbody>';
+  var tb='';
   if(all.length===0){
-    h+='<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--text3);font-size:12px">No results found</td></tr>';
+    tb='<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--text3);font-size:12px">No results found</td></tr>';
   }
   all.forEach(function(item){
     var st=item.status.replace(/_/g,' ');
-    h+='<tr class="lv-tr" onclick="'+(item.isEpic?'openED':'openTD')+'(\''+item.key+'\')">';
-    h+='<td class="lv-td"><span class="lv-key">'+item.key+'</span></td>';
-    h+='<td class="lv-td"><span class="lv-title">'+(item.isEpic?'📁 ':'')+item.title+'</span></td>';
-    h+='<td class="lv-td"><span class="lv-ep">'+item.epic+'</span></td>';
-    h+='<td class="lv-td"><span class="lv-status '+item.status+'">'+st+'</span></td>';
-    h+='<td class="lv-td"><span class="badge '+(item.priority||'').toLowerCase()+'">'+item.priority+'</span></td>';
-    h+='<td class="lv-td"><span class="lv-asg">'+item.assignee+'</span></td>';
-    h+='</tr>';
+    tb+='<tr class="lv-tr" onclick="'+(item.isEpic?'openED':'openTD')+'(\''+item.key+'\')">';
+    tb+='<td class="lv-td"><span class="lv-key">'+item.key+'</span></td>';
+    tb+='<td class="lv-td"><span class="lv-title">'+(item.isEpic?'📁 ':'')+item.title+'</span></td>';
+    tb+='<td class="lv-td"><span class="lv-ep">'+item.epic+'</span></td>';
+    tb+='<td class="lv-td"><span class="lv-status '+item.status+'">'+st+'</span></td>';
+    tb+='<td class="lv-td"><span class="badge '+(item.priority||'').toLowerCase()+'">'+item.priority+'</span></td>';
+    tb+='<td class="lv-td"><span class="lv-asg">'+item.assignee+'</span></td>';
+    tb+='</tr>';
   });
-  h+='</tbody></table>';
-
-  // Mobile cards
-  h+='<div class="lv-cards">';
+  tableWrap.innerHTML=th+tb+'</tbody></table>';
+  // Build mobile cards
+  var mc='';
   all.forEach(function(item){
     var st=item.status.replace(/_/g,' ');
-    h+='<div class="lv-card" onclick="'+(item.isEpic?'openED':'openTD')+'(\''+item.key+'\')">';
-    h+='<div class="lv-card-key">'+item.key+(item.isEpic?' 📁':'')+'</div>';
-    h+='<div class="lv-card-title">'+item.title+'</div>';
-    h+='<div class="lv-card-meta"><span>'+st+'</span><span>'+item.priority+'</span><span>'+item.assignee+'</span></div>';
-    h+='</div>';
+    mc+='<div class="lv-card" onclick="'+(item.isEpic?'openED':'openTD')+'(\''+item.key+'\')">';
+    mc+='<div class="lv-card-key">'+item.key+(item.isEpic?' 📁':'')+'</div>';
+    mc+='<div class="lv-card-title">'+item.title+'</div>';
+    mc+='<div class="lv-card-meta"><span>'+st+'</span><span>'+item.priority+'</span><span>'+item.assignee+'</span></div>';
+    mc+='</div>';
   });
-  h+='</div>';
+  cardsWrap.innerHTML=mc;
   // Result count
   if(listSearchQuery){
-    h+='<div style="text-align:center;padding:8px;color:var(--text3);font-size:11px">Showing '+all.length+' results</div>';
+    countWrap.innerHTML='<div style="text-align:center;padding:8px;color:var(--text3);font-size:11px">Showing '+all.length+' results</div>';
+  } else {
+    countWrap.innerHTML='';
   }
-
-  el.innerHTML=h;
 }
 
 /* ═══ BACKLOG VIEW ═══ */
