@@ -1082,15 +1082,15 @@ var activityFilterKeyword='';
 function startActivityStream(){
   var el=document.getElementById('view-activity');
   if(!el)return;
-  // Only build HTML once
-  if(!document.getElementById('activity-list')){
-    el.innerHTML='<div class="activity-hdr"><div class="activity-title">⚡ Agent Activity Stream</div><div class="activity-controls"><select class="activity-filter" id="activity-agent-filter" onchange="activitySetAgent(this.value)"><option value="">All Agents</option></select><input class="activity-filter" id="activity-keyword-filter" type="text" placeholder="Filter by keyword..." oninput="activitySetKeyword(this.value)" style="min-width:120px"><button class="activity-btn" id="activity-pause-btn" onclick="activityTogglePause()">⏸ Pause</button><button class="activity-btn" onclick="activityClear()">🗑 Clear</button></div></div><div class="activity-stats" id="activity-stats"></div><div class="activity-list" id="activity-list"></div>';
-  }
-  // Load historical events from ticket data
-  activityLoadHistory();
+  // Always rebuild HTML to ensure clean state
+  el.innerHTML='<div class="activity-hdr"><div class="activity-title">⚡ Agent Activity Stream</div><div class="activity-controls"><select class="activity-filter" id="activity-agent-filter" onchange="activitySetAgent(this.value)"><option value="">All Agents</option></select><input class="activity-filter" id="activity-keyword-filter" type="text" placeholder="Filter by keyword..." oninput="activitySetKeyword(this.value)" style="min-width:120px"><button class="activity-btn" id="activity-pause-btn" onclick="activityTogglePause()">⏸ Pause</button><button class="activity-btn" onclick="activityClear()">🗑 Clear</button></div></div><div class="activity-stats" id="activity-stats"></div><div class="activity-list" id="activity-list"><div class="empty-state activity-empty"><span class="empty-icon">📡</span><span>Loading activity...</span></div></div>';
+  // Small delay to ensure DOM is ready, then load and render
+  setTimeout(function(){
+    activityLoadHistory();
+  },50);
   // Start polling for new events
   if(activityPoll)clearInterval(activityPoll);
-  activityPoll=setInterval(activityFetchEvents,5000);
+  activityPoll=setInterval(activityFetchEvents,10000);
 }
 
 function stopActivityStream(){
@@ -1223,6 +1223,12 @@ function activityTogglePause(){
 function activityClear(){
   activityEvents=[];
   activityRender();
+}
+
+function escapeHtml(s){
+  var d=document.createElement('div');
+  d.textContent=s;
+  return d.innerHTML;
 }
 
 function agentEmoji(name){
