@@ -787,7 +787,7 @@ function tkHTML(t,ec){
   var tags='';
   if(t.severity)tags+='<span class="tk-tag tag-'+t.severity.charAt(0).toLowerCase()+'">'+t.severity+'</span>';
   if(t.category)tags+='<span class="tk-tag tag-'+t.category+'">'+t.category+'</span>';
-  var asg=t.assigned_to?'<span class="tk-asg"><span class="tk-asg-emoji">👤</span>'+t.assigned_to+'</span>':'<span class="tk-asg" style="color:var(--text3)">👤 Unassigned</span>';
+	var asg=t.assigned_to?'<span class="tk-asg"><span class="tk-asg-emoji">'+agentEmoji(t.assigned_to)+'</span>'+t.assigned_to+'</span>':'<span class="tk-asg" style="color:var(--text3)">👤 Unassigned</span>';
   var ep=t.epicId?'<span class="tk-ep">⬆ '+t.epicId+'</span>':'';
   var cb=ec?'<div style="float:left;width:3px;border-radius:2px;margin-right:6px;background:'+ec+';height:100%;min-height:20px"></div>':'';
   var blk=bl?'<span class="tk-blocked-badge">⛔ BLOCKED</span>':'';
@@ -898,7 +898,7 @@ function rBacklog(){
     if(!st.length)h+='<div class="empty">No stories yet</div>';
     st.forEach(function(t){
       h+='<div class="bg-item" onclick="openTD(\''+t.id+'\')"><div class="bg-title">'+t.title+'</div>';
-      h+='<div class="bg-meta"><span class="badge '+(t.severity||'').toLowerCase()+'">'+t.severity+'</span><span class="badge '+(t.category||'bug')+'">'+t.category+'</span><span>'+t.status.replace(/_/g,' ')+'</span>'+(t.assigned_to?'<span>👤 '+t.assigned_to+'</span>':'')+'</div></div>';
+      h+='<div class="bg-meta"><span class="badge '+(t.severity||'').toLowerCase()+'">'+t.severity+'</span><span class="badge '+(t.category||'')+'">'+t.category+'</span><span>'+t.status.replace(/_/g,' ')+'</span>'+(t.assigned_to?'<span>👤 '+t.assigned_to+'</span>':'')+'</div></div>';
     });
     h+='</div>';
   });
@@ -906,7 +906,7 @@ function rBacklog(){
     h+='<div class="bg-section"><div class="bg-sh">📋 Unassigned Tickets</div>';
     orphans.forEach(function(t){
       h+='<div class="bg-item" onclick="openTD(\''+t.id+'\')"><div class="bg-title">'+t.title+'</div>';
-      h+='<div class="bg-meta"><span class="badge '+(t.severity||'').toLowerCase()+'">'+t.severity+'</span><span class="badge '+(t.category||'bug')+'">'+t.category+'</span></div></div>';
+      h+='<div class="bg-meta"><span class="badge '+(t.severity||'').toLowerCase()+'">'+t.severity+'</span><span class="badge '+(t.category||'')+'">'+t.category+'</span></div></div>';
     });
     h+='</div>';
   }
@@ -995,7 +995,7 @@ function openTD(id){
   h+='</select></div>';
   h+='<div class="ds-col"><div class="ds-label">Assignee</div><input class="ds-input" value="'+(t.assigned_to||'')+'" placeholder="Agent name..." onchange="uAssign(\''+t.id+'\',this.value)"></div></div>';
   h+='<div class="ds-row"><div class="ds-col"><div class="ds-label">Priority</div><span class="badge '+(t.severity||'').toLowerCase()+'">'+t.severity+'</span></div>';
-  h+='<div class="ds-col"><div class="ds-label">Category</div><span class="badge '+(t.category||'bug')+'">'+t.category+'</span></div>';
+  h+='<div class="ds-col"><div class="ds-label">Category</div><span class="badge '+(t.category||'')+'">'+t.category+'</span></div>';
   h+='<div class="ds-col"><div class="ds-label">Team</div><span style="font-size:11px">'+t.team+'</span></div></div>';
   if(blk)h+='<div class="ds"><div class="ds-label">⛔ Blocked By</div><div class="bi" onclick="openTD(\''+blk.id+'\')">'+blk.id+': '+blk.title+'</div></div>';
   if(t.blocks)h+='<div class="ds"><div class="ds-label">Blocks</div><div class="bi">'+t.blocks+'</div></div>';
@@ -1353,9 +1353,7 @@ function escapeHtml(s){
 function agentEmoji(name){
 	  var emojis={'lucy':'👩‍💼','Lucy':'👩‍💼','orchestrator':'⚡','zeus':'⚡','Zeus':'⚡','tom':'⚔️','gladiator':'⚔️','Gladiator':'⚔️','devops':'🔨','thor':'🔨','Thor':'🔨','qa':'🛡️','athena':'🛡️','Athena':'🛡️','security':'💀','hades':'💀','Hades':'💀','pm':'🌈','iris':'🌈','Iris':'🌈','research':'📡','hermes':'📡','Hermes':'📡','business-analyst':'🔮','minerva':'🔮','Minerva':'🔮','data-analyst':'📊','clio':'📊','Clio':'📊','data-engineer':'🔥','vulcan':'🔥','Vulcan':'🔥','finance':'💰','plutus':'💰','Plutus':'💰','accounting':'📒','hestia':'📒','Hestia':'📒','budget':'⚖️','juno':'⚖️','Juno':'⚖️','income':'🍀','fortuna':'🍀','Fortuna':'🍀','sentinel':'👁️','nemesis':'👁️','Nemesis':'👁️','monitor':'🔭','argus':'🔭','Argus':'🔭','org-excellence':'🧠','metis':'🧠','Metis':'🧠','claude':'🤖','Claude':'🤖','ml-engineer':'💻','ML Engineer':'💻','analyst':'📈','Analyst':'📈','doer':'🔧','Doer':'🔧'};
 	  return emojis[name]||'🤖';
-	};
-  return emojis[name]||'🤖';
-}
+	}
 
 loadData();
 setInterval(loadData,30000);
