@@ -993,12 +993,7 @@ function openTD(id){
     h+='<option value="'+s+'"'+(t.status===s?' selected':'')+'>'+s.replace(/_/g,' ')+'</option>';
   });
   h+='</select></div>';
-  h+='<div class="ds-col"><div class="ds-label">Assignee</div>';
-  h+='<div style="display:flex;align-items:center;gap:6px;margin-top:4px">';
-  h+='<span class="tk-asg"><span class="tk-asg-emoji">'+agentEmoji(t.assigned_to)+'</span><strong>'+agentName(t.assigned_to)+'</strong></span>';
-  if(t.assigned_to)h+='<span style="font-size:10px;color:var(--text3)">('+t.assigned_to+')</span>';
-  h+='</div>';
-  h+='<input class="ds-input" value="'+(t.assigned_to||'')+'" placeholder="Change agent ID..." style="margin-top:4px;font-size:11px" onchange="uAssign(\''+t.id+'\',this.value)">';
+  h+='<div class="ds-col"><div class="ds-label">Assignee</div><div style="margin-top:4px"><span class="tk-asg" style="font-size:12px"><span class="tk-asg-emoji">'+agentEmoji(t.assigned_to)+'</span>'+agentName(t.assigned_to)+'</span></div><input class="ds-input" value="'+(t.assigned_to||'')+'" placeholder="Agent ID..." style="margin-top:4px;font-size:11px;color:var(--text3)" title="Change assignee ID" onchange="uAssign(\''+t.id+'\',this.value)"></div></div>';
   h+='<div class="ds-row"><div class="ds-col"><div class="ds-label">Priority</div><span class="badge '+(t.severity||'').toLowerCase()+'">'+t.severity+'</span></div>';
   h+='<div class="ds-col"><div class="ds-label">Category</div><span class="badge '+(t.category||'')+'">'+t.category+'</span></div>';
   h+='<div class="ds-col"><div class="ds-label">Team</div><span style="font-size:11px">'+t.team+'</span></div></div>';
