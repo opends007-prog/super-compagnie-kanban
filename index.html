@@ -1328,7 +1328,7 @@ function activityUpdateFilterOptions(){
   var current=sel.value;
   var html='<option value="">All Agents</option>';
   Object.keys(agents).sort().forEach(function(a){
-    html+='<option value="'+a+'"'+(a===current?' selected':'')+'>'+a+'</option>';
+    html+='<option value="'+a+'"'+(a===current?' selected':'')+'>'+agentName(a)+'</option>';
   });
   sel.innerHTML=html;
 }
@@ -1369,8 +1369,14 @@ function agentEmoji(name){
 	}
 
 function agentName(id){
+	if(!id)return id;
 	var a=(D.agents||[]).find(function(x){return x.id===id;});
-	return a?a.name:id;
+	if(a)return a.name;
+	// Fallback: check emoji map for display name (handles both IDs and display names)
+	var emojis={'lucy':'👩‍💼','Lucy':'👩‍💼','orchestrator':'⚡','zeus':'⚡','Zeus':'⚡','tom':'⚔️','gladiator':'⚔️','Gladiator':'⚔️','devops':'🔨','thor':'🔨','Thor':'🔨','qa':'🛡️','athena':'🛡️','Athena':'🛡️','security':'💀','hades':'💀','Hades':'💀','pm':'🌈','iris':'🌈','Iris':'🌈','research':'📡','hermes':'📡','Hermes':'📡','business-analyst':'🔮','minerva':'🔮','Minerva':'🔮','data-analyst':'📊','clio':'📊','Clio':'📊','data-engineer':'🔥','vulcan':'🔥','Vulcan':'🔥','finance':'💰','plutus':'💰','Plutus':'💰','accounting':'📒','hestia':'📒','Hestia':'📒','budget':'⚖️','juno':'⚖️','Juno':'⚖️','income':'🍀','fortuna':'🍀','Fortuna':'🍀','sentinel':'👁️','nemesis':'👁️','Nemesis':'👁️','monitor':'🔭','argus':'🔭','Argus':'🔭','org-excellence':'🧠','metis':'🧠','Metis':'🧠','claude':'🤖','Claude':'🤖','ml-engineer':'💻','ML Engineer':'💻'};
+	// If the id itself is a key in emojis, it's already an ID — try to find its display name
+	var nameMap={'lucy':'Lucy','orchestrator':'Zeus','tom':'Gladiator','devops':'Thor','qa':'Athena','security':'Hades','pm':'Iris','research':'Hermes','business-analyst':'Minerva','data-analyst':'Clio','data-engineer':'Vulcan','finance':'Plutus','accounting':'Hestia','budget':'Juno','income':'Fortuna','sentinel':'Nemesis','monitor':'Argus','org-excellence':'Metis','claude':'Claude','ml-engineer':'ML Engineer'};
+	return nameMap[id]||id;
 }
 
 
