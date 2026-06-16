@@ -1236,6 +1236,7 @@ function activityLoadHistory(){
       events.push({
         timestamp:now-300000,
         agent:t.assigned_to,
+        displayName:agentName(t.assigned_to),
         emoji:agentEmoji(t.assigned_to),
         type:'assignment',
         content:'Assigned: '+t.title.substring(0,60),
@@ -1313,7 +1314,7 @@ function activityRender(){
     html+='<div class="activity-item'+(e._new?' new':'')+'" onclick="activityOpenItem('+JSON.stringify(e).replace(/"/g,'&quot;')+')" style="cursor:pointer">';
     html+='<div class="activity-avatar">'+(e.emoji||'🤖')+'</div>';
     html+='<div class="activity-content">';
-    html+='<div class="activity-meta"><span class="activity-agent">'+(e.displayName||e.agent||'System')+'</span><span class="activity-time">'+timeStr+'</span><span class="activity-type '+e.type+'">'+e.type.replace(/_/g,' ')+'</span><span style="font-size:9px;color:var(--blue);margin-left:4px">'+ref+'</span></div>';
+    html+='<div class="activity-meta"><span class="activity-agent">'+agentName(e.agent||e.displayName)+'</span><span class="activity-time">'+timeStr+'</span><span class="activity-type '+e.type+'">'+e.type.replace(/_/g,' ')+'</span><span style="font-size:9px;color:var(--blue);margin-left:4px">'+ref+'</span></div>';
     html+='<div class="activity-text">'+escapeHtml(e.content)+'</div>';
     html+='</div></div>';
   });
