@@ -925,7 +925,7 @@ function rTeam(){
     agents.forEach(function(a){
       if(!a.team)return;
       if(!teams[a.team])teams[a.team]=[];
-      var agentTickets=tickets.filter(function(t){return t.assigned_to===a.name});
+      var agentTickets=tickets.filter(function(t){return t.assigned_to===a.id;});
       var done=agentTickets.filter(function(t){return t.status==='done'}).length;
       var total=agentTickets.length;
       var progress=total>0?Math.round(done/total*100):0;
@@ -1351,7 +1351,9 @@ function escapeHtml(s){
 }
 
 function agentEmoji(name){
-  var emojis={'Lucy':'👩‍💼','Zeus':'⚡','Gladiator':'⚔️','Thor':'🔨','Athena':'🛡️','Hades':'💀','Iris':'🌈','Hermes':'📡','Minerva':'🔮','Clio':'📊','Vulcan':'🔥','Plutus':'💰','Hestia':'📒','Juno':'⚖️','Fortuna':'🍀','Nemesis':'👁️','Argus':'🔭','Metis':'🧠','Claude':'🤖','Analyst':'📈','Doer':'🔧','Sentinel':'🛡️'};
+	  var emojis={'lucy':'👩‍💼','Lucy':'👩‍💼','orchestrator':'⚡','zeus':'⚡','Zeus':'⚡','tom':'⚔️','gladiator':'⚔️','Gladiator':'⚔️','devops':'🔨','thor':'🔨','Thor':'🔨','qa':'🛡️','athena':'🛡️','Athena':'🛡️','security':'💀','hades':'💀','Hades':'💀','pm':'🌈','iris':'🌈','Iris':'🌈','research':'📡','hermes':'📡','Hermes':'📡','business-analyst':'🔮','minerva':'🔮','Minerva':'🔮','data-analyst':'📊','clio':'📊','Clio':'📊','data-engineer':'🔥','vulcan':'🔥','Vulcan':'🔥','finance':'💰','plutus':'💰','Plutus':'💰','accounting':'📒','hestia':'📒','Hestia':'📒','budget':'⚖️','juno':'⚖️','Juno':'⚖️','income':'🍀','fortuna':'🍀','Fortuna':'🍀','sentinel':'👁️','nemesis':'👁️','Nemesis':'👁️','monitor':'🔭','argus':'🔭','Argus':'🔭','org-excellence':'🧠','metis':'🧠','Metis':'🧠','claude':'🤖','Claude':'🤖','ml-engineer':'💻','ML Engineer':'💻','analyst':'📈','Analyst':'📈','doer':'🔧','Doer':'🔧'};
+	  return emojis[name]||'🤖';
+	};
   return emojis[name]||'🤖';
 }
 
