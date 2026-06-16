@@ -7,7 +7,7 @@
       "team": "Leadership",
       "role": "Secretary, Gatekeeper, Orchestrator",
       "emoji": "\ud83d\udc69\u200d\ud83d\udcbc",
-      "status": "idle"
+      "status": "working"
     },
     {
       "id": "orchestrator",
@@ -16,7 +16,7 @@
       "team": "Leadership",
       "role": "Manages project teams, delegates work",
       "emoji": "\u26a1",
-      "status": "idle"
+      "status": "working"
     },
     {
       "id": "tom",
@@ -25,7 +25,7 @@
       "team": "Project",
       "role": "Coding, file ops, research",
       "emoji": "\u2694\ufe0f",
-      "status": "idle"
+      "status": "working"
     },
     {
       "id": "devops",
@@ -34,7 +34,7 @@
       "team": "Project",
       "role": "CI/CD, Docker, deployments",
       "emoji": "\ud83d\udd28",
-      "status": "idle"
+      "status": "working"
     },
     {
       "id": "qa",
@@ -43,7 +43,7 @@
       "team": "Project",
       "role": "Testing, bug finding",
       "emoji": "\ud83d\udee1\ufe0f",
-      "status": "idle"
+      "status": "working"
     },
     {
       "id": "security",
@@ -52,7 +52,7 @@
       "team": "Project",
       "role": "Security audits",
       "emoji": "\ud83d\udc80",
-      "status": "idle"
+      "status": "working"
     },
     {
       "id": "pm",
@@ -61,7 +61,7 @@
       "team": "Project",
       "role": "Planning, roadmaps",
       "emoji": "\ud83c\udf08",
-      "status": "idle"
+      "status": "working"
     },
     {
       "id": "research",
@@ -70,7 +70,7 @@
       "team": "Research",
       "role": "Scans for opportunities",
       "emoji": "\ud83d\udce1",
-      "status": "idle"
+      "status": "working"
     },
     {
       "id": "business-analyst",
@@ -79,7 +79,7 @@
       "team": "Research",
       "role": "Competitive analysis",
       "emoji": "\ud83d\udd2e",
-      "status": "idle"
+      "status": "working"
     },
     {
       "id": "data-analyst",
@@ -88,7 +88,7 @@
       "team": "Research",
       "role": "Metrics, dashboards",
       "emoji": "\ud83d\udcca",
-      "status": "idle"
+      "status": "working"
     },
     {
       "id": "data-engineer",
@@ -97,7 +97,7 @@
       "team": "Research",
       "role": "Data pipelines, ETL",
       "emoji": "\ud83d\udd25",
-      "status": "idle"
+      "status": "working"
     },
     {
       "id": "finance",
@@ -106,7 +106,7 @@
       "team": "Finance",
       "role": "Financial planning",
       "emoji": "\ud83d\udcb0",
-      "status": "idle"
+      "status": "working"
     },
     {
       "id": "accounting",
@@ -374,6 +374,29 @@
       "createdAt": "2026-06-03T00:00:00Z",
       "updatedAt": "2026-06-15T23:21:06.309383",
       "jira_key": "TD-259"
+    },
+    {
+      "id": "EPIC-011",
+      "title": "Audit Follow-ups & Tech Debt",
+      "description": "Action items from OWL audit reports (2026-06-15 and 2026-06-16): fix work executor, code quality, kanban data cleanup, security hardening",
+      "status": "in_progress",
+      "priority": "high",
+      "team": "any",
+      "assignee": "claude",
+      "progress": 0,
+      "storyIds": [
+        "STORY-045",
+        "STORY-046",
+        "STORY-047",
+        "STORY-048",
+        "STORY-049",
+        "STORY-050",
+        "STORY-051",
+        "STORY-052"
+      ],
+      "createdAt": "2026-06-16T00:00:00Z",
+      "updatedAt": "2026-06-16T00:00:00Z",
+      "jira_key": null
     }
   ],
   "tickets": [
@@ -398,7 +421,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309627",
       "jira_key": "TD-228",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "tom"
     },
     {
       "id": "STORY-002",
@@ -421,7 +445,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309636",
       "jira_key": "TD-229",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "tom"
     },
     {
       "id": "STORY-003",
@@ -444,7 +469,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309809",
       "jira_key": "TD-9",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "tom"
     },
     {
       "id": "STORY-004",
@@ -467,7 +493,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309649",
       "jira_key": "TD-230",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "devops"
     },
     {
       "id": "STORY-005",
@@ -490,7 +517,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309658",
       "jira_key": "TD-231",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "data-analyst"
     },
     {
       "id": "STORY-006",
@@ -498,7 +526,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "done",
       "assigned_to": "research",
       "team": "any",
       "epicId": "EPIC-004",
@@ -506,14 +534,24 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T23:21:06.309406",
-      "comments": [],
-      "progress": 25,
+      "updatedAt": "2026-06-16T08:25:02.677695+00:00",
+      "comments": [
+        {
+          "by": "research",
+          "text": "Work executed on 2026-06-16. Progress: 50%."
+        },
+        {
+          "by": "research",
+          "text": "Work executed on 2026-06-16. Progress: 75%."
+        }
+      ],
+      "progress": 75,
       "eta_hours": 0,
       "last_agent_update": "2026-06-15T23:21:06.309409",
       "jira_key": "TD-12",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "research"
     },
     {
       "id": "STORY-007",
@@ -536,7 +574,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309667",
       "jira_key": "TD-232",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "monitor"
     },
     {
       "id": "STORY-008",
@@ -559,7 +598,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309677",
       "jira_key": "TD-233",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "pm"
     },
     {
       "id": "STORY-009",
@@ -582,7 +622,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309685",
       "jira_key": "TD-234",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "pm"
     },
     {
       "id": "STORY-010",
@@ -605,7 +646,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309694",
       "jira_key": "TD-235",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "pm"
     },
     {
       "id": "STORY-011",
@@ -628,7 +670,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309703",
       "jira_key": "TD-236",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "pm"
     },
     {
       "id": "STORY-012",
@@ -651,7 +694,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309421",
       "jira_key": "TD-195",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "research"
     },
     {
       "id": "STORY-013",
@@ -674,7 +718,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309432",
       "jira_key": "TD-196",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "business-analyst"
     },
     {
       "id": "STORY-014",
@@ -682,7 +727,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "done",
       "assigned_to": "finance",
       "team": "any",
       "epicId": "EPIC-002",
@@ -690,14 +735,24 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T23:21:06.309439",
-      "comments": [],
-      "progress": 25,
+      "updatedAt": "2026-06-16T08:25:02.686524+00:00",
+      "comments": [
+        {
+          "by": "finance",
+          "text": "Work executed on 2026-06-16. Progress: 50%."
+        },
+        {
+          "by": "finance",
+          "text": "Work executed on 2026-06-16. Progress: 75%."
+        }
+      ],
+      "progress": 75,
       "eta_hours": 0,
       "last_agent_update": "2026-06-15T23:21:06.309441",
       "jira_key": "TD-197",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "finance"
     },
     {
       "id": "STORY-015",
@@ -720,7 +775,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309451",
       "jira_key": "TD-198",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "pm"
     },
     {
       "id": "STORY-016",
@@ -743,7 +799,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309460",
       "jira_key": "TD-199",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "pm"
     },
     {
       "id": "STORY-017",
@@ -766,7 +823,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309468",
       "jira_key": "TD-200",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "pm"
     },
     {
       "id": "STORY-018",
@@ -774,7 +832,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "qa",
       "team": "any",
       "epicId": "EPIC-006",
@@ -782,14 +840,20 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T23:21:06.309474",
-      "comments": [],
-      "progress": 25,
+      "updatedAt": "2026-06-16T12:25:35.475454+00:00",
+      "comments": [
+        {
+          "by": "qa",
+          "text": "Work executed on 2026-06-16. Progress: 50%."
+        }
+      ],
+      "progress": 50,
       "eta_hours": 0,
       "last_agent_update": "2026-06-15T23:21:06.309477",
       "jira_key": "TD-201",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "qa"
     },
     {
       "id": "STORY-019",
@@ -797,7 +861,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "qa",
       "team": "any",
       "epicId": "EPIC-006",
@@ -805,14 +869,20 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T23:21:06.309483",
-      "comments": [],
-      "progress": 25,
+      "updatedAt": "2026-06-16T12:25:35.502427+00:00",
+      "comments": [
+        {
+          "by": "qa",
+          "text": "Work executed on 2026-06-16. Progress: 50%."
+        }
+      ],
+      "progress": 50,
       "eta_hours": 0,
       "last_agent_update": "2026-06-15T23:21:06.309486",
       "jira_key": "TD-202",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "qa"
     },
     {
       "id": "STORY-020",
@@ -835,7 +905,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309495",
       "jira_key": "TD-203",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "org-excellence"
     },
     {
       "id": "STORY-021",
@@ -858,7 +929,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309504",
       "jira_key": "TD-204",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "org-excellence"
     },
     {
       "id": "STORY-022",
@@ -881,7 +953,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309765",
       "jira_key": "TD-40",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "tom"
     },
     {
       "id": "STORY-023",
@@ -904,7 +977,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309773",
       "jira_key": "TD-41",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "qa"
     },
     {
       "id": "STORY-024",
@@ -927,7 +1001,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309782",
       "jira_key": "TD-42",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "pm"
     },
     {
       "id": "STORY-025",
@@ -950,7 +1025,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309792",
       "jira_key": "TD-43",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "business-analyst"
     },
     {
       "id": "STORY-026",
@@ -973,7 +1049,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309800",
       "jira_key": "TD-44",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "income"
     },
     {
       "id": "STORY-027",
@@ -996,7 +1073,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309513",
       "jira_key": "TD-205",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "claude"
     },
     {
       "id": "STORY-028",
@@ -1019,7 +1097,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309522",
       "jira_key": "TD-206",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "claude"
     },
     {
       "id": "STORY-029",
@@ -1042,7 +1121,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309531",
       "jira_key": "TD-207",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "pm"
     },
     {
       "id": "STORY-030",
@@ -1065,7 +1145,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309540",
       "jira_key": "TD-208",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "pm"
     },
     {
       "id": "STORY-031",
@@ -1088,7 +1169,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309549",
       "jira_key": "TD-209",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "monitor"
     },
     {
       "id": "STORY-032",
@@ -1111,7 +1193,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309558",
       "jira_key": "TD-210",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "data-analyst"
     },
     {
       "id": "STORY-033",
@@ -1134,7 +1217,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309567",
       "jira_key": "TD-211",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "security"
     },
     {
       "id": "STORY-034",
@@ -1157,7 +1241,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309576",
       "jira_key": "TD-212",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "accounting"
     },
     {
       "id": "STORY-035",
@@ -1180,7 +1265,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309584",
       "jira_key": "TD-213",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "budget"
     },
     {
       "id": "STORY-036",
@@ -1203,7 +1289,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309593",
       "jira_key": "TD-214",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "pushed_assignee": "sentinel"
     },
     {
       "id": "STORY-037",
@@ -1226,7 +1313,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309602",
       "jira_key": "TD-215",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "data-engineer"
     },
     {
       "id": "STORY-038",
@@ -1249,7 +1337,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309618",
       "jira_key": "TD-216",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "orchestrator"
     },
     {
       "id": "STORY-039",
@@ -1272,7 +1361,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309711",
       "jira_key": "TD-237",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "data-analyst"
     },
     {
       "id": "STORY-040",
@@ -1295,7 +1385,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309720",
       "jira_key": "TD-238",
       "pushed_comments": [],
-      "pushed_progress": 25
+      "pushed_progress": 25,
+      "pushed_assignee": "data-analyst"
     },
     {
       "id": "STORY-041",
@@ -1303,22 +1394,23 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
-      "assigned_to": "data-analyst",
-      "team": "any",
+      "status": "in_progress",
+      "assigned_to": "Lucy",
+      "team": "Leadership",
       "epicId": "EPIC-005",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T23:21:06.309727",
+      "updatedAt": "2026-06-16T06:26:45.159000+00:00",
       "comments": [],
       "progress": 0,
       "eta_hours": 0,
       "last_agent_update": "2026-06-15T23:21:06.309729",
       "jira_key": "TD-239",
       "pushed_comments": [],
-      "pushed_progress": 0
+      "pushed_progress": 0,
+      "pushed_assignee": "Lucy"
     },
     {
       "id": "STORY-042",
@@ -1326,22 +1418,23 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
-      "assigned_to": "data-analyst",
-      "team": "any",
+      "status": "in_progress",
+      "assigned_to": "Zeus",
+      "team": "Leadership",
       "epicId": "EPIC-005",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T23:21:06.309735",
+      "updatedAt": "2026-06-16T06:26:45.159022+00:00",
       "comments": [],
       "progress": 0,
       "eta_hours": 0,
       "last_agent_update": "2026-06-15T23:21:06.309738",
       "jira_key": "TD-240",
       "pushed_comments": [],
-      "pushed_progress": 0
+      "pushed_progress": 0,
+      "pushed_assignee": "Zeus"
     },
     {
       "id": "STORY-043",
@@ -1349,22 +1442,23 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
-      "assigned_to": "tom",
-      "team": "any",
+      "status": "in_progress",
+      "assigned_to": "Gladiator",
+      "team": "Project",
       "epicId": "EPIC-006",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T23:21:06.309744",
+      "updatedAt": "2026-06-16T06:26:45.159035+00:00",
       "comments": [],
       "progress": 0,
       "eta_hours": 0,
       "last_agent_update": "2026-06-15T23:21:06.309747",
       "jira_key": "TD-241",
       "pushed_comments": [],
-      "pushed_progress": 0
+      "pushed_progress": 0,
+      "pushed_assignee": "Gladiator"
     },
     {
       "id": "STORY-044",
@@ -1372,34 +1466,247 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
-      "assigned_to": "tom",
-      "team": "any",
+      "status": "in_progress",
+      "assigned_to": "Thor",
+      "team": "Project",
       "epicId": "EPIC-005",
       "blockedBy": null,
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T23:21:06.309753",
+      "updatedAt": "2026-06-16T06:26:45.159046+00:00",
       "comments": [],
       "progress": 0,
       "eta_hours": 0,
       "last_agent_update": "2026-06-15T23:21:06.309756",
       "jira_key": "TD-242",
       "pushed_comments": [],
-      "pushed_progress": 0
+      "pushed_progress": 0,
+      "pushed_assignee": "Thor"
+    },
+    {
+      "id": "STORY-045",
+      "title": "Fix work executor: don't advance status without real work",
+      "description": "work-executor.py creates stub .md files when no work-template.sh exists, but auto_assign_idle_agents still moves backlog\u2192in_progress. Must add guard: if success==False, do NOT advance STATUS_FLOW.",
+      "severity": "HIGH",
+      "category": "bug",
+      "status": "done",
+      "assigned_to": "Athena",
+      "team": "Project",
+      "epicId": "EPIC-011",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "OWL",
+      "createdAt": "2026-06-16T00:00:00Z",
+      "updatedAt": "2026-06-16T08:25:02.310313+00:00",
+      "comments": [
+        {
+          "by": "Athena",
+          "text": "Work executed on 2026-06-16. Progress: 25%."
+        },
+        {
+          "by": "Athena",
+          "text": "Work executed on 2026-06-16. Progress: 50%."
+        }
+      ],
+      "progress": 50,
+      "eta_hours": 4,
+      "last_agent_update": "2026-06-16T00:00:00Z",
+      "jira_key": null,
+      "pushed_comments": [],
+      "pushed_progress": -1,
+      "pushed_assignee": "Athena"
+    },
+    {
+      "id": "STORY-046",
+      "title": "Fix jira_epic_map undefined variable in iris-sync.py",
+      "description": "iris-sync.py line 302 references jira_epic_map which is never defined. Will throw NameError at runtime when creating new Jira issues with epics.",
+      "severity": "HIGH",
+      "category": "bug",
+      "status": "done",
+      "assigned_to": "Hades",
+      "team": "Project",
+      "epicId": "EPIC-011",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "OWL",
+      "createdAt": "2026-06-16T00:00:00Z",
+      "updatedAt": "2026-06-16T08:25:02.332503+00:00",
+      "comments": [
+        {
+          "by": "Hades",
+          "text": "Work executed on 2026-06-16. Progress: 25%."
+        },
+        {
+          "by": "Hades",
+          "text": "Work executed on 2026-06-16. Progress: 50%."
+        }
+      ],
+      "progress": 50,
+      "eta_hours": 2,
+      "last_agent_update": "2026-06-16T00:00:00Z",
+      "jira_key": null,
+      "pushed_comments": [],
+      "pushed_progress": -1,
+      "pushed_assignee": "Hades"
+    },
+    {
+      "id": "STORY-047",
+      "title": "Add set -euo pipefail to all shell scripts",
+      "description": "16 out of 49 shell scripts are missing set -euo pipefail, causing silent error failures. Add proper error handling to all .sh files in scripts/.",
+      "severity": "MEDIUM",
+      "category": "tech-debt",
+      "status": "in_progress",
+      "assigned_to": "Iris",
+      "team": "Project",
+      "epicId": "EPIC-011",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "OWL",
+      "createdAt": "2026-06-16T00:00:00Z",
+      "updatedAt": "2026-06-16T06:26:45.159075+00:00",
+      "comments": [],
+      "progress": 0,
+      "eta_hours": 3,
+      "last_agent_update": "2026-06-16T00:00:00Z",
+      "jira_key": null,
+      "pushed_comments": [],
+      "pushed_progress": -1,
+      "pushed_assignee": "Iris"
+    },
+    {
+      "id": "STORY-048",
+      "title": "Fix shell=True in openrouter-models-update-vm.py",
+      "description": "Line 14 uses subprocess.run(cmd, shell=True, ...) which is a security risk. Should use list form for cmd.",
+      "severity": "MEDIUM",
+      "category": "security",
+      "status": "in_progress",
+      "assigned_to": "Hermes",
+      "team": "Research",
+      "epicId": "EPIC-011",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "OWL",
+      "createdAt": "2026-06-16T00:00:00Z",
+      "updatedAt": "2026-06-16T06:26:45.159085+00:00",
+      "comments": [],
+      "progress": 0,
+      "eta_hours": 1,
+      "last_agent_update": "2026-06-16T00:00:00Z",
+      "jira_key": null,
+      "pushed_comments": [],
+      "pushed_progress": -1,
+      "pushed_assignee": "Hermes"
+    },
+    {
+      "id": "STORY-049",
+      "title": "Fix 4 mislabeled epics + clean up stale backup files",
+      "description": "EPIC-006, EPIC-007, EPIC-009, EPIC-010 should be in_progress not backlog. Remove .env.local.backup, iris-sync.py.bak, jobs.json.bak from repo. Add *.bak, *.backup, *~ to .gitignore.",
+      "severity": "MEDIUM",
+      "category": "cleanup",
+      "status": "in_progress",
+      "assigned_to": "Minerva",
+      "team": "Research",
+      "epicId": "EPIC-011",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "OWL",
+      "createdAt": "2026-06-16T00:00:00Z",
+      "updatedAt": "2026-06-16T06:26:45.159094+00:00",
+      "comments": [],
+      "progress": 0,
+      "eta_hours": 2,
+      "last_agent_update": "2026-06-16T00:00:00Z",
+      "jira_key": null,
+      "pushed_comments": [],
+      "pushed_progress": -1,
+      "pushed_assignee": "Minerva"
+    },
+    {
+      "id": "STORY-050",
+      "title": "Create shared token-loading utility module",
+      "description": "Token loading from ~/.zshrc is duplicated across 5+ Python scripts. Extract into a shared utils module.",
+      "severity": "LOW",
+      "category": "tech-debt",
+      "status": "in_progress",
+      "assigned_to": "Clio",
+      "team": "Research",
+      "epicId": "EPIC-011",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "OWL",
+      "createdAt": "2026-06-16T00:00:00Z",
+      "updatedAt": "2026-06-16T06:26:45.159104+00:00",
+      "comments": [],
+      "progress": 0,
+      "eta_hours": 3,
+      "last_agent_update": "2026-06-16T00:00:00Z",
+      "jira_key": null,
+      "pushed_comments": [],
+      "pushed_progress": -1,
+      "pushed_assignee": "Clio"
+    },
+    {
+      "id": "STORY-051",
+      "title": "Fix researcher + finance work templates",
+      "description": "Researcher template fetches raw HN IDs but never resolves to titles. Finance template is purely static. Both need to produce real, dynamic content.",
+      "severity": "MEDIUM",
+      "category": "improvement",
+      "status": "in_progress",
+      "assigned_to": "Vulcan",
+      "team": "Research",
+      "epicId": "EPIC-011",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "OWL",
+      "createdAt": "2026-06-16T00:00:00Z",
+      "updatedAt": "2026-06-16T06:26:45.159113+00:00",
+      "comments": [],
+      "progress": 0,
+      "eta_hours": 4,
+      "last_agent_update": "2026-06-16T00:00:00Z",
+      "jira_key": null,
+      "pushed_comments": [],
+      "pushed_progress": -1,
+      "pushed_assignee": "Vulcan"
+    },
+    {
+      "id": "STORY-052",
+      "title": "Clean up 21 orphan Jira issues + fix health-check.sh",
+      "description": "21 Jira issues (TD-243 to TD-259) have no Kanban ticket. Link or delete. Also fix health-check.sh which references wrong paths (voice-transcriber/, queue/ don't exist on Mac).",
+      "severity": "MEDIUM",
+      "category": "cleanup",
+      "status": "in_progress",
+      "assigned_to": "Plutus",
+      "team": "Finance",
+      "epicId": "EPIC-011",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "OWL",
+      "createdAt": "2026-06-16T00-16T00:00:00Z",
+      "updatedAt": "2026-06-16T06:26:45.159123+00:00",
+      "comments": [],
+      "progress": 0,
+      "eta_hours": 3,
+      "last_agent_update": "2026-06-16T00:00:00Z",
+      "jira_key": null,
+      "pushed_comments": [],
+      "pushed_progress": -1,
+      "pushed_assignee": "Plutus"
     }
   ],
   "stats": {
-    "totalTickets": 44,
-    "totalEpics": 10,
-    "backlog": 4,
-    "in_progress": 15,
+    "totalTickets": 52,
+    "totalEpics": 11,
+    "backlog": 0,
+    "in_progress": 21,
     "waiting": 0,
-    "in_validation": 0,
-    "done": 25,
+    "in_validation": 2,
+    "done": 29,
     "critical": 0,
-    "blocked": 0
+    "blocked": 0,
+    "review": 0,
+    "last_progress_update": "2026-06-16T12:25:35.503331+00:00"
   },
   "last_progress_update": "2026-06-15T23:24:20.956638"
 }
