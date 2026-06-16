@@ -677,7 +677,7 @@ function rBoard(){
       var st=byEpic[e.id]||[],dn=st.filter(function(x){return x.status==='done'}).length;
       html+='<div class="eg"><div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' <span style="color:var(--text3)">['+dn+'/'+st.length+']</span></div>';
       html+='<div class="ep-bar"><div class="ep-bar-fill"style="width:'+e.progress+'%"></div></div>';
-      st.forEach(function(t){html+=tkHTML(t,ecm[t.epicId])});
+      st.forEach(function(t){if(t.status===s)html+=tkHTML(t,ecm[t.epicId])});
       html+='</div>';
     });
 
