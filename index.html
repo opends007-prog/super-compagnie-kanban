@@ -221,6 +221,10 @@ a{color:var(--blue);text-decoration:none}
 .tk-asg-emoji{font-size:14px}
 .tk-ep{font-family:var(--font-mono);font-size:9px;color:var(--blue)}
 .tk-blocked-badge{font-size:8px;padding:2px 5px;border-radius:4px;background:rgba(239,68,68,.2);color:var(--red);font-weight:700}
+.tk-progress{margin-top:6px;display:flex;align-items:center;gap:6px}
+.tk-progress-bar{flex:1;height:4px;background:var(--bg4);border-radius:2px;overflow:hidden}
+.tk-progress-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .3s}
+.tk-progress-text{font-size:9px;color:var(--text3);font-weight:600;min-width:28px;text-align:right}
 
 /* Epic group */
 .eg{margin-bottom:8px;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden}
@@ -787,7 +791,8 @@ function tkHTML(t,ec){
   var ep=t.epicId?'<span class="tk-ep">⬆ '+t.epicId+'</span>':'';
   var cb=ec?'<div style="float:left;width:3px;border-radius:2px;margin-right:6px;background:'+ec+';height:100%;min-height:20px"></div>':'';
   var blk=bl?'<span class="tk-blocked-badge">⛔ BLOCKED</span>':'';
-  return '<div class="tk'+(bl?' blocked':'')+(t.epicId?' epic-child':'')+'" onclick="openTD(\''+t.id+'\')">'+cb+'<div class="tk-top"><span class="tk-id">'+t.id+'</span>'+blk+'</div><div class="tk-title">'+t.title+'</div><div class="tk-tags">'+tags+'</div><div class="tk-bottom">'+asg+ep+'</div></div>';
+  var progressBar='<div class="tk-progress"><div class="tk-progress-bar"><div class="tk-progress-fill" style="width:'+(t.progress||0)+'%"></div></div><div class="tk-progress-text">'+(t.progress||0)+'%</div></div>';
+  return '<div class="tk'+(bl?' blocked':'')+(t.epicId?' epic-child':'')+'" onclick="openTD(\''+t.id+'\')">'+cb+'<div class="tk-top"><span class="tk-id">'+t.id+'</span>'+blk+'</div><div class="tk-title">'+t.title+'</div><div class="tk-tags">'+tags+'</div><div class="tk-bottom">'+asg+ep+'</div>'+progressBar+'</div>';
 }
 
 /* ═══ LIST VIEW ═══ */
@@ -994,6 +999,8 @@ function openTD(id){
   h+='<div class="ds-col"><div class="ds-label">Team</div><span style="font-size:11px">'+t.team+'</span></div></div>';
   if(blk)h+='<div class="ds"><div class="ds-label">⛔ Blocked By</div><div class="bi" onclick="openTD(\''+blk.id+'\')">'+blk.id+': '+blk.title+'</div></div>';
   if(t.blocks)h+='<div class="ds"><div class="ds-label">Blocks</div><div class="bi">'+t.blocks+'</div></div>';
+  h+='<div class="ds"><div class="ds-label">Progress</div><div class="progress"><div class="progress-fill" id="prog-fill-'+t.id+'" style="width:'+(t.progress||0)+'%"></div></div><input type="range" min="0" max="100" value="'+(t.progress||0)+'" class="ds-input" style="padding:4px" oninput="document.getElementById(\'prog-fill-'+t.id+'\').style.width=this.value+\'%\';document.getElementById(\'prog-pct-'+t.id+'\').textContent=this.value+\'%\')" onchange="uProgress(\''+t.id+'\',this.value)"><span class="pd" id="prog-pct-'+t.id+'">'+(t.progress||0)+'%</span></div>';
+  h+='<div class="ds"><div class="ds-label">Add Comment / Work Note</div><textarea class="ds-input" id="comment-input-'+t.id+'" rows="3" placeholder="Describe your progress, blockers, next steps..." style="resize:vertical;min-height:60px"></textarea><button class="btn btn-pri" style="margin-top:6px;width:100%;justify-content:center" onclick="uComment(\''+t.id+'\')">💾 Save Comment</button></div>';
   h+='<div class="ds"><div class="ds-label">Comments</div>'+(t.comments&&t.comments.length?t.comments.map(function(c){return '<div class="cm"><span class="cm-by">'+c.by+':</span> '+c.text+'</div>'}).join(''):'<div style="color:var(--text3);font-size:10px">No comments</div>')+'</div>';
   document.getElementById('db').innerHTML=h;
   document.getElementById('dp').classList.add('op');
@@ -1020,6 +1027,47 @@ function openED(id){
 function closeDetail(){document.getElementById('dp').classList.remove('op')}
 function uStatus(id,s){var t=D.tickets.find(function(x){return x.id===id});if(t){t.status=s;t.updatedAt=(new Date()).toISOString();recalc();render();showNotif('Status updated','success');}}
 function uAssign(id,a){var t=D.tickets.find(function(x){return x.id===id});if(t){t.assigned_to=a;t.updatedAt=(new Date()).toISOString();recalc();render();showNotif('Assignee updated','success');}}
+function uProgress(id, value) {
+  var t = D.tickets.find(function(x){return x.id===id});
+  if (!t) return;
+  t.progress = parseInt(value);
+  t.last_agent_update = new Date().toISOString();
+  t.updatedAt = new Date().toISOString();
+  if (value == 100 && t.status !== 'done') {
+    t.status = 'done';
+  } else if (value > 0 && (t.status === 'backlog' || t.status === 'planned')) {
+    t.status = 'in_progress';
+  }
+  if (t.epicId) {
+    var epic = D.epics.find(function(e){return e.id===t.epicId});
+    if (epic) {
+      var kids = D.tickets.filter(function(x){return x.epicId===epic.id});
+      var dn = kids.filter(function(k){return k.status==='done'}).length;
+      epic.progress = kids.length ? Math.round(dn/kids.length*100) : 0;
+    }
+  }
+  recalc(); render();
+  showNotif('Progress updated to ' + value + '%', 'success');
+}
+function uComment(id) {
+  var input = document.getElementById('comment-input-' + id);
+  var text = input.value.trim();
+  if (!text) return;
+  var t = D.tickets.find(function(x){return x.id===id});
+  if (!t) return;
+  if (!t.comments) t.comments = [];
+  t.comments.push({
+    by: t.assigned_to || 'agent',
+    text: text,
+    timestamp: new Date().toISOString()
+  });
+  t.last_agent_update = new Date().toISOString();
+  t.updatedAt = new Date().toISOString();
+  input.value = '';
+  recalc(); render();
+  openTD(id);
+  showNotif('Comment saved', 'success');
+}
 function showNotif(msg,type){
   var el=document.createElement('div');
   el.className='notif '+(type||'');
