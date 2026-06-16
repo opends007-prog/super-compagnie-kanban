@@ -993,7 +993,7 @@ function openTD(id){
     h+='<option value="'+s+'"'+(t.status===s?' selected':'')+'>'+s.replace(/_/g,' ')+'</option>';
   });
   h+='</select></div>';
-  h+='<div class="ds-col"><div class="ds-label">Assignee</div><div style="margin-top:4px"><span class="tk-asg" style="font-size:12px"><span class="tk-asg-emoji">'+agentEmoji(t.assigned_to)+'</span>'+agentName(t.assigned_to)+'</span></div><input class="ds-input" value="'+(t.assigned_to||'')+'" placeholder="Agent ID..." style="margin-top:4px;font-size:11px;color:var(--text3)" title="Change assignee ID" onchange="uAssign(\''+t.id+'\',this.value)"></div></div>';
+  h+='<div class="ds-col"><div class="ds-label">Assignee</div><input class="ds-input" value="'+agentName(t.assigned_to)+'" placeholder="Agent name..." title="Type agent name or ID" onchange="uAssignName(\''+t.id+'\',this.value)"></div></div>';
   h+='<div class="ds-row"><div class="ds-col"><div class="ds-label">Priority</div><span class="badge '+(t.severity||'').toLowerCase()+'">'+t.severity+'</span></div>';
   h+='<div class="ds-col"><div class="ds-label">Category</div><span class="badge '+(t.category||'')+'">'+t.category+'</span></div>';
   h+='<div class="ds-col"><div class="ds-label">Team</div><span style="font-size:11px">'+t.team+'</span></div></div>';
@@ -1026,7 +1026,20 @@ function openED(id){
 
 function closeDetail(){document.getElementById('dp').classList.remove('op')}
 function uStatus(id,s){var t=D.tickets.find(function(x){return x.id===id});if(t){t.status=s;t.updatedAt=(new Date()).toISOString();recalc();render();showNotif('Status updated','success');}}
-function uAssign(id,a){var t=D.tickets.find(function(x){return x.id===id});if(t){t.assigned_to=a;t.updatedAt=(new Date()).toISOString();recalc();render();showNotif('Assignee updated','success');}}
+function uAssignName(id,name){
+  var t=D.tickets.find(function(x){return x.id===id});
+  if(!t)return;
+  var aid=name;
+  if(name){
+    var agent=(D.agents||[]).find(function(a){return a.name.toLowerCase()===name.toLowerCase()||a.id.toLowerCase()===name.toLowerCase();});
+    if(agent)aid=agent.id;
+  }
+  t.assigned_to=aid;
+  t.updatedAt=(new Date()).toISOString();
+  recalc();render();
+  if(name)showNotif('Assignee: '+(agent?agent.name:name)+(agent?' ('+agent.id+')':''),'success');
+  else showNotif('Assignee cleared','success');
+}
 function uProgress(id, value) {
   var t = D.tickets.find(function(x){return x.id===id});
   if (!t) return;
