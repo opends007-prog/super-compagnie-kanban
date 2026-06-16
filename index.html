@@ -787,7 +787,7 @@ function tkHTML(t,ec){
   var tags='';
   if(t.severity)tags+='<span class="tk-tag tag-'+t.severity.charAt(0).toLowerCase()+'">'+t.severity+'</span>';
   if(t.category)tags+='<span class="tk-tag tag-'+t.category+'">'+t.category+'</span>';
-	var asg=t.assigned_to?'<span class="tk-asg"><span class="tk-asg-emoji">'+agentEmoji(t.assigned_to)+'</span>'+t.assigned_to+'</span>':'<span class="tk-asg" style="color:var(--text3)">👤 Unassigned</span>';
+	var asg=t.assigned_to?'<span class="tk-asg"><span class="tk-asg-emoji">'+agentEmoji(t.assigned_to)+'</span>'+agentName(t.assigned_to)+'</span>':'<span class="tk-asg" style="color:var(--text3)">👤 Unassigned</span>';
   var ep=t.epicId?'<span class="tk-ep">⬆ '+t.epicId+'</span>':'';
   var cb=ec?'<div style="float:left;width:3px;border-radius:2px;margin-right:6px;background:'+ec+';height:100%;min-height:20px"></div>':'';
   var blk=bl?'<span class="tk-blocked-badge">⛔ BLOCKED</span>':'';
@@ -837,7 +837,7 @@ function rListBody(){
   if(!tableWrap)return; // Not initialized yet
   var all=[];
   (D.epics||[]).forEach(function(e){all.push({key:e.id,title:e.title,epic:'-',status:e.status,priority:e.priority||'Medium',assignee:e.assignee||'-',isEpic:true,progress:e.progress})});
-  (D.tickets||[]).forEach(function(e){all.push({key:e.id,title:e.title,epic:e.epicId||'-',status:e.status,priority:e.severity,assignee:e.assigned_to||'-',isEpic:false})});
+  (D.tickets||[]).forEach(function(e){all.push({key:e.id,title:e.title,epic:e.epicId||'-',status:e.status,priority:e.severity,assignee:agentName(e.assigned_to)||e.assigned_to||'-',isEpic:false})});
   // Filter by search
   if(listSearchQuery){
     all=all.filter(function(item){
@@ -898,7 +898,7 @@ function rBacklog(){
     if(!st.length)h+='<div class="empty">No stories yet</div>';
     st.forEach(function(t){
       h+='<div class="bg-item" onclick="openTD(\''+t.id+'\')"><div class="bg-title">'+t.title+'</div>';
-      h+='<div class="bg-meta"><span class="badge '+(t.severity||'').toLowerCase()+'">'+t.severity+'</span><span class="badge '+(t.category||'')+'">'+t.category+'</span><span>'+t.status.replace(/_/g,' ')+'</span>'+(t.assigned_to?'<span>👤 '+t.assigned_to+'</span>':'')+'</div></div>';
+      h+='<div class="bg-meta"><span class="badge '+(t.severity||'').toLowerCase()+'">'+t.severity+'</span><span class="badge '+(t.category||'')+'">'+t.category+'</span><span>'+t.status.replace(/_/g,' ')+'</span>'+(t.assigned_to?'<span>👤 '+agentName(t.assigned_to)+'</span>':'')+'</div></div>';
     });
     h+='</div>';
   });
@@ -993,7 +993,7 @@ function openTD(id){
     h+='<option value="'+s+'"'+(t.status===s?' selected':'')+'>'+s.replace(/_/g,' ')+'</option>';
   });
   h+='</select></div>';
-  h+='<div class="ds-col"><div class="ds-label">Assignee</div><input class="ds-input" value="'+(t.assigned_to||'')+'" placeholder="Agent name..." onchange="uAssign(\''+t.id+'\',this.value)"></div></div>';
+  h+='<div class="ds-col"><div class="ds-label">Assignee</div><input class="ds-input" value="'+(t.assigned_to||'')+'" placeholder="Agent ID..." title="Agent: '+agentName(t.assigned_to)+'" onchange="uAssign(\''+t.id+'\',this.value)"></div></div>';
   h+='<div class="ds-row"><div class="ds-col"><div class="ds-label">Priority</div><span class="badge '+(t.severity||'').toLowerCase()+'">'+t.severity+'</span></div>';
   h+='<div class="ds-col"><div class="ds-label">Category</div><span class="badge '+(t.category||'')+'">'+t.category+'</span></div>';
   h+='<div class="ds-col"><div class="ds-label">Team</div><span style="font-size:11px">'+t.team+'</span></div></div>';
@@ -1001,7 +1001,7 @@ function openTD(id){
   if(t.blocks)h+='<div class="ds"><div class="ds-label">Blocks</div><div class="bi">'+t.blocks+'</div></div>';
   h+='<div class="ds"><div class="ds-label">Progress</div><div class="progress"><div class="progress-fill" id="prog-fill-'+t.id+'" style="width:'+(t.progress||0)+'%"></div></div><input type="range" min="0" max="100" value="'+(t.progress||0)+'" class="ds-input" style="padding:4px" oninput="document.getElementById(\'prog-fill-'+t.id+'\').style.width=this.value+\'%\';document.getElementById(\'prog-pct-'+t.id+'\').textContent=this.value+\'%\')" onchange="uProgress(\''+t.id+'\',this.value)"><span class="pd" id="prog-pct-'+t.id+'">'+(t.progress||0)+'%</span></div>';
   h+='<div class="ds"><div class="ds-label">Add Comment / Work Note</div><textarea class="ds-input" id="comment-input-'+t.id+'" rows="3" placeholder="Describe your progress, blockers, next steps..." style="resize:vertical;min-height:60px"></textarea><button class="btn btn-pri" style="margin-top:6px;width:100%;justify-content:center" onclick="uComment(\''+t.id+'\')">💾 Save Comment</button></div>';
-  h+='<div class="ds"><div class="ds-label">Comments</div>'+(t.comments&&t.comments.length?t.comments.map(function(c){return '<div class="cm"><span class="cm-by">'+c.by+':</span> '+c.text+'</div>'}).join(''):'<div style="color:var(--text3);font-size:10px">No comments</div>')+'</div>';
+  h+='<div class="ds"><div class="ds-label">Comments</div>'+(t.comments&&t.comments.length?t.comments.map(function(c){return '<div class="cm"><span class="cm-by">'+agentName(c.by)+':</span> '+c.text+'</div>'}).join(''):'<div style="color:var(--text3);font-size:10px">No comments</div>')+'</div>';
   document.getElementById('db').innerHTML=h;
   document.getElementById('dp').classList.add('op');
 }
@@ -1018,7 +1018,7 @@ function openED(id){
   h+='<div class="ds"><div class="ds-label">Progress</div><div class="progress"><div class="progress-fill" style="width:'+pct+'%"></div></div><div class="pd">'+pct+'% ('+dn+'/'+st.length+' stories done)</div></div>';
   h+='<div class="ds-row"><div class="ds-col"><div class="ds-label">Priority</div><span class="badge '+(e.priority||'')+'">'+e.priority+'</span></div>';
   h+='<div class="ds-col"><div class="ds-label">Team</div><span style="font-size:11px">'+(e.team||'—')+'</span></div>';
-  h+='<div class="ds-col"><div class="ds-label">Assignee</div><span style="font-size:11px">'+(e.assignee||'Unassigned')+'</span></div></div>';
+  h+='<div class="ds-col"><div class="ds-label">Assignee</div><span style="font-size:11px">'+agentName(e.assignee)+'</span></div></div>';
   h+='<div class="ds"><div class="ds-label">Linked Stories ('+st.length+')</div>'+st.map(function(s){return '<div class="si" onclick="openTD(\''+s.id+'\')"><span class="sd '+s.status+'"></span><span style="font-family:monospace;font-size:9px;color:var(--blue)">'+s.id+'</span> '+s.title+(s.blockedBy?' <span class="badge bl" style="font-size:7px">BLOCKED</span>':'')+'</div>'}).join('')+'</div>';
   document.getElementById('db').innerHTML=h;
   document.getElementById('dp').classList.add('op');
@@ -1210,7 +1210,7 @@ function activityLoadHistory(){
       t.comments.forEach(function(c,i){
         events.push({
           timestamp:now-(t.comments.length-i)*60000,
-          agent:t.assigned_to||'Unknown',
+          agent:t.assigned_to||'Unknown',displayName:agentName(t.assigned_to),
           emoji:agentEmoji(t.assigned_to),
           type:'comment',
           content:c.text.substring(0,80),
@@ -1233,7 +1233,7 @@ function activityLoadHistory(){
     if(t.status==='in_progress'||t.status==='done'){
       events.push({
         timestamp:now-600000,
-        agent:t.assigned_to||'Unknown',
+        agent:t.assigned_to||'Unknown',displayName:agentName(t.assigned_to),
         emoji:agentEmoji(t.assigned_to),
         type:'status_change',
         content:t.status.replace(/_/g,' ')+': '+t.title.substring(0,60),
@@ -1300,7 +1300,7 @@ function activityRender(){
     html+='<div class="activity-item'+(e._new?' new':'')+'" onclick="activityOpenItem('+JSON.stringify(e).replace(/"/g,'&quot;')+')" style="cursor:pointer">';
     html+='<div class="activity-avatar">'+(e.emoji||'🤖')+'</div>';
     html+='<div class="activity-content">';
-    html+='<div class="activity-meta"><span class="activity-agent">'+(e.agent||'System')+'</span><span class="activity-time">'+timeStr+'</span><span class="activity-type '+e.type+'">'+e.type.replace(/_/g,' ')+'</span><span style="font-size:9px;color:var(--blue);margin-left:4px">'+ref+'</span></div>';
+    html+='<div class="activity-meta"><span class="activity-agent">'+(e.displayName||e.agent||'System')+'</span><span class="activity-time">'+timeStr+'</span><span class="activity-type '+e.type+'">'+e.type.replace(/_/g,' ')+'</span><span style="font-size:9px;color:var(--blue);margin-left:4px">'+ref+'</span></div>';
     html+='<div class="activity-text">'+escapeHtml(e.content)+'</div>';
     html+='</div></div>';
   });
@@ -1354,6 +1354,12 @@ function agentEmoji(name){
 	  var emojis={'lucy':'👩‍💼','Lucy':'👩‍💼','orchestrator':'⚡','zeus':'⚡','Zeus':'⚡','tom':'⚔️','gladiator':'⚔️','Gladiator':'⚔️','devops':'🔨','thor':'🔨','Thor':'🔨','qa':'🛡️','athena':'🛡️','Athena':'🛡️','security':'💀','hades':'💀','Hades':'💀','pm':'🌈','iris':'🌈','Iris':'🌈','research':'📡','hermes':'📡','Hermes':'📡','business-analyst':'🔮','minerva':'🔮','Minerva':'🔮','data-analyst':'📊','clio':'📊','Clio':'📊','data-engineer':'🔥','vulcan':'🔥','Vulcan':'🔥','finance':'💰','plutus':'💰','Plutus':'💰','accounting':'📒','hestia':'📒','Hestia':'📒','budget':'⚖️','juno':'⚖️','Juno':'⚖️','income':'🍀','fortuna':'🍀','Fortuna':'🍀','sentinel':'👁️','nemesis':'👁️','Nemesis':'👁️','monitor':'🔭','argus':'🔭','Argus':'🔭','org-excellence':'🧠','metis':'🧠','Metis':'🧠','claude':'🤖','Claude':'🤖','ml-engineer':'💻','ML Engineer':'💻','analyst':'📈','Analyst':'📈','doer':'🔧','Doer':'🔧'};
 	  return emojis[name]||'🤖';
 	}
+
+function agentName(id){
+	var a=(D.agents||[]).find(function(x){return x.id===id;});
+	return a?a.name:id;
+}
+
 
 loadData();
 setInterval(loadData,30000);
