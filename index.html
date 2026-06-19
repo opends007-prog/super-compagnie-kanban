@@ -490,7 +490,14 @@ function openTD(id){
   h+='<div class="ds"><div class="ds-label">Comments</div>';
   if(t.comments&&t.comments.length){
     h+=t.comments.map(function(c){
-      var time=c.timestamp?'<span class="cm-time">'+formatTime(c.timestamp)+'</span>':'';
+      var time='';
+      if(c.timestamp){
+        time='<span class="cm-time">'+formatTime(c.timestamp)+'</span>';
+      } else {
+        // Try to extract date from old-style comment text
+        var m=c.text.match(/Work executed on (\d{4}-\d{2}-\d{2})/);
+        if(m) time='<span class="cm-time">'+m[1]+'</span>';
+      }
       return '<div class="cm"><span class="cm-by">'+c.by+':</span> '+c.text+time+'</div>';
     }).join('');
   } else {
