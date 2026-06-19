@@ -237,10 +237,6 @@ a:hover{text-decoration:underline}
 
 /* ═══ EMPTY STATE ═══ */
 .empty{display:flex;align-items:center;justify-content:center;height:60px;color:var(--text3);font-size:10px;text-align:center;padding:10px}
-.cm-add{margin-top:8px;display:flex;flex-direction:column;gap:4px}
-.cm-btn{background:var(--blue);color:#fff;border:none;border-radius:4px;padding:4px 8px;font-size:9px;font-weight:700;cursor:pointer;align-self:flex-end}
-.cm-btn:hover{background:var(--blue2)}
-.cm-time{font-size:8px;color:var(--text3);margin-left:4px}
 </style>
 </head>
 <body>
@@ -454,7 +450,7 @@ function rTeam(){
     if(!teams[tm])return;
     h+='<div class="team-section"><div class="team-sh">👥 '+tm+' ('+teams[tm].length+')</div><div class="team-grid">';
     teams[tm].forEach(function(a){
-      var activeTickets=(D.tickets||[]).filter(function(t){return t.assigned_to===a.id||t.assigned_to===a.name});
+      var activeTickets=(D.tickets||[]).filter(function(t){return t.assigned_to===a.name});
       var inProgress=activeTickets.filter(function(t){return t.status==='in_progress'}).length;
       h+='<div class="agent-card"><div class="agent-top"><span class="agent-emoji">'+a.emoji+'</span><span class="agent-status '+(a.status==='active'?'active':'idle')+'">'+(a.status==='active'?'● Active':'○ Idle')+'</span></div>';
       h+='<div class="agent-name">'+a.name+'</div><div class="agent-title">'+a.title+'</div>';
@@ -487,17 +483,7 @@ function openTD(id){
   h+='<div class="ds-col"><div class="ds-label">Team</div><span style="font-size:10px">'+t.team+'</span></div></div>';
   if(blk)h+='<div class="ds"><div class="ds-label">⛔ Blocked By</div><div class="bi" onclick="openTD(\''+blk.id+'\')">'+blk.id+': '+blk.title+'</div></div>';
   if(t.blocks)h+='<div class="ds"><div class="ds-label">Blocks</div><div class="bi">'+t.blocks+'</div></div>';
-  h+='<div class="ds"><div class="ds-label">Comments</div>';
-  if(t.comments&&t.comments.length){
-    h+=t.comments.map(function(c){
-      var time=c.timestamp?'<span class="cm-time">'+formatTime(c.timestamp)+'</span>':'';
-      return '<div class="cm"><span class="cm-by">'+c.by+':</span> '+c.text+time+'</div>';
-    }).join('');
-  } else {
-    h+='<div style="color:var(--text3);font-size:9px">No comments</div>';
-  }
-  h+='<div class="cm-add"><textarea id="cm-'+t.id+'" placeholder="Add comment as CEO..." rows="2" style="width:100%;background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:4px;color:var(--text);font-size:10px;resize:none"></textarea>';
-  h+='<button class="cm-btn" onclick="addComment(\''+t.id+'\')">💾 Save Comment</button></div></div>';
+  h+='<div class="ds"><div class="ds-label">Comments</div>'+(t.comments&&t.comments.length?t.comments.map(function(c){return '<div class="cm"><span class="cm-by">'+c.by+':</span> '+c.text+'</div>'}).join(''):'<div style="color:var(--text3);font-size:9px">No comments</div>')+'</div>';
   document.getElementById('db').innerHTML=h;
   document.getElementById('dp').classList.add('op');
 }
@@ -523,45 +509,13 @@ function openED(id){
 function closeDetail(){document.getElementById('dp').classList.remove('op')}
 function uStatus(id,s){var t=D.tickets.find(function(x){return x.id===id});if(t){t.status=s;t.updatedAt=(new Date()).toISOString();recalc();render();showNotif('Status updated','success');}}
 function uAssign(id,a){var t=D.tickets.find(function(x){return x.id===id});if(t){t.assigned_to=a;t.updatedAt=(new Date()).toISOString();recalc();render();showNotif('Assignee updated','success');}}
-
-function formatTime(iso){
-  if(!iso) return '';
-  var d=new Date(iso);
-  var now=new Date();
-  var diff=Math.floor((now-d)/1000);
-  if(diff<60) return 'just now';
-  if(diff<3600) return Math.floor(diff/60)+'m ago';
-  if(diff<86400) return Math.floor(diff/3600)+'h ago';
-  if(diff<604800) return Math.floor(diff/86400)+'d ago';
-  return d.toLocaleDateString();
-}
-
-function addComment(id){
-  var ta=document.getElementById('cm-'+id);
-  if(!ta||!ta.value.trim()) return;
-  var t=D.tickets.find(function(x){return x.id===id});
-  if(!t) return;
-  if(!t.comments) t.comments=[];
-  t.comments.push({by:'CEO',text:ta.value.trim(),timestamp:new Date().toISOString()});
-  t.updatedAt=(new Date()).toISOString();
-  recalc();
-  render();
-  showNotif('Comment saved','success');
-  // Re-open the detail panel to show the new comment
-  openTD(id);
-}
 function showNotif(msg,type){var el=document.createElement('div');el.className='notif '+(type||'');el.textContent=msg;document.body.appendChild(el);setTimeout(function(){el.remove();},2000);}
 function toggleFullscreen(){if(!document.fullscreenElement){document.documentElement.requestFullscreen();}else{document.exitFullscreen();}}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDetail()});
 loadData();
-var openPanelId=null;
-function savePanelState(){var dp=document.getElementById('dp');if(dp&&dp.classList.contains('op')){openPanelId=document.getElementById('dtitle').textContent;}else{openPanelId=null;}}
-function restorePanelState(){if(openPanelId){var id=openPanelId.split(' ')[0];if(id.startsWith('STORY-'))openTD(id);else if(id.startsWith('EPIC-'))openED(id);}}
-var origLoadData=loadData;
-loadData=function(){savePanelState();origLoadData();setTimeout(restorePanelState,100);};
 setInterval(loadData,30000);
 </script>
 </body>
 </html>
-<!-- cache-bust: 1781830987 -->
-<!-- rebuilt: Thu Jun 18 21:03:07 EDT 2026 -->
+<!-- cache-bust: 1781227703 -->
+<!-- rebuilt: Thu Jun 11 21:36:15 EDT 2026 -->
