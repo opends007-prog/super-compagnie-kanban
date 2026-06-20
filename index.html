@@ -108,6 +108,24 @@ a{color:var(--blue);text-decoration:none}
 .tab .num{font-size:9px;padding:1px 5px;border-radius:6px;background:var(--bg4);color:var(--text3)}
 .tab.active .num{background:var(--blue);color:#fff}
 
+/* ═══ BOARD MODE FILTER (All / Epics / Stories) ═══ */
+.board-mode{
+  display:flex;gap:4px;padding:6px 12px;
+  background:var(--bg2);border-bottom:1px solid var(--border);
+  flex-shrink:0;align-items:center;
+}
+.board-mode-label{font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-right:4px}
+.bmode-btn{
+  display:inline-flex;align-items:center;gap:3px;
+  padding:4px 12px;border-radius:16px;
+  border:1px solid var(--border);background:var(--bg3);
+  color:var(--text3);font-size:10px;font-weight:600;
+  cursor:pointer;white-space:nowrap;min-height:28px;
+  transition:var(--transition);
+}
+.bmode-btn:active{background:var(--bg4)}
+.bmode-btn.active{background:var(--bg4);color:var(--text);border-color:var(--blue);box-shadow:0 0 0 1px var(--blue)}
+
 /* ═══ COLUMN PICKER (mobile) ═══ */
 .col-picker{
   display:none;
@@ -221,10 +239,6 @@ a{color:var(--blue);text-decoration:none}
 .tk-asg-emoji{font-size:14px}
 .tk-ep{font-family:var(--font-mono);font-size:9px;color:var(--blue)}
 .tk-blocked-badge{font-size:8px;padding:2px 5px;border-radius:4px;background:rgba(239,68,68,.2);color:var(--red);font-weight:700}
-.tk-progress{margin-top:6px;display:flex;align-items:center;gap:6px}
-.tk-progress-bar{flex:1;height:4px;background:var(--bg4);border-radius:2px;overflow:hidden}
-.tk-progress-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .3s}
-.tk-progress-text{font-size:9px;color:var(--text3);font-weight:600;min-width:28px;text-align:right}
 
 /* Epic group */
 .eg{margin-bottom:8px;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden}
@@ -278,6 +292,10 @@ a{color:var(--blue);text-decoration:none}
 .ds-col{flex:1;min-width:100px}
 .cm{padding:8px;border-radius:5px;border:1px solid var(--border);margin-bottom:5px;font-size:12px}
 .cm-by{font-weight:600;color:var(--blue);font-size:10px}
+.cm-time{font-size:9px;color:var(--text3);margin-left:4px}
+.cm-add{margin-top:8px;display:flex;flex-direction:column;gap:6px}
+.cm-btn{background:var(--blue);color:#fff;border:none;border-radius:5px;padding:6px 12px;font-size:10px;font-weight:700;cursor:pointer;align-self:flex-end;min-height:32px}
+.cm-btn:active{background:var(--blue2)}
 .bi{font-size:11px;color:red;padding:4px 0;cursor:pointer;min-height:32px;display:flex;align-items:center}
 .si{
   font-size:11px;padding:6px 4px;
@@ -308,6 +326,12 @@ a{color:var(--blue);text-decoration:none}
 .lv-key{font-family:var(--font-mono);color:var(--blue);font-size:10px}
 .lv-title{color:var(--text);font-weight:500}
 .lv-asg{color:var(--text2)}.lv-ep{font-family:var(--font-mono);color:var(--blue);font-size:9px}
+
+/* Progress bar in list view */
+.lv-progress{width:80px}
+.lv-progress-bar{height:4px;background:var(--bg4);border-radius:2px;overflow:hidden;margin-bottom:2px}
+.lv-progress-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .3s}
+.lv-progress-text{font-size:9px;color:var(--text3);font-weight:600}
 
 /* Mobile list cards */
 .lv-cards{display:none}
@@ -369,6 +393,7 @@ a{color:var(--blue);text-decoration:none}
   .activity-controls{justify-content:space-between}
   .activity-filter{flex:1}
 }
+
 /* ═══ TEAM VIEW ═══ */
 .team-view{flex:1;overflow:auto;padding:12px;display:none;min-height:0;-webkit-overflow-scrolling:touch}
 .team-section{margin-bottom:18px}
@@ -453,8 +478,6 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
 /* ═══════════════════════════════════════════════════════════════
    RESPONSIVE — TABLET & MOBILE
    ═══════════════════════════════════════════════════════════════ */
-
-/* Tablet: 768px and below */
 @media(max-width:768px){
   .hdr{padding:6px 10px}
   .hdr h1{font-size:14px;max-width:120px}
@@ -463,6 +486,7 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
   .jira-text{display:none}
   .tabs{padding:4px 8px}
   .tab{padding:6px 12px;font-size:11px;min-height:36px}
+  .board-mode-label{display:none}
 
   /* Switch to mobile single-column board */
   .board{display:none !important}
@@ -495,7 +519,6 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
   .notif{left:12px;right:12px;bottom:12px}
 }
 
-/* Small phone: 480px and below */
 @media(max-width:480px){
   .hdr-left{gap:6px}
   .logo{font-size:18px}
@@ -505,7 +528,6 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
   .team-grid{grid-template-columns:1fr}
 }
 
-/* Large desktop: keep multi-column board */
 @media(min-width:769px){
   .board{display:flex !important}
   .board-mobile{display:none !important}
@@ -545,6 +567,14 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
   <button class="tab" id="tab-activity" onclick="goView('activity')">⚡ Activity <span class="num" id="activity-count">0</span></button>
 </div>
 
+<!-- ═══ BOARD MODE FILTER (All / Epics / Stories) ═══ -->
+<div class="board-mode" id="boardModeFilter">
+  <span class="board-mode-label">Show:</span>
+  <button class="bmode-btn active" id="bmode-all" onclick="setBoardMode('all')">📋 All</button>
+  <button class="bmode-btn" id="bmode-epics" onclick="setBoardMode('epics')">📁 Epics</button>
+  <button class="bmode-btn" id="bmode-stories" onclick="setBoardMode('stories')">📖 Stories</button>
+</div>
+
 <!-- ═══ OFFLINE BANNER ═══ -->
 <div class="offline-banner" id="offlineBanner">📡 You are offline — data may be stale</div>
 
@@ -580,6 +610,7 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
 var D={epics:[],tickets:[],stats:{}};
 var CV='kanban';
 var mobileColIdx=0;
+var boardMode='all'; // 'all' | 'epics' | 'stories'
 
 // Column = Status. Stories appear in the column matching their status.
 var COL_ORDER=['backlog','planned','in_progress','waiting','in_validation','done'];
@@ -594,10 +625,7 @@ function loadData(){
       console.log('Loaded:',D.epics.length,'epics,',D.tickets.length,'stories,',(D.agents||[]).length,'agents');
       recalc();
       render();
-      // Refresh activity stream with new ticket data
-      if(CV==='activity'){
-        activityLoadHistory();
-      }
+      if(CV==='activity'){activityLoadHistory();}
       showNotif('Data synced: '+D.tickets.length+' stories, '+(D.agents||[]).length+' agents','success');
     })
     .catch(e=>{console.error(e);showNotif('Sync failed','error');});
@@ -613,7 +641,6 @@ function recalc(){
     e.progress=Math.round(dn/st.length*100);
     e.status=(dn===st.length)?'done':(active>0)?'in_progress':'backlog';
   });
-  // Column = Status. No col field needed.
 }
 
 function goView(v){
@@ -622,7 +649,7 @@ function goView(v){
   document.getElementById('tab-'+v).classList.add('active');
   ['kanban','list','backlog','team','activity'].forEach(function(view){
     var el=document.getElementById('view-'+view);
-    if(el){if(v===view){el.style.display=(view==='kanban')?'flex':'block'}else{el.style.display='none';}}
+    if(el){el.style.display=(v===view)?((view==='kanban')?'flex':'block'):'none';}
   });
   var km=document.getElementById('view-kanban-mobile');
   if(km){km.style.display=(v==='kanban')?'flex':'none';}
@@ -630,9 +657,19 @@ function goView(v){
   var dots=document.getElementById('colDots');
   if(picker){picker.style.display=(v==='kanban')?'flex':'none';}
   if(dots){dots.style.display=(v==='kanban')?'flex':'none';}
+  // Show/hide board mode filter
+  var bm=document.getElementById('boardModeFilter');
+  if(bm){bm.style.display=(v==='kanban')?'flex':'none';}
   closeDetail();
   render();
   if(v==='activity'){startActivityStream();}else{stopActivityStream();}
+}
+
+function setBoardMode(mode){
+  boardMode=mode;
+  document.querySelectorAll('.bmode-btn').forEach(function(b){b.classList.remove('active')});
+  document.getElementById('bmode-'+mode).classList.add('active');
+  render();
 }
 
 function render(){
@@ -670,24 +707,32 @@ function rBoard(){
     var colClass='col-'+s;
     var epicsInCol=ep.filter(function(e){return e.status===s});
     var orphansInCol=orphans.filter(function(t){return t.status===s});
-    // Count all work items: each epic counts as 1 + its child tickets, plus orphan tickets
     var cnt=orphansInCol.length;
-    epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length});
+    epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length;});
 
     html+='<div class="col '+colClass+'"><div class="col-hdr"><div class="col-title"><span class="col-dot"></span>'+colName+'</div><span class="col-cnt">('+cnt+')</span></div><div class="col-body">';
 
-    ep.forEach(function(e){
-      if(e.status!==s)return;
-      var st=byEpic[e.id]||[],dn=st.filter(function(x){return x.status==='done'}).length;
-      html+='<div class="eg"><div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' <span style="color:var(--text3)">['+dn+'/'+st.length+']</span></div>';
-      html+='<div class="ep-bar"><div class="ep-bar-fill"style="width:'+e.progress+'%"></div></div>';
-      st.forEach(function(t){if(t.status===s)html+=tkHTML(t,ecm[t.epicId])});
-      html+='</div>';
-    });
+    // Show epics (unless stories-only mode)
+    if(boardMode!=='stories'){
+      ep.forEach(function(e){
+        if(e.status!==s)return;
+        var st=byEpic[e.id]||[],dn=st.filter(function(x){return x.status==='done'}).length;
+        html+='<div class="eg"><div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' <span style="color:var(--text3)">['+dn+'/'+st.length+']</span></div>';
+        html+='<div class="ep-bar"><div class="ep-bar-fill"style="width:'+e.progress+'%"></div></div>';
+        // Show child stories in epic (unless epics-only mode)
+        if(boardMode!=='epics'){
+          st.forEach(function(t){if(t.status===s)html+=tkHTML(t,ecm[t.epicId]);});
+        }
+        html+='</div>';
+      });
+    }
 
-    orphans.forEach(function(t){
-      if(t.status===s)html+=tkHTML(t,null);
-    });
+    // Show orphan stories (stories not in any epic)
+    if(boardMode!=='epics'){
+      orphans.forEach(function(t){
+        if(t.status===s)html+=tkHTML(t,null);
+      });
+    }
 
     if(!epicsInCol.length&&!orphansInCol.length)html+='<div class="empty-state"><span class="empty-icon">📭</span><span class="empty-text">No items here</span><span class="empty-hint">Stories will appear when added to this column</span></div>';
     html+='</div></div>';
@@ -704,15 +749,13 @@ function rBoardMobile(){
   var orphans=[];
   tk.forEach(function(t){if(t.epicId&&byEpic[t.epicId])byEpic[t.epicId].push(t);else orphans.push(t)});
 
-  // Build picker
   var pickerHtml='';
   var dotsHtml='';
   COL_ORDER.forEach(function(s,i){
     var epicsInCol=ep.filter(function(e){return e.status===s});
     var orphansInCol=orphans.filter(function(t){return t.status===s});
-    // Count all work items: each epic counts as 1 + its child tickets, plus orphan tickets
     var cnt=orphansInCol.length;
-    epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length});
+    epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length;});
     var activeClass=(i===mobileColIdx)?' active':'';
     pickerHtml+='<div class="col-pick'+activeClass+'" onclick="switchMobileCol('+i+')"><span class="col-pick-dot" style="background:'+COL_DOTS[s]+'"></span>'+COL_NAMES[s]+' <span class="col-pick-cnt">('+cnt+')</span></div>';
     dotsHtml+='<div class="col-dot-ind'+activeClass+'" id="cdot-'+i+'"></div>';
@@ -720,30 +763,34 @@ function rBoardMobile(){
   document.getElementById('colPicker').innerHTML=pickerHtml;
   document.getElementById('colDots').innerHTML=dotsHtml;
 
-  // Build single column content
   var s=COL_ORDER[mobileColIdx];
   var colName=COL_NAMES[s];
   var colClass='col-'+s;
   var epicsInCol=ep.filter(function(e){return e.status===s});
   var orphansInCol=orphans.filter(function(t){return t.status===s});
-  // Count all work items: each epic counts as 1 + its child tickets, plus orphan tickets
   var cnt=orphansInCol.length;
-  epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length});
+  epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length;});
 
   var html='<div class="board-mobile-col '+colClass+'"><div class="col-hdr"><div class="col-title"><span class="col-dot"></span>'+colName+'</div><span class="col-cnt">('+cnt+')</span></div><div class="col-body">';
 
-  ep.forEach(function(e){
-    if(e.status!==s)return;
-    var st=byEpic[e.id]||[],dn=st.filter(function(x){return x.status==='done'}).length;
-    html+='<div class="eg"><div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' <span style="color:var(--text3)">['+dn+'/'+st.length+']</span></div>';
-    html+='<div class="ep-bar"><div class="ep-bar-fill" style="width:'+e.progress+'%"></div></div>';
-    st.forEach(function(t){html+=tkHTML(t,ecm[t.epicId])});
-    html+='</div>';
-  });
+  if(boardMode!=='stories'){
+    ep.forEach(function(e){
+      if(e.status!==s)return;
+      var st=byEpic[e.id]||[],dn=st.filter(function(x){return x.status==='done'}).length;
+      html+='<div class="eg"><div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' <span style="color:var(--text3)">['+dn+'/'+st.length+']</span></div>';
+      html+='<div class="ep-bar"><div class="ep-bar-fill" style="width:'+e.progress+'%"></div></div>';
+      if(boardMode!=='epics'){
+        st.forEach(function(t){html+=tkHTML(t,ecm[t.epicId]);});
+      }
+      html+='</div>';
+    });
+  }
 
-  orphans.forEach(function(t){
-    if(t.status===s)html+=tkHTML(t,null);
-  });
+  if(boardMode!=='epics'){
+    orphans.forEach(function(t){
+      if(t.status===s)html+=tkHTML(t,null);
+    });
+  }
 
   if(!epicsInCol.length&&!orphansInCol.length)html+='<div class="empty-state"><span class="empty-icon">📭</span><span class="empty-text">No items in this column</span><span class="empty-hint">Swipe left/right to check other columns</span></div>';
   html+='</div></div>';
@@ -787,12 +834,11 @@ function tkHTML(t,ec){
   var tags='';
   if(t.severity)tags+='<span class="tk-tag tag-'+t.severity.charAt(0).toLowerCase()+'">'+t.severity+'</span>';
   if(t.category)tags+='<span class="tk-tag tag-'+t.category+'">'+t.category+'</span>';
-	var asg=t.assigned_to?'<span class="tk-asg"><span class="tk-asg-emoji">'+agentEmoji(t.assigned_to)+'</span>'+agentName(t.assigned_to)+'</span>':'<span class="tk-asg" style="color:var(--text3)">👤 Unassigned</span>';
+  var asg=t.assigned_to?'<span class="tk-asg"><span class="tk-asg-emoji">'+agentEmoji(t.assigned_to)+'</span>'+agentName(t.assigned_to)+'</span>':'<span class="tk-asg" style="color:var(--text3)">👤 Unassigned</span>';
   var ep=t.epicId?'<span class="tk-ep">⬆ '+t.epicId+'</span>':'';
   var cb=ec?'<div style="float:left;width:3px;border-radius:2px;margin-right:6px;background:'+ec+';height:100%;min-height:20px"></div>':'';
   var blk=bl?'<span class="tk-blocked-badge">⛔ BLOCKED</span>':'';
-  var progressBar='<div class="tk-progress"><div class="tk-progress-bar"><div class="tk-progress-fill" style="width:'+(t.progress||0)+'%"></div></div><div class="tk-progress-text">'+(t.progress||0)+'%</div></div>';
-  return '<div class="tk'+(bl?' blocked':'')+(t.epicId?' epic-child':'')+'" onclick="openTD(\''+t.id+'\')">'+cb+'<div class="tk-top"><span class="tk-id">'+t.id+'</span>'+blk+'</div><div class="tk-title">'+t.title+'</div><div class="tk-tags">'+tags+'</div><div class="tk-bottom">'+asg+ep+'</div>'+progressBar+'</div>';
+  return '<div class="tk'+(bl?' blocked':'')+(t.epicId?' epic-child':'')+'" onclick="openTD(\''+t.id+'\')">'+cb+'<div class="tk-top"><span class="tk-id">'+t.id+'</span>'+blk+'</div><div class="tk-title">'+t.title+'</div><div class="tk-tags">'+tags+'</div><div class="tk-bottom">'+asg+ep+'</div></div>';
 }
 
 /* ═══ LIST VIEW ═══ */
@@ -806,14 +852,12 @@ function listSetSearch(v){
 function rList(){
   var el=document.getElementById('view-list');
   if(!el)return;
-  // Build search bar once
   if(!document.getElementById('list-search-wrap')){
     el.innerHTML='<div id="list-search-wrap" style="margin-bottom:8px;display:flex;gap:6px;align-items:center">'+
       '<input class="ds-input" id="list-search-input" type="text" placeholder="🔍 Search tickets, epics, agents..." value="'+listSearchQuery+'" oninput="listSetSearch(this.value)" style="flex:1;min-height:32px;font-size:12px">'+
       (listSearchQuery?'<button class="btn" onclick="listSetSearch(\'\')" style="min-height:32px;font-size:11px">✕ Clear</button>':'')+
       '</div><div id="list-table-wrap"></div><div id="list-cards-wrap"></div><div id="list-result-count"></div>';
   } else {
-    // Just update the clear button visibility
     var wrap=document.getElementById('list-search-wrap');
     var hasBtn=wrap.querySelector('.ds-input+button');
     if(listSearchQuery&&!hasBtn){
@@ -834,11 +878,10 @@ function rListBody(){
   var tableWrap=document.getElementById('list-table-wrap');
   var cardsWrap=document.getElementById('list-cards-wrap');
   var countWrap=document.getElementById('list-result-count');
-  if(!tableWrap)return; // Not initialized yet
+  if(!tableWrap)return;
   var all=[];
   (D.epics||[]).forEach(function(e){all.push({key:e.id,title:e.title,epic:'-',status:e.status,priority:e.priority||'Medium',assignee:e.assignee||'-',isEpic:true,progress:e.progress})});
-  (D.tickets||[]).forEach(function(e){all.push({key:e.id,title:e.title,epic:e.epicId||'-',status:e.status,priority:e.severity,assignee:agentName(e.assigned_to)||e.assigned_to||'-',isEpic:false})});
-  // Filter by search
+  (D.tickets||[]).forEach(function(e){all.push({key:e.id,title:e.title,epic:e.epicId||'-',status:e.status,priority:e.severity,assignee:agentName(e.assigned_to)||e.assigned_to||'-',isEpic:false,progress:e.progress||0})});
   if(listSearchQuery){
     all=all.filter(function(item){
       return item.key.toLowerCase().indexOf(listSearchQuery)!==-1||
@@ -848,14 +891,15 @@ function rListBody(){
              item.status.toLowerCase().indexOf(listSearchQuery)!==-1;
     });
   }
-  // Build table
-  var th='<table class="lv-table"><thead><tr><th class="lv-th">Key</th><th class="lv-th">Title</th><th class="lv-th">Epic</th><th class="lv-th">Status</th><th class="lv-th">Priority</th><th class="lv-th">Assignee</th></tr></thead><tbody>';
+  var th='<table class="lv-table"><thead><tr><th class="lv-th">Key</th><th class="lv-th">Title</th><th class="lv-th">Epic</th><th class="lv-th">Status</th><th class="lv-th">Priority</th><th class="lv-th">Assignee</th><th class="lv-th">Progress</th></tr></thead><tbody>';
   var tb='';
   if(all.length===0){
-    tb='<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--text3);font-size:12px">No results found</td></tr>';
+    tb='<tr><td colspan="7" style="text-align:center;padding:20px;color:var(--text3);font-size:12px">No results found</td></tr>';
   }
   all.forEach(function(item){
     var st=item.status.replace(/_/g,' ');
+    var pct=item.progress||0;
+    var progBar='<div class="lv-progress"><div class="lv-progress-bar"><div class="lv-progress-fill" style="width:'+pct+'%"></div></div><div class="lv-progress-text">'+pct+'%</div></div>';
     tb+='<tr class="lv-tr" onclick="'+(item.isEpic?'openED':'openTD')+'(\''+item.key+'\')">';
     tb+='<td class="lv-td"><span class="lv-key">'+item.key+'</span></td>';
     tb+='<td class="lv-td"><span class="lv-title">'+(item.isEpic?'📁 ':'')+item.title+'</span></td>';
@@ -863,6 +907,7 @@ function rListBody(){
     tb+='<td class="lv-td"><span class="lv-status '+item.status+'">'+st+'</span></td>';
     tb+='<td class="lv-td"><span class="badge '+(item.priority||'').toLowerCase()+'">'+item.priority+'</span></td>';
     tb+='<td class="lv-td"><span class="lv-asg">'+item.assignee+'</span></td>';
+    tb+='<td class="lv-td"><div class="lv-progress">'+progBar+'</div></td>';
     tb+='</tr>';
   });
   tableWrap.innerHTML=th+tb+'</tbody></table>';
@@ -870,14 +915,14 @@ function rListBody(){
   var mc='';
   all.forEach(function(item){
     var st=item.status.replace(/_/g,' ');
+    var pct=item.progress||0;
     mc+='<div class="lv-card" onclick="'+(item.isEpic?'openED':'openTD')+'(\''+item.key+'\')">';
     mc+='<div class="lv-card-key">'+item.key+(item.isEpic?' 📁':'')+'</div>';
     mc+='<div class="lv-card-title">'+item.title+'</div>';
-    mc+='<div class="lv-card-meta"><span>'+st+'</span><span>'+item.priority+'</span><span>'+item.assignee+'</span></div>';
+    mc+='<div class="lv-card-meta"><span>'+st+'</span><span>'+item.priority+'</span><span>'+item.assignee+'</span><span>'+pct+'%</span></div>';
     mc+='</div>';
   });
   cardsWrap.innerHTML=mc;
-  // Result count
   if(listSearchQuery){
     countWrap.innerHTML='<div style="text-align:center;padding:8px;color:var(--text3);font-size:11px">Showing '+all.length+' results</div>';
   } else {
@@ -999,9 +1044,22 @@ function openTD(id){
   h+='<div class="ds-col"><div class="ds-label">Team</div><span style="font-size:11px">'+t.team+'</span></div></div>';
   if(blk)h+='<div class="ds"><div class="ds-label">⛔ Blocked By</div><div class="bi" onclick="openTD(\''+blk.id+'\')">'+blk.id+': '+blk.title+'</div></div>';
   if(t.blocks)h+='<div class="ds"><div class="ds-label">Blocks</div><div class="bi">'+t.blocks+'</div></div>';
-  h+='<div class="ds"><div class="ds-label">Progress</div><div class="progress"><div class="progress-fill" id="prog-fill-'+t.id+'" style="width:'+(t.progress||0)+'%"></div></div><input type="range" min="0" max="100" value="'+(t.progress||0)+'" class="ds-input" style="padding:4px" oninput="document.getElementById(\'prog-fill-'+t.id+'\').style.width=this.value+\'%\';document.getElementById(\'prog-pct-'+t.id+'\').textContent=this.value+\'%\')" onchange="uProgress(\''+t.id+'\',this.value)"><span class="pd" id="prog-pct-'+t.id+'">'+(t.progress||0)+'%</span></div>';
-  h+='<div class="ds"><div class="ds-label">Add Comment / Work Note</div><textarea class="ds-input" id="comment-input-'+t.id+'" rows="3" placeholder="Describe your progress, blockers, next steps..." style="resize:vertical;min-height:60px"></textarea><button class="btn btn-pri" style="margin-top:6px;width:100%;justify-content:center" onclick="uComment(\''+t.id+'\')">💾 Save Comment</button></div>';
-  h+='<div class="ds"><div class="ds-label">Comments</div>'+(t.comments&&t.comments.length?t.comments.map(function(c){return '<div class="cm"><span class="cm-by">'+agentName(c.by)+':</span> '+c.text+'</div>'}).join(''):'<div style="color:var(--text3);font-size:10px">No comments</div>')+'</div>';
+
+  // Comments section — OLD STYLE with working textarea + Save button
+  h+='<div class="ds"><div class="ds-label">Comments</div>';
+  if(t.comments&&t.comments.length){
+    h+=t.comments.map(function(c){
+      var time=c.timestamp?'<span class="cm-time">'+formatTime(c.timestamp)+'</span>':'';
+      return '<div class="cm"><span class="cm-by">'+agentName(c.by)+':</span> '+c.text+time+'</div>';
+    }).join('');
+  } else {
+    h+='<div style="color:var(--text3);font-size:10px">No comments</div>';
+  }
+  h+='<div class="cm-add">';
+  h+='<textarea id="cm-'+t.id+'" placeholder="Add comment as CEO..." rows="3" style="width:100%;background:var(--bg4);border:1px solid var(--border);border-radius:5px;padding:8px;color:var(--text);font-size:12px;resize:vertical;min-height:60px"></textarea>';
+  h+='<button class="cm-btn" onclick="addComment(\''+t.id+'\')">💾 Save Comment</button>';
+  h+='</div></div>';
+
   document.getElementById('db').innerHTML=h;
   document.getElementById('dp').classList.add('op');
 }
@@ -1025,7 +1083,18 @@ function openED(id){
 }
 
 function closeDetail(){document.getElementById('dp').classList.remove('op')}
-function uStatus(id,s){var t=D.tickets.find(function(x){return x.id===id});if(t){t.status=s;t.updatedAt=(new Date()).toISOString();recalc();render();showNotif('Status updated','success');}}
+
+function uStatus(id,s){
+  var t=D.tickets.find(function(x){return x.id===id});
+  if(t){
+    t.status=s;t.updatedAt=(new Date()).toISOString();
+    if(s==='done')t.progress=100;
+    else if(s==='in_progress'&&(t.progress===0||t.progress===100))t.progress=25;
+    recalc();render();
+    showNotif('Status updated','success');
+  }
+}
+
 function uAssignName(id,name){
   var t=D.tickets.find(function(x){return x.id===id});
   if(!t)return;
@@ -1040,47 +1109,34 @@ function uAssignName(id,name){
   if(name)showNotif('Assignee: '+(agent?agent.name:name)+(agent?' ('+agent.id+')':''),'success');
   else showNotif('Assignee cleared','success');
 }
-function uProgress(id, value) {
-  var t = D.tickets.find(function(x){return x.id===id});
-  if (!t) return;
-  t.progress = parseInt(value);
-  t.last_agent_update = new Date().toISOString();
-  t.updatedAt = new Date().toISOString();
-  if (value == 100 && t.status !== 'done') {
-    t.status = 'done';
-  } else if (value > 0 && (t.status === 'backlog' || t.status === 'planned')) {
-    t.status = 'in_progress';
-  }
-  if (t.epicId) {
-    var epic = D.epics.find(function(e){return e.id===t.epicId});
-    if (epic) {
-      var kids = D.tickets.filter(function(x){return x.epicId===epic.id});
-      var dn = kids.filter(function(k){return k.status==='done'}).length;
-      epic.progress = kids.length ? Math.round(dn/kids.length*100) : 0;
-    }
-  }
-  recalc(); render();
-  showNotif('Progress updated to ' + value + '%', 'success');
+
+function formatTime(iso){
+  if(!iso) return '';
+  var d=new Date(iso);
+  var now=new Date();
+  var diff=Math.floor((now-d)/1000);
+  if(diff<60) return 'just now';
+  if(diff<3600) return Math.floor(diff/60)+'m ago';
+  if(diff<86400) return Math.floor(diff/3600)+'h ago';
+  if(diff<604800) return Math.floor(diff/86400)+'d ago';
+  return d.toLocaleDateString();
 }
-function uComment(id) {
-  var input = document.getElementById('comment-input-' + id);
-  var text = input.value.trim();
-  if (!text) return;
-  var t = D.tickets.find(function(x){return x.id===id});
-  if (!t) return;
-  if (!t.comments) t.comments = [];
-  t.comments.push({
-    by: t.assigned_to || 'agent',
-    text: text,
-    timestamp: new Date().toISOString()
-  });
-  t.last_agent_update = new Date().toISOString();
-  t.updatedAt = new Date().toISOString();
-  input.value = '';
-  recalc(); render();
+
+function addComment(id){
+  var ta=document.getElementById('cm-'+id);
+  if(!ta||!ta.value.trim()) return;
+  var t=D.tickets.find(function(x){return x.id===id});
+  if(!t) return;
+  if(!t.comments) t.comments=[];
+  t.comments.push({by:'CEO',text:ta.value.trim(),timestamp:new Date().toISOString()});
+  t.updatedAt=(new Date()).toISOString();
+  recalc();
+  render();
+  showNotif('Comment saved','success');
+  // Re-open the detail panel to show the new comment
   openTD(id);
-  showNotif('Comment saved', 'success');
 }
+
 function showNotif(msg,type){
   var el=document.createElement('div');
   el.className='notif '+(type||'');
@@ -1198,13 +1254,8 @@ var activityFilterKeyword='';
 function startActivityStream(){
   var el=document.getElementById('view-activity');
   if(!el)return;
-  // Always rebuild HTML to ensure clean state
   el.innerHTML='<div class="activity-hdr"><div class="activity-title">⚡ Agent Activity Stream</div><div class="activity-controls"><select class="activity-filter" id="activity-agent-filter" onchange="activitySetAgent(this.value)"><option value="">All Agents</option></select><input class="activity-filter" id="activity-keyword-filter" type="text" placeholder="Filter by keyword..." oninput="activitySetKeyword(this.value)" style="min-width:120px"><button class="activity-btn" id="activity-pause-btn" onclick="activityTogglePause()">⏸ Pause</button><button class="activity-btn" onclick="activityClear()">🗑 Clear</button></div></div><div class="activity-stats" id="activity-stats"></div><div class="activity-list" id="activity-list"><div class="empty-state activity-empty"><span class="empty-icon">📡</span><span>Loading activity...</span></div></div>';
-  // Small delay to ensure DOM is ready, then load and render
-  setTimeout(function(){
-    activityLoadHistory();
-  },50);
-  // Start polling for new events
+  setTimeout(function(){activityLoadHistory();},50);
   if(activityPoll)clearInterval(activityPoll);
   activityPoll=setInterval(activityFetchEvents,10000);
 }
@@ -1334,15 +1385,8 @@ function activityUpdateFilterOptions(){
   sel.innerHTML=html;
 }
 
-function activitySetAgent(v){
-  activityFilterAgent=v;
-  activityRender();
-}
-
-function activitySetKeyword(v){
-  activityFilterKeyword=v;
-  activityRender();
-}
+function activitySetAgent(v){activityFilterAgent=v;activityRender();}
+function activitySetKeyword(v){activityFilterKeyword=v;activityRender();}
 
 function activityTogglePause(){
   activityPaused=!activityPaused;
@@ -1353,10 +1397,7 @@ function activityTogglePause(){
   }
 }
 
-function activityClear(){
-  activityEvents=[];
-  activityRender();
-}
+function activityClear(){activityEvents=[];activityRender();}
 
 function escapeHtml(s){
   var d=document.createElement('div');
@@ -1365,21 +1406,17 @@ function escapeHtml(s){
 }
 
 function agentEmoji(name){
-	  var emojis={'lucy':'👩‍💼','Lucy':'👩‍💼','orchestrator':'⚡','zeus':'⚡','Zeus':'⚡','tom':'⚔️','gladiator':'⚔️','Gladiator':'⚔️','devops':'🔨','thor':'🔨','Thor':'🔨','qa':'🛡️','athena':'🛡️','Athena':'🛡️','security':'💀','hades':'💀','Hades':'💀','pm':'🌈','iris':'🌈','Iris':'🌈','research':'📡','hermes':'📡','Hermes':'📡','business-analyst':'🔮','minerva':'🔮','Minerva':'🔮','data-analyst':'📊','clio':'📊','Clio':'📊','data-engineer':'🔥','vulcan':'🔥','Vulcan':'🔥','finance':'💰','plutus':'💰','Plutus':'💰','accounting':'📒','hestia':'📒','Hestia':'📒','budget':'⚖️','juno':'⚖️','Juno':'⚖️','income':'🍀','fortuna':'🍀','Fortuna':'🍀','sentinel':'👁️','nemesis':'👁️','Nemesis':'👁️','monitor':'🔭','argus':'🔭','Argus':'🔭','org-excellence':'🧠','metis':'🧠','Metis':'🧠','claude':'🤖','Claude':'🤖','ml-engineer':'💻','ML Engineer':'💻','analyst':'📈','Analyst':'📈','doer':'🔧','Doer':'🔧'};
-	  return emojis[name]||'🤖';
-	}
-
-function agentName(id){
-	if(!id)return id;
-	var a=(D.agents||[]).find(function(x){return x.id===id;});
-	if(a)return a.name;
-	// Fallback: check emoji map for display name (handles both IDs and display names)
-	var emojis={'lucy':'👩‍💼','Lucy':'👩‍💼','orchestrator':'⚡','zeus':'⚡','Zeus':'⚡','tom':'⚔️','gladiator':'⚔️','Gladiator':'⚔️','devops':'🔨','thor':'🔨','Thor':'🔨','qa':'🛡️','athena':'🛡️','Athena':'🛡️','security':'💀','hades':'💀','Hades':'💀','pm':'🌈','iris':'🌈','Iris':'🌈','research':'📡','hermes':'📡','Hermes':'📡','business-analyst':'🔮','minerva':'🔮','Minerva':'🔮','data-analyst':'📊','clio':'📊','Clio':'📊','data-engineer':'🔥','vulcan':'🔥','Vulcan':'🔥','finance':'💰','plutus':'💰','Plutus':'💰','accounting':'📒','hestia':'📒','Hestia':'📒','budget':'⚖️','juno':'⚖️','Juno':'⚖️','income':'🍀','fortuna':'🍀','Fortuna':'🍀','sentinel':'👁️','nemesis':'👁️','Nemesis':'👁️','monitor':'🔭','argus':'🔭','Argus':'🔭','org-excellence':'🧠','metis':'🧠','Metis':'🧠','claude':'🤖','Claude':'🤖','ml-engineer':'💻','ML Engineer':'💻'};
-	// If the id itself is a key in emojis, it's already an ID — try to find its display name
-	var nameMap={'lucy':'Lucy','orchestrator':'Zeus','tom':'Gladiator','devops':'Thor','qa':'Athena','security':'Hades','pm':'Iris','research':'Hermes','business-analyst':'Minerva','data-analyst':'Clio','data-engineer':'Vulcan','finance':'Plutus','accounting':'Hestia','budget':'Juno','income':'Fortuna','sentinel':'Nemesis','monitor':'Argus','org-excellence':'Metis','claude':'Claude','ml-engineer':'ML Engineer'};
-	return nameMap[id]||id;
+  var emojis={'lucy':'👩‍💼','Lucy':'👩‍💼','orchestrator':'⚡','zeus':'⚡','Zeus':'⚡','tom':'⚔️','gladiator':'⚔️','Gladiator':'⚔️','devops':'🔨','thor':'🔨','Thor':'🔨','qa':'🛡️','athena':'🛡️','Athena':'🛡️','security':'💀','hades':'💀','Hades':'💀','pm':'🌈','iris':'🌈','Iris':'🌈','research':'📡','hermes':'📡','Hermes':'📡','business-analyst':'🔮','minerva':'🔮','Minerva':'🔮','data-analyst':'📊','clio':'📊','Clio':'📊','data-engineer':'🔥','vulcan':'🔥','Vulcan':'🔥','finance':'💰','plutus':'💰','Plutus':'💰','accounting':'📒','hestia':'📒','Hestia':'📒','budget':'⚖️','juno':'⚖️','Juno':'⚖️','income':'🍀','fortuna':'🍀','Fortuna':'🍀','sentinel':'👁️','nemesis':'👁️','Nemesis':'👁️','monitor':'🔭','argus':'🔭','Argus':'🔭','org-excellence':'🧠','metis':'🧠','Metis':'🧠','claude':'🤖','Claude':'🤖','ml-engineer':'💻','ML Engineer':'💻','analyst':'📈','Analyst':'📈','doer':'🔧','Doer':'🔧'};
+  return emojis[name]||'🤖';
 }
 
+function agentName(id){
+  if(!id)return id;
+  var a=(D.agents||[]).find(function(x){return x.id===id;});
+  if(a)return a.name;
+  var nameMap={'lucy':'Lucy','orchestrator':'Zeus','tom':'Gladiator','devops':'Thor','qa':'Athena','security':'Hades','pm':'Iris','research':'Hermes','business-analyst':'Minerva','data-analyst':'Clio','data-engineer':'Vulcan','finance':'Plutus','accounting':'Hestia','budget':'Juno','income':'Fortuna','sentinel':'Nemesis','monitor':'Argus','org-excellence':'Metis','claude':'Claude','ml-engineer':'ML Engineer'};
+  return nameMap[id]||id;
+}
 
 loadData();
 setInterval(loadData,30000);
