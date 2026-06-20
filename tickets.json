@@ -949,7 +949,8 @@
         },
         {
           "by": "Zeus",
-          "text": "Reassigned to Nemesis (sentinel/auditor) for independent code review. Previous work by QA was functional testing; this is a security-focused code audit."
+          "text": "Reassigned to Nemesis (sentinel/auditor) for independent code review. Previous work by QA was functional testing; this is a security-focused code audit.",
+          "timestamp": "2026-06-19T20:30:03.962729"
         },
         {
           "by": "Nemesis",
@@ -1049,11 +1050,13 @@
         },
         {
           "by": "Zeus",
-          "text": "Reassigned to Athena (qa) for test suite development. Fresh start with proper QA methodology."
+          "text": "Reassigned to Athena (qa) for test suite development. Fresh start with proper QA methodology.",
+          "timestamp": "2026-06-19T20:30:03.962733"
         },
         {
           "by": "Athena",
-          "text": "STORY-019 COMPLETE: Test suite created at /home/admin/.openclaw/workers/qa/work/test-suite/. 4 test scripts (test_agents.sh, test_crons.sh, test_workspace.sh, test_security.sh) + run_all.sh master runner. All 26 checks passing across 4 suites: Agent SOUL.md Validation (6/6), Cron Job Configuration (6/6), Workspace Structure & Permissions (8/8), Security Audit (8/8). Fixed permissions on pm/work/shell-template.sh. Test report saved to test-report-2026-06-17.md."
+          "text": "STORY-019 COMPLETE: Test suite created at /home/admin/.openclaw/workers/qa/work/test-suite/. 4 test scripts (test_agents.sh, test_crons.sh, test_workspace.sh, test_security.sh) + run_all.sh master runner. All 26 checks passing across 4 suites: Agent SOUL.md Validation (6/6), Cron Job Configuration (6/6), Workspace Structure & Permissions (8/8), Security Audit (8/8). Fixed permissions on pm/work/shell-template.sh. Test report saved to test-report-2026-06-17.md.",
+          "timestamp": "2026-06-19T20:30:03.962733"
         },
         {
           "by": "Athena",
@@ -1217,7 +1220,8 @@
       "comments": [
         {
           "by": "Athena",
-          "text": "STORY-023 COMPLETE: Safety scanner created at /home/admin/.openclaw/workers/qa/work/test-suite/safety-scanner.sh. Scans 5 categories: (1) missing set -euo pipefail in shell scripts, (2) Python dangerous patterns (shell=True, eval(), exec()), (3) hardcoded credentials/secrets, (4) world-writable files, (5) SUID/SGID files. Full scan of 126 checks: 0 issues, 0 warnings. Safety status: CLEAN. Report saved to safety-report-2026-06-17.md."
+          "text": "STORY-023 COMPLETE: Safety scanner created at /home/admin/.openclaw/workers/qa/work/test-suite/safety-scanner.sh. Scans 5 categories: (1) missing set -euo pipefail in shell scripts, (2) Python dangerous patterns (shell=True, eval(), exec()), (3) hardcoded credentials/secrets, (4) world-writable files, (5) SUID/SGID files. Full scan of 126 checks: 0 issues, 0 warnings. Safety status: CLEAN. Report saved to safety-report-2026-06-17.md.",
+          "timestamp": "2026-06-17T01:00:02.477119"
         }
       ],
       "progress": 100,
@@ -1723,7 +1727,8 @@
       "comments": [
         {
           "by": "Thor",
-          "text": "Kanban sync automation built and deployed. Created kanban-sync.sh with Jira REST API v3 integration (create, update, comment sync, status transitions). Cron job installed to run every 30 minutes with output logged to /tmp/kanban-sync.log. Sync state tracked in /tmp/kanban-sync-state.json. Supports DRY_RUN mode. Requires JIRA_EMAIL and JIRA_API_TOKEN env vars to be set for actual API calls."
+          "text": "Kanban sync automation built and deployed. Created kanban-sync.sh with Jira REST API v3 integration (create, update, comment sync, status transitions). Cron job installed to run every 30 minutes with output logged to /tmp/kanban-sync.log. Sync state tracked in /tmp/kanban-sync-state.json. Supports DRY_RUN mode. Requires JIRA_EMAIL and JIRA_API_TOKEN env vars to be set for actual API calls.",
+          "timestamp": "2026-06-17T00:30:02.168015"
         }
       ],
       "progress": 100,
@@ -1842,11 +1847,13 @@
       "comments": [
         {
           "by": "Thor",
-          "text": "Audited all shell scripts in /home/admin/.openclaw. Fixed 2 remaining scripts missing set -euo pipefail: cron-scheduler.sh and emergency-restart.sh. All 28 non-cache shell scripts now have proper error handling with set -euo pipefail."
+          "text": "Audited all shell scripts in /home/admin/.openclaw. Fixed 2 remaining scripts missing set -euo pipefail: cron-scheduler.sh and emergency-restart.sh. All 28 non-cache shell scripts now have proper error handling with set -euo pipefail.",
+          "timestamp": "2026-06-17T04:24:45.743134+00:00"
         },
         {
           "by": "Iris",
-          "text": "STORY-047 complete. Full re-audit performed on 2026-06-17. Results: 40 non-cache shell scripts audited across /home/admin/.openclaw. 6 already had set -euo pipefail (sandbox skills + security-audit.sh + backup-and-notify.sh). 15 work-template.sh files already had set -euo pipefail from prior fixes. Fixed 8 scripts that were missing proper error handling: auto-backup.sh, emergency-restart.sh (with comment explaining conditional non-zero exits), cron-scheduler.sh (rewritten after corruption), restore-crons.sh (upgraded from set -e), vm-auto-backup.sh, security/run-audit.sh (deduplicated), backup-lucy-memory.sh (upgraded from set -e), owl-bridge/check-answers.sh, quick-backup.sh (uncommented and upgraded). Created shell-template.sh at /home/admin/.openclaw/workers/pm/work/shell-template.sh. All 40 scripts pass bash -n syntax check. Audit report at /home/admin/.openclaw/workers/pm/work/shell-audit-2026-06-17.md."
+          "text": "STORY-047 complete. Full re-audit performed on 2026-06-17. Results: 40 non-cache shell scripts audited across /home/admin/.openclaw. 6 already had set -euo pipefail (sandbox skills + security-audit.sh + backup-and-notify.sh). 15 work-template.sh files already had set -euo pipefail from prior fixes. Fixed 8 scripts that were missing proper error handling: auto-backup.sh, emergency-restart.sh (with comment explaining conditional non-zero exits), cron-scheduler.sh (rewritten after corruption), restore-crons.sh (upgraded from set -e), vm-auto-backup.sh, security/run-audit.sh (deduplicated), backup-lucy-memory.sh (upgraded from set -e), owl-bridge/check-answers.sh, quick-backup.sh (uncommented and upgraded). Created shell-template.sh at /home/admin/.openclaw/workers/pm/work/shell-template.sh. All 40 scripts pass bash -n syntax check. Audit report at /home/admin/.openclaw/workers/pm/work/shell-audit-2026-06-17.md.",
+          "timestamp": "2026-06-17T04:24:45.743134+00:00"
         }
       ],
       "progress": 100,
@@ -1883,7 +1890,8 @@
       "comments": [
         {
           "by": "Hermes",
-          "text": "STORY-048 complete. Fixed shell=True vulnerability in openrouter-models-update-vm.py. Changes: (1) Replaced shell=True subprocess.run() with list-based args, (2) Added validate_hostname(), validate_remote_path(), validate_model_id() input validators, Added type checking in run(), try/finally for temp file cleanup, explicit timeouts. Fixed both copies: /Users/admin/workspace/openclaw-agents/scripts/ and /Users/admin/workspace/my-configs/. Security report at /home/admin/.openclaw/workers/research/work/security-fix-2026-06-17.md. Broader scan of 26+ workspace Python files found no other shell=True, eval(), exec(), pickle.loads(), or os.system() issues."
+          "text": "STORY-048 complete. Fixed shell=True vulnerability in openrouter-models-update-vm.py. Changes: (1) Replaced shell=True subprocess.run() with list-based args, (2) Added validate_hostname(), validate_remote_path(), validate_model_id() input validators, Added type checking in run(), try/finally for temp file cleanup, explicit timeouts. Fixed both copies: /Users/admin/workspace/openclaw-agents/scripts/ and /Users/admin/workspace/my-configs/. Security report at /home/admin/.openclaw/workers/research/work/security-fix-2026-06-17.md. Broader scan of 26+ workspace Python files found no other shell=True, eval(), exec(), pickle.loads(), or os.system() issues.",
+          "timestamp": "2026-06-17T12:00:00.000000+00:00"
         }
       ],
       "progress": 100,
@@ -1916,7 +1924,8 @@
       "comments": [
         {
           "by": "Minerva",
-          "text": "STORY-049 complete. Fixed 4 mislabeled epics (EPIC-006, EPIC-007, EPIC-009, EPIC-010: backlog->in_progress), fixed EPIC-004 and EPIC-011 progress, corrected 14 story assignee display names to agent IDs, fixed 6 story status/progress mismatches, cleaned up stale backup files. See data-quality-report-2026-06-17.md for details."
+          "text": "STORY-049 complete. Fixed 4 mislabeled epics (EPIC-006, EPIC-007, EPIC-009, EPIC-010: backlog->in_progress), fixed EPIC-004 and EPIC-011 progress, corrected 14 story assignee display names to agent IDs, fixed 6 story status/progress mismatches, cleaned up stale backup files. See data-quality-report-2026-06-17.md for details.",
+          "timestamp": "2026-06-17T04:09:43.488519+00:00"
         }
       ],
       "progress": 100,
@@ -2030,7 +2039,8 @@
       "comments": [
         {
           "by": "Zeus",
-          "text": "Assigned to Argus (monitor) - core monitoring responsibility."
+          "text": "Assigned to Argus (monitor) - core monitoring responsibility.",
+          "timestamp": "2026-06-17T12:06:20.364649+00:00"
         },
         {
           "by": "Argus",
@@ -2081,7 +2091,8 @@
       "comments": [
         {
           "by": "Zeus",
-          "text": "Assigned to Metis (org-excellence) - team optimization analysis."
+          "text": "Assigned to Metis (org-excellence) - team optimization analysis.",
+          "timestamp": "2026-06-17T12:06:20.371367+00:00"
         },
         {
           "by": "Metis",
@@ -2132,7 +2143,8 @@
       "comments": [
         {
           "by": "Zeus",
-          "text": "Assigned to Claude (meta-agent) - self-improvement of agent infrastructure."
+          "text": "Assigned to Claude (meta-agent) - self-improvement of agent infrastructure.",
+          "timestamp": "2026-06-17T04:10:26.614001+00:00"
         }
       ],
       "progress": 0,
@@ -2165,7 +2177,8 @@
       "comments": [
         {
           "by": "Zeus",
-          "text": "Assigned to ML Engineer - core ML infrastructure research."
+          "text": "Assigned to ML Engineer - core ML infrastructure research.",
+          "timestamp": "2026-06-18T01:15:07.824429+00:00"
         },
         {
           "by": "Prometheus",
@@ -2216,7 +2229,8 @@
       "comments": [
         {
           "by": "Zeus",
-          "text": "Assigned to Hestia (accounting) - financial record maintenance."
+          "text": "Assigned to Hestia (accounting) - financial record maintenance.",
+          "timestamp": "2026-06-17T04:10:26.614001+00:00"
         }
       ],
       "progress": 0,
@@ -2249,7 +2263,8 @@
       "comments": [
         {
           "by": "Zeus",
-          "text": "Assigned to Juno (budget) - cost optimization is core budget responsibility."
+          "text": "Assigned to Juno (budget) - cost optimization is core budget responsibility.",
+          "timestamp": "2026-06-17T12:06:20.378564+00:00"
         },
         {
           "by": "Juno",
@@ -2300,7 +2315,8 @@
       "comments": [
         {
           "by": "Zeus",
-          "text": "Assigned to Fortuna (income) - revenue opportunity identification."
+          "text": "Assigned to Fortuna (income) - revenue opportunity identification.",
+          "timestamp": "2026-06-17T12:06:20.384928+00:00"
         },
         {
           "by": "Fortuna",
@@ -2432,7 +2448,8 @@
       "comments": [
         {
           "by": "Lucy",
-          "text": "Script created on 2026-06-17. Needs Discord channel testing."
+          "text": "Script created on 2026-06-17. Needs Discord channel testing.",
+          "timestamp": "2026-06-17T15:56:52.413900+00:00"
         }
       ],
       "pushed_comments": [
@@ -2901,7 +2918,8 @@
       "comments": [
         {
           "by": "Test",
-          "text": "Ticket created via request 17b48f63"
+          "text": "Ticket created via request 17b48f63",
+          "timestamp": "2026-06-18T13:18:27.660373+00:00"
         }
       ],
       "jira_key": "TD-318",
