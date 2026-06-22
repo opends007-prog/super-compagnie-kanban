@@ -326,6 +326,11 @@ a{color:var(--blue);text-decoration:none}
 .lv-key{font-family:var(--font-mono);color:var(--blue);font-size:10px}
 .lv-title{color:var(--text);font-weight:500}
 .lv-asg{color:var(--text2)}.lv-ep{font-family:var(--font-mono);color:var(--blue);font-size:9px}
+.lv-status{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+.lv-status.done{color:var(--green)}.lv-status.in_progress{color:var(--blue)}
+.lv-status.in_validation{color:var(--cyan)}.lv-status.backlog{color:var(--text3)}
+.lv-status.planned{color:var(--orange)}.lv-status.waiting{color:var(--text3)}
+.lv-tr:hover{background:var(--bg3)}
 
 /* Progress bar in list view */
 .lv-progress{width:80px}
@@ -402,8 +407,10 @@ a{color:var(--blue);text-decoration:none}
 .agent-card{
   background:var(--bg3);border:1px solid var(--border);
   border-radius:var(--radius);padding:12px;transition:var(--transition);
+  cursor:pointer;
 }
-.agent-card:active{border-color:var(--border2);transform:scale(.98)}
+.agent-card:hover{border-color:var(--border2);box-shadow:var(--shadow)}
+.agent-card:active{transform:scale(.98)}
 .agent-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .agent-emoji{font-size:24px}
 .agent-status{font-size:9px;padding:2px 7px;border-radius:7px;font-weight:700}
@@ -563,7 +570,7 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
   <button class="tab active" id="tab-kanban" onclick="goView('kanban')">📊 Board</button>
   <button class="tab" id="tab-list" onclick="goView('list')">📝 List</button>
   <button class="tab" id="tab-backlog" onclick="goView('backlog')">📦 Backlog</button>
-  <button class="tab" id="tab-team" onclick="goView('team')">👥 Team <span class="num">18</span></button>
+  <button class="tab" id="tab-team" onclick="goView('team')">👥 Team <span class="num" id="badge-team-count">0</span></button>
   <button class="tab" id="tab-activity" onclick="goView('activity')">⚡ Activity <span class="num" id="activity-count">0</span></button>
 </div>
 
@@ -686,11 +693,14 @@ function render(){
 }
 
 function rStats(){
-  var tk=D.tickets||[],ep=D.epics||[];
+  var tk=D.tickets||[],ep=D.epics||[],ag=D.agents||[];
   var active=tk.filter(function(t){return t.status in {in_progress:1,waiting:1,in_validation:1,planned:1}}).length;
+  var working=ag.filter(function(a){return a.status==='working'}).length;
   document.getElementById('badge-epics').textContent=ep.length+' Epics';
   document.getElementById('badge-stories').textContent=tk.length+' Stories';
-  document.getElementById('badge-active').textContent=active+' Active';
+  document.getElementById('badge-active').textContent=working+' Active';
+  var tc=document.getElementById('badge-team-count');
+  if(tc)tc.textContent=ag.length;
 }
 
 /* ═══ BOARD VIEW (desktop: multi-column) ═══ */
@@ -1027,7 +1037,7 @@ function rTeam(){
         else if(realStatus==='not-active'){badgeClass='not-active';badgeIcon='🔴';badgeText='NOT ACTIVE';}
         else if(realStatus==='troubleshooting'){badgeClass='troubleshooting';badgeIcon='🔧';badgeText='TROUBLESHOOTING';}
 
-        h+='<div class="agent-card">';
+        h+='<div class="agent-card" onclick="openAD(\''+a.id+'\')">';
         h+='<div class="agent-top"><span class="agent-emoji">'+(a.emoji||'👤')+'</span><span class="agent-status-badge '+badgeClass+'">'+badgeIcon+' '+badgeText+'</span></div>';
         h+='<div class="agent-name">'+a.name+'</div><div class="agent-title">'+a.title+'</div>';
         h+='<div class="agent-role">'+a.role+'</div>';
@@ -1109,6 +1119,33 @@ function openED(id){
   h+='<div class="ds-col"><div class="ds-label">Team</div><span style="font-size:11px">'+(e.team||'—')+'</span></div>';
   h+='<div class="ds-col"><div class="ds-label">Assignee</div><span style="font-size:11px">'+agentName(e.assignee)+'</span></div></div>';
   h+='<div class="ds"><div class="ds-label">Linked Stories ('+st.length+')</div>'+st.map(function(s){return '<div class="si" onclick="openTD(\''+s.id+'\')"><span class="sd '+s.status+'"></span><span style="font-family:monospace;font-size:9px;color:var(--blue)">'+s.id+'</span> '+s.title+(s.blockedBy?' <span class="badge bl" style="font-size:7px">BLOCKED</span>':'')+'</div>'}).join('')+'</div>';
+  document.getElementById('db').innerHTML=h;
+  document.getElementById('dp').classList.add('op');
+}
+
+function openAD(id){
+  var a=(D.agents||[]).find(function(x){return x.id===id});if(!a)return;
+  var agentTickets=(D.tickets||[]).filter(function(t){return t.assigned_to===id});
+  var done=agentTickets.filter(function(t){return t.status==='done'}).length;
+  var total=agentTickets.length;
+  var pct=total>0?Math.round(done/total*100):0;
+  document.getElementById('dtitle').textContent=a.name+' — '+a.title;
+  var h='';
+  h+='<div class="ds"><div class="ds-id" style="color:var(--blue)">'+a.id+' · AGENT</div><div class="ds-title">'+a.name+'</div></div>';
+  h+='<div class="ds"><div class="ds-label">Role</div><div class="ds-val">'+a.role+'</div></div>';
+  h+='<div class="ds-row"><div class="ds-col"><div class="ds-label">Team</div><span style="font-size:11px">'+a.team+'</span></div>';
+  h+='<div class="ds-col"><div class="ds-label">Status</div><span class="agent-status-badge '+(a.status==='working'?'working':'idle')+'">'+(a.status==='working'?'🔨 WORKING':'💤 IDLE')+'</span></div></div>';
+  h+='<div class="ds"><div class="ds-label">Progress</div><div class="progress"><div class="progress-fill" style="width:'+pct+'%"></div></div><div class="pd">'+pct+'% ('+done+'/'+total+' tickets done)</div></div>';
+  h+='<div class="ds"><div class="ds-label">Assigned Tickets ('+total+')</div>';
+  if(total===0){
+    h+='<div class="agent-no-tickets">💤 No tickets assigned</div>';
+  } else {
+    agentTickets.forEach(function(t){
+      var tIcon=t.status==='done'?'✅':(t.status==='in_progress'?'🔨':(t.status==='in_validation'?'🔍':'📋'));
+      h+='<div class="si" onclick="closeDetail();openTD(\''+t.id+'\')"><span class="sd '+t.status+'"></span><span style="font-family:monospace;font-size:9px;color:var(--blue)">'+t.id+'</span> '+t.title.substring(0,40)+' '+tIcon+'</div>';
+    });
+  }
+  h+='</div>';
   document.getElementById('db').innerHTML=h;
   document.getElementById('dp').classList.add('op');
 }
