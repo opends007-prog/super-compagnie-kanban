@@ -708,27 +708,41 @@ function rBoard(){
     var epicsInCol=ep.filter(function(e){return e.status===s});
     var orphansInCol=orphans.filter(function(t){return t.status===s});
     var cnt=orphansInCol.length;
-    epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length;});
+    epicsInCol.forEach(function(e){
+      var st=byEpic[e.id]||[];
+      cnt+=boardMode==='epics'?1:st.length;
+    });
 
     html+='<div class="col '+colClass+'"><div class="col-hdr"><div class="col-title"><span class="col-dot"></span>'+colName+'</div><span class="col-cnt">('+cnt+')</span></div><div class="col-body">';
 
-    // Show epics (unless stories-only mode)
-    if(boardMode!=='stories'){
+    if(boardMode==='stories'){
+      // Stories-only mode: show ALL stories flat (both orphans and epic children)
+      var allStoriesInCol=[];
+      orphans.forEach(function(t){if(t.status===s)allStoriesInCol.push({t:t,ec:null});});
+      ep.forEach(function(e){
+        var st=byEpic[e.id]||[];
+        st.forEach(function(t){if(t.status===s)allStoriesInCol.push({t:t,ec:ecm[t.epicId]});});
+      });
+      allStoriesInCol.forEach(function(item){html+=tkHTML(item.t,item.ec);});
+    } else if(boardMode==='epics'){
+      // Epics-only mode: show epics without their child stories
       ep.forEach(function(e){
         if(e.status!==s)return;
         var st=byEpic[e.id]||[],dn=st.filter(function(x){return x.status==='done'}).length;
         html+='<div class="eg"><div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' <span style="color:var(--text3)">['+dn+'/'+st.length+']</span></div>';
         html+='<div class="ep-bar"><div class="ep-bar-fill"style="width:'+e.progress+'%"></div></div>';
-        // Show child stories in epic (unless epics-only mode)
-        if(boardMode!=='epics'){
-          st.forEach(function(t){if(t.status===s)html+=tkHTML(t,ecm[t.epicId]);});
-        }
         html+='</div>';
       });
-    }
-
-    // Show orphan stories (stories not in any epic)
-    if(boardMode!=='epics'){
+    } else {
+      // All mode: epics with their child stories nested
+      ep.forEach(function(e){
+        if(e.status!==s)return;
+        var st=byEpic[e.id]||[],dn=st.filter(function(x){return x.status==='done'}).length;
+        html+='<div class="eg"><div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' <span style="color:var(--text3)">['+dn+'/'+st.length+']</span></div>';
+        html+='<div class="ep-bar"><div class="ep-bar-fill"style="width:'+e.progress+'%"></div></div>';
+        st.forEach(function(t){if(t.status===s)html+=tkHTML(t,ecm[t.epicId]);});
+        html+='</div>';
+      });
       orphans.forEach(function(t){
         if(t.status===s)html+=tkHTML(t,null);
       });
@@ -755,7 +769,10 @@ function rBoardMobile(){
     var epicsInCol=ep.filter(function(e){return e.status===s});
     var orphansInCol=orphans.filter(function(t){return t.status===s});
     var cnt=orphansInCol.length;
-    epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length;});
+    epicsInCol.forEach(function(e){
+      var st=byEpic[e.id]||[];
+      cnt+=boardMode==='epics'?1:st.length;
+    });
     var activeClass=(i===mobileColIdx)?' active':'';
     pickerHtml+='<div class="col-pick'+activeClass+'" onclick="switchMobileCol('+i+')"><span class="col-pick-dot" style="background:'+COL_DOTS[s]+'"></span>'+COL_NAMES[s]+' <span class="col-pick-cnt">('+cnt+')</span></div>';
     dotsHtml+='<div class="col-dot-ind'+activeClass+'" id="cdot-'+i+'"></div>';
@@ -769,24 +786,38 @@ function rBoardMobile(){
   var epicsInCol=ep.filter(function(e){return e.status===s});
   var orphansInCol=orphans.filter(function(t){return t.status===s});
   var cnt=orphansInCol.length;
-  epicsInCol.forEach(function(e){cnt+=1+(byEpic[e.id]||[]).length;});
+  epicsInCol.forEach(function(e){
+    var st=byEpic[e.id]||[];
+    cnt+=boardMode==='epics'?1:st.length;
+  });
 
   var html='<div class="board-mobile-col '+colClass+'"><div class="col-hdr"><div class="col-title"><span class="col-dot"></span>'+colName+'</div><span class="col-cnt">('+cnt+')</span></div><div class="col-body">';
 
-  if(boardMode!=='stories'){
+  if(boardMode==='stories'){
+    var allStoriesInCol=[];
+    orphans.forEach(function(t){if(t.status===s)allStoriesInCol.push({t:t,ec:null});});
+    ep.forEach(function(e){
+      var st=byEpic[e.id]||[];
+      st.forEach(function(t){if(t.status===s)allStoriesInCol.push({t:t,ec:ecm[t.epicId]});});
+    });
+    allStoriesInCol.forEach(function(item){html+=tkHTML(item.t,item.ec);});
+  } else if(boardMode==='epics'){
     ep.forEach(function(e){
       if(e.status!==s)return;
       var st=byEpic[e.id]||[],dn=st.filter(function(x){return x.status==='done'}).length;
       html+='<div class="eg"><div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' <span style="color:var(--text3)">['+dn+'/'+st.length+']</span></div>';
       html+='<div class="ep-bar"><div class="ep-bar-fill" style="width:'+e.progress+'%"></div></div>';
-      if(boardMode!=='epics'){
-        st.forEach(function(t){html+=tkHTML(t,ecm[t.epicId]);});
-      }
       html+='</div>';
     });
-  }
-
-  if(boardMode!=='epics'){
+  } else {
+    ep.forEach(function(e){
+      if(e.status!==s)return;
+      var st=byEpic[e.id]||[],dn=st.filter(function(x){return x.status==='done'}).length;
+      html+='<div class="eg"><div class="el" onclick="openED(\''+e.id+'\')">⬆ '+e.id+': '+e.title+' <span style="color:var(--text3)">['+dn+'/'+st.length+']</span></div>';
+      html+='<div class="ep-bar"><div class="ep-bar-fill" style="width:'+e.progress+'%"></div></div>';
+      st.forEach(function(t){if(t.status===s)html+=tkHTML(t,ecm[t.epicId]);});
+      html+='</div>';
+    });
     orphans.forEach(function(t){
       if(t.status===s)html+=tkHTML(t,null);
     });
