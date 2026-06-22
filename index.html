@@ -1270,35 +1270,29 @@ function activityLoadHistory(){
   var epics=D.epics||[];
   var now=Date.now();
   tickets.forEach(function(t){
+    // Comments — use the real timestamp from each comment
     if(t.comments&&t.comments.length>0){
-      t.comments.forEach(function(c,i){
+      t.comments.forEach(function(c){
+        var ts=c.timestamp;
+        if(!ts) return; // skip comments without timestamp
         events.push({
-          timestamp:now-(t.comments.length-i)*60000,
-          agent:t.assigned_to||'Unknown',displayName:agentName(t.assigned_to),
-          emoji:agentEmoji(t.assigned_to),
+          timestamp:new Date(ts).getTime(),
+          agent:c.by||t.assigned_to||'Unknown',
+          displayName:agentName(c.by||t.assigned_to),
+          emoji:agentEmoji(c.by||t.assigned_to),
           type:'comment',
-          content:c.text.substring(0,80),
+          content:c.text.substring(0,100),
           ticketId:t.id,
           ticketTitle:t.title
         });
       });
     }
-    if(t.assigned_to){
+    // Status change — use ticket's updatedAt
+    if(t.updatedAt){
       events.push({
-        timestamp:now-300000,
-        agent:t.assigned_to,
+        timestamp:new Date(t.updatedAt).getTime(),
+        agent:t.assigned_to||'Unknown',
         displayName:agentName(t.assigned_to),
-        emoji:agentEmoji(t.assigned_to),
-        type:'assignment',
-        content:'Assigned: '+t.title.substring(0,60),
-        ticketId:t.id,
-        ticketTitle:t.title
-      });
-    }
-    if(t.status==='in_progress'||t.status==='done'){
-      events.push({
-        timestamp:now-600000,
-        agent:t.assigned_to||'Unknown',displayName:agentName(t.assigned_to),
         emoji:agentEmoji(t.assigned_to),
         type:'status_change',
         content:t.status.replace(/_/g,' ')+': '+t.title.substring(0,60),
@@ -1307,18 +1301,25 @@ function activityLoadHistory(){
       });
     }
   });
+  // Epic summaries — use the epic's own updatedAt or latest child ticket date
   epics.forEach(function(e){
     var st=(D.tickets||[]).filter(function(x){return x.epicId===e.id});
     var dn=st.filter(function(x){return x.status==='done'}).length;
-    events.push({
-      timestamp:now-900000,
-      agent:e.assignee||'Unknown',
-      emoji:agentEmoji(e.assignee),
-      type:'system',
-      content:e.id+' ('+dn+'/'+st.length+' done): '+e.title.substring(0,50),
-      epicId:e.id,
-      ticketTitle:e.title
-    });
+    var epicTs=0;
+    if(e.updatedAt) epicTs=new Date(e.updatedAt).getTime();
+    else if(st.length) epicTs=Math.max.apply(null,st.map(function(s){return s.updatedAt?new Date(s.updatedAt).getTime():0;}));
+    if(epicTs>0){
+      events.push({
+        timestamp:epicTs,
+        agent:e.assignee||'Unknown',
+        displayName:agentName(e.assignee),
+        emoji:agentEmoji(e.assignee),
+        type:'system',
+        content:e.id+' ('+dn+'/'+st.length+' done): '+e.title.substring(0,50),
+        epicId:e.id,
+        ticketTitle:e.title
+      });
+    }
   });
   events.sort(function(a,b){return b.timestamp-a.timestamp});
   activityEvents=events.slice(0,100);
@@ -1360,7 +1361,18 @@ function activityRender(){
   }
   var html='';
   filtered.slice(0,50).forEach(function(e){
-    var timeStr=new Date(e.timestamp).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+    var d=new Date(e.timestamp);
+    var now=new Date();
+    var isToday=d.toDateString()===now.toDateString();
+    var timeStr;
+    if(isToday){
+      timeStr=d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false});
+    } else {
+      var month=d.toLocaleString('en-US',{month:'short'});
+      var day=d.getDate();
+      var hrs=d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false});
+      timeStr=month+' '+day+' '+hrs;
+    }
     var ref=e.ticketId?'Ticket: '+e.ticketId:(e.epicId?'Epic: '+e.epicId:'');
     html+='<div class="activity-item'+(e._new?' new':'')+'" onclick="activityOpenItem('+JSON.stringify(e).replace(/"/g,'&quot;')+')" style="cursor:pointer">';
     html+='<div class="activity-avatar">'+(e.emoji||'🤖')+'</div>';
