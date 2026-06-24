@@ -207,13 +207,22 @@ var Office = (function() {
     mapCache.height = MAP_H;
     var mctx = mapCache.getContext('2d');
 
-    // Background
+    // Background — dark carpet
     mctx.fillStyle = '#0d1117';
     mctx.fillRect(0, 0, MAP_W, MAP_H);
 
-    // Floor grid
-    mctx.strokeStyle = '#141c28';
-    mctx.lineWidth = 1;
+    // Checkerboard floor tiles
+    for (var tx = 0; tx < MAP_W / TILE; tx++) {
+      for (var ty = 0; ty < MAP_H / TILE; ty++) {
+        var shade = ((tx + ty) % 2 === 0) ? '#111827' : '#0f1520';
+        mctx.fillStyle = shade;
+        mctx.fillRect(tx * TILE, ty * TILE, TILE, TILE);
+      }
+    }
+
+    // Subtle grid lines
+    mctx.strokeStyle = '#1a2332';
+    mctx.lineWidth = 0.5;
     for (var x = 0; x <= MAP_W; x += TILE) {
       mctx.beginPath(); mctx.moveTo(x, 0); mctx.lineTo(x, MAP_H); mctx.stroke();
     }
@@ -224,21 +233,52 @@ var Office = (function() {
     // Draw areas
     AREAS.forEach(function(a) {
       var ax = a.gx * TILE, ay = a.gy * TILE, aw = a.gw * TILE, ah = a.gh * TILE;
+      var margin = 6;
 
-      // Area background
+      // Area shadow
+      mctx.fillStyle = 'rgba(0,0,0,0.3)';
+      mctx.fillRect(ax + margin + 2, ay + margin + 2, aw - margin * 2, ah - margin * 2);
+
+      // Area background with rounded feel
       mctx.fillStyle = a.color;
-      mctx.fillRect(ax + 2, ay + 2, aw - 4, ah - 4);
+      mctx.fillRect(ax + margin, ay + margin, aw - margin * 2, ah - margin * 2);
+
+      // Inner glow
+      var grad = mctx.createLinearGradient(ax, ay, ax, ay + ah);
+      grad.addColorStop(0, a.text + '15');
+      grad.addColorStop(1, 'transparent');
+      mctx.fillStyle = grad;
+      mctx.fillRect(ax + margin, ay + margin, aw - margin * 2, ah - margin * 2);
 
       // Area border
-      mctx.strokeStyle = a.text + '40';
+      mctx.strokeStyle = a.text + '50';
       mctx.lineWidth = 2;
-      mctx.strokeRect(ax + 4, ay + 4, aw - 8, ah - 8);
+      mctx.strokeRect(ax + margin, ay + margin, aw - margin * 2, ah - margin * 2);
 
-      // Area label
+      // Corner accents
+      var cs = 8; // corner size
+      mctx.fillStyle = a.text + '60';
+      // top-left
+      mctx.fillRect(ax + margin, ay + margin, cs, 2);
+      mctx.fillRect(ax + margin, ay + margin, 2, cs);
+      // top-right
+      mctx.fillRect(ax + aw - margin - cs, ay + margin, cs, 2);
+      mctx.fillRect(ax + aw - margin - 2, ay + margin, 2, cs);
+      // bottom-left
+      mctx.fillRect(ax + margin, ay + ah - margin - 2, cs, 2);
+      mctx.fillRect(ax + margin, ay + ah - margin - cs, 2, cs);
+      // bottom-right
+      mctx.fillRect(ax + aw - margin - cs, ay + ah - margin - 2, cs, 2);
+      mctx.fillRect(ax + aw - margin - 2, ay + ah - margin - cs, 2, cs);
+
+      // Area label with background
+      mctx.font = 'bold 10px monospace';
+      var labelW = mctx.measureText(a.name).width + 10;
+      mctx.fillStyle = 'rgba(13, 17, 23, 0.7)';
+      mctx.fillRect(ax + aw / 2 - labelW / 2, ay + margin + 4, labelW, 14);
       mctx.fillStyle = a.text;
-      mctx.font = 'bold 11px monospace';
       mctx.textAlign = 'center';
-      mctx.fillText(a.name, ax + aw / 2, ay + 18);
+      mctx.fillText(a.name, ax + aw / 2, ay + margin + 14);
 
       // Draw furniture hints
       drawFurniture(mctx, a);
@@ -422,12 +462,11 @@ var Office = (function() {
   }
 
   function clampCam() {
-    if (!canvas || !canvas.parentElement) return;
-    var rect = canvas.parentElement.getBoundingClientRect();
-    var vw = rect.width / cam.zoom;
-    var vh = rect.height / cam.zoom;
-    cam.x = Math.max(0, Math.min(MAP_W - vw, cam.x));
-    cam.y = Math.max(0, Math.min(MAP_H - vh, cam.y));
+    var vw = window.innerWidth / cam.zoom;
+    var vh = window.innerHeight / cam.zoom;
+    // Allow panning but keep at least some of the map visible
+    cam.x = Math.max(-MAP_W * 0.2, Math.min(MAP_W * 1.2 - vw, cam.x));
+    cam.y = Math.max(-MAP_H * 0.2, Math.min(MAP_H * 1.2 - vh, cam.y));
   }
 
   // ═══ AGENT STATE MANAGEMENT ═══
@@ -781,70 +820,179 @@ var Office = (function() {
     drawOverlay(cw, ch);
   }
 
-  function drawAgent(agent) {
-    var x = agent.x, y = agent.y;
-    var bob = agent.walking ? Math.sin(agent.animFrame * 0.3) * 2 : Math.sin(frameCount * 0.05 + agent.id.charCodeAt(0)) * 0.5;
+  // ═══ PIXEL ART AGENT RENDERER ═══
+  // Draws a 16x24 pixel art character with walk animation
+  var AGENT_SPRITES = {}; // cache per agent
 
-    // Shadow
-    ctx.fillStyle = 'rgba(0,0,0,0.3)';
+  function getAgentColor(agent) {
+    var teamColors = {
+      'Leadership': '#3b82f6', 'Project': '#22c55e', 'Research': '#a855f7',
+      'Finance': '#f59e0b', 'Security': '#ef4444', 'Operations': '#06b6d4'
+    };
+    return teamColors[agent.team] || '#64748b';
+  }
+
+  function getAgentSkinTone(agent) {
+    // Varied skin tones for diversity
+    var tones = ['#f8d5b4', '#e8b89a', '#d4a574', '#c49060', '#a87850', '#8b6040'];
+    var hash = 0;
+    var id = agent.id || 'x';
+    for (var i = 0; i < id.length; i++) { hash = ((hash << 5) - hash) + id.charCodeAt(i); hash |= 0; }
+    return tones[Math.abs(hash) % tones.length];
+  }
+
+  function drawPixelCharacter(agent, x, y, scale) {
+    scale = scale || 1;
+    var s = scale; // pixel scale
+    var walkPhase = agent.walking ? Math.floor(agent.animFrame * 0.2) % 4 : 0;
+    var bodyColor = getAgentColor(agent);
+    var skinTone = getAgentSkinTone(agent);
+    var hairColors = ['#2d1b0e', '#4a3728', '#8b6914', '#c41e3a', '#1a1a2e', '#e8e8e8'];
+    var hairColor = hairColors[Math.abs(agent.id.charCodeAt(0) * 7) % hairColors.length];
+
+    // Pixel helper — draws a "pixel" (scaled rectangle)
+    function px(px, py, pw, ph, color) {
+      ctx.fillStyle = color;
+      ctx.fillRect(Math.floor(x + px * s), Math.floor(y + py * s), pw * s, ph * s);
+    }
+
+    // ═══ SHADOW ═══
+    ctx.fillStyle = 'rgba(0,0,0,0.25)';
     ctx.beginPath();
-    ctx.ellipse(x, y + 14, 8, 3, 0, 0, Math.PI * 2);
+    ctx.ellipse(x, y + 12 * s, 7 * s, 2 * s, 0, 0, Math.PI * 2);
     ctx.fill();
 
-    // Body (pixel-style rectangle)
-    var bodyX = x - 8, bodyY = y - 12 + bob;
-    ctx.fillStyle = getAgentColor(agent);
-    ctx.fillRect(bodyX, bodyY, 16, 20);
+    // ═══ FEET / LEGS (with walk animation) ═══
+    var legOffset1 = 0, legOffset2 = 0;
+    if (agent.walking) {
+      if (walkPhase === 0) { legOffset1 = 1; legOffset2 = -1; }
+      else if (walkPhase === 1) { legOffset1 = 0; legOffset2 = 0; }
+      else if (walkPhase === 2) { legOffset1 = -1; legOffset2 = 1; }
+      else { legOffset1 = 0; legOffset2 = 0; }
+    }
 
-    // Head
-    ctx.fillStyle = '#e2e8f0';
-    ctx.fillRect(bodyX + 2, bodyY - 6, 12, 8);
+    // Left leg
+    px(4 + legOffset1, 18, 3, 5, '#2d3748');
+    px(4 + legOffset1, 22, 3, 2, '#1a202c');
+    // Right leg
+    px(9 + legOffset2, 18, 3, 5, '#2d3748');
+    px(9 + legOffset2, 22, 3, 2, '#1a202c');
 
-    // Emoji face
-    ctx.font = '10px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText(agent.emoji || '🤖', x, bodyY + 2);
+    // ═══ BODY / TORSO ═══
+    px(3, 10, 10, 9, bodyColor);
+    // Body shading (left side darker)
+    px(3, 10, 2, 9, 'rgba(0,0,0,0.15)');
+    // Body highlight (right side lighter)
+    px(11, 10, 2, 9, 'rgba(255,255,255,0.1)');
+    // Belt
+    px(3, 17, 10, 1, 'rgba(0,0,0,0.3)');
 
-    // Status circle
+    // ═══ ARMS ═══
+    var armSwing = agent.walking ? Math.sin(agent.animFrame * 0.2) * 1 : 0;
+    // Left arm
+    px(1, 11 + armSwing, 2, 6, bodyColor);
+    px(1, 16 + armSwing, 2, 2, skinTone);
+    // Right arm
+    px(13, 11 - armSwing, 2, 6, bodyColor);
+    px(13, 16 - armSwing, 2, 2, skinTone);
+
+    // ═══ HEAD ═══
+    px(4, 2, 8, 8, skinTone);
+    // Head shading
+    px(4, 2, 2, 8, 'rgba(0,0,0,0.08)');
+    px(4, 9, 8, 1, 'rgba(0,0,0,0.12)');
+
+    // ═══ HAIR ═══
+    px(3, 1, 10, 3, hairColor);
+    px(3, 1, 2, 5, hairColor); // side hair
+    px(11, 1, 2, 4, hairColor); // side hair
+
+    // ═══ FACE ═══
+    // Eyes
+    var blinkFrame = frameCount % 180;
+    var eyeH = (blinkFrame > 175) ? 1 : 2; // blink every 3 seconds
+    px(6, 5, 2, eyeH, '#1a202c');
+    px(9, 5, 2, eyeH, '#1a202c');
+    // Eye shine
+    if (eyeH > 1) {
+      px(7, 5, 1, 1, '#ffffff');
+      px(10, 5, 1, 1, '#ffffff');
+    }
+    // Mouth
+    if (agent.officeState === 'working') {
+      // Focused expression
+      px(7, 8, 2, 1, '#c0392b');
+    } else if (agent.officeState === 'blocked') {
+      // Worried
+      px(7, 8, 2, 1, '#e67e22');
+      px(6, 7, 1, 1, '#1a202c'); // eyebrow
+      px(9, 7, 1, 1, '#1a202c');
+    } else {
+      // Slight smile
+      px(7, 8, 2, 1, '#c0392b');
+    }
+
+    // ═══ STATUS INDICATOR (above head) ═══
     var statusColor = STATUS_COLORS[agent.officeState] || '#64748b';
     ctx.fillStyle = statusColor;
     ctx.beginPath();
-    ctx.arc(x, bodyY - 12, 4, 0, Math.PI * 2);
+    ctx.arc(x, y - 6 * s, 3 * s, 0, Math.PI * 2);
     ctx.fill();
     ctx.strokeStyle = '#0d1117';
-    ctx.lineWidth = 1.5;
+    ctx.lineWidth = 1 * s;
     ctx.stroke();
+    // Glow effect
+    ctx.beginPath();
+    ctx.arc(x, y - 6 * s, 5 * s, 0, Math.PI * 2);
+    ctx.fillStyle = statusColor + '20';
+    ctx.fill();
 
-    // Name label
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '8px monospace';
-    ctx.textAlign = 'center';
-    ctx.fillText(agent.name, x, y + 22);
-
-    // Working: typing animation
+    // ═══ WORKING: typing animation on desk ═══
     if (agent.officeState === 'working') {
-      var typingOffset = Math.floor(frameCount / 10) % 2;
-      ctx.fillStyle = '#3b82f6';
-      ctx.fillRect(bodyX + 4, bodyY + 22 + typingOffset, 8, 2);
+      var typingGlow = Math.sin(frameCount * 0.1) * 0.3 + 0.7;
+      ctx.fillStyle = 'rgba(59, 130, 246, ' + (typingGlow * 0.3) + ')';
+      ctx.fillRect(x - 8 * s, y + 13 * s, 16 * s, 2 * s);
     }
 
-    // Celebration
+    // ═══ CELEBRATION ═══
     if (agent.celebrationTimer > 0) {
+      var cAlpha = Math.min(1, agent.celebrationTimer / 30);
+      ctx.globalAlpha = cAlpha;
       ctx.fillStyle = '#f59e0b';
-      ctx.font = 'bold 10px monospace';
-      ctx.fillText('★ DONE!', x, bodyY - 20);
+      ctx.font = 'bold ' + (8 * s) + 'px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('★ DONE!', x, y - 10 * s);
+      ctx.globalAlpha = 1;
     }
 
-    // Blocked: red exclamation
+    // ═══ BLOCKED: exclamation ═══
     if (agent.officeState === 'blocked') {
       ctx.fillStyle = '#ef4444';
-      ctx.font = 'bold 12px monospace';
-      ctx.fillText('!', x, bodyY - 18);
+      ctx.font = 'bold ' + (10 * s) + 'px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('!', x, y - 10 * s);
     }
+
+    // ═══ NAME LABEL ═══
+    ctx.fillStyle = 'rgba(13, 17, 23, 0.8)';
+    var nameW = ctx.measureText(agent.name).width + 6;
+    ctx.fillRect(x - nameW / 2, y + 14 * s, nameW, 10);
+    ctx.fillStyle = '#e2e8f0';
+    ctx.font = '7px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(agent.name, x, y + 22 * s);
+  }
+
+  function drawAgent(agent) {
+    var x = agent.x, y = agent.y;
+    var bob = agent.walking ? Math.sin(agent.animFrame * 0.3) * 1.5 : Math.sin(frameCount * 0.03 + agent.id.charCodeAt(0)) * 0.3;
+
+    // Draw the pixel art character at this position
+    drawPixelCharacter(agent, x - 8, y - 24 + bob, 2);
 
     // Speech bubble
     if (agent.speechBubble) {
-      drawSpeechBubble(x, bodyY - 28, agent.speechBubble.text, agent.speechBubble.type);
+      drawSpeechBubble(x, y - 50 + bob, agent.speechBubble.text, agent.speechBubble.type);
     }
   }
 
@@ -1076,7 +1224,8 @@ var Office = (function() {
     cam.y = MAP_H / 2;
     var vw = window.innerWidth;
     var vh = window.innerHeight;
-    cam.zoom = Math.min(vw / MAP_W, vh / MAP_H) * 0.8;
+    // Fit entire office in view with small margin
+    cam.zoom = Math.min(vw / (MAP_W + 200), vh / (MAP_H + 200));
     clampCam();
     cameraInitialized = true;
   }
