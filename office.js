@@ -119,6 +119,39 @@ var Office = (function() {
     blocked: '#ef4444'
   };
 
+  // ═══ UI BUTTONS ═══
+  var officeBtns = {};
+
+  function recenterCamera() {
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
+    cam.x = MAP_W / 2 - vw / 2 / cam.zoom;
+    cam.y = MAP_H / 2 - vh / 2 / cam.zoom;
+    clampCam();
+  }
+
+  function officeHandleClick(mx, my) {
+    // Check re-center button
+    var rb = officeBtns.recenter;
+    if (rb && mx >= rb.x && mx <= rb.x + rb.w && my >= rb.y && my <= rb.y + rb.h) {
+      recenterCamera();
+      return true;
+    }
+    // Check zoom button — click to cycle zoom levels
+    var zb = officeBtns.zoom;
+    if (zb && mx >= zb.x && mx <= zb.x + zb.w && my >= zb.y && my <= zb.y + zb.h) {
+      var zoomLevels = [0.5, 0.75, 1.0, 1.25, 1.5, 2.0];
+      var currentIdx = 0;
+      for (var i = 0; i < zoomLevels.length; i++) {
+        if (Math.abs(cam.zoom - zoomLevels[i]) < 0.05) { currentIdx = i; break; }
+      }
+      cam.zoom = zoomLevels[(currentIdx + 1) % zoomLevels.length];
+      recenterCamera();
+      return true;
+    }
+    return false;
+  }
+
   // ═══ PUBLIC API ═══
   function officeInit(canvasEl) {
     canvas = canvasEl;
@@ -152,12 +185,14 @@ var Office = (function() {
   // ═══ CANVAS SETUP ═══
   function resizeCanvas() {
     if (!canvas || !canvas.parentElement) return;
-    var rect = canvas.parentElement.getBoundingClientRect();
+    // Use window dimensions (works even when parent is display:none)
+    var w = window.innerWidth;
+    var h = window.innerHeight;
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    canvas.style.width = rect.width + 'px';
-    canvas.style.height = rect.height + 'px';
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
@@ -354,6 +389,12 @@ var Office = (function() {
       var rect = canvas.getBoundingClientRect();
       var mx = e.clientX - rect.left;
       var my = e.clientY - rect.top;
+
+      // Check UI buttons first (screen-space coords)
+      if (typeof officeHandleClick === 'function' && officeHandleClick(mx, my)) {
+        return;
+      }
+
       var worldX = cam.x + mx / cam.zoom;
       var worldY = cam.y + my / cam.zoom;
 
@@ -698,9 +739,8 @@ var Office = (function() {
 
     if (!canvas || !ctx) return;
 
-    var rect = canvas.parentElement ? canvas.parentElement.getBoundingClientRect() : { width: 800, height: 600 };
-    var cw = rect.width;
-    var ch = rect.height;
+    var cw = window.innerWidth;
+    var ch = window.innerHeight;
 
     // Logic update at 2Hz
     if (frameCount % 30 === 0) {
@@ -976,29 +1016,63 @@ var Office = (function() {
     ctx.lineWidth = 1;
     ctx.strokeRect(vpX, vpY, vpW, vpH);
 
-    // Zoom indicator
+    // Re-center button (top-right, below zoom)
+    var rcX = cw - 100, rcY = 10, rcW = 90, rcH = 24;
+    ctx.fillStyle = 'rgba(13, 17, 23, 0.85)';
+    ctx.fillRect(rcX, rcY, rcW, rcH);
+    ctx.strokeStyle = '#3b82f6';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(rcX, rcY, rcW, rcH);
+    ctx.fillStyle = '#e2e8f0';
+    ctx.font = '9px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('⌖ Recenter', rcX + rcW / 2, rcY + 16);
+    // Store button bounds for click detection
+    officeBtns.recenter = { x: rcX, y: rcY, w: rcW, h: rcH };
+
+    // Zoom controls (top-right, below recenter)
+    var zX = cw - 100, zY = 40, zW = 90, zH = 24;
+    ctx.fillStyle = 'rgba(13, 17, 23, 0.85)';
+    ctx.fillRect(zX, zY, zW, zH);
+    ctx.strokeStyle = '#1e2d3d';
+    ctx.strokeRect(zX, zY, zW, zH);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '9px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('🔍 ' + Math.round(cam.zoom * 100) + '%', zX + zW / 2, zY + 16);
+    officeBtns.zoom = { x: zX, y: zY, w: zW, h: zH };
+
+    // Zoom indicator (bottom-right above minimap)
     ctx.fillStyle = '#94a3b8';
     ctx.font = '8px monospace';
     ctx.textAlign = 'right';
-    ctx.fillText('Zoom: ' + Math.round(cam.zoom * 100) + '%', cw - 14, ch - 116);
+    ctx.fillText('Scroll to zoom · Drag to pan', cw - 14, ch - 116);
     ctx.textAlign = 'left';
   }
 
   // ═══ INIT CAMERA ═══
+  var cameraInitialized = false;
   function initCamera() {
-    if (!canvas || !canvas.parentElement) return;
-    var rect = canvas.parentElement.getBoundingClientRect();
-    cam.x = MAP_W / 2 - rect.width / 2;
-    cam.y = MAP_H / 2 - rect.height / 2;
-    cam.zoom = Math.min(rect.width / MAP_W, rect.height / MAP_H) * 0.9;
+    if (!canvas) return;
+    // Use window dimensions since parent may be hidden (display:none)
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
+    cam.x = MAP_W / 2 - vw / 2;
+    cam.y = MAP_H / 2 - vh / 2;
+    cam.zoom = Math.min(vw / MAP_W, vh / MAP_H) * 0.85;
     clampCam();
+    cameraInitialized = true;
   }
 
   // Override officeInit to include camera init
   var _officeInit = officeInit;
   officeInit = function(canvasEl) {
     _officeInit(canvasEl);
-    initCamera();
+    // Defer camera init to next frame so layout is settled
+    requestAnimationFrame(function() {
+      initCamera();
+      resizeCanvas();
+    });
   };
 
   // ═══ EXPOSE PUBLIC API ═══
