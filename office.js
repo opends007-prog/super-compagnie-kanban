@@ -222,6 +222,18 @@ var Office = (function() {
     return tiles.length > 0 ? tiles[Math.floor(Math.random() * tiles.length)] : { x: 30, y: 20 };
   }
 
+  function findNearestWalkable(col, row) {
+    for (var radius = 1; radius <= 5; radius++) {
+      for (var dr = -radius; dr <= radius; dr++) {
+        for (var dc = -radius; dc <= radius; dc++) {
+          if (Math.abs(dr) !== radius && Math.abs(dc) !== radius) continue;
+          if (isWalkable(col + dc, row + dr)) return { x: col + dc, y: row + dr };
+        }
+      }
+    }
+    return null;
+  }
+
   // ═══ DIALOGUE POOLS ═══
   var WORKING_CHATTER = [
     "Implementing feature...", "Reviewing code...", "Fixing bugs...", "Writing tests...",
@@ -443,10 +455,14 @@ var Office = (function() {
         return exist;
       }
 
-      // New agent
-      var pos = getRandomWalkableTile();
+      // New agent — start at their destination (not random tile)
       var dest = getDestinationForStatus({ officeState: officeStatus, personality: personality, seatId: seatId, team: da.team, id: da.id });
-      var path = findPath(pos.x, pos.y, dest.x, dest.y);
+      var startPos = { x: dest.x, y: dest.y };
+      // If destination is occupied, find nearby tile
+      if (!isWalkable(startPos.x, startPos.y)) {
+        var nearby = findNearestWalkable(dest.x, dest.y);
+        startPos = nearby || getRandomWalkableTile();
+      }
 
       return {
         id: da.id, name: da.name, title: da.title, team: da.team,
@@ -454,10 +470,10 @@ var Office = (function() {
         color: color, skin: skin,
         officeState: officeStatus, currentTicket: inP || inV || myT[0] || null,
         isBlocked: !!blk, tickets: myT, seatId: seatId,
-        x: pos.x * TILE_SIZE + TILE_SIZE / 2, y: pos.y * TILE_SIZE + TILE_SIZE / 2,
-        tileCol: pos.x, tileRow: pos.y,
-        path: path, moveProgress: 0, dir: DIR.DOWN,
-        frame: 0, frameTimer: 0, state: path.length > 0 ? STATE.WALK : STATE.IDLE,
+        x: startPos.x * TILE_SIZE + TILE_SIZE / 2, y: startPos.y * TILE_SIZE + TILE_SIZE / 2,
+        tileCol: startPos.x, tileRow: startPos.y,
+        path: [], moveProgress: 0, dir: DIR.DOWN,
+        frame: 0, frameTimer: 0, state: STATE.TYPE, // start at destination
         wanderTimer: Math.random() * 3, wanderCount: 0,
         wanderLimit: Math.floor(Math.random() * (WANDER_LIMIT_MAX - WANDER_LIMIT_MIN)) + WANDER_LIMIT_MIN,
         speechBubble: null, speechEnd: 0, nextSpeechTime: Date.now() + 2000 + Math.random() * 5000,
@@ -493,13 +509,13 @@ var Office = (function() {
           // Typing animation at desk/meeting/reviewing
           if (agent.frameTimer >= TYPE_FRAME_DURATION) { agent.frameTimer -= TYPE_FRAME_DURATION; agent.frame = (agent.frame + 1) % 2; }
           agent.walking = false;
-          // Check if status changed while typing
-          if (agent.officeState === STATE.IDLE) {
+          // Check if status changed while typing — if no longer working/meeting/reviewing, leave
+          if (agent.officeState !== 'working' && agent.officeState !== 'meeting' && agent.officeState !== 'reviewing') {
             agent.state = STATE.IDLE; agent.frame = 0; agent.frameTimer = 0;
-            agent.wanderTimer = Math.random() * IDLE_PAUSE_MIN + IDLE_PAUSE_MIN;
+            agent.wanderTimer = 0; // trigger immediate reroute
             agent.wanderCount = 0;
             agent.wanderLimit = Math.floor(Math.random() * (WANDER_LIMIT_MAX - WANDER_LIMIT_MIN)) + WANDER_LIMIT_MIN;
-            // Walk to idle area
+            // Walk to appropriate area (idle area, lounge for blocked, etc.)
             var dest = getDestinationForStatus(agent);
             var path = findPath(agent.tileCol, agent.tileRow, dest.x, dest.y);
             if (path.length > 0) { agent.path = path; agent.state = STATE.WALK; }
@@ -540,38 +556,55 @@ var Office = (function() {
           agent.walking = false; agent.frame = 0;
           agent.wanderTimer -= dt;
           if (agent.wanderTimer <= 0) {
-            // Wander to another idle spot or return to work
+            // IMPORTANT: If agent should be working/meeting/reviewing, route them to WORK area — NOT idle
             if (agent.officeState === 'working' || agent.officeState === 'meeting' || agent.officeState === 'reviewing') {
-              // Time to go back to work
               var workDest = getDestinationForStatus(agent);
               var workPath = findPath(agent.tileCol, agent.tileRow, workDest.x, workDest.y);
-              if (workPath.length > 0) { agent.path = workPath; agent.state = STATE.WALK; }
-              else agent.wanderTimer = Math.random() * IDLE_PAUSE_MAX + IDLE_PAUSE_MIN;
-            } else if (agent.wanderCount >= agent.wanderLimit) {
-              // Wandered enough — pick a new idle area
-              agent.wanderCount = 0;
-              agent.wanderLimit = Math.floor(Math.random() * (WANDER_LIMIT_MAX - WANDER_LIMIT_MIN)) + WANDER_LIMIT_MIN;
-              var newDest = getDestinationForStatus(agent);
-              var newPath = findPath(agent.tileCol, agent.tileRow, newDest.x, newDest.y);
-              if (newPath.length > 0) { agent.path = newPath; agent.state = STATE.WALK; }
-              agent.wanderTimer = Math.random() * IDLE_PAUSE_MAX + IDLE_PAUSE_MIN;
+              if (workPath.length > 0) {
+                agent.path = workPath;
+                agent.state = STATE.WALK;
+              } else {
+                // Can't reach work area — stay idle and try again later
+                agent.wanderTimer = Math.random() * IDLE_PAUSE_MAX + IDLE_PAUSE_MIN;
+              }
+            } else if (agent.officeState === 'blocked') {
+              // Blocked agents stay in lounge
+              var loungeDest = getDestinationForStatus(agent);
+              var loungePath = findPath(agent.tileCol, agent.tileRow, loungeDest.x, loungeDest.y);
+              if (loungePath.length > 0 && (agent.tileCol < 4 || agent.tileCol > 11 || agent.tileRow < 31 || agent.tileRow > 34)) {
+                agent.path = loungePath;
+                agent.state = STATE.WALK;
+              } else {
+                agent.wanderTimer = Math.random() * IDLE_PAUSE_MAX + IDLE_PAUSE_MIN;
+              }
             } else {
-              // Wander within current area
-              var area;
-              switch (agent.idleArea) {
-                case 'cafeteria': area = { x: 4, y: 23, w: 8, h: 5 }; break;
-                case 'lounge': area = { x: 4, y: 31, w: 8, h: 4 }; break;
-                case 'smoking': area = { x: 14, y: 31, w: 5, h: 4 }; break;
-                case 'rest': area = { x: 22, y: 31, w: 5, h: 4 }; break;
-                case 'recreation': area = { x: 30, y: 31, w: 7, h: 4 }; break;
-                default: area = { x: 4, y: 31, w: 8, h: 4 };
+              // TRULY IDLE — wander within idle areas only
+              if (agent.wanderCount >= agent.wanderLimit) {
+                // Pick a new idle area
+                agent.wanderCount = 0;
+                agent.wanderLimit = Math.floor(Math.random() * (WANDER_LIMIT_MAX - WANDER_LIMIT_MIN)) + WANDER_LIMIT_MIN;
+                var newDest = getDestinationForStatus(agent);
+                var newPath = findPath(agent.tileCol, agent.tileRow, newDest.x, newDest.y);
+                if (newPath.length > 0) { agent.path = newPath; agent.state = STATE.WALK; }
+                agent.wanderTimer = Math.random() * IDLE_PAUSE_MAX + IDLE_PAUSE_MIN;
+              } else {
+                // Wander within current idle area
+                var area;
+                switch (agent.idleArea) {
+                  case 'cafeteria': area = { x: 4, y: 23, w: 8, h: 5 }; break;
+                  case 'lounge': area = { x: 4, y: 31, w: 8, h: 4 }; break;
+                  case 'smoking': area = { x: 14, y: 31, w: 5, h: 4 }; break;
+                  case 'rest': area = { x: 22, y: 31, w: 5, h: 4 }; break;
+                  case 'recreation': area = { x: 30, y: 31, w: 7, h: 4 }; break;
+                  default: area = { x: 4, y: 31, w: 8, h: 4 };
+                }
+                var wanderDest = getRandomTileInArea(area.x, area.y, area.w, area.h);
+                if (wanderDest) {
+                  var wanderPath = findPath(agent.tileCol, agent.tileRow, wanderDest.x, wanderDest.y);
+                  if (wanderPath.length > 0) { agent.path = wanderPath; agent.state = STATE.WALK; agent.wanderCount++; }
+                }
+                agent.wanderTimer = Math.random() * IDLE_PAUSE_MAX + IDLE_PAUSE_MIN;
               }
-              var wanderDest = getRandomTileInArea(area.x, area.y, area.w, area.h);
-              if (wanderDest) {
-                var wanderPath = findPath(agent.tileCol, agent.tileRow, wanderDest.x, wanderDest.y);
-                if (wanderPath.length > 0) { agent.path = wanderPath; agent.state = STATE.WALK; agent.wanderCount++; }
-              }
-              agent.wanderTimer = Math.random() * IDLE_PAUSE_MAX + IDLE_PAUSE_MIN;
             }
           }
           break;
