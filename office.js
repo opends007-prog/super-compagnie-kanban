@@ -222,6 +222,44 @@ var Office = (function() {
     return tiles.length > 0 ? tiles[Math.floor(Math.random() * tiles.length)] : { x: 30, y: 20 };
   }
 
+  // ═══ DIALOGUE POOLS ═══
+  var WORKING_CHATTER = [
+    "Implementing feature...", "Reviewing code...", "Fixing bugs...", "Writing tests...",
+    "Deploying to staging...", "Checking logs...", "Refactoring module...", "Optimizing queries...",
+    "Updating docs...", "Merging PR...", "Running build...", "Debugging issue...",
+    "Writing report...", "Analyzing data...", "Configuring server...", "Testing edge cases..."
+  ];
+  var MEETING_CHATTER = [
+    "Let's review sprint progress.", "We need a solution for this task.", "This depends on another agent.",
+    "What's the status update?", "Let's align on priorities.", "Any blockers?", "Good progress team!",
+    "Next sprint planning.", "Let's discuss the architecture.", "Who can help with this?"
+  ];
+  var BLOCKED_CHATTER = [
+    "Waiting for API credentials.", "Database migration failed.", "Need review approval.",
+    "Waiting for deployment.", "Need more information.", "Stuck on this bug...",
+    "Waiting for dependency.", "Access request pending.", "Need clarification..."
+  ];
+  var IDLE_CHATTER = [
+    "Waiting for new assignment.", "Checking company updates.", "Taking a quick break.",
+    "Let's see what the team is doing.", "Coffee time!", "Browsing documentation...",
+    "Almost done with that task...", "Need more coffee...", "Relaxing for a moment...",
+    "Checking the task board...", "Good vibes today!", "TGIF!", "Interesting data pattern...",
+    "Found a new approach...", "Let me think about this...", "Nice weather today!",
+    "Team is productive!", "Great work everyone!", "Learning something new...", "Just chilling..."
+  ];
+  var SMOKING_CHATTER = [
+    "Need a quick break...", "Fresh air feels good.", "Long day today...",
+    "Almost done for today...", "That bug was tricky...", "Coffee after this?"
+  ];
+  var REST_CHATTER = [
+    "Just need a quick nap...", "Recharging batteries...", "Long night...",
+    "So tired...", "Power nap time...", "Need coffee after this..."
+  ];
+  var RECREATION_CHATTER = [
+    "Game on!", "Ping pong break!", "High score!", "Arcade time!",
+    "Let's play!", "Good game!", "Almost beat the high score!"
+  ];
+
   // ═══ AGENT SYSTEM ═══
   function derivePersonality(da) {
     var t = (da.title || '').toLowerCase();
@@ -243,6 +281,112 @@ var Office = (function() {
     return tones[Math.abs(h) % tones.length];
   }
 
+  // Get a random tile in a specific area
+  function getRandomTileInArea(areaX, areaY, areaW, areaH) {
+    for (var attempts = 0; attempts < 20; attempts++) {
+      var c = areaX + Math.floor(Math.random() * areaW);
+      var r = areaY + Math.floor(Math.random() * areaH);
+      if (isWalkable(c, r)) return { x: c, y: r };
+    }
+    return null;
+  }
+
+  // Get destination tile based on agent status
+  function getDestinationForStatus(agent) {
+    var pos;
+    switch (agent.officeState) {
+      case 'working':
+        // High-priority → focus room, otherwise → workstation desk
+        if (agent.seatId && seats[agent.seatId]) {
+          var s = seats[agent.seatId];
+          return { x: s.x, y: s.y };
+        }
+        // Fallback to any workstation
+        pos = getRandomTileInArea(4, 12, 28, 7);
+        return pos || { x: 17, y: 15 };
+
+      case 'meeting':
+        // Small meeting (2-4), medium (5-10), large conference (10+)
+        // For now, route to meeting rooms based on agent's team
+        var teamAgents = agents.filter(function(a) { return a.team === agent.team && a.id !== agent.id; });
+        if (teamAgents.length >= 8) {
+          // Conference room
+          pos = getRandomTileInArea(37, 12, 12, 5) || { x: 41, y: 14 };
+        } else if (teamAgents.length >= 3) {
+          // Medium meeting
+          pos = getRandomTileInArea(52, 4, 6, 4) || { x: 54, y: 6 };
+        } else {
+          // Small meeting
+          pos = getRandomTileInArea(42, 4, 6, 4) || { x: 44, y: 5 };
+        }
+        return pos;
+
+      case 'reviewing':
+        // Mission control
+        pos = getRandomTileInArea(47, 21, 10, 5) || { x: 51, y: 23 };
+        return pos;
+
+      case 'blocked':
+        // Lounge area with other blocked agents
+        pos = getRandomTileInArea(4, 31, 8, 4) || { x: 7, y: 33 };
+        return pos;
+
+      case 'idle':
+      default:
+        // Random idle area: cafeteria, lounge, smoking, rest, recreation
+        var idleAreas = [
+          { x: 4, y: 23, w: 8, h: 5 },   // Cafeteria
+          { x: 4, y: 31, w: 8, h: 4 },   // Lounge
+          { x: 14, y: 31, w: 5, h: 4 },  // Smoking (some agents)
+          { x: 22, y: 31, w: 5, h: 4 },  // Rest
+          { x: 30, y: 31, w: 7, h: 4 },  // Recreation
+        ];
+        // Some personalities prefer certain areas
+        var area;
+        var r = Math.random();
+        if (agent.personality === 'social') {
+          area = r < 0.5 ? idleAreas[0] : idleAreas[1]; // cafeteria or lounge
+        } else if (agent.personality === 'research') {
+          area = r < 0.6 ? idleAreas[0] : idleAreas[3]; // cafeteria or rest
+        } else if (agent.personality === 'worker') {
+          area = r < 0.4 ? idleAreas[0] : (r < 0.7 ? idleAreas[1] : idleAreas[4]);
+        } else if (agent.personality === 'qa') {
+          area = r < 0.5 ? idleAreas[1] : idleAreas[4]; // lounge or recreation
+        } else {
+          area = idleAreas[Math.floor(Math.random() * idleAreas.length)];
+        }
+        pos = getRandomTileInArea(area.x, area.y, area.w, area.h);
+        return pos || { x: area.x + 1, y: area.y + 1 };
+    }
+  }
+
+  // Get chatter text based on status
+  function getChatterText(agent) {
+    var pool;
+    switch (agent.officeState) {
+      case 'working':
+        // Use actual ticket title if available
+        if (agent.currentTicket && Math.random() < 0.6) {
+          return agent.currentTicket.title.substring(0, 40);
+        }
+        pool = WORKING_CHATTER;
+        break;
+      case 'meeting': pool = MEETING_CHATTER; break;
+      case 'blocked': pool = BLOCKED_CHATTER; break;
+      case 'reviewing': pool = WORKING_CHATTER; break;
+      case 'idle':
+      default:
+        // Idle sub-area chatter
+        var subArea = agent.idleArea || 'lounge';
+        if (subArea === 'smoking') pool = SMOKING_CHATTER;
+        else if (subArea === 'rest') pool = REST_CHATTER;
+        else if (subArea === 'recreation') pool = RECREATION_CHATTER;
+        else pool = IDLE_CHATTER;
+        break;
+    }
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
+
   function updateAgentStates() {
     if (!officeData) return;
     var tickets = officeData.tickets || [];
@@ -254,7 +398,13 @@ var Office = (function() {
       var inP = myT.find(function(t) { return t.status === 'in_progress'; });
       var inV = myT.find(function(t) { return t.status === 'in_validation'; });
       var blk = myT.find(function(t) { return t.blockedBy; });
-      var newState = inP || inV ? STATE.TYPE : STATE.IDLE;
+
+      // Determine office status based on ticket state
+      var officeStatus;
+      if (inP) officeStatus = 'working';
+      else if (inV) officeStatus = 'reviewing';
+      else if (blk) officeStatus = 'blocked';
+      else officeStatus = 'idle';
 
       var exist = agents.find(function(a) { return a.id === da.id; });
       var personality = derivePersonality(da);
@@ -263,7 +413,8 @@ var Office = (function() {
       var seatId = (exist && exist.seatId) || (availSeats.length > 0 ? availSeats.shift() : null);
 
       if (exist) {
-        exist.officeState = newState;
+        var prevStatus = exist.officeState;
+        exist.officeState = officeStatus;
         exist.currentTicket = inP || inV || myT[0] || null;
         exist.isBlocked = !!blk;
         exist.tickets = myT;
@@ -275,24 +426,43 @@ var Office = (function() {
         exist.name = da.name;
         exist.title = da.title;
         exist.team = da.team;
+
+        // Status changed — route to new destination
+        if (prevStatus !== officeStatus) {
+          var dest = getDestinationForStatus(exist);
+          var path = findPath(exist.tileCol, exist.tileRow, dest.x, dest.y);
+          if (path.length > 0) {
+            exist.path = path;
+            exist.state = STATE.WALK;
+          }
+          // Celebration when task completed
+          if (prevStatus === 'working' && officeStatus === 'idle') {
+            exist.celebrationTimer = 3;
+          }
+        }
         return exist;
       }
 
+      // New agent
       var pos = getRandomWalkableTile();
+      var dest = getDestinationForStatus({ officeState: officeStatus, personality: personality, seatId: seatId, team: da.team, id: da.id });
+      var path = findPath(pos.x, pos.y, dest.x, dest.y);
+
       return {
         id: da.id, name: da.name, title: da.title, team: da.team,
         emoji: da.emoji || '', personality: personality,
         color: color, skin: skin,
-        officeState: newState, currentTicket: inP || inV || myT[0] || null,
+        officeState: officeStatus, currentTicket: inP || inV || myT[0] || null,
         isBlocked: !!blk, tickets: myT, seatId: seatId,
         x: pos.x * TILE_SIZE + TILE_SIZE / 2, y: pos.y * TILE_SIZE + TILE_SIZE / 2,
         tileCol: pos.x, tileRow: pos.y,
-        path: [], moveProgress: 0, dir: DIR.DOWN,
-        frame: 0, frameTimer: 0, state: STATE.IDLE,
+        path: path, moveProgress: 0, dir: DIR.DOWN,
+        frame: 0, frameTimer: 0, state: path.length > 0 ? STATE.WALK : STATE.IDLE,
         wanderTimer: Math.random() * 3, wanderCount: 0,
         wanderLimit: Math.floor(Math.random() * (WANDER_LIMIT_MAX - WANDER_LIMIT_MIN)) + WANDER_LIMIT_MIN,
         speechBubble: null, speechEnd: 0, nextSpeechTime: Date.now() + 2000 + Math.random() * 5000,
-        celebrationTimer: 0, walking: false
+        celebrationTimer: 0, walking: false,
+        idleArea: 'lounge'
       };
     });
   }
@@ -314,19 +484,28 @@ var Office = (function() {
 
   function updateAgents(dt) {
     var now = Date.now();
+
     agents.forEach(function(agent) {
       agent.frameTimer += dt;
+
       switch (agent.state) {
         case STATE.TYPE:
+          // Typing animation at desk/meeting/reviewing
           if (agent.frameTimer >= TYPE_FRAME_DURATION) { agent.frameTimer -= TYPE_FRAME_DURATION; agent.frame = (agent.frame + 1) % 2; }
           agent.walking = false;
+          // Check if status changed while typing
           if (agent.officeState === STATE.IDLE) {
             agent.state = STATE.IDLE; agent.frame = 0; agent.frameTimer = 0;
             agent.wanderTimer = Math.random() * IDLE_PAUSE_MIN + IDLE_PAUSE_MIN;
             agent.wanderCount = 0;
             agent.wanderLimit = Math.floor(Math.random() * (WANDER_LIMIT_MAX - WANDER_LIMIT_MIN)) + WANDER_LIMIT_MIN;
+            // Walk to idle area
+            var dest = getDestinationForStatus(agent);
+            var path = findPath(agent.tileCol, agent.tileRow, dest.x, dest.y);
+            if (path.length > 0) { agent.path = path; agent.state = STATE.WALK; }
           }
           break;
+
         case STATE.WALK:
           if (agent.path.length > 0) {
             var tgt = agent.path[0];
@@ -336,53 +515,97 @@ var Office = (function() {
               agent.tileCol = tgt.x; agent.tileRow = tgt.y;
               if (agent.path.length === 0) {
                 agent.walking = false;
-                if (agent.officeState === STATE.TYPE && agent.seatId && seats[agent.seatId]) {
-                  agent.state = STATE.TYPE; agent.dir = seats[agent.seatId].facing;
+                // Arrived — what now?
+                if (agent.officeState === 'working' || agent.officeState === 'meeting' || agent.officeState === 'reviewing') {
+                  agent.state = STATE.TYPE;
                   agent.frame = 0; agent.frameTimer = 0;
                 } else {
+                  // Idle — arrived at idle area
                   agent.state = STATE.IDLE; agent.frame = 0; agent.frameTimer = 0;
-                  agent.wanderTimer = Math.random() * IDLE_PAUSE_MIN + IDLE_PAUSE_MIN;
+                  agent.wanderTimer = Math.random() * IDLE_PAUSE_MAX + IDLE_PAUSE_MIN;
+                  // Track which idle area we're in
+                  if (agent.tileCol >= 4 && agent.tileCol <= 11 && agent.tileRow >= 23 && agent.tileRow <= 27) agent.idleArea = 'cafeteria';
+                  else if (agent.tileCol >= 4 && agent.tileCol <= 11 && agent.tileRow >= 31 && agent.tileRow <= 34) agent.idleArea = 'lounge';
+                  else if (agent.tileCol >= 14 && agent.tileCol <= 18 && agent.tileRow >= 31 && agent.tileRow <= 34) agent.idleArea = 'smoking';
+                  else if (agent.tileCol >= 22 && agent.tileCol <= 26 && agent.tileRow >= 31 && agent.tileRow <= 34) agent.idleArea = 'rest';
+                  else if (agent.tileCol >= 30 && agent.tileCol <= 36 && agent.tileRow >= 31 && agent.tileRow <= 34) agent.idleArea = 'recreation';
+                  else agent.idleArea = 'lounge';
                 }
               }
             }
           } else { agent.state = STATE.IDLE; agent.walking = false; }
           break;
+
         case STATE.IDLE:
           agent.walking = false; agent.frame = 0;
           agent.wanderTimer -= dt;
           if (agent.wanderTimer <= 0) {
-            if (agent.wanderCount >= agent.wanderLimit && agent.seatId && seats[agent.seatId]) {
-              var seat = seats[agent.seatId];
-              var path = findPath(agent.tileCol, agent.tileRow, seat.x, seat.y);
-              if (path.length > 0) { agent.path = path; agent.state = STATE.WALK; agent.wanderCount = 0; }
+            // Wander to another idle spot or return to work
+            if (agent.officeState === 'working' || agent.officeState === 'meeting' || agent.officeState === 'reviewing') {
+              // Time to go back to work
+              var workDest = getDestinationForStatus(agent);
+              var workPath = findPath(agent.tileCol, agent.tileRow, workDest.x, workDest.y);
+              if (workPath.length > 0) { agent.path = workPath; agent.state = STATE.WALK; }
               else agent.wanderTimer = Math.random() * IDLE_PAUSE_MAX + IDLE_PAUSE_MIN;
+            } else if (agent.wanderCount >= agent.wanderLimit) {
+              // Wandered enough — pick a new idle area
+              agent.wanderCount = 0;
+              agent.wanderLimit = Math.floor(Math.random() * (WANDER_LIMIT_MAX - WANDER_LIMIT_MIN)) + WANDER_LIMIT_MIN;
+              var newDest = getDestinationForStatus(agent);
+              var newPath = findPath(agent.tileCol, agent.tileRow, newDest.x, newDest.y);
+              if (newPath.length > 0) { agent.path = newPath; agent.state = STATE.WALK; }
+              agent.wanderTimer = Math.random() * IDLE_PAUSE_MAX + IDLE_PAUSE_MIN;
             } else {
-              var tgt2 = getRandomWalkableTile();
-              var path2 = findPath(agent.tileCol, agent.tileRow, tgt2.x, tgt2.y);
-              if (path2.length > 0) { agent.path = path2; agent.state = STATE.WALK; agent.wanderCount++; }
+              // Wander within current area
+              var area;
+              switch (agent.idleArea) {
+                case 'cafeteria': area = { x: 4, y: 23, w: 8, h: 5 }; break;
+                case 'lounge': area = { x: 4, y: 31, w: 8, h: 4 }; break;
+                case 'smoking': area = { x: 14, y: 31, w: 5, h: 4 }; break;
+                case 'rest': area = { x: 22, y: 31, w: 5, h: 4 }; break;
+                case 'recreation': area = { x: 30, y: 31, w: 7, h: 4 }; break;
+                default: area = { x: 4, y: 31, w: 8, h: 4 };
+              }
+              var wanderDest = getRandomTileInArea(area.x, area.y, area.w, area.h);
+              if (wanderDest) {
+                var wanderPath = findPath(agent.tileCol, agent.tileRow, wanderDest.x, wanderDest.y);
+                if (wanderPath.length > 0) { agent.path = wanderPath; agent.state = STATE.WALK; agent.wanderCount++; }
+              }
               agent.wanderTimer = Math.random() * IDLE_PAUSE_MAX + IDLE_PAUSE_MIN;
             }
           }
           break;
       }
 
-      // Speech
-      if (agent.officeState === STATE.TYPE && agent.currentTicket && now > agent.nextSpeechTime && !agent.speechBubble) {
-        agent.speechBubble = { text: agent.currentTicket.title.substring(0, 35) };
-        agent.speechEnd = now + 3000 + Math.random() * 2000;
-        agent.nextSpeechTime = now + 10000 + Math.random() * 15000;
-        if (bubbles.length >= MAX_BUBBLES) bubbles.shift();
-        bubbles.push({ agentId: agent.id, text: agent.speechBubble.text, x: agent.x, y: agent.y - 30, expires: agent.speechEnd, type: 'working' });
+      // Speech bubbles
+      if (agent.speechBubble && now > agent.speechEnd) {
+        agent.speechBubble = null;
       }
-      if (agent.speechBubble && now > agent.speechEnd) agent.speechBubble = null;
+
+      if (now > agent.nextSpeechTime && !agent.speechBubble) {
+        // Only show speech when agent is stationary (typing or idle at area)
+        if (agent.state === STATE.TYPE || (agent.state === STATE.IDLE && !agent.walking)) {
+          agent.speechBubble = { text: getChatterText(agent) };
+          agent.speechEnd = now + 3000 + Math.random() * 2000;
+          agent.nextSpeechTime = now + 8000 + Math.random() * 15000;
+          if (bubbles.length >= MAX_BUBBLES) bubbles.shift();
+          bubbles.push({
+            agentId: agent.id, text: agent.speechBubble.text,
+            x: agent.x, y: agent.y - 30, expires: agent.speechEnd,
+            type: agent.officeState === 'blocked' ? 'blocked' : (agent.officeState === 'working' ? 'working' : 'normal')
+          });
+        }
+      }
+
       if (agent.celebrationTimer > 0) agent.celebrationTimer -= dt;
     });
 
+    // Particles
     for (var i = particles.length - 1; i >= 0; i--) {
       var p = particles[i]; p.x += p.vx; p.y += p.vy; p.vy += 0.1; p.life--;
       if (p.life <= 0) particles.splice(i, 1);
     }
-    bubbles = bubbles.filter(function(b) { return Date.now() < b.expires; });
+    bubbles = bubbles.filter(function(b) { return now < b.expires; });
   }
 
   // ═══ MAP CACHE ═══
