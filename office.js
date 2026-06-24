@@ -123,14 +123,18 @@ var Office = (function() {
   var officeBtns = {};
 
   function recenterCamera() {
-    var vw = window.innerWidth;
-    var vh = window.innerHeight;
-    cam.x = MAP_W / 2 - vw / 2 / cam.zoom;
-    cam.y = MAP_H / 2 - vh / 2 / cam.zoom;
+    cam.x = MAP_W / 2;
+    cam.y = MAP_H / 2;
     clampCam();
   }
 
   function officeHandleClick(mx, my) {
+    // Check exit button first
+    var eb = officeBtns.exit;
+    if (eb && mx >= eb.x && mx <= eb.x + eb.w && my >= eb.y && my <= eb.y + eb.h) {
+      if (typeof goView === 'function') { goView('kanban'); }
+      return true;
+    }
     // Check re-center button
     var rb = officeBtns.recenter;
     if (rb && mx >= rb.x && mx <= rb.x + rb.w && my >= rb.y && my <= rb.y + rb.h) {
@@ -1016,7 +1020,20 @@ var Office = (function() {
     ctx.lineWidth = 1;
     ctx.strokeRect(vpX, vpY, vpW, vpH);
 
-    // Re-center button (top-right, below zoom)
+    // Exit full-screen button (top-left)
+    var exX = 10, exY = 10, exW = 110, exH = 28;
+    ctx.fillStyle = 'rgba(13, 17, 23, 0.9)';
+    ctx.fillRect(exX, exY, exW, exH);
+    ctx.strokeStyle = '#ef4444';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(exX, exY, exW, exH);
+    ctx.fillStyle = '#ef4444';
+    ctx.font = 'bold 10px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('✕ Exit Office', exX + exW / 2, exY + 18);
+    officeBtns.exit = { x: exX, y: exY, w: exW, h: exH };
+
+    // Re-center button (top-right)
     var rcX = cw - 100, rcY = 10, rcW = 90, rcH = 24;
     ctx.fillStyle = 'rgba(13, 17, 23, 0.85)';
     ctx.fillRect(rcX, rcY, rcW, rcH);
@@ -1054,12 +1071,12 @@ var Office = (function() {
   var cameraInitialized = false;
   function initCamera() {
     if (!canvas) return;
-    // Use window dimensions since parent may be hidden (display:none)
+    // cam.x/y = world point shown at screen center. To center map: cam = map_center.
+    cam.x = MAP_W / 2;
+    cam.y = MAP_H / 2;
     var vw = window.innerWidth;
     var vh = window.innerHeight;
-    cam.x = MAP_W / 2 - vw / 2;
-    cam.y = MAP_H / 2 - vh / 2;
-    cam.zoom = Math.min(vw / MAP_W, vh / MAP_H) * 0.85;
+    cam.zoom = Math.min(vw / MAP_W, vh / MAP_H) * 0.8;
     clampCam();
     cameraInitialized = true;
   }
