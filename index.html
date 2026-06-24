@@ -483,6 +483,17 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
 .light .tk:hover{border-color:var(--border2)}
 
 /* ═══════════════════════════════════════════════════════════════
+
+/* ═══ OFFICE VIEW ═══ */
+.office-view{
+  flex:1;display:none;min-height:0;overflow:hidden;
+  position:relative;background:#0d1117;
+}
+.office-view.active{display:flex}
+#office-canvas{
+  display:block;width:100%;height:100%;
+  image-rendering:pixelated;image-rendering:crisp-edges;
+}
    RESPONSIVE — TABLET & MOBILE
    ═══════════════════════════════════════════════════════════════ */
 @media(max-width:768px){
@@ -572,6 +583,7 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
   <button class="tab" id="tab-backlog" onclick="goView('backlog')">📦 Backlog</button>
   <button class="tab" id="tab-team" onclick="goView('team')">👥 Team <span class="num" id="badge-team-count">0</span></button>
   <button class="tab" id="tab-activity" onclick="goView('activity')">⚡ Activity <span class="num" id="activity-count">0</span></button>
+  <button class="tab" id="tab-office" onclick="goView('office')">🏢 Office</button>
 </div>
 
 <!-- ═══ BOARD MODE FILTER (All / Epics / Stories) ═══ -->
@@ -606,6 +618,8 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
   <div id="view-team" class="team-view"></div>
   <!-- Activity View -->
   <div id="view-activity" class="activity-view"></div>
+	<!-- Office View -->
+	<div id="view-office" class="office-view"><canvas id="office-canvas"></canvas></div>
   <!-- Detail Panel -->
   <div class="dp" id="dp">
     <div class="dp-hdr"><h2 id="dtitle">Detail</h2><button class="dp-close" onclick="closeDetail()" aria-label="Close">✕</button></div>
@@ -654,9 +668,13 @@ function goView(v){
   CV=v;
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
   document.getElementById('tab-'+v).classList.add('active');
-  ['kanban','list','backlog','team','activity'].forEach(function(view){
+  ['kanban','list','backlog','team','activity','office'].forEach(function(view){
     var el=document.getElementById('view-'+view);
-    if(el){el.style.display=(v===view)?((view==='kanban')?'flex':'block'):'none';}
+    if(el){
+      if(view==='kanban'){el.style.display=(v===view)?'flex':'none';}
+      else if(view==='office'){el.style.display=(v===view)?'flex':'none';}
+      else{el.style.display=(v===view)?'block':'none';}
+    }
   });
   var km=document.getElementById('view-kanban-mobile');
   if(km){km.style.display=(v==='kanban')?'flex':'none';}
@@ -667,6 +685,9 @@ function goView(v){
   // Show/hide board mode filter
   var bm=document.getElementById('boardModeFilter');
   if(bm){bm.style.display=(v==='kanban')?'flex':'none';}
+  // Office view: start/stop animation loop
+  if(v==='office'&&typeof officeInit==='function'){officeInit(document.getElementById('office-canvas'));}
+  else if(typeof officeDestroy==='function'){officeDestroy();}
   closeDetail();
   render();
   if(v==='activity'){startActivityStream();}else{stopActivityStream();}
@@ -685,6 +706,7 @@ function render(){
     else if(CV==='list'){rList();}
     else if(CV==='backlog'){rBacklog();}
     else if(CV==='team'){rTeam();}
+    else if(CV==='office'&&typeof officeRefresh==='function'){officeRefresh(D);}
     rStats();
   }catch(e){
     console.error('Render error:',e);
@@ -1501,5 +1523,6 @@ function agentName(id){
 loadData();
 setInterval(loadData,30000);
 </script>
+<script src="office.js"></script>
 </body>
 </html>
