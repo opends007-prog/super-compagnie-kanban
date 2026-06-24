@@ -50,6 +50,7 @@ var Office = (function() {
   var camDragging = false, camDragStart = {}, camDragCamStart = {}, pinchDist = 0;
   var tileMap = [], furniture = [], seats = {}, mapCache = null;
   var bubbles = [], MAX_BUBBLES = 12, particles = [], officeBtns = {};
+  var allHandsActive = false, allHandsTimer = 0, allHandsInterval = 60; // seconds between meetings
 
   // ═══ TILE MAP ═══
   function buildTileMap() {
@@ -308,27 +309,37 @@ var Office = (function() {
     var pos;
     switch (agent.officeState) {
       case 'working':
-        // High-priority → focus room, otherwise → workstation desk
+        // Leadership → Mission Control or Focus Rooms (not regular workstations)
+        if (agent.personality === 'manager') {
+          // 60% mission control, 40% focus room
+          if (Math.random() < 0.6) {
+            pos = getRandomTileInArea(47, 21, 10, 5) || { x: 51, y: 23 };
+          } else {
+            pos = getRandomTileInArea(3, 3, 24, 4) || { x: 8, y: 5 };
+          }
+          return pos;
+        }
+        // Regular workers → assigned desk or workstation
         if (agent.seatId && seats[agent.seatId]) {
           var s = seats[agent.seatId];
           return { x: s.x, y: s.y };
         }
-        // Fallback to any workstation
         pos = getRandomTileInArea(4, 12, 28, 7);
         return pos || { x: 17, y: 15 };
 
       case 'meeting':
-        // Small meeting (2-4), medium (5-10), large conference (10+)
-        // For now, route to meeting rooms based on agent's team
+        // Leadership → small/medium meeting rooms
+        // Others → conference only if all-hands is active
         var teamAgents = agents.filter(function(a) { return a.team === agent.team && a.id !== agent.id; });
-        if (teamAgents.length >= 8) {
-          // Conference room
-          pos = getRandomTileInArea(37, 12, 12, 5) || { x: 41, y: 14 };
-        } else if (teamAgents.length >= 3) {
-          // Medium meeting
-          pos = getRandomTileInArea(52, 4, 6, 4) || { x: 54, y: 6 };
+        if (agent.personality === 'manager') {
+          // Managers go to small/medium meetings
+          if (teamAgents.length >= 3) {
+            pos = getRandomTileInArea(52, 4, 6, 4) || { x: 54, y: 6 };
+          } else {
+            pos = getRandomTileInArea(42, 4, 6, 4) || { x: 44, y: 5 };
+          }
         } else {
-          // Small meeting
+          // Non-managers: small meeting by default
           pos = getRandomTileInArea(42, 4, 6, 4) || { x: 44, y: 5 };
         }
         return pos;
@@ -610,6 +621,44 @@ var Office = (function() {
           break;
       }
 
+      // ═══ ALL-HANDS MEETING SYSTEM ═══
+      // Every ~90 seconds, trigger a 30-second general meeting in conference room
+      if (!allHandsActive && frameCount % (60 * 90) === 0 && agents.length > 5) {
+        allHandsActive = true;
+        allHandsTimer = 30; // 30 seconds meeting duration
+        // Route all agents to conference room
+        agents.forEach(function(a) {
+          if (a.state !== STATE.WALK || a.path.length === 0) {
+            var confDest = getRandomTileInArea(37, 12, 12, 5) || { x: 41, y: 14 };
+            var confPath = findPath(a.tileCol, a.tileRow, confDest.x, confDest.y);
+            if (confPath.length > 0) {
+              a.path = confPath;
+              a.state = STATE.WALK;
+              a.wasOfficeState = a.officeState; // remember where to return
+            }
+          }
+        });
+      }
+
+      // During all-hands meeting
+      if (allHandsActive) {
+        allHandsTimer -= dt;
+        if (allHandsTimer <= 0) {
+          allHandsActive = false;
+          // Return all agents to their proper places
+          agents.forEach(function(a) {
+            if (a.state !== STATE.WALK || a.path.length === 0) {
+              var returnDest = getDestinationForStatus({ officeState: a.wasOfficeState || a.officeState, personality: a.personality, seatId: a.seatId, team: a.team, id: a.id });
+              var returnPath = findPath(a.tileCol, a.tileRow, returnDest.x, returnDest.y);
+              if (returnPath.length > 0) {
+                a.path = returnPath;
+                a.state = STATE.WALK;
+              }
+            }
+          });
+        }
+      }
+
       // Speech bubbles
       if (agent.speechBubble && now > agent.speechEnd) {
         agent.speechBubble = null;
@@ -874,14 +923,33 @@ var Office = (function() {
       ctx.fillText('!', px, py - 22 + bob);
     }
 
+    // Name + Role label
+    var roleText = agent.title || agent.role || '';
+    // Shorten long role text for display
+    if (roleText.length > 20) roleText = roleText.substring(0, 18) + '…';
+    ctx.font = 'bold 7px monospace';
+    var nameW = ctx.measureText(agent.name).width + 6;
+    ctx.font = '6px monospace';
+    var roleW = ctx.measureText(roleText).width + 6;
+    var labelW = Math.max(nameW, roleW);
+    var labelX = px - labelW / 2;
+    var labelY = py + 9 + bob;
+    // Background pill
+    ctx.fillStyle = 'rgba(13,17,23,0.85)';
+    ctx.beginPath();
+    ctx.roundRect(labelX, labelY, labelW, roleText ? 18 : 9, 3);
+    ctx.fill();
     // Name
-    ctx.font = '7px monospace';
-    var nw = ctx.measureText(agent.name).width + 6;
-    ctx.fillStyle = 'rgba(13,17,23,0.8)';
-    ctx.fillRect(px - nw / 2, py + 9 + bob, nw, 9);
+    ctx.font = 'bold 7px monospace';
     ctx.fillStyle = '#e2e8f0';
     ctx.textAlign = 'center';
-    ctx.fillText(agent.name, px, py + 16 + bob);
+    ctx.fillText(agent.name, px, labelY + 8 + bob);
+    // Role (under name)
+    if (roleText) {
+      ctx.font = '6px monospace';
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText(roleText, px, labelY + 16 + bob);
+    }
 
     // Speech bubble
     if (agent.speechBubble) drawSpeechBubble(px, py - 28 + bob, agent.speechBubble.text, agent.speechBubble.type || 'normal');
@@ -979,7 +1047,7 @@ var Office = (function() {
     // Stats
     var working = agents.filter(function(a) { return a.officeState === STATE.TYPE; }).length;
     var idle = agents.filter(function(a) { return a.officeState === STATE.IDLE; }).length;
-    var stX = 10, stY = 42, stW = 110, stH = 36;
+    var stX = 10, stY = 42, stW = 120, stH = 36;
     ctx.fillStyle = 'rgba(13,17,23,0.85)'; ctx.fillRect(stX, stY, stW, stH);
     ctx.strokeStyle = '#1e2d3d'; ctx.strokeRect(stX, stY, stW, stH);
     ctx.font = 'bold 9px monospace'; ctx.textAlign = 'left';
@@ -987,6 +1055,22 @@ var Office = (function() {
     ctx.font = '8px monospace';
     ctx.fillStyle = '#22c55e'; ctx.fillText('● Typing: ' + working, stX + 6, stY + 22);
     ctx.fillStyle = '#eab308'; ctx.fillText('● Idle: ' + idle, stX + 6, stY + 32);
+
+    // All-hands meeting banner
+    if (allHandsActive) {
+      var bannerW = 200, bannerH = 28;
+      var bannerX = cw / 2 - bannerW / 2, bannerY = 10;
+      ctx.fillStyle = 'rgba(59,130,246,0.9)';
+      ctx.fillRect(bannerX, bannerY, bannerW, bannerH);
+      ctx.strokeStyle = '#60a5fa'; ctx.lineWidth = 1;
+      ctx.strokeRect(bannerX, bannerY, bannerW, bannerH);
+      ctx.fillStyle = '#fff';
+      ctx.font = 'bold 10px monospace'; ctx.textAlign = 'center';
+      ctx.fillText('📢 GENERAL MEETING', cw / 2, bannerY + 12);
+      ctx.font = '8px monospace';
+      ctx.fillStyle = '#dbeafe';
+      ctx.fillText('All agents in conference room', cw / 2, bannerY + 23);
+    }
 
     // Recenter
     var rcX = cw - 100, rcY = 10, rcW = 90, rcH = 22;
