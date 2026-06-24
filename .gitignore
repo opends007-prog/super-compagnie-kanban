@@ -1,0 +1,13 @@
+# Secrets / env — never publish to the public gh-pages site
+.env
+.env.*
+*.key
+*.pem
+*.crt
+secrets/
+# Backups and noise
+*.bak
+*.log
+__pycache__/
+*.pyc
+.DS_Store
