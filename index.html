@@ -747,11 +747,7 @@ function rBoard(){
     var colClass='col-'+s;
     var epicsInCol=ep.filter(function(e){return e.status===s});
     var orphansInCol=orphans.filter(function(t){return t.status===s});
-    var cnt=orphansInCol.length;
-    epicsInCol.forEach(function(e){
-      var st=byEpic[e.id]||[];
-      cnt+=boardMode==='epics'?1:st.length;
-    });
+    var cnt=(boardMode==='epics')?epicsInCol.length:tk.filter(function(t){return t.status===s}).length;
 
     html+='<div class="col '+colClass+'"><div class="col-hdr"><div class="col-title"><span class="col-dot"></span>'+colName+'</div><span class="col-cnt">('+cnt+')</span></div><div class="col-body">';
 
