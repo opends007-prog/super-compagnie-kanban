@@ -1045,7 +1045,7 @@ var Office = (function() {
     officeBtns.exit = { x: exX, y: exY, w: exW, h: exH };
 
     // Stats
-    var working = agents.filter(function(a) { return a.officeState === STATE.TYPE; }).length;
+    var working = agents.filter(function(a) { return a.officeState === 'working' || a.officeState === 'reviewing'; }).length;
     var idle = agents.filter(function(a) { return a.officeState === STATE.IDLE; }).length;
     var stX = 10, stY = 42, stW = 120, stH = 36;
     ctx.fillStyle = 'rgba(13,17,23,0.85)'; ctx.fillRect(stX, stY, stW, stH);

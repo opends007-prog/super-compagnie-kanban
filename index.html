@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>💎 Super Compagnie — Mission Control</title>
 <style>
 /* ═══════════════════════════════════════════════════════════════
@@ -1359,66 +1362,49 @@ function stopActivityStream(){
 }
 
 function activityLoadHistory(){
-  var events=[];
-  var tickets=D.tickets||[];
-  var epics=D.epics||[];
-  var now=Date.now();
-  tickets.forEach(function(t){
-    // Comments — use the real timestamp from each comment
-    if(t.comments&&t.comments.length>0){
-      t.comments.forEach(function(c){
-        var ts=c.timestamp;
-        if(!ts) return; // skip comments without timestamp
-        events.push({
-          timestamp:new Date(ts).getTime(),
-          agent:c.by||t.assigned_to||'Unknown',
-          displayName:agentName(c.by||t.assigned_to),
-          emoji:agentEmoji(c.by||t.assigned_to),
-          type:'comment',
-          content:c.text.substring(0,100),
-          ticketId:t.id,
-          ticketTitle:t.title
+  // Real activity comes from agent-activity.json (each event carries its own real timestamp)
+  // plus ticket comments. We no longer synthesize status rows from ticket.updatedAt: batch
+  // scripts stamp many tickets with one shared updatedAt that is overwritten each run, which
+  // made the feed repeat the same rows at an ever-advancing "recent" time.
+  fetch('agent-activity.json?t='+Date.now()).then(function(r){return r.json();}).then(function(a){
+    var events=[];
+    (a&&a.events||[]).forEach(function(ev){
+      var raw=ev.ts||ev.timestamp;
+      var ms=typeof raw==='number'?raw:(raw?new Date(raw).getTime():0);
+      if(!ms)return;
+      var content=ev.content||((ev.event||'update')+(ev.ticket?' '+ev.ticket:'')+(ev.status?' → '+String(ev.status).replace(/_/g,' '):''));
+      events.push({
+        timestamp:ms,
+        agent:ev.agent||'Unknown',
+        displayName:agentName(ev.agent),
+        emoji:ev.emoji||agentEmoji(ev.agent),
+        type:ev.type||(ev.event==='started'?'status_change':(ev.event||'system')),
+        content:content,
+        ticketId:ev.ticketId||ev.ticket
+      });
+    });
+    (D.tickets||[]).forEach(function(t){
+      if(t.comments&&t.comments.length>0){
+        t.comments.forEach(function(c){
+          if(!c.timestamp)return;
+          events.push({
+            timestamp:new Date(c.timestamp).getTime(),
+            agent:c.by||t.assigned_to||'Unknown',
+            displayName:agentName(c.by||t.assigned_to),
+            emoji:agentEmoji(c.by||t.assigned_to),
+            type:'comment',
+            content:c.text.substring(0,100),
+            ticketId:t.id,
+            ticketTitle:t.title
+          });
         });
-      });
-    }
-    // Status change — use ticket's updatedAt
-    if(t.updatedAt){
-      events.push({
-        timestamp:new Date(t.updatedAt).getTime(),
-        agent:t.assigned_to||'Unknown',
-        displayName:agentName(t.assigned_to),
-        emoji:agentEmoji(t.assigned_to),
-        type:'status_change',
-        content:t.status.replace(/_/g,' ')+': '+t.title.substring(0,60),
-        ticketId:t.id,
-        ticketTitle:t.title
-      });
-    }
-  });
-  // Epic summaries — use the epic's own updatedAt or latest child ticket date
-  epics.forEach(function(e){
-    var st=(D.tickets||[]).filter(function(x){return x.epicId===e.id});
-    var dn=st.filter(function(x){return x.status==='done'}).length;
-    var epicTs=0;
-    if(e.updatedAt) epicTs=new Date(e.updatedAt).getTime();
-    else if(st.length) epicTs=Math.max.apply(null,st.map(function(s){return s.updatedAt?new Date(s.updatedAt).getTime():0;}));
-    if(epicTs>0){
-      events.push({
-        timestamp:epicTs,
-        agent:e.assignee||'Unknown',
-        displayName:agentName(e.assignee),
-        emoji:agentEmoji(e.assignee),
-        type:'system',
-        content:e.id+' ('+dn+'/'+st.length+' done): '+e.title.substring(0,50),
-        epicId:e.id,
-        ticketTitle:e.title
-      });
-    }
-  });
-  events.sort(function(a,b){return b.timestamp-a.timestamp});
-  activityEvents=events.slice(0,100);
-  activityUpdateFilterOptions();
-  activityRender();
+      }
+    });
+    events.sort(function(a,b){return b.timestamp-a.timestamp});
+    activityEvents=events.slice(0,100);
+    activityUpdateFilterOptions();
+    activityRender();
+  }).catch(function(){});
 }
 
 function activityFetchEvents(){
@@ -1527,6 +1513,6 @@ function agentName(id){
 loadData();
 setInterval(loadData,30000);
 </script>
-<script src="office.js"></script>
+<script src="office.js?v=20260625b"></script>
 </body>
 </html>
