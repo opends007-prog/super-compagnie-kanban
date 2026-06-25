@@ -2320,7 +2320,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Lucy",
       "team": "Leadership",
       "epicId": "EPIC-005",
@@ -2328,14 +2328,18 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-24T20:05:42.505871+00:00",
+      "updatedAt": "2026-06-25T00:05:59.693823+00:00",
       "comments": [
         {
           "by": "Lucy",
           "text": "Work executed on 2026-06-24. Progress: 50%."
+        },
+        {
+          "by": "Lucy",
+          "text": "Work executed on 2026-06-24. Progress: 75%."
         }
       ],
-      "progress": 50,
+      "progress": 75,
       "eta_hours": 0,
       "last_agent_update": "2026-06-15T23:21:06.309729",
       "jira_key": "TD-239",
@@ -2348,7 +2352,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Zeus",
       "team": "Leadership",
       "epicId": "EPIC-005",
@@ -2356,14 +2360,18 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-24T20:05:42.514061+00:00",
+      "updatedAt": "2026-06-25T00:05:59.698778+00:00",
       "comments": [
         {
           "by": "Zeus",
           "text": "Work executed on 2026-06-24. Progress: 50%."
+        },
+        {
+          "by": "Zeus",
+          "text": "Work executed on 2026-06-24. Progress: 75%."
         }
       ],
-      "progress": 50,
+      "progress": 75,
       "eta_hours": 0,
       "last_agent_update": "2026-06-15T23:21:06.309738",
       "jira_key": "TD-240",
@@ -2376,7 +2384,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Gladiator",
       "team": "Project",
       "epicId": "EPIC-006",
@@ -2384,13 +2392,17 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-24T22:11:06.510471+00:00",
+      "updatedAt": "2026-06-25T00:05:59.701885+00:00",
       "comments": [
         {
           "author": "tom",
           "timestamp": "2026-06-17T00:30:00Z",
           "text": "Audit complete. Fixed 29 issues across 27 agent workspaces: (1) Added set -euo pipefail to all 7 shell scripts, (2) Created work-template.sh for 21 missing agents, (3) Created SOUL.md for lucy (only agent missing one), (4) No Python security issues found, (5) No stale files detected. 5 remaining known gaps: 25 agents missing rules/constraints sections in SOUL.md. Full report at workers/tom/work/code-quality-audit-2026-06-17.md",
           "by": "Gladiator"
+        },
+        {
+          "by": "Gladiator",
+          "text": "Work executed on 2026-06-24. Progress: 100%."
         }
       ],
       "progress": 100,
@@ -2413,7 +2425,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Thor",
       "team": "Project",
       "epicId": "EPIC-005",
@@ -2421,12 +2433,16 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-24T22:11:06.510471+00:00",
+      "updatedAt": "2026-06-25T00:06:02.293642+00:00",
       "comments": [
         {
           "by": "Thor",
           "text": "Kanban sync automation built and deployed. Created kanban-sync.sh with Jira REST API v3 integration (create, update, comment sync, status transitions). Cron job installed to run every 30 minutes with output logged to /tmp/kanban-sync.log. Sync state tracked in /tmp/kanban-sync-state.json. Supports DRY_RUN mode. Requires JIRA_EMAIL and JIRA_API_TOKEN env vars to be set for actual API calls.",
           "timestamp": "2026-06-17T00:30:02.168015"
+        },
+        {
+          "by": "Thor",
+          "text": "Work executed on 2026-06-24. Progress: 100%."
         }
       ],
       "progress": 100,
@@ -2688,7 +2704,7 @@
       "description": "Researcher template fetches raw HN IDs but never resolves to titles. Finance template is purely static. Both need to produce real, dynamic content.",
       "severity": "MEDIUM",
       "category": "improvement",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Vulcan",
       "team": "Research",
       "epicId": "EPIC-011",
@@ -2696,9 +2712,14 @@
       "blocks": null,
       "created_by": "OWL",
       "createdAt": "2026-06-16T00:00:00Z",
-      "updatedAt": "2026-06-24T22:16:48.573975+00:00",
-      "comments": [],
-      "progress": 25,
+      "updatedAt": "2026-06-25T00:06:02.303860+00:00",
+      "comments": [
+        {
+          "by": "Vulcan",
+          "text": "Work executed on 2026-06-24. Progress: 50%."
+        }
+      ],
+      "progress": 50,
       "eta_hours": 4,
       "last_agent_update": "2026-06-24T22:16:48.573975+00:00",
       "jira_key": "TD-274",
@@ -4125,14 +4146,14 @@
     "totalTickets": 96,
     "totalEpics": 14,
     "backlog": 16,
-    "in_progress": 9,
+    "in_progress": 8,
     "waiting": 0,
-    "in_validation": 4,
-    "done": 64,
+    "in_validation": 1,
+    "done": 68,
     "critical": 0,
     "blocked": 0,
     "review": 0,
-    "last_progress_update": "2026-06-24T20:05:42.514178+00:00",
+    "last_progress_update": "2026-06-25T00:06:02.303986+00:00",
     "planned": 3
   },
   "last_progress_update": "2026-06-22T16:30:02.987211"
