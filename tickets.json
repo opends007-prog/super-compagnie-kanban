@@ -2704,7 +2704,7 @@
       "description": "Researcher template fetches raw HN IDs but never resolves to titles. Finance template is purely static. Both need to produce real, dynamic content.",
       "severity": "MEDIUM",
       "category": "improvement",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Vulcan",
       "team": "Research",
       "epicId": "EPIC-011",
@@ -2712,14 +2712,18 @@
       "blocks": null,
       "created_by": "OWL",
       "createdAt": "2026-06-16T00:00:00Z",
-      "updatedAt": "2026-06-25T00:06:02.303860+00:00",
+      "updatedAt": "2026-06-25T03:39:42.665849+00:00",
       "comments": [
         {
           "by": "Vulcan",
           "text": "Work executed on 2026-06-24. Progress: 50%."
+        },
+        {
+          "by": "Vulcan",
+          "text": "Work executed on 2026-06-24. Progress: 75%."
         }
       ],
-      "progress": 50,
+      "progress": 75,
       "eta_hours": 4,
       "last_agent_update": "2026-06-24T22:16:48.573975+00:00",
       "jira_key": "TD-274",
@@ -2733,7 +2737,7 @@
       "description": "21 Jira issues (TD-243 to TD-259) have no Kanban ticket. Link or delete. Also fix health-check.sh which references wrong paths (voice-transcriber/, queue/ don't exist on Mac).",
       "severity": "MEDIUM",
       "category": "cleanup",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Plutus",
       "team": "Finance",
       "epicId": "EPIC-011",
@@ -2741,9 +2745,14 @@
       "blocks": null,
       "created_by": "OWL",
       "createdAt": "2026-06-16T00-16T00:00:00Z",
-      "updatedAt": "2026-06-25T00:00:00.441677+00:00",
-      "comments": [],
-      "progress": 25,
+      "updatedAt": "2026-06-25T03:39:42.679861+00:00",
+      "comments": [
+        {
+          "by": "Plutus",
+          "text": "Work executed on 2026-06-24. Progress: 50%."
+        }
+      ],
+      "progress": 50,
       "eta_hours": 3,
       "last_agent_update": "2026-06-25T00:00:00.441677+00:00",
       "jira_key": "TD-275",
@@ -2867,7 +2876,7 @@
       "description": "Review and improve all agent work templates. Standardize format, add error handling patterns, improve documentation, and create template generation tool.",
       "severity": "MEDIUM",
       "category": "improvement",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Claude",
       "team": "Operations",
       "epicId": "EPIC-011",
@@ -2875,15 +2884,19 @@
       "blocks": null,
       "created_by": "Zeus",
       "createdAt": "2026-06-17T04:10:26.614001+00:00",
-      "updatedAt": "2026-06-25T00:00:00.441677+00:00",
+      "updatedAt": "2026-06-25T03:39:42.683796+00:00",
       "comments": [
         {
           "by": "Zeus",
           "text": "Assigned to Claude (meta-agent) - self-improvement of agent infrastructure.",
           "timestamp": "2026-06-17T04:10:26.614001+00:00"
+        },
+        {
+          "by": "Claude",
+          "text": "Work executed on 2026-06-24. Progress: 50%."
         }
       ],
-      "progress": 25,
+      "progress": 50,
       "eta_hours": 6,
       "last_agent_update": "2026-06-25T00:00:00.441677+00:00",
       "jira_key": "TD-278",
@@ -2958,7 +2971,7 @@
       "description": "Clean up and reconcile all financial records. Verify expense tracking accuracy, update bookkeeping system, and ensure all transactions are properly categorized.",
       "severity": "MEDIUM",
       "category": "cleanup",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Hestia",
       "team": "Finance",
       "epicId": "EPIC-010",
@@ -2966,15 +2979,19 @@
       "blocks": null,
       "created_by": "Zeus",
       "createdAt": "2026-06-17T04:10:26.614001+00:00",
-      "updatedAt": "2026-06-25T00:00:00.441677+00:00",
+      "updatedAt": "2026-06-25T03:39:42.686838+00:00",
       "comments": [
         {
           "by": "Zeus",
           "text": "Assigned to Hestia (accounting) - financial record maintenance.",
           "timestamp": "2026-06-17T04:10:26.614001+00:00"
+        },
+        {
+          "by": "Hestia",
+          "text": "Work executed on 2026-06-24. Progress: 50%."
         }
       ],
-      "progress": 25,
+      "progress": 50,
       "eta_hours": 8,
       "last_agent_update": "2026-06-25T00:00:00.441677+00:00",
       "jira_key": "TD-280",
@@ -3483,7 +3500,7 @@
       "description": "Start the code quality & improvement effort.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Gladiator",
       "team": "Project",
       "epicId": "EPIC-006",
@@ -3491,9 +3508,14 @@
       "blocks": null,
       "created_by": "lucy",
       "createdAt": "2026-06-17T22:15:00Z",
-      "updatedAt": "2026-06-25T00:00:00.441677+00:00",
-      "comments": [],
-      "progress": 25,
+      "updatedAt": "2026-06-25T03:39:42.688671+00:00",
+      "comments": [
+        {
+          "by": "Gladiator",
+          "text": "Work executed on 2026-06-24. Progress: 50%."
+        }
+      ],
+      "progress": 50,
       "jira_key": "TD-309",
       "pushed_comments": [],
       "estimatedStartDate": "2026-06-25",
@@ -4146,14 +4168,14 @@
     "totalTickets": 96,
     "totalEpics": 14,
     "backlog": 16,
-    "in_progress": 8,
+    "in_progress": 4,
     "waiting": 0,
-    "in_validation": 1,
-    "done": 68,
+    "in_validation": 4,
+    "done": 69,
     "critical": 0,
     "blocked": 0,
     "review": 0,
-    "last_progress_update": "2026-06-25T00:06:02.303986+00:00",
+    "last_progress_update": "2026-06-25T03:39:42.688725+00:00",
     "planned": 3
   },
   "last_progress_update": "2026-06-22T16:30:02.987211"
