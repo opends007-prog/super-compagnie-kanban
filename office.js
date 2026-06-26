@@ -170,6 +170,7 @@ var Office = (function() {
       for (var col = 0; col < 7; col++) {
         var dx = 4 + col * 4, dy = 12 + row * 2;
         furniture.push({ type: 'desk', x: dx, y: dy, w: 3, h: 1 });
+        furniture.push({ type: 'pc', x: dx + 1, y: dy, w: 1, h: 1 });
         furniture.push({ type: 'chair', x: dx + 1, y: dy + 1, w: 1, h: 1 });
         seats['desk_' + row + '_' + col] = { x: dx + 1, y: dy + 1, assigned: false, facing: DIR.UP };
       }
@@ -179,6 +180,7 @@ var Office = (function() {
     for (var i = 0; i < 4; i++) {
       var fx = 3 + i * 7;
       furniture.push({ type: 'desk', x: fx, y: 4, w: 2, h: 1 });
+      furniture.push({ type: 'pc', x: fx, y: 4, w: 1, h: 1 });
       furniture.push({ type: 'chair', x: fx, y: 5, w: 1, h: 1 });
       seats['focus_' + i] = { x: fx, y: 5, assigned: false, facing: DIR.UP };
     }
@@ -550,7 +552,7 @@ var Office = (function() {
         isBlocked: !!blk, tickets: myT, seatId: seatId,
         x: startPos.x * TILE_SIZE + TILE_SIZE / 2, y: startPos.y * TILE_SIZE + TILE_SIZE / 2,
         tileCol: startPos.x, tileRow: startPos.y,
-        path: [], moveProgress: 0, dir: DIR.DOWN,
+        path: [], moveProgress: 0, dir: (seatId && seats[seatId]) ? seats[seatId].facing : DIR.UP,
         frame: 0, frameTimer: 0, state: STATE.TYPE, // start at destination
         wanderTimer: Math.random() * 3, wanderCount: 0,
         wanderLimit: Math.floor(Math.random() * (WANDER_LIMIT_MAX - WANDER_LIMIT_MIN)) + WANDER_LIMIT_MIN,
@@ -615,6 +617,7 @@ var Office = (function() {
                 if (agent.officeState === 'working' || agent.officeState === 'meeting' || agent.officeState === 'reviewing') {
                   agent.state = STATE.TYPE;
                   agent.frame = 0; agent.frameTimer = 0;
+                  agent.dir = (agent.seatId && seats[agent.seatId]) ? seats[agent.seatId].facing : DIR.UP; // face desk/PC
                 } else {
                   // Idle — arrived at idle area
                   agent.state = STATE.IDLE; agent.frame = 0; agent.frameTimer = 0;
@@ -926,15 +929,14 @@ var Office = (function() {
 
     // MetroCity sprite (fallback to a simple block until sprites load)
     var pal = (agent.palOverride != null) ? agent.palOverride : agentPalette(agent.id);
+    if (/lucy/i.test(agent.name || '')) { var _clio = agents.find(function(a){ return /clio/i.test(a.name || ''); }); pal = _clio ? agentPalette(_clio.id) : 2; }
     var dirRow = (DIR_ROW[agent.dir] != null) ? DIR_ROW[agent.dir] : 0;
     var flip = (agent.dir === DIR.LEFT);
     var col = (agent.state === STATE.TYPE) ? TYPE_FRAMES[agent.frame % 2]
             : (agent.walking ? WALK_FRAMES[agent.frame % 4] : 0);
     var cimg = SPR['char' + pal];
     var dw = 22, dh = 44, dx = px - dw / 2, dy = py + 9 + bob - dh;
-    if (/lucy/i.test(agent.name || '')) {
-      drawLucySprite(px, py, bob);
-    } else if (sprReady && cimg && cimg.complete && cimg.width) {
+    if (sprReady && cimg && cimg.complete && cimg.width) {
       var sx = col * CFW, sy = dirRow * CFH;
       if (flip) { ctx.save(); ctx.translate(dx + dw, 0); ctx.scale(-1, 1); ctx.drawImage(cimg, sx, sy, CFW, CFH, 0, dy, dw, dh); ctx.restore(); }
       else ctx.drawImage(cimg, sx, sy, CFW, CFH, dx, dy, dw, dh);
