@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-26T19:40:01.578963+00:00",
+  "generated": "2026-06-26T19:50:01.340671+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -55,6 +55,23 @@
           "ts": "2026-06-26T16:01:25.000497+00:00",
           "event": "no_deliverable",
           "content": "No work produced (model unavailable) \u2014 status unchanged"
+        }
+      ],
+      "deliverable": null
+    },
+    "STORY-012": {
+      "agent": "Hermes",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-26T19:44:28.102891+00:00",
+          "event": "dispatched",
+          "content": "[claude] business-analyst started work: Market research - SaaS opportunities"
+        },
+        {
+          "ts": "2026-06-26T19:49:08.430676+00:00",
+          "event": "no_deliverable",
+          "content": "[claude] No work produced \u2014 status unchanged"
         }
       ],
       "deliverable": null
@@ -274,5 +291,12 @@
       "deliverable": null
     }
   },
-  "active": []
+  "active": [
+    {
+      "agent": "Hermes",
+      "ticket": "STORY-012",
+      "event": "no_deliverable",
+      "ts": "2026-06-26T19:49:08.430676+00:00"
+    }
+  ]
 }
