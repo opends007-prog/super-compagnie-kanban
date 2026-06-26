@@ -88,7 +88,7 @@ var Office = (function() {
       frame: 0, frameTimer: 0, state: STATE.TYPE,
       wanderTimer: 1e9, wanderCount: 0, wanderLimit: 1e9,
       speechBubble: null, speechEnd: 0, nextSpeechTime: Date.now() + 1500,
-      celebrationTimer: 0, walking: false, idleArea: 'ceo', ceo: true, palOverride: 0
+      celebrationTimer: 0, walking: false, idleArea: 'ceo', ceo: true, vip: true, palOverride: 0
     };
   }
 
@@ -104,6 +104,54 @@ var Office = (function() {
     p(4, 8, 14, 5, HA); p(6, 8, 10, 2, HAh);                                                   // hair top
     p(8, 15, 2, 2, '#2a1c12'); p(13, 15, 2, 2, '#2a1c12'); p(10, 19, 3, 1, LIP);               // eyes + lips
     p(6, 17, 1, 1, 'rgba(220,120,120,.4)'); p(15, 17, 1, 1, 'rgba(220,120,120,.4)');           // cheeks
+  }
+
+  // ═══ Mission Control access (only these may enter; they STAND, spread out) ═══
+  var MC_ALLOWED = ['lucy', 'zeus', 'iris', 'plutus', 'fortuna', 'juno'];
+  var MC_STANDS = [{ x: 50, y: 14 }, { x: 53, y: 14 }, { x: 56, y: 14 }, { x: 59, y: 14 }, { x: 62, y: 14 }, { x: 65, y: 14 }];
+  function mcAllowed(agent) { return MC_ALLOWED.indexOf((agent.name || '').toLowerCase()) >= 0; }
+  function mcStandFor(agent) { var i = MC_ALLOWED.indexOf((agent.name || '').toLowerCase()); return MC_STANDS[i >= 0 ? i : 0]; }
+  function inMissionControl(agent) { return agent.tileRow >= 12 && agent.tileRow <= 16 && agent.tileCol >= 49 && agent.tileCol <= 68; }
+
+  var CONFERENCE_CHATTER = ['Great point.', 'Interesting…', 'I agree.', 'Good progress!', "Let's ship it.", 'Makes sense.', 'Noted.', 'Solid plan.', 'Nice numbers.', 'Agreed.'];
+  var LUCY_CHECK = ["How's it going?", 'On track?', 'Need anything?', 'Doing good?', 'Great work!', 'Any blockers?', 'Keep it up!'];
+
+  // ═══ VIP AI — CEO + Lucy (custom behavior, bypasses the generic state machine) ═══
+  var ceoMode = 'office', ceoSmoke = 1800, ceoModeT = 30;
+  var lucyMode = 'follow', lucyT = 25, lucyTarget = null;
+  function vipGoto(agent, tx, ty, faceDir, dt) {
+    var arrived = moveAgentToward(agent, tx * TILE_SIZE + TILE_SIZE / 2, ty * TILE_SIZE + TILE_SIZE / 2, dt);
+    if (arrived) { agent.walking = false; agent.tileCol = tx; agent.tileRow = ty; agent.state = STATE.IDLE; if (faceDir != null) agent.dir = faceDir; }
+    else { agent.state = STATE.WALK; if (agent.frameTimer > 0.15) { agent.frameTimer = 0; agent.frame = (agent.frame + 1) % 4; } }
+    return arrived;
+  }
+  function vipStep(agent, dt) {
+    if (agent.ceo) {
+      ceoSmoke -= dt;
+      if (ceoMode !== 'smoking' && ceoSmoke <= 0) { ceoMode = 'smoking'; ceoModeT = 55; ceoSmoke = 1800; }
+      if (ceoMode === 'smoking') { vipGoto(agent, 64, 41, DIR.DOWN, dt); agent.idleArea = 'smoking'; ceoModeT -= dt; if (ceoModeT <= 0) ceoMode = 'office'; }
+      else if (ceoMode === 'mc') { vipGoto(agent, 55, 14, DIR.UP, dt); agent.idleArea = 'mc'; ceoModeT -= dt; if (ceoModeT <= 0) ceoMode = 'office'; }
+      else { vipGoto(agent, 10, 8, DIR.DOWN, dt); agent.idleArea = 'ceo'; ceoModeT -= dt; if (ceoModeT <= 0) { if (Math.random() < 0.35) { ceoMode = 'mc'; ceoModeT = 35; } else ceoModeT = 30 + Math.random() * 40; } }
+      return;
+    }
+    // Lucy
+    lucyT -= dt;
+    var ceo = ceoAgent;
+    if (ceoMode === 'smoking') { vipGoto(agent, 66, 41, DIR.DOWN, dt); agent.idleArea = 'smoking'; return; }
+    if (lucyMode === 'roam' && lucyTarget) {
+      var arr = vipGoto(agent, lucyTarget.tileCol, lucyTarget.tileRow + 1, DIR.UP, dt);
+      if (arr && !agent.speechBubble) { agent.speechBubble = { text: LUCY_CHECK[(Math.random() * LUCY_CHECK.length) | 0] }; agent.speechEnd = Date.now() + 3000; }
+      if (lucyT <= 0) { lucyMode = 'follow'; lucyTarget = null; }
+    } else {
+      var tx = ceo ? ceo.tileCol + 2 : 12, ty = ceo ? ceo.tileRow : 8;
+      vipGoto(agent, tx, ty, ceo ? ceo.dir : DIR.DOWN, dt);
+      if (lucyT <= 0) {
+        if (Math.random() < 0.2) {
+          var cands = agents.filter(function(a) { return !a.vip && (a.officeState === 'working' || a.officeState === 'reviewing'); });
+          if (cands.length) { lucyTarget = cands[(Math.random() * cands.length) | 0]; lucyMode = 'roam'; lucyT = 18; } else lucyT = 25;
+        } else lucyT = 18 + Math.random() * 25;
+      }
+    }
   }
   var cam = { x: 0, y: 0, zoom: 1 };
   var camDragging = false, camDragStart = {}, camDragCamStart = {}, pinchDist = 0;
@@ -353,10 +401,7 @@ var Office = (function() {
     var pos;
     switch (agent.officeState) {
       case 'working':
-        if (agent.personality === 'manager') {
-          pos = getRandomTileInArea(50, 13, 16, 3) || { x: 56, y: 14 }; // mission control console
-          return pos;
-        }
+        if (mcAllowed(agent)) { var ms = mcStandFor(agent); return { x: ms.x, y: ms.y }; } // mission control (restricted)
         if (agent.seatId && seats[agent.seatId]) { var s = seats[agent.seatId]; return { x: s.x, y: s.y }; }
         pos = getRandomTileInArea(4, 20, 28, 10); // team collaboration
         return pos || { x: 12, y: 24 };
@@ -366,7 +411,8 @@ var Office = (function() {
         return pos;
 
       case 'reviewing':
-        pos = getRandomTileInArea(50, 13, 16, 3) || { x: 56, y: 14 }; // mission control
+        if (mcAllowed(agent)) { var ms2 = mcStandFor(agent); return { x: ms2.x, y: ms2.y }; }
+        pos = getRandomTileInArea(50, 20, 18, 10) || { x: 56, y: 24 }; // focus area (non-MC)
         return pos;
 
       case 'blocked':
@@ -399,7 +445,8 @@ var Office = (function() {
   function getChatterText(agent) {
     var pool;
     if (agent.ceo) { agent._ci = ((agent._ci || 0) + 1) % CEO_LINES.length; return CEO_LINES[agent._ci]; }
-    if (agent.officeState === STATE.IDLE && agent.idleArea === 'smoking') { return SMOKING_CHATTER[Math.floor(Math.random() * SMOKING_CHATTER.length)]; }
+    if (allHandsActive && agent.confSeat) { return CONFERENCE_CHATTER[Math.floor(Math.random() * CONFERENCE_CHATTER.length)]; }
+    if (agent.idleArea === 'smoking') { return SMOKING_CHATTER[Math.floor(Math.random() * SMOKING_CHATTER.length)]; }
     switch (agent.officeState) {
       case 'working':
         // Use actual ticket title if available
@@ -506,6 +553,7 @@ var Office = (function() {
         idleArea: 'lounge'
       };
     });
+    agents.forEach(function(a) { if (/lucy/i.test(a.name || '')) { a.vip = true; a.lucy = true; } });
     if (!ceoAgent) ceoAgent = makeCEO();
     agents.push(ceoAgent); // CEO NPC always present in the CEO office
   }
@@ -531,7 +579,8 @@ var Office = (function() {
     agents.forEach(function(agent) {
       agent.frameTimer += dt;
 
-      switch (agent.state) {
+      if (agent.vip) vipStep(agent, dt);
+      if (!agent.vip) switch (agent.state) {
         case STATE.TYPE:
           // Typing animation at desk/meeting/reviewing
           if (agent.frameTimer >= TYPE_FRAME_DURATION) { agent.frameTimer -= TYPE_FRAME_DURATION; agent.frame = (agent.frame + 1) % 2; }
@@ -559,7 +608,9 @@ var Office = (function() {
               if (agent.path.length === 0) {
                 agent.walking = false;
                 // Arrived — what now?
-                if (agent.officeState === 'working' || agent.officeState === 'meeting' || agent.officeState === 'reviewing') {
+                if (allHandsActive && agent.confSeat) {
+                  agent.state = STATE.TYPE; agent.frame = 0; agent.frameTimer = 0; agent.dir = DIR.UP; // sit facing the presenter
+                } else if (agent.officeState === 'working' || agent.officeState === 'meeting' || agent.officeState === 'reviewing') {
                   agent.state = STATE.TYPE;
                   agent.frame = 0; agent.frameTimer = 0;
                   agent.dir = (agent.seatId && seats[agent.seatId]) ? seats[agent.seatId].facing : DIR.UP; // face desk/PC
@@ -643,17 +694,16 @@ var Office = (function() {
       if (!allHandsActive && frameCount % (60 * 90) === 0 && agents.length > 5) {
         allHandsActive = true;
         allHandsTimer = 30; // 30 seconds meeting duration
-        // Route all agents to conference room
+        // Assign each agent their OWN conference chair (no clumping)
+        var confKeys = Object.keys(seats).filter(function(k) { return k.indexOf('conf_') === 0; });
+        var si = 0;
         agents.forEach(function(a) {
-          if (a.state !== STATE.WALK || a.path.length === 0) {
-            var confDest = getRandomTileInArea(24, 8, 18, 6) || { x: 33, y: 10 };
-            var confPath = findPath(a.tileCol, a.tileRow, confDest.x, confDest.y);
-            if (confPath.length > 0) {
-              a.path = confPath;
-              a.state = STATE.WALK;
-              a.wasOfficeState = a.officeState; // remember where to return
-            }
-          }
+          if (a.vip) return; // CEO + Lucy keep their own routine
+          var ss = seats[confKeys[si++ % confKeys.length]];
+          a.confSeat = ss; a.wasOfficeState = a.officeState;
+          var confPath = findPath(a.tileCol, a.tileRow, ss.x, ss.y);
+          if (confPath.length > 0) { a.path = confPath; a.state = STATE.WALK; }
+          else { a.tileCol = ss.x; a.tileRow = ss.y; a.x = ss.x * TILE_SIZE + TILE_SIZE / 2; a.y = ss.y * TILE_SIZE + TILE_SIZE / 2; a.state = STATE.TYPE; a.dir = DIR.UP; }
         });
       }
 
@@ -664,14 +714,11 @@ var Office = (function() {
           allHandsActive = false;
           // Return all agents to their proper places
           agents.forEach(function(a) {
-            if (a.state !== STATE.WALK || a.path.length === 0) {
-              var returnDest = getDestinationForStatus({ officeState: a.wasOfficeState || a.officeState, personality: a.personality, seatId: a.seatId, team: a.team, id: a.id });
-              var returnPath = findPath(a.tileCol, a.tileRow, returnDest.x, returnDest.y);
-              if (returnPath.length > 0) {
-                a.path = returnPath;
-                a.state = STATE.WALK;
-              }
-            }
+            if (a.vip) return;
+            a.confSeat = null;
+            var returnDest = getDestinationForStatus({ officeState: a.wasOfficeState || a.officeState, personality: a.personality, seatId: a.seatId, team: a.team, id: a.id, name: a.name });
+            var returnPath = findPath(a.tileCol, a.tileRow, returnDest.x, returnDest.y);
+            if (returnPath.length > 0) { a.path = returnPath; a.state = STATE.WALK; }
           });
         }
       }
@@ -870,6 +917,7 @@ var Office = (function() {
     var col = (agent.state === STATE.TYPE) ? TYPE_FRAMES[agent.frame % 2]
             : (agent.walking ? WALK_FRAMES[agent.frame % 4] : 0);
     var cimg = SPR['char' + pal];
+    if (inMissionControl(agent) && !agent.walking) { col = 0; dirRow = DIR_ROW[DIR.UP]; flip = false; } // stand facing the board
     var dw = 22, dh = 44, dx = px - dw / 2, dy = py + 9 + bob - dh;
     if (sprReady && cimg && cimg.complete && cimg.width) {
       var sx = col * CFW, sy = dirRow * CFH;
