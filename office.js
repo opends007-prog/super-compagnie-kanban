@@ -73,6 +73,38 @@ var Office = (function() {
     });
   }
   function agentPalette(id) { var h = 0; for (var i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0; return Math.abs(h) % 6; }
+
+  // ═══ CEO NPC (not a real agent — the boss, cycling lines) ═══
+  var CEO_LINES = ['We need to make money.', 'Lucy, come see me.', "What's the budget?", 'Great — we are making money!', 'Ship it. Now.', 'Numbers up. I love it.'];
+  var ceoAgent = null;
+  function makeCEO() {
+    var col = 34, row = 4;
+    return {
+      id: '__ceo__', name: 'CEO', title: '(You)', team: 'Leadership',
+      emoji: '', personality: 'manager', color: '#3b82f6', skin: '#e8b98c',
+      officeState: 'working', currentTicket: null, isBlocked: false, tickets: [], seatId: null,
+      x: col * TILE_SIZE + TILE_SIZE / 2, y: row * TILE_SIZE + TILE_SIZE / 2,
+      tileCol: col, tileRow: row, path: [], moveProgress: 0, dir: DIR.DOWN,
+      frame: 0, frameTimer: 0, state: STATE.TYPE,
+      wanderTimer: 1e9, wanderCount: 0, wanderLimit: 1e9,
+      speechBubble: null, speechEnd: 0, nextSpeechTime: Date.now() + 1500,
+      celebrationTimer: 0, walking: false, idleArea: 'ceo', ceo: true, palOverride: 0
+    };
+  }
+
+  // ═══ Custom Lucy sprite (Asian woman, long auburn hair, black blazer + white top) ═══
+  function drawLucySprite(px, py, bob) {
+    var topY = py + 9 + bob - 44;
+    function p(x, y, w, h, c) { ctx.fillStyle = c; ctx.fillRect(px - 11 + x, topY + y, w, h); }
+    var SK = '#f2d2b0', SKd = '#e0b894', HA = '#6e3a26', HAh = '#9a5034', BL = '#1b1b22', WH = '#f1f1f4', LIP = '#c45a6e';
+    p(3, 8, 16, 4, HA); p(2, 10, 3, 30, HA); p(17, 10, 3, 30, HA); p(3, 12, 2, 12, HAh);     // long hair
+    p(4, 24, 14, 18, BL); p(8, 24, 6, 18, WH); p(4, 24, 3, 18, '#111118'); p(15, 24, 3, 18, '#26262e'); // blazer + blouse
+    p(1, 26, 3, 10, BL); p(18, 26, 3, 10, BL); p(1, 34, 3, 3, SK); p(18, 34, 3, 3, SK);       // arms
+    p(6, 11, 10, 11, SK); p(6, 11, 3, 11, SKd);                                                // head
+    p(4, 8, 14, 5, HA); p(6, 8, 10, 2, HAh);                                                   // hair top
+    p(8, 15, 2, 2, '#2a1c12'); p(13, 15, 2, 2, '#2a1c12'); p(10, 19, 3, 1, LIP);               // eyes + lips
+    p(6, 17, 1, 1, 'rgba(220,120,120,.4)'); p(15, 17, 1, 1, 'rgba(220,120,120,.4)');           // cheeks
+  }
   var cam = { x: 0, y: 0, zoom: 1 };
   var camDragging = false, camDragStart = {}, camDragCamStart = {}, pinchDist = 0;
   var tileMap = [], furniture = [], seats = {}, mapCache = null;
@@ -102,6 +134,7 @@ var Office = (function() {
       { x: 22, y: 30, w: 6, h: 6, t: TILE.CARPET },
       { x: 30, y: 30, w: 8, h: 6, t: TILE.CARPET },
       { x: 44, y: 18, w: 14, h: 10, t: TILE.CARPET },
+      { x: 31, y: 2, w: 7, h: 6, t: TILE.CARPET }, // CEO OFFICE (connects to corridor at col 37/38)
     ];
     areas.forEach(function(a) {
       for (var r = a.y; r < a.y + a.h; r++) {
@@ -213,6 +246,11 @@ var Office = (function() {
     // Rest area
     furniture.push({ type: 'bed', x: 24, y: 32, w: 2, h: 1 });
     furniture.push({ type: 'bed', x: 24, y: 34, w: 2, h: 1 });
+
+    // CEO office
+    furniture.push({ type: 'desk', x: 33, y: 3, w: 2, h: 1 });
+    furniture.push({ type: 'sofa', x: 31, y: 6, w: 2, h: 1 });
+    furniture.push({ type: 'plant', x: 36, y: 2, w: 1, h: 1 });
   }
 
   // ═══ PATHFINDING (BFS) ═══
@@ -288,8 +326,8 @@ var Office = (function() {
     "Team is productive!", "Great work everyone!", "Learning something new...", "Just chilling..."
   ];
   var SMOKING_CHATTER = [
-    "Need a quick break...", "Fresh air feels good.", "Long day today...",
-    "Almost done for today...", "That bug was tricky...", "Coffee after this?"
+    "I need a smoke.", "Just a small break.", "This feels good.",
+    "Fresh air, finally.", "Ahh, that's better.", "Back to it in a sec."
   ];
   var REST_CHATTER = [
     "Just need a quick nap...", "Recharging batteries...", "Long night...",
@@ -413,6 +451,8 @@ var Office = (function() {
   // Get chatter text based on status
   function getChatterText(agent) {
     var pool;
+    if (agent.ceo) { agent._ci = ((agent._ci || 0) + 1) % CEO_LINES.length; return CEO_LINES[agent._ci]; }
+    if (agent.officeState === STATE.IDLE && agent.idleArea === 'smoking') { return SMOKING_CHATTER[Math.floor(Math.random() * SMOKING_CHATTER.length)]; }
     switch (agent.officeState) {
       case 'working':
         // Use actual ticket title if available
@@ -519,6 +559,8 @@ var Office = (function() {
         idleArea: 'lounge'
       };
     });
+    if (!ceoAgent) ceoAgent = makeCEO();
+    agents.push(ceoAgent); // CEO NPC always present in the CEO office
   }
 
   // ═══ AGENT MOVEMENT ═══
@@ -773,6 +815,7 @@ var Office = (function() {
       { x: 25, y: 33, t: 'REST', c: '#64748b' },
       { x: 34, y: 33, t: 'RECREATION', c: '#ec4899' },
       { x: 51, y: 23, t: 'MISSION CTRL', c: '#e2e8f0' },
+      { x: 34, y: 5, t: 'CEO OFFICE', c: '#fbbf24' },
     ].forEach(function(l) {
       mc.fillStyle = 'rgba(13,17,23,0.7)';
       var w = mc.measureText(l.t).width + 8;
@@ -882,20 +925,30 @@ var Office = (function() {
     ctx.beginPath(); ctx.ellipse(px, py + 9, 7, 2.5, 0, 0, Math.PI * 2); ctx.fill();
 
     // MetroCity sprite (fallback to a simple block until sprites load)
-    var pal = agentPalette(agent.id);
+    var pal = (agent.palOverride != null) ? agent.palOverride : agentPalette(agent.id);
     var dirRow = (DIR_ROW[agent.dir] != null) ? DIR_ROW[agent.dir] : 0;
     var flip = (agent.dir === DIR.LEFT);
     var col = (agent.state === STATE.TYPE) ? TYPE_FRAMES[agent.frame % 2]
             : (agent.walking ? WALK_FRAMES[agent.frame % 4] : 0);
     var cimg = SPR['char' + pal];
     var dw = 22, dh = 44, dx = px - dw / 2, dy = py + 9 + bob - dh;
-    if (sprReady && cimg && cimg.complete && cimg.width) {
+    if (/lucy/i.test(agent.name || '')) {
+      drawLucySprite(px, py, bob);
+    } else if (sprReady && cimg && cimg.complete && cimg.width) {
       var sx = col * CFW, sy = dirRow * CFH;
       if (flip) { ctx.save(); ctx.translate(dx + dw, 0); ctx.scale(-1, 1); ctx.drawImage(cimg, sx, sy, CFW, CFH, 0, dy, dw, dh); ctx.restore(); }
       else ctx.drawImage(cimg, sx, sy, CFW, CFH, dx, dy, dw, dh);
     } else {
       ctx.fillStyle = agent.color || '#6b7a99'; ctx.fillRect(px - 5, py - 6 + bob, 10, 14);
       ctx.fillStyle = agent.skin || '#f3cda3'; ctx.fillRect(px - 4, py - 14 + bob, 8, 7);
+    }
+    // Smoking visual — cigarette + rising smoke when idling in the smoking area
+    if (agent.idleArea === 'smoking' && agent.state === STATE.IDLE) {
+      ctx.fillStyle = '#f5f5f5'; ctx.fillRect(px + 6, py - 6 + bob, 3, 1);
+      ctx.fillStyle = '#ff7a3c'; ctx.fillRect(px + 9, py - 6 + bob, 1, 1);
+      var sm = (frameCount * 0.5 + Math.abs(px)) % 18;
+      ctx.fillStyle = 'rgba(210,210,210,' + Math.max(0, 0.5 - sm / 36) + ')';
+      ctx.fillRect(px + 9, Math.floor(py - 8 - sm * 0.6 + bob), 2, 2);
     }
 
     // Status orb (above head)
