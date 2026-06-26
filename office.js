@@ -1047,7 +1047,7 @@ var Office = (function() {
     ctx.fillStyle = 'rgba(13,17,23,0.85)';
     ctx.beginPath(); ctx.roundRect(labelX, labelY, labelW, roleText ? 18 : 9, 3); ctx.fill();
     ctx.font = 'bold 7px monospace'; ctx.fillStyle = '#e2e8f0'; ctx.textAlign = 'center';
-    ctx.fillText(agent.name, px, labelY + 8);
+    ctx.fillText(agent.name + (liveAgents[(agent.name || '').toLowerCase()] ? ' 🟢' : ''), px, labelY + 8);
     if (roleText) { ctx.font = '6px monospace'; ctx.fillStyle = '#94a3b8'; ctx.fillText(roleText, px, labelY + 16); }
 
     // Speech bubble
@@ -1172,6 +1172,7 @@ var Office = (function() {
   }
 
   // ═══ OVERLAY ═══
+  var liveAgents = {};
   function drawOverlay(cw, ch) {
     // Exit
     var exX = 10, exY = 10, exW = 100, exH = 26;
@@ -1187,7 +1188,7 @@ var Office = (function() {
     // Stats
     var working = agents.filter(function(a) { return a.officeState === 'working' || a.officeState === 'reviewing'; }).length;
     var idle = agents.filter(function(a) { return a.officeState === STATE.IDLE; }).length;
-    var stX = 10, stY = 42, stW = 120, stH = 46;
+    var stX = 10, stY = 42, stW = 120, stH = 56;
     ctx.fillStyle = 'rgba(13,17,23,0.85)'; ctx.fillRect(stX, stY, stW, stH);
     ctx.strokeStyle = '#1e2d3d'; ctx.strokeRect(stX, stY, stW, stH);
     ctx.font = 'bold 9px monospace'; ctx.textAlign = 'left';
@@ -1197,6 +1198,8 @@ var Office = (function() {
     ctx.fillStyle = '#eab308'; ctx.fillText('● Idle: ' + idle, stX + 6, stY + 32);
     var blocked = agents.filter(function(a) { return a.officeState === 'blocked'; }).length;
     ctx.fillStyle = '#ef4444'; ctx.fillText('● Blocked: ' + blocked, stX + 6, stY + 42);
+    var live = agents.filter(function(a) { return liveAgents[(a.name || '').toLowerCase()]; }).length;
+    ctx.fillStyle = '#38bdf8'; ctx.fillText('● Live: ' + live, stX + 6, stY + 52);
 
     // All-hands meeting banner
     if (allHandsActive) {
@@ -1382,7 +1385,13 @@ var Office = (function() {
     agents = []; bubbles = []; particles = [];
   }
 
-  function officeRefresh(data) { officeData = data; updateAgentStates(); }
+  function officeRefresh(data) {
+    officeData = data; updateAgentStates();
+    fetch('agent-logs.json?t=' + Date.now()).then(function(r) { return r.json(); }).then(function(l) {
+      liveAgents = {};
+      (l && l.active || []).forEach(function(a) { liveAgents[(a.agent || '').toLowerCase()] = true; });
+    }).catch(function() {});
+  }
 
   return { init: officeInit, destroy: officeDestroy, refresh: officeRefresh };
 })();
