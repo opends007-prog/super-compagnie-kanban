@@ -578,6 +578,7 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
     <a class="btn jira-link" href="https://opends007.atlassian.net/jira/software/projects/TD/boards/2" target="_blank" rel="noopener">📋 <span class="jira-text">Jira →</span></a>
     <button class="btn btn-icon" onclick="toggleFullscreen()" title="Fullscreen" aria-label="Fullscreen">⛶</button>
     <button class="btn btn-pri" onclick="loadData()">↻ Sync</button>
+    <button class="btn" onclick="hardRefresh()" title="Reload the latest app version (clears cached code)">⟳ Update</button>
     <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">🌙</button>
   </div>
 </div>
@@ -644,6 +645,11 @@ var COL_ORDER=['backlog','planned','in_progress','waiting','in_validation','done
 var COL_NAMES={backlog:'📦 Backlog',planned:'📌 Planned',in_progress:'🔧 In Progress',waiting:'⏳ Waiting for Support',in_validation:'🔍 In Validation',done:'✅ Done'};
 var COL_DOTS={backlog:'#64748b',planned:'#f59e0b',in_progress:'#3b82f6',waiting:'#64748b',in_validation:'#06b6d4',done:'#22c55e'};
 
+function hardRefresh(){
+  // Force a fresh fetch of index.html + JS — busts the cached app code on phones/home-screen apps.
+  try{showNotif('Updating to latest version…','success');}catch(e){}
+  location.replace(location.origin+location.pathname+'?v='+Date.now());
+}
 function loadData(){
   fetch('tickets.json?t='+Date.now())
     .then(r=>r.json())
