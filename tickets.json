@@ -2496,7 +2496,7 @@
       "description": "Set up automated health checks for all critical services: OpenClaw gateway, Tailscale, Discord bot, Jira sync, and agent workspaces. Include alerting via Discord webhook on failure.",
       "severity": "HIGH",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Argus",
       "team": "Operations",
       "epicId": "EPIC-009",
@@ -2504,7 +2504,7 @@
       "blocks": null,
       "created_by": "Zeus",
       "createdAt": "2026-06-17T04:10:26.614001+00:00",
-      "updatedAt": "2026-06-17T12:06:20.364649+00:00",
+      "updatedAt": "2026-06-26T16:05:49.747048+00:00",
       "comments": [
         {
           "by": "Zeus",
@@ -2514,9 +2514,13 @@
         {
           "by": "reconcile",
           "text": "Reset done→in_progress: no verifiable deliverable artifact (board marked done without real work). Re-queued for the real work executor."
+        },
+        {
+          "by": "Argus",
+          "text": "I produced `deliverable-STORY-053.md`, a complete, self-contained deliverable for STORY-053 that includes a bash health-check script covering all five services (OpenClaw gateway, Tailscale, Discord bot, Jira sync, agent workspaces), a Discord webhook alerting script with state-transition logic to av"
         }
       ],
-      "progress": 25,
+      "progress": 50,
       "eta_hours": 8,
       "last_agent_update": "2026-06-17T04:10:26.614001+00:00",
       "jira_key": "TD-276",
@@ -3960,14 +3964,14 @@
     "totalTickets": 96,
     "totalEpics": 14,
     "backlog": 6,
-    "in_progress": 67,
+    "in_progress": 66,
     "waiting": 0,
-    "in_validation": 0,
+    "in_validation": 1,
     "done": 22,
     "critical": 0,
     "blocked": 0,
     "review": 0,
-    "last_progress_update": "2026-06-26T14:53:06.800156+00:00",
+    "last_progress_update": "2026-06-26T16:14:55.653017+00:00",
     "planned": 1
   },
   "last_progress_update": "2026-06-22T16:30:02.987211"

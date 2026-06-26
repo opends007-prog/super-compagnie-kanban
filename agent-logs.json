@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-26T16:00:01.445531+00:00",
+  "generated": "2026-06-26T16:10:01.190497+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -24,6 +24,16 @@
           "ts": "2026-06-26T13:46:50.356679+00:00",
           "event": "no_deliverable",
           "content": "No work produced (model unavailable) \u2014 status unchanged"
+        },
+        {
+          "ts": "2026-06-26T16:00:01.463412+00:00",
+          "event": "dispatched",
+          "content": "tom started work: Deploy Kanban + Jira boards"
+        },
+        {
+          "ts": "2026-06-26T16:00:53.606734+00:00",
+          "event": "no_deliverable",
+          "content": "No work produced (model unavailable) \u2014 status unchanged"
         }
       ],
       "deliverable": {
@@ -31,6 +41,23 @@
         "size": 5480,
         "content": "# Deliverable for STORY-002: Deploy Kanban + Jira boards\n\n**Objective:** To provide a comprehensive guide for deploying and configuring Kanban and Jira boards for project management.\n\n**Note:** This deliverable outlines the steps and considerations for setting up Jira and Kanban boards. The actual deployment and configuration of Jira software and its boards are assumed to be performed by the user or a dedicated IT/DevOps team with the necessary access and permissions.\n\n## 1. Prerequisites\n\nBefore deploying Kanban and Jira boards, ensure the following are in place:\n\n*   **Jira Instance:** A functional Jira Cloud or Jira Server/Data Center instance accessible to your team.\n*   **Permissions:** Necessary administrative privileges within Jira to create projects, configure boards, and manage workflows.\n*   **Team Structure:** Clarity on how your teams will be organized within Jira (e.g., separate projects for different teams, or shared boards within a larger project).\n*   **Workflow Requirements:** Understanding of your team's development or project workflow to map it to Jira statuses and transitions.\n\n## 2. Setting Up a Jira Project\n\nIf a suitable project doesn't exist, create a new one:\n\n1.  **Navigate to Projects:** In Jira, go to \"Projects\" > \"Create project\".\n2.  **Select a Template:** Choose a template that suits your team's needs. For Kanban, templates like \"Kanban software development\" or a \"Scrum software development\" template (which can be adapted to Kanban) are common.\n3.  **Configure Project Details:**\n    *   **Name:** Give your project a descriptive name (e.g., \"Engineering Team Kanban\").\n    *   **Key:** A short, unique identifier (e.g., \"ENG\").\n    *   **Project Type:** Software development is typical for Kanban.\n    *   **Access/Permissions:** Configure who can access the project.\n\n## 3. Creating and Configuring a Kanban Board\n\nOnce a project is set up, you can create or configure a Kanban board.\n\n### 3.1. Creating a New Kanban Board\n\n1.  **Navigate to Boards:** Within your project, go to \"Boards\" > \"Create board\".\n2.  **Select Board Type:** Choose \"Create a Kanban board\".\n3.  **Connect to an Existing Project:** Link the board to the project you created.\n4.  **Board Name:** Name your board (e.g., \"Engineering Team Kanban Board\").\n\n### 3.2. Configuring Board Columns\n\nThe core of a Kanban board is its columns, representing stages of your workflow.\n\n1.  **Access Board Configuration:** From your board, click \"Board\" > \"Configure\".\n2.  **Column Mapping:** Map Jira statuses to your board columns. Common Kanban columns include:\n    *   **To Do:** Issues are ready to be started.\n    *   **In Progress:** Issues currently being worked on.\n    *   **Done:** Issues that are completed.\n    *   *You can add intermediate columns like:* \"Code Review\", \"Testing\", \"Staging\", etc., to represent your specific workflow.\n3.  **Column Limits (WIP):** For each column (except \"To Do\" and \"Done\"), set a Work-In-Progress (WIP) limit. This is crucial for Kanban to identify bottlenecks and improve flow.\n    *   Example: \"In Progress\" column might have a WIP limit of 5, meaning no more than 5 issues can be in this stage concurrently.\n\n### 3.3. Swimlanes\n\nSwimlanes can help group issues on your board. Common swimlane configurations include:\n\n*   **By Assignee:** Each assignee gets their own row.\n*   **By Epic:** Group issues belonging to the same epic.\n*   **By Stories/Bugs:** Separate different issue types.\n\n### 3.4. Quick Filters\n\nCreate quick filters to easily view subsets of issues on your board. Examples:\n\n*   \"My Issues\": Shows only issues assigned to you.\n*   \"Bugs\": Shows only bug issues.\n*   \"High Priority\": Shows only high-priority issues.\n\n## 4. Workflow Configuration\n\nThe underlying Jira workflow dictates the transitions between statuses. Ensure your workflow accurately reflects how issues move from \"To Do\" to \"Done\".\n\n1.  **Access Workflows:** In Jira Administration, go to \"Issues\" > \"Workflows\".\n2.  **Edit/Create Workflow:** Define statuses (e.g., \"Open\", \"In Progress\", \"Code Review\", \"Resolved\", \"Closed\") and transitions between them.\n3.  **Associate Workflow with Project:** Ensure your project uses the configured workflow.\n\n## 5. Best Practices for Kanban Boards\n\n*   **Visualize Workflow:** Ensure all steps of your process are represented by columns.\n*   **Limit WIP:** Enforce WIP limits to improve flow and highlight bottlenecks.\n*   **Manage Flow:** Actively monitor the board for issues getting stuck or exceeding WIP limits.\n*   **Explicit Policies:** Define clear \"Definition of Done\" for each status.\n*   **Continuous Improvement:** Regularly review board metrics (cycle time, lead time) and team process to identify areas for improvement.\n\n## 6. Testing and Verification\n\n*   **Create Sample Issues:** Create sample tasks, bugs, and epics.\n*   **Move Issues Through Workflow:** Drag and drop issues across columns to ensure transitions work as expected.\n*   **Check WIP Limits:** Attempt to move more issues into a column than its WIP limit allows and verify the system prevents it or warns appropriately.\n*   **Verify Filters/Swimlanes:** Test all configured quick filters and swimlanes to ensure they display the correct issues.\n*   **Team Feedback:** Get feedback from your team on the board's usability and effectiveness.\n\nThis guide provides a foundational approach to deploying and configuring Kanban boards in Jira. Specific configurations will vary based on team needs and Jira version.\n"
       }
+    },
+    "STORY-003": {
+      "agent": "Gladiator",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-26T16:00:53.642349+00:00",
+          "event": "dispatched",
+          "content": "tom started work: Deploy all agent workspaces to VM"
+        },
+        {
+          "ts": "2026-06-26T16:01:25.000497+00:00",
+          "event": "no_deliverable",
+          "content": "No work produced (model unavailable) \u2014 status unchanged"
+        }
+      ],
+      "deliverable": null
     },
     "STORY-032": {
       "agent": "Clio",
@@ -66,6 +93,40 @@
       ],
       "deliverable": null
     },
+    "STORY-053": {
+      "agent": "Argus",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-26T16:01:08.204595+00:00",
+          "event": "working",
+          "content": "Working on: Automated service health checks setup"
+        },
+        {
+          "ts": "2026-06-26T16:05:49.753686+00:00",
+          "event": "delivered",
+          "content": "I produced `deliverable-STORY-053.md`, a complete, self-contained deliverable for STORY-053 that includes a bash health-check script covering all five services (OpenClaw gateway, Tailscale, Discord bot, Jira sync, agent workspaces), a Discord webhook alerting script with state-transition logic to av"
+        }
+      ],
+      "deliverable": null
+    },
+    "STORY-054": {
+      "agent": "Metis",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-26T16:05:49.761329+00:00",
+          "event": "working",
+          "content": "Working on: Team efficiency analysis"
+        },
+        {
+          "ts": "2026-06-26T16:09:55.436563+00:00",
+          "event": "no_deliverable",
+          "content": "model error"
+        }
+      ],
+      "deliverable": null
+    },
     "STORY-055": {
       "agent": "Claude",
       "status": "in_progress",
@@ -74,6 +135,18 @@
           "ts": "2026-06-25T00:00:00.441677+00:00",
           "event": "started",
           "content": null
+        }
+      ],
+      "deliverable": null
+    },
+    "STORY-056": {
+      "agent": "Prometheus",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-26T16:09:55.442140+00:00",
+          "event": "working",
+          "content": "Working on: ML model deployment options research"
         }
       ],
       "deliverable": null
@@ -196,5 +269,30 @@
       "deliverable": null
     }
   },
-  "active": []
+  "active": [
+    {
+      "agent": "Gladiator",
+      "ticket": "STORY-003",
+      "event": "no_deliverable",
+      "ts": "2026-06-26T16:01:25.000497+00:00"
+    },
+    {
+      "agent": "Argus",
+      "ticket": "STORY-053",
+      "event": "delivered",
+      "ts": "2026-06-26T16:05:49.753686+00:00"
+    },
+    {
+      "agent": "Metis",
+      "ticket": "STORY-054",
+      "event": "no_deliverable",
+      "ts": "2026-06-26T16:09:55.436563+00:00"
+    },
+    {
+      "agent": "Prometheus",
+      "ticket": "STORY-056",
+      "event": "working",
+      "ts": "2026-06-26T16:09:55.442140+00:00"
+    }
+  ]
 }
