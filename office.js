@@ -18,8 +18,8 @@ var Office = (function() {
 
   // ═══ CONSTANTS ═══
   var TILE_SIZE = 20;
-  var MAP_COLS = 60;
-  var MAP_ROWS = 40;
+  var MAP_COLS = 72;
+  var MAP_ROWS = 50;
   var MAP_W = MAP_COLS * TILE_SIZE;
   var MAP_H = MAP_ROWS * TILE_SIZE;
 
@@ -78,7 +78,7 @@ var Office = (function() {
   var CEO_LINES = ['We need to make money.', 'Lucy, come see me.', "What's the budget?", 'Great — we are making money!', 'Ship it. Now.', 'Numbers up. I love it.'];
   var ceoAgent = null;
   function makeCEO() {
-    var col = 34, row = 4;
+    var col = 10, row = 8;
     return {
       id: '__ceo__', name: 'CEO', title: '(You)', team: 'Leadership',
       emoji: '', personality: 'manager', color: '#3b82f6', skin: '#e8b98c',
@@ -112,63 +112,42 @@ var Office = (function() {
   var allHandsActive = false, allHandsTimer = 0, allHandsInterval = 60; // seconds between meetings
 
   // ═══ TILE MAP ═══
+  // Open walkable interior (zones are colored rugs, not blocking walls — guarantees
+  // pathfinding stays fully connected, matching the office-metro-full preview).
   function buildTileMap() {
     tileMap = [];
     for (var r = 0; r < MAP_ROWS; r++) {
       tileMap[r] = [];
-      for (var c = 0; c < MAP_COLS; c++) tileMap[r][c] = TILE.VOID;
-    }
-
-    var areas = [
-      { x: 2, y: 10, w: 30, h: 10, t: TILE.CARPET },
-      { x: 2, y: 2, w: 6, h: 5, t: TILE.CARPET },
-      { x: 9, y: 2, w: 6, h: 5, t: TILE.CARPET },
-      { x: 16, y: 2, w: 6, h: 5, t: TILE.CARPET },
-      { x: 23, y: 2, w: 6, h: 5, t: TILE.CARPET },
-      { x: 40, y: 2, w: 8, h: 5, t: TILE.CARPET },
-      { x: 50, y: 2, w: 8, h: 6, t: TILE.CARPET },
-      { x: 34, y: 10, w: 14, h: 6, t: TILE.CARPET },
-      { x: 2, y: 22, w: 10, h: 7, t: TILE.FLOOR },
-      { x: 2, y: 30, w: 10, h: 6, t: TILE.CARPET },
-      { x: 14, y: 30, w: 6, h: 6, t: TILE.FLOOR },
-      { x: 22, y: 30, w: 6, h: 6, t: TILE.CARPET },
-      { x: 30, y: 30, w: 8, h: 6, t: TILE.CARPET },
-      { x: 44, y: 18, w: 14, h: 10, t: TILE.CARPET },
-      { x: 31, y: 2, w: 7, h: 6, t: TILE.CARPET }, // CEO OFFICE (connects to corridor at col 37/38)
-    ];
-    areas.forEach(function(a) {
-      for (var r = a.y; r < a.y + a.h; r++) {
-        for (var c = a.x; c < a.x + a.w; c++) {
-          if (r >= 0 && r < MAP_ROWS && c >= 0 && c < MAP_COLS) tileMap[r][c] = a.t;
-        }
+      for (var c = 0; c < MAP_COLS; c++) {
+        tileMap[r][c] = (r === 0 || c === 0 || r === MAP_ROWS - 1 || c === MAP_COLS - 1) ? TILE.WALL : TILE.FLOOR;
       }
-    });
-
-    // Corridors
-    for (var c = 2; c < 58; c++) { tileMap[17][c] = TILE.FLOOR; tileMap[18][c] = TILE.FLOOR; }
-    for (var r = 2; r < 17; r++) { tileMap[r][38] = TILE.FLOOR; tileMap[r][39] = TILE.FLOOR; }
-    for (var r = 22; r < 36; r++) { tileMap[r][12] = TILE.FLOOR; tileMap[r][13] = TILE.FLOOR; }
-
-    // Walls around perimeter
-    for (var c2 = 0; c2 < MAP_COLS; c2++) {
-      if (tileMap[0][c2] === TILE.VOID) tileMap[0][c2] = TILE.WALL;
-      if (tileMap[MAP_ROWS-1][c2] === TILE.VOID) tileMap[MAP_ROWS-1][c2] = TILE.WALL;
-    }
-    for (var r2 = 0; r2 < MAP_ROWS; r2++) {
-      if (tileMap[r2][0] === TILE.VOID) tileMap[r2][0] = TILE.WALL;
-      if (tileMap[r2][MAP_COLS-1] === TILE.VOID) tileMap[r2][MAP_COLS-1] = TILE.WALL;
     }
   }
+
+  // Zone rects (tile coords) — used for floor coloring + room labels (matches preview)
+  var ZONES = [
+    { x: 3,  y: 3,  w: 17, h: 12, c: 'rgba(180,150,224,0.55)', n: 'CEO OFFICE' },
+    { x: 22, y: 3,  w: 24, h: 13, c: 'rgba(150,195,225,0.55)', n: 'CONFERENCE' },
+    { x: 48, y: 3,  w: 21, h: 14, c: 'rgba(28,40,58,0.85)',    n: 'MISSION CONTROL', dark: 1 },
+    { x: 3,  y: 19, w: 30, h: 12, c: 'rgba(240,200,120,0.50)', n: 'TEAM COLLABORATION' },
+    { x: 35, y: 19, w: 12, h: 12, c: 'rgba(150,160,172,0.30)', n: 'DAILY STANDUP' },
+    { x: 49, y: 19, w: 20, h: 12, c: 'rgba(150,195,225,0.50)', n: 'FOCUS AREA' },
+    { x: 3,  y: 34, w: 18, h: 12, c: 'rgba(240,200,120,0.50)', n: 'CAFETERIA' },
+    { x: 22, y: 34, w: 14, h: 12, c: 'rgba(180,150,224,0.50)', n: 'LOUNGE' },
+    { x: 38, y: 34, w: 9,  h: 12, c: 'rgba(150,160,172,0.30)', n: 'REST' },
+    { x: 49, y: 34, w: 11, h: 12, c: 'rgba(150,160,172,0.30)', n: 'RECREATION' },
+    { x: 62, y: 34, w: 7,  h: 12, c: 'rgba(110,180,100,0.55)', n: 'SMOKING' }
+  ];
 
   // ═══ FURNITURE ═══
   function buildFurniture() {
     furniture = [];
     seats = {};
 
-    // Workstation desks
+    // TEAM COLLABORATION — workstations (amber zone)
     for (var row = 0; row < 4; row++) {
-      for (var col = 0; col < 7; col++) {
-        var dx = 4 + col * 4, dy = 12 + row * 2;
+      for (var col = 0; col < 5; col++) {
+        var dx = 5 + col * 6, dy = 21 + row * 3;
         furniture.push({ type: 'desk', x: dx, y: dy, w: 3, h: 1 });
         furniture.push({ type: 'pc', x: dx + 1, y: dy, w: 1, h: 1 });
         furniture.push({ type: 'chair', x: dx + 1, y: dy + 1, w: 1, h: 1 });
@@ -176,83 +155,81 @@ var Office = (function() {
       }
     }
 
-    // Focus rooms
-    for (var i = 0; i < 4; i++) {
-      var fx = 3 + i * 7;
-      furniture.push({ type: 'desk', x: fx, y: 4, w: 2, h: 1 });
-      furniture.push({ type: 'pc', x: fx, y: 4, w: 1, h: 1 });
-      furniture.push({ type: 'chair', x: fx, y: 5, w: 1, h: 1 });
-      seats['focus_' + i] = { x: fx, y: 5, assigned: false, facing: DIR.UP };
+    // FOCUS AREA (blue zone) — desks
+    for (var fr = 0; fr < 3; fr++) {
+      for (var fc = 0; fc < 4; fc++) {
+        var ax = 51 + fc * 5, ay = 21 + fr * 3;
+        furniture.push({ type: 'desk', x: ax, y: ay, w: 2, h: 1 });
+        furniture.push({ type: 'pc', x: ax, y: ay, w: 1, h: 1 });
+        furniture.push({ type: 'chair', x: ax, y: ay + 1, w: 1, h: 1 });
+        seats['focus_' + fr + '_' + fc] = { x: ax, y: ay + 1, assigned: false, facing: DIR.UP };
+      }
     }
 
-    // Meeting rooms
-    furniture.push({ type: 'table', x: 42, y: 4, w: 3, h: 2 });
-    furniture.push({ type: 'chair', x: 42, y: 3, w: 1, h: 1 });
-    furniture.push({ type: 'chair', x: 44, y: 3, w: 1, h: 1 });
-    furniture.push({ type: 'chair', x: 42, y: 6, w: 1, h: 1 });
-    furniture.push({ type: 'chair', x: 44, y: 6, w: 1, h: 1 });
-    seats['meet_s_1'] = { x: 42, y: 3, assigned: false, facing: DIR.DOWN };
-    seats['meet_s_2'] = { x: 44, y: 3, assigned: false, facing: DIR.DOWN };
-    seats['meet_s_3'] = { x: 42, y: 6, assigned: false, facing: DIR.UP };
-    seats['meet_s_4'] = { x: 44, y: 6, assigned: false, facing: DIR.UP };
-
-    furniture.push({ type: 'table', x: 52, y: 4, w: 4, h: 2 });
-    for (var mc = 0; mc < 4; mc++) {
-      furniture.push({ type: 'chair', x: 52 + mc, y: 3, w: 1, h: 1 });
-      furniture.push({ type: 'chair', x: 52 + mc, y: 6, w: 1, h: 1 });
-      seats['meet_m_' + mc + '_t'] = { x: 52 + mc, y: 3, assigned: false, facing: DIR.DOWN };
-      seats['meet_m_' + mc + '_b'] = { x: 52 + mc, y: 6, assigned: false, facing: DIR.UP };
+    // CONFERENCE — front whiteboard + audience chairs facing the presenter (UP)
+    furniture.push({ type: 'whiteboard', x: 32, y: 3, w: 2, h: 1 });
+    furniture.push({ type: 'lpaint', x: 24, y: 3, w: 1, h: 1 });
+    furniture.push({ type: 'lpaint', x: 43, y: 3, w: 1, h: 1 });
+    for (var crow = 0; crow < 3; crow++) {
+      for (var ccol = 0; ccol < 9; ccol++) {
+        var chx = 24 + ccol * 2, chy = 8 + crow * 2;
+        furniture.push({ type: 'cchair', x: chx, y: chy, w: 1, h: 1 });
+        seats['conf_' + crow + '_' + ccol] = { x: chx, y: chy, assigned: false, facing: DIR.UP };
+      }
     }
 
-    // Conference
-    furniture.push({ type: 'table', x: 37, y: 12, w: 8, h: 3 });
-    for (var cc = 0; cc < 8; cc++) {
-      furniture.push({ type: 'chair', x: 37 + cc, y: 11, w: 1, h: 1 });
-      furniture.push({ type: 'chair', x: 37 + cc, y: 15, w: 1, h: 1 });
-      seats['conf_' + cc + '_t'] = { x: 37 + cc, y: 11, assigned: false, facing: DIR.DOWN };
-      seats['conf_' + cc + '_b'] = { x: 37 + cc, y: 15, assigned: false, facing: DIR.UP };
-    }
+    // CEO OFFICE
+    furniture.push({ type: 'desk', x: 9, y: 7, w: 3, h: 1 });
+    furniture.push({ type: 'pc', x: 10, y: 7, w: 1, h: 1 });
+    furniture.push({ type: 'sofa', x: 4, y: 5, w: 2, h: 1 });
+    furniture.push({ type: 'dshelf', x: 16, y: 4, w: 1, h: 1 });
+    furniture.push({ type: 'lplant', x: 4, y: 12, w: 1, h: 1 });
+    furniture.push({ type: 'lpaint', x: 11, y: 3, w: 1, h: 1 });
 
-    // Cafeteria
+    // MISSION CONTROL — chairs at the console (console + board drawn live each frame)
+    for (var m = 0; m < 4; m++) {
+      furniture.push({ type: 'cchair', x: 52 + m * 4, y: 13, w: 1, h: 1 });
+      seats['mc_' + m] = { x: 52 + m * 4, y: 13, assigned: false, facing: DIR.UP };
+    }
+    furniture.push({ type: 'dshelf', x: 49, y: 15, w: 1, h: 1 });
+
+    // CAFETERIA / DINING — tables + coffee + fridge + painting
     for (var tc = 0; tc < 3; tc++) {
-      furniture.push({ type: 'table', x: 4 + tc * 3, y: 24, w: 2, h: 2 });
-      furniture.push({ type: 'chair', x: 4 + tc * 3, y: 23, w: 1, h: 1 });
-      furniture.push({ type: 'chair', x: 5 + tc * 3, y: 23, w: 1, h: 1 });
-      furniture.push({ type: 'chair', x: 4 + tc * 3, y: 26, w: 1, h: 1 });
-      furniture.push({ type: 'chair', x: 5 + tc * 3, y: 26, w: 1, h: 1 });
-      seats['cafe_' + tc + '_1'] = { x: 4 + tc * 3, y: 23, assigned: false, facing: DIR.DOWN };
-      seats['cafe_' + tc + '_2'] = { x: 5 + tc * 3, y: 23, assigned: false, facing: DIR.DOWN };
-      seats['cafe_' + tc + '_3'] = { x: 4 + tc * 3, y: 26, assigned: false, facing: DIR.UP };
-      seats['cafe_' + tc + '_4'] = { x: 5 + tc * 3, y: 26, assigned: false, facing: DIR.UP };
+      furniture.push({ type: 'stable', x: 5 + tc * 5, y: 38, w: 1, h: 1 });
+      furniture.push({ type: 'cchair', x: 5 + tc * 5, y: 37, w: 1, h: 1 });
+      furniture.push({ type: 'cchair', x: 5 + tc * 5, y: 40, w: 1, h: 1 });
+      seats['cafe_' + tc + '_t'] = { x: 5 + tc * 5, y: 37, assigned: false, facing: DIR.DOWN };
+      seats['cafe_' + tc + '_b'] = { x: 5 + tc * 5, y: 40, assigned: false, facing: DIR.UP };
     }
+    furniture.push({ type: 'coffeeM', x: 17, y: 35, w: 1, h: 1 });
+    furniture.push({ type: 'spaint', x: 4, y: 34, w: 1, h: 1 });
+    furniture.push({ type: 'lplant', x: 18, y: 44, w: 1, h: 1 });
 
-    // Lounge
-    furniture.push({ type: 'sofa', x: 4, y: 32, w: 3, h: 1 });
-    furniture.push({ type: 'sofa', x: 4, y: 34, w: 3, h: 1 });
-    furniture.push({ type: 'plant', x: 9, y: 32, w: 1, h: 1 });
-    furniture.push({ type: 'plant', x: 9, y: 34, w: 1, h: 1 });
+    // LOUNGE
+    furniture.push({ type: 'sofa', x: 24, y: 38, w: 2, h: 1 });
+    furniture.push({ type: 'sofa', x: 24, y: 40, w: 2, h: 1 });
+    furniture.push({ type: 'coffeeTable', x: 28, y: 39, w: 1, h: 1 });
+    furniture.push({ type: 'lplant', x: 33, y: 44, w: 1, h: 1 });
+    furniture.push({ type: 'lpaint', x: 24, y: 34, w: 1, h: 1 });
 
-    // Mission control
-    furniture.push({ type: 'screen', x: 47, y: 20, w: 8, h: 1 });
-    furniture.push({ type: 'desk', x: 47, y: 23, w: 8, h: 1 });
-    for (var mc2 = 0; mc2 < 4; mc2++) {
-      furniture.push({ type: 'chair', x: 48 + mc2 * 2, y: 24, w: 1, h: 1 });
-      seats['mc_' + mc2] = { x: 48 + mc2 * 2, y: 24, assigned: false, facing: DIR.UP };
-    }
+    // REST
+    furniture.push({ type: 'bed', x: 40, y: 38, w: 2, h: 1 });
+    furniture.push({ type: 'bed', x: 40, y: 41, w: 2, h: 1 });
+    furniture.push({ type: 'hplant', x: 44, y: 36, w: 1, h: 1 });
 
-    // Recreation
-    furniture.push({ type: 'arcade', x: 32, y: 32, w: 1, h: 1 });
-    furniture.push({ type: 'arcade', x: 34, y: 32, w: 1, h: 1 });
-    furniture.push({ type: 'table', x: 32, y: 34, w: 2, h: 2 });
+    // RECREATION
+    furniture.push({ type: 'arcade', x: 51, y: 37, w: 1, h: 1 });
+    furniture.push({ type: 'coffeeTable', x: 53, y: 40, w: 1, h: 1 });
+    furniture.push({ type: 'bookshelf', x: 56, y: 37, w: 1, h: 1 });
 
-    // Rest area
-    furniture.push({ type: 'bed', x: 24, y: 32, w: 2, h: 1 });
-    furniture.push({ type: 'bed', x: 24, y: 34, w: 2, h: 1 });
+    // SMOKING (outdoor)
+    furniture.push({ type: 'cbench', x: 64, y: 40, w: 1, h: 1 });
+    furniture.push({ type: 'cactus', x: 63, y: 37, w: 1, h: 1 });
+    furniture.push({ type: 'plant2', x: 67, y: 38, w: 1, h: 1 });
 
-    // CEO office
-    furniture.push({ type: 'desk', x: 33, y: 3, w: 2, h: 1 });
-    furniture.push({ type: 'sofa', x: 31, y: 6, w: 2, h: 1 });
-    furniture.push({ type: 'plant', x: 36, y: 2, w: 1, h: 1 });
+    // scattered plants
+    furniture.push({ type: 'lplant', x: 3, y: 17, w: 1, h: 1 });
+    furniture.push({ type: 'plant', x: 47, y: 17, w: 1, h: 1 });
   }
 
   // ═══ PATHFINDING (BFS) ═══
@@ -376,75 +353,43 @@ var Office = (function() {
     var pos;
     switch (agent.officeState) {
       case 'working':
-        // Leadership → Mission Control or Focus Rooms (not regular workstations)
         if (agent.personality === 'manager') {
-          // 60% mission control, 40% focus room
-          if (Math.random() < 0.6) {
-            pos = getRandomTileInArea(47, 21, 10, 5) || { x: 51, y: 23 };
-          } else {
-            pos = getRandomTileInArea(3, 3, 24, 4) || { x: 8, y: 5 };
-          }
+          pos = getRandomTileInArea(50, 13, 16, 3) || { x: 56, y: 14 }; // mission control console
           return pos;
         }
-        // Regular workers → assigned desk or workstation
-        if (agent.seatId && seats[agent.seatId]) {
-          var s = seats[agent.seatId];
-          return { x: s.x, y: s.y };
-        }
-        pos = getRandomTileInArea(4, 12, 28, 7);
-        return pos || { x: 17, y: 15 };
+        if (agent.seatId && seats[agent.seatId]) { var s = seats[agent.seatId]; return { x: s.x, y: s.y }; }
+        pos = getRandomTileInArea(4, 20, 28, 10); // team collaboration
+        return pos || { x: 12, y: 24 };
 
       case 'meeting':
-        // Leadership → small/medium meeting rooms
-        // Others → conference only if all-hands is active
-        var teamAgents = agents.filter(function(a) { return a.team === agent.team && a.id !== agent.id; });
-        if (agent.personality === 'manager') {
-          // Managers go to small/medium meetings
-          if (teamAgents.length >= 3) {
-            pos = getRandomTileInArea(52, 4, 6, 4) || { x: 54, y: 6 };
-          } else {
-            pos = getRandomTileInArea(42, 4, 6, 4) || { x: 44, y: 5 };
-          }
-        } else {
-          // Non-managers: small meeting by default
-          pos = getRandomTileInArea(42, 4, 6, 4) || { x: 44, y: 5 };
-        }
+        pos = getRandomTileInArea(24, 8, 18, 6) || { x: 33, y: 10 }; // conference audience
         return pos;
 
       case 'reviewing':
-        // Mission control
-        pos = getRandomTileInArea(47, 21, 10, 5) || { x: 51, y: 23 };
+        pos = getRandomTileInArea(50, 13, 16, 3) || { x: 56, y: 14 }; // mission control
         return pos;
 
       case 'blocked':
-        // Lounge area with other blocked agents
-        pos = getRandomTileInArea(4, 31, 8, 4) || { x: 7, y: 33 };
+        pos = getRandomTileInArea(23, 37, 12, 7) || { x: 27, y: 40 }; // lounge
         return pos;
 
       case 'idle':
       default:
-        // Random idle area: cafeteria, lounge, smoking, rest, recreation
+        // Idle areas: cafeteria, lounge, smoking, rest, recreation
         var idleAreas = [
-          { x: 4, y: 23, w: 8, h: 5 },   // Cafeteria
-          { x: 4, y: 31, w: 8, h: 4 },   // Lounge
-          { x: 14, y: 31, w: 5, h: 4 },  // Smoking (some agents)
-          { x: 22, y: 31, w: 5, h: 4 },  // Rest
-          { x: 30, y: 31, w: 7, h: 4 },  // Recreation
+          { x: 4,  y: 37, w: 15, h: 7 }, // cafeteria
+          { x: 23, y: 37, w: 12, h: 7 }, // lounge
+          { x: 63, y: 37, w: 5,  h: 7 }, // smoking
+          { x: 39, y: 38, w: 7,  h: 6 }, // rest
+          { x: 50, y: 37, w: 9,  h: 7 }  // recreation
         ];
-        // Some personalities prefer certain areas
         var area;
         var r = Math.random();
-        if (agent.personality === 'social') {
-          area = r < 0.5 ? idleAreas[0] : idleAreas[1]; // cafeteria or lounge
-        } else if (agent.personality === 'research') {
-          area = r < 0.6 ? idleAreas[0] : idleAreas[3]; // cafeteria or rest
-        } else if (agent.personality === 'worker') {
-          area = r < 0.4 ? idleAreas[0] : (r < 0.7 ? idleAreas[1] : idleAreas[4]);
-        } else if (agent.personality === 'qa') {
-          area = r < 0.5 ? idleAreas[1] : idleAreas[4]; // lounge or recreation
-        } else {
-          area = idleAreas[Math.floor(Math.random() * idleAreas.length)];
-        }
+        if (agent.personality === 'social') area = r < 0.5 ? idleAreas[0] : idleAreas[1];
+        else if (agent.personality === 'research') area = r < 0.6 ? idleAreas[0] : idleAreas[3];
+        else if (agent.personality === 'worker') area = r < 0.35 ? idleAreas[0] : (r < 0.6 ? idleAreas[1] : (r < 0.8 ? idleAreas[2] : idleAreas[4]));
+        else if (agent.personality === 'qa') area = r < 0.4 ? idleAreas[1] : (r < 0.7 ? idleAreas[4] : idleAreas[2]);
+        else area = idleAreas[Math.floor(Math.random() * idleAreas.length)];
         pos = getRandomTileInArea(area.x, area.y, area.w, area.h);
         return pos || { x: area.x + 1, y: area.y + 1 };
     }
@@ -623,11 +568,11 @@ var Office = (function() {
                   agent.state = STATE.IDLE; agent.frame = 0; agent.frameTimer = 0;
                   agent.wanderTimer = Math.random() * IDLE_PAUSE_MAX + IDLE_PAUSE_MIN;
                   // Track which idle area we're in
-                  if (agent.tileCol >= 4 && agent.tileCol <= 11 && agent.tileRow >= 23 && agent.tileRow <= 27) agent.idleArea = 'cafeteria';
-                  else if (agent.tileCol >= 4 && agent.tileCol <= 11 && agent.tileRow >= 31 && agent.tileRow <= 34) agent.idleArea = 'lounge';
-                  else if (agent.tileCol >= 14 && agent.tileCol <= 18 && agent.tileRow >= 31 && agent.tileRow <= 34) agent.idleArea = 'smoking';
-                  else if (agent.tileCol >= 22 && agent.tileCol <= 26 && agent.tileRow >= 31 && agent.tileRow <= 34) agent.idleArea = 'rest';
-                  else if (agent.tileCol >= 30 && agent.tileCol <= 36 && agent.tileRow >= 31 && agent.tileRow <= 34) agent.idleArea = 'recreation';
+                  if (agent.tileCol >= 3 && agent.tileCol <= 20 && agent.tileRow >= 34) agent.idleArea = 'cafeteria';
+                  else if (agent.tileCol >= 22 && agent.tileCol <= 36 && agent.tileRow >= 34) agent.idleArea = 'lounge';
+                  else if (agent.tileCol >= 62 && agent.tileRow >= 34) agent.idleArea = 'smoking';
+                  else if (agent.tileCol >= 38 && agent.tileCol <= 47 && agent.tileRow >= 34) agent.idleArea = 'rest';
+                  else if (agent.tileCol >= 49 && agent.tileCol <= 60 && agent.tileRow >= 34) agent.idleArea = 'recreation';
                   else agent.idleArea = 'lounge';
                 }
               }
@@ -654,7 +599,7 @@ var Office = (function() {
               // Blocked agents stay in lounge
               var loungeDest = getDestinationForStatus(agent);
               var loungePath = findPath(agent.tileCol, agent.tileRow, loungeDest.x, loungeDest.y);
-              if (loungePath.length > 0 && (agent.tileCol < 4 || agent.tileCol > 11 || agent.tileRow < 31 || agent.tileRow > 34)) {
+              if (loungePath.length > 0 && (agent.tileCol < 22 || agent.tileCol > 35 || agent.tileRow < 34)) {
                 agent.path = loungePath;
                 agent.state = STATE.WALK;
               } else {
@@ -674,12 +619,12 @@ var Office = (function() {
                 // Wander within current idle area
                 var area;
                 switch (agent.idleArea) {
-                  case 'cafeteria': area = { x: 4, y: 23, w: 8, h: 5 }; break;
-                  case 'lounge': area = { x: 4, y: 31, w: 8, h: 4 }; break;
-                  case 'smoking': area = { x: 14, y: 31, w: 5, h: 4 }; break;
-                  case 'rest': area = { x: 22, y: 31, w: 5, h: 4 }; break;
-                  case 'recreation': area = { x: 30, y: 31, w: 7, h: 4 }; break;
-                  default: area = { x: 4, y: 31, w: 8, h: 4 };
+                  case 'cafeteria': area = { x: 4, y: 37, w: 15, h: 7 }; break;
+                  case 'lounge': area = { x: 23, y: 37, w: 12, h: 7 }; break;
+                  case 'smoking': area = { x: 63, y: 37, w: 5, h: 7 }; break;
+                  case 'rest': area = { x: 39, y: 38, w: 7, h: 6 }; break;
+                  case 'recreation': area = { x: 50, y: 37, w: 9, h: 7 }; break;
+                  default: area = { x: 23, y: 37, w: 12, h: 7 };
                 }
                 var wanderDest = getRandomTileInArea(area.x, area.y, area.w, area.h);
                 if (wanderDest) {
@@ -701,7 +646,7 @@ var Office = (function() {
         // Route all agents to conference room
         agents.forEach(function(a) {
           if (a.state !== STATE.WALK || a.path.length === 0) {
-            var confDest = getRandomTileInArea(37, 12, 12, 5) || { x: 41, y: 14 };
+            var confDest = getRandomTileInArea(24, 8, 18, 6) || { x: 33, y: 10 };
             var confPath = findPath(a.tileCol, a.tileRow, confDest.x, confDest.y);
             if (confPath.length > 0) {
               a.path = confPath;
@@ -793,38 +738,28 @@ var Office = (function() {
       }
     }
 
-    // Zone rugs — amber = team/social zones, blue = focus zones (dashboard look)
-    [{x:2,y:10,w:30,h:10},{x:2,y:22,w:10,h:7},{x:2,y:30,w:10,h:6},{x:30,y:30,w:8,h:6}].forEach(function(z){
-      mc.fillStyle = 'rgba(240,200,120,0.50)'; mc.fillRect(z.x*TILE_SIZE, z.y*TILE_SIZE, z.w*TILE_SIZE, z.h*TILE_SIZE);
-    });
-    [{x:2,y:2,w:27,h:5},{x:34,y:10,w:14,h:6},{x:44,y:18,w:14,h:10},{x:40,y:2,w:18,h:6}].forEach(function(z){
-      mc.fillStyle = 'rgba(150,195,225,0.50)'; mc.fillRect(z.x*TILE_SIZE, z.y*TILE_SIZE, z.w*TILE_SIZE, z.h*TILE_SIZE);
+    // Zone-colored floors (dashboard look) from ZONES
+    ZONES.forEach(function(z) {
+      mc.fillStyle = z.c;
+      mc.fillRect(z.x * TILE_SIZE, z.y * TILE_SIZE, z.w * TILE_SIZE, z.h * TILE_SIZE);
+      mc.strokeStyle = z.dark ? 'rgba(20,30,45,0.9)' : 'rgba(255,255,255,0.30)';
+      mc.lineWidth = 2;
+      mc.strokeRect(z.x * TILE_SIZE, z.y * TILE_SIZE, z.w * TILE_SIZE, z.h * TILE_SIZE);
     });
 
     // Furniture
     furniture.forEach(function(f) { drawFurnitureSprite(mc, f); });
 
-    // Labels
+    // Zone labels (bottom-center of each room)
     mc.font = 'bold 8px monospace';
     mc.textAlign = 'center';
-    [
-      { x: 17, y: 15, t: 'WORKSTATIONS', c: '#3b82f6' },
-      { x: 5, y: 5, t: 'FOCUS ROOMS', c: '#a855f7' },
-      { x: 44, y: 5, t: 'MEETING', c: '#22c55e' },
-      { x: 41, y: 13, t: 'CONFERENCE', c: '#22c55e' },
-      { x: 7, y: 26, t: 'CAFETERIA', c: '#f59e0b' },
-      { x: 7, y: 33, t: 'LOUNGE', c: '#06b6d4' },
-      { x: 17, y: 33, t: 'SMOKING', c: '#94a3b8' },
-      { x: 25, y: 33, t: 'REST', c: '#64748b' },
-      { x: 34, y: 33, t: 'RECREATION', c: '#ec4899' },
-      { x: 51, y: 23, t: 'MISSION CTRL', c: '#e2e8f0' },
-      { x: 34, y: 5, t: 'CEO OFFICE', c: '#fbbf24' },
-    ].forEach(function(l) {
-      mc.fillStyle = 'rgba(13,17,23,0.7)';
-      var w = mc.measureText(l.t).width + 8;
-      mc.fillRect(l.x * TILE_SIZE - w / 2, l.y * TILE_SIZE - 6, w, 12);
-      mc.fillStyle = l.c;
-      mc.fillText(l.t, l.x * TILE_SIZE, l.y * TILE_SIZE + 2);
+    ZONES.forEach(function(z) {
+      var lx = (z.x + z.w / 2) * TILE_SIZE, ly = (z.y + z.h - 0.6) * TILE_SIZE;
+      var w = mc.measureText(z.n).width + 10;
+      mc.fillStyle = 'rgba(13,17,23,0.6)';
+      mc.fillRect(lx - w / 2, ly - 9, w, 14);
+      mc.fillStyle = '#ffffff';
+      mc.fillText(z.n, lx, ly + 1);
     });
   }
 
@@ -1036,6 +971,44 @@ var Office = (function() {
     ctx.globalAlpha = 1;
   }
 
+  // ═══ LIVE ROOM RENDERERS (drawn each frame in world coords) ═══
+  var standupSec = 312;
+  function drawWallOfWork(t) {
+    var bx = 24 * TILE_SIZE, by = 1 * TILE_SIZE, bw = 22 * TILE_SIZE, bh = 1.4 * TILE_SIZE;
+    ctx.fillStyle = '#1b2430'; ctx.fillRect(bx, by, bw, bh);
+    ctx.strokeStyle = '#3a4a5a'; ctx.lineWidth = 2; ctx.strokeRect(bx, by, bw, bh);
+    ctx.fillStyle = '#e2e8f0'; ctx.textAlign = 'center'; ctx.font = 'bold 8px monospace';
+    ctx.fillText('WALL OF WORK', bx + bw / 2, by + 9);
+    var cols = ['#64748b', '#3b82f6', '#eab308', '#22c55e'];
+    for (var i = 0; i < 18; i++) { ctx.fillStyle = cols[(i + (t | 0)) % 4]; ctx.fillRect(bx + 8 + i * (bw - 16) / 18, by + 13, (bw - 16) / 22, bh - 18); }
+  }
+  function drawMissionControl(t) {
+    var zx = 48, zy = 3, zw = 21;
+    var bx = (zx + 2) * TILE_SIZE, by = (zy + 1) * TILE_SIZE, bw = 16 * TILE_SIZE, bh = 5 * TILE_SIZE;
+    ctx.fillStyle = '#0b1422'; ctx.fillRect(bx, by, bw, bh);
+    ctx.strokeStyle = '#2f6ea0'; ctx.lineWidth = 2; ctx.strokeRect(bx, by, bw, bh);
+    for (var b = 0; b < 12; b++) { var hh = (Math.sin(t * 1.5 + b) * 0.5 + 0.5) * bh * 0.5 + 4; ctx.fillStyle = ['#22d3ee', '#34d399', '#f59e0b'][b % 3]; ctx.fillRect(bx + 8 + b * (bw * 0.045), by + bh - hh - 6, bw * 0.028, hh); }
+    ctx.strokeStyle = '#22d3ee'; ctx.lineWidth = 2; ctx.beginPath();
+    for (var p = 0; p <= 24; p++) { var qx = bx + bw * 0.55 + p * (bw * 0.017), qy = by + bh * 0.45 + Math.sin(t * 2 + p * 0.5) * bh * 0.16; p ? ctx.lineTo(qx, qy) : ctx.moveTo(qx, qy); }
+    ctx.stroke();
+    ctx.fillStyle = '#bfe6ff'; ctx.textAlign = 'left'; ctx.font = 'bold 7px monospace'; ctx.fillText('● LIVE OPS', bx + 6, by + 12);
+    var ccx = (zx + zw / 2) * TILE_SIZE, ccy = (zy + 11) * TILE_SIZE, rw = 7 * TILE_SIZE;
+    ctx.fillStyle = '#1d2733'; ctx.beginPath(); ctx.ellipse(ccx, ccy, rw, 2.6 * TILE_SIZE, 0, Math.PI, 0); ctx.fill();
+    ctx.fillStyle = '#2b3a4a'; ctx.beginPath(); ctx.ellipse(ccx, ccy - 4, rw * 0.9, 2.1 * TILE_SIZE, 0, Math.PI, 0); ctx.fill();
+    for (var mI = 0; mI < 5; mI++) { var a = Math.PI * (0.18 + mI * 0.16), sxp = ccx + Math.cos(a) * rw * 0.78, syp = ccy - Math.sin(a) * 2 * TILE_SIZE - 6; ctx.fillStyle = '#0b1422'; ctx.fillRect(sxp - 7, syp - 10, 14, 10); ctx.fillStyle = ['#22d3ee', '#34d399', '#f59e0b', '#22d3ee', '#a855f7'][mI]; ctx.fillRect(sxp - 5, syp - 8, 10, 6); }
+  }
+  function drawStandup(dt) {
+    standupSec -= dt; if (standupSec < 0) standupSec = 312;
+    var cx = 41 * TILE_SIZE, cy = 25 * TILE_SIZE;
+    ctx.fillStyle = 'rgba(240,200,120,0.85)'; ctx.beginPath(); ctx.ellipse(cx, cy, 5 * TILE_SIZE, 3.6 * TILE_SIZE, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#d9a93f'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = '#1b2430'; ctx.fillRect(cx - 18, cy - 12, 36, 20);
+    ctx.fillStyle = '#0b1422'; ctx.fillRect(cx - 15, cy - 9, 30, 14);
+    var mm = ('0' + Math.floor(standupSec / 60)).slice(-2), ss = ('0' + (Math.floor(standupSec) % 60)).slice(-2);
+    ctx.fillStyle = '#34d399'; ctx.textAlign = 'center'; ctx.font = 'bold 10px monospace'; ctx.fillText(mm + ':' + ss, cx, cy);
+    ctx.fillStyle = '#bfe6ff'; ctx.font = '6px monospace'; ctx.fillText('DAILY STANDUP', cx, cy - 14);
+  }
+
   // ═══ RENDER LOOP ═══
   function renderLoop(ts) {
     animId = requestAnimationFrame(renderLoop);
@@ -1058,6 +1031,9 @@ var Office = (function() {
     ctx.translate(offX, offY);
     ctx.scale(cam.zoom, cam.zoom);
     if (mapCache) ctx.drawImage(mapCache, 0, 0);
+    drawWallOfWork(ts / 1000);
+    drawMissionControl(ts / 1000);
+    drawStandup(dt);
     var sorted = agents.slice().sort(function(a, b) { return a.y - b.y; });
     sorted.forEach(function(a) { drawCharacter(a); });
     drawParticles();
