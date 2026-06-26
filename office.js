@@ -521,7 +521,7 @@ var Office = (function() {
     }
     switch (agent.officeState) {
       case 'working':
-        if (agent.currentTicket && agent.currentTicket.title && Math.random() < 0.5) return agent.currentTicket.title.substring(0, 40);
+        if (agent.currentTicket && agent.currentTicket.title && liveAgents[(agent.name || '').toLowerCase()] && Math.random() < 0.5) return agent.currentTicket.title.substring(0, 40);
         return pick(FOCUS_CHATTER);
       case 'meeting': return pick(MEETING_CHATTER);
       case 'blocked': return pick(BLOCKED_CHATTER);
@@ -1017,8 +1017,11 @@ var Office = (function() {
       ctx.fillRect(px + 9, Math.floor(py - 8 - sm * 0.6 + bob), 2, 2);
     }
 
-    // Status orb (above head)
-    var sc = STATUS_COLORS[agent.officeState] || '#64748b';
+    // Status orb (above head). Green "working" only if the agent logged real activity
+    // recently (liveAgents); a merely-assigned agent between work bursts shows amber.
+    var orbLive = liveAgents[(agent.name || '').toLowerCase()];
+    var orbState = ((agent.officeState === 'working' || agent.officeState === 'reviewing') && !orbLive) ? 'waiting' : agent.officeState;
+    var sc = STATUS_COLORS[orbState] || '#64748b';
     ctx.fillStyle = sc;
     ctx.beginPath(); ctx.arc(px, py - 40 + bob, 3.5, 0, Math.PI * 2); ctx.fill();
     ctx.strokeStyle = '#0d1117'; ctx.lineWidth = 1; ctx.stroke();
@@ -1194,7 +1197,7 @@ var Office = (function() {
     ctx.font = 'bold 9px monospace'; ctx.textAlign = 'left';
     ctx.fillStyle = '#e2e8f0'; ctx.fillText('🏢 OFFICE', stX + 6, stY + 12);
     ctx.font = '8px monospace';
-    ctx.fillStyle = '#22c55e'; ctx.fillText('● Working: ' + working, stX + 6, stY + 22);
+    ctx.fillStyle = '#f59e0b'; ctx.fillText('● Assigned: ' + working, stX + 6, stY + 22);
     ctx.fillStyle = '#eab308'; ctx.fillText('● Idle: ' + idle, stX + 6, stY + 32);
     var blocked = agents.filter(function(a) { return a.officeState === 'blocked'; }).length;
     ctx.fillStyle = '#ef4444'; ctx.fillText('● Blocked: ' + blocked, stX + 6, stY + 42);

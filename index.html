@@ -646,6 +646,7 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
 <script>
 var D={epics:[],tickets:[],stats:{}};
 var LOGS={tickets:{},active:[]};
+function isLiveName(n){n=(n||'').toLowerCase();return ((LOGS&&LOGS.active)||[]).some(function(x){return (x.agent||'').toLowerCase()===n;});}
 var CV='kanban';
 var mobileColIdx=0;
 var boardMode='all'; // 'all' | 'epics' | 'stories'
@@ -771,7 +772,6 @@ function openAgent(name){
 function rStats(){
   var tk=D.tickets||[],ep=D.epics||[],ag=D.agents||[];
   var active=tk.filter(function(t){return t.status in {in_progress:1,waiting:1,in_validation:1,planned:1}}).length;
-  var working=ag.filter(function(a){return a.status==='working'}).length;
   document.getElementById('badge-epics').textContent=ep.length+' Epics';
   document.getElementById('badge-stories').textContent=tk.length+' Stories';
   document.getElementById('badge-active').textContent=active+' Active';
@@ -1097,9 +1097,8 @@ function rTeam(){
       h+='<div class="team-section"><div class="team-sh">👥 '+tm+' ('+teams[tm].length+')</div><div class="team-grid">';
       teams[tm].forEach(function(a){
         var realStatus='idle';
-        if(a._total===0){realStatus='idle';}
-        else if(a._tickets.some(function(t){return t.status==='in_progress';})){realStatus='working';}
-        else if(a._tickets.every(function(t){return t.status==='done';})){realStatus='idle';}
+        var hasInProgress=a._tickets.some(function(t){return t.status==='in_progress';});
+        if(hasInProgress){realStatus=(isLiveName(a.id)||isLiveName(a.name))?'working':'assigned';}
 
         var barWidth=10;
         var filled=Math.round(barWidth*a._progress/100);
@@ -1107,6 +1106,7 @@ function rTeam(){
 
         var badgeClass='idle',badgeIcon='💤',badgeText='IDLE';
         if(realStatus==='working'){badgeClass='working';badgeIcon='🔨';badgeText='WORKING';}
+        else if(realStatus==='assigned'){badgeClass='idle';badgeIcon='📋';badgeText='ASSIGNED';}
         else if(realStatus==='not-active'){badgeClass='not-active';badgeIcon='🔴';badgeText='NOT ACTIVE';}
         else if(realStatus==='troubleshooting'){badgeClass='troubleshooting';badgeIcon='🔧';badgeText='TROUBLESHOOTING';}
 
@@ -1221,7 +1221,10 @@ function openAD(id){
   h+='<div class="ds"><div class="ds-id" style="color:var(--blue)">'+a.id+' · AGENT</div><div class="ds-title">'+a.name+'</div></div>';
   h+='<div class="ds"><div class="ds-label">Role</div><div class="ds-val">'+a.role+'</div></div>';
   h+='<div class="ds-row"><div class="ds-col"><div class="ds-label">Team</div><span style="font-size:11px">'+a.team+'</span></div>';
-  h+='<div class="ds-col"><div class="ds-label">Status</div><span class="agent-status-badge '+(a.status==='working'?'working':'idle')+'">'+(a.status==='working'?'🔨 WORKING':'💤 IDLE')+'</span></div></div>';
+  var adHasIP=agentTickets.some(function(t){return t.status==='in_progress';});
+  var adState=adHasIP?((isLiveName(id)||isLiveName(a.name))?'working':'assigned'):'idle';
+  var adBadge=adState==='working'?'🔨 WORKING':(adState==='assigned'?'📋 ASSIGNED':'💤 IDLE');
+  h+='<div class="ds-col"><div class="ds-label">Status</div><span class="agent-status-badge '+(adState==='working'?'working':'idle')+'">'+adBadge+'</span></div></div>';
   h+='<div class="ds"><div class="ds-label">Progress</div><div class="progress"><div class="progress-fill" style="width:'+pct+'%"></div></div><div class="pd">'+pct+'% ('+done+'/'+total+' tickets done)</div></div>';
   h+='<div class="ds"><div class="ds-label">Assigned Tickets ('+total+')</div>';
   if(total===0){
@@ -1571,6 +1574,6 @@ function agentName(id){
 loadData();
 setInterval(loadData,30000);
 </script>
-<script src="office.js?v=20260626-b5"></script>
+<script src="office.js?v=20260626-truth"></script>
 </body>
 </html>
