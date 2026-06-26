@@ -46,6 +46,33 @@ var Office = (function() {
 
   // ═══ STATE ═══
   var canvas, ctx, animId = null, officeData = null, agents = [], frameCount = 0, lastTime = 0;
+
+  // ═══ METROCITY SPRITES (assets/metro/*.png) ═══
+  var SPR = {}, sprReady = false;
+  var CFW = 16, CFH = 32;                 // character frame size
+  var WALK_FRAMES = [0, 1, 2, 1], TYPE_FRAMES = [3, 4];
+  var DIR_ROW = { 0: 0, 3: 1, 2: 2, 1: 2 }; // DIR.DOWN=0 -> row0, UP=3 -> row1, RIGHT=2 -> row2, LEFT=1 -> row2(flipped)
+  var FURN_FILE = {
+    desk: 'DESK_FRONT', table: 'TABLE', stable: 'STABLE', sofa: 'SOFA', plant: 'PLANT',
+    lplant: 'LPLANT', plant2: 'PLANT2', whiteboard: 'WHITEBOARD', screen: 'WHITEBOARD',
+    pcOn: 'PC_ON', pcOff: 'PC_OFF', bookshelf: 'BOOKSHELF', dshelf: 'DSHELF',
+    coffeeTable: 'COFFEE_TABLE', cbench: 'CBENCH', bed: 'CBENCH', coffeeM: 'COFFEE',
+    cactus: 'CACTUS', clock: 'CLOCK', lpaint: 'LPAINT', spaint: 'SPAINT', hplant: 'HPLANT',
+    wchair: 'WCHAIR', cchair: 'CCHAIR', arcade: 'BOOKSHELF'
+  };
+  function preloadSprites(done) {
+    var srcs = { char0: 'char_0', char1: 'char_1', char2: 'char_2', char3: 'char_3', char4: 'char_4', char5: 'char_5' };
+    for (var k in FURN_FILE) srcs[k] = FURN_FILE[k];
+    var keys = Object.keys(srcs), n = keys.length, count = 0;
+    if (n === 0) { sprReady = true; if (done) done(); return; }
+    keys.forEach(function(k) {
+      var img = new Image();
+      img.onload = img.onerror = function() { if (++count === n) { sprReady = true; if (done) done(); } };
+      img.src = 'assets/metro/' + srcs[k] + '.png';
+      SPR[k] = img;
+    });
+  }
+  function agentPalette(id) { var h = 0; for (var i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0; return Math.abs(h) % 6; }
   var cam = { x: 0, y: 0, zoom: 1 };
   var camDragging = false, camDragStart = {}, camDragCamStart = {}, pinchDist = 0;
   var tileMap = [], furniture = [], seats = {}, mapCache = null;
@@ -703,40 +730,31 @@ var Office = (function() {
         var x = c * TILE_SIZE, y = r * TILE_SIZE;
         if (tile === TILE.VOID) continue;
         if (tile === TILE.WALL) {
-          mc.fillStyle = '#b58e63';
+          mc.fillStyle = '#cdd3da';
           mc.fillRect(x, y, TILE_SIZE, TILE_SIZE);
-          mc.fillStyle = '#cda57e';
-          mc.fillRect(x, y, TILE_SIZE, 3);
-          mc.fillRect(x, y, 3, TILE_SIZE);
-          mc.fillStyle = '#8c6a45';
-          mc.fillRect(x + TILE_SIZE - 3, y, 3, TILE_SIZE);
-          mc.fillRect(x, y + TILE_SIZE - 3, TILE_SIZE, 3);
-          mc.fillStyle = 'rgba(0,0,0,0.10)';
-          mc.fillRect(x + 5, y + 5, TILE_SIZE - 10, TILE_SIZE - 10);
+          mc.fillStyle = '#e6ebf0';
+          mc.fillRect(x, y, TILE_SIZE, 3); mc.fillRect(x, y, 3, TILE_SIZE);
+          mc.fillStyle = '#99a2ad';
+          mc.fillRect(x + TILE_SIZE - 3, y, 3, TILE_SIZE); mc.fillRect(x, y + TILE_SIZE - 3, TILE_SIZE, 3);
         } else if (tile === TILE.FLOOR) {
-          // warm oak planks
-          mc.fillStyle = (r % 2 === 0) ? '#c79a6b' : '#c0925f';
+          mc.fillStyle = ((c + r) % 2 === 0) ? '#d7dce2' : '#d1d6dc';
           mc.fillRect(x, y, TILE_SIZE, TILE_SIZE);
-          mc.fillStyle = '#a87d50';
-          mc.fillRect(x, y, TILE_SIZE, 1);
-          mc.fillStyle = 'rgba(255,255,255,0.05)';
-          mc.fillRect(x, y + 1, TILE_SIZE, 1);
-          mc.fillStyle = 'rgba(120,80,45,0.25)';
-          mc.fillRect(x + ((r % 2) ? TILE_SIZE - 1 : 0), y, 1, TILE_SIZE);
+          mc.strokeStyle = 'rgba(150,160,172,0.30)'; mc.lineWidth = 1; mc.strokeRect(x + 0.5, y + 0.5, TILE_SIZE - 1, TILE_SIZE - 1);
         } else if (tile === TILE.CARPET) {
-          // cozy woven warm carpet
-          mc.fillStyle = ((c + r) % 2 === 0) ? '#cbb892' : '#c3ad83';
+          mc.fillStyle = ((c + r) % 2 === 0) ? '#cdd3da' : '#c7cdd4';
           mc.fillRect(x, y, TILE_SIZE, TILE_SIZE);
-          mc.fillStyle = 'rgba(120,90,55,0.14)';
-          mc.fillRect(x + 3, y + 3, 2, 2);
-          mc.fillRect(x + 12, y + 10, 2, 2);
-          mc.fillRect(x + 8, y + 15, 2, 2);
-          mc.fillStyle = 'rgba(255,255,255,0.05)';
-          mc.fillRect(x + 4, y + 4, 1, 1);
-          mc.fillRect(x + 13, y + 11, 1, 1);
+          mc.strokeStyle = 'rgba(150,160,172,0.25)'; mc.lineWidth = 1; mc.strokeRect(x + 0.5, y + 0.5, TILE_SIZE - 1, TILE_SIZE - 1);
         }
       }
     }
+
+    // Zone rugs — amber = team/social zones, blue = focus zones (dashboard look)
+    [{x:2,y:10,w:30,h:10},{x:2,y:22,w:10,h:7},{x:2,y:30,w:10,h:6},{x:30,y:30,w:8,h:6}].forEach(function(z){
+      mc.fillStyle = 'rgba(240,200,120,0.50)'; mc.fillRect(z.x*TILE_SIZE, z.y*TILE_SIZE, z.w*TILE_SIZE, z.h*TILE_SIZE);
+    });
+    [{x:2,y:2,w:27,h:5},{x:34,y:10,w:14,h:6},{x:44,y:18,w:14,h:10},{x:40,y:2,w:18,h:6}].forEach(function(z){
+      mc.fillStyle = 'rgba(150,195,225,0.50)'; mc.fillRect(z.x*TILE_SIZE, z.y*TILE_SIZE, z.w*TILE_SIZE, z.h*TILE_SIZE);
+    });
 
     // Furniture
     furniture.forEach(function(f) { drawFurnitureSprite(mc, f); });
@@ -766,6 +784,15 @@ var Office = (function() {
 
   function drawFurnitureSprite(mc, f) {
     var x = f.x * TILE_SIZE, y = f.y * TILE_SIZE, s = TILE_SIZE;
+    if (sprReady) {
+      var fk = f.type === 'chair' ? 'wchair' : (f.type === 'pc' ? 'pcOn' : f.type);
+      var fi = SPR[fk];
+      if (fi && fi.complete && fi.width) {
+        var fsc = TILE_SIZE / 16, fdw = fi.width * fsc, fdh = fi.height * fsc;
+        mc.drawImage(fi, x, y - (fdh - f.h * TILE_SIZE), fdw, fdh);
+        return;
+      }
+    }
     function ol(ox, oy, ow, oh) { mc.fillStyle = '#3a2c1c'; mc.fillRect(ox - 1, oy - 1, ow + 2, oh + 2); }
     switch (f.type) {
       case 'desk': {
@@ -848,152 +875,64 @@ var Office = (function() {
   // ═══ CHARACTER RENDERER ═══
   function drawCharacter(agent) {
     var px = Math.floor(agent.x), py = Math.floor(agent.y);
-    var OUT = '#241c14';
-    function shadeHex(hex, amt) { var n = parseInt(hex.slice(1), 16); function cl(v){return Math.max(0,Math.min(255,v));} return 'rgb(' + cl((n>>16&255)+amt) + ',' + cl((n>>8&255)+amt) + ',' + cl((n&255)+amt) + ')'; }
-    function oR(x, y, w, h, col) { ctx.fillStyle = OUT; ctx.fillRect(x-1, y, w+2, h); ctx.fillRect(x, y-1, w, h+2); ctx.fillStyle = col; ctx.fillRect(x, y, w, h); }
-    var bodyColor = (agent.color && agent.color.charAt(0) === '#') ? agent.color : '#6b7a99';
-    var bodyDk = shadeHex(bodyColor, -34), bodyHi = shadeHex(bodyColor, 28);
-    var skinColor = (agent.skin && agent.skin.charAt(0) === '#') ? agent.skin : '#f3cda3';
-    var skinDk = shadeHex(skinColor, -22);
-    var hairColors = ['#2d1b0e', '#4a3728', '#8b6914', '#15131a', '#c9462f', '#caa24a', '#e8e8e8', '#5a3a1a'];
-    var styles = ['short', 'long', 'pony', 'bun', 'bob', 'spiky'];
-    var hcode = Math.abs(agent.id.charCodeAt(0) * 7 + (agent.id.charCodeAt(1) || 0) * 13);
-    var hairColor = hairColors[hcode % hairColors.length];
-    var hairStyle = styles[hcode % styles.length];
-    var glasses = (hcode % 3) === 0;
-    var bob = agent.walking ? Math.sin(agent.frameTimer * 8) * 1.4 : Math.sin(frameCount * 0.03 + agent.id.charCodeAt(0)) * 0.4;
+    var bob = agent.walking ? Math.sin(agent.frameTimer * 8) * 1.2 : Math.sin(frameCount * 0.03 + agent.id.charCodeAt(0)) * 0.4;
 
     // Shadow
     ctx.fillStyle = 'rgba(0,0,0,0.22)';
-    ctx.beginPath();
-    ctx.ellipse(px, py + 8, 6, 2, 0, 0, Math.PI * 2);
-    ctx.fill();
+    ctx.beginPath(); ctx.ellipse(px, py + 9, 7, 2.5, 0, 0, Math.PI * 2); ctx.fill();
 
-    // Legs (walk cycle)
-    var ll = 0, lr = 0;
-    if (agent.walking) { var lf = Math.floor(agent.frameTimer * 6) % 4; if (lf === 0) { ll = 1; lr = -1; } else if (lf === 2) { ll = -1; lr = 1; } }
-    ctx.fillStyle = '#2d3748';
-    ctx.fillRect(px - 4 + ll, py + 2 + bob, 3, 5);
-    ctx.fillRect(px + 1 + lr, py + 2 + bob, 3, 5);
-    ctx.fillStyle = OUT;
-    ctx.fillRect(px - 4 + ll, py + 6 + bob, 3, 1);
-    ctx.fillRect(px + 1 + lr, py + 6 + bob, 3, 1);
-
-    // Body (outlined + two-tone shading)
-    oR(px - 5, py - 8 + bob, 10, 10, bodyColor);
-    ctx.fillStyle = bodyDk; ctx.fillRect(px - 5, py - 8 + bob, 3, 10);
-    ctx.fillStyle = bodyHi; ctx.fillRect(px + 3, py - 8 + bob, 2, 10);
-    ctx.fillStyle = 'rgba(255,255,255,0.20)'; ctx.fillRect(px - 1, py - 8 + bob, 2, 2); // collar
-
-    // Arms (outlined) + typing flutter
-    var as = agent.walking ? Math.sin(agent.frameTimer * 6) : 0;
-    var typing = agent.state === STATE.TYPE;
-    var tA = typing ? (Math.floor(frameCount * 0.25) % 2 ? 1 : 0) : 0;
-    oR(px - 7, py - 7 + as + bob, 2, 6, bodyColor);
-    oR(px + 5, py - 7 - as + bob, 2, 6, bodyColor);
-    ctx.fillStyle = skinColor;
-    ctx.fillRect(px - 7, py - 2 + as + bob - tA, 2, 2);
-    ctx.fillRect(px + 5, py - 2 - as + bob - (typing ? (tA ? 0 : 1) : 0), 2, 2);
-
-    // Head (outlined) + face shade
-    oR(px - 4, py - 14 + bob, 8, 7, skinColor);
-    ctx.fillStyle = skinDk; ctx.fillRect(px - 4, py - 14 + bob, 2, 7);
-
-    // Hair (varied styles)
-    ctx.fillStyle = hairColor;
-    if (hairStyle === 'long' || hairStyle === 'bob') {
-      var hl = hairStyle === 'bob' ? 8 : 11;
-      ctx.fillRect(px - 5, py - 15 + bob, 10, 3); ctx.fillRect(px - 5, py - 15 + bob, 2, hl); ctx.fillRect(px + 3, py - 15 + bob, 2, hl); ctx.fillRect(px - 3, py - 16 + bob, 6, 1);
-    } else if (hairStyle === 'pony') {
-      ctx.fillRect(px - 5, py - 15 + bob, 10, 3); ctx.fillRect(px - 5, py - 15 + bob, 2, 5); ctx.fillRect(px + 3, py - 15 + bob, 2, 5); ctx.fillRect(px + 4, py - 14 + bob, 2, 8);
-    } else if (hairStyle === 'bun') {
-      ctx.fillRect(px - 5, py - 15 + bob, 10, 3); ctx.fillRect(px - 5, py - 15 + bob, 2, 5); ctx.fillRect(px + 3, py - 15 + bob, 2, 4); ctx.fillRect(px - 2, py - 18 + bob, 5, 3);
-    } else if (hairStyle === 'spiky') {
-      ctx.fillRect(px - 5, py - 15 + bob, 10, 3); ctx.fillRect(px - 4, py - 17 + bob, 2, 3); ctx.fillRect(px - 1, py - 18 + bob, 2, 3); ctx.fillRect(px + 2, py - 17 + bob, 2, 3); ctx.fillRect(px - 5, py - 15 + bob, 2, 4); ctx.fillRect(px + 3, py - 15 + bob, 2, 4);
+    // MetroCity sprite (fallback to a simple block until sprites load)
+    var pal = agentPalette(agent.id);
+    var dirRow = (DIR_ROW[agent.dir] != null) ? DIR_ROW[agent.dir] : 0;
+    var flip = (agent.dir === DIR.LEFT);
+    var col = (agent.state === STATE.TYPE) ? TYPE_FRAMES[agent.frame % 2]
+            : (agent.walking ? WALK_FRAMES[agent.frame % 4] : 0);
+    var cimg = SPR['char' + pal];
+    var dw = 22, dh = 44, dx = px - dw / 2, dy = py + 9 + bob - dh;
+    if (sprReady && cimg && cimg.complete && cimg.width) {
+      var sx = col * CFW, sy = dirRow * CFH;
+      if (flip) { ctx.save(); ctx.translate(dx + dw, 0); ctx.scale(-1, 1); ctx.drawImage(cimg, sx, sy, CFW, CFH, 0, dy, dw, dh); ctx.restore(); }
+      else ctx.drawImage(cimg, sx, sy, CFW, CFH, dx, dy, dw, dh);
     } else {
-      ctx.fillRect(px - 5, py - 15 + bob, 10, 3); ctx.fillRect(px - 5, py - 15 + bob, 2, 5); ctx.fillRect(px + 3, py - 15 + bob, 2, 4); ctx.fillRect(px - 3, py - 16 + bob, 6, 1);
+      ctx.fillStyle = agent.color || '#6b7a99'; ctx.fillRect(px - 5, py - 6 + bob, 10, 14);
+      ctx.fillStyle = agent.skin || '#f3cda3'; ctx.fillRect(px - 4, py - 14 + bob, 8, 7);
     }
 
-    // Eyes (+ optional glasses)
-    var blink = frameCount % 180 > 175 ? 1 : 2;
-    if (glasses) {
-      ctx.fillStyle = OUT; ctx.fillRect(px - 3, py - 11 + bob, 3, 3); ctx.fillRect(px + 1, py - 11 + bob, 3, 3); ctx.fillRect(px, py - 10 + bob, 1, 1);
-      ctx.fillStyle = '#bfe4f2'; ctx.fillRect(px - 2, py - 10 + bob, 1, 1); ctx.fillRect(px + 2, py - 10 + bob, 1, 1);
-    } else {
-      ctx.fillStyle = OUT;
-      ctx.fillRect(px - 2, py - 11 + bob, 2, blink);
-      ctx.fillRect(px + 1, py - 11 + bob, 2, blink);
-      if (blink > 1) { ctx.fillStyle = '#fff'; ctx.fillRect(px - 1, py - 11 + bob, 1, 1); ctx.fillRect(px + 2, py - 11 + bob, 1, 1); }
-    }
-
-    // Cheeks + mouth
-    ctx.fillStyle = 'rgba(230,120,120,0.45)'; ctx.fillRect(px - 3, py - 9 + bob, 1, 1); ctx.fillRect(px + 2, py - 9 + bob, 1, 1);
-    ctx.fillStyle = agent.isBlocked ? '#e67e22' : '#9c4a3a';
-    ctx.fillRect(px - 1, py - 8 + bob, 2, 1);
-
-    // Status
+    // Status orb (above head)
     var sc = STATUS_COLORS[agent.officeState] || '#64748b';
     ctx.fillStyle = sc;
-    ctx.beginPath(); ctx.arc(px, py - 17 + bob, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(px, py - 40 + bob, 3.5, 0, Math.PI * 2); ctx.fill();
     ctx.strokeStyle = '#0d1117'; ctx.lineWidth = 1; ctx.stroke();
-    ctx.beginPath(); ctx.arc(px, py - 17 + bob, 5, 0, Math.PI * 2);
-    ctx.fillStyle = sc + '20'; ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.beginPath(); ctx.arc(px - 1, py - 41 + bob, 1.2, 0, Math.PI * 2); ctx.fill();
 
-    // Typing glow
-    if (agent.state === STATE.TYPE) {
-      var g = Math.sin(frameCount * 0.1) * 0.3 + 0.7;
-      ctx.fillStyle = 'rgba(59,130,246,' + (g * 0.4) + ')';
-      ctx.fillRect(px - 8, py + 9 + bob, 16, 2);
-    }
-
-    // Celebration
+    // Celebration / Blocked markers
     if (agent.celebrationTimer > 0) {
       ctx.globalAlpha = Math.min(1, agent.celebrationTimer);
-      ctx.fillStyle = '#f59e0b';
-      ctx.font = 'bold 8px monospace';
-      ctx.textAlign = 'center';
-      ctx.fillText('★ DONE!', px, py - 22 + bob);
-      ctx.globalAlpha = 1;
+      ctx.fillStyle = '#f59e0b'; ctx.font = 'bold 8px monospace'; ctx.textAlign = 'center';
+      ctx.fillText('★ DONE!', px, py - 46 + bob); ctx.globalAlpha = 1;
     }
-
-    // Blocked
     if (agent.isBlocked) {
-      ctx.fillStyle = '#ef4444';
-      ctx.font = 'bold 8px monospace';
-      ctx.textAlign = 'center';
-      ctx.fillText('!', px, py - 22 + bob);
+      ctx.fillStyle = '#ef4444'; ctx.font = 'bold 9px monospace'; ctx.textAlign = 'center';
+      ctx.fillText('!', px + 9, py - 40 + bob);
     }
 
-    // Name + Role label
+    // Name + Role label (under feet)
     var roleText = agent.title || agent.role || '';
-    // Shorten long role text for display
     if (roleText.length > 20) roleText = roleText.substring(0, 18) + '…';
     ctx.font = 'bold 7px monospace';
     var nameW = ctx.measureText(agent.name).width + 6;
     ctx.font = '6px monospace';
     var roleW = ctx.measureText(roleText).width + 6;
     var labelW = Math.max(nameW, roleW);
-    var labelX = px - labelW / 2;
-    var labelY = py + 9 + bob;
-    // Background pill
+    var labelX = px - labelW / 2, labelY = py + 11 + bob;
     ctx.fillStyle = 'rgba(13,17,23,0.85)';
-    ctx.beginPath();
-    ctx.roundRect(labelX, labelY, labelW, roleText ? 18 : 9, 3);
-    ctx.fill();
-    // Name
-    ctx.font = 'bold 7px monospace';
-    ctx.fillStyle = '#e2e8f0';
-    ctx.textAlign = 'center';
-    ctx.fillText(agent.name, px, labelY + 8 + bob);
-    // Role (under name)
-    if (roleText) {
-      ctx.font = '6px monospace';
-      ctx.fillStyle = '#94a3b8';
-      ctx.fillText(roleText, px, labelY + 16 + bob);
-    }
+    ctx.beginPath(); ctx.roundRect(labelX, labelY, labelW, roleText ? 18 : 9, 3); ctx.fill();
+    ctx.font = 'bold 7px monospace'; ctx.fillStyle = '#e2e8f0'; ctx.textAlign = 'center';
+    ctx.fillText(agent.name, px, labelY + 8);
+    if (roleText) { ctx.font = '6px monospace'; ctx.fillStyle = '#94a3b8'; ctx.fillText(roleText, px, labelY + 16); }
 
     // Speech bubble
-    if (agent.speechBubble) drawSpeechBubble(px, py - 28 + bob, agent.speechBubble.text, agent.speechBubble.type || 'normal');
+    if (agent.speechBubble) drawSpeechBubble(px, py - 48 + bob, agent.speechBubble.text, agent.speechBubble.type || 'normal');
   }
 
   function drawSpeechBubble(cx, cy, text, type) {
@@ -1273,6 +1212,7 @@ var Office = (function() {
     buildFurniture();
     buildMapCache();
     setupInputHandlers();
+    preloadSprites(function() { buildMapCache(); }); // rebuild with MetroCity furniture once loaded
     requestAnimationFrame(function() { initCamera(); resizeCanvas(); });
     if (!animId) animId = requestAnimationFrame(renderLoop);
   }
