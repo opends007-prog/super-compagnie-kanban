@@ -74,6 +74,14 @@ a{color:var(--blue);text-decoration:none}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .badge-count{background:var(--bg4);color:var(--text2);border:1px solid var(--border)}
 .hdr-right{display:flex;gap:6px;align-items:center;flex-shrink:0}
+.now-working{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:4px 10px;font-size:11px}
+.nw-label{color:var(--text2);font-weight:600}
+.nw-idle{color:var(--text3);font-size:11px;padding:4px 10px}
+.nw-chip{background:var(--bg4);border:1px solid var(--border);border-radius:12px;padding:2px 8px;cursor:pointer;color:var(--text)}
+.nw-chip:hover{border-color:var(--blue)}
+.nw-ev{color:var(--blue);font-size:9px}
+.dlv-content{background:var(--bg4);border:1px solid var(--border);border-radius:5px;padding:8px;font-size:10px;max-height:240px;overflow:auto;white-space:pre-wrap;color:var(--text2)}
+.dlv{font-size:10px;color:#22c55e;margin-top:4px}
 .btn{
   display:inline-flex;align-items:center;gap:4px;
   padding:8px 14px;border-radius:var(--radius);
@@ -600,6 +608,7 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
   <button class="bmode-btn" id="bmode-epics" onclick="setBoardMode('epics')">📁 Epics</button>
   <button class="bmode-btn" id="bmode-stories" onclick="setBoardMode('stories')">📖 Stories</button>
 </div>
+<div id="nowWorking" class="now-working"></div>
 
 <!-- ═══ OFFLINE BANNER ═══ -->
 <div class="offline-banner" id="offlineBanner">📡 You are offline — data may be stale</div>
@@ -636,6 +645,7 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
 
 <script>
 var D={epics:[],tickets:[],stats:{}};
+var LOGS={tickets:{},active:[]};
 var CV='kanban';
 var mobileColIdx=0;
 var boardMode='all'; // 'all' | 'epics' | 'stories'
@@ -651,6 +661,7 @@ function hardRefresh(){
   location.replace(location.origin+location.pathname+'?v='+Date.now());
 }
 function loadData(){
+  fetch('agent-logs.json?t='+Date.now()).then(function(r){return r.json();}).then(function(l){LOGS=l||LOGS;renderActive();}).catch(function(){});
   fetch('tickets.json?t='+Date.now())
     .then(r=>r.json())
     .then(d=>{
@@ -731,6 +742,32 @@ function render(){
   }
 }
 
+function renderActive(){
+  var el=document.getElementById('nowWorking'); if(!el)return;
+  var a=(LOGS&&LOGS.active)||[];
+  if(!a.length){el.innerHTML='<span class="nw-idle">💤 No agents working right now (they work in bursts when the executor runs)</span>';return;}
+  el.innerHTML='<span class="nw-label">🟢 Working now:</span>'+a.map(function(x){
+    return '<span class="nw-chip" onclick="openAgent(\''+(x.agent||'')+'\')">'+(agentEmoji(x.agent)||'🤖')+' '+agentName(x.agent)+(x.ticket?' · '+x.ticket:'')+' <span class="nw-ev">'+(x.event||'')+'</span></span>';
+  }).join('');
+}
+function openAgent(name){
+  if(!name)return;
+  var rows=[];
+  Object.keys((LOGS&&LOGS.tickets)||{}).forEach(function(tid){
+    var L=LOGS.tickets[tid]; if(L.agent===name) rows.push({ticket:tid,status:L.status,events:L.events,deliverable:L.deliverable});
+  });
+  document.getElementById('dtitle').textContent=(agentEmoji(name)||'🤖')+' '+agentName(name)+' — activity';
+  var h='<div class="ds"><div class="ds-label">Agent</div><div class="ds-title">'+agentName(name)+'</div><div style="color:var(--text3);font-size:10px">'+rows.length+' ticket(s) with logged work</div></div>';
+  if(!rows.length)h+='<div style="color:var(--text3);font-size:11px">No logged work yet for this agent.</div>';
+  rows.forEach(function(r){
+    h+='<div class="ds"><div class="ds-id" style="cursor:pointer" onclick="openTD(\''+r.ticket+'\')">'+r.ticket+' · '+(r.status||'')+'</div>';
+    (r.events||[]).slice(-6).forEach(function(e){h+='<div class="cm"><span class="cm-by">'+(e.event||'')+':</span> '+(e.content||'')+'<span class="cm-time">'+(e.ts?formatTime(e.ts):'')+'</span></div>';});
+    if(r.deliverable)h+='<div class="dlv">📎 '+r.deliverable.file+' ('+r.deliverable.size+' b)</div>';
+    h+='</div>';
+  });
+  document.getElementById('db').innerHTML=h;
+  document.getElementById('dp').classList.add('op');
+}
 function rStats(){
   var tk=D.tickets||[],ep=D.epics||[],ag=D.agents||[];
   var active=tk.filter(function(t){return t.status in {in_progress:1,waiting:1,in_validation:1,planned:1}}).length;
@@ -1121,6 +1158,20 @@ function openTD(id){
   h+='<div class="ds-col"><div class="ds-label">Team</div><span style="font-size:11px">'+t.team+'</span></div></div>';
   if(blk)h+='<div class="ds"><div class="ds-label">⛔ Blocked By</div><div class="bi" onclick="openTD(\''+blk.id+'\')">'+blk.id+': '+blk.title+'</div></div>';
   if(t.blocks)h+='<div class="ds"><div class="ds-label">Blocks</div><div class="bi">'+t.blocks+'</div></div>';
+
+  // Work log + deliverable (real agent work, from agent-logs.json)
+  var L=(LOGS&&LOGS.tickets&&LOGS.tickets[t.id])||null;
+  if(L){
+    h+='<div class="ds"><div class="ds-label">⚙ Work Log</div>';
+    if(L.events&&L.events.length){
+      h+=L.events.slice(-8).map(function(e){return '<div class="cm"><span class="cm-by">'+(e.event||'')+':</span> '+(e.content||'')+'<span class="cm-time">'+(e.ts?formatTime(e.ts):'')+'</span></div>';}).join('');
+    } else { h+='<div style="color:var(--text3);font-size:10px">No work events yet</div>'; }
+    h+='</div>';
+    if(L.deliverable){
+      h+='<div class="ds"><div class="ds-label">📎 Deliverable — '+L.deliverable.file+' ('+L.deliverable.size+' bytes)</div>';
+      h+='<pre class="dlv-content">'+escapeHtml(L.deliverable.content||'')+'</pre></div>';
+    }
+  }
 
   // Comments section — OLD STYLE with working textarea + Save button
   h+='<div class="ds"><div class="ds-label">Comments</div>';
@@ -1520,6 +1571,6 @@ function agentName(id){
 loadData();
 setInterval(loadData,30000);
 </script>
-<script src="office.js?v=20260626-b2"></script>
+<script src="office.js?v=20260626-live"></script>
 </body>
 </html>
