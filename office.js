@@ -128,7 +128,7 @@ var Office = (function() {
   function randomBreakRoom() { var a = BREAK_ROOMS[(Math.random() * BREAK_ROOMS.length) | 0]; return getRandomTileInArea(a.x, a.y, a.w, a.h) || { x: a.x + 1, y: a.y + 1 }; }
 
   // ═══ VIP AI — CEO + Lucy (custom behavior, bypasses the generic state machine) ═══
-  var ceoMode = 'office', ceoSmoke = 60, ceoModeT = 30, congratsT = 5;
+  var ceoMode = 'office', ceoSmoke = 1200, ceoModeT = 30, congratsT = 5;
   var lucyMode = 'follow', lucyT = 25, lucyTarget = null;
   function vipGoto(agent, tx, ty, faceDir, dt) {
     var arrived = moveAgentToward(agent, tx * TILE_SIZE + TILE_SIZE / 2, ty * TILE_SIZE + TILE_SIZE / 2, dt);
@@ -159,7 +159,7 @@ var Office = (function() {
     }
     if (agent.ceo) {
       ceoSmoke -= dt;
-      if (ceoMode !== 'smoking' && ceoSmoke <= 0) { ceoMode = 'smoking'; ceoModeT = 55; ceoSmoke = 60; }
+      if (ceoMode !== 'smoking' && ceoSmoke <= 0) { ceoMode = 'smoking'; ceoModeT = 60; ceoSmoke = 1200; }
       if (ceoMode === 'smoking') { vipGoto(agent, 64, 41, DIR.DOWN, dt); agent.idleArea = 'smoking'; ceoModeT -= dt; if (ceoModeT <= 0) ceoMode = 'office'; }
       else if (ceoMode === 'mc') { vipGoto(agent, 55, 14, DIR.UP, dt); agent.idleArea = 'mc'; ceoModeT -= dt; if (ceoModeT <= 0) ceoMode = 'office'; }
       else { vipGoto(agent, 10, 8, DIR.DOWN, dt); agent.idleArea = 'ceo'; ceoModeT -= dt; if (ceoModeT <= 0) { if (Math.random() < 0.35) { ceoMode = 'mc'; ceoModeT = 35; } else ceoModeT = 30 + Math.random() * 40; } }
@@ -764,9 +764,9 @@ var Office = (function() {
 
       // ═══ ALL-HANDS MEETING SYSTEM ═══
       // Every ~90 seconds, trigger a 30-second general meeting in conference room
-      if (!allHandsActive && frameCount % (60 * 360) === 0 && agents.length > 5) {
+      if (!allHandsActive && frameCount % (60 * 600) === 0 && agents.length > 5) {
         allHandsActive = true;
-        allHandsTimer = 300; // 5-minute all-hands
+        allHandsTimer = 60; // 1-minute all-hands, every 10 min
         // Assign each agent their OWN conference chair (no clumping)
         var confKeys = Object.keys(seats).filter(function(k) { return k.indexOf('conf_') === 0; });
         var si = 0;
@@ -1047,7 +1047,7 @@ var Office = (function() {
     ctx.fillStyle = 'rgba(13,17,23,0.85)';
     ctx.beginPath(); ctx.roundRect(labelX, labelY, labelW, roleText ? 18 : 9, 3); ctx.fill();
     ctx.font = 'bold 7px monospace'; ctx.fillStyle = '#e2e8f0'; ctx.textAlign = 'center';
-    ctx.fillText(agent.name + (liveAgents[(agent.name || '').toLowerCase()] ? ' 🟢' : ''), px, labelY + 8);
+    ctx.fillText(agent.name, px, labelY + 8);
     if (roleText) { ctx.font = '6px monospace'; ctx.fillStyle = '#94a3b8'; ctx.fillText(roleText, px, labelY + 16); }
 
     // Speech bubble
@@ -1172,7 +1172,6 @@ var Office = (function() {
   }
 
   // ═══ OVERLAY ═══
-  var liveAgents = {};
   function drawOverlay(cw, ch) {
     // Exit
     var exX = 10, exY = 10, exW = 100, exH = 26;
@@ -1188,7 +1187,7 @@ var Office = (function() {
     // Stats
     var working = agents.filter(function(a) { return a.officeState === 'working' || a.officeState === 'reviewing'; }).length;
     var idle = agents.filter(function(a) { return a.officeState === STATE.IDLE; }).length;
-    var stX = 10, stY = 42, stW = 120, stH = 56;
+    var stX = 10, stY = 42, stW = 120, stH = 46;
     ctx.fillStyle = 'rgba(13,17,23,0.85)'; ctx.fillRect(stX, stY, stW, stH);
     ctx.strokeStyle = '#1e2d3d'; ctx.strokeRect(stX, stY, stW, stH);
     ctx.font = 'bold 9px monospace'; ctx.textAlign = 'left';
@@ -1198,8 +1197,6 @@ var Office = (function() {
     ctx.fillStyle = '#eab308'; ctx.fillText('● Idle: ' + idle, stX + 6, stY + 32);
     var blocked = agents.filter(function(a) { return a.officeState === 'blocked'; }).length;
     ctx.fillStyle = '#ef4444'; ctx.fillText('● Blocked: ' + blocked, stX + 6, stY + 42);
-    var live = agents.filter(function(a) { return liveAgents[(a.name || '').toLowerCase()]; }).length;
-    ctx.fillStyle = '#38bdf8'; ctx.fillText('● Live: ' + live, stX + 6, stY + 52);
 
     // All-hands meeting banner
     if (allHandsActive) {
@@ -1385,13 +1382,7 @@ var Office = (function() {
     agents = []; bubbles = []; particles = [];
   }
 
-  function officeRefresh(data) {
-    officeData = data; updateAgentStates();
-    fetch('agent-logs.json?t=' + Date.now()).then(function(r) { return r.json(); }).then(function(l) {
-      liveAgents = {};
-      (l && l.active || []).forEach(function(a) { liveAgents[(a.agent || '').toLowerCase()] = true; });
-    }).catch(function() {});
-  }
+  function officeRefresh(data) { officeData = data; updateAgentStates(); }
 
   return { init: officeInit, destroy: officeDestroy, refresh: officeRefresh };
 })();
