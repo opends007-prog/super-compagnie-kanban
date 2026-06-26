@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-26T22:00:01.683993+00:00",
+  "generated": "2026-06-26T22:10:02.273469+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -13,7 +13,7 @@
     },
     "STORY-002": {
       "agent": "Gladiator",
-      "status": "in_validation",
+      "status": "in_progress",
       "events": [
         {
           "ts": "2026-06-26T13:45:40.231802+00:00",
@@ -49,6 +49,16 @@
           "ts": "2026-06-26T20:27:00.786374+00:00",
           "event": "validating",
           "content": "Independently reviewing tom's deliverable"
+        },
+        {
+          "ts": "2026-06-26T22:00:01.706972+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing tom's deliverable"
+        },
+        {
+          "ts": "2026-06-26T22:01:31.112315+00:00",
+          "event": "validation_fail",
+          "content": "FAIL \u2014 sent back: The deliverable is a comprehensive design document and plan, but contains no evidence of actual completed work \u2014 no team walkthrough meeting minutes or invite link (AC #8), no Story-Template.txt artifact (AC #1), no proof a SUPERCOMP project exists or that any commit references a SUPERCOMP issue key"
         }
       ],
       "deliverable": {
@@ -80,6 +90,11 @@
           "ts": "2026-06-26T20:06:37.644005+00:00",
           "event": "delivered",
           "content": "[claude] Produced STORY-003-deliverable.md (8064b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-26T22:01:31.119896+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing tom's deliverable"
         }
       ],
       "deliverable": {
@@ -469,5 +484,12 @@
       "deliverable": null
     }
   },
-  "active": []
+  "active": [
+    {
+      "agent": "nemesis",
+      "ticket": "STORY-003",
+      "event": "validating",
+      "ts": "2026-06-26T22:01:31.119896+00:00"
+    }
+  ]
 }
