@@ -1,92 +1,47 @@
-# ⚡ Agent Activity Stream
+# ⚡ Agent Activity & Observability
 
-Real-time feed of all internal agent communications in Super Compagnie Mission Control.
+How Mission Control shows what the agents are *really* doing. **The site shows only reality** — if an
+agent is flagged as working, it genuinely logged work recently; if not, it is not flagged as working.
 
-## Features
-
-- **Live scrolling feed** — Auto-updates every 5 seconds with new agent activity
-- **Filter by agent** — Dropdown to show only one agent's activity
-- **Filter by keyword** — Text filter for message content
-- **Pause/Resume** — Pause auto-scroll to review, then resume
-- **Clear** — Clear all displayed events
-- **Timestamps** — All times shown in EDT
-- **Event types** — Color-coded: jira_update, status_change, comment, assignment, system
-
-## Architecture
+## Data flow (current, real)
 
 ```
-┌─────────────────────┐     ┌──────────────────────┐     ┌─────────────────┐
-│  Mission Control    │────▶│  Activity Server     │────▶│  Agent          │
-│  (Frontend Tab)     │◀────│  (Python SSE)        │◀────│  Workspaces     │
-│  SSE polling        │     │  Port 3080           │     │  (VM)           │
-└─────────────────────┘     └──────────────────────┘     └─────────────────┘
+agents (real-work-executor.py / validate-work.py)
+        │  append real events
+        ▼
+agent-activity.json  ──►  collect-observability.py (cron */10)  ──►  agent-logs.json
+        │                                                                  │
+        └────────────────────────────►  the static site polls both  ◄──────┘
+                                         (git-sync.sh, cron */5, → GitHub Pages)
 ```
 
-## Running Locally
+- **`agent-activity.json`** — append-only real event stream, written by the executor and the validator.
+- **`collect-observability.py`** (cron `*/10`) — derives `agent-logs.json`: per-ticket events,
+  deliverable content, and the **`active`** list = agents with a real event in the **last 30 minutes**.
+- The site (`index.html` + `office.js`) polls these static JSON files. No always-on server is required.
+  (An older SSE prototype on port 3080 is **not** the current mechanism — ignore it.)
 
-### 1. Start the Activity Server (on VM)
+## Real event types
 
-```bash
-cd /Users/admin/workspace/openclaw-agents
-python3 scripts/agent-activity-server.py
-```
+`dispatched` · `working` · `delivered` · `no_deliverable` · `validating` · `validation_pass` ·
+`validation_fail`. Each event carries `ts`, `agent` (codename), `ticket`, `event`, `content`, and is
+tagged with the engine (`[claude]` / `[openclaw]`).
 
-The server will start on port 3080 and begin polling agent workspaces.
+## Truthfulness model (what the indicators mean)
 
-### 2. Serve the Frontend
+| Indicator | Meaning |
+|-----------|---------|
+| 🟢 live marker / "● Live: N" / "🟢 Working now" banner | agent logged a real event in the **last 30 min**. Resting state is **0** — agents run in bursts on the `0 */4` executor cron. |
+| Office orb **green** / Team **WORKING** | agent has an `in_progress` ticket **and** is live (really active now). |
+| Office orb **amber** / Team **ASSIGNED** / "● Assigned: N" | agent owns an `in_progress` ticket but is **not** currently active (between bursts). |
+| Activity feed / per-ticket Work Log / Deliverable view | built purely from real events + real deliverable files. |
 
-Since the Activity tab polls `agent-activity.json`, you can also run without the server:
+`agents[].status` in `tickets.json` is a **dead field** — nothing writes it and no UI reads it. Status
+is always derived from real tickets + real activity.
 
-```bash
-# Simple static server
-cd kanban && python3 -m http.server 8080
-```
+## Integrity guarantee
 
-Then open `http://localhost:8080` and click the ⚡ Activity tab.
-
-### 3. Full Production (with real-time SSE)
-
-Update the frontend `activityFetchEvents()` to point to the SSE endpoint:
-
-```javascript
-// In index.html, replace the fetch URL:
-fetch('http://companyserver:3080/api/agent-events?t='+Date.now())
-```
-
-## API Endpoints
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/agent-stream` | GET | Server-Sent Events stream |
-| `/api/agent-events` | GET | JSON list of recent events |
-| `/health` | GET | Health check |
-
-## Event JSON Format
-
-```json
-{
-  "timestamp": 1750000000000,
-  "agent": "Iris",
-  "emoji": "🌈",
-  "type": "jira_update",
-  "content": "Moved TICKET-032 to In Progress"
-}
-```
-
-## Event Types
-
-| Type | Color | Description |
-|------|-------|-------------|
-| `jira_update` | 🔵 Blue | Jira board changes |
-| `status_change` | 🟢 Green | Ticket status changes |
-| `comment` | 🟠 Orange | New comments on tickets |
-| `assignment` | 🟣 Purple | Ticket assignments |
-| `system` | ⚪ Gray | System events |
-
-## Files
-
-| File | Purpose |
-|------|---------|
-| `index.html` | Frontend tab (added ⚡ Activity tab) |
-| `agent-activity.json` | Static fallback JSON feed |
-| `scripts/agent-activity-server.py` | Backend SSE server |
+Every advanced ticket (`done` / `in_validation`) must be backed by a real deliverable artifact
+(`workers/<role>/work/<id>-deliverable.md`, >200 b). `verify-work.py` (cron `0 9`) audits this daily;
+as of the 2026-06-26 reconciliation there are **0 suspects**. Jira sync has been retired — the board
+lives on the VM + GitHub Pages only.
