@@ -703,25 +703,37 @@ var Office = (function() {
         var x = c * TILE_SIZE, y = r * TILE_SIZE;
         if (tile === TILE.VOID) continue;
         if (tile === TILE.WALL) {
-          mc.fillStyle = '#2a3441';
+          mc.fillStyle = '#b58e63';
           mc.fillRect(x, y, TILE_SIZE, TILE_SIZE);
-          mc.fillStyle = '#3a4a5a';
-          mc.fillRect(x, y, TILE_SIZE, 2);
-          mc.fillRect(x, y, 2, TILE_SIZE);
-          mc.fillStyle = '#1a2332';
-          mc.fillRect(x + TILE_SIZE - 2, y, 2, TILE_SIZE);
-          mc.fillRect(x, y + TILE_SIZE - 2, TILE_SIZE, 2);
+          mc.fillStyle = '#cda57e';
+          mc.fillRect(x, y, TILE_SIZE, 3);
+          mc.fillRect(x, y, 3, TILE_SIZE);
+          mc.fillStyle = '#8c6a45';
+          mc.fillRect(x + TILE_SIZE - 3, y, 3, TILE_SIZE);
+          mc.fillRect(x, y + TILE_SIZE - 3, TILE_SIZE, 3);
+          mc.fillStyle = 'rgba(0,0,0,0.10)';
+          mc.fillRect(x + 5, y + 5, TILE_SIZE - 10, TILE_SIZE - 10);
         } else if (tile === TILE.FLOOR) {
-          mc.fillStyle = ((c + r) % 2 === 0) ? '#2d3748' : '#28323f';
+          // warm oak planks
+          mc.fillStyle = (r % 2 === 0) ? '#c79a6b' : '#c0925f';
           mc.fillRect(x, y, TILE_SIZE, TILE_SIZE);
-          mc.strokeStyle = '#1e2a35'; mc.lineWidth = 0.5;
-          mc.strokeRect(x, y, TILE_SIZE, TILE_SIZE);
+          mc.fillStyle = '#a87d50';
+          mc.fillRect(x, y, TILE_SIZE, 1);
+          mc.fillStyle = 'rgba(255,255,255,0.05)';
+          mc.fillRect(x, y + 1, TILE_SIZE, 1);
+          mc.fillStyle = 'rgba(120,80,45,0.25)';
+          mc.fillRect(x + ((r % 2) ? TILE_SIZE - 1 : 0), y, 1, TILE_SIZE);
         } else if (tile === TILE.CARPET) {
-          mc.fillStyle = ((c + r) % 2 === 0) ? '#1e2d3d' : '#1a2835';
+          // cozy woven warm carpet
+          mc.fillStyle = ((c + r) % 2 === 0) ? '#cbb892' : '#c3ad83';
           mc.fillRect(x, y, TILE_SIZE, TILE_SIZE);
-          mc.fillStyle = 'rgba(255,255,255,0.03)';
-          mc.fillRect(x + 4, y + 4, 2, 2);
+          mc.fillStyle = 'rgba(120,90,55,0.14)';
+          mc.fillRect(x + 3, y + 3, 2, 2);
           mc.fillRect(x + 12, y + 10, 2, 2);
+          mc.fillRect(x + 8, y + 15, 2, 2);
+          mc.fillStyle = 'rgba(255,255,255,0.05)';
+          mc.fillRect(x + 4, y + 4, 1, 1);
+          mc.fillRect(x + 13, y + 11, 1, 1);
         }
       }
     }
@@ -754,140 +766,169 @@ var Office = (function() {
 
   function drawFurnitureSprite(mc, f) {
     var x = f.x * TILE_SIZE, y = f.y * TILE_SIZE, s = TILE_SIZE;
+    function ol(ox, oy, ow, oh) { mc.fillStyle = '#3a2c1c'; mc.fillRect(ox - 1, oy - 1, ow + 2, oh + 2); }
     switch (f.type) {
-      case 'desk':
-        mc.fillStyle = '#4a3728';
-        mc.fillRect(x, y, f.w * s, f.h * s);
-        mc.fillStyle = '#3d2e20';
-        mc.fillRect(x, y + s * 0.6, f.w * s, f.h * s * 0.4);
-        mc.fillStyle = '#1a202c';
-        mc.fillRect(x + s * 0.5, y, s * 1.5, s * 0.7);
-        mc.fillStyle = '#3b82f6';
-        mc.fillRect(x + s * 0.55, y + s * 0.05, s * 1.4, s * 0.6);
+      case 'desk': {
+        var dw = f.w * s, dh = f.h * s;
+        ol(x, y, dw, dh);
+        mc.fillStyle = '#9c6b3f'; mc.fillRect(x, y, dw, dh);
+        mc.fillStyle = '#b07d4f'; mc.fillRect(x, y, dw, 3);
+        mc.fillStyle = '#6f4a28'; mc.fillRect(x, y + dh - 4, dw, 4);
+        var mw = s * 1.1, mxx = x + dw / 2 - mw / 2, myy = y + 1;
+        mc.fillStyle = '#1a1f30'; mc.fillRect(mxx - 1, myy - 1, mw + 2, s * 0.6 + 2);
+        mc.fillStyle = '#bfe6ff'; mc.fillRect(mxx + 1, myy + 1, mw - 2, s * 0.6 - 2);
+        mc.fillStyle = '#7fc6ff'; mc.fillRect(mxx + 2, myy + 2, mw * 0.5, 1);
+        mc.fillStyle = '#cdbfa6'; mc.fillRect(x + dw / 2 - s * 0.4, y + dh - 6, s * 0.8, 3);
         break;
-      case 'chair':
-        mc.fillStyle = '#2d3748';
-        mc.fillRect(x + 2, y + 2, s - 4, s - 4);
-        mc.fillStyle = '#3b82f6';
-        mc.fillRect(x + 4, y + 4, s - 8, s - 8);
+      }
+      case 'chair': {
+        mc.fillStyle = '#241c14'; mc.fillRect(x + 2, y + 3, s - 4, s - 5);
+        mc.fillStyle = '#414a5e'; mc.fillRect(x + 3, y + 4, s - 6, s - 7);
+        mc.fillStyle = '#586378'; mc.fillRect(x + 4, y + 4, s - 8, 3);
+        mc.fillStyle = '#2b313f'; mc.fillRect(x + 4, y + s - 5, s - 8, 2);
         break;
-      case 'table':
-        mc.fillStyle = '#5a4a3a';
-        mc.fillRect(x, y, f.w * s, f.h * s);
-        mc.fillStyle = '#4a3a2a';
-        mc.fillRect(x + 2, y + 2, f.w * s - 4, f.h * s - 4);
+      }
+      case 'table': {
+        var tw = f.w * s, th = f.h * s;
+        ol(x, y, tw, th);
+        mc.fillStyle = '#9c6b3f'; mc.fillRect(x, y, tw, th);
+        mc.fillStyle = '#b07d4f'; mc.fillRect(x, y, tw, 3);
+        mc.fillStyle = 'rgba(120,80,45,0.4)';
+        for (var gx = x + 6; gx < x + tw - 4; gx += 8) mc.fillRect(gx, y + 3, 1, th - 6);
         break;
-      case 'sofa':
-        mc.fillStyle = '#2d4a6d';
-        mc.fillRect(x, y, f.w * s, s);
-        mc.fillStyle = '#1e3a5f';
-        mc.fillRect(x, y, f.w * s, s * 0.3);
+      }
+      case 'sofa': {
+        var sw = f.w * s;
+        ol(x, y, sw, s);
+        mc.fillStyle = '#7a4a3e'; mc.fillRect(x, y, sw, s);
+        mc.fillStyle = '#90594a'; mc.fillRect(x, y, sw, s * 0.35);
+        mc.fillRect(x, y, 3, s); mc.fillRect(x + sw - 3, y, 3, s);
+        mc.fillStyle = 'rgba(0,0,0,0.18)';
+        for (var cu = x + 4; cu < x + sw - 4; cu += s) mc.fillRect(cu, y + s * 0.4, 1, s * 0.5);
         break;
-      case 'plant':
-        mc.fillStyle = '#3d2e20';
-        mc.fillRect(x + 4, y + 10, s - 8, s - 10);
-        mc.fillStyle = '#22c55e';
-        mc.fillRect(x + 2, y, s - 4, s * 0.6);
-        mc.fillStyle = '#16a34a';
-        mc.fillRect(x + 6, y + 2, s - 12, s * 0.4);
+      }
+      case 'plant': {
+        mc.fillStyle = '#241c14'; mc.fillRect(x + 3, y + 9, s - 6, s - 9);
+        mc.fillStyle = '#b4623a'; mc.fillRect(x + 4, y + 10, s - 8, s - 11);
+        mc.fillStyle = '#8f4a2b'; mc.fillRect(x + 4, y + 10, s - 8, 2);
+        mc.fillStyle = '#3f8350'; mc.fillRect(x + 3, y, s - 6, s * 0.6);
+        mc.fillStyle = '#5aa86a'; mc.fillRect(x + 5, y + 1, s - 12, s * 0.45);
+        mc.fillStyle = '#6fbf7e'; mc.fillRect(x + 7, y + 1, 3, 3);
         break;
-      case 'screen':
-        mc.fillStyle = '#1a202c';
-        mc.fillRect(x, y, f.w * s, s);
-        mc.fillStyle = '#3b82f6';
-        mc.fillRect(x + 4, y + 2, f.w * s - 8, s - 4);
-        mc.fillStyle = '#22c55e';
-        for (var i = 0; i < 3; i++) mc.fillRect(x + 8 + i * 16, y + s * 0.3, 10, 2);
+      }
+      case 'screen': {
+        var ww = f.w * s;
+        ol(x, y, ww, s);
+        mc.fillStyle = '#10141c'; mc.fillRect(x, y, ww, s);
+        mc.fillStyle = '#1f4a6a'; mc.fillRect(x + 2, y + 2, ww - 4, s - 4);
+        mc.fillStyle = '#7fc6ff'; for (var i = 0; i < 3; i++) mc.fillRect(x + 8 + i * 16, y + s * 0.3, 10, 2);
+        mc.fillStyle = '#3ec46d'; mc.fillRect(x + 8, y + s * 0.6, 24, 2);
         break;
-      case 'bed':
-        mc.fillStyle = '#3d2e20';
-        mc.fillRect(x, y, f.w * s, s);
-        mc.fillStyle = '#4a3a6d';
-        mc.fillRect(x + 2, y + 2, f.w * s - 4, s - 4);
-        mc.fillStyle = '#f8d5b4';
-        mc.fillRect(x + 4, y + 4, s * 0.8, s * 0.6);
+      }
+      case 'bed': {
+        var bw2 = f.w * s;
+        ol(x, y, bw2, s);
+        mc.fillStyle = '#8a5a34'; mc.fillRect(x, y, bw2, s);
+        mc.fillStyle = '#5b7798'; mc.fillRect(x + 2, y + 2, bw2 - 4, s - 4);
+        mc.fillStyle = '#46607e'; mc.fillRect(x + 2, y + 2, bw2 - 4, 3);
+        mc.fillStyle = '#eef2f7'; mc.fillRect(x + 3, y + 4, s * 0.7, s * 0.5);
         break;
-      case 'arcade':
-        mc.fillStyle = '#1a1a2e';
-        mc.fillRect(x, y, s, s);
-        mc.fillStyle = '#ec4899';
-        mc.fillRect(x + 2, y + 2, s - 4, s * 0.6);
-        mc.fillStyle = '#a855f7';
-        mc.fillRect(x + 4, y + s * 0.6, s - 8, s * 0.3);
+      }
+      case 'arcade': {
+        ol(x, y, s, s);
+        mc.fillStyle = '#2a2440'; mc.fillRect(x, y, s, s);
+        mc.fillStyle = '#bfe6ff'; mc.fillRect(x + 2, y + 2, s - 4, s * 0.5);
+        mc.fillStyle = '#e0913a'; mc.fillRect(x + 3, y + s * 0.6, s - 6, 2);
+        mc.fillStyle = '#c0392b'; mc.fillRect(x + s * 0.5 - 1, y + s * 0.75, 3, 3);
         break;
+      }
     }
   }
 
   // ═══ CHARACTER RENDERER ═══
   function drawCharacter(agent) {
     var px = Math.floor(agent.x), py = Math.floor(agent.y);
-    var bodyColor = agent.color || '#64748b';
-    var skinColor = agent.skin || '#f8d5b4';
-    var hairColors = ['#2d1b0e', '#4a3728', '#8b6914', '#c41e3a', '#1a1a2e', '#e8e8e8'];
-    var hairColor = hairColors[Math.abs(agent.id.charCodeAt(0) * 7) % hairColors.length];
-    var bob = agent.walking ? Math.sin(agent.frameTimer * 8) * 1.5 : Math.sin(frameCount * 0.03 + agent.id.charCodeAt(0)) * 0.3;
+    var OUT = '#241c14';
+    function shadeHex(hex, amt) { var n = parseInt(hex.slice(1), 16); function cl(v){return Math.max(0,Math.min(255,v));} return 'rgb(' + cl((n>>16&255)+amt) + ',' + cl((n>>8&255)+amt) + ',' + cl((n&255)+amt) + ')'; }
+    function oR(x, y, w, h, col) { ctx.fillStyle = OUT; ctx.fillRect(x-1, y, w+2, h); ctx.fillRect(x, y-1, w, h+2); ctx.fillStyle = col; ctx.fillRect(x, y, w, h); }
+    var bodyColor = (agent.color && agent.color.charAt(0) === '#') ? agent.color : '#6b7a99';
+    var bodyDk = shadeHex(bodyColor, -34), bodyHi = shadeHex(bodyColor, 28);
+    var skinColor = (agent.skin && agent.skin.charAt(0) === '#') ? agent.skin : '#f3cda3';
+    var skinDk = shadeHex(skinColor, -22);
+    var hairColors = ['#2d1b0e', '#4a3728', '#8b6914', '#15131a', '#c9462f', '#caa24a', '#e8e8e8', '#5a3a1a'];
+    var styles = ['short', 'long', 'pony', 'bun', 'bob', 'spiky'];
+    var hcode = Math.abs(agent.id.charCodeAt(0) * 7 + (agent.id.charCodeAt(1) || 0) * 13);
+    var hairColor = hairColors[hcode % hairColors.length];
+    var hairStyle = styles[hcode % styles.length];
+    var glasses = (hcode % 3) === 0;
+    var bob = agent.walking ? Math.sin(agent.frameTimer * 8) * 1.4 : Math.sin(frameCount * 0.03 + agent.id.charCodeAt(0)) * 0.4;
 
     // Shadow
-    ctx.fillStyle = 'rgba(0,0,0,0.25)';
+    ctx.fillStyle = 'rgba(0,0,0,0.22)';
     ctx.beginPath();
     ctx.ellipse(px, py + 8, 6, 2, 0, 0, Math.PI * 2);
     ctx.fill();
 
-    // Legs
-    var lf = agent.walking ? Math.floor(agent.frameTimer * 6) % 4 : 0;
+    // Legs (walk cycle)
     var ll = 0, lr = 0;
-    if (agent.walking) { if (lf === 0) { ll = 1; lr = -1; } else if (lf === 2) { ll = -1; lr = 1; } }
+    if (agent.walking) { var lf = Math.floor(agent.frameTimer * 6) % 4; if (lf === 0) { ll = 1; lr = -1; } else if (lf === 2) { ll = -1; lr = 1; } }
     ctx.fillStyle = '#2d3748';
     ctx.fillRect(px - 4 + ll, py + 2 + bob, 3, 5);
     ctx.fillRect(px + 1 + lr, py + 2 + bob, 3, 5);
-    ctx.fillStyle = '#1a202c';
+    ctx.fillStyle = OUT;
     ctx.fillRect(px - 4 + ll, py + 6 + bob, 3, 1);
     ctx.fillRect(px + 1 + lr, py + 6 + bob, 3, 1);
 
-    // Body
-    ctx.fillStyle = bodyColor;
-    ctx.fillRect(px - 5, py - 8 + bob, 10, 10);
-    ctx.fillStyle = 'rgba(0,0,0,0.15)';
-    ctx.fillRect(px - 5, py - 8 + bob, 2, 10);
-    ctx.fillStyle = 'rgba(255,255,255,0.1)';
-    ctx.fillRect(px + 3, py - 8 + bob, 2, 10);
-    ctx.fillStyle = 'rgba(0,0,0,0.3)';
-    ctx.fillRect(px - 5, py - 1 + bob, 10, 1);
+    // Body (outlined + two-tone shading)
+    oR(px - 5, py - 8 + bob, 10, 10, bodyColor);
+    ctx.fillStyle = bodyDk; ctx.fillRect(px - 5, py - 8 + bob, 3, 10);
+    ctx.fillStyle = bodyHi; ctx.fillRect(px + 3, py - 8 + bob, 2, 10);
+    ctx.fillStyle = 'rgba(255,255,255,0.20)'; ctx.fillRect(px - 1, py - 8 + bob, 2, 2); // collar
 
-    // Arms
-    var as = agent.walking ? Math.sin(agent.frameTimer * 6) * 1 : 0;
-    ctx.fillStyle = bodyColor;
-    ctx.fillRect(px - 7, py - 7 + as + bob, 2, 6);
-    ctx.fillRect(px + 5, py - 7 - as + bob, 2, 6);
+    // Arms (outlined) + typing flutter
+    var as = agent.walking ? Math.sin(agent.frameTimer * 6) : 0;
+    var typing = agent.state === STATE.TYPE;
+    var tA = typing ? (Math.floor(frameCount * 0.25) % 2 ? 1 : 0) : 0;
+    oR(px - 7, py - 7 + as + bob, 2, 6, bodyColor);
+    oR(px + 5, py - 7 - as + bob, 2, 6, bodyColor);
     ctx.fillStyle = skinColor;
-    ctx.fillRect(px - 7, py - 2 + as + bob, 2, 2);
-    ctx.fillRect(px + 5, py - 2 - as + bob, 2, 2);
+    ctx.fillRect(px - 7, py - 2 + as + bob - tA, 2, 2);
+    ctx.fillRect(px + 5, py - 2 - as + bob - (typing ? (tA ? 0 : 1) : 0), 2, 2);
 
-    // Head
-    ctx.fillStyle = skinColor;
-    ctx.fillRect(px - 4, py - 14 + bob, 8, 7);
-    ctx.fillStyle = 'rgba(0,0,0,0.08)';
-    ctx.fillRect(px - 4, py - 14 + bob, 2, 7);
+    // Head (outlined) + face shade
+    oR(px - 4, py - 14 + bob, 8, 7, skinColor);
+    ctx.fillStyle = skinDk; ctx.fillRect(px - 4, py - 14 + bob, 2, 7);
 
-    // Hair
+    // Hair (varied styles)
     ctx.fillStyle = hairColor;
-    ctx.fillRect(px - 5, py - 15 + bob, 10, 3);
-    ctx.fillRect(px - 5, py - 15 + bob, 2, 5);
-    ctx.fillRect(px + 3, py - 15 + bob, 2, 4);
-
-    // Eyes
-    var blink = frameCount % 180 > 175 ? 1 : 2;
-    ctx.fillStyle = '#1a202c';
-    ctx.fillRect(px - 2, py - 11 + bob, 2, blink);
-    ctx.fillRect(px + 1, py - 11 + bob, 2, blink);
-    if (blink > 1) {
-      ctx.fillStyle = '#fff';
-      ctx.fillRect(px - 1, py - 11 + bob, 1, 1);
-      ctx.fillRect(px + 2, py - 11 + bob, 1, 1);
+    if (hairStyle === 'long' || hairStyle === 'bob') {
+      var hl = hairStyle === 'bob' ? 8 : 11;
+      ctx.fillRect(px - 5, py - 15 + bob, 10, 3); ctx.fillRect(px - 5, py - 15 + bob, 2, hl); ctx.fillRect(px + 3, py - 15 + bob, 2, hl); ctx.fillRect(px - 3, py - 16 + bob, 6, 1);
+    } else if (hairStyle === 'pony') {
+      ctx.fillRect(px - 5, py - 15 + bob, 10, 3); ctx.fillRect(px - 5, py - 15 + bob, 2, 5); ctx.fillRect(px + 3, py - 15 + bob, 2, 5); ctx.fillRect(px + 4, py - 14 + bob, 2, 8);
+    } else if (hairStyle === 'bun') {
+      ctx.fillRect(px - 5, py - 15 + bob, 10, 3); ctx.fillRect(px - 5, py - 15 + bob, 2, 5); ctx.fillRect(px + 3, py - 15 + bob, 2, 4); ctx.fillRect(px - 2, py - 18 + bob, 5, 3);
+    } else if (hairStyle === 'spiky') {
+      ctx.fillRect(px - 5, py - 15 + bob, 10, 3); ctx.fillRect(px - 4, py - 17 + bob, 2, 3); ctx.fillRect(px - 1, py - 18 + bob, 2, 3); ctx.fillRect(px + 2, py - 17 + bob, 2, 3); ctx.fillRect(px - 5, py - 15 + bob, 2, 4); ctx.fillRect(px + 3, py - 15 + bob, 2, 4);
+    } else {
+      ctx.fillRect(px - 5, py - 15 + bob, 10, 3); ctx.fillRect(px - 5, py - 15 + bob, 2, 5); ctx.fillRect(px + 3, py - 15 + bob, 2, 4); ctx.fillRect(px - 3, py - 16 + bob, 6, 1);
     }
 
-    // Mouth
-    ctx.fillStyle = agent.isBlocked ? '#e67e22' : '#c0392b';
+    // Eyes (+ optional glasses)
+    var blink = frameCount % 180 > 175 ? 1 : 2;
+    if (glasses) {
+      ctx.fillStyle = OUT; ctx.fillRect(px - 3, py - 11 + bob, 3, 3); ctx.fillRect(px + 1, py - 11 + bob, 3, 3); ctx.fillRect(px, py - 10 + bob, 1, 1);
+      ctx.fillStyle = '#bfe4f2'; ctx.fillRect(px - 2, py - 10 + bob, 1, 1); ctx.fillRect(px + 2, py - 10 + bob, 1, 1);
+    } else {
+      ctx.fillStyle = OUT;
+      ctx.fillRect(px - 2, py - 11 + bob, 2, blink);
+      ctx.fillRect(px + 1, py - 11 + bob, 2, blink);
+      if (blink > 1) { ctx.fillStyle = '#fff'; ctx.fillRect(px - 1, py - 11 + bob, 1, 1); ctx.fillRect(px + 2, py - 11 + bob, 1, 1); }
+    }
+
+    // Cheeks + mouth
+    ctx.fillStyle = 'rgba(230,120,120,0.45)'; ctx.fillRect(px - 3, py - 9 + bob, 1, 1); ctx.fillRect(px + 2, py - 9 + bob, 1, 1);
+    ctx.fillStyle = agent.isBlocked ? '#e67e22' : '#9c4a3a';
     ctx.fillRect(px - 1, py - 8 + bob, 2, 1);
 
     // Status
