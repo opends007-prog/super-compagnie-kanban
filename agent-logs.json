@@ -1,0 +1,207 @@
+{
+  "generated": "2026-06-26T14:10:01.489983+00:00",
+  "tickets": {
+    "STORY-001": {
+      "agent": "Gladiator",
+      "status": "done",
+      "events": [],
+      "deliverable": {
+        "file": "tom/work/STORY-001-deliverable.md",
+        "size": 8006,
+        "content": "# STORY-001: 24/7 System Monitoring Deliverable\n\nThis deliverable outlines a foundational approach to setting up 24/7 system monitoring for a generic Linux server, focusing on key resource utilization. The chosen tools are `sysstat` (which provides `sar`) for data collection and `cron` for scheduling, as they are widely available, lightweight, and effective for historical performance analysis.\n\n## Monitoring Scope\n\nThis setup provides continuous monitoring of the following critical system resources:\n\n*   **CPU Utilization:** User, system, I/O wait, idle times.\n*   **Memory Usage:** Free, used, cached, swap.\n*   **Disk I/O:** Reads, writes, transfer rates, wait times.\n*   **Network I/O:** Packet rates, byte rates, errors for all active interfaces.\n*   **Load Average:** System load over 1, 5, and 15 minutes.\n*   **Process Activity:** Context switches, run queue length.\n\n## Chosen Tools\n\n*   **`sysstat` (System Activity Report):** A suite of utilities for performance monitoring. `sar` is the primary tool used here for collecting, reporting, and saving system activity information.\n*   **`cron`:** The standard Linux job scheduler, used to automate the periodic data collection by `sar`.\n\n## Setup Instructions\n\n### 1. Install `sysstat`\n\n`sysstat` is typically available in the default repositories of most Linux distributions.\n\n**On Debian/Ubuntu:**\n```bash\nsudo apt update\nsudo apt install sysstat\n```\n\n**On CentOS/RHEL/Fedora:**\n```bash\nsudo yum install sysstat\n# Or for newer Fedora:\nsudo dnf install sysstat\n```\n\n### 2. Enable `sysstat` Data Collection\n\nAfter installation, `sysstat` is usually configured to collect data automatically via a cron job (often `/etc/cron.d/sysstat` or similar).\n\nTo ensure it's enabled and collecting data:\n\n1.  **Edit the `sysstat` configuration file:**\n    Open `/etc/default/sysstat` (Debian/Ubuntu) or `/etc/sysconfig/sysstat` (CentOS/RHEL/Fedora) with a text editor.\n    ```bash\n    sudo nano /etc/default/sysstat\n    # Or\n    sudo nano /etc/sysconfig/sysstat\n    ```\n2.  **Set `ENABLED=\"true\"` or `SA2_ENABLE=\"true\"`:**\n    Find the `ENABLED` or `SA2_ENABLE` variable and ensure it's set to `\"true\"` to activate data collection. Save and exit the file.\n\n3.  **Restart the `sysstat` service (if applicable):**\n    While `sysstat` often relies on cron for daily aggregation, some distributions might have a service.\n    ```bash\n    sudo systemctl restart sysstat\n    ```\n\nData will typically be collected every 10 minutes (configurable in `/etc/cron.d/sysstat`) and stored in `/var/log/sa/` (e.g., `sa26` for the 26th day of the month).\n\n### 3. Verify Data Collection\n\nWait a few minutes after enabling, then check if data files are being created:\n```bash\nls -l /var/log/sa/\n```\nYou should see files like `saXX` and `sarXX`, where `XX` is the day of the month.\n\n### 4. Viewing System Activity Reports with `sar`\n\nOnce data is being collected, you can use `sar` to view historical and real-time reports.\n\n*   **Current day's CPU utilization (since midnight):**\n    ```bash\n    sar\n    ```\n\n*   **Real-time CPU utilization (update every 2 seconds, 5 times):**\n    ```bash\n    sar -u 2 5\n    ```\n\n*   **Memory utilization for the current day:**\n    ```bash\n    sar -r\n    ```\n\n*   **Disk I/O activity for the current day:**\n    ```bash\n    sar -b\n    ```\n\n*   **Network activity for all interfaces:**\n    ```bash\n    sar -n DEV\n    ```\n\n*   **Load average:**\n    ```bash\n    sar -q\n    ```\n\n*   **View data from a specific file (e.g., yesterday's data, assuming `sa25` for June 25th):**\n    ```bash\n    sar -f /var/log/sa/sa25\n    ```\n\n*   **View CPU utilization between specific times:**\n    ```bash\n    sar -s 10:00:00 -e 12:00:00\n    ```\n\n### 5. Basic Alerting/Reporting Concept (Example Script)\n\nFor true 24/7 monitoring, you would integrate `sar` data into a more sophisticated monitoring system (e.g., Prometheus/Grafana, Datadog) or use custom scripts to parse `sar` output and trigger alerts.\n\nHere's a conceptual shell script to demonstrate how you might check for high CPU utilization in the last hour from `sar` data. This script would typically be scheduled via `cron` to run periodically.\n\n```bash\n#!/bin/bash\n\n# MONITORING_SCRIPT.sh\n\n# Define thresholds\nCPU_THRESHOLD=90 # Percentage\nIO_WAIT_THRESHOLD=20 # Percentage\nMEM_THRESHOLD=90 # Percentage\n\n# Get current date for sar file\nDAY=$(date +%d)\nSA_FILE=\"/var/log/sa/sa$DAY\"\n\n# Get current hour and subtract one for the last hour's data\nCURRENT_HOUR=$(date +%H)\nLAST_HOUR=$((CURRENT_HOUR - 1))\nif [ \"$LAST_HOUR\" -lt 0 ]; then\n    LAST_HOUR=23 # Handle wrap-around for midnight\nfi\nSTART_TIME=$(printf \"%02d:00:00\" \"$LAST_HOUR\")\nEND_TIME=$(printf \"%02d:00:00\" \"$CURRENT_HOUR\")\n\n\n# --- Check CPU Utilization ---\n# Get average CPU idle from the last hour\nCPU_IDLE=$(sar -u -s \"$START_TIME\" -e \"$END_TIME\" -f \"$SA_FILE\" | grep Average | awk '{print $NF}')\nCPU_USAGE=$(awk \"BEGIN {print 100 - $CPU_IDLE}\")\n\nif (( $(echo \"$CPU_USAGE > $CPU_THRESHOLD\" | bc -l) )); then\n    echo \"ALERT: High CPU utilization detected! Current average: ${CPU_USAGE}%\"\n    # Placeholder for sending an actual alert (e.g., email, PagerDuty, Slack)\n    # mail -s \"CPU Alert on $(hostname)\" your_email@example.com <<< \"High CPU usage: ${CPU_USAGE}%\"\nfi\n\n# --- Check I/O Wait ---\nIO_WAIT=$(sar -u -s \"$START_TIME\" -e \"$END_TIME\" -f \"$SA_FILE\" | grep Average | awk '{print $6}')\n\nif (( $(echo \"$IO_WAIT > $IO_WAIT_THRESHOLD\" | bc -l) )); then\n    echo \"ALERT: High I/O wait detected! Current average: ${IO_WAIT}%\"\n    # mail -s \"I/O Wait Alert on $(hostname)\" your_email@example.com <<< \"High I/O Wait: ${IO_WAIT}%\"\nfi\n\n# --- Check Memory Utilization ---\n# Get average memory used percentage from the last hour\nMEM_USED_KB=$(sar -r -s \"$START_TIME\" -e \"$END_TIME\" -f \"$SA_FILE\" | grep Average | awk '{print $4}') # kbmemused\nMEM_TOTAL_KB=$(sar -r -s \"$START_TIME\" -e \"$END_TIME\" -f \"$SA_FILE\" | grep Average | awk '{print $3}') # kbmemfree + kbmemused, approx\nMEM_PCT=$(awk \"BEGIN { if ($MEM_TOTAL_KB > 0) { print ($MEM_USED_KB / $MEM_TOTAL_KB) * 100 } else { print 0 } }\")\n\n\nif (( $(echo \"$MEM_PCT > $MEM_THRESHOLD\" | bc -l) )); then\n    echo \"ALERT: High Memory utilization detected! Current average: ${MEM_PCT}%\"\n    # mail -s \"Memory Alert on $(hostname)\" your_email@example.com <<< \"High Memory Usage: ${MEM_PCT}%\"\nfi\n\necho \"Monitoring checks completed.\"\n```\n\n**How to use the example script:**\n\n1.  Save the script as `monitor_script.sh` in a suitable location (e.g., `/usr/local/bin/`).\n2.  Make it executable: `sudo chmod +x /usr/local/bin/monitor_script.sh`.\n3.  Schedule it with `cron` (e.g., to run every 15 minutes):\n    ```bash\n    sudo crontab -e\n    ```\n    Add the following line:\n    ```\n    */15 * * * * /usr/local/bin/monitor_script.sh >> /var/log/monitor_script.log 2>&1\n    ```\n    This will run the script every 15 minutes and log its output to `/var/log/monitor_script.log`.\n\n## Next Steps / Further Enhancements\n\n*   **Integration with Alerting Systems:** Connect the script's output to proper alerting systems (e.g., PagerDuty, Opsgenie, Slack webhooks) for immediate notifications.\n*   **Centralized Logging/Monitoring:** For multiple servers, consider a centralized solution like an ELK stack (Elasticsearch, Logstash, Kibana) or Prometheus/Grafana to aggregate and visualize `sar` data or other metrics.\n*   **Custom Checks:** Extend the monitoring to specific application metrics, log file analysis, or service status checks using tools like `grep`, `systemctl status`, or custom application APIs.\n*   **Disk Space Monitoring:** While `sar -b` shows I/O, `df -h` is critical for checking actual disk space usage. This can be added to a custom script.\n*   **Process Monitoring:** Use `pidstat` (also part of `sysstat`) for process-specific resource utilization.\n*   **Security Monitoring:** Integrate with tools like `fail2ban`, `aide`, or a SIEM for security event monitoring.\n\nThis setup provides a robust baseline for understanding and reacting to system performance issues on a Linux server.\n"
+      }
+    },
+    "STORY-002": {
+      "agent": "Gladiator",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-26T13:45:40.231802+00:00",
+          "event": "dispatched",
+          "content": "tom started work: Deploy Kanban + Jira boards"
+        },
+        {
+          "ts": "2026-06-26T13:46:50.356679+00:00",
+          "event": "no_deliverable",
+          "content": "No work produced (model unavailable) \u2014 status unchanged"
+        }
+      ],
+      "deliverable": {
+        "file": "tom/work/STORY-002-deliverable.md",
+        "size": 5480,
+        "content": "# Deliverable for STORY-002: Deploy Kanban + Jira boards\n\n**Objective:** To provide a comprehensive guide for deploying and configuring Kanban and Jira boards for project management.\n\n**Note:** This deliverable outlines the steps and considerations for setting up Jira and Kanban boards. The actual deployment and configuration of Jira software and its boards are assumed to be performed by the user or a dedicated IT/DevOps team with the necessary access and permissions.\n\n## 1. Prerequisites\n\nBefore deploying Kanban and Jira boards, ensure the following are in place:\n\n*   **Jira Instance:** A functional Jira Cloud or Jira Server/Data Center instance accessible to your team.\n*   **Permissions:** Necessary administrative privileges within Jira to create projects, configure boards, and manage workflows.\n*   **Team Structure:** Clarity on how your teams will be organized within Jira (e.g., separate projects for different teams, or shared boards within a larger project).\n*   **Workflow Requirements:** Understanding of your team's development or project workflow to map it to Jira statuses and transitions.\n\n## 2. Setting Up a Jira Project\n\nIf a suitable project doesn't exist, create a new one:\n\n1.  **Navigate to Projects:** In Jira, go to \"Projects\" > \"Create project\".\n2.  **Select a Template:** Choose a template that suits your team's needs. For Kanban, templates like \"Kanban software development\" or a \"Scrum software development\" template (which can be adapted to Kanban) are common.\n3.  **Configure Project Details:**\n    *   **Name:** Give your project a descriptive name (e.g., \"Engineering Team Kanban\").\n    *   **Key:** A short, unique identifier (e.g., \"ENG\").\n    *   **Project Type:** Software development is typical for Kanban.\n    *   **Access/Permissions:** Configure who can access the project.\n\n## 3. Creating and Configuring a Kanban Board\n\nOnce a project is set up, you can create or configure a Kanban board.\n\n### 3.1. Creating a New Kanban Board\n\n1.  **Navigate to Boards:** Within your project, go to \"Boards\" > \"Create board\".\n2.  **Select Board Type:** Choose \"Create a Kanban board\".\n3.  **Connect to an Existing Project:** Link the board to the project you created.\n4.  **Board Name:** Name your board (e.g., \"Engineering Team Kanban Board\").\n\n### 3.2. Configuring Board Columns\n\nThe core of a Kanban board is its columns, representing stages of your workflow.\n\n1.  **Access Board Configuration:** From your board, click \"Board\" > \"Configure\".\n2.  **Column Mapping:** Map Jira statuses to your board columns. Common Kanban columns include:\n    *   **To Do:** Issues are ready to be started.\n    *   **In Progress:** Issues currently being worked on.\n    *   **Done:** Issues that are completed.\n    *   *You can add intermediate columns like:* \"Code Review\", \"Testing\", \"Staging\", etc., to represent your specific workflow.\n3.  **Column Limits (WIP):** For each column (except \"To Do\" and \"Done\"), set a Work-In-Progress (WIP) limit. This is crucial for Kanban to identify bottlenecks and improve flow.\n    *   Example: \"In Progress\" column might have a WIP limit of 5, meaning no more than 5 issues can be in this stage concurrently.\n\n### 3.3. Swimlanes\n\nSwimlanes can help group issues on your board. Common swimlane configurations include:\n\n*   **By Assignee:** Each assignee gets their own row.\n*   **By Epic:** Group issues belonging to the same epic.\n*   **By Stories/Bugs:** Separate different issue types.\n\n### 3.4. Quick Filters\n\nCreate quick filters to easily view subsets of issues on your board. Examples:\n\n*   \"My Issues\": Shows only issues assigned to you.\n*   \"Bugs\": Shows only bug issues.\n*   \"High Priority\": Shows only high-priority issues.\n\n## 4. Workflow Configuration\n\nThe underlying Jira workflow dictates the transitions between statuses. Ensure your workflow accurately reflects how issues move from \"To Do\" to \"Done\".\n\n1.  **Access Workflows:** In Jira Administration, go to \"Issues\" > \"Workflows\".\n2.  **Edit/Create Workflow:** Define statuses (e.g., \"Open\", \"In Progress\", \"Code Review\", \"Resolved\", \"Closed\") and transitions between them.\n3.  **Associate Workflow with Project:** Ensure your project uses the configured workflow.\n\n## 5. Best Practices for Kanban Boards\n\n*   **Visualize Workflow:** Ensure all steps of your process are represented by columns.\n*   **Limit WIP:** Enforce WIP limits to improve flow and highlight bottlenecks.\n*   **Manage Flow:** Actively monitor the board for issues getting stuck or exceeding WIP limits.\n*   **Explicit Policies:** Define clear \"Definition of Done\" for each status.\n*   **Continuous Improvement:** Regularly review board metrics (cycle time, lead time) and team process to identify areas for improvement.\n\n## 6. Testing and Verification\n\n*   **Create Sample Issues:** Create sample tasks, bugs, and epics.\n*   **Move Issues Through Workflow:** Drag and drop issues across columns to ensure transitions work as expected.\n*   **Check WIP Limits:** Attempt to move more issues into a column than its WIP limit allows and verify the system prevents it or warns appropriately.\n*   **Verify Filters/Swimlanes:** Test all configured quick filters and swimlanes to ensure they display the correct issues.\n*   **Team Feedback:** Get feedback from your team on the board's usability and effectiveness.\n\nThis guide provides a foundational approach to deploying and configuring Kanban boards in Jira. Specific configurations will vary based on team needs and Jira version.\n"
+      }
+    },
+    "STORY-032": {
+      "agent": "Clio",
+      "status": "done",
+      "events": [],
+      "deliverable": {
+        "file": "data-analyst/work/STORY-032-deliverable.md",
+        "size": 6562,
+        "content": "# Deliverable for STORY-032: KPI Dashboards & Metrics Tracking\n\n## Objective\nThe primary objective of this initiative is to establish a robust system for tracking Key Performance Indicators (KPIs) and to visualize these metrics through interactive dashboards. This will enable data-driven decision-making, enhance performance monitoring, and identify areas for improvement across key business functions.\n\n## 1. Key Performance Indicators (KPIs)\nKPIs are critical for measuring success and progress towards strategic goals. The selection of KPIs should be tailored to specific business areas (e.g., Sales, Marketing, Operations, Product). Below is a general framework and examples of common KPIs:\n\n### Sales & Revenue\n*   **Revenue Growth Rate:** Percentage increase or decrease in revenue over a period.\n*   **Customer Acquisition Cost (CAC):** Total sales and marketing cost to acquire a new customer.\n*   **Customer Lifetime Value (CLTV):** Predicted revenue a customer will generate over their relationship with the company.\n*   **Conversion Rate:** Percentage of leads that become customers.\n*   **Average Deal Size:** Average revenue generated per closed deal.\n\n### Marketing\n*   **Website Traffic:** Total number of visitors to the website.\n*   **Lead-to-Opportunity Ratio:** Percentage of leads that convert into sales opportunities.\n*   **Return on Marketing Investment (ROMI):** Revenue attributable to marketing efforts divided by marketing spend.\n*   **Social Media Engagement:** Likes, shares, comments, and mentions across social platforms.\n*   **Email Open Rate/Click-Through Rate:** Effectiveness of email campaigns.\n\n### Operations & Efficiency\n*   **Operational Efficiency Ratio:** Output per unit of input.\n*   **Customer Satisfaction (CSAT)/Net Promoter Score (NPS):** Measures of customer happiness and loyalty.\n*   **Order Fulfillment Rate:** Percentage of orders successfully fulfilled on time.\n*   **Employee Churn Rate:** Percentage of employees leaving the company over a period.\n\n### Product Development\n*   **New Feature Adoption Rate:** Percentage of users adopting new features.\n*   **Bug Resolution Time:** Average time taken to fix reported bugs.\n*   **Daily Active Users (DAU)/Monthly Active Users (MAU):** Measures of product engagement.\n*   **Feature Usage Rate:** How often specific features are used.\n\n## 2. Data Sources & Integration\nTo track KPIs effectively, data must be consolidated from various internal and external systems.\n\n### Common Data Sources:\n*   **CRM Systems:** Salesforce, HubSpot (Sales, Customer Data).\n*   **Marketing Automation Platforms:** Marketo, Mailchimp (Campaign Performance, Lead Data).\n*   **Web Analytics Tools:** Google Analytics, Adobe Analytics (Website Traffic, User Behavior).\n*   **ERP Systems:** SAP, Oracle (Financials, Operations).\n*   **Databases:** SQL, NoSQL databases (Product Data, Custom Application Data).\n*   **Spreadsheets/Flat Files:** For smaller, ad-hoc data sets.\n\n### Data Integration Strategy:\n*   **ETL/ELT Processes:** Implement robust Extract, Transform, Load (ETL) or Extract, Load, Transform (ELT) pipelines to move data from source systems into a central data warehouse or data lake.\n*   **APIs:** Utilize APIs provided by various platforms for real-time or near real-time data extraction.\n*   **Data Warehouse/Lake:** Establish a centralized repository for clean, transformed data ready for analysis and reporting.\n\n## 3. Dashboard Design Principles & Visualization\nDashboards should be intuitive, informative, and actionable.\n\n### Design Principles:\n*   **Audience-Centric:** Design dashboards for specific audiences (e.g., Executives, Sales Managers, Marketing Specialists) focusing on their relevant KPIs.\n*   **Clarity & Simplicity:** Avoid clutter. Use clear labels, consistent color schemes, and easy-to-understand visualizations.\n*   **Interactivity:** Allow users to drill down into data, apply filters, and customize views to explore insights.\n*   **Actionability:** Dashboards should not just present data, but also highlight trends, anomalies, and potential actions.\n*   **Consistency:** Maintain a consistent look and feel across all dashboards for a unified user experience.\n\n### Recommended Visualization Tools:\n*   **Business Intelligence (BI) Platforms:** Tableau, Power BI, Looker, Qlik Sense (for comprehensive dashboards and advanced analytics).\n*   **Spreadsheet-based Dashboards:** Google Sheets, Excel (for simpler, smaller-scale tracking).\n*   **Custom Web Dashboards:** D3.js, React (for highly customized, integrated solutions).\n\n### Dashboard Structure Example:\n1.  **Executive Summary Dashboard:** High-level overview of critical KPIs for top management.\n2.  **Sales Performance Dashboard:** Detailed view of sales metrics, pipeline, conversion rates, and team performance.\n3.  **Marketing Performance Dashboard:** Campaign effectiveness, website analytics, lead generation, and ROMI.\n4.  **Operational Efficiency Dashboard:** Resource utilization, process cycle times, and quality metrics.\n\n## 4. Reporting Frequency & Review Cadence\nRegular review of dashboards and metrics is crucial for continuous improvement.\n\n*   **Daily/Weekly:** Operational dashboards for immediate insights and course correction (e.g., sales activity, website traffic).\n*   **Monthly:** Departmental performance reviews, tracking progress against monthly goals.\n*   **Quarterly/Annually:** Strategic reviews, assessing long-term trends and overall business health.\n\n## 5. Implementation Roadmap (High-Level)\n1.  **Phase 1: KPI Definition & Data Identification (2 weeks)**\n    *   Work with stakeholders to finalize KPIs for each department.\n    *   Identify primary data sources for each KPI.\n2.  **Phase 2: Data Integration & ETL Development (4-6 weeks)**\n    *   Set up data connectors and ETL pipelines.\n    *   Establish a data warehouse/lake.\n3.  **Phase 3: Dashboard Prototyping & Development (4-6 weeks)**\n    *   Design and develop initial dashboard prototypes.\n    *   Gather feedback from stakeholders and iterate.\n4.  **Phase 4: Rollout & Training (2 weeks)**\n    *   Deploy dashboards to relevant teams.\n    *   Provide training on how to use and interpret the dashboards.\n5.  **Phase 5: Ongoing Maintenance & Enhancement (Continuous)**\n    *   Regularly review dashboard performance and data accuracy.\n    *   Add new KPIs and dashboards as business needs evolve.\n\nThis deliverable provides a comprehensive framework for creating KPI dashboards and metrics tracking, setting the foundation for data-driven decision-making within the organization."
+      }
+    },
+    "STORY-051": {
+      "agent": "Vulcan",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-24T22:16:48.573975+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
+    },
+    "STORY-052": {
+      "agent": "Plutus",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-25T00:00:00.441677+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
+    },
+    "STORY-055": {
+      "agent": "Claude",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-25T00:00:00.441677+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
+    },
+    "STORY-057": {
+      "agent": "Hestia",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-25T00:00:00.441677+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
+    },
+    "STORY-063": {
+      "agent": "Iris",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-24T22:16:48.573975+00:00",
+          "event": "started",
+          "content": null
+        },
+        {
+          "ts": "2026-06-25T14:00:00.367824+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
+    },
+    "STORY-073": {
+      "agent": "Gladiator",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-25T00:00:00.441677+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
+    },
+    "STORY-075": {
+      "agent": "Iris",
+      "status": "done",
+      "events": [
+        {
+          "ts": "2026-06-26T02:00:00.543024+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": {
+        "file": "pm/work/STORY-075-deliverable.md",
+        "size": 5325,
+        "content": "# Agent Roster and Onboarding Plan - STORY-075\n\n**Ticket:** STORY-075 - 'Start Agent Roster Build'\n**Date:** 2026-06-25\n**Prepared by:** Iris (Project Manager)\n\n## 1. Agent Roster\n\nThis section outlines the initial roster of agents involved in the project. The roster will be expanded as new agents are integrated.\n\n| Agent Name/ID | Role/Title          | Primary Responsibilities                                     | Key Skills/Tools                                       | Reporting To | Onboarding Status | Notes/Links                                     |\n| :------------ | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------- | :----------- | :---------------- | :---------------------------------------------- |\n| Iris          | Project Manager     | Planning, roadmap, task assignment, coordination             | AGENTS.md, SOUL.md, USER.md, TOOLS.md, MEMORY.md       | Lucy/COO     | Complete          | Core agent, manages overall project lifecycle   |\n| Codex         | Code Generation     | Writing, debugging, refactoring code                         | coding-agent, python-debugpy, github, oracle           | Iris         | Not Started       | Requires initial setup and project context      |\n| Jasper        | Documentation       | Generating and maintaining documentation, knowledge base       | read, write, edit, skill-creator, notion               | Iris         | Not Started       | Needs access to project docs and knowledge base |\n| Watcher       | Monitoring/Alerting | System health checks, log analysis, incident notification    | exec, process, blogwatcher, healthcheck                | Iris         | Not Started       | Needs access to system monitoring tools         |\n| Communicator  | Inter-Agent Comm    | Facilitating communication between agents, message routing   | sessions_send, sessions_list, discord, wacli, xurl     | Iris         | Not Started       | Core communication agent, needs access config   |\n\n## 2. Agent Onboarding Tasks\n\nThe following tasks must be completed for each new agent before they are fully integrated into the project workflow.\n\n### 2.1. Initial Setup and Configuration\n*   **Task:** Verify agent runtime environment and dependencies.\n    *   **Description:** Ensure the agent's sandbox environment, necessary libraries, and tool access are correctly configured.\n    *   **Owner:** Iris (or assigned setup agent)\n    *   **Status:** Not Started\n\n*   **Task:** Load and review core configuration files.\n    *   **Description:** Agent must read and understand `AGENTS.md`, `SOUL.md`, `USER.md`, `TOOLS.md`, and `MEMORY.md` (if applicable) to grasp its role, persona, and project context.\n    *   **Owner:** New Agent\n    *   **Status:** Not Started\n\n### 2.2. Access and Permissions\n*   **Task:** Grant necessary file system and tool access.\n    *   **Description:** Provide read/write access to relevant directories (e.g., `/workspace`, `memory/`) and permissions to use required tools (e.g., `exec`, `read`, `write`, specific skills).\n    *   **Owner:** Iris (or designated admin)\n    *   **Status:** Not Started\n\n*   **Task:** Configure API keys and credentials (if applicable).\n    *   **Description:** Securely set up any external API keys or service credentials required for the agent's functionality (e.g., for GitHub, Notion, etc.).\n    *   **Owner:** New Agent (with guidance)\n    *   **Status:** Not Started\n\n### 2.3. Project Familiarization\n*   **Task:** Review project documentation and history.\n    *   **Description:** Agent should familiarize itself with the project's goals, current status, and recent activities. This may involve reading recent memory files or ticket histories.\n    *   **Owner:** New Agent\n    *   **Status:** Not Started\n\n*   **Task:** Understand inter-agent communication protocols.\n    *   **Description:** Learn how to use `sessions_send`, `sessions_spawn`, and other communication tools to interact with other agents in the roster.\n    *   **Owner:** New Agent\n    *   **Status:** Not Started\n\n### 2.4. Skill Training and Integration\n*   **Task:** Perform a 'dry run' with core tools.\n    *   **Description:** Execute a few sample commands using the agent's primary tools to confirm functionality and understanding.\n    *   **Owner:** New Agent\n    *   **Status:** Not Started\n\n*   **Task:** Complete a small, well-defined pilot task.\n    *   **Description:** Assign a simple, low-risk task to the new agent to test its integration and ability to follow instructions and produce deliverables.\n    *   **Owner:** Iris\n    *   **Status:** Not Started\n\n### 2.5. Final Review and Activation\n*   **Task:** Knowledge check and Q&A session.\n    *   **Description:** A brief session with Iris to ensure the agent has understood its role, responsibilities, and onboarding process.\n    *   **Owner:** Iris & New Agent\n    *   **Status:** Not Started\n\n*   **Task:** Officially add agent to active roster and assign first full task.\n    *   **Description:** Update the Agent Roster status to 'Complete' and begin assigning regular project tasks.\n    *   **Owner:** Iris\n    *   **Status:** Not Started\n\n---\nThis document serves as the initial framework for building and onboarding agents. It will be updated dynamically as the project progresses.\n"
+      }
+    },
+    "STORY-080": {
+      "agent": "Thor",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-24T22:16:48.573975+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
+    },
+    "STORY-081": {
+      "agent": "Athena",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-24T22:16:48.573975+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
+    },
+    "STORY-082": {
+      "agent": "Hermes",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-24T22:16:48.573975+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
+    },
+    "STORY-083": {
+      "agent": "Thor",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-25T12:00:00.315124+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
+    },
+    "STORY-086": {
+      "agent": "Hermes",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-26T02:00:00.543024+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
+    }
+  },
+  "active": [
+    {
+      "agent": "Gladiator",
+      "ticket": "STORY-002",
+      "event": "no_deliverable",
+      "ts": "2026-06-26T13:46:50.356679+00:00"
+    }
+  ]
+}

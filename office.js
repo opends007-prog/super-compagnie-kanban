@@ -115,9 +115,20 @@ var Office = (function() {
 
   var CONFERENCE_CHATTER = ['Great point.', 'Interesting…', 'I agree.', 'Good progress!', "Let's ship it.", 'Makes sense.', 'Noted.', 'Solid plan.', 'Nice numbers.', 'Agreed.'];
   var LUCY_CHECK = ["How's it going?", 'On track?', 'Need anything?', 'Doing good?', 'Great work!', 'Any blockers?', 'Keep it up!'];
+  // Rooms an agent may pop into for a ~1-min break even while working
+  var BREAK_ROOMS = [
+    { x: 4, y: 37, w: 15, h: 7 },   // cafeteria
+    { x: 23, y: 37, w: 12, h: 7 },  // lounge
+    { x: 63, y: 37, w: 5, h: 7 },   // smoking
+    { x: 39, y: 38, w: 7, h: 6 },   // rest
+    { x: 50, y: 37, w: 9, h: 7 },   // recreation
+    { x: 50, y: 20, w: 18, h: 10 }, // focus
+    { x: 36, y: 21, w: 10, h: 8 }   // standup
+  ];
+  function randomBreakRoom() { var a = BREAK_ROOMS[(Math.random() * BREAK_ROOMS.length) | 0]; return getRandomTileInArea(a.x, a.y, a.w, a.h) || { x: a.x + 1, y: a.y + 1 }; }
 
   // ═══ VIP AI — CEO + Lucy (custom behavior, bypasses the generic state machine) ═══
-  var ceoMode = 'office', ceoSmoke = 1800, ceoModeT = 30;
+  var ceoMode = 'office', ceoSmoke = 60, ceoModeT = 30, congratsT = 5;
   var lucyMode = 'follow', lucyT = 25, lucyTarget = null;
   function vipGoto(agent, tx, ty, faceDir, dt) {
     var arrived = moveAgentToward(agent, tx * TILE_SIZE + TILE_SIZE / 2, ty * TILE_SIZE + TILE_SIZE / 2, dt);
@@ -126,9 +137,29 @@ var Office = (function() {
     return arrived;
   }
   function vipStep(agent, dt) {
+    if (allHandsActive) {
+      // CEO + Lucy stand at the front of the conference and present
+      vipGoto(agent, agent.ceo ? 32 : 34, 6, DIR.DOWN, dt);
+      agent.idleArea = 'conf';
+      if (agent.ceo) {
+        congratsT -= dt;
+        if (congratsT <= 0) {
+          congratsT = 6 + Math.random() * 4;
+          var aud = agents.filter(function(a) { return !a.vip && a.confSeat; });
+          if (aud.length) {
+            var who = aud[(Math.random() * aud.length) | 0];
+            agent.speechBubble = { text: pick(CEO_CONGRATS).replace('{AGENT}', (who.name || 'team').toUpperCase()) };
+            agent.speechEnd = Date.now() + 3800;
+            who.speechBubble = { text: pick(AGENT_THANKS) };
+            who.speechEnd = Date.now() + 3800;
+          }
+        }
+      }
+      return;
+    }
     if (agent.ceo) {
       ceoSmoke -= dt;
-      if (ceoMode !== 'smoking' && ceoSmoke <= 0) { ceoMode = 'smoking'; ceoModeT = 55; ceoSmoke = 1800; }
+      if (ceoMode !== 'smoking' && ceoSmoke <= 0) { ceoMode = 'smoking'; ceoModeT = 55; ceoSmoke = 60; }
       if (ceoMode === 'smoking') { vipGoto(agent, 64, 41, DIR.DOWN, dt); agent.idleArea = 'smoking'; ceoModeT -= dt; if (ceoModeT <= 0) ceoMode = 'office'; }
       else if (ceoMode === 'mc') { vipGoto(agent, 55, 14, DIR.UP, dt); agent.idleArea = 'mc'; ceoModeT -= dt; if (ceoModeT <= 0) ceoMode = 'office'; }
       else { vipGoto(agent, 10, 8, DIR.DOWN, dt); agent.idleArea = 'ceo'; ceoModeT -= dt; if (ceoModeT <= 0) { if (Math.random() < 0.35) { ceoMode = 'mc'; ceoModeT = 35; } else ceoModeT = 30 + Math.random() * 40; } }
@@ -241,34 +272,57 @@ var Office = (function() {
     }
     furniture.push({ type: 'dshelf', x: 49, y: 15, w: 1, h: 1 });
 
-    // CAFETERIA / DINING — tables + coffee + fridge + painting
-    for (var tc = 0; tc < 3; tc++) {
-      furniture.push({ type: 'stable', x: 5 + tc * 5, y: 38, w: 1, h: 1 });
-      furniture.push({ type: 'cchair', x: 5 + tc * 5, y: 37, w: 1, h: 1 });
-      furniture.push({ type: 'cchair', x: 5 + tc * 5, y: 40, w: 1, h: 1 });
-      seats['cafe_' + tc + '_t'] = { x: 5 + tc * 5, y: 37, assigned: false, facing: DIR.DOWN };
-      seats['cafe_' + tc + '_b'] = { x: 5 + tc * 5, y: 40, assigned: false, facing: DIR.UP };
+    // CAFETERIA — fridge, coffee machine, long school-style table with chairs to sit + eat
+    furniture.push({ type: 'fridge', x: 4, y: 36, w: 1, h: 1 });
+    furniture.push({ type: 'coffeeM', x: 6, y: 35, w: 1, h: 1 });
+    furniture.push({ type: 'spaint', x: 9, y: 34, w: 1, h: 1 });
+    for (var lt = 0; lt < 6; lt++) {
+      furniture.push({ type: 'stable', x: 6 + lt * 2, y: 40, w: 1, h: 1 });
+      furniture.push({ type: 'cchair', x: 6 + lt * 2, y: 39, w: 1, h: 1 });
+      furniture.push({ type: 'cchair', x: 6 + lt * 2, y: 41, w: 1, h: 1 });
+      seats['cafe_t' + lt] = { x: 6 + lt * 2, y: 39, assigned: false, facing: DIR.DOWN };
+      seats['cafe_b' + lt] = { x: 6 + lt * 2, y: 41, assigned: false, facing: DIR.UP };
     }
-    furniture.push({ type: 'coffeeM', x: 17, y: 35, w: 1, h: 1 });
-    furniture.push({ type: 'spaint', x: 4, y: 34, w: 1, h: 1 });
     furniture.push({ type: 'lplant', x: 18, y: 44, w: 1, h: 1 });
 
-    // LOUNGE
-    furniture.push({ type: 'sofa', x: 24, y: 38, w: 2, h: 1 });
-    furniture.push({ type: 'sofa', x: 24, y: 40, w: 2, h: 1 });
-    furniture.push({ type: 'coffeeTable', x: 28, y: 39, w: 1, h: 1 });
-    furniture.push({ type: 'lplant', x: 33, y: 44, w: 1, h: 1 });
+    // LOUNGE — two couches with a coffee table between them + extra chairs & side table
+    furniture.push({ type: 'sofa', x: 23, y: 37, w: 2, h: 1 });
+    furniture.push({ type: 'sofa', x: 23, y: 41, w: 2, h: 1 });
+    furniture.push({ type: 'coffeeTable', x: 23, y: 39, w: 1, h: 1 });
+    furniture.push({ type: 'cchair', x: 27, y: 39, w: 1, h: 1 });
+    furniture.push({ type: 'stable', x: 30, y: 39, w: 1, h: 1 });
+    furniture.push({ type: 'cchair', x: 30, y: 38, w: 1, h: 1 });
+    furniture.push({ type: 'cchair', x: 30, y: 40, w: 1, h: 1 });
+    furniture.push({ type: 'lplant', x: 34, y: 44, w: 1, h: 1 });
     furniture.push({ type: 'lpaint', x: 24, y: 34, w: 1, h: 1 });
 
-    // REST
-    furniture.push({ type: 'bed', x: 40, y: 38, w: 2, h: 1 });
-    furniture.push({ type: 'bed', x: 40, y: 41, w: 2, h: 1 });
-    furniture.push({ type: 'hplant', x: 44, y: 36, w: 1, h: 1 });
+    // REST — quiet library: bookshelves + reading tables and chairs
+    furniture.push({ type: 'dshelf', x: 38, y: 35, w: 1, h: 1 });
+    furniture.push({ type: 'dshelf', x: 40, y: 35, w: 1, h: 1 });
+    furniture.push({ type: 'bookshelf', x: 45, y: 35, w: 1, h: 1 });
+    furniture.push({ type: 'stable', x: 39, y: 39, w: 1, h: 1 });
+    furniture.push({ type: 'cchair', x: 39, y: 38, w: 1, h: 1 });
+    furniture.push({ type: 'cchair', x: 39, y: 40, w: 1, h: 1 });
+    furniture.push({ type: 'stable', x: 43, y: 42, w: 1, h: 1 });
+    furniture.push({ type: 'cchair', x: 43, y: 41, w: 1, h: 1 });
+    furniture.push({ type: 'hplant', x: 45, y: 43, w: 1, h: 1 });
 
-    // RECREATION
-    furniture.push({ type: 'arcade', x: 51, y: 37, w: 1, h: 1 });
-    furniture.push({ type: 'coffeeTable', x: 53, y: 40, w: 1, h: 1 });
-    furniture.push({ type: 'bookshelf', x: 56, y: 37, w: 1, h: 1 });
+    // RECREATION — arcade, wall TV, sofa + chairs (fun room)
+    furniture.push({ type: 'arcade', x: 50, y: 37, w: 1, h: 1 });
+    furniture.push({ type: 'whiteboard', x: 53, y: 35, w: 1, h: 1 });
+    furniture.push({ type: 'sofa', x: 52, y: 40, w: 2, h: 1 });
+    furniture.push({ type: 'cchair', x: 51, y: 41, w: 1, h: 1 });
+    furniture.push({ type: 'cchair', x: 55, y: 41, w: 1, h: 1 });
+    furniture.push({ type: 'coffeeTable', x: 53, y: 42, w: 1, h: 1 });
+    furniture.push({ type: 'bookshelf', x: 58, y: 37, w: 1, h: 1 });
+
+    // DAILY STANDUP — chairs around the central standup table
+    furniture.push({ type: 'cchair', x: 38, y: 23, w: 1, h: 1 });
+    furniture.push({ type: 'cchair', x: 44, y: 23, w: 1, h: 1 });
+    furniture.push({ type: 'cchair', x: 38, y: 27, w: 1, h: 1 });
+    furniture.push({ type: 'cchair', x: 44, y: 27, w: 1, h: 1 });
+    furniture.push({ type: 'cchair', x: 41, y: 22, w: 1, h: 1 });
+    furniture.push({ type: 'cchair', x: 41, y: 28, w: 1, h: 1 });
 
     // SMOKING (outdoor)
     furniture.push({ type: 'cbench', x: 64, y: 40, w: 1, h: 1 });
@@ -360,10 +414,16 @@ var Office = (function() {
     "Just need a quick nap...", "Recharging batteries...", "Long night...",
     "So tired...", "Power nap time...", "Need coffee after this..."
   ];
-  var RECREATION_CHATTER = [
-    "Game on!", "Ping pong break!", "High score!", "Arcade time!",
-    "Let's play!", "Good game!", "Almost beat the high score!"
-  ];
+  var RECREATION_CHATTER = ["High score, baby!", "Rematch? You're going down.", "Game on!", "Boss level, let's gooo!", "Pew pew pew!", "New record!", "Just one more round.", "Combo streak unstoppable!", "GG everyone!", "Respawn and revenge!", "Clutch save!", "Victory dance time!"];
+  var CAFETERIA_CHATTER = ["Mmm, donut breach detected.", "Coffee first, code later.", "This sandwich slaps, honestly.", "Tacos beat tickets today.", "Refueling my CPU with snacks.", "Is it lunch o'clock yet?", "Crumbs in the keyboard again.", "Second coffee, no regrets.", "Snack break, deeply earned.", "Leftover pizza tastes like victory.", "Caffeine levels critically low.", "One more cookie won't hurt."];
+  var LOUNGE_CHATTER = ["Comfy couch life.", "Best seat in the house.", "Just vibing.", "Loading: maximum relaxation.", "My battery says lounge mode.", "Shhh, I'm buffering.", "This pixel sun feels nice.", "No tasks, just snacks.", "Soft mode activated.", "I live here now.", "Idle, but make it cozy."];
+  var FOCUS_CHATTER = ["In the zone.", "Almost shipped this.", "Tests are green!", "Deep work, do not disturb.", "Just one more commit.", "Crushing this task.", "Flow state achieved.", "Ship it!", "Heads down, brain on.", "Compiling my genius.", "So close to merging."];
+  var STANDUP_CHATTER = ["Standup time!", "Morning, Lucy!", "What's the plan?", "On it, boss.", "Coffee first, then chaos.", "Ready to ship today.", "Sprint goals, here we go!", "Assign me the fun one!", "Copy that, Lucy.", "Let's crush this backlog!"];
+  var CEO_SPEECH = ["Alright team, eyes up front!", "This quarter, we go big.", "Our objectives are crystal clear.", "Ship it fast, ship it right.", "I believe in every one of you.", "Let's crush these targets together.", "Work in progress means progress!", "The roadmap starts today.", "Dream big, deliver bigger.", "No blockers we can't break.", "Best sprint yet, let's go!", "Excellence is the only standard."];
+  var CEO_CONGRATS = ["Amazing work, {AGENT}!", "{AGENT}, you crushed it!", "Big shoutout to {AGENT}.", "{AGENT} saved the sprint.", "Take a bow, {AGENT}!", "{AGENT}, absolute legend today.", "{AGENT} carried the team!", "Give it up for {AGENT}!", "Outstanding effort, {AGENT}.", "Round of applause for {AGENT}!"];
+  var AGENT_THANKS = ["Thank you very much!", "Aw, you're too kind!", "Just doing my job, boss!", "Means a lot, thank you!", "Happy to help out!", "All in a day's work!", "You made my day, boss!", "Glad I could deliver!", "Honored, truly!"];
+  var CEO_TO_LUCY = ["Lucy, where are we on Q3?", "Get me that report by noon.", "Push the standup back an hour.", "Lucy, any fires this morning?", "Coffee, then we strategize.", "Did the board reply yet?", "Clear my afternoon, Lucy.", "What's first on the agenda?", "Lucy, hold all my calls.", "Numbers looking good today?", "Great work catching that, Lucy."];
+  var LUCY_TO_CEO = ["On it, sir.", "Already handled.", "Numbers look great.", "Meeting's at three.", "Consider it done.", "Inbox is clear.", "Calendar's all set.", "Right away, sir.", "I'll brief the team.", "Two steps ahead.", "Anything else, sir?"];
 
   // ═══ AGENT SYSTEM ═══
   function derivePersonality(da) {
@@ -442,33 +502,32 @@ var Office = (function() {
   }
 
   // Get chatter text based on status
+  function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
   function getChatterText(agent) {
-    var pool;
-    if (agent.ceo) { agent._ci = ((agent._ci || 0) + 1) % CEO_LINES.length; return CEO_LINES[agent._ci]; }
-    if (allHandsActive && agent.confSeat) { return CONFERENCE_CHATTER[Math.floor(Math.random() * CONFERENCE_CHATTER.length)]; }
-    if (agent.idleArea === 'smoking') { return SMOKING_CHATTER[Math.floor(Math.random() * SMOKING_CHATTER.length)]; }
+    if (agent.ceo) return allHandsActive ? pick(CEO_SPEECH) : pick(CEO_TO_LUCY);
+    if (agent.lucy) return pick(LUCY_TO_CEO);
+    if (allHandsActive && agent.confSeat) return pick(CONFERENCE_CHATTER);
+    if (agent.state === STATE.IDLE || agent.onBreak) {
+      switch (agent.idleArea) {
+        case 'smoking': return pick(SMOKING_CHATTER);
+        case 'cafeteria': return pick(CAFETERIA_CHATTER);
+        case 'lounge': return pick(LOUNGE_CHATTER);
+        case 'rest': return pick(REST_CHATTER);
+        case 'recreation': return pick(RECREATION_CHATTER);
+        case 'focus': return pick(FOCUS_CHATTER);
+        case 'standup': return pick(STANDUP_CHATTER);
+        default: return pick(IDLE_CHATTER);
+      }
+    }
     switch (agent.officeState) {
       case 'working':
-        // Use actual ticket title if available
-        if (agent.currentTicket && Math.random() < 0.6) {
-          return agent.currentTicket.title.substring(0, 40);
-        }
-        pool = WORKING_CHATTER;
-        break;
-      case 'meeting': pool = MEETING_CHATTER; break;
-      case 'blocked': pool = BLOCKED_CHATTER; break;
-      case 'reviewing': pool = WORKING_CHATTER; break;
-      case 'idle':
-      default:
-        // Idle sub-area chatter
-        var subArea = agent.idleArea || 'lounge';
-        if (subArea === 'smoking') pool = SMOKING_CHATTER;
-        else if (subArea === 'rest') pool = REST_CHATTER;
-        else if (subArea === 'recreation') pool = RECREATION_CHATTER;
-        else pool = IDLE_CHATTER;
-        break;
+        if (agent.currentTicket && agent.currentTicket.title && Math.random() < 0.5) return agent.currentTicket.title.substring(0, 40);
+        return pick(FOCUS_CHATTER);
+      case 'meeting': return pick(MEETING_CHATTER);
+      case 'blocked': return pick(BLOCKED_CHATTER);
+      case 'reviewing': return pick(WORKING_CHATTER);
+      default: return pick(IDLE_CHATTER);
     }
-    return pool[Math.floor(Math.random() * pool.length)];
   }
 
   function updateAgentStates() {
@@ -550,7 +609,7 @@ var Office = (function() {
         wanderLimit: Math.floor(Math.random() * (WANDER_LIMIT_MAX - WANDER_LIMIT_MIN)) + WANDER_LIMIT_MIN,
         speechBubble: null, speechEnd: 0, nextSpeechTime: Date.now() + 2000 + Math.random() * 5000,
         celebrationTimer: 0, walking: false,
-        idleArea: 'lounge'
+        idleArea: 'lounge', onBreak: false, breakTimer: 40 + Math.random() * 80, breakEnd: 0
       };
     });
     agents.forEach(function(a) { if (/lucy/i.test(a.name || '')) { a.vip = true; a.lucy = true; } });
@@ -595,6 +654,15 @@ var Office = (function() {
             var dest = getDestinationForStatus(agent);
             var path = findPath(agent.tileCol, agent.tileRow, dest.x, dest.y);
             if (path.length > 0) { agent.path = path; agent.state = STATE.WALK; }
+          } else if (!allHandsActive && !agent.onBreak) {
+            // Occasionally take a short break to a room even while working
+            agent.breakTimer -= dt;
+            if (agent.breakTimer <= 0) {
+              agent.onBreak = true; agent.breakEnd = 45 + Math.random() * 20; agent.breakTimer = 80 + Math.random() * 130;
+              var bd = randomBreakRoom();
+              var bp = findPath(agent.tileCol, agent.tileRow, bd.x, bd.y);
+              if (bp.length > 0) { agent.path = bp; agent.state = STATE.WALK; }
+            }
           }
           break;
 
@@ -610,7 +678,7 @@ var Office = (function() {
                 // Arrived — what now?
                 if (allHandsActive && agent.confSeat) {
                   agent.state = STATE.TYPE; agent.frame = 0; agent.frameTimer = 0; agent.dir = DIR.UP; // sit facing the presenter
-                } else if (agent.officeState === 'working' || agent.officeState === 'meeting' || agent.officeState === 'reviewing') {
+                } else if ((agent.officeState === 'working' || agent.officeState === 'meeting' || agent.officeState === 'reviewing') && !agent.onBreak) {
                   agent.state = STATE.TYPE;
                   agent.frame = 0; agent.frameTimer = 0;
                   agent.dir = (agent.seatId && seats[agent.seatId]) ? seats[agent.seatId].facing : DIR.UP; // face desk/PC
@@ -624,6 +692,8 @@ var Office = (function() {
                   else if (agent.tileCol >= 62 && agent.tileRow >= 34) agent.idleArea = 'smoking';
                   else if (agent.tileCol >= 38 && agent.tileCol <= 47 && agent.tileRow >= 34) agent.idleArea = 'rest';
                   else if (agent.tileCol >= 49 && agent.tileCol <= 60 && agent.tileRow >= 34) agent.idleArea = 'recreation';
+                  else if (agent.tileCol >= 49 && agent.tileRow >= 19 && agent.tileRow <= 31) agent.idleArea = 'focus';
+                  else if (agent.tileCol >= 35 && agent.tileCol <= 47 && agent.tileRow >= 19 && agent.tileRow <= 31) agent.idleArea = 'standup';
                   else agent.idleArea = 'lounge';
                 }
               }
@@ -633,10 +703,11 @@ var Office = (function() {
 
         case STATE.IDLE:
           agent.walking = false; agent.frame = 0;
+          if (agent.onBreak) { agent.breakEnd -= dt; if (agent.breakEnd <= 0) agent.onBreak = false; }
           agent.wanderTimer -= dt;
           if (agent.wanderTimer <= 0) {
             // IMPORTANT: If agent should be working/meeting/reviewing, route them to WORK area — NOT idle
-            if (agent.officeState === 'working' || agent.officeState === 'meeting' || agent.officeState === 'reviewing') {
+            if ((agent.officeState === 'working' || agent.officeState === 'meeting' || agent.officeState === 'reviewing') && !agent.onBreak) {
               var workDest = getDestinationForStatus(agent);
               var workPath = findPath(agent.tileCol, agent.tileRow, workDest.x, workDest.y);
               if (workPath.length > 0) {
@@ -675,6 +746,8 @@ var Office = (function() {
                   case 'smoking': area = { x: 63, y: 37, w: 5, h: 7 }; break;
                   case 'rest': area = { x: 39, y: 38, w: 7, h: 6 }; break;
                   case 'recreation': area = { x: 50, y: 37, w: 9, h: 7 }; break;
+                  case 'focus': area = { x: 50, y: 20, w: 18, h: 10 }; break;
+                  case 'standup': area = { x: 36, y: 21, w: 10, h: 8 }; break;
                   default: area = { x: 23, y: 37, w: 12, h: 7 };
                 }
                 var wanderDest = getRandomTileInArea(area.x, area.y, area.w, area.h);
@@ -691,9 +764,9 @@ var Office = (function() {
 
       // ═══ ALL-HANDS MEETING SYSTEM ═══
       // Every ~90 seconds, trigger a 30-second general meeting in conference room
-      if (!allHandsActive && frameCount % (60 * 90) === 0 && agents.length > 5) {
+      if (!allHandsActive && frameCount % (60 * 360) === 0 && agents.length > 5) {
         allHandsActive = true;
-        allHandsTimer = 30; // 30 seconds meeting duration
+        allHandsTimer = 300; // 5-minute all-hands
         // Assign each agent their OWN conference chair (no clumping)
         var confKeys = Object.keys(seats).filter(function(k) { return k.indexOf('conf_') === 0; });
         var si = 0;
@@ -895,6 +968,14 @@ var Office = (function() {
         mc.fillStyle = '#bfe6ff'; mc.fillRect(x + 2, y + 2, s - 4, s * 0.5);
         mc.fillStyle = '#e0913a'; mc.fillRect(x + 3, y + s * 0.6, s - 6, 2);
         mc.fillStyle = '#c0392b'; mc.fillRect(x + s * 0.5 - 1, y + s * 0.75, 3, 3);
+        break;
+      }
+      case 'fridge': {
+        var fy = y - s; // stands a tile taller
+        ol(x, fy, s, s * 2);
+        mc.fillStyle = '#e6edf3'; mc.fillRect(x, fy, s, s * 2);
+        mc.fillStyle = '#c3ccd4'; mc.fillRect(x, fy + s, s, 3);
+        mc.fillStyle = '#9aa6b2'; mc.fillRect(x + s * 0.7, fy + s * 0.2, 2, s * 0.5); mc.fillRect(x + s * 0.7, fy + s * 1.2, 2, s * 0.5);
         break;
       }
     }
