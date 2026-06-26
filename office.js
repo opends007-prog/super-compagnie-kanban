@@ -1047,14 +1047,16 @@ var Office = (function() {
     // Stats
     var working = agents.filter(function(a) { return a.officeState === 'working' || a.officeState === 'reviewing'; }).length;
     var idle = agents.filter(function(a) { return a.officeState === STATE.IDLE; }).length;
-    var stX = 10, stY = 42, stW = 120, stH = 36;
+    var stX = 10, stY = 42, stW = 120, stH = 46;
     ctx.fillStyle = 'rgba(13,17,23,0.85)'; ctx.fillRect(stX, stY, stW, stH);
     ctx.strokeStyle = '#1e2d3d'; ctx.strokeRect(stX, stY, stW, stH);
     ctx.font = 'bold 9px monospace'; ctx.textAlign = 'left';
     ctx.fillStyle = '#e2e8f0'; ctx.fillText('🏢 OFFICE', stX + 6, stY + 12);
     ctx.font = '8px monospace';
-    ctx.fillStyle = '#22c55e'; ctx.fillText('● Typing: ' + working, stX + 6, stY + 22);
+    ctx.fillStyle = '#22c55e'; ctx.fillText('● Working: ' + working, stX + 6, stY + 22);
     ctx.fillStyle = '#eab308'; ctx.fillText('● Idle: ' + idle, stX + 6, stY + 32);
+    var blocked = agents.filter(function(a) { return a.officeState === 'blocked'; }).length;
+    ctx.fillStyle = '#ef4444'; ctx.fillText('● Blocked: ' + blocked, stX + 6, stY + 42);
 
     // All-hands meeting banner
     if (allHandsActive) {

@@ -731,7 +731,7 @@ function rStats(){
   var working=ag.filter(function(a){return a.status==='working'}).length;
   document.getElementById('badge-epics').textContent=ep.length+' Epics';
   document.getElementById('badge-stories').textContent=tk.length+' Stories';
-  document.getElementById('badge-active').textContent=working+' Active';
+  document.getElementById('badge-active').textContent=active+' Active';
   var tc=document.getElementById('badge-team-count');
   if(tc)tc.textContent=ag.length;
 }
@@ -750,7 +750,10 @@ function rBoard(){
     var colClass='col-'+s;
     var epicsInCol=ep.filter(function(e){return e.status===s});
     var orphansInCol=orphans.filter(function(t){return t.status===s});
-    var cnt=(boardMode==='epics')?epicsInCol.length:tk.filter(function(t){return t.status===s}).length;
+    var cnt;
+    if(boardMode==='epics'){cnt=epicsInCol.length;}
+    else if(boardMode==='stories'){cnt=tk.filter(function(t){return t.status===s}).length;}
+    else{cnt=orphansInCol.length;epicsInCol.forEach(function(e){cnt+=(byEpic[e.id]||[]).filter(function(t){return t.status===s}).length;});}
 
     html+='<div class="col '+colClass+'"><div class="col-hdr"><div class="col-title"><span class="col-dot"></span>'+colName+'</div><span class="col-cnt">('+cnt+')</span></div><div class="col-body">';
 
@@ -807,11 +810,10 @@ function rBoardMobile(){
   COL_ORDER.forEach(function(s,i){
     var epicsInCol=ep.filter(function(e){return e.status===s});
     var orphansInCol=orphans.filter(function(t){return t.status===s});
-    var cnt=orphansInCol.length;
-    epicsInCol.forEach(function(e){
-      var st=byEpic[e.id]||[];
-      cnt+=boardMode==='epics'?1:st.length;
-    });
+    var cnt;
+    if(boardMode==='epics'){cnt=epicsInCol.length;}
+    else if(boardMode==='stories'){cnt=tk.filter(function(t){return t.status===s}).length;}
+    else{cnt=orphansInCol.length;epicsInCol.forEach(function(e){cnt+=(byEpic[e.id]||[]).filter(function(t){return t.status===s}).length;});}
     var activeClass=(i===mobileColIdx)?' active':'';
     pickerHtml+='<div class="col-pick'+activeClass+'" onclick="switchMobileCol('+i+')"><span class="col-pick-dot" style="background:'+COL_DOTS[s]+'"></span>'+COL_NAMES[s]+' <span class="col-pick-cnt">('+cnt+')</span></div>';
     dotsHtml+='<div class="col-dot-ind'+activeClass+'" id="cdot-'+i+'"></div>';
@@ -824,11 +826,10 @@ function rBoardMobile(){
   var colClass='col-'+s;
   var epicsInCol=ep.filter(function(e){return e.status===s});
   var orphansInCol=orphans.filter(function(t){return t.status===s});
-  var cnt=orphansInCol.length;
-  epicsInCol.forEach(function(e){
-    var st=byEpic[e.id]||[];
-    cnt+=boardMode==='epics'?1:st.length;
-  });
+  var cnt;
+  if(boardMode==='epics'){cnt=epicsInCol.length;}
+  else if(boardMode==='stories'){cnt=tk.filter(function(t){return t.status===s}).length;}
+  else{cnt=orphansInCol.length;epicsInCol.forEach(function(e){cnt+=(byEpic[e.id]||[]).filter(function(t){return t.status===s}).length;});}
 
   var html='<div class="board-mobile-col '+colClass+'"><div class="col-hdr"><div class="col-title"><span class="col-dot"></span>'+colName+'</div><span class="col-cnt">('+cnt+')</span></div><div class="col-body">';
 
