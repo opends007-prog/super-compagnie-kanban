@@ -608,7 +608,28 @@
       "ticket": "STORY-026",
       "event": "delivered",
       "content": "[claude:owl-alpha] Produced STORY-026-deliverable.md (13887b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-27T10:00:01.367030+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-002",
+      "event": "validating",
+      "content": "[claude] Independently reviewing tom's deliverable"
+    },
+    {
+      "ts": "2026-06-27T10:01:00.705285+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-002",
+      "event": "validation_fail",
+      "content": "FAIL \u2014 sent back: This is a detailed design document and rollout plan, not evidence of actual deployment. None of the acceptance criteria (e.g., Jira project reachable, board columns created, commit referencing SUPERCOMP key, walkthrough held) are verified as completed \u2014 the deliverable describes what will be done, n"
+    },
+    {
+      "ts": "2026-06-27T10:01:00.709391+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-003",
+      "event": "validating",
+      "content": "[claude] Independently reviewing tom's deliverable"
     }
   ],
-  "lastUpdated": "2026-06-27T08:04:56.153218+00:00"
+  "lastUpdated": "2026-06-27T10:01:00.709399+00:00"
 }
