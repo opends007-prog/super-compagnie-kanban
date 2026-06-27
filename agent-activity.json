@@ -825,7 +825,28 @@
       "ticket": "STORY-019",
       "event": "no_deliverable",
       "content": "[claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-06-27T22:00:01.893309+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-003",
+      "event": "validating",
+      "content": "[claude] Independently reviewing tom's deliverable"
+    },
+    {
+      "ts": "2026-06-27T22:01:13.010203+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-003",
+      "event": "validation_fail",
+      "content": "FAIL \u2014 sent back: The deliverable is a runbook and set of scripts claiming to deploy all five agents, but the referenced artifacts (Java/Maven project, monorepo, .jar outputs) don't exist in the actual workspace, and there is no verification that the other four deploy.sh scripts were ever produced \u2014 it is a plan/temp"
+    },
+    {
+      "ts": "2026-06-27T22:01:13.014863+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-023",
+      "event": "validating",
+      "content": "[claude] Independently reviewing qa's deliverable"
     }
   ],
-  "lastUpdated": "2026-06-27T20:07:10.684035+00:00"
+  "lastUpdated": "2026-06-27T22:01:13.014874+00:00"
 }
