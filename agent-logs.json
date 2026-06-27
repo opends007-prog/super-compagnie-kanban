@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-27T02:00:01.764325+00:00",
+  "generated": "2026-06-27T02:10:02.100611+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -13,13 +13,8 @@
     },
     "STORY-002": {
       "agent": "Gladiator",
-      "status": "in_validation",
+      "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-26T13:45:40.231802+00:00",
-          "event": "dispatched",
-          "content": "tom started work: Deploy Kanban + Jira boards"
-        },
         {
           "ts": "2026-06-26T13:46:50.356679+00:00",
           "event": "no_deliverable",
@@ -69,6 +64,16 @@
           "ts": "2026-06-27T00:03:31.879141+00:00",
           "event": "delivered",
           "content": "[claude] Produced STORY-002-deliverable.md (9725b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-27T02:00:01.781849+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing tom's deliverable"
+        },
+        {
+          "ts": "2026-06-27T02:01:13.529006+00:00",
+          "event": "validation_fail",
+          "content": "FAIL \u2014 sent back: The deliverable is an exemplary design and configuration plan but not proof of delivered work: AC #1 (Story-Template.txt), AC #2/#3/#4/#5 (proof the live SUPERCOMP project has the columns, WIP limits, and workflow transitions), AC #6 (Confluence posting evidence), AC #7 (a commit referencing SUPERCO"
         }
       ],
       "deliverable": {
@@ -79,7 +84,7 @@
     },
     "STORY-003": {
       "agent": "Gladiator",
-      "status": "in_validation",
+      "status": "in_progress",
       "events": [
         {
           "ts": "2026-06-26T16:00:53.642349+00:00",
@@ -105,6 +110,16 @@
           "ts": "2026-06-26T22:01:31.119896+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing tom's deliverable"
+        },
+        {
+          "ts": "2026-06-27T02:01:13.534243+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing tom's deliverable"
+        },
+        {
+          "ts": "2026-06-27T02:01:38.319677+00:00",
+          "event": "validation_fail",
+          "content": "FAIL \u2014 sent back: The deliverable is a documentation-only plan (architecture diagram, script sketches, runbook) rather than an actually implemented deployment; no scripts are committed, no VM is provisioned, and the acceptance criteria are self-certified checkboxes without evidence of execution."
         }
       ],
       "deliverable": {
@@ -542,5 +557,12 @@
       "deliverable": null
     }
   },
-  "active": []
+  "active": [
+    {
+      "agent": "nemesis",
+      "ticket": "STORY-003",
+      "event": "validation_fail",
+      "ts": "2026-06-27T02:01:38.319677+00:00"
+    }
+  ]
 }
