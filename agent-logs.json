@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-27T10:00:01.348979+00:00",
+  "generated": "2026-06-27T10:10:01.682893+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -13,18 +13,8 @@
     },
     "STORY-002": {
       "agent": "Gladiator",
-      "status": "in_validation",
+      "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-26T20:00:01.961638+00:00",
-          "event": "dispatched",
-          "content": "[claude] tom started work: Deploy Kanban + Jira boards"
-        },
-        {
-          "ts": "2026-06-26T20:04:42.530687+00:00",
-          "event": "delivered",
-          "content": "[claude] Produced STORY-002-deliverable.md (9725b) \u2192 in_validation"
-        },
         {
           "ts": "2026-06-26T20:27:00.786374+00:00",
           "event": "validating",
@@ -74,6 +64,16 @@
           "ts": "2026-06-27T06:00:01.552305+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing tom's deliverable"
+        },
+        {
+          "ts": "2026-06-27T10:00:01.367030+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing tom's deliverable"
+        },
+        {
+          "ts": "2026-06-27T10:01:00.705285+00:00",
+          "event": "validation_fail",
+          "content": "FAIL \u2014 sent back: This is a detailed design document and rollout plan, not evidence of actual deployment. None of the acceptance criteria (e.g., Jira project reachable, board columns created, commit referencing SUPERCOMP key, walkthrough held) are verified as completed \u2014 the deliverable describes what will be done, n"
         }
       ],
       "deliverable": {
@@ -133,6 +133,11 @@
         },
         {
           "ts": "2026-06-27T06:01:05.520564+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing tom's deliverable"
+        },
+        {
+          "ts": "2026-06-27T10:01:00.709391+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing tom's deliverable"
         }
@@ -680,5 +685,12 @@
       "deliverable": null
     }
   },
-  "active": []
+  "active": [
+    {
+      "agent": "nemesis",
+      "ticket": "STORY-003",
+      "event": "validating",
+      "ts": "2026-06-27T10:01:00.709391+00:00"
+    }
+  ]
 }
