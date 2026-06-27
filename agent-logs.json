@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-27T22:00:01.861701+00:00",
+  "generated": "2026-06-27T22:10:01.486006+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -84,18 +84,8 @@
     },
     "STORY-003": {
       "agent": "Gladiator",
-      "status": "in_validation",
+      "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-27T04:06:45.941352+00:00",
-          "event": "delivered",
-          "content": "[claude] Produced STORY-003-deliverable.md (15494b) \u2192 in_validation"
-        },
-        {
-          "ts": "2026-06-27T06:01:05.520564+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing tom's deliverable"
-        },
         {
           "ts": "2026-06-27T10:01:00.709391+00:00",
           "event": "validating",
@@ -145,6 +135,16 @@
           "ts": "2026-06-27T20:02:12.423131+00:00",
           "event": "delivered",
           "content": "[claude:owl-alpha] Produced STORY-003-deliverable.md (7411b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-27T22:00:01.893309+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing tom's deliverable"
+        },
+        {
+          "ts": "2026-06-27T22:01:13.010203+00:00",
+          "event": "validation_fail",
+          "content": "FAIL \u2014 sent back: The deliverable is a runbook and set of scripts claiming to deploy all five agents, but the referenced artifacts (Java/Maven project, monorepo, .jar outputs) don't exist in the actual workspace, and there is no verification that the other four deploy.sh scripts were ever produced \u2014 it is a plan/temp"
         }
       ],
       "deliverable": {
@@ -316,6 +316,11 @@
         },
         {
           "ts": "2026-06-27T14:01:36.298724+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-27T22:01:13.014863+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
         }
@@ -751,5 +756,12 @@
       "deliverable": null
     }
   },
-  "active": []
+  "active": [
+    {
+      "agent": "nemesis",
+      "ticket": "STORY-023",
+      "event": "validating",
+      "ts": "2026-06-27T22:01:13.014863+00:00"
+    }
+  ]
 }
