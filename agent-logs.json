@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-27T06:00:01.527991+00:00",
+  "generated": "2026-06-27T06:10:01.879996+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -15,11 +15,6 @@
       "agent": "Gladiator",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-26T16:00:53.606734+00:00",
-          "event": "no_deliverable",
-          "content": "No work produced (model unavailable) \u2014 status unchanged"
-        },
         {
           "ts": "2026-06-26T20:00:01.961638+00:00",
           "event": "dispatched",
@@ -74,6 +69,11 @@
           "ts": "2026-06-27T04:03:07.105989+00:00",
           "event": "delivered",
           "content": "[claude] Produced STORY-002-deliverable.md (9930b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-27T06:00:01.552305+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing tom's deliverable"
         }
       ],
       "deliverable": {
@@ -130,6 +130,11 @@
           "ts": "2026-06-27T04:06:45.941352+00:00",
           "event": "delivered",
           "content": "[claude] Produced STORY-003-deliverable.md (15494b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-27T06:01:05.520564+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing tom's deliverable"
         }
       ],
       "deliverable": {
@@ -567,5 +572,12 @@
       "deliverable": null
     }
   },
-  "active": []
+  "active": [
+    {
+      "agent": "nemesis",
+      "ticket": "STORY-003",
+      "event": "validating",
+      "ts": "2026-06-27T06:01:05.520564+00:00"
+    }
+  ]
 }
