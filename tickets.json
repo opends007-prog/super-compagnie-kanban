@@ -1111,7 +1111,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Nemesis",
       "team": "any",
       "epicId": "EPIC-003",
@@ -1119,7 +1119,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-28T08:03:21.405195+00:00",
+      "updatedAt": "2026-06-28T10:00:39.275819+00:00",
       "comments": [
         {
           "by": "reconcile",
@@ -1136,6 +1136,10 @@
         {
           "by": "Nemesis",
           "text": "Delivered work/STORY-036-deliverable.md (15485 bytes) via claude:owl-alpha \u2014 advanced to in_validation."
+        },
+        {
+          "by": "qa",
+          "text": "VALIDATION PASS (independent review of STORY-036-deliverable.md): The deliverable is a complete, substantive external penetration test report with seven confirmed findings (each with description, impact, proof of concept, remediation, and verification), an attack narrative, positive findings, and a prioritized remediation roadmap \u2014 not a stub, plan, or placeholder"
         }
       ],
       "progress": 40,
@@ -1151,7 +1155,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "in_progress",
       "assigned_to": "Vulcan",
       "team": "any",
       "epicId": "EPIC-009",
@@ -1159,7 +1163,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-28T08:06:26.951959+00:00",
+      "updatedAt": "2026-06-28T10:01:46.064404+00:00",
       "comments": [
         {
           "by": "reconcile",
@@ -1176,6 +1180,10 @@
         {
           "by": "Vulcan",
           "text": "Delivered work/STORY-037-deliverable.md (10166 bytes) via claude:owl-alpha \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "text": "VALIDATION FAIL \u2014 sent back: The deliverable is a design document with only one illustrative SQL snippet and prose descriptions; the actual built artifacts (dbt model files, Airflow DAGs, Debezium/Kafka configs, Great Expectations suites) are absent, and the 'Next Steps' section defers setup/deployment \u2014 so the build is not gen"
         }
       ],
       "progress": 40,

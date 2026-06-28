@@ -1112,7 +1112,35 @@
       "ticket": "STORY-037",
       "event": "delivered",
       "content": "[claude:owl-alpha] Produced STORY-037-deliverable.md (10166b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-28T10:00:01.658987+00:00",
+      "agent": "qa",
+      "ticket": "STORY-036",
+      "event": "validating",
+      "content": "[claude] Independently reviewing nemesis's deliverable"
+    },
+    {
+      "ts": "2026-06-28T10:00:39.278038+00:00",
+      "agent": "qa",
+      "ticket": "STORY-036",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, substantive external penetration test report with seven confirmed findings (each with description, impact, proof of concept, remediation, and verification), an attack narrative, positive findings, and a prioritized remediation roadmap \u2014 not a stub, plan, or placeholder"
+    },
+    {
+      "ts": "2026-06-28T10:00:39.279889+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-037",
+      "event": "validating",
+      "content": "[claude] Independently reviewing data-engineer's deliverable"
+    },
+    {
+      "ts": "2026-06-28T10:01:46.065560+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-037",
+      "event": "validation_fail",
+      "content": "FAIL \u2014 sent back: The deliverable is a design document with only one illustrative SQL snippet and prose descriptions; the actual built artifacts (dbt model files, Airflow DAGs, Debezium/Kafka configs, Great Expectations suites) are absent, and the 'Next Steps' section defers setup/deployment \u2014 so the build is not gen"
     }
   ],
-  "lastUpdated": "2026-06-28T08:06:26.957495+00:00"
+  "lastUpdated": "2026-06-28T10:01:46.065583+00:00"
 }
