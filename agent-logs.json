@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-28T10:00:01.642047+00:00",
+  "generated": "2026-06-28T10:10:01.471125+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -492,18 +492,8 @@
     },
     "STORY-036": {
       "agent": "Nemesis",
-      "status": "in_validation",
+      "status": "done",
       "events": [
-        {
-          "ts": "2026-06-28T03:24:44.862695+00:00",
-          "event": "dispatched",
-          "content": "nemesis started work: External penetration testing"
-        },
-        {
-          "ts": "2026-06-28T03:24:44.864624+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: External penetration testing"
-        },
         {
           "ts": "2026-06-28T03:26:21.650204+00:00",
           "event": "delivered",
@@ -553,6 +543,16 @@
           "ts": "2026-06-28T08:03:21.423006+00:00",
           "event": "delivered",
           "content": "[claude:owl-alpha] Produced STORY-036-deliverable.md (15485b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-28T10:00:01.658987+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing nemesis's deliverable"
+        },
+        {
+          "ts": "2026-06-28T10:00:39.278038+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable is a complete, substantive external penetration test report with seven confirmed findings (each with description, impact, proof of concept, remediation, and verification), an attack narrative, positive findings, and a prioritized remediation roadmap \u2014 not a stub, plan, or placeholder"
         }
       ],
       "deliverable": {
@@ -563,18 +563,8 @@
     },
     "STORY-037": {
       "agent": "Vulcan",
-      "status": "in_validation",
+      "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-28T03:26:21.651831+00:00",
-          "event": "dispatched",
-          "content": "data-engineer started work: Build data pipelines & ETL processes"
-        },
-        {
-          "ts": "2026-06-28T03:26:21.653194+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: Build data pipelines & ETL processes"
-        },
         {
           "ts": "2026-06-28T03:27:33.456177+00:00",
           "event": "delivered",
@@ -624,6 +614,16 @@
           "ts": "2026-06-28T08:06:26.957473+00:00",
           "event": "delivered",
           "content": "[claude:owl-alpha] Produced STORY-037-deliverable.md (10166b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-28T10:00:39.279889+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing data-engineer's deliverable"
+        },
+        {
+          "ts": "2026-06-28T10:01:46.065560+00:00",
+          "event": "validation_fail",
+          "content": "FAIL \u2014 sent back: The deliverable is a design document with only one illustrative SQL snippet and prose descriptions; the actual built artifacts (dbt model files, Airflow DAGs, Debezium/Kafka configs, Great Expectations suites) are absent, and the 'Next Steps' section defers setup/deployment \u2014 so the build is not gen"
         }
       ],
       "deliverable": {
@@ -950,5 +950,18 @@
       "deliverable": null
     }
   },
-  "active": []
+  "active": [
+    {
+      "agent": "qa",
+      "ticket": "STORY-036",
+      "event": "validation_pass",
+      "ts": "2026-06-28T10:00:39.278038+00:00"
+    },
+    {
+      "agent": "nemesis",
+      "ticket": "STORY-037",
+      "event": "validation_fail",
+      "ts": "2026-06-28T10:01:46.065560+00:00"
+    }
+  ]
 }
