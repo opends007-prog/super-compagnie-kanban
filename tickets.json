@@ -565,7 +565,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Gladiator",
       "team": "any",
       "epicId": "EPIC-001",
@@ -573,7 +573,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-27T22:01:13.009200+00:00",
+      "updatedAt": "2026-06-28T00:03:50.700500+00:00",
       "comments": [
         {
           "by": "reconcile",
@@ -610,6 +610,10 @@
         {
           "by": "nemesis",
           "text": "VALIDATION FAIL \u2014 sent back: The deliverable is a runbook and set of scripts claiming to deploy all five agents, but the referenced artifacts (Java/Maven project, monorepo, .jar outputs) don't exist in the actual workspace, and there is no verification that the other four deploy.sh scripts were ever produced \u2014 it is a plan/temp"
+        },
+        {
+          "by": "Gladiator",
+          "text": "Delivered work/STORY-003-deliverable.md (22498 bytes) via claude:owl-alpha \u2014 advanced to in_validation."
         }
       ],
       "progress": 40,
@@ -733,7 +737,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Athena",
       "team": "Project",
       "epicId": "EPIC-006",
@@ -741,7 +745,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-27T14:01:36.280792+00:00",
+      "updatedAt": "2026-06-28T00:05:42.114060+00:00",
       "comments": [
         {
           "by": "Zeus",
@@ -764,6 +768,10 @@
         {
           "by": "nemesis",
           "text": "VALIDATION FAIL \u2014 sent back: The deliverable tests bash shell commands (cat, echo, sed) instead of the actual Claude Code agent tools (Read, Write, Edit, Agent, Workflow), making it a simulation that cannot catch real tool bugs. Additionally, test_utils.sh is truncated mid-line and would not execute, run_all.sh is never impleme"
+        },
+        {
+          "by": "Athena",
+          "text": "Delivered work/STORY-019-deliverable.md (24337 bytes) via claude:owl-alpha \u2014 advanced to in_validation."
         }
       ],
       "progress": 40,
