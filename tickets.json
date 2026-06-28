@@ -1111,7 +1111,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "done",
+      "status": "backlog",
       "assigned_to": "Nemesis",
       "team": "any",
       "epicId": "EPIC-003",
@@ -1119,7 +1119,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-28T10:00:39.275819+00:00",
+      "updatedAt": "2026-06-28T15:02:51.201449+00:00",
       "comments": [
         {
           "by": "reconcile",
@@ -1140,6 +1140,11 @@
         {
           "by": "qa",
           "text": "VALIDATION PASS (independent review of STORY-036-deliverable.md): The deliverable is a complete, substantive external penetration test report with seven confirmed findings (each with description, impact, proof of concept, remediation, and verification), an attack narrative, positive findings, and a prioritized remediation roadmap — not a stub, plan, or placeholder"
+        },
+        {
+          "by": "reconciliation",
+          "timestamp": "2026-06-28T15:02:51.201449+00:00",
+          "text": "Auto-parked: build/security ticket the free engine can't truly complete (a document isn't a real pen-test/pipeline). Needs a capable/paid model or real build tooling — removed from the active queue to stop the validation ping-pong."
         }
       ],
       "progress": 40,
@@ -1147,7 +1152,8 @@
       "last_agent_update": "2026-06-15T23:21:06.309593",
       "jira_key": "TD-214",
       "pushed_comments": [],
-      "pushed_progress": 100
+      "pushed_progress": 100,
+      "validation_fails": 2
     },
     {
       "id": "STORY-037",
@@ -1155,7 +1161,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "backlog",
       "assigned_to": "Vulcan",
       "team": "any",
       "epicId": "EPIC-009",
@@ -1163,7 +1169,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-28T13:01:45.427772+00:00",
+      "updatedAt": "2026-06-28T15:02:51.201449+00:00",
       "comments": [
         {
           "by": "reconcile",
@@ -1192,6 +1198,11 @@
         {
           "by": "reviewer",
           "text": "[review:fail] Deliverable is design documentation only; missing actual pipeline implementation (dbt models, Airflow DAGs, configs)"
+        },
+        {
+          "by": "reconciliation",
+          "timestamp": "2026-06-28T15:02:51.201449+00:00",
+          "text": "Auto-parked: build/security ticket the free engine can't truly complete (a document isn't a real pen-test/pipeline). Needs a capable/paid model or real build tooling — removed from the active queue to stop the validation ping-pong."
         }
       ],
       "progress": 40,
@@ -1205,7 +1216,8 @@
         }
       ],
       "pushed_progress": 25,
-      "review_retries": 1
+      "review_retries": 1,
+      "validation_fails": 2
     },
     {
       "id": "STORY-044",
@@ -2521,11 +2533,11 @@
   "stats": {
     "totalTickets": 51,
     "totalEpics": 14,
-    "backlog": 12,
-    "in_progress": 9,
+    "backlog": 14,
+    "in_progress": 8,
     "waiting": 0,
     "in_validation": 0,
-    "done": 30,
+    "done": 29,
     "critical": 0,
     "blocked": 0,
     "review": 0,
