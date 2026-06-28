@@ -1647,7 +1647,7 @@
       "description": "Analyze current cloud infrastructure costs. Identify waste, recommend reserved instances vs on-demand, evaluate spot instances, and create cost allocation report by team/service.",
       "severity": "HIGH",
       "category": "feature",
-      "status": "in_validation",
+      "status": "in_progress",
       "assigned_to": "Juno",
       "team": "Finance",
       "epicId": "EPIC-010",
@@ -1655,7 +1655,7 @@
       "blocks": null,
       "created_by": "Zeus",
       "createdAt": "2026-06-17T04:10:26.614001+00:00",
-      "updatedAt": "2026-06-28T16:01:47.291680+00:00",
+      "updatedAt": "2026-06-28T18:01:09.499777+00:00",
       "comments": [
         {
           "by": "Zeus",
@@ -1670,9 +1670,14 @@
           "by": "Juno",
           "timestamp": "2026-06-28T16:01:47.291680+00:00",
           "text": "Delivered work/STORY-058-deliverable.md (10301 bytes) via claude:owl-alpha \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-28T18:01:09.499777+00:00",
+          "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The headline $38,400/month savings figure is internally inconsistent with the section-level totals: Section 3 totals $34,130 in waste savings and Section 4 totals $22,780 in RI/spot savings, which sum to $56,910 \u2014 not $38,400 \u2014 and the BigQuery flat-rate arithmetic (claiming a $10,000/mo plan saves "
         }
       ],
-      "progress": 25,
+      "progress": 40,
       "eta_hours": 10,
       "last_agent_update": "2026-06-17T04:10:26.614001+00:00",
       "jira_key": "TD-281",
@@ -1693,7 +1698,8 @@
           "timestamp": "2026-06-17T12:00:00"
         }
       ],
-      "pushed_progress": -1
+      "pushed_progress": -1,
+      "validation_fails": 1
     },
     {
       "id": "STORY-059",
