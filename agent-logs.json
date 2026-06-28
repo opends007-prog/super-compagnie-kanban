@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-28T22:00:01.481845+00:00",
+  "generated": "2026-06-28T22:10:01.648899+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -747,7 +747,7 @@
     },
     "STORY-058": {
       "agent": "Juno",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-06-28T16:00:01.134027+00:00",
@@ -788,6 +788,16 @@
           "ts": "2026-06-28T20:03:11.033752+00:00",
           "event": "delivered",
           "content": "[claude:owl-alpha] Produced STORY-058-deliverable.md (10090b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-28T22:00:01.506116+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing budget's deliverable"
+        },
+        {
+          "ts": "2026-06-28T22:00:59.102439+00:00",
+          "event": "validation_pass",
+          "content": "PASS: Deliverable fully addresses all five ticket requirements\u2014cost analysis, waste identification, reserved vs on-demand recommendation, spot evaluation, and team/service cost allocation\u2014with internally reconciled math across all sections (verified: \u00a71 $182,260, \u00a72 $17,010, \u00a73 $27,821, \u00a74 $10,030/$3,240,"
         }
       ],
       "deliverable": {
@@ -1060,5 +1070,12 @@
       "deliverable": null
     }
   },
-  "active": []
+  "active": [
+    {
+      "agent": "nemesis",
+      "ticket": "STORY-058",
+      "event": "validation_pass",
+      "ts": "2026-06-28T22:00:59.102439+00:00"
+    }
+  ]
 }
