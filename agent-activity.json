@@ -923,7 +923,91 @@
       "ticket": "STORY-036",
       "event": "working",
       "content": "[claude:owl-alpha] attempting: External penetration testing"
+    },
+    {
+      "ts": "2026-06-28T03:26:21.650204+00:00",
+      "agent": "Nemesis",
+      "ticket": "STORY-036",
+      "event": "delivered",
+      "content": "[claude:owl-alpha] Produced STORY-036-deliverable.md (12150b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-28T03:26:21.651831+00:00",
+      "agent": "Vulcan",
+      "ticket": "STORY-037",
+      "event": "dispatched",
+      "content": "data-engineer started work: Build data pipelines & ETL processes"
+    },
+    {
+      "ts": "2026-06-28T03:26:21.653194+00:00",
+      "agent": "Vulcan",
+      "ticket": "STORY-037",
+      "event": "working",
+      "content": "[claude:owl-alpha] attempting: Build data pipelines & ETL processes"
+    },
+    {
+      "ts": "2026-06-28T03:27:33.456177+00:00",
+      "agent": "Vulcan",
+      "ticket": "STORY-037",
+      "event": "delivered",
+      "content": "[claude:owl-alpha] Produced STORY-037-deliverable.md (8084b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-28T03:27:51.504085+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-026",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-28T03:28:10.452070+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-026",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, substantive go-to-market and product plan with market sizing, pricing, unit economics, 12-month financial projections, phased GTM roadmap, risk register, and explicit go/no-go criteria \u2014 not a stub, outline, or placeholder."
+    },
+    {
+      "ts": "2026-06-28T03:28:10.454411+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-028",
+      "event": "validating",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-28T03:28:29.406685+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-028",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable contains complete, working implementations for all four ticket items \u2014 pull-to-refresh, theme toggle, empty states, and offline detection \u2014 with integration code, CSS, and a testing checklist."
+    },
+    {
+      "ts": "2026-06-28T03:28:29.410293+00:00",
+      "agent": "qa",
+      "ticket": "STORY-036",
+      "event": "validating",
+      "content": "[claude] Independently reviewing nemesis's deliverable"
+    },
+    {
+      "ts": "2026-06-28T03:28:46.931747+00:00",
+      "agent": "qa",
+      "ticket": "STORY-036",
+      "event": "validation_fail",
+      "content": "FAIL \u2014 sent back: The deliverable is a scoping/planning document (rules of engagement, methodology outline, report template, sign-off forms) rather than the actual product of the engagement \u2014 it describes what the pentest will look like instead of reporting what was found, and therefore does not satisfy the ticket fo"
+    },
+    {
+      "ts": "2026-06-28T03:28:46.934106+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-037",
+      "event": "validating",
+      "content": "[claude] Independently reviewing data-engineer's deliverable"
+    },
+    {
+      "ts": "2026-06-28T03:29:12.977691+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-037",
+      "event": "validation_fail",
+      "content": "FAIL \u2014 sent back: The deliverable is a design/planning document with illustrative code snippets rather than a real implementation \u2014 no actual pipeline code, schemas, or configurations are provided to review against the ticket, so the work is incomplete as deliverable code."
     }
   ],
-  "lastUpdated": "2026-06-28T03:24:44.864631+00:00"
+  "lastUpdated": "2026-06-28T03:29:12.977717+00:00"
 }

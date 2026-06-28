@@ -933,7 +933,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Fortuna",
       "team": "any",
       "epicId": "EPIC-002",
@@ -941,7 +941,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-27T08:04:56.115295+00:00",
+      "updatedAt": "2026-06-28T03:28:10.451013+00:00",
       "comments": [
         {
           "by": "reconcile",
@@ -950,6 +950,10 @@
         {
           "by": "Fortuna",
           "text": "Delivered work/STORY-026-deliverable.md (13887 bytes) via claude:owl-alpha — advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "text": "VALIDATION PASS (independent review of STORY-026-deliverable.md): The deliverable is a complete, substantive go-to-market and product plan with market sizing, pricing, unit economics, 12-month financial projections, phased GTM roadmap, risk register, and explicit go/no-go criteria — not a stub, outline, or placeholder."
         }
       ],
       "progress": 25,
@@ -998,7 +1002,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Claude",
       "team": "any",
       "epicId": "EPIC-005",
@@ -1006,7 +1010,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-27T12:02:51.330431+00:00",
+      "updatedAt": "2026-06-28T03:28:29.405874+00:00",
       "comments": [
         {
           "by": "reconcile",
@@ -1015,6 +1019,10 @@
         {
           "by": "Claude",
           "text": "Delivered work/STORY-028-deliverable.md (12933 bytes) via claude:owl-alpha — advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "text": "VALIDATION PASS (independent review of STORY-028-deliverable.md): The deliverable contains complete, working implementations for all four ticket items — pull-to-refresh, theme toggle, empty states, and offline detection — with integration code, CSS, and a testing checklist."
         }
       ],
       "progress": 25,
@@ -1111,14 +1119,22 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-15T23:21:06.309590",
+      "updatedAt": "2026-06-28T03:28:46.930821+00:00",
       "comments": [
         {
           "by": "reconcile",
           "text": "Reset done→in_progress: no verifiable deliverable artifact (board marked done without real work). Re-queued for the real work executor."
+        },
+        {
+          "by": "Nemesis",
+          "text": "Delivered work/STORY-036-deliverable.md (12150 bytes) via claude:owl-alpha — advanced to in_validation."
+        },
+        {
+          "by": "qa",
+          "text": "VALIDATION FAIL — sent back: The deliverable is a scoping/planning document (rules of engagement, methodology outline, report template, sign-off forms) rather than the actual product of the engagement — it describes what the pentest will look like instead of reporting what was found, and therefore does not satisfy the ticket fo"
         }
       ],
-      "progress": 25,
+      "progress": 40,
       "eta_hours": 0,
       "last_agent_update": "2026-06-15T23:21:06.309593",
       "jira_key": "TD-214",
@@ -1139,14 +1155,22 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-24T16:04:29.853818+00:00",
+      "updatedAt": "2026-06-28T03:29:12.975877+00:00",
       "comments": [
         {
           "by": "reconcile",
           "text": "Reset done→in_progress: Jira TD-215 is 'indeterminate' (board had falsely marked done; real work not completed)."
+        },
+        {
+          "by": "Vulcan",
+          "text": "Delivered work/STORY-037-deliverable.md (8084 bytes) via claude:owl-alpha — advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "text": "VALIDATION FAIL — sent back: The deliverable is a design/planning document with illustrative code snippets rather than a real implementation — no actual pipeline code, schemas, or configurations are provided to review against the ticket, so the work is incomplete as deliverable code."
         }
       ],
-      "progress": 50,
+      "progress": 40,
       "eta_hours": 0,
       "last_agent_update": "2026-06-15T23:21:06.309602",
       "jira_key": "TD-215",
@@ -2466,12 +2490,12 @@
     "backlog": 12,
     "in_progress": 10,
     "waiting": 0,
-    "in_validation": 2,
-    "done": 26,
+    "in_validation": 0,
+    "done": 28,
     "critical": 0,
     "blocked": 0,
     "review": 0,
-    "last_progress_update": "2026-06-26T21:08:56.365695+00:00",
+    "last_progress_update": "2026-06-28T03:29:53.138852+00:00",
     "planned": 1
   },
   "last_progress_update": "2026-06-22T16:30:02.987211"
