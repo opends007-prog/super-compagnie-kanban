@@ -1,27 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-28T03:26:21.651831+00:00",
-      "agent": "Vulcan",
-      "ticket": "STORY-037",
-      "event": "dispatched",
-      "content": "data-engineer started work: Build data pipelines & ETL processes"
-    },
-    {
-      "ts": "2026-06-28T03:26:21.653194+00:00",
-      "agent": "Vulcan",
-      "ticket": "STORY-037",
-      "event": "working",
-      "content": "[claude:owl-alpha] attempting: Build data pipelines & ETL processes"
-    },
-    {
-      "ts": "2026-06-28T03:27:33.456177+00:00",
-      "agent": "Vulcan",
-      "ticket": "STORY-037",
-      "event": "delivered",
-      "content": "[claude:owl-alpha] Produced STORY-037-deliverable.md (8084b) \u2192 in_validation"
-    },
-    {
       "ts": "2026-06-28T03:27:51.504085+00:00",
       "agent": "nemesis",
       "ticket": "STORY-026",
@@ -1399,7 +1378,28 @@
       "ticket": "STORY-067",
       "event": "validation_fail",
       "content": "FAIL #1: The deliverable is a markdown document with embedded code blocks, but the actual test_suite/ directory and scripts were never created on disk. Writing about code is not delivering code \u2014 the files must exist and be executable to satisfy 'Create test-suite/ with test_agents.sh, test_crons.sh, test_wo"
+    },
+    {
+      "ts": "2026-06-29T15:10:01.815450+00:00",
+      "agent": "Athena",
+      "ticket": "STORY-067",
+      "event": "dispatched",
+      "content": "qa started work: Create comprehensive test suite and safety scanner"
+    },
+    {
+      "ts": "2026-06-29T15:10:01.816808+00:00",
+      "agent": "Athena",
+      "ticket": "STORY-067",
+      "event": "working",
+      "content": "[cerebras:gpt-oss-120b] attempting: Create comprehensive test suite and safety scanner"
+    },
+    {
+      "ts": "2026-06-29T15:10:04.973795+00:00",
+      "agent": "Athena",
+      "ticket": "STORY-067",
+      "event": "delivered",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-067-deliverable.md (13837b) \u2192 in_validation"
     }
   ],
-  "lastUpdated": "2026-06-29T15:03:45.053163+00:00"
+  "lastUpdated": "2026-06-29T15:10:04.973819+00:00"
 }

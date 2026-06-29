@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T15:00:01.608302+00:00",
+  "generated": "2026-06-29T15:10:01.725854+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -24,13 +24,7 @@
     "STORY-003": {
       "agent": "Gladiator",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-06-28T02:00:41.009013+00:00",
-          "event": "validation_pass",
-          "content": "PASS: Complete runbook with three fully-implemented scripts (bootstrap.sh, deploy.sh, validate.sh), inline fallback runtimes, secrets management via sops, rollback procedure, and testable acceptance criteria \u2014 genuine deployment automation, not a stub."
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "tom/work/STORY-003-deliverable.md",
         "size": 22498,
@@ -71,11 +65,6 @@
       "agent": "Athena",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-29T10:00:02.111017+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing qa's deliverable"
-        },
         {
           "ts": "2026-06-29T10:00:47.340958+00:00",
           "event": "validation_fail",
@@ -130,6 +119,11 @@
           "ts": "2026-06-29T14:30:01.722621+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-29T15:00:01.635740+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
         }
       ],
       "deliverable": {
@@ -142,11 +136,6 @@
       "agent": "Athena",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-29T11:10:04.553427+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced STORY-023-deliverable.md (13251b) \u2192 in_validation"
-        },
         {
           "ts": "2026-06-29T11:31:56.849398+00:00",
           "event": "validating",
@@ -199,6 +188,11 @@
         },
         {
           "ts": "2026-06-29T14:30:42.846612+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-29T15:00:30.455901+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
         }
@@ -504,11 +498,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-29T10:06:24.309362+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced STORY-046-deliverable.md (12584b) \u2192 in_validation"
-        },
-        {
           "ts": "2026-06-29T11:34:18.125308+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing security's deliverable"
@@ -560,6 +549,11 @@
         },
         {
           "ts": "2026-06-29T14:31:13.735972+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing security's deliverable"
+        },
+        {
+          "ts": "2026-06-29T15:01:38.813862+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing security's deliverable"
         }
@@ -871,7 +865,7 @@
     },
     "STORY-067": {
       "agent": "Athena",
-      "status": "in_validation",
+      "status": "in_progress",
       "events": [
         {
           "ts": "2026-06-29T09:00:01.063645+00:00",
@@ -892,6 +886,16 @@
           "ts": "2026-06-29T10:06:29.546110+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced STORY-067-deliverable.md (18427b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-29T15:02:42.312951+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-29T15:03:45.053144+00:00",
+          "event": "validation_fail",
+          "content": "FAIL #1: The deliverable is a markdown document with embedded code blocks, but the actual test_suite/ directory and scripts were never created on disk. Writing about code is not delivering code \u2014 the files must exist and be executable to satisfy 'Create test-suite/ with test_agents.sh, test_crons.sh, test_wo"
         }
       ],
       "deliverable": {
@@ -1338,16 +1342,16 @@
   },
   "active": [
     {
-      "agent": "nemesis",
-      "ticket": "STORY-063",
-      "event": "validation_parked",
-      "ts": "2026-06-29T14:36:19.131796+00:00"
-    },
-    {
       "agent": "Iris",
       "ticket": "STORY-063",
       "event": "started",
       "ts": "2026-06-29T15:00:00.325539+00:00"
+    },
+    {
+      "agent": "nemesis",
+      "ticket": "STORY-067",
+      "event": "validation_fail",
+      "ts": "2026-06-29T15:03:45.053144+00:00"
     }
   ]
 }

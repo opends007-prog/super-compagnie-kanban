@@ -1,29 +1,29 @@
 {
-  "generatedAt": "2026-06-29T15:00:01.632580+00:00",
+  "generatedAt": "2026-06-29T15:10:01.732926+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
-    "observability": 0.0,
-    "guard": 280.0,
-    "backup": 30.0,
+    "validator": 6.3,
+    "observability": 10.0,
+    "guard": 290.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 31,
-    "in_validation": 14,
-    "in_progress": 6
+    "in_validation": 13,
+    "in_progress": 7
   },
   "tickets_total": 51,
   "done_today": 1,
   "delivered_today": 29,
-  "delivered_week": 37,
+  "delivered_week": 36,
   "model_mix_week": {
-    "claude:owl-alpha": 11,
+    "claude:owl-alpha": 10,
     "openclaw": 1,
     "cerebras:gpt-oss-120b": 25
   },
@@ -32,6 +32,34 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T15:03:45.053144+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "STORY-067",
+      "content": "FAIL #1: The deliverable is a markdown document with embedded code blocks, but the actual test_suite/ directory and scri"
+    },
+    {
+      "ts": "2026-06-29T15:02:42.312951+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-067",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T15:01:38.813862+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-046",
+      "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-29T15:00:30.455901+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-023",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
     {
       "ts": "2026-06-29T15:00:01.635740+00:00",
       "agent": "nemesis",
@@ -87,34 +115,6 @@
       "event": "started",
       "ticket": "STORY-053",
       "content": ""
-    },
-    {
-      "ts": "2026-06-29T14:10:04.509323+00:00",
-      "agent": "Athena",
-      "event": "delivered",
-      "ticket": "STORY-023",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-023-deliverable.md (19735b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T14:10:01.917618+00:00",
-      "agent": "Athena",
-      "event": "working",
-      "ticket": "STORY-023",
-      "content": "[cerebras:gpt-oss-120b] attempting: MVP: AI Agent Safety Scanner"
-    },
-    {
-      "ts": "2026-06-29T14:10:01.915021+00:00",
-      "agent": "Athena",
-      "event": "dispatched",
-      "ticket": "STORY-023",
-      "content": "qa started work: MVP: AI Agent Safety Scanner"
-    },
-    {
-      "ts": "2026-06-29T14:03:40.815060+00:00",
-      "agent": "nemesis",
-      "event": "validation_parked",
-      "ticket": "STORY-053",
-      "content": "Parked after 2 fails: The deliverable is a markdown specification containing code samples and a fabricated sample log, n"
     }
   ],
   "problems": {}
