@@ -907,7 +907,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Athena",
       "team": "any",
       "epicId": "EPIC-002",
@@ -915,7 +915,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-29T14:01:42.304936+00:00",
+      "updatedAt": "2026-06-29T14:10:04.508057+00:00",
       "comments": [
         {
           "by": "Athena",
@@ -948,6 +948,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-29T14:01:42.304936+00:00",
           "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The deliverable is only a test suite + guide, not the actual scanner implementation \u2014 safety_scanner.py is referenced but absent. The test file itself contains critical bugs: TC-010's pytest.raises(AssertionError) is inverted (passes when performance FAILS), TC-007's UnicodeDecodeError is raised by "
+        },
+        {
+          "by": "Athena",
+          "timestamp": "2026-06-29T14:10:04.508057+00:00",
+          "text": "Delivered work/STORY-023-deliverable.md (19735 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
       "progress": 40,
