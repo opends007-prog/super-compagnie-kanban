@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-06-29T21:10:01.854636+00:00",
+  "generatedAt": "2026-06-29T21:20:01.604838+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 6.3,
+    "validator": 16.3,
     "observability": 10.0,
-    "guard": 650.0,
-    "backup": 10.0,
+    "guard": 660.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
     "backlog": 3,
-    "in_progress": 9,
-    "in_validation": 15
+    "in_progress": 8,
+    "in_validation": 16
   },
   "tickets_total": 59,
   "done_today": 2,
@@ -28,15 +28,33 @@
   },
   "live_agents": [
     "Fortuna",
-    "Hades",
-    "Hermes",
     "Iris",
     "Metis",
     "Minerva",
-    "Thor",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T21:10:03.582282+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-008",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-008-deliverable.md (7208b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T21:10:01.970558+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-008",
+      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-29T21:10:01.968579+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-008",
+      "content": "org-excellence started work: Cold Outreach Email Templates for AI FAQ Receptionist"
+    },
     {
       "ts": "2026-06-29T21:03:11.644449+00:00",
       "agent": "nemesis",
@@ -99,27 +117,6 @@
       "event": "delivered",
       "ticket": "AUTO-006",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-006-deliverable.md (16579b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T20:50:27.921457+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-005",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-005-deliverable.md (9430b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T20:50:27.917884+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "AUTO-007",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-007-deliverable.md (4048b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T20:50:25.385218+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-007",
-      "content": "[cerebras:gpt-oss-120b] attempting: One\u2011Page Sales Pitch Copy for AI FAQ Receptionist"
     }
   ],
   "problems": {}
