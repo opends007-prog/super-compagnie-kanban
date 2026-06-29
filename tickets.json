@@ -2421,7 +2421,7 @@
     {
       "id": "TD-257",
       "title": "Operations & Infrastructure",
-      "status": "in_validation",
+      "status": "backlog",
       "severity": "MEDIUM",
       "category": "tech-debt",
       "team": "Research",
@@ -2430,7 +2430,7 @@
       "jira_key": "TD-257",
       "progress": 40,
       "createdAt": "2026-06-23T00:05:53.080493+00:00",
-      "updatedAt": "2026-06-29T17:10:04.395623+00:00",
+      "updatedAt": "2026-06-29T17:31:37.853801+00:00",
       "comments": [
         {
           "by": "claude",
@@ -2454,6 +2454,11 @@
           "by": "Minerva",
           "timestamp": "2026-06-29T17:10:04.395623+00:00",
           "text": "Delivered work/TD-257-deliverable.md (13687 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-29T17:31:37.853801+00:00",
+          "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The deliverable's sources are unverifiable placeholders (\u30101\u2020source\u3011 etc.) with no actual URLs or report titles, the IaC tooling pillar (Terraform, Pulumi, CDK) promised in the scope is entirely absent from the comparison table, and specific figures (market share percentages, YoY growth, pricing) app"
         }
       ],
       "pushed_comments": [
@@ -2463,21 +2468,21 @@
         }
       ],
       "estimatedStartDate": "2026-06-26",
-      "validation_fails": 1
+      "validation_fails": 2
     },
     {
       "id": "TD-266",
       "title": "Fix researcher + finance work templates",
-      "status": "in_validation",
+      "status": "in_progress",
       "severity": "MEDIUM",
       "category": "tech-debt",
       "team": "any",
       "assigned_to": "Claude",
       "epicId": null,
       "jira_key": "TD-266",
-      "progress": 0,
+      "progress": 40,
       "createdAt": "2026-06-23T00:05:53.080774+00:00",
-      "updatedAt": "2026-06-29T11:00:09.312790+00:00",
+      "updatedAt": "2026-06-29T17:32:46.257511+00:00",
       "comments": [
         {
           "by": "claude",
@@ -2491,6 +2496,11 @@
           "by": "Claude",
           "timestamp": "2026-06-29T11:00:09.312790+00:00",
           "text": "Delivered work/TD-266-deliverable.md (15293 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-29T17:32:46.257511+00:00",
+          "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The deliverable is a markdown spec/plan describing the desired templates, not the actual implemented work \u2014 the referenced files (templates/researcher.md, templates/finance.md) do not exist in the repository, there is no git tag, and no template directory was created."
         }
       ],
       "pushed_comments": [
@@ -2500,21 +2510,22 @@
         }
       ],
       "estimatedStartDate": "2026-06-29",
-      "last_agent_update": "2026-06-29T00:00:00.240192+00:00"
+      "last_agent_update": "2026-06-29T00:00:00.240192+00:00",
+      "validation_fails": 1
     },
     {
       "id": "TD-267",
       "title": "Clean up 21 orphan Jira issues + fix health-check.sh",
-      "status": "in_validation",
+      "status": "in_progress",
       "severity": "MEDIUM",
       "category": "tech-debt",
       "team": "any",
       "assigned_to": "Claude",
       "epicId": null,
       "jira_key": "TD-267",
-      "progress": 0,
+      "progress": 40,
       "createdAt": "2026-06-23T00:05:53.080781+00:00",
-      "updatedAt": "2026-06-29T11:30:04.832893+00:00",
+      "updatedAt": "2026-06-29T17:33:43.869024+00:00",
       "comments": [
         {
           "by": "claude",
@@ -2533,6 +2544,11 @@
           "by": "Claude",
           "timestamp": "2026-06-29T11:30:04.832893+00:00",
           "text": "Delivered work/TD-267-deliverable.md (14020 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-29T17:33:43.869024+00:00",
+          "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The deliverable is an unexecuted plan: no health-check.sh script is committed, no commits reference TD-267, and no Jira artifacts (token, query, export, transitions) exist to prove 21 orphan issues were closed."
         }
       ],
       "pushed_comments": [
@@ -2541,7 +2557,8 @@
           "text": "Migrated from Jira TD-267"
         }
       ],
-      "estimatedStartDate": "2026-06-30"
+      "estimatedStartDate": "2026-06-30",
+      "validation_fails": 1
     },
     {
       "id": "STORY-083",

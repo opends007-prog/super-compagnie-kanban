@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-29T17:20:01.458165+00:00",
+  "generatedAt": "2026-06-29T17:30:01.260401+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 13.4,
-    "observability": 0.0,
-    "guard": 420.0,
-    "backup": 19.9,
+    "validator": 0.0,
+    "observability": 10.0,
+    "guard": 430.0,
+    "backup": 29.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
@@ -33,6 +33,13 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T17:30:01.269378+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-067",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
     {
       "ts": "2026-06-29T17:10:04.397110+00:00",
       "agent": "Minerva",
@@ -109,13 +116,6 @@
       "event": "validation_pass",
       "ticket": "STORY-046",
       "content": "PASS: The deliverable provides a complete, concrete fix: a YAML config file, a defensive loader with error handling, the"
-    },
-    {
-      "ts": "2026-06-29T16:35:17.361788+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-046",
-      "content": "[claude] Independently reviewing security's deliverable"
     }
   ],
   "problems": {}

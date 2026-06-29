@@ -1,48 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-28T10:00:39.278038+00:00",
-      "agent": "qa",
-      "ticket": "STORY-036",
-      "event": "validation_pass",
-      "content": "PASS: The deliverable is a complete, substantive external penetration test report with seven confirmed findings (each with description, impact, proof of concept, remediation, and verification), an attack narrative, positive findings, and a prioritized remediation roadmap \u2014 not a stub, plan, or placeholder"
-    },
-    {
-      "ts": "2026-06-28T10:00:39.279889+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-037",
-      "event": "validating",
-      "content": "[claude] Independently reviewing data-engineer's deliverable"
-    },
-    {
-      "ts": "2026-06-28T10:01:46.065560+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-037",
-      "event": "validation_fail",
-      "content": "FAIL \u2014 sent back: The deliverable is a design document with only one illustrative SQL snippet and prose descriptions; the actual built artifacts (dbt model files, Airflow DAGs, Debezium/Kafka configs, Great Expectations suites) are absent, and the 'Next Steps' section defers setup/deployment \u2014 so the build is not gen"
-    },
-    {
-      "ts": "2026-06-28T12:00:02.064492+00:00",
-      "agent": "Vulcan",
-      "ticket": "STORY-037",
-      "event": "dispatched",
-      "content": "data-engineer started work: Build data pipelines & ETL processes"
-    },
-    {
-      "ts": "2026-06-28T12:00:02.067629+00:00",
-      "agent": "Vulcan",
-      "ticket": "STORY-037",
-      "event": "working",
-      "content": "[claude:owl-alpha] attempting: Build data pipelines & ETL processes"
-    },
-    {
-      "ts": "2026-06-28T12:02:29.423994+00:00",
-      "agent": "Vulcan",
-      "ticket": "STORY-037",
-      "event": "delivered",
-      "content": "[claude:owl-alpha] Produced STORY-037-deliverable.md (10166b) \u2192 in_validation"
-    },
-    {
       "ts": "2026-06-28T12:02:29.457457+00:00",
       "agent": "Prometheus",
       "ticket": "STORY-056",
@@ -1399,7 +1357,49 @@
       "ticket": "STORY-067",
       "event": "validating",
       "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T17:30:49.870565+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-257",
+      "event": "validating",
+      "content": "[claude] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-29T17:31:37.856248+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-257",
+      "event": "validation_parked",
+      "content": "Parked after 2 fails: The deliverable's sources are unverifiable placeholders (\u30101\u2020source\u3011 etc.) with no actual URLs or report titles, the IaC tooling pillar (Terraform, Pulumi, CDK) promised in the scope is entirely absent from the comparison table, and specific figures (market share percentages, YoY growth, pricing) app"
+    },
+    {
+      "ts": "2026-06-29T17:31:37.858383+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-266",
+      "event": "validating",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-29T17:32:46.266135+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-266",
+      "event": "validation_fail",
+      "content": "FAIL #1: The deliverable is a markdown spec/plan describing the desired templates, not the actual implemented work \u2014 the referenced files (templates/researcher.md, templates/finance.md) do not exist in the repository, there is no git tag, and no template directory was created."
+    },
+    {
+      "ts": "2026-06-29T17:32:46.280546+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-267",
+      "event": "validating",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-29T17:33:43.870996+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-267",
+      "event": "validation_fail",
+      "content": "FAIL #1: The deliverable is an unexecuted plan: no health-check.sh script is committed, no commits reference TD-267, and no Jira artifacts (token, query, export, transitions) exist to prove 21 orphan issues were closed."
     }
   ],
-  "lastUpdated": "2026-06-29T17:30:01.269392+00:00"
+  "lastUpdated": "2026-06-29T17:33:43.871002+00:00"
 }
