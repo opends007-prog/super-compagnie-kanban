@@ -1,37 +1,38 @@
 {
-  "generatedAt": "2026-06-29T21:40:02.167192+00:00",
+  "generatedAt": "2026-06-29T21:50:01.737010+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 1,
+  "site_unpushed": 0,
   "crons": {
-    "work-executor": 8.6,
-    "validator": 4.5,
+    "work-executor": 8.4,
+    "validator": 14.5,
     "observability": 10.0,
-    "guard": 680.0,
-    "backup": 10.0,
+    "guard": 690.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
-    "backlog": 6,
+    "backlog": 4,
     "in_progress": 11,
-    "in_validation": 14
+    "in_validation": 16
   },
   "tickets_total": 63,
   "done_today": 2,
-  "delivered_today": 30,
-  "delivered_week": 30,
+  "delivered_today": 33,
+  "delivered_week": 33,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 29,
-    "claude:owl-alpha": 1
+    "cerebras:gpt-oss-120b": 31,
+    "claude:owl-alpha": 2
   },
   "live_agents": [
     "Athena",
     "Fortuna",
     "Gladiator",
     "Hades",
+    "Hermes",
     "Metis",
     "Nemesis",
     "Thor",
@@ -40,88 +41,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-29T21:35:29.831009+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "STORY-086",
-      "content": "FAIL #1: The cost analysis is fabricated and internally inconsistent: Stripe's estimated annual cost of $1.02M is roughl"
-    },
-    {
-      "ts": "2026-06-29T21:34:35.205088+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-086",
-      "content": "[claude] Independently reviewing business-analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-29T21:34:35.202371+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "STORY-084",
-      "content": "FAIL #1: The test suite is functionally broken: test_concurrent_auth guarantees an AssertionError (slices a 5-entry fixt"
-    },
-    {
-      "ts": "2026-06-29T21:34:06.267981+00:00",
-      "agent": "Nemesis",
-      "event": "build_merged",
-      "ticket": "BUILD-001",
-      "content": "Merged BUILD-001/slugify.py \u2014 The module fulfills the ticket requirements, correctly handling case, whitespace, accents,"
-    },
-    {
-      "ts": "2026-06-29T21:33:53.825567+00:00",
-      "agent": "Athena",
-      "event": "build_test",
-      "ticket": "BUILD-001",
-      "content": "syntax/compile PASS on slugify.py"
-    },
-    {
-      "ts": "2026-06-29T21:33:52.598165+00:00",
-      "agent": "Gladiator",
-      "event": "building",
-      "ticket": "BUILD-001",
-      "content": "proposing BUILD-001/slugify.py"
-    },
-    {
-      "ts": "2026-06-29T21:31:39.125756+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-084",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T21:31:25.692427+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-012",
-      "content": "[claude:owl-alpha] Produced AUTO-012-deliverable.md (7356b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-29T21:31:25.690998+00:00",
-      "agent": "Vulcan",
-      "event": "delivered",
-      "ticket": "AUTO-011",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-011-deliverable.md (13946b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-29T21:31:25.688952+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-009",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-009-deliverable.md (9621b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-29T21:31:25.685646+00:00",
+      "ts": "2026-06-29T21:41:39.641093+00:00",
       "agent": "Metis",
       "event": "delivered",
       "ticket": "AUTO-010",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-010-deliverable.md (11524b) \u2192 in_progress"
+      "content": "[claude:owl-alpha] Produced AUTO-010-deliverable.md (11451b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-29T21:30:46.018641+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-267",
-      "content": "[claude] Independently reviewing claude's deliverable"
+      "ts": "2026-06-29T21:41:39.637452+00:00",
+      "agent": "Athena",
+      "event": "delivered",
+      "ticket": "STORY-084",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-084-deliverable.md (13325b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T21:41:39.635917+00:00",
+      "agent": "Hermes",
+      "event": "delivered",
+      "ticket": "STORY-086",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-086-deliverable.md (8218b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T21:41:39.632810+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-009",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-009-deliverable.md (7039b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-29T21:40:03.775129+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-010",
+      "content": "[claude:owl-alpha] attempting: Objection\u2011Handling Guide for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-29T21:40:03.591850+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-010",
+      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Guide for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-29T21:40:03.589763+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-010",
+      "content": "org-excellence started work: Objection\u2011Handling Guide for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-29T21:40:02.294253+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-009",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Demo Script"
+    },
+    {
+      "ts": "2026-06-29T21:40:02.292800+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-009",
+      "content": "income started work: AI FAQ Receptionist Demo Script"
+    },
+    {
+      "ts": "2026-06-29T21:40:02.287313+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "STORY-086",
+      "content": "[cerebras:gpt-oss-120b] attempting: Research payment gateway providers"
+    },
+    {
+      "ts": "2026-06-29T21:40:02.286313+00:00",
+      "agent": "Hermes",
+      "event": "dispatched",
+      "ticket": "STORY-086",
+      "content": "business-analyst started work: Research payment gateway providers"
+    },
+    {
+      "ts": "2026-06-29T21:40:02.284805+00:00",
+      "agent": "Athena",
+      "event": "working",
+      "ticket": "STORY-084",
+      "content": "[cerebras:gpt-oss-120b] attempting: Integrate payment gateway testing"
     }
   ],
   "problems": {}
