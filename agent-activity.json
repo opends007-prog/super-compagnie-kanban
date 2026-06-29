@@ -1,27 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-28T04:07:20.080072+00:00",
-      "agent": "Vulcan",
-      "ticket": "STORY-037",
-      "event": "working",
-      "content": "[openclaw] attempting: Build data pipelines & ETL processes"
-    },
-    {
-      "ts": "2026-06-28T04:07:37.494253+00:00",
-      "agent": "Vulcan",
-      "ticket": "STORY-037",
-      "event": "no_deliverable",
-      "content": "[claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-06-28T08:00:01.833521+00:00",
-      "agent": "Nemesis",
-      "ticket": "STORY-036",
-      "event": "dispatched",
-      "content": "nemesis started work: External penetration testing"
-    },
-    {
       "ts": "2026-06-28T08:00:01.834895+00:00",
       "agent": "Nemesis",
       "ticket": "STORY-036",
@@ -1399,7 +1378,28 @@
       "ticket": "STORY-023",
       "event": "validating",
       "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T17:01:31.921568+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-023",
+      "event": "validation_parked",
+      "content": "Parked after 2 fails: The implementation and test suite are internally inconsistent: test_eval_with_constant_is_allowed expects exec('print(42)') to be flagged as S001, but _detect_eval_exec skips ALL eval/exec calls with constant arguments \u2014 causing this test to FAIL when actually run. Additionally, S004's bare-name det"
+    },
+    {
+      "ts": "2026-06-29T17:01:31.930507+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-067",
+      "event": "validating",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T17:04:05.104144+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-257",
+      "event": "validating",
+      "content": "[claude] Independently reviewing analyst's deliverable"
     }
   ],
-  "lastUpdated": "2026-06-29T17:00:01.762694+00:00"
+  "lastUpdated": "2026-06-29T17:04:05.104243+00:00"
 }
