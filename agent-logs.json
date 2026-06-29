@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T19:30:01.315802+00:00",
+  "generated": "2026-06-29T19:40:01.880199+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -588,16 +588,6 @@
       "status": "in_progress",
       "events": [
         {
-          "ts": "2026-06-29T00:00:01.729716+00:00",
-          "event": "dispatched",
-          "content": "pm started work: Set up Discord voice message integration"
-        },
-        {
-          "ts": "2026-06-29T00:00:01.734298+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: Set up Discord voice message integration"
-        },
-        {
           "ts": "2026-06-29T00:01:01.676139+00:00",
           "event": "delivered",
           "content": "[claude:owl-alpha] Produced STORY-063-deliverable.md (6301b) \u2192 in_validation"
@@ -664,11 +654,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-29T15:03:45.053144+00:00",
-          "event": "validation_fail",
-          "content": "FAIL #1: The deliverable is a markdown document with embedded code blocks, but the actual test_suite/ directory and scripts were never created on disk. Writing about code is not delivering code \u2014 the files must exist and be executable to satisfy 'Create test-suite/ with test_agents.sh, test_crons.sh, test_wo"
-        },
-        {
           "ts": "2026-06-29T15:10:01.815450+00:00",
           "event": "dispatched",
           "content": "qa started work: Create comprehensive test suite and safety scanner"
@@ -720,6 +705,11 @@
         },
         {
           "ts": "2026-06-29T19:00:01.810901+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-29T19:30:01.356630+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
         }
@@ -967,11 +957,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-29T11:20:12.337714+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced TD-267-deliverable.md (16708b) \u2192 in_progress"
-        },
-        {
           "ts": "2026-06-29T11:30:02.151726+00:00",
           "event": "dispatched",
           "content": "claude started work: Clean up 21 orphan Jira issues + fix health-check.sh"
@@ -1025,6 +1010,11 @@
           "ts": "2026-06-29T19:00:32.017898+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing claude's deliverable"
+        },
+        {
+          "ts": "2026-06-29T19:31:02.093249+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing claude's deliverable"
         }
       ],
       "deliverable": {
@@ -1071,6 +1061,11 @@
           "ts": "2026-06-29T19:01:09.556845+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing devops's deliverable"
+        },
+        {
+          "ts": "2026-06-29T19:31:52.478059+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing devops's deliverable"
         }
       ],
       "deliverable": {
@@ -1105,6 +1100,11 @@
         },
         {
           "ts": "2026-06-29T19:01:50.548666+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-29T19:32:43.115142+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
         }
@@ -1145,11 +1145,6 @@
       "agent": "Fortuna",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-29T00:00:00.240192+00:00",
-          "event": "started",
-          "content": null
-        },
         {
           "ts": "2026-06-29T11:00:04.278046+00:00",
           "event": "dispatched",
@@ -1301,7 +1296,7 @@
       "agent": "nemesis",
       "ticket": "STORY-084",
       "event": "validating",
-      "ts": "2026-06-29T19:01:50.548666+00:00"
+      "ts": "2026-06-29T19:32:43.115142+00:00"
     }
   ]
 }

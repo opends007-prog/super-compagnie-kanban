@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-29T19:30:01.339728+00:00",
+  "generatedAt": "2026-06-29T19:40:01.881263+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
-    "observability": 0.0,
-    "guard": 550.0,
-    "backup": 29.9,
+    "validator": 7.3,
+    "observability": 10.0,
+    "guard": 560.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
@@ -32,6 +32,27 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T19:32:43.115142+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-084",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T19:31:52.478059+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-083",
+      "content": "[claude] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-06-29T19:31:02.093249+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-267",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
     {
       "ts": "2026-06-29T19:30:01.356630+00:00",
       "agent": "nemesis",
@@ -94,27 +115,6 @@
       "event": "validating",
       "ticket": "STORY-067",
       "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T18:30:00.343022+00:00",
-      "agent": "Claude",
-      "event": "started",
-      "ticket": "TD-266",
-      "content": ""
-    },
-    {
-      "ts": "2026-06-29T18:03:07.772488+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-083",
-      "content": "[claude] Independently reviewing devops's deliverable"
-    },
-    {
-      "ts": "2026-06-29T18:01:45.897579+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-267",
-      "content": "[claude] Independently reviewing claude's deliverable"
     }
   ],
   "problems": {}
