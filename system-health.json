@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-29T22:50:01.599142+00:00",
+  "generatedAt": "2026-06-29T23:00:01.388625+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 6.3,
-    "validator": 18.0,
+    "work-executor": 10.0,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 750.0,
-    "backup": 20.0,
+    "guard": 760.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
@@ -35,6 +35,13 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T23:00:01.398936+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-067",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
     {
       "ts": "2026-06-29T22:43:46.602550+00:00",
       "agent": "Gladiator",
@@ -111,13 +118,6 @@
       "event": "dispatched",
       "ticket": "AUTO-014",
       "content": "analyst started work: Competitive Pricing Matrix for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-29T22:40:01.615300+00:00",
-      "agent": "Gladiator",
-      "event": "working",
-      "ticket": "AUTO-013",
-      "content": "[cerebras:gpt-oss-120b] attempting: Landing Page Wireframe & Copy for AI FAQ Receptionist"
     }
   ],
   "problems": {}
