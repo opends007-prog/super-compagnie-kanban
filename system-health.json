@@ -1,25 +1,26 @@
 {
-  "generatedAt": "2026-06-29T16:30:01.885080+00:00",
+  "generatedAt": "2026-06-29T16:40:02.058332+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
-    "observability": 0.0,
-    "guard": 370.0,
-    "backup": 30.0,
+    "validator": 3.1,
+    "observability": 10.0,
+    "guard": 380.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 31,
-    "in_validation": 14,
+    "done": 32,
+    "backlog": 1,
+    "in_validation": 12,
     "in_progress": 6
   },
   "tickets_total": 51,
-  "done_today": 1,
+  "done_today": 2,
   "delivered_today": 30,
   "delivered_week": 36,
   "model_mix_week": {
@@ -31,6 +32,41 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T16:35:46.567858+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-067",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T16:35:46.560749+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "STORY-046",
+      "content": "PASS: The deliverable provides a complete, concrete fix: a YAML config file, a defensive loader with error handling, the"
+    },
+    {
+      "ts": "2026-06-29T16:35:17.361788+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-046",
+      "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-29T16:30:37.261354+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-023",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T16:30:37.258732+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "STORY-019",
+      "content": "Parked after 2 fails: The deliverable document references /home/admin/.openclaw/workspace/agents/tests/test_agent_tools."
+    },
     {
       "ts": "2026-06-29T16:30:01.895136+00:00",
       "agent": "nemesis",
@@ -79,41 +115,6 @@
       "event": "validating",
       "ticket": "STORY-046",
       "content": "[claude] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-29T15:31:27.834017+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-023",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T15:30:01.414462+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-019",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T15:10:04.973795+00:00",
-      "agent": "Athena",
-      "event": "delivered",
-      "ticket": "STORY-067",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-067-deliverable.md (13837b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T15:10:01.816808+00:00",
-      "agent": "Athena",
-      "event": "working",
-      "ticket": "STORY-067",
-      "content": "[cerebras:gpt-oss-120b] attempting: Create comprehensive test suite and safety scanner"
-    },
-    {
-      "ts": "2026-06-29T15:10:01.815450+00:00",
-      "agent": "Athena",
-      "event": "dispatched",
-      "ticket": "STORY-067",
-      "content": "qa started work: Create comprehensive test suite and safety scanner"
     }
   ],
   "problems": {}
