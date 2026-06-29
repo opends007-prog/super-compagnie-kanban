@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-06-29T21:50:01.737010+00:00",
+  "generatedAt": "2026-06-29T22:00:01.393750+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 8.4,
-    "validator": 14.5,
+    "work-executor": 9.9,
+    "validator": 24.5,
     "observability": 10.0,
-    "guard": 690.0,
-    "backup": 20.0,
+    "guard": 700.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
-    "backlog": 4,
+    "backlog": 2,
     "in_progress": 11,
-    "in_validation": 16
+    "in_validation": 18
   },
   "tickets_total": 63,
   "done_today": 2,
-  "delivered_today": 33,
-  "delivered_week": 33,
+  "delivered_today": 35,
+  "delivered_week": 35,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 31,
+    "cerebras:gpt-oss-120b": 33,
     "claude:owl-alpha": 2
   },
   "live_agents": [
@@ -35,94 +35,93 @@
     "Hermes",
     "Metis",
     "Nemesis",
-    "Thor",
     "Vulcan",
     "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-29T21:41:39.641093+00:00",
-      "agent": "Metis",
+      "ts": "2026-06-29T21:50:06.091776+00:00",
+      "agent": "Hades",
       "event": "delivered",
-      "ticket": "AUTO-010",
-      "content": "[claude:owl-alpha] Produced AUTO-010-deliverable.md (11451b) \u2192 in_progress"
+      "ticket": "AUTO-012",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-012-deliverable.md (16533b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-29T21:41:39.637452+00:00",
-      "agent": "Athena",
-      "event": "delivered",
-      "ticket": "STORY-084",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-084-deliverable.md (13325b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T21:41:39.635917+00:00",
-      "agent": "Hermes",
-      "event": "delivered",
-      "ticket": "STORY-086",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-086-deliverable.md (8218b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T21:41:39.632810+00:00",
+      "ts": "2026-06-29T21:50:06.088871+00:00",
       "agent": "Fortuna",
       "event": "delivered",
       "ticket": "AUTO-009",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-009-deliverable.md (7039b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-009-deliverable.md (8913b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-29T21:40:03.775129+00:00",
+      "ts": "2026-06-29T21:50:06.085600+00:00",
       "agent": "Metis",
-      "event": "working",
+      "event": "delivered",
       "ticket": "AUTO-010",
-      "content": "[claude:owl-alpha] attempting: Objection\u2011Handling Guide for AI FAQ Receptionist"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-010-deliverable.md (11442b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-29T21:40:03.591850+00:00",
+      "ts": "2026-06-29T21:50:06.080209+00:00",
+      "agent": "Vulcan",
+      "event": "delivered",
+      "ticket": "AUTO-011",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-011-deliverable.md (9596b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-29T21:50:03.514403+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-012",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data\u2011Privacy Checklist for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-29T21:50:03.511558+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-012",
+      "content": "security started work: Data\u2011Privacy Checklist for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-29T21:50:01.857901+00:00",
+      "agent": "Vulcan",
+      "event": "working",
+      "ticket": "AUTO-011",
+      "content": "[cerebras:gpt-oss-120b] attempting: Sample FAQ Knowledge Base for Retail Client"
+    },
+    {
+      "ts": "2026-06-29T21:50:01.856913+00:00",
+      "agent": "Vulcan",
+      "event": "dispatched",
+      "ticket": "AUTO-011",
+      "content": "data-engineer started work: Sample FAQ Knowledge Base for Retail Client"
+    },
+    {
+      "ts": "2026-06-29T21:50:01.855413+00:00",
       "agent": "Metis",
       "event": "working",
       "ticket": "AUTO-010",
       "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Guide for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-29T21:40:03.589763+00:00",
+      "ts": "2026-06-29T21:50:01.849820+00:00",
       "agent": "Metis",
       "event": "dispatched",
       "ticket": "AUTO-010",
       "content": "org-excellence started work: Objection\u2011Handling Guide for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-29T21:40:02.294253+00:00",
+      "ts": "2026-06-29T21:50:01.847951+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-009",
       "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Demo Script"
     },
     {
-      "ts": "2026-06-29T21:40:02.292800+00:00",
+      "ts": "2026-06-29T21:50:01.846561+00:00",
       "agent": "Fortuna",
       "event": "dispatched",
       "ticket": "AUTO-009",
       "content": "income started work: AI FAQ Receptionist Demo Script"
-    },
-    {
-      "ts": "2026-06-29T21:40:02.287313+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "STORY-086",
-      "content": "[cerebras:gpt-oss-120b] attempting: Research payment gateway providers"
-    },
-    {
-      "ts": "2026-06-29T21:40:02.286313+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "STORY-086",
-      "content": "business-analyst started work: Research payment gateway providers"
-    },
-    {
-      "ts": "2026-06-29T21:40:02.284805+00:00",
-      "agent": "Athena",
-      "event": "working",
-      "ticket": "STORY-084",
-      "content": "[cerebras:gpt-oss-120b] attempting: Integrate payment gateway testing"
     }
   ],
   "problems": {}
