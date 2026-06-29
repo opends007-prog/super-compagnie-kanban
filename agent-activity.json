@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-29T11:30:02.151726+00:00",
-      "agent": "Claude",
-      "ticket": "TD-267",
-      "event": "dispatched",
-      "content": "claude started work: Clean up 21 orphan Jira issues + fix health-check.sh"
-    },
-    {
       "ts": "2026-06-29T11:30:02.152787+00:00",
       "agent": "Claude",
       "ticket": "TD-267",
@@ -1399,7 +1392,14 @@
       "ticket": "STORY-086",
       "event": "validating",
       "content": "[claude] Independently reviewing business-analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-29T21:35:29.831009+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-086",
+      "event": "validation_fail",
+      "content": "FAIL #1: The cost analysis is fabricated and internally inconsistent: Stripe's estimated annual cost of $1.02M is roughly 4x the correct value (~$274k at 2.9%+$0.30 on 150k\u00d7$50), and the WTP table lists Adyen ($0.96M) as meeting the Low WTP tier (\u2264$0.95M), which is false. Quantitative data and references app"
     }
   ],
-  "lastUpdated": "2026-06-29T21:34:35.205093+00:00"
+  "lastUpdated": "2026-06-29T21:35:29.831019+00:00"
 }

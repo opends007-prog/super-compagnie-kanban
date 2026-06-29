@@ -2628,14 +2628,14 @@
     {
       "id": "STORY-084",
       "title": "Integrate payment gateway testing",
-      "status": "in_validation",
+      "status": "in_progress",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
-      "progress": 0,
+      "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592321+00:00",
-      "updatedAt": "2026-06-29T08:00:07.771285+00:00",
+      "updatedAt": "2026-06-29T21:34:35.199415+00:00",
       "comments": [
         {
           "by": "api",
@@ -2645,6 +2645,11 @@
           "by": "Athena",
           "timestamp": "2026-06-29T08:00:07.771285+00:00",
           "text": "Delivered work/STORY-084-deliverable.md (17490 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-29T21:34:35.199415+00:00",
+          "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The test suite is functionally broken: test_concurrent_auth guarantees an AssertionError (slices a 5-entry fixture to [:10] then asserts len==10, so it has never passed green); test_auth_network_timeout sabotages other tests via mid-suite 'docker compose stop'; test_webhook_replay never counts settl"
         }
       ],
       "jira_key": "[2026-06-24 07:27:36] [INFO] Creating Jira issue: STORY-084 (Integrate payment gateway testing)\n[2026-06-24 07:27:36] [INFO] Created Jira issue: TD-326\n[2026-06-24 07:27:36] [INFO] Transitioning TD-326 -> In Progress (transition 31)\nTD-326",
@@ -2656,19 +2661,20 @@
       ],
       "estimatedStartDate": "2026-06-25",
       "assigned_to": "Athena",
-      "last_agent_update": "2026-06-28T03:30:00.240729+00:00"
+      "last_agent_update": "2026-06-28T03:30:00.240729+00:00",
+      "validation_fails": 1
     },
     {
       "id": "STORY-086",
       "title": "Research payment gateway providers",
-      "status": "in_validation",
+      "status": "in_progress",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
-      "progress": 0,
+      "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592334+00:00",
-      "updatedAt": "2026-06-29T11:00:04.271178+00:00",
+      "updatedAt": "2026-06-29T21:35:29.829001+00:00",
       "comments": [
         {
           "by": "api",
@@ -2678,6 +2684,11 @@
           "by": "Hermes",
           "timestamp": "2026-06-29T11:00:04.271178+00:00",
           "text": "Delivered work/STORY-086-deliverable.md (12361 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-29T21:35:29.829001+00:00",
+          "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The cost analysis is fabricated and internally inconsistent: Stripe's estimated annual cost of $1.02M is roughly 4x the correct value (~$274k at 2.9%+$0.30 on 150k\u00d7$50), and the WTP table lists Adyen ($0.96M) as meeting the Low WTP tier (\u2264$0.95M), which is false. Quantitative data and references app"
         }
       ],
       "jira_key": "[2026-06-24 07:27:37] [INFO] Creating Jira issue: STORY-086 (Research payment gateway providers)\n[2026-06-24 07:27:38] [INFO] Created Jira issue: TD-327\n[2026-06-24 07:27:38] [INFO] Transitioning TD-327 -> In Progress (transition 31)\nTD-327",
@@ -2689,7 +2700,8 @@
       ],
       "estimatedStartDate": "2026-06-26",
       "assigned_to": "Hermes",
-      "last_agent_update": "2026-06-26T02:00:00.543024+00:00"
+      "last_agent_update": "2026-06-26T02:00:00.543024+00:00",
+      "validation_fails": 1
     },
     {
       "id": "STORY-087",
@@ -3121,7 +3133,7 @@
       "description": "Write a concise live demo script that walks a prospect through the AI FAQ Receptionist features, includes an intro, step\u2011by\u2011step walkthrough, and a Q&A segment. Deliverable: a markdown document with timed sections and talking points ready for a 15\u2011minute presentation.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "backlog",
       "assigned_to": "Fortuna",
       "team": "any",
       "epicId": "EPIC-002",
@@ -3129,7 +3141,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T21:20:03.196250+00:00",
-      "updatedAt": "2026-06-29T21:31:25.688704+00:00",
+      "updatedAt": "2026-06-29T21:20:03.196250+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -3137,11 +3149,6 @@
           "by": "auto-planner",
           "timestamp": "2026-06-29T21:20:03.196250+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
-        },
-        {
-          "by": "Fortuna",
-          "timestamp": "2026-06-29T21:31:25.688704+00:00",
-          "text": "Delivered work/AUTO-009-deliverable.md (9621 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
         }
       ]
     },
@@ -3151,7 +3158,7 @@
       "description": "Create a one\u2011page guide listing the most common objections prospects raise (price, integration, data security, etc.) and provide ready\u2011to\u2011use responses and talking points. Deliverable: a markdown/PDF guide for the sales team to reference during calls.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "backlog",
       "assigned_to": "Metis",
       "team": "any",
       "epicId": "EPIC-005",
@@ -3159,7 +3166,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T21:20:03.196250+00:00",
-      "updatedAt": "2026-06-29T21:31:25.680128+00:00",
+      "updatedAt": "2026-06-29T21:20:03.196250+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -3167,11 +3174,6 @@
           "by": "auto-planner",
           "timestamp": "2026-06-29T21:20:03.196250+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
-        },
-        {
-          "by": "Metis",
-          "timestamp": "2026-06-29T21:31:25.680128+00:00",
-          "text": "Delivered work/AUTO-010-deliverable.md (11524 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
         }
       ]
     },
@@ -3181,7 +3183,7 @@
       "description": "Assemble a realistic set of 40\u201150 retail\u2011industry FAQ entries (questions, answers, and metadata) that can be used to demo the AI FAQ Receptionist. Deliverable: a CSV file with columns for question, answer, category, and confidence score placeholders.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "backlog",
       "assigned_to": "Vulcan",
       "team": "any",
       "epicId": "EPIC-009",
@@ -3189,7 +3191,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T21:20:03.196250+00:00",
-      "updatedAt": "2026-06-29T21:31:25.690745+00:00",
+      "updatedAt": "2026-06-29T21:20:03.196250+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -3197,11 +3199,6 @@
           "by": "auto-planner",
           "timestamp": "2026-06-29T21:20:03.196250+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
-        },
-        {
-          "by": "Vulcan",
-          "timestamp": "2026-06-29T21:31:25.690745+00:00",
-          "text": "Delivered work/AUTO-011-deliverable.md (13946 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
         }
       ]
     },
@@ -3211,7 +3208,7 @@
       "description": "Draft a concise checklist covering data\u2011privacy considerations (user consent, data retention, GDPR compliance, anonymization) specific to the AI FAQ Receptionist service. Deliverable: a markdown checklist that can be attached to the sales proposal and internal documentation.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "backlog",
       "assigned_to": "Hades",
       "team": "any",
       "epicId": "EPIC-003",
@@ -3219,7 +3216,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T21:20:03.196250+00:00",
-      "updatedAt": "2026-06-29T21:31:25.692192+00:00",
+      "updatedAt": "2026-06-29T21:20:03.196250+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -3227,36 +3224,6 @@
           "by": "auto-planner",
           "timestamp": "2026-06-29T21:20:03.196250+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
-        },
-        {
-          "by": "Hades",
-          "timestamp": "2026-06-29T21:31:25.692192+00:00",
-          "text": "Delivered work/AUTO-012-deliverable.md (7356 bytes) via claude:owl-alpha \u2014 advanced to in_progress."
-        }
-      ]
-    },
-    {
-      "id": "BUILD-001",
-      "lane": "builder",
-      "filename": "slugify.py",
-      "title": "Utility: slugify(text)",
-      "description": "Create a Python module with slugify(text) that lowercases, trims, and turns a string into a URL-safe slug (alphanumerics joined by single hyphens, no leading/trailing hyphens). Handle accents/punctuation. Include a few inline tests.",
-      "status": "done",
-      "assigned_to": "Gladiator",
-      "epicId": "EPIC-006",
-      "team": "any",
-      "severity": "LOW",
-      "category": "build",
-      "created_by": "CEO",
-      "createdAt": "2026-06-29T21:33:52.109560+00:00",
-      "updatedAt": "2026-06-29T21:33:53.715977+00:00",
-      "progress": 0,
-      "validation_fails": 0,
-      "comments": [
-        {
-          "by": "Nemesis",
-          "timestamp": "2026-06-29T21:33:53.715977+00:00",
-          "text": "BUILDER LANE: merged BUILD-001/slugify.py to sandbox \u2014 tests passed + review approved: The module fulfills the ticket requirements, correctly handling case, whitespace, accents, punctuation, hyphen collapsing, and includes inline tests without evident bugs."
         }
       ]
     }
