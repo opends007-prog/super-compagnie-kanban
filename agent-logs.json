@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T18:20:02.202100+00:00",
+  "generated": "2026-06-29T18:30:02.108911+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -558,11 +558,6 @@
       "status": "done",
       "events": [
         {
-          "ts": "2026-06-28T20:00:01.676308+00:00",
-          "event": "dispatched",
-          "content": "budget started work: Cloud cost optimization analysis"
-        },
-        {
           "ts": "2026-06-28T20:00:01.678086+00:00",
           "event": "working",
           "content": "[claude:owl-alpha] attempting: Cloud cost optimization analysis"
@@ -924,13 +919,8 @@
     },
     "TD-266": {
       "agent": "Claude",
-      "status": "backlog",
+      "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-29T00:00:00.240192+00:00",
-          "event": "started",
-          "content": null
-        },
         {
           "ts": "2026-06-29T11:00:07.120865+00:00",
           "event": "dispatched",
@@ -985,6 +975,11 @@
           "ts": "2026-06-29T18:01:45.893614+00:00",
           "event": "validation_parked",
           "content": "Parked after 2 fails: The deliverable only describes template content inline in a document but the actual files (templates/researcher.md, templates/finance.md, scripts/verify-templates.sh) do not exist on disk in the target repository. This is a plan, not a concrete artifact."
+        },
+        {
+          "ts": "2026-06-29T18:30:00.343022+00:00",
+          "event": "started",
+          "content": null
         }
       ],
       "deliverable": {
@@ -1309,16 +1304,16 @@
   },
   "active": [
     {
-      "agent": "Minerva",
-      "ticket": "TD-257",
-      "event": "started",
-      "ts": "2026-06-29T18:00:00.346114+00:00"
-    },
-    {
       "agent": "nemesis",
       "ticket": "STORY-083",
       "event": "validating",
       "ts": "2026-06-29T18:03:07.772488+00:00"
+    },
+    {
+      "agent": "Claude",
+      "ticket": "TD-266",
+      "event": "started",
+      "ts": "2026-06-29T18:30:00.343022+00:00"
     }
   ]
 }
