@@ -1,25 +1,25 @@
 {
-  "generatedAt": "2026-06-29T20:20:01.976324+00:00",
+  "generatedAt": "2026-06-29T20:30:01.993209+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 18.5,
-    "observability": 10.0,
-    "guard": 600.0,
-    "backup": 19.9,
+    "validator": 0.0,
+    "observability": 0.0,
+    "guard": 610.0,
+    "backup": 29.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
-    "backlog": 2,
+    "backlog": 6,
     "in_progress": 8,
     "in_validation": 9
   },
-  "tickets_total": 51,
+  "tickets_total": 55,
   "done_today": 2,
   "delivered_today": 32,
   "delivered_week": 32,
@@ -33,6 +33,13 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T20:30:02.009118+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-067",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
     {
       "ts": "2026-06-29T20:10:03.864927+00:00",
       "agent": "Thor",
@@ -109,13 +116,6 @@
       "event": "validating",
       "ticket": "TD-267",
       "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-29T19:30:01.356630+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-067",
-      "content": "[claude] Independently reviewing qa's deliverable"
     }
   ],
   "problems": {}
