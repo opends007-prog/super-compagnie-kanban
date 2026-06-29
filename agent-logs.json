@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T08:50:02.015638+00:00",
+  "generated": "2026-06-29T09:00:01.712996+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -516,13 +516,8 @@
     },
     "STORY-036": {
       "agent": "Nemesis",
-      "status": "backlog",
+      "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-28T03:26:21.650204+00:00",
-          "event": "delivered",
-          "content": "[claude:owl-alpha] Produced STORY-036-deliverable.md (12150b) \u2192 in_validation"
-        },
         {
           "ts": "2026-06-28T03:28:29.410293+00:00",
           "event": "validating",
@@ -577,6 +572,11 @@
           "ts": "2026-06-28T10:00:39.278038+00:00",
           "event": "validation_pass",
           "content": "PASS: The deliverable is a complete, substantive external penetration test report with seven confirmed findings (each with description, impact, proof of concept, remediation, and verification), an attack narrative, positive findings, and a prioritized remediation roadmap \u2014 not a stub, plan, or placeholder"
+        },
+        {
+          "ts": "2026-06-29T09:00:01.063645+00:00",
+          "event": "started",
+          "content": null
         }
       ],
       "deliverable": {
@@ -587,13 +587,8 @@
     },
     "STORY-037": {
       "agent": "Vulcan",
-      "status": "backlog",
+      "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-28T04:05:12.182591+00:00",
-          "event": "dispatched",
-          "content": "data-engineer started work: Build data pipelines & ETL processes"
-        },
         {
           "ts": "2026-06-28T04:05:12.183646+00:00",
           "event": "working",
@@ -648,6 +643,11 @@
           "ts": "2026-06-28T12:02:29.423994+00:00",
           "event": "delivered",
           "content": "[claude:owl-alpha] Produced STORY-037-deliverable.md (10166b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-29T09:00:01.063645+00:00",
+          "event": "started",
+          "content": null
         }
       ],
       "deliverable": {
@@ -675,6 +675,18 @@
         "size": 2390,
         "content": "# STORY-045 \u2014 Fix work executor: don't advance status without real work\n\n**Status:** Complete\n**Worker:** qa (Athena)\n\n## Problem\nThe old `work-executor.py` created stub `.md` files when no `work-template.sh` existed, yet\n`auto_assign_idle_agents` still moved tickets `backlog \u2192 in_progress`. The board could advance with no\nreal work behind it. Required fix: never advance a ticket unless real work was actually produced.\n\n## How it was resolved\n\nThe guard is now embodied by the rebuilt executor `/home/admin/.openclaw/real-work-executor.py`, which\nenforces a **strict deliverable gate** \u2014 it advances a ticket *only if* a real artifact was freshly\nwritten:\n\n```python\n# Strict gate: a real artifact must be newly written and non-trivial. Never advance on exit code.\nif produced and os.path.exists(produced) and os.path.getmtime(produced) > before and os.path.getsize(produced) > 200:\n    ... advance to new_status ...\nelse:\n    log(f\"  {tid}: NO real deliverable (model unavailable or incomplete) \u2014 status UNCHANGED\")\n```\n\nThree conditions must all hold: the deliverable `work/<id>-deliverable.md` must (1) exist, (2) have an\nmtime newer than the run start (`> before` \u2014 freshly written, not stale), and (3) be `> 200` bytes. The\nheader comment is explicit: *\"advance the ticket ONLY IF the worker produced a real deliverable artifact \u2026\nNever advance on exit code.\"* The status ladder is bounded: `ADVANCE = {\"backlog\": \"in_progress\",\n\"planned\": \"in_progress\", \"in_progress\": \"in_validation\"}` \u2014 the executor can only reach `in_validation`,\nnever `done`.\n\nThis is reinforced by two companion scripts:\n- **`validate-work.py`** \u2014 an INDEPENDENT reviewer (never the author) reads the actual artifact and writes\n  a verdict; PASS \u2192 done, FAIL \u2192 in_progress, no verdict \u2192 stays `in_validation` (never auto-passes). It is\n  the only thing that can move a ticket to `done`, so a worker can't self-approve.\n- **`verify-work.py`** \u2014 daily honesty audit that flags any advanced ticket lacking a real artifact.\n\n## Evidence\n- `/home/admin/.openclaw/real-work-executor.py` \u2014 the `> 200` byte + freshness gate (line ~160), the\n  `ADVANCE` map (line 44), and the \"Never advance on exit code\" docstring.\n- `/home/admin/.openclaw/validate-work.py` \u2014 independent-reviewer docstring + verdict logic.\n- VM crontab: executor `0 */4`, validation `0 2,6,10,14,18,22`, audit `0 9`.\n"
       }
+    },
+    "STORY-046": {
+      "agent": "Hades",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-29T09:00:01.063645+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
     },
     "STORY-047": {
       "agent": "Iris",
@@ -716,20 +728,22 @@
         "content": "# STORY-050 \u2014 Create shared token-loading utility module\n\n**Status:** Complete\n**Worker:** claude (Claude)\n\n## What was built\n\nToken loading from environment / dotfiles was duplicated across multiple agent scripts.\nThis was extracted into two shared utilities under\n`/home/admin/.openclaw/workspace/scripts/`:\n\n- **`token_loader.py`** (2326 bytes) \u2014 a Python module exposing `get_token(name, required=True)`\n  and `get_all_tokens()`. It resolves a credential by checking, in priority order:\n  1. process environment variables,\n  2. `/home/admin/.openclaw/gateway.systemd.env`,\n  3. `/home/admin/.env` (and `~/.env`).\n  Results are cached in a module-level `_cache` dict so repeated lookups don't re-parse files.\n  `.env`-style lines are parsed with comment/blank skipping and quote stripping. When a required\n  token is missing it raises `EnvironmentError`. `get_all_tokens()` batch-loads the known set\n  (`OPENROUTER_API_KEY`, `DISCORD_BOT_TOKEN`, `OPENCLAW_GATEWAY_TOKEN`, `ELEVENLABS_API_KEY`,\n  `JIRA_API_TOKEN`, `Notion_API_Token`, `GROQ_API_KEY`).\n\n- **`load-env.sh`** (456 bytes) \u2014 the bash counterpart. Sourcing it runs `set -a; source <file>; set +a`\n  over `/home/admin/.openclaw/gateway.systemd.env` and `/home/admin/.env`, exporting every key into\n  the current shell. It is itself hardened with `set -euo pipefail`.\n\n## Evidence / where it is wired in\n\n- `/home/admin/.openclaw/workspace/scripts/token_loader.py`\n- `/home/admin/.openclaw/workspace/scripts/load-env.sh`\n- Compiled artifact present: `scripts/__pycache__/token_loader.cpython-312.pyc` (module is imported in practice).\n- `load-env.sh` is sourced by the cron pipeline before the Jira sync runs:\n  crontab line `*/30 * * * * source /home/admin/.openclaw/workspace/scripts/load-env.sh && .../kanban-sync.sh`.\n- `ticket-processor.sh` also sources `load-env.sh` (`grep -rl load-env.sh scripts/`).\n\nThis centralizes credential access to one code path consistent with the project's single-master-file\nsecrets rule (`/home/admin/.env`), instead of each script re-implementing dotfile parsing.\n"
       }
     },
+    "STORY-053": {
+      "agent": "Argus",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-29T09:00:01.063645+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
+    },
     "STORY-056": {
       "agent": "Prometheus",
       "status": "done",
       "events": [
-        {
-          "ts": "2026-06-26T16:09:55.442140+00:00",
-          "event": "working",
-          "content": "Working on: ML model deployment options research"
-        },
-        {
-          "ts": "2026-06-26T16:14:55.644289+00:00",
-          "event": "no_deliverable",
-          "content": "model timed out"
-        },
         {
           "ts": "2026-06-28T12:02:29.457457+00:00",
           "event": "dispatched",
@@ -940,6 +954,18 @@
         "content": "# STORY-066 \u2014 Code quality audit and security fixes\n\n**Status:** Complete\n**Worker:** claude (Claude)\n\n## Scope\nAudit the shell scripts and Python files under `/home/admin/.openclaw/` for security/robustness\nissues: eliminate `shell=True` subprocess calls and add `set -euo pipefail` to shell scripts.\n\n## What was done\n\n### `shell=True` removal (verified)\nA repo-wide grep for `shell=True` across the VM's Python files\n(`/home/admin/.openclaw/*.py` and `/home/admin/.openclaw/workspace/scripts/*.py`) returns **no matches**.\nThe known offender, the model-update pusher `openrouter-models-update-vm.py`, carries an explicit\nin-file note: *\"SECURITY FIX (2026-06-17): Removed all shell=True usage. All subprocess calls now use\nlist-based args to prevent shell injection. Added input validation, timeout enforcement, and proper\nerror handling.\"* It now uses list-form `subprocess.run` plus `validate_hostname` / `validate_remote_path`\nhelpers.\n\n### `set -euo pipefail` hardening (verified)\nOf the shell scripts in `/home/admin/.openclaw/workspace/scripts/`, **12 of 13** begin with\n`set -euo pipefail`. Examples confirmed: `load-env.sh`, `kanban-sync.sh`. The lone exception is\n`queue-tick.sh` (a trivial deterministic queue payload). New/refactored scripts such as `ticket-api.py`\nalso include input validation (allow-listed actions/statuses/priorities) as part of the same quality pass.\n\n## Evidence\n- `grep -rn \"shell=True\" /home/admin/.openclaw/**/*.py` \u2192 0 hits.\n- `openrouter-models-update-vm.py` header documents the shell=True removal and adds validators.\n- `grep -rl \"set -euo pipefail\" scripts/*.sh` \u2192 12 of 13 files; only `queue-tick.sh` lacks it.\n\n## Honest caveat\nThis deliverable documents the audit *outcome* observable on the VM (no live `shell=True`; near-universal\n`pipefail`). It does not enumerate every individual file edited during the original audit pass.\n"
       }
     },
+    "STORY-067": {
+      "agent": "Athena",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-29T09:00:01.063645+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
+    },
     "STORY-068": {
       "agent": "Claude",
       "status": "done",
@@ -1148,5 +1174,36 @@
       "deliverable": null
     }
   },
-  "active": []
+  "active": [
+    {
+      "agent": "Athena",
+      "ticket": "STORY-067",
+      "event": "started",
+      "ts": "2026-06-29T09:00:01.063645+00:00"
+    },
+    {
+      "agent": "Hades",
+      "ticket": "STORY-046",
+      "event": "started",
+      "ts": "2026-06-29T09:00:01.063645+00:00"
+    },
+    {
+      "agent": "Vulcan",
+      "ticket": "STORY-037",
+      "event": "started",
+      "ts": "2026-06-29T09:00:01.063645+00:00"
+    },
+    {
+      "agent": "Nemesis",
+      "ticket": "STORY-036",
+      "event": "started",
+      "ts": "2026-06-29T09:00:01.063645+00:00"
+    },
+    {
+      "agent": "Argus",
+      "ticket": "STORY-053",
+      "event": "started",
+      "ts": "2026-06-29T09:00:01.063645+00:00"
+    }
+  ]
 }
