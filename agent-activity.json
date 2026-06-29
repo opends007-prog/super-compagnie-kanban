@@ -1,34 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-28T02:00:41.015555+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-019",
-      "event": "validating",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-28T03:24:44.862695+00:00",
-      "agent": "Nemesis",
-      "ticket": "STORY-036",
-      "event": "dispatched",
-      "content": "nemesis started work: External penetration testing"
-    },
-    {
-      "ts": "2026-06-28T03:24:44.864624+00:00",
-      "agent": "Nemesis",
-      "ticket": "STORY-036",
-      "event": "working",
-      "content": "[claude:owl-alpha] attempting: External penetration testing"
-    },
-    {
-      "ts": "2026-06-28T03:26:21.650204+00:00",
-      "agent": "Nemesis",
-      "ticket": "STORY-036",
-      "event": "delivered",
-      "content": "[claude:owl-alpha] Produced STORY-036-deliverable.md (12150b) \u2192 in_validation"
-    },
-    {
       "ts": "2026-06-28T03:26:21.651831+00:00",
       "agent": "Vulcan",
       "ticket": "STORY-037",
@@ -1399,7 +1371,35 @@
       "ticket": "STORY-019",
       "event": "validating",
       "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T15:00:30.455901+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-023",
+      "event": "validating",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T15:01:38.813862+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-046",
+      "event": "validating",
+      "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-29T15:02:42.312951+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-067",
+      "event": "validating",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T15:03:45.053144+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-067",
+      "event": "validation_fail",
+      "content": "FAIL #1: The deliverable is a markdown document with embedded code blocks, but the actual test_suite/ directory and scripts were never created on disk. Writing about code is not delivering code \u2014 the files must exist and be executable to satisfy 'Create test-suite/ with test_agents.sh, test_crons.sh, test_wo"
     }
   ],
-  "lastUpdated": "2026-06-29T15:00:01.635756+00:00"
+  "lastUpdated": "2026-06-29T15:03:45.053163+00:00"
 }

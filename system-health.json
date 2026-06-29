@@ -1,23 +1,22 @@
 {
-  "generatedAt": "2026-06-29T14:50:01.603463+00:00",
+  "generatedAt": "2026-06-29T15:00:01.632580+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 13.7,
-    "observability": 10.0,
-    "guard": 270.0,
-    "backup": 20.0,
+    "validator": 0.0,
+    "observability": 0.0,
+    "guard": 280.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 31,
     "in_validation": 14,
-    "in_progress": 5,
-    "backlog": 1
+    "in_progress": 6
   },
   "tickets_total": 51,
   "done_today": 1,
@@ -29,10 +28,24 @@
     "cerebras:gpt-oss-120b": 25
   },
   "live_agents": [
-    "Argus",
+    "Iris",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T15:00:01.635740+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-019",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T15:00:00.325539+00:00",
+      "agent": "Iris",
+      "event": "started",
+      "ticket": "STORY-063",
+      "content": ""
+    },
     {
       "ts": "2026-06-29T14:36:19.131796+00:00",
       "agent": "nemesis",
@@ -102,20 +115,6 @@
       "event": "validation_parked",
       "ticket": "STORY-053",
       "content": "Parked after 2 fails: The deliverable is a markdown specification containing code samples and a fabricated sample log, n"
-    },
-    {
-      "ts": "2026-06-29T14:02:14.288091+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-053",
-      "content": "[claude] Independently reviewing monitor's deliverable"
-    },
-    {
-      "ts": "2026-06-29T14:01:42.311301+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-046",
-      "content": "[claude] Independently reviewing security's deliverable"
     }
   ],
   "problems": {}
