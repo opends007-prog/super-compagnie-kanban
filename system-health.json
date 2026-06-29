@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-29T17:50:01.737118+00:00",
+  "generatedAt": "2026-06-29T18:00:02.072862+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 16.3,
-    "observability": 10.0,
-    "guard": 450.0,
-    "backup": 20.0,
+    "work-executor": 10.0,
+    "validator": 0.0,
+    "observability": 0.0,
+    "guard": 460.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
-    "backlog": 3,
-    "in_progress": 6,
+    "backlog": 2,
+    "in_progress": 7,
     "in_validation": 10
   },
   "tickets_total": 51,
@@ -30,9 +30,24 @@
   },
   "live_agents": [
     "Claude",
+    "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T18:00:02.068932+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-067",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T18:00:00.346114+00:00",
+      "agent": "Minerva",
+      "event": "started",
+      "ticket": "TD-257",
+      "content": ""
+    },
     {
       "ts": "2026-06-29T17:40:06.511249+00:00",
       "agent": "Claude",
@@ -102,20 +117,6 @@
       "event": "validating",
       "ticket": "TD-266",
       "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-29T17:31:37.856248+00:00",
-      "agent": "nemesis",
-      "event": "validation_parked",
-      "ticket": "TD-257",
-      "content": "Parked after 2 fails: The deliverable's sources are unverifiable placeholders (\u30101\u2020source\u3011 etc.) with no actual URLs or r"
-    },
-    {
-      "ts": "2026-06-29T17:30:49.870565+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-257",
-      "content": "[claude] Independently reviewing analyst's deliverable"
     }
   ],
   "problems": {}

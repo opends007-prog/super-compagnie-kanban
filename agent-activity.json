@@ -1,34 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-28T16:03:18.076931+00:00",
-      "agent": "Iris",
-      "ticket": "STORY-063",
-      "event": "working",
-      "content": "[openclaw] attempting: Set up Discord voice message integration"
-    },
-    {
-      "ts": "2026-06-28T16:03:49.977541+00:00",
-      "agent": "Iris",
-      "ticket": "STORY-063",
-      "event": "no_deliverable",
-      "content": "[claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-06-28T18:00:02.157848+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-058",
-      "event": "validating",
-      "content": "[claude] Independently reviewing budget's deliverable"
-    },
-    {
-      "ts": "2026-06-28T18:01:09.501548+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-058",
-      "event": "validation_fail",
-      "content": "FAIL #1: The headline $38,400/month savings figure is internally inconsistent with the section-level totals: Section 3 totals $34,130 in waste savings and Section 4 totals $22,780 in RI/spot savings, which sum to $56,910 \u2014 not $38,400 \u2014 and the BigQuery flat-rate arithmetic (claiming a $10,000/mo plan saves "
-    },
-    {
       "ts": "2026-06-28T20:00:01.676308+00:00",
       "agent": "Juno",
       "ticket": "STORY-058",
@@ -1399,7 +1371,35 @@
       "ticket": "STORY-067",
       "event": "validating",
       "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T18:00:56.113617+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-266",
+      "event": "validating",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-29T18:01:45.893614+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-266",
+      "event": "validation_parked",
+      "content": "Parked after 2 fails: The deliverable only describes template content inline in a document but the actual files (templates/researcher.md, templates/finance.md, scripts/verify-templates.sh) do not exist on disk in the target repository. This is a plan, not a concrete artifact."
+    },
+    {
+      "ts": "2026-06-29T18:01:45.897579+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-267",
+      "event": "validating",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-29T18:03:07.772488+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-083",
+      "event": "validating",
+      "content": "[claude] Independently reviewing devops's deliverable"
     }
   ],
-  "lastUpdated": "2026-06-29T18:00:02.068958+00:00"
+  "lastUpdated": "2026-06-29T18:03:07.772553+00:00"
 }
