@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-29T18:50:01.768347+00:00",
+  "generatedAt": "2026-06-29T19:00:01.800670+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 17.8,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 510.0,
-    "backup": 20.0,
+    "guard": 520.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
@@ -29,10 +29,16 @@
     "cerebras:gpt-oss-120b": 29
   },
   "live_agents": [
-    "Claude",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T19:00:01.810901+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-067",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
     {
       "ts": "2026-06-29T18:31:27.851350+00:00",
       "agent": "nemesis",
@@ -109,13 +115,6 @@
       "event": "started",
       "ticket": "TD-257",
       "content": ""
-    },
-    {
-      "ts": "2026-06-29T17:40:06.511249+00:00",
-      "agent": "Claude",
-      "event": "delivered",
-      "ticket": "TD-267",
-      "content": "[cerebras:gpt-oss-120b] Produced TD-267-deliverable.md (12994b) \u2192 in_validation"
     }
   ],
   "problems": {}
