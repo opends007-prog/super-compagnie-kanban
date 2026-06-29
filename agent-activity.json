@@ -1,48 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-25T12:00:00.315124+00:00",
-      "agent": "Thor",
-      "ticket": "STORY-083",
-      "event": "started",
-      "status": "in_progress"
-    },
-    {
-      "ts": "2026-06-25T14:00:00.367824+00:00",
-      "agent": "Iris",
-      "ticket": "STORY-063",
-      "event": "started",
-      "status": "in_progress"
-    },
-    {
-      "ts": "2026-06-26T02:00:00.543024+00:00",
-      "agent": "Iris",
-      "ticket": "STORY-075",
-      "event": "started",
-      "status": "in_progress"
-    },
-    {
-      "ts": "2026-06-26T02:00:00.543024+00:00",
-      "agent": "Hermes",
-      "ticket": "STORY-086",
-      "event": "started",
-      "status": "in_progress"
-    },
-    {
-      "ts": "2026-06-26T13:45:40.231802+00:00",
-      "agent": "Gladiator",
-      "ticket": "STORY-002",
-      "event": "dispatched",
-      "content": "tom started work: Deploy Kanban + Jira boards"
-    },
-    {
-      "ts": "2026-06-26T13:46:50.356679+00:00",
-      "agent": "Gladiator",
-      "ticket": "STORY-002",
-      "event": "no_deliverable",
-      "content": "No work produced (model unavailable) \u2014 status unchanged"
-    },
-    {
       "ts": "2026-06-26T16:00:01.463412+00:00",
       "agent": "Gladiator",
       "ticket": "STORY-002",
@@ -1399,7 +1357,49 @@
       "ticket": "STORY-033",
       "event": "delivered",
       "content": "[cerebras:gpt-oss-120b] Produced STORY-033-deliverable.md (10891b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-29T04:00:02.352970+00:00",
+      "agent": "Athena",
+      "ticket": "STORY-019",
+      "event": "dispatched",
+      "content": "qa started work: Write test suite for agent tools"
+    },
+    {
+      "ts": "2026-06-29T04:00:02.358381+00:00",
+      "agent": "Athena",
+      "ticket": "STORY-019",
+      "event": "working",
+      "content": "[cerebras:gpt-oss-120b] attempting: Write test suite for agent tools"
+    },
+    {
+      "ts": "2026-06-29T04:00:04.599831+00:00",
+      "agent": "Athena",
+      "ticket": "STORY-019",
+      "event": "delivered",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-019-deliverable.md (15240b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T04:00:04.602770+00:00",
+      "agent": "Hades",
+      "ticket": "STORY-033",
+      "event": "dispatched",
+      "content": "security started work: Security audit \u2014 all agent workspaces"
+    },
+    {
+      "ts": "2026-06-29T04:00:04.604787+00:00",
+      "agent": "Hades",
+      "ticket": "STORY-033",
+      "event": "working",
+      "content": "[cerebras:gpt-oss-120b] attempting: Security audit \u2014 all agent workspaces"
+    },
+    {
+      "ts": "2026-06-29T04:00:06.454104+00:00",
+      "agent": "Hades",
+      "ticket": "STORY-033",
+      "event": "delivered",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-033-deliverable.md (10568b) \u2192 in_validation"
     }
   ],
-  "lastUpdated": "2026-06-29T03:11:13.362774+00:00"
+  "lastUpdated": "2026-06-29T04:00:06.454122+00:00"
 }
