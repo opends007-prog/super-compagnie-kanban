@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-06-29T21:00:01.956574+00:00",
+  "generatedAt": "2026-06-29T21:10:01.854636+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 0.0,
+    "work-executor": 10.0,
+    "validator": 6.3,
     "observability": 10.0,
-    "guard": 640.0,
-    "backup": 30.0,
+    "guard": 650.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
-    "backlog": 2,
+    "backlog": 3,
     "in_progress": 9,
-    "in_validation": 16
+    "in_validation": 15
   },
   "tickets_total": 59,
   "done_today": 2,
-  "delivered_today": 35,
-  "delivered_week": 35,
+  "delivered_today": 33,
+  "delivered_week": 33,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 35
+    "cerebras:gpt-oss-120b": 33
   },
   "live_agents": [
     "Fortuna",
@@ -37,6 +37,55 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T21:03:11.644449+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-084",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T21:03:11.641179+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "STORY-083",
+      "content": "Parked after 2 fails: The deliverable omits the Kubernetes Deployment manifest that deploy.sh, rollback.sh, and the CI w"
+    },
+    {
+      "ts": "2026-06-29T21:01:45.685381+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-083",
+      "content": "[claude] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-06-29T21:00:41.045370+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-267",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-29T21:00:03.781600+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-008",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-008-deliverable.md (7386b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T21:00:02.067781+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-008",
+      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-29T21:00:02.065277+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-008",
+      "content": "org-excellence started work: Cold Outreach Email Templates for AI FAQ Receptionist"
+    },
     {
       "ts": "2026-06-29T21:00:01.950226+00:00",
       "agent": "nemesis",
@@ -71,55 +120,6 @@
       "event": "working",
       "ticket": "AUTO-007",
       "content": "[cerebras:gpt-oss-120b] attempting: One\u2011Page Sales Pitch Copy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-29T20:50:25.383070+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-006",
-      "content": "[cerebras:gpt-oss-120b] attempting: Target Client List by Industry and Region"
-    },
-    {
-      "ts": "2026-06-29T20:50:25.381720+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-005",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-29T20:50:25.380506+00:00",
-      "agent": "Iris",
-      "event": "dispatched",
-      "ticket": "AUTO-007",
-      "content": "pm started work: One\u2011Page Sales Pitch Copy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-29T20:50:25.379074+00:00",
-      "agent": "Minerva",
-      "event": "dispatched",
-      "ticket": "AUTO-006",
-      "content": "analyst started work: Target Client List by Industry and Region"
-    },
-    {
-      "ts": "2026-06-29T20:50:25.377080+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-005",
-      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-29T20:50:08.229407+00:00",
-      "agent": "Metis",
-      "event": "delivered",
-      "ticket": "AUTO-008",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-008-deliverable.md (6907b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-29T20:50:06.915376+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-008",
-      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
     }
   ],
   "problems": {}
