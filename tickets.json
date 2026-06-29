@@ -2579,14 +2579,14 @@
     {
       "id": "STORY-083",
       "title": "Set up payment gateway CI/CD",
-      "status": "in_validation",
+      "status": "backlog",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
       "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592306+00:00",
-      "updatedAt": "2026-06-29T20:10:03.863452+00:00",
+      "updatedAt": "2026-06-29T21:03:11.627557+00:00",
       "comments": [
         {
           "by": "api",
@@ -2606,6 +2606,11 @@
           "by": "Thor",
           "timestamp": "2026-06-29T20:10:03.863452+00:00",
           "text": "Delivered work/STORY-083-deliverable.md (10635 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-29T21:03:11.627557+00:00",
+          "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The deliverable omits the Kubernetes Deployment manifest that deploy.sh, rollback.sh, and the CI workflow all depend on (explicitly noted as 'not included here'), so the pipeline cannot actually run. Additionally, the optional smoke-test step uses a cluster-internal .svc.cluster.local URL that is un"
         }
       ],
       "jira_key": "[2026-06-24 07:27:34] [INFO] Creating Jira issue: STORY-083 (Set up payment gateway CI/CD)\n[2026-06-24 07:27:35] [INFO] Created Jira issue: TD-325\n[2026-06-24 07:27:35] [INFO] Transitioning TD-325 -> In Progress (transition 31)\nTD-325",
@@ -2618,7 +2623,7 @@
       "estimatedStartDate": "2026-06-24",
       "assigned_to": "Thor",
       "last_agent_update": "2026-06-25T12:00:00.315124+00:00",
-      "validation_fails": 1
+      "validation_fails": 2
     },
     {
       "id": "STORY-084",
