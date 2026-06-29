@@ -1,0 +1,119 @@
+{
+  "generatedAt": "2026-06-29T13:11:00.225661+00:00",
+  "gateway_up": true,
+  "disk_pct": 27,
+  "backup_unpushed": 0,
+  "crons": {
+    "work-executor": 1.0,
+    "validator": 8.2,
+    "observability": 1.0,
+    "guard": 171.0,
+    "backup": 10.9,
+    "site-sync": 1.0
+  },
+  "guard_recent_restore": false,
+  "status_counts": {
+    "done": 31,
+    "in_validation": 16,
+    "in_progress": 4
+  },
+  "tickets_total": 51,
+  "done_today": 1,
+  "delivered_today": 28,
+  "delivered_week": 39,
+  "model_mix_week": {
+    "claude:owl-alpha": 14,
+    "openclaw": 1,
+    "cerebras:gpt-oss-120b": 24
+  },
+  "live_agents": [
+    "nemesis"
+  ],
+  "recent_activity": [
+    {
+      "ts": "2026-06-29T13:02:00.130037+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-053",
+      "content": "[claude] Independently reviewing monitor's deliverable"
+    },
+    {
+      "ts": "2026-06-29T13:01:08.477237+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-046",
+      "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-29T13:00:34.699253+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-023",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T13:00:01.991932+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-019",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T12:40:05.829970+00:00",
+      "agent": "Argus",
+      "event": "delivered",
+      "ticket": "STORY-053",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-053-deliverable.md (12652b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T12:40:03.723164+00:00",
+      "agent": "Argus",
+      "event": "working",
+      "ticket": "STORY-053",
+      "content": "[cerebras:gpt-oss-120b] attempting: Automated service health checks setup"
+    },
+    {
+      "ts": "2026-06-29T12:40:03.719973+00:00",
+      "agent": "Argus",
+      "event": "dispatched",
+      "ticket": "STORY-053",
+      "content": "monitor started work: Automated service health checks setup"
+    },
+    {
+      "ts": "2026-06-29T12:40:03.711518+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "STORY-046",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-046-deliverable.md (11460b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T12:40:01.926036+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "STORY-046",
+      "content": "[cerebras:gpt-oss-120b] attempting: Fix jira_epic_map undefined variable in iris-sync.py"
+    },
+    {
+      "ts": "2026-06-29T12:40:01.924417+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "STORY-046",
+      "content": "security started work: Fix jira_epic_map undefined variable in iris-sync.py"
+    },
+    {
+      "ts": "2026-06-29T12:34:38.904446+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "STORY-053",
+      "content": "FAIL #1: The deliverable is a written specification document describing planned files and configuration under a monitor/"
+    },
+    {
+      "ts": "2026-06-29T12:33:46.373577+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-053",
+      "content": "[claude] Independently reviewing monitor's deliverable"
+    }
+  ],
+  "problems": {}
+}

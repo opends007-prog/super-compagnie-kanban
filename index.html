@@ -599,6 +599,7 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
   <button class="tab" id="tab-team" onclick="goView('team')">👥 Team <span class="num" id="badge-team-count">0</span></button>
   <button class="tab" id="tab-activity" onclick="goView('activity')">⚡ Activity <span class="num" id="activity-count">0</span></button>
   <button class="tab" id="tab-office" onclick="goView('office')">🏢 Office</button>
+  <button class="tab" id="tab-ops" onclick="goView('ops')">🩺 Ops</button>
 </div>
 
 <!-- ═══ BOARD MODE FILTER (All / Epics / Stories) ═══ -->
@@ -636,6 +637,8 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
   <div id="view-activity" class="activity-view"></div>
 	<!-- Office View -->
 	<div id="view-office" class="office-view"><canvas id="office-canvas"></canvas></div>
+  <!-- Ops / Health View -->
+  <div id="view-ops" class="ops-view" style="display:none;padding:16px;overflow:auto"></div>
   <!-- Detail Panel -->
   <div class="dp" id="dp">
     <div class="dp-hdr"><h2 id="dtitle">Detail</h2><button class="dp-close" onclick="closeDetail()" aria-label="Close">✕</button></div>
@@ -692,7 +695,7 @@ function goView(v){
   CV=v;
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
   document.getElementById('tab-'+v).classList.add('active');
-  ['kanban','list','backlog','team','activity','office'].forEach(function(view){
+  ['kanban','list','backlog','team','activity','office','ops'].forEach(function(view){
     var el=document.getElementById('view-'+view);
     if(el){
       if(view==='kanban'){el.style.display=(v===view)?'flex':'none';}
@@ -700,6 +703,7 @@ function goView(v){
       else{el.style.display=(v===view)?'block':'none';}
     }
   });
+  if(v==='ops'){renderOps();}
   var km=document.getElementById('view-kanban-mobile');
   if(km){km.style.display=(v==='kanban')?'flex':'none';}
   var picker=document.getElementById('colPicker');
@@ -1571,8 +1575,76 @@ function agentName(id){
   return nameMap[id]||id;
 }
 
+// ═══ OPS / HEALTH TAB ═══ (reads system-health.json, emitted by the watchdog every 10 min)
+function renderOps(){
+  var el=document.getElementById('view-ops');
+  if(!el)return;
+  fetch('system-health.json?t='+Date.now()).then(function(r){return r.json();}).then(function(h){
+    el.innerHTML=opsHtml(h);
+  }).catch(function(){el.innerHTML='<div style="color:var(--text3);padding:20px">Ops data not available yet — system-health.json is generated every 10 min.</div>';});
+}
+function opsCard(label,value,sub,color){
+  return '<div style="background:var(--bg3);border-radius:10px;padding:14px 16px;min-width:120px;flex:1">'
+    +'<div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px">'+label+'</div>'
+    +'<div style="font-size:26px;font-weight:700;color:'+(color||'var(--text)')+';margin-top:4px">'+value+'</div>'
+    +(sub?'<div style="font-size:11px;color:var(--text3);margin-top:2px">'+sub+'</div>':'')+'</div>';
+}
+function opsHtml(h){
+  function n(x){return (x===undefined||x===null)?'—':x;}
+  var sc=h.status_counts||{}, inflight=(sc.in_progress||0)+(sc.in_validation||0), html='';
+  var probs=h.problems||{}, pk=Object.keys(probs);
+  if(pk.length){
+    html+='<div style="background:#5a1d1d;border:1px solid #a33;border-radius:10px;padding:12px 16px;margin-bottom:14px;color:#ffd5d5"><b>⚠️ Needs attention</b><ul style="margin:6px 0 0 18px">'
+      +pk.map(function(k){return '<li>'+escapeHtml(probs[k])+'</li>';}).join('')+'</ul></div>';
+  }else{
+    html+='<div style="background:var(--bg3);border-left:3px solid #2ecc71;border-radius:8px;padding:8px 14px;margin-bottom:14px;color:var(--text)">✅ All systems healthy</div>';
+  }
+  html+='<div style="font-size:12px;font-weight:700;color:var(--text3);margin:0 0 8px;letter-spacing:.5px">PRODUCTIVITY</div>'
+    +'<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px">'
+    +opsCard('Delivered today',n(h.delivered_today),'',(h.delivered_today>0?'#2ecc71':'var(--text)'))
+    +opsCard('Delivered (7d)',n(h.delivered_week))
+    +opsCard('Done',n(sc.done))
+    +opsCard('In flight',inflight,'in progress + validation')+'</div>';
+  var mm=h.model_mix_week||{}, mmk=Object.keys(mm);
+  if(mmk.length){
+    var tot=mmk.reduce(function(a,k){return a+mm[k];},0);
+    html+='<div style="font-size:12px;font-weight:700;color:var(--text3);margin:0 0 8px;letter-spacing:.5px">DELIVERABLES BY MODEL (7d)</div><div style="margin-bottom:18px">';
+    mmk.sort(function(a,b){return mm[b]-mm[a];}).forEach(function(k){
+      var pct=tot?Math.round(100*mm[k]/tot):0;
+      html+='<div style="margin-bottom:6px"><div style="font-size:12px;color:var(--text);margin-bottom:2px">'+escapeHtml(k)+' — '+mm[k]+' ('+pct+'%)</div>'
+        +'<div style="background:var(--bg4);border-radius:6px;height:8px"><div style="width:'+pct+'%;background:var(--blue);height:8px;border-radius:6px"></div></div></div>';
+    });
+    html+='</div>';
+  }
+  html+='<div style="font-size:12px;font-weight:700;color:var(--text3);margin:0 0 8px;letter-spacing:.5px">SYSTEM HEALTH</div>'
+    +'<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px">'
+    +opsCard('Gateway',h.gateway_up?'🟢 Up':'🔴 Down','',h.gateway_up?'#2ecc71':'#e74c3c')
+    +opsCard('Disk',n(h.disk_pct)+'%','',((h.disk_pct||0)>=90?'#e74c3c':'var(--text)'))
+    +opsCard('Backup',(h.backup_unpushed===0?'✅ Synced':n(h.backup_unpushed)+' unpushed'),'',((h.backup_unpushed||0)>3?'#e74c3c':'var(--text)'))
+    +opsCard('Guard',h.guard_recent_restore?'⚠️ Fired':'✅ OK')+'</div>';
+  var cr=h.crons||{};
+  html+='<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;font-size:11px">';
+  Object.keys(cr).forEach(function(k){
+    var a=cr[k], lbl=(a===null||a===undefined)?'—':(a<60?Math.round(a)+'m':Math.round(a/60)+'h')+' ago', stale=(a===null||a>120);
+    html+='<span style="background:var(--bg3);border-radius:6px;padding:4px 8px;color:'+(stale?'#e0a85a':'var(--text3)')+'">'+escapeHtml(k)+': '+lbl+'</span>';
+  });
+  html+='</div>';
+  var live=h.live_agents||[];
+  html+='<div style="font-size:12px;font-weight:700;color:var(--text3);margin:0 0 8px;letter-spacing:.5px">LIVE NOW ('+live.length+')</div>'
+    +'<div style="margin-bottom:18px;font-size:13px;color:var(--text)">'+(live.length?live.map(function(a){return '🟢 '+escapeHtml(a);}).join('&nbsp;&nbsp;'):'<span style="color:var(--text3)">resting (agents run in bursts)</span>')+'</div>';
+  var ra=h.recent_activity||[];
+  html+='<div style="font-size:12px;font-weight:700;color:var(--text3);margin:0 0 8px;letter-spacing:.5px">RECENT ACTIVITY</div><div style="font-size:12px">';
+  ra.forEach(function(e){
+    var t=(e.ts||'').replace('T',' ').slice(0,16);
+    html+='<div style="padding:5px 0;border-bottom:1px solid var(--bg3);color:var(--text)"><span style="color:var(--text3)">'+t+'</span> · <b>'+escapeHtml(e.agent||'')+'</b> · '+escapeHtml(e.event||'')+' '+(e.ticket?'<span style="color:var(--blue)">'+escapeHtml(e.ticket)+'</span>':'')+'<div style="color:var(--text3);font-size:11px">'+escapeHtml(e.content||'')+'</div></div>';
+  });
+  html+='</div><div style="margin-top:16px;font-size:11px;color:var(--text3)">Updated '+(h.generatedAt||'').replace('T',' ').slice(0,19)+' UTC · refreshes every 10 min</div>';
+  return html;
+}
+
 loadData();
 setInterval(loadData,30000);
+setInterval(function(){if(typeof CV!=='undefined'&&CV==='ops')renderOps();},30000);
 </script>
 <script src="office.js?v=20260626-truth"></script>
 </body>
