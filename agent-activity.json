@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-29T17:01:31.921568+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-023",
-      "event": "validation_parked",
-      "content": "Parked after 2 fails: The implementation and test suite are internally inconsistent: test_eval_with_constant_is_allowed expects exec('print(42)') to be flagged as S001, but _detect_eval_exec skips ALL eval/exec calls with constant arguments \u2014 causing this test to FAIL when actually run. Additionally, S004's bare-name det"
-    },
-    {
       "ts": "2026-06-29T17:01:31.930507+00:00",
       "agent": "nemesis",
       "ticket": "STORY-067",
@@ -1399,7 +1392,14 @@
       "ticket": "STORY-086",
       "event": "validation_pass",
       "content": "PASS: The deliverable is a substantive, complete research evaluation of four payment gateway providers with cost modeling, weighted scoring, WTP alignment, recommendation, and implementation roadmap \u2014 it fully satisfies the ticket despite some questionable pricing assumptions (notably Adyen's rate) and la"
+    },
+    {
+      "ts": "2026-06-29T23:30:01.929846+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-067",
+      "event": "validating",
+      "content": "[claude] Independently reviewing qa's deliverable"
     }
   ],
-  "lastUpdated": "2026-06-29T23:02:57.004204+00:00"
+  "lastUpdated": "2026-06-29T23:30:01.929859+00:00"
 }
