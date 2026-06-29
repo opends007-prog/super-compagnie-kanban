@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T17:00:01.762025+00:00",
+  "generated": "2026-06-29T17:10:01.854677+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -134,18 +134,8 @@
     },
     "STORY-023": {
       "agent": "Athena",
-      "status": "in_validation",
+      "status": "backlog",
       "events": [
-        {
-          "ts": "2026-06-29T13:00:34.699253+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing qa's deliverable"
-        },
-        {
-          "ts": "2026-06-29T13:30:55.914447+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing qa's deliverable"
-        },
         {
           "ts": "2026-06-29T14:00:39.393906+00:00",
           "event": "validating",
@@ -195,6 +185,16 @@
           "ts": "2026-06-29T16:30:37.261354+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-29T17:00:01.762681+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-29T17:01:31.921568+00:00",
+          "event": "validation_parked",
+          "content": "Parked after 2 fails: The implementation and test suite are internally inconsistent: test_eval_with_constant_is_allowed expects exec('print(42)') to be flagged as S001, but _detect_eval_exec skips ALL eval/exec calls with constant arguments \u2014 causing this test to FAIL when actually run. Additionally, S004's bare-name det"
         }
       ],
       "deliverable": {
@@ -314,21 +314,6 @@
       "status": "in_progress",
       "events": [
         {
-          "ts": "2026-06-28T08:00:01.833521+00:00",
-          "event": "dispatched",
-          "content": "nemesis started work: External penetration testing"
-        },
-        {
-          "ts": "2026-06-28T08:00:01.834895+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: External penetration testing"
-        },
-        {
-          "ts": "2026-06-28T08:03:21.423006+00:00",
-          "event": "delivered",
-          "content": "[claude:owl-alpha] Produced STORY-036-deliverable.md (15485b) \u2192 in_validation"
-        },
-        {
           "ts": "2026-06-28T10:00:01.658987+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing nemesis's deliverable"
@@ -354,21 +339,6 @@
       "agent": "Vulcan",
       "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-28T04:05:12.183646+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: Build data pipelines & ETL processes"
-        },
-        {
-          "ts": "2026-06-28T04:07:20.080072+00:00",
-          "event": "working",
-          "content": "[openclaw] attempting: Build data pipelines & ETL processes"
-        },
-        {
-          "ts": "2026-06-28T04:07:37.494253+00:00",
-          "event": "no_deliverable",
-          "content": "[claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-        },
         {
           "ts": "2026-06-28T08:03:21.434850+00:00",
           "event": "dispatched",
@@ -816,11 +786,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-29T09:00:01.063645+00:00",
-          "event": "started",
-          "content": null
-        },
-        {
           "ts": "2026-06-29T10:06:26.726966+00:00",
           "event": "dispatched",
           "content": "qa started work: Create comprehensive test suite and safety scanner"
@@ -872,6 +837,11 @@
         },
         {
           "ts": "2026-06-29T16:35:46.567858+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-29T17:01:31.930507+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
         }
@@ -974,7 +944,7 @@
     },
     "TD-257": {
       "agent": "Minerva",
-      "status": "in_validation",
+      "status": "in_progress",
       "events": [
         {
           "ts": "2026-06-29T02:57:52.375307+00:00",
@@ -995,6 +965,16 @@
           "ts": "2026-06-29T03:02:23.773787+00:00",
           "event": "delivered",
           "content": "[claude:owl-alpha] Produced TD-257-deliverable.md (8858b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-29T17:04:05.104144+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing analyst's deliverable"
+        },
+        {
+          "ts": "2026-06-29T17:05:30.482610+00:00",
+          "event": "validation_fail",
+          "content": "FAIL #1: The deliverable is a generic, surface-level overview of well-known tools with no original analysis, no specific data or citations, and reads like a placeholder outline rather than a genuine competitive analysis."
         }
       ],
       "deliverable": {
@@ -1026,6 +1006,11 @@
           "ts": "2026-06-29T11:00:09.313595+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced TD-266-deliverable.md (15293b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-29T17:05:30.488861+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing claude's deliverable"
         }
       ],
       "deliverable": {
@@ -1316,9 +1301,9 @@
   "active": [
     {
       "agent": "nemesis",
-      "ticket": "STORY-067",
+      "ticket": "TD-266",
       "event": "validating",
-      "ts": "2026-06-29T16:35:46.567858+00:00"
+      "ts": "2026-06-29T17:05:30.488861+00:00"
     }
   ]
 }
