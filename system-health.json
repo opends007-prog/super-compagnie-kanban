@@ -1,25 +1,25 @@
 {
-  "generatedAt": "2026-06-29T23:20:02.054965+00:00",
+  "generatedAt": "2026-06-29T23:30:01.910711+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 17.1,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 780.0,
-    "backup": 20.0,
+    "guard": 790.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 33,
-    "backlog": 2,
+    "backlog": 6,
     "in_progress": 9,
     "in_validation": 23
   },
-  "tickets_total": 67,
+  "tickets_total": 71,
   "done_today": 3,
   "delivered_today": 43,
   "delivered_week": 43,
@@ -31,6 +31,13 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T23:30:01.929846+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-067",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
     {
       "ts": "2026-06-29T23:02:57.004200+00:00",
       "agent": "nemesis",
@@ -107,13 +114,6 @@
       "event": "dispatched",
       "ticket": "AUTO-016",
       "content": "finance started work: ROI Calculator Spreadsheet Template for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-29T22:40:01.860485+00:00",
-      "agent": "Gladiator",
-      "event": "working",
-      "ticket": "AUTO-013",
-      "content": "[claude:owl-alpha] attempting: Landing Page Wireframe & Copy for AI FAQ Receptionist"
     }
   ],
   "problems": {}
