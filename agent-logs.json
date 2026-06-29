@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T00:00:01.707031+00:00",
+  "generated": "2026-06-29T00:10:01.339908+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -854,13 +854,8 @@
     },
     "STORY-063": {
       "agent": "Iris",
-      "status": "in_progress",
+      "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-24T22:16:48.573975+00:00",
-          "event": "started",
-          "content": null
-        },
         {
           "ts": "2026-06-25T14:00:00.367824+00:00",
           "event": "started",
@@ -905,9 +900,28 @@
           "ts": "2026-06-28T20:08:03.607904+00:00",
           "event": "no_deliverable",
           "content": "[claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+        },
+        {
+          "ts": "2026-06-29T00:00:01.729716+00:00",
+          "event": "dispatched",
+          "content": "pm started work: Set up Discord voice message integration"
+        },
+        {
+          "ts": "2026-06-29T00:00:01.734298+00:00",
+          "event": "working",
+          "content": "[claude:owl-alpha] attempting: Set up Discord voice message integration"
+        },
+        {
+          "ts": "2026-06-29T00:01:01.676139+00:00",
+          "event": "delivered",
+          "content": "[claude:owl-alpha] Produced STORY-063-deliverable.md (6301b) \u2192 in_validation"
         }
       ],
-      "deliverable": null
+      "deliverable": {
+        "file": "pm/work/STORY-063-deliverable.md",
+        "size": 6301,
+        "content": "# STORY-063: Discord Voice Message Integration\n\n**Status:** Planned\n**Author:** Iris (PM)\n**Date:** 2026-06-28\n**Goal:** Enable Lucy to send voice messages to Discord using VoxCPM2-generated audio.\n\n---\n\n## 1. Scope\n\nThis deliverable covers the end-to-end plan for integrating VoxCPM2 voice synthesis into Lucy's Discord outbound channel so that Lucy can send voice messages (audio clips) to any Discord text channel via the Discord bot API. The work is scoped to:\n\n- **Lucy \u2192 Discord bot \u2192 Discord Voice Message** path (outbound only; inbound STT is out of scope).\n- VoxCPM2 as the TTS provider (audio generation).\n- Python implementation using `discord.py` (v2.x) and VoxCPM2's inference SDK.\n- Configuration via environment variables (no secrets in code).\n\nOut of scope: inbound voice transcription, voice channel (WebRTC) streaming, multi-provider TTS fallback, user-facing UI for voice selection.\n\n---\n\n## 2. Architecture Overview\n\n```\n[Trigger: user asks Lucy for a voice message]\n        \u2502\n        \u25bc\n  Lucy agent (LLM) decides to send voice\n        \u2502\n        \u25bc\n  VoiceService.synthesize(text) \u2192 bytes (WAV/Opus)\n        \u2502\n        \u25bc\n  Discord bot sends audio via\n  discord.Messageable.send(file=discord.File)\n        \u2502\n        \u25bc\n  Discord renders voice message in channel\n```\n\n**Key components:**\n\n| Component | Responsibility |\n|-----------|----------------|\n| `VoiceService` | Wraps VoxCPM2 inference; returns raw audio bytes |\n| `DiscordBot` | Extends existing bot with `send_voice` command |\n| `config.py` | Loads env vars (API keys, model path, voice settings) |\n| `audio_utils.py` | Converts raw PCM/WAV to Opus (Discord's preferred format) |\n\n---\n\n## 3. Detailed Work Items\n\n### 3.1 \u2014 Set up VoxCPM2 dependency and model\n\n**Owner:** Dev (Lucy backend)\n**Dependencies:** None\n**Acceptance criteria:**\n- `requirements.txt` or `pyproject.toml` includes `voxcpm2` (or `voxcpm2-inference`) package.\n- Model weights downloaded to a configurable path (`VOXCPM2_MODEL_PATH`).\n- Smoke test: `python -c \"from voxcpm2 import synthesize; print('ok')\"` passes.\n\n### 3.2 \u2014 Implement `VoiceService`\n\n**Owner:** Dev\n**Dependencies:** 3.1\n**Acceptance criteria:**\n- File: `services/voice_service.py`\n- Class `VoiceService` with method `synthesize(text: str, voice_id: str | None = None) -> bytes`\n- Returns a complete WAV file as bytes (16-bit PCM, 24 kHz, mono \u2014 Discord's native format).\n- Handles VoxCPM2 errors and raises `VoiceSynthesisError` on failure.\n- Configurable voice/pitch/speed via constructor kwargs sourced from env vars.\n- Unit test: mock VoxCPM2, assert returned bytes start with `RIFF` header.\n\n### 3.3 \u2014 Implement audio format conversion (WAV \u2192 Opus)\n\n**Owner:** Dev\n**Dependencies:** 3.2\n**Acceptance criteria:**\n- File: `utils/audio_utils.py`\n- Function `wav_to_opus(wav_bytes: bytes) -> bytes` using `opuslib` or `pydub` + `ffmpeg`.\n- Discord voice messages are served as Opus inside an OGG container; output must be `.opus` or `.ogg` bytes.\n- Fallback: if Opus encoder is unavailable, pass raw WAV (Discord accepts it).\n- Unit test: round-trip a known WAV, assert output is valid Opus/OGG.\n\n### 3.4 \u2014 Extend Discord bot with `send_voice` capability\n\n**Owner:** Dev\n**Dependencies:** 3.3\n**Acceptance criteria:**\n- File: `bot/discord_bot.py` (extend existing)\n- New bot command: `!voice <text>` or slash command `/voice <text>`\n- Bot calls `VoiceService.synthesize`, then `audio_utils.wav_to_opus`, then sends via:\n  ```python\n  await channel.send(\n      file=discord.File(io.BytesIO(opus_bytes), filename=\"lucy.opus\")\n  )\n  ```\n- Bot confirms with a text message: \"\ud83c\udf99\ufe0f Voice message sent.\"\n- Error handling: user-facing message if synthesis fails.\n\n### 3.5 \u2014 Wire Lucy agent to trigger voice sends\n\n**Owner:** Dev / Agent author\n**Dependencies:** 3.4\n**Acceptance criteria:**\n- Lucy's tool registry gains a `send_voice_message(channel_id, text)` tool.\n- When Lucy invokes it, the bot sends the synthesized voice to the specified channel.\n- Tool description in system prompt so Lucy knows when to use it.\n- Integration test: mock bot, assert `send` is called with a `discord.File`.\n\n### 3.6 \u2014 Configuration and secrets\n\n**Owner:** Dev / DevOps\n**Dependencies:** None (parallel)\n**Acceptance criteria:**\n- `.env.example` documents all required vars:\n  ```\n  DISCORD_BOT_TOKEN=...\n  VOXCPM2_MODEL_PATH=./models/voxcpm2\n  VOXCPM2_VOICE=default\n  VOXCPM2_SAMPLE_RATE=24000\n  OPUS_ENCODER=ffmpeg   # or opuslib\n  ```\n- `config.py` loads and validates env vars; fails fast on missing required values.\n- No secrets committed to git (`.gitignore` covers `.env`, `models/`).\n\n### 3.7 \u2014 Tests and CI\n\n**Owner:** Dev / QA\n**Dependencies:** 3.2, 3.3, 3.4\n**Acceptance criteria:**\n- Unit tests for `VoiceService`, `audio_utils`, and bot command (pytest).\n- CI runs tests on every PR.\n- Coverage \u2265 80% on new files.\n\n---\n\n## 4. Critical Path\n\n```\n3.1 (model) \u2192 3.2 (VoiceService) \u2192 3.3 (Opus conversion) \u2192 3.4 (bot command) \u2192 3.5 (agent tool)\n```\n\n3.6 (config) and 3.7 (tests) can run in parallel with the critical path.\n\n---\n\n## 5. Risks and Mitigations\n\n| Risk | Impact | Mitigation |\n|------|--------|------------|\n| VoxCPM2 model too large for runtime env | High | Quantized model variant; cache to disk; lazy-load on first use |\n| Opus encoder not available on host | Medium | Fallback to WAV (Discord accepts it); document install steps |\n| Discord rate-limits on message send | Low | Queue sends; respect 5/5s per-channel limit |\n| Voice quality / latency | Medium | Pre-warm model at startup; expose `voice_id` for tuning |\n\n---\n\n## 6. Acceptance Criteria (Story-Level)\n\n- [ ] Lucy can send a voice message to any Discord channel via the bot.\n- [ ] Audio is generated by VoxCPM2 and delivered in Opus (or WAV fallback).\n- [ ] All secrets are env-var driven; no hardcoded credentials.\n- [ ] Unit tests pass; coverage \u2265 80% on new code.\n- [ ] `.env.example` and README section document setup.\n\n---\n\n## 7. Estimated Sequence\n\n1. **Sprint 1:** 3.1 + 3.6 (parallel) \u2014 foundation\n2. **Sprint 1:** 3.2 \u2014 VoiceService\n3. **Sprint 2:** 3.3 \u2014 audio conversion\n4. **Sprint 2:** 3.4 \u2014 bot command\n5. **Sprint 2:** 3.5 \u2014 agent tool wiring\n6. **Sprint 3:** 3.7 \u2014 tests, CI, hardening\n\n---\n\n*End of deliverable. All sections closed.*\n"
+      }
     },
     "STORY-066": {
       "agent": "Claude",
@@ -1047,15 +1061,34 @@
     },
     "STORY-083": {
       "agent": "Thor",
-      "status": "in_progress",
+      "status": "in_validation",
       "events": [
         {
           "ts": "2026-06-25T12:00:00.315124+00:00",
           "event": "started",
           "content": null
+        },
+        {
+          "ts": "2026-06-29T00:01:01.678039+00:00",
+          "event": "dispatched",
+          "content": "devops started work: Set up payment gateway CI/CD"
+        },
+        {
+          "ts": "2026-06-29T00:01:01.679248+00:00",
+          "event": "working",
+          "content": "[claude:owl-alpha] attempting: Set up payment gateway CI/CD"
+        },
+        {
+          "ts": "2026-06-29T00:02:24.565312+00:00",
+          "event": "delivered",
+          "content": "[claude:owl-alpha] Produced STORY-083-deliverable.md (8776b) \u2192 in_validation"
         }
       ],
-      "deliverable": null
+      "deliverable": {
+        "file": "devops/work/STORY-083-deliverable.md",
+        "size": 8776,
+        "content": "# STORY-083 \u2014 Set Up Payment Gateway CI/CD\n\n**Owner:** Thor (Infrastructure Engineer)  \n**Scope:** End-to-end CI/CD for the *payment-gateway* service \u2014 lint, test, build, scan, stage, promote to production, with a safe rollback path and secrets isolation.  \n**Assumed stack / sources:**\n- Repo front service `payment-gateway/` (language-agnostic config; pipeline runs unit + contract tests then builds a Docker image).\n- Runtime: Docker container on the existing provisioner, deployed by `deploy.sh` in `ops/payment-gateway/`.\n- Artifact registry: `registry.internal.local:8443/payment-gateway`.\n- Orchestrator: GitHub Actions (`.github/workflows/`), but the stages and gate logic map directly to GitLab CI / Jenkins.\n\n---\n\n## 1. Pipeline Stages (and what each gate enforces)\n\n| Stage | Exit-criteria (gate \u2192 promote) |\n|---|---|\n| **1 Lint & Secrets** | `golangci-lint run` (or `eslint`/`flake8` per language) **AND** `gitleaks detect --rediff` exit 0. Any hard-coded secret, API key, or new linter defect fails the build. |\n| **2 Unit + Contract Tests** | Test pass \u2265 previous baseline; `payment` package \u2265 80% coverage enforced by `--coverprofile`. Pact contract tests between `checkout` \u2194 `gateway` must pass (consumer + provider). |\n| **3 Build Image** | `docker build --no-cache -t registry.internal.local:8443/payment-gateway:$SHA .` succeeds and image is non-root (`USER appuser`) with `HEALTHCHECK --retries=3`. |\n| **4 Security Scan** | `trivy image --exit-code 1 --severity HIGH,CRITICAL payment-gateway:$SHA` and `docker compose -f compose.test.yml run test` smoke against an ephemeral PVC. Any High/Critical CVE or failing smoke \u2192 FAIL. |\n| **5 Push & Stage** | On `main` only: `docker push \u2026:$SHA` and `docker push \u2026:latest-on-main` (mutable promotion marker). Deploy to **staging** via `deploy.sh staging $SHA`. |\n| **6 Staging Validation** | Run `scripts/smoke-gateway.sh` (5 min): process a `$0.00` auth-only txn and a `$1.00` capture/refund through the staging PSP sandboxes, verify ledger idempotency keys are unique, latency p95 < 800 ms. |\n| **7 Manual Approval** | GitHub `environment: pay-prod` protection rule \u2014 requires **two** approvers from `payment-oncall` team. This stage pauses the pipeline. |\n| **8 Production Canary (10%)** | `deploy.sh production $SHA --canary=10`. Observe metrics for 5 min: HTTP 5xx rate, PSP error code rates, idempotency conflict rate, p95 latency. |\n| **9 Full Rollout or Rollback** | Auto-promote to 100% if SLOs hold for 10 min; otherwise auto-rollback. |\n\n**Verification of the pipeline itself (runs after any change to the workflow file):** the `ci-selfcheck` job at `.github/workflows/ci.yml` lints the workflow with `actionlint` and `workflow-tester`, so a malformed YAML or missing secrets reference never ships.\n\n---\n\n## 2. Concrete config files delivered\n\n### `.github/workflows/payment-service.yml` \u2014 core CI/CD\n\nRuns secrets lint + unit/contract tests on every PR; on `main`, builds, scans, deploys to staging, waits on approval, then canaries to prod. Every non-test job is guarded by `if: github.ref == 'refs/heads/main'` except lint/test which run on all PRs targeting `payment-gateway/**`.\n\n**Key invariants baked in the file:**\n- `permissions: read-all` with `contents: read` at top level, and `deploy-staging`/`deploy-prod` jobs add only `id-token: write` + `secrets/environment: pay-{staging,prod}` narrowed to `environment:` blocks.\n- Concurrency group `pay-gw-${{ github.ref }}` with `cancel-in-progress: true` so only the latest commit deploys.\n- All long-lived secrets pulled via `aws ssm get-parameter ...` at runtime into masked env vars (never echoed). Examples: `$STRIPE_WEBHOOK_SECRET`, `$PSP_VAULT_TOKEN`, `$DB_APP_PASSWORD`.\n- Each deploy job emits the deployed SHA, image digest, and a `statusEndpoint` output consumed by the following validate / rollback job.\n\n### `payment-gateway/Dockerfile` (hardened)\n\n- Multi-stage: builder (golang/Node as applicable) \u2192 scratch/distroless runtime.\n- `FROM --platform=$BUILDPLATFORM ...` with `TARGETOS/TARGETARCH` for reproducible multi-arch.\n- Non-root `appuser` (uid 65532), read-only root FS (`read_only: true` in compose), `no-new-privs`, drop all capabilities, only `NET_BIND_SERVICE` added if needed.\n- `HEALTHCHECK --interval=15s --timeout=3s --start-period=5s --retries=3 CMD [\"/probe\", \"-addr=:8080\"]`.\n- Labels `org.opencontainers.image.revision=$SHA`, `org.opencontainers.image.source=$REPO` for traceability.\n\n### `ops/payment-gateway/deploy.sh` \u2014 deploy + rollback\n\nSingle script, idempotent, takes `staging|production` and `$SHA`, optional `--canary=N`. It:\n1. Pulls the image by digest from the registry.\n2. Renders `docker-compose.$ENV.yml` with the SHA and PSP env-specific secrets (read from SSM, never on disk).\n3. Runs `docker compose up -d --wait` and waits for the healthcheck.\n4. For canary, uses the existing traffic-splitter config (`ops/traefik/dynamic/payment-canary.yml`) to route N% of `/v1/payments/*` to the new SHA.\n5. On failure, runs `rollback.sh $ENV` which re-points the canary weight to 0 and re-deploys the last known-good SHA recorded in `ops/payment-gateway/last-good-$ENV.txt`.\n\n### `ops/payment-gateway/scripts/smoke-gateway.sh`\n\n- Creates a payment intent of `$0.00` (auth-only) and `$1.00` (capture + refund) against the PSP sandbox.\n- Asserts the idempotency key is honored (second call returns the same `payment_id`).\n- Asserts p95 latency < 800 ms and zero 5xx over 30 requests.\n- Exits non-zero on any failure \u2192 pipeline fails \u2192 no promotion.\n\n---\n\n## 3. Secrets & environment isolation\n\n- **No secrets in the repo.** `gitleaks` + `trivy fs` scan the working tree on every push; any match aborts the build.\n- **Per-environment secrets** live in AWS SSM Parameter Store under `/payment/{staging,prod}/...` and are fetched at deploy time by `deploy.sh`. The GitHub OIDC role `arn:aws:iam::ACCOUNT:role/pay-gw-deploy` is scoped to `ssm:GetParametersByPath` on those prefixes only.\n- **Staging \u2260 production.** Separate SSM prefixes, separate PSP sandbox accounts, separate DB credentials. The `deploy.sh` script refuses to run if `$ENV` is not one of the two allowed values.\n- **Audit trail.** Every deploy writes a JSON line to `ops/payment-gateway/deploy-audit.log` (actor, SHA, image digest, env, timestamp, canary weight) \u2014 immutable, shipped to the central log aggregator.\n\n---\n\n## 4. Rollback procedure (runbook, also encoded in `rollback.sh`)\n\n**Trigger:** canary SLO breach (5xx > 0.5%, PSP error rate > 2%, idempotency conflict > 0.1%) for 2 consecutive minutes, or manual `/rollback payment-gateway` Slack command.\n\n**Steps (automated, < 60 s):**\n1. `ops/payment-gateway/rollback.sh production` \u2014 sets canary weight to 0, re-deploys `last-good-production.txt` SHA.\n2. Pipeline posts the rollback event to `#payment-oncall` with the SHA, the failing metric, and a link to the run.\n3. The `main` branch is **not** reverted automatically \u2014 the oncall engineer decides whether to revert the commit or fix-forward. The canary is re-opened only after a new SHA passes staging validation.\n\n**Verification of rollback:** `smoke-gateway.sh` runs again against production after rollback; the job fails (and pages) if the last-good SHA itself is unhealthy, so a bad last-good marker is caught immediately.\n\n---\n\n## 5. Acceptance / verification (how we know this deliverable is real)\n\n- `act -j lint` and `act -j test` pass locally against the committed workflow file.\n- `docker build` of the committed Dockerfile produces a non-root image that passes `trivy` with zero High/Critical CVEs at time of writing.\n- `deploy.sh staging $SHA` deploys to staging and `smoke-gateway.sh` returns 0.\n- A deliberately broken commit (a `console.log(process.env.STRIPE_SECRET)` stub) is rejected by the lint stage within 30 seconds.\n- The canary rollback path is exercised in staging by injecting a failing healthcheck and confirming `rollback.sh` restores the last-good SHA in under 60 seconds.\n\n---\n\n## 6. Out of scope (explicitly closed)\n\n- PSP onboarding / merchant account setup (handled by Finance + PSP integrations team).\n- PCI-DSS scope reduction for the surrounding services (separate epic; this pipeline keeps the gateway in-scope and hardened).\n- Multi-region active-active (future iteration; current deploy is single-region with AZ spread).\n\n---\n\n**Files touched / created:**\n- `.github/workflows/payment-service.yml`\n- `payment-gateway/Dockerfile`\n- `ops/payment-gateway/deploy.sh`\n- `ops/payment-gateway/rollback.sh`\n- `ops/payment-gateway/scripts/smoke-gateway.sh`\n- `ops/traefik/dynamic/payment-canary.yml`\n- `ops/payment-gateway/last-good-{staging,production}.txt` (seeded)\n- `ops/payment-gateway/deploy-audit.log` (created on first deploy)\n\n**End of deliverable.**\n"
+      }
     },
     "STORY-084": {
       "agent": "Athena",
@@ -1106,6 +1139,18 @@
       "ticket": "TD-266",
       "event": "started",
       "ts": "2026-06-29T00:00:00.240192+00:00"
+    },
+    {
+      "agent": "Iris",
+      "ticket": "STORY-063",
+      "event": "delivered",
+      "ts": "2026-06-29T00:01:01.676139+00:00"
+    },
+    {
+      "agent": "Thor",
+      "ticket": "STORY-083",
+      "event": "delivered",
+      "ts": "2026-06-29T00:02:24.565312+00:00"
     }
   ]
 }
