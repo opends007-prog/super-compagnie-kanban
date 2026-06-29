@@ -121,11 +121,35 @@ var Office = (function() {
     { x: 23, y: 37, w: 12, h: 7 },  // lounge
     { x: 63, y: 37, w: 5, h: 7 },   // smoking
     { x: 39, y: 38, w: 7, h: 6 },   // rest
-    { x: 50, y: 37, w: 9, h: 7 },   // recreation
-    { x: 50, y: 20, w: 18, h: 10 }, // focus
-    { x: 36, y: 21, w: 10, h: 8 }   // standup
+    { x: 50, y: 37, w: 9, h: 7 }    // recreation
   ];
   function randomBreakRoom() { var a = BREAK_ROOMS[(Math.random() * BREAK_ROOMS.length) | 0]; return getRandomTileInArea(a.x, a.y, a.w, a.h) || { x: a.x + 1, y: a.y + 1 }; }
+  // Pick a break destination: half the time head to the cafeteria table (with a snack/coffee in hand), else another break room.
+  function planBreakDest(agent) {
+    agent.breakProp = null; agent.breakStage = null; agent.foodTimer = 0; agent.eatSeat = null; agent.breakSmoke = false;
+    var roll = Math.random();
+    if (roll < 0.42) {
+      // CAFETERIA: choose the fridge / vending / coffee machine, grab the item, then sit (coffee may go outside).
+      var keys = Object.keys(seats).filter(function(k) { return k.indexOf('cafe_') === 0; });
+      var seat = keys.length ? seats[keys[(Math.random() * keys.length) | 0]] : { x: 10, y: 39, facing: DIR.UP };
+      var c = Math.random();
+      if (c < 0.4) { agent.breakStage = 'getFood'; agent.eatSeat = seat; agent.idleArea = 'cafeteria'; return { x: 4, y: 37 }; }   // fridge
+      if (c < 0.7) { agent.breakStage = 'getDrink'; agent.eatSeat = seat; agent.idleArea = 'cafeteria'; return { x: 8, y: 37 }; }  // vending
+      agent.breakStage = 'getCoffee'; agent.breakSmoke = Math.random() < 0.45;                                                    // coffee
+      agent.eatSeat = agent.breakSmoke ? { x: 64, y: 41, facing: DIR.DOWN } : seat;
+      agent.idleArea = agent.breakSmoke ? 'smoking' : 'cafeteria';
+      return { x: 6, y: 37 };
+    }
+    if (roll < 0.6) {
+      // REST: go to a bed and nap.
+      var bkeys = Object.keys(seats).filter(function(k) { return k.indexOf('bed_') === 0; });
+      if (bkeys.length) { agent.breakStage = 'toBed'; agent.idleArea = 'rest'; agent.eatSeat = seats[bkeys[(Math.random() * bkeys.length) | 0]]; return { x: agent.eatSeat.x, y: agent.eatSeat.y }; }
+    }
+    // LOUNGE / OUTSIDE / RECREATION — just hang out
+    var rooms = [{ x: 23, y: 37, w: 12, h: 7 }, { x: 63, y: 37, w: 5, h: 7 }, { x: 50, y: 37, w: 9, h: 7 }];
+    var rm = rooms[(Math.random() * rooms.length) | 0];
+    return getRandomTileInArea(rm.x, rm.y, rm.w, rm.h) || { x: rm.x + 1, y: rm.y + 1 };
+  }
 
   // ═══ VIP AI — CEO + Lucy (custom behavior, bypasses the generic state machine) ═══
   var ceoMode = 'office', ceoSmoke = 1200, ceoModeT = 30, congratsT = 5;
@@ -159,8 +183,9 @@ var Office = (function() {
     }
     if (agent.ceo) {
       ceoSmoke -= dt;
-      if (ceoMode !== 'smoking' && ceoSmoke <= 0) { ceoMode = 'smoking'; ceoModeT = 60; ceoSmoke = 1200; }
-      if (ceoMode === 'smoking') { vipGoto(agent, 64, 41, DIR.DOWN, dt); agent.idleArea = 'smoking'; ceoModeT -= dt; if (ceoModeT <= 0) ceoMode = 'office'; }
+      if (ceoMode !== 'smoking' && ceoMode !== 'cafe2smoke' && ceoSmoke <= 0) { ceoMode = 'cafe2smoke'; ceoModeT = 12; ceoSmoke = 1200; }
+      if (ceoMode === 'cafe2smoke') { vipGoto(agent, 6, 39, DIR.UP, dt); agent.idleArea = 'cafeteria'; ceoModeT -= dt; if (ceoModeT <= 0) { ceoMode = 'smoking'; ceoModeT = 60; } }
+      else if (ceoMode === 'smoking') { vipGoto(agent, 64, 41, DIR.DOWN, dt); agent.idleArea = 'smoking'; ceoModeT -= dt; if (ceoModeT <= 0) ceoMode = 'office'; }
       else if (ceoMode === 'mc') { vipGoto(agent, 55, 14, DIR.UP, dt); agent.idleArea = 'mc'; ceoModeT -= dt; if (ceoModeT <= 0) ceoMode = 'office'; }
       else { vipGoto(agent, 10, 8, DIR.DOWN, dt); agent.idleArea = 'ceo'; ceoModeT -= dt; if (ceoModeT <= 0) { if (Math.random() < 0.35) { ceoMode = 'mc'; ceoModeT = 35; } else ceoModeT = 30 + Math.random() * 40; } }
       return;
@@ -168,6 +193,7 @@ var Office = (function() {
     // Lucy
     lucyT -= dt;
     var ceo = ceoAgent;
+    if (ceoMode === 'cafe2smoke') { vipGoto(agent, 8, 39, DIR.UP, dt); agent.idleArea = 'cafeteria'; return; }
     if (ceoMode === 'smoking') { vipGoto(agent, 66, 41, DIR.DOWN, dt); agent.idleArea = 'smoking'; return; }
     if (lucyMode === 'roam' && lucyTarget) {
       var arr = vipGoto(agent, lucyTarget.tileCol, lucyTarget.tileRow + 1, DIR.UP, dt);
@@ -186,9 +212,38 @@ var Office = (function() {
   }
   var cam = { x: 0, y: 0, zoom: 1 };
   var camDragging = false, camDragStart = {}, camDragCamStart = {}, pinchDist = 0;
-  var tileMap = [], furniture = [], seats = {}, mapCache = null;
+  // Layout: a fixed left info column + a fixed map "frame" (viewport). The map zooms/pans INSIDE
+  // the frame (clipped); the frame itself never moves.
+  var frame = { x: 0, y: 0, w: 0, h: 0 };
+  var SB_W = 190;  // left info column width (stats + agent cards + buttons)
+  var sbScroll = 0;  // agent-roster scroll offset (px)
+  function ofEmoji(name) {
+    var m = { lucy: '👩‍💼', zeus: '⚡', gladiator: '⚔️', thor: '🔨', athena: '🛡️', hades: '💀',
+      iris: '🌈', hermes: '📡', minerva: '🔮', clio: '📊', vulcan: '🔥', plutus: '💰', hestia: '📒',
+      juno: '⚖️', fortuna: '🍀', nemesis: '👁️', argus: '🔭', metis: '🧠', claude: '🤖', ada: '💻', prometheus: '💻' };
+    return m[(name || '').toLowerCase()] || '🤖';
+  }
+  function computeLayout(cw, ch) {
+    frame.x = SB_W + 10; frame.y = 10;
+    frame.w = Math.max(80, cw - frame.x - 10);
+    frame.h = Math.max(80, ch - 20);
+  }
+  function mapOffset() {
+    var mapW = MAP_W * cam.zoom, mapH = MAP_H * cam.zoom;
+    return { x: frame.x + Math.floor((frame.w - mapW) / 2) + Math.round(cam.x),
+             y: frame.y + Math.floor((frame.h - mapH) / 2) + Math.round(cam.y) };
+  }
+  var sbHits = [];      // clickable agent-card rects in the sidebar (rebuilt each frame)
+  var focus = null;     // brief "spotlight this agent" effect (zoom in, arrow, then back)
+  function focusOnAgent(id) {
+    var a = agents.find(function(x) { return x.id === id; });
+    if (!a) return;
+    focus = { id: id, t: 0, saved: { x: cam.x, y: cam.y, zoom: cam.zoom } };
+  }
+  var tileMap = [], furniture = [], seats = {}, mapCache = null, blockedGrid = null;
   var bubbles = [], MAX_BUBBLES = 12, particles = [], officeBtns = {};
-  var allHandsActive = false, allHandsTimer = 0, allHandsInterval = 60; // seconds between meetings
+  var allHandsActive = false, allHandsEndMs = 0, nextAllHandsMs = 0;
+  var ALLHANDS_EVERY_MS = 300000, ALLHANDS_LEN_MS = 60000; // all-hands every 5 min, 1 min long
 
   // ═══ TILE MAP ═══
   // Open walkable interior (zones are colored rugs, not blocking walls — guarantees
@@ -208,14 +263,13 @@ var Office = (function() {
     { x: 3,  y: 3,  w: 17, h: 12, c: 'rgba(180,150,224,0.55)', n: 'CEO OFFICE' },
     { x: 22, y: 3,  w: 24, h: 13, c: 'rgba(150,195,225,0.55)', n: 'CONFERENCE' },
     { x: 48, y: 3,  w: 21, h: 14, c: 'rgba(28,40,58,0.85)',    n: 'MISSION CONTROL', dark: 1 },
-    { x: 3,  y: 19, w: 30, h: 12, c: 'rgba(240,200,120,0.50)', n: 'TEAM COLLABORATION' },
-    { x: 35, y: 19, w: 12, h: 12, c: 'rgba(150,160,172,0.30)', n: 'DAILY STANDUP' },
-    { x: 49, y: 19, w: 20, h: 12, c: 'rgba(150,195,225,0.50)', n: 'FOCUS AREA' },
+    { x: 3,  y: 19, w: 30, h: 12, c: 'rgba(240,200,120,0.50)', n: 'WORKSTATION' },
+    { x: 35, y: 19, w: 34, h: 12, c: 'rgba(150,195,225,0.50)', n: 'FOCUS AREA' },
     { x: 3,  y: 34, w: 18, h: 12, c: 'rgba(240,200,120,0.50)', n: 'CAFETERIA' },
     { x: 22, y: 34, w: 14, h: 12, c: 'rgba(180,150,224,0.50)', n: 'LOUNGE' },
     { x: 38, y: 34, w: 9,  h: 12, c: 'rgba(150,160,172,0.30)', n: 'REST' },
     { x: 49, y: 34, w: 11, h: 12, c: 'rgba(150,160,172,0.30)', n: 'RECREATION' },
-    { x: 62, y: 34, w: 7,  h: 12, c: 'rgba(110,180,100,0.55)', n: 'SMOKING' }
+    { x: 62, y: 34, w: 7,  h: 12, c: 'rgba(110,180,100,0.55)', n: 'OUTSIDE' }
   ];
 
   // ═══ FURNITURE ═══
@@ -223,8 +277,8 @@ var Office = (function() {
     furniture = [];
     seats = {};
 
-    // TEAM COLLABORATION — workstations (amber zone)
-    for (var row = 0; row < 4; row++) {
+    // WORKSTATION — desks (amber zone); 3 rows so chairs stay inside the room
+    for (var row = 0; row < 3; row++) {
       for (var col = 0; col < 5; col++) {
         var dx = 5 + col * 6, dy = 21 + row * 3;
         furniture.push({ type: 'desk', x: dx, y: dy, w: 3, h: 1 });
@@ -234,14 +288,14 @@ var Office = (function() {
       }
     }
 
-    // FOCUS AREA (blue zone) — desks
+    // FOCUS AREA (blue zone) — desks (expanded to fill the now-larger focus area)
     for (var fr = 0; fr < 3; fr++) {
-      for (var fc = 0; fc < 4; fc++) {
-        var ax = 51 + fc * 5, ay = 21 + fr * 3;
-        furniture.push({ type: 'desk', x: ax, y: ay, w: 2, h: 1 });
-        furniture.push({ type: 'pc', x: ax, y: ay, w: 1, h: 1 });
-        furniture.push({ type: 'chair', x: ax, y: ay + 1, w: 1, h: 1 });
-        seats['focus_' + fr + '_' + fc] = { x: ax, y: ay + 1, assigned: false, facing: DIR.UP };
+      for (var fc = 0; fc < 7; fc++) {
+        var ax = 36 + fc * 5, ay = 21 + fr * 3;
+        furniture.push({ type: 'desk', x: ax, y: ay, w: 3, h: 1 });
+        furniture.push({ type: 'pc', x: ax + 1, y: ay, w: 1, h: 1 });
+        furniture.push({ type: 'chair', x: ax + 1, y: ay + 1, w: 1, h: 1 });
+        seats['focus_' + fr + '_' + fc] = { x: ax + 1, y: ay + 1, assigned: false, facing: DIR.UP };
       }
     }
 
@@ -249,8 +303,8 @@ var Office = (function() {
     furniture.push({ type: 'whiteboard', x: 32, y: 3, w: 2, h: 1 });
     furniture.push({ type: 'lpaint', x: 24, y: 3, w: 1, h: 1 });
     furniture.push({ type: 'lpaint', x: 43, y: 3, w: 1, h: 1 });
-    for (var crow = 0; crow < 3; crow++) {
-      for (var ccol = 0; ccol < 9; ccol++) {
+    for (var crow = 0; crow < 4; crow++) {
+      for (var ccol = 0; ccol < 10; ccol++) {
         var chx = 24 + ccol * 2, chy = 8 + crow * 2;
         furniture.push({ type: 'cchair', x: chx, y: chy, w: 1, h: 1 });
         seats['conf_' + crow + '_' + ccol] = { x: chx, y: chy, assigned: false, facing: DIR.UP };
@@ -274,7 +328,8 @@ var Office = (function() {
 
     // CAFETERIA — fridge, coffee machine, long school-style table with chairs to sit + eat
     furniture.push({ type: 'fridge', x: 4, y: 36, w: 1, h: 1 });
-    furniture.push({ type: 'coffeeM', x: 6, y: 35, w: 1, h: 1 });
+    furniture.push({ type: 'coffeestand', x: 6, y: 35, w: 1, h: 1 });
+    furniture.push({ type: 'vending', x: 8, y: 35, w: 1, h: 1 });
     furniture.push({ type: 'spaint', x: 9, y: 34, w: 1, h: 1 });
     for (var lt = 0; lt < 6; lt++) {
       furniture.push({ type: 'stable', x: 6 + lt * 2, y: 40, w: 1, h: 1 });
@@ -296,15 +351,11 @@ var Office = (function() {
     furniture.push({ type: 'lplant', x: 34, y: 44, w: 1, h: 1 });
     furniture.push({ type: 'lpaint', x: 24, y: 34, w: 1, h: 1 });
 
-    // REST — quiet library: bookshelves + reading tables and chairs
-    furniture.push({ type: 'dshelf', x: 38, y: 35, w: 1, h: 1 });
-    furniture.push({ type: 'dshelf', x: 40, y: 35, w: 1, h: 1 });
-    furniture.push({ type: 'bookshelf', x: 45, y: 35, w: 1, h: 1 });
-    furniture.push({ type: 'stable', x: 39, y: 39, w: 1, h: 1 });
-    furniture.push({ type: 'cchair', x: 39, y: 38, w: 1, h: 1 });
-    furniture.push({ type: 'cchair', x: 39, y: 40, w: 1, h: 1 });
-    furniture.push({ type: 'stable', x: 43, y: 42, w: 1, h: 1 });
-    furniture.push({ type: 'cchair', x: 43, y: 41, w: 1, h: 1 });
+    // REST — nap room with beds (agents come here to sleep)
+    [[39, 36], [43, 36], [39, 40], [43, 40]].forEach(function(b, i) {
+      furniture.push({ type: 'napbed', x: b[0], y: b[1], w: 2, h: 1 });
+      seats['bed_' + i] = { x: b[0], y: b[1], assigned: false, facing: DIR.DOWN };
+    });
     furniture.push({ type: 'hplant', x: 45, y: 43, w: 1, h: 1 });
 
     // RECREATION — arcade, wall TV, sofa + chairs (fun room)
@@ -316,13 +367,8 @@ var Office = (function() {
     furniture.push({ type: 'coffeeTable', x: 53, y: 42, w: 1, h: 1 });
     furniture.push({ type: 'bookshelf', x: 58, y: 37, w: 1, h: 1 });
 
-    // DAILY STANDUP — chairs around the central standup table
-    furniture.push({ type: 'cchair', x: 38, y: 23, w: 1, h: 1 });
-    furniture.push({ type: 'cchair', x: 44, y: 23, w: 1, h: 1 });
-    furniture.push({ type: 'cchair', x: 38, y: 27, w: 1, h: 1 });
-    furniture.push({ type: 'cchair', x: 44, y: 27, w: 1, h: 1 });
-    furniture.push({ type: 'cchair', x: 41, y: 22, w: 1, h: 1 });
-    furniture.push({ type: 'cchair', x: 41, y: 28, w: 1, h: 1 });
+    // (DAILY STANDUP table + chairs removed — standups now happen in the CONFERENCE room;
+    //  a meetings clock board occupies this spot instead.)
 
     // SMOKING (outdoor)
     furniture.push({ type: 'cbench', x: 64, y: 40, w: 1, h: 1 });
@@ -337,7 +383,24 @@ var Office = (function() {
   // ═══ PATHFINDING (BFS) ═══
   function isWalkable(col, row) {
     if (row < 0 || row >= MAP_ROWS || col < 0 || col >= MAP_COLS) return false;
+    if (blockedGrid && blockedGrid[row] && blockedGrid[row][col]) return false; // furniture + CEO office
     return tileMap[row][col] !== TILE.VOID && tileMap[row][col] !== TILE.WALL;
+  }
+  // Mark furniture footprints + the CEO office as non-walkable for normal agents' pathfinding
+  // (visuals untouched; CEO/Lucy use direct movement so they ignore this). Seats stay reachable.
+  function applyObstacles() {
+    blockedGrid = [];
+    for (var r = 0; r < MAP_ROWS; r++) { blockedGrid[r] = []; for (var c = 0; c < MAP_COLS; c++) blockedGrid[r][c] = 0; }
+    var SOLID = { desk: 1, table: 1, stable: 1, fridge: 1, coffeeM: 1, coffeestand: 1, vending: 1, sofa: 1, bookshelf: 1, dshelf: 1, coffeeTable: 1, whiteboard: 1, bed: 1, napbed: 1 };
+    furniture.forEach(function(f) {
+      if (!SOLID[f.type]) return;
+      for (var rr = 0; rr < (f.h || 1); rr++) for (var cc = 0; cc < (f.w || 1); cc++) {
+        var tr = f.y + rr, tc = f.x + cc;
+        if (blockedGrid[tr] && tc >= 0 && tc < MAP_COLS) blockedGrid[tr][tc] = 1;
+      }
+    });
+    for (var r2 = 3; r2 <= 14; r2++) for (var c2 = 3; c2 <= 19; c2++) if (blockedGrid[r2]) blockedGrid[r2][c2] = 1; // CEO office off-limits
+    Object.keys(seats).forEach(function(k) { var s = seats[k]; if (blockedGrid[s.y]) blockedGrid[s.y][s.x] = 0; }); // keep every seat reachable
   }
 
   function findPath(sx, sy, ex, ey) {
@@ -472,7 +535,8 @@ var Office = (function() {
 
       case 'reviewing':
         if (mcAllowed(agent)) { var ms2 = mcStandFor(agent); return { x: ms2.x, y: ms2.y }; }
-        pos = getRandomTileInArea(50, 20, 18, 10) || { x: 56, y: 24 }; // focus area (non-MC)
+        if (agent.seatId && seats[agent.seatId]) { var sr = seats[agent.seatId]; return { x: sr.x, y: sr.y }; } // sit on their chair, aligned
+        pos = getRandomTileInArea(50, 20, 18, 10) || { x: 56, y: 24 }; // focus area fallback
         return pos;
 
       case 'blocked':
@@ -571,7 +635,7 @@ var Office = (function() {
         exist.team = da.team;
 
         // Status changed — route to new destination
-        if (prevStatus !== officeStatus) {
+        if (prevStatus !== officeStatus && !allHandsActive && !exist.onBreak) {  // don't yank agents out of a meeting or a break
           var dest = getDestinationForStatus(exist);
           var path = findPath(exist.tileCol, exist.tileRow, dest.x, dest.y);
           if (path.length > 0) {
@@ -638,6 +702,28 @@ var Office = (function() {
     agents.forEach(function(agent) {
       agent.frameTimer += dt;
 
+      // Break/eat timing (state-independent, so eating agents are freed correctly). Skipped during all-hands.
+      if (!allHandsActive && agent.onBreak) {
+        agent.breakEnd -= dt;
+        if (agent.foodTimer > 0) { agent.foodTimer -= dt; if (agent.foodTimer <= 0) agent.breakProp = null; } // food gone after 30s
+        if (agent.breakEnd <= 0) {
+          agent.onBreak = false; agent.breakStage = null; agent.breakProp = null; agent.foodTimer = 0;
+          var _rd = getDestinationForStatus(agent);
+          var _rp = findPath(agent.tileCol, agent.tileRow, _rd.x, _rd.y);
+          if (_rp.length > 0) { agent.path = _rp; agent.state = STATE.WALK; } else { agent.state = STATE.IDLE; }
+        }
+      }
+      // Nap timing (rest room) — wake and return after the nap.
+      if (!allHandsActive && agent.sleeping) {
+        agent.sleepTimer -= dt;
+        if (agent.sleepTimer <= 0) {
+          agent.sleeping = false; agent.breakProp = null;
+          var _nd = getDestinationForStatus(agent);
+          var _np = findPath(agent.tileCol, agent.tileRow, _nd.x, _nd.y);
+          if (_np.length > 0) { agent.path = _np; agent.state = STATE.WALK; } else { agent.state = STATE.IDLE; }
+        }
+      }
+
       if (agent.vip) vipStep(agent, dt);
       if (!agent.vip) switch (agent.state) {
         case STATE.TYPE:
@@ -654,12 +740,12 @@ var Office = (function() {
             var dest = getDestinationForStatus(agent);
             var path = findPath(agent.tileCol, agent.tileRow, dest.x, dest.y);
             if (path.length > 0) { agent.path = path; agent.state = STATE.WALK; }
-          } else if (!allHandsActive && !agent.onBreak) {
+          } else if (!allHandsActive && !agent.onBreak && !agent.sleeping) {
             // Occasionally take a short break to a room even while working
             agent.breakTimer -= dt;
             if (agent.breakTimer <= 0) {
               agent.onBreak = true; agent.breakEnd = 45 + Math.random() * 20; agent.breakTimer = 80 + Math.random() * 130;
-              var bd = randomBreakRoom();
+              var bd = planBreakDest(agent);
               var bp = findPath(agent.tileCol, agent.tileRow, bd.x, bd.y);
               if (bp.length > 0) { agent.path = bp; agent.state = STATE.WALK; }
             }
@@ -678,10 +764,29 @@ var Office = (function() {
                 // Arrived — what now?
                 if (allHandsActive && agent.confSeat) {
                   agent.state = STATE.TYPE; agent.frame = 0; agent.frameTimer = 0; agent.dir = DIR.UP; // sit facing the presenter
+                } else if (agent.onBreak && (agent.breakStage === 'getFood' || agent.breakStage === 'getDrink' || agent.breakStage === 'getCoffee')) {
+                  agent.breakProp = agent.breakStage === 'getFood' ? ['🍔', '🍕', '🍩', '🥪', '🌮'][agent.id.charCodeAt(0) % 5]
+                                  : agent.breakStage === 'getDrink' ? '🥤' : '☕';
+                  agent.breakStage = 'toSeat';
+                  var _sp = agent.eatSeat || { x: agent.tileCol, y: agent.tileRow };
+                  var _pp = findPath(agent.tileCol, agent.tileRow, _sp.x, _sp.y);
+                  if (_pp.length > 0) { agent.path = _pp; agent.state = STATE.WALK; }
+                  else { agent.breakStage = 'eating'; agent.foodTimer = 30; agent.state = STATE.TYPE; agent.frame = 0; agent.frameTimer = 0; }
+                } else if (agent.onBreak && agent.breakStage === 'toBed') {
+                  agent.breakStage = 'sleeping'; agent.sleeping = true; agent.sleepTimer = 30; agent.breakProp = '💤';
+                  agent.state = STATE.TYPE; agent.frame = 0; agent.frameTimer = 0; agent.dir = DIR.DOWN;
+                } else if (agent.onBreak && agent.breakStage === 'toSeat') {
+                  agent.breakStage = 'eating'; agent.foodTimer = 30; // sit and eat; item clears after 30s
+                  agent.state = STATE.TYPE; agent.frame = 0; agent.frameTimer = 0;
+                  agent.dir = (agent.eatSeat && agent.eatSeat.facing != null) ? agent.eatSeat.facing : DIR.UP;
                 } else if ((agent.officeState === 'working' || agent.officeState === 'meeting' || agent.officeState === 'reviewing') && !agent.onBreak) {
                   agent.state = STATE.TYPE;
                   agent.frame = 0; agent.frameTimer = 0;
                   agent.dir = (agent.seatId && seats[agent.seatId]) ? seats[agent.seatId].facing : DIR.UP; // face desk/PC
+                } else if (agent.tileCol >= 38 && agent.tileCol <= 47 && agent.tileRow >= 34 && agent.tileRow <= 45) {
+                  // Arrived in the rest room — lie down and nap (any agent who enters sleeps)
+                  agent.sleeping = true; agent.sleepTimer = 25 + Math.random() * 15; agent.breakProp = '💤';
+                  agent.state = STATE.TYPE; agent.frame = 0; agent.frameTimer = 0; agent.dir = DIR.DOWN; agent.idleArea = 'rest';
                 } else {
                   // Idle — arrived at idle area
                   agent.state = STATE.IDLE; agent.frame = 0; agent.frameTimer = 0;
@@ -693,7 +798,7 @@ var Office = (function() {
                   else if (agent.tileCol >= 38 && agent.tileCol <= 47 && agent.tileRow >= 34) agent.idleArea = 'rest';
                   else if (agent.tileCol >= 49 && agent.tileCol <= 60 && agent.tileRow >= 34) agent.idleArea = 'recreation';
                   else if (agent.tileCol >= 49 && agent.tileRow >= 19 && agent.tileRow <= 31) agent.idleArea = 'focus';
-                  else if (agent.tileCol >= 35 && agent.tileCol <= 47 && agent.tileRow >= 19 && agent.tileRow <= 31) agent.idleArea = 'standup';
+                  else if (agent.tileCol >= 35 && agent.tileCol <= 47 && agent.tileRow >= 19 && agent.tileRow <= 31) agent.idleArea = 'lounge';
                   else agent.idleArea = 'lounge';
                 }
               }
@@ -703,7 +808,7 @@ var Office = (function() {
 
         case STATE.IDLE:
           agent.walking = false; agent.frame = 0;
-          if (agent.onBreak) { agent.breakEnd -= dt; if (agent.breakEnd <= 0) agent.onBreak = false; }
+          // (break timing handled at the top of the update loop)
           agent.wanderTimer -= dt;
           if (agent.wanderTimer <= 0) {
             // IMPORTANT: If agent should be working/meeting/reviewing, route them to WORK area — NOT idle
@@ -747,7 +852,7 @@ var Office = (function() {
                   case 'rest': area = { x: 39, y: 38, w: 7, h: 6 }; break;
                   case 'recreation': area = { x: 50, y: 37, w: 9, h: 7 }; break;
                   case 'focus': area = { x: 50, y: 20, w: 18, h: 10 }; break;
-                  case 'standup': area = { x: 36, y: 21, w: 10, h: 8 }; break;
+                  case 'standup': area = { x: 22, y: 34, w: 14, h: 12 }; break;  // (standup removed → lounge)
                   default: area = { x: 23, y: 37, w: 12, h: 7 };
                 }
                 var wanderDest = getRandomTileInArea(area.x, area.y, area.w, area.h);
@@ -762,38 +867,32 @@ var Office = (function() {
           break;
       }
 
-      // ═══ ALL-HANDS MEETING SYSTEM ═══
-      // Every ~90 seconds, trigger a 30-second general meeting in conference room
-      if (!allHandsActive && frameCount % (60 * 600) === 0 && agents.length > 5) {
+      // ═══ MEETINGS — all-hands every 5 min for 1 min; everyone gathers in the CONFERENCE room ═══
+      if (nextAllHandsMs === 0) nextAllHandsMs = now + ALLHANDS_EVERY_MS;
+      if (!allHandsActive && now >= nextAllHandsMs && agents.length > 5) {
         allHandsActive = true;
-        allHandsTimer = 60; // 1-minute all-hands, every 10 min
-        // Assign each agent their OWN conference chair (no clumping)
+        allHandsEndMs = now + ALLHANDS_LEN_MS;
+        nextAllHandsMs = now + ALLHANDS_EVERY_MS;
         var confKeys = Object.keys(seats).filter(function(k) { return k.indexOf('conf_') === 0; });
         var si = 0;
         agents.forEach(function(a) {
           if (a.vip) return; // CEO + Lucy keep their own routine
           var ss = seats[confKeys[si++ % confKeys.length]];
-          a.confSeat = ss; a.wasOfficeState = a.officeState;
+          a.confSeat = ss; a.wasOfficeState = a.officeState; a.onBreak = false; a.sleeping = false; a.breakStage = null; a.breakProp = null; // pulled into meeting — cancel break/nap
           var confPath = findPath(a.tileCol, a.tileRow, ss.x, ss.y);
           if (confPath.length > 0) { a.path = confPath; a.state = STATE.WALK; }
           else { a.tileCol = ss.x; a.tileRow = ss.y; a.x = ss.x * TILE_SIZE + TILE_SIZE / 2; a.y = ss.y * TILE_SIZE + TILE_SIZE / 2; a.state = STATE.TYPE; a.dir = DIR.UP; }
         });
       }
-
-      // During all-hands meeting
-      if (allHandsActive) {
-        allHandsTimer -= dt;
-        if (allHandsTimer <= 0) {
-          allHandsActive = false;
-          // Return all agents to their proper places
-          agents.forEach(function(a) {
-            if (a.vip) return;
-            a.confSeat = null;
-            var returnDest = getDestinationForStatus({ officeState: a.wasOfficeState || a.officeState, personality: a.personality, seatId: a.seatId, team: a.team, id: a.id, name: a.name });
-            var returnPath = findPath(a.tileCol, a.tileRow, returnDest.x, returnDest.y);
-            if (returnPath.length > 0) { a.path = returnPath; a.state = STATE.WALK; }
-          });
-        }
+      if (allHandsActive && now >= allHandsEndMs) {
+        allHandsActive = false;
+        agents.forEach(function(a) {
+          if (a.vip) return;
+          a.confSeat = null;
+          var returnDest = getDestinationForStatus({ officeState: a.wasOfficeState || a.officeState, personality: a.personality, seatId: a.seatId, team: a.team, id: a.id, name: a.name });
+          var returnPath = findPath(a.tileCol, a.tileRow, returnDest.x, returnDest.y);
+          if (returnPath.length > 0) { a.path = returnPath; a.state = STATE.WALK; }
+        });
       }
 
       // Speech bubbles
@@ -978,6 +1077,48 @@ var Office = (function() {
         mc.fillStyle = '#9aa6b2'; mc.fillRect(x + s * 0.7, fy + s * 0.2, 2, s * 0.5); mc.fillRect(x + s * 0.7, fy + s * 1.2, 2, s * 0.5);
         break;
       }
+      case 'vending': {
+        var vy = y - s;
+        ol(x, vy, s, s * 2);
+        mc.fillStyle = '#c1121f'; mc.fillRect(x, vy, s, s * 2);
+        mc.fillStyle = '#0b1422'; mc.fillRect(x + 2, vy + 2, s - 6, s);
+        mc.fillStyle = '#3b82f6'; for (var vr = 0; vr < 3; vr++) { for (var vc = 0; vc < 2; vc++) { mc.fillRect(x + 3 + vc * 4, vy + 3 + vr * 4, 3, 3); } }
+        mc.fillStyle = '#1b2430'; mc.fillRect(x + 2, vy + s + 4, s - 6, 4);
+        break;
+      }
+      case 'coffeeM': {
+        ol(x, y, s, s);
+        mc.fillStyle = '#5a4636'; mc.fillRect(x, y, s, s);                              // wood counter
+        var cyy = y - s * 0.7;
+        mc.fillStyle = '#d2d8df'; mc.fillRect(x + 1, cyy, s - 2, s);                    // steel machine body
+        mc.fillStyle = '#aeb6bf'; mc.fillRect(x + 1, cyy, s - 2, 3);
+        mc.fillStyle = '#0b1422'; mc.fillRect(x + 3, cyy + 3, s - 8, 4);                // display
+        mc.fillStyle = '#22d3ee'; mc.fillRect(x + 4, cyy + 4, 5, 2);
+        mc.fillStyle = '#3a2c1c'; mc.fillRect(x + s * 0.35, cyy + s * 0.55, s * 0.3, 4); // group head
+        mc.fillStyle = '#6f4a28'; mc.fillRect(x + s * 0.42, y - 3, s * 0.16, 4);        // cup
+        break;
+      }
+      case 'napbed': {
+        var bw = f.w * s;
+        ol(x, y, bw, s);
+        mc.fillStyle = '#6b4a2f'; mc.fillRect(x, y, bw, s);                             // bed frame
+        mc.fillStyle = '#8fb0d6'; mc.fillRect(x + 2, y + 2, bw - 4, s - 4);             // blanket
+        mc.fillStyle = '#eef2f7'; mc.fillRect(x + 2, y + 2, s * 0.55, s - 4);           // pillow
+        break;
+      }
+      case 'coffeestand': {
+        ol(x, y, s, s);
+        mc.fillStyle = '#7a5230'; mc.fillRect(x, y, s, s);                              // small coffee table
+        mc.fillStyle = '#8a6038'; mc.fillRect(x, y, s, 3);
+        var myy = y - s * 0.75;
+        mc.fillStyle = '#e2e8f0'; mc.fillRect(x + 2, myy, s - 4, s);                    // espresso machine body
+        mc.fillStyle = '#9aa6b2'; mc.fillRect(x + 2, myy, s - 4, 3);
+        mc.fillStyle = '#0b1422'; mc.fillRect(x + 4, myy + 4, s - 9, 4);                // display
+        mc.fillStyle = '#22d3ee'; mc.fillRect(x + 5, myy + 5, 5, 2);
+        mc.fillStyle = '#3a2c1c'; mc.fillRect(x + s * 0.4, myy + s * 0.62, s * 0.22, 4); // spout
+        mc.fillStyle = '#caa46a'; mc.fillRect(x + s * 0.42, y - 2, s * 0.16, 3);        // coffee cup
+        break;
+      }
     }
   }
 
@@ -1020,12 +1161,17 @@ var Office = (function() {
     // Status orb (above head). Green "working" only if the agent logged real activity
     // recently (liveAgents); a merely-assigned agent between work bursts shows amber.
     var orbLive = liveAgents[(agent.name || '').toLowerCase()];
-    var orbState = ((agent.officeState === 'working' || agent.officeState === 'reviewing') && !orbLive) ? 'waiting' : agent.officeState;
-    var sc = STATUS_COLORS[orbState] || '#64748b';
+    var sc = (agent.isBlocked || agent.officeState === 'blocked') ? '#ef4444'
+           : orbLive ? '#3b82f6'
+           : (agent.officeState === 'working' || agent.officeState === 'reviewing' || agent.officeState === 'meeting') ? '#22c55e'
+           : '#eab308';
     ctx.fillStyle = sc;
     ctx.beginPath(); ctx.arc(px, py - 40 + bob, 3.5, 0, Math.PI * 2); ctx.fill();
     ctx.strokeStyle = '#0d1117'; ctx.lineWidth = 1; ctx.stroke();
     ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.beginPath(); ctx.arc(px - 1, py - 41 + bob, 1.2, 0, Math.PI * 2); ctx.fill();
+
+    // Food/coffee/drink held while on a cafeteria break
+    if (agent.breakProp && (agent.onBreak || agent.sleeping)) { ctx.textAlign = 'center'; ctx.font = '9px serif'; ctx.fillText(agent.breakProp, px + 6, py - 3 + bob); }
 
     // Celebration / Blocked markers
     if (agent.celebrationTimer > 0) {
@@ -1050,7 +1196,7 @@ var Office = (function() {
     ctx.fillStyle = 'rgba(13,17,23,0.85)';
     ctx.beginPath(); ctx.roundRect(labelX, labelY, labelW, roleText ? 18 : 9, 3); ctx.fill();
     ctx.font = 'bold 7px monospace'; ctx.fillStyle = '#e2e8f0'; ctx.textAlign = 'center';
-    ctx.fillText(agent.name + (liveAgents[(agent.name || '').toLowerCase()] ? ' 🟢' : ''), px, labelY + 8);
+    ctx.fillText(agent.name, px, labelY + 8);
     if (roleText) { ctx.font = '6px monospace'; ctx.fillStyle = '#94a3b8'; ctx.fillText(roleText, px, labelY + 16); }
 
     // Speech bubble
@@ -1124,21 +1270,68 @@ var Office = (function() {
     for (var p = 0; p <= 24; p++) { var qx = bx + bw * 0.55 + p * (bw * 0.017), qy = by + bh * 0.45 + Math.sin(t * 2 + p * 0.5) * bh * 0.16; p ? ctx.lineTo(qx, qy) : ctx.moveTo(qx, qy); }
     ctx.stroke();
     ctx.fillStyle = '#bfe6ff'; ctx.textAlign = 'left'; ctx.font = 'bold 7px monospace'; ctx.fillText('● LIVE OPS', bx + 6, by + 12);
+    // ── meeting clocks integrated into the LIVE OPS big display ──
+    var nowTxt = new Date().toLocaleTimeString('en-US', { timeZone: 'America/Toronto', hour: '2-digit', minute: '2-digit', hour12: false });
+    var ah; if (allHandsActive) ah = '● LIVE'; else { var ms = Math.max(0, nextAllHandsMs - Date.now()); ah = ('0' + Math.floor(ms / 60000)).slice(-2) + ':' + ('0' + (Math.floor(ms / 1000) % 60)).slice(-2); }
+    var sm = msToNext7amET(), sh = Math.floor(sm / 3600000), smi = Math.floor(sm / 60000) % 60;
+    var mcClocks = [['NOW ET', nowTxt, '#e2e8f0'], ['MEETING', ah, allHandsActive ? '#34d399' : '#fbbf24'], ['STANDUP', sh + 'h' + ('0' + smi).slice(-2), '#a5b4fc']];
+    ctx.textAlign = 'center';
+    mcClocks.forEach(function(c, i) {
+      var cxp = bx + bw * (0.42 + i * 0.20);
+      ctx.fillStyle = '#7d8794'; ctx.font = '6px monospace'; ctx.fillText(c[0], cxp, by + 9);
+      ctx.fillStyle = c[2]; ctx.font = 'bold 9px monospace'; ctx.fillText(c[1], cxp, by + 20);
+    });
+    ctx.textAlign = 'left';
     var ccx = (zx + zw / 2) * TILE_SIZE, ccy = (zy + 11) * TILE_SIZE, rw = 7 * TILE_SIZE;
     ctx.fillStyle = '#1d2733'; ctx.beginPath(); ctx.ellipse(ccx, ccy, rw, 2.6 * TILE_SIZE, 0, Math.PI, 0); ctx.fill();
     ctx.fillStyle = '#2b3a4a'; ctx.beginPath(); ctx.ellipse(ccx, ccy - 4, rw * 0.9, 2.1 * TILE_SIZE, 0, Math.PI, 0); ctx.fill();
     for (var mI = 0; mI < 5; mI++) { var a = Math.PI * (0.18 + mI * 0.16), sxp = ccx + Math.cos(a) * rw * 0.78, syp = ccy - Math.sin(a) * 2 * TILE_SIZE - 6; ctx.fillStyle = '#0b1422'; ctx.fillRect(sxp - 7, syp - 10, 14, 10); ctx.fillStyle = ['#22d3ee', '#34d399', '#f59e0b', '#22d3ee', '#a855f7'][mI]; ctx.fillRect(sxp - 5, syp - 8, 10, 6); }
   }
+  // Cubicle partitions around each focus desk so it feels like a private closed station.
+  function drawFocusCubicles() {
+    ctx.fillStyle = 'rgba(120,150,180,0.30)';
+    for (var fr = 0; fr < 3; fr++) {
+      for (var fc = 0; fc < 7; fc++) {
+        var ax = 36 + fc * 5, ay = 21 + fr * 3;
+        var x0 = ax * TILE_SIZE, y0 = ay * TILE_SIZE, w = 3 * TILE_SIZE, hh = 2 * TILE_SIZE, t = 3;
+        ctx.fillRect(x0 - t, y0 - t, w + 2 * t, t);  // back wall
+        ctx.fillRect(x0 - t, y0 - t, t, hh + t);     // left wall
+        ctx.fillRect(x0 + w, y0 - t, t, hh + t);     // right wall
+      }
+    }
+  }
+  function msToNext7amET() {
+    var p = new Date().toLocaleTimeString('en-US', { timeZone: 'America/Toronto', hour12: false, hour: '2-digit', minute: '2-digit' }).split(':');
+    var mins = (+p[0]) * 60 + (+p[1]);
+    var diff = 7 * 60 - mins; if (diff <= 0) diff += 24 * 60;
+    return diff * 60000;
+  }
+  // Meetings display — the big command-center screen in Mission Control.
   function drawStandup(dt) {
-    standupSec -= dt; if (standupSec < 0) standupSec = 312;
-    var cx = 41 * TILE_SIZE, cy = 25 * TILE_SIZE;
-    ctx.fillStyle = 'rgba(240,200,120,0.85)'; ctx.beginPath(); ctx.ellipse(cx, cy, 5 * TILE_SIZE, 3.6 * TILE_SIZE, 0, 0, Math.PI * 2); ctx.fill();
-    ctx.strokeStyle = '#d9a93f'; ctx.lineWidth = 2; ctx.stroke();
-    ctx.fillStyle = '#1b2430'; ctx.fillRect(cx - 18, cy - 12, 36, 20);
-    ctx.fillStyle = '#0b1422'; ctx.fillRect(cx - 15, cy - 9, 30, 14);
-    var mm = ('0' + Math.floor(standupSec / 60)).slice(-2), ss = ('0' + (Math.floor(standupSec) % 60)).slice(-2);
-    ctx.fillStyle = '#34d399'; ctx.textAlign = 'center'; ctx.font = 'bold 10px monospace'; ctx.fillText(mm + ':' + ss, cx, cy);
-    ctx.fillStyle = '#bfe6ff'; ctx.font = '6px monospace'; ctx.fillText('DAILY STANDUP', cx, cy - 14);
+    var bx = 49 * TILE_SIZE, by = 3.5 * TILE_SIZE, bw = 19 * TILE_SIZE, bh = 3 * TILE_SIZE;
+    ctx.fillStyle = '#0a0f16'; ctx.fillRect(bx, by, bw, bh);
+    ctx.strokeStyle = '#22d3ee'; ctx.lineWidth = 2; ctx.strokeRect(bx, by, bw, bh);
+    ctx.strokeStyle = 'rgba(34,211,238,0.25)'; ctx.lineWidth = 1; ctx.strokeRect(bx + 3, by + 3, bw - 6, bh - 6);
+    ctx.textAlign = 'left'; ctx.fillStyle = '#22d3ee'; ctx.font = 'bold 7px monospace';
+    ctx.fillText('📋 MEETINGS', bx + 7, by + 11);
+    var nowTxt = new Date().toLocaleTimeString('en-US', { timeZone: 'America/Toronto', hour: '2-digit', minute: '2-digit', hour12: false });
+    var ah;
+    if (allHandsActive) ah = '● LIVE';
+    else { var ms = Math.max(0, nextAllHandsMs - Date.now()); ah = ('0' + Math.floor(ms / 60000)).slice(-2) + ':' + ('0' + (Math.floor(ms / 1000) % 60)).slice(-2); }
+    var sm = msToNext7amET(), sh = Math.floor(sm / 3600000), smi = Math.floor(sm / 60000) % 60;
+    var cols = [
+      { l: 'NOW (ET)', v: nowTxt, c: '#e2e8f0' },
+      { l: 'ALL-HANDS', v: ah, c: allHandsActive ? '#34d399' : '#fbbf24' },
+      { l: 'STANDUP', v: sh + 'h' + ('0' + smi).slice(-2), c: '#a5b4fc' }
+    ];
+    var colW = (bw - 14) / 3;
+    ctx.textAlign = 'center';
+    cols.forEach(function(c, i) {
+      var cxp = bx + 7 + colW * (i + 0.5);
+      ctx.fillStyle = '#7d8794'; ctx.font = '6px monospace'; ctx.fillText(c.l, cxp, by + 30);
+      ctx.fillStyle = c.c; ctx.font = 'bold 11px monospace'; ctx.fillText(c.v, cxp, by + 46);
+    });
+    ctx.textAlign = 'left';
   }
 
   // ═══ RENDER LOOP ═══
@@ -1148,26 +1341,55 @@ var Office = (function() {
     if (!canvas || !ctx) return;
     var dt = lastTime ? Math.min((ts - lastTime) / 1000, 0.1) : 0.016;
     lastTime = ts;
-    var cw = window.innerWidth, ch = window.innerHeight;
+    var cw = canvas.clientWidth || window.innerWidth, ch = canvas.clientHeight || window.innerHeight;
+    computeLayout(cw, ch);
 
     if (frameCount % 6 === 0) updateAgents(dt * 6);
+
+    if (focus) {
+      var fa = agents.find(function(x) { return x.id === focus.id; });
+      if (!fa) { focus = null; }
+      else {
+        focus.t += dt;
+        var FZ = Math.min(2.4, Math.max(1.7, focus.saved.zoom * 1.8));
+        var ftx = (MAP_W / 2 - fa.x) * FZ, fty = (MAP_H / 2 - fa.y) * FZ;
+        var IN = 0.4, HOLD = 0.9, OUT = 0.45, T = focus.t;
+        var ez = function(k) { k = k < 0 ? 0 : k > 1 ? 1 : k; return k * k * (3 - 2 * k); };
+        if (T < IN) { var k = ez(T / IN); cam.x = focus.saved.x + (ftx - focus.saved.x) * k; cam.y = focus.saved.y + (fty - focus.saved.y) * k; cam.zoom = focus.saved.zoom + (FZ - focus.saved.zoom) * k; }
+        else if (T < IN + HOLD) { cam.x = ftx; cam.y = fty; cam.zoom = FZ; }
+        else if (T < IN + HOLD + OUT) { var k2 = ez((T - IN - HOLD) / OUT); cam.x = ftx + (focus.saved.x - ftx) * k2; cam.y = fty + (focus.saved.y - fty) * k2; cam.zoom = FZ + (focus.saved.zoom - FZ) * k2; }
+        else { cam.x = focus.saved.x; cam.y = focus.saved.y; cam.zoom = focus.saved.zoom; focus = null; }
+        clampCam();
+      }
+    }
 
     ctx.fillStyle = '#0d1117';
     ctx.fillRect(0, 0, cw, ch);
 
-    var mapW = MAP_W * cam.zoom, mapH = MAP_H * cam.zoom;
-    var offX = Math.floor((cw - mapW) / 2) + Math.round(cam.x);
-    var offY = Math.floor((ch - mapH) / 2) + Math.round(cam.y);
+    var off = mapOffset();
 
     ctx.save();
-    ctx.translate(offX, offY);
+    ctx.beginPath(); ctx.rect(frame.x, frame.y, frame.w, frame.h); ctx.clip();  // map stays inside the frame
+    ctx.translate(off.x, off.y);
     ctx.scale(cam.zoom, cam.zoom);
     if (mapCache) ctx.drawImage(mapCache, 0, 0);
+    drawFocusCubicles();
     drawWallOfWork(ts / 1000);
     drawMissionControl(ts / 1000);
-    drawStandup(dt);
     var sorted = agents.slice().sort(function(a, b) { return a.y - b.y; });
     sorted.forEach(function(a) { drawCharacter(a); });
+    if (focus) {
+      var ff = agents.find(function(x) { return x.id === focus.id; });
+      if (ff) {
+        var fbob = Math.sin(ts / 120) * 3;
+        ctx.strokeStyle = '#fbbf24'; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.arc(ff.x, ff.y, 13 + (Math.sin(ts / 150) + 1) * 3, 0, Math.PI * 2); ctx.stroke();
+        var axx = ff.x, ayy = ff.y - 34 + fbob;
+        ctx.fillStyle = '#fbbf24';
+        ctx.beginPath(); ctx.moveTo(axx - 5, ayy - 8); ctx.lineTo(axx + 5, ayy - 8); ctx.lineTo(axx, ayy); ctx.closePath(); ctx.fill();
+        ctx.fillRect(axx - 2, ayy - 16, 4, 8);
+      }
+    }
     drawParticles();
     ctx.restore();
 
@@ -1177,98 +1399,158 @@ var Office = (function() {
   // ═══ OVERLAY ═══
   var liveAgents = {};
   function drawOverlay(cw, ch) {
-    // Exit
-    var exX = 10, exY = 10, exW = 100, exH = 26;
-    ctx.fillStyle = 'rgba(13,17,23,0.9)';
-    ctx.fillRect(exX, exY, exW, exH);
-    ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 1;
-    ctx.strokeRect(exX, exY, exW, exH);
-    ctx.fillStyle = '#ef4444';
-    ctx.font = 'bold 9px monospace'; ctx.textAlign = 'center';
-    ctx.fillText('✕ Exit Office', exX + exW / 2, exY + 17);
-    officeBtns.exit = { x: exX, y: exY, w: exW, h: exH };
+    // ── Left info column: stats + legend + agent statuses + buttons ──
+    function _st(a) {
+      if (a.isBlocked || a.officeState === 'blocked') return 'blocked';
+      if (liveAgents[(a.name || '').toLowerCase()]) return 'live';
+      if (a.officeState === 'working' || a.officeState === 'reviewing' || a.officeState === 'meeting') return 'working';
+      return 'idle';
+    }
+    var COL = { live: '#3b82f6', working: '#22c55e', idle: '#eab308', blocked: '#ef4444' };
+    ctx.fillStyle = '#0b0f14'; ctx.fillRect(0, 0, SB_W, ch);
+    ctx.strokeStyle = '#1e2d3d'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(SB_W + 0.5, 0); ctx.lineTo(SB_W + 0.5, ch); ctx.stroke();
 
-    // Stats
-    var working = agents.filter(function(a) { return a.officeState === 'working' || a.officeState === 'reviewing'; }).length;
-    var idle = agents.filter(function(a) { return a.officeState === STATE.IDLE; }).length;
-    var stX = 10, stY = 42, stW = 120, stH = 56;
-    ctx.fillStyle = 'rgba(13,17,23,0.85)'; ctx.fillRect(stX, stY, stW, stH);
-    ctx.strokeStyle = '#1e2d3d'; ctx.strokeRect(stX, stY, stW, stH);
-    ctx.font = 'bold 9px monospace'; ctx.textAlign = 'left';
-    ctx.fillStyle = '#e2e8f0'; ctx.fillText('🏢 OFFICE', stX + 6, stY + 12);
-    ctx.font = '8px monospace';
-    ctx.fillStyle = '#f59e0b'; ctx.fillText('● Assigned: ' + working, stX + 6, stY + 22);
-    ctx.fillStyle = '#eab308'; ctx.fillText('● Idle: ' + idle, stX + 6, stY + 32);
-    var blocked = agents.filter(function(a) { return a.officeState === 'blocked'; }).length;
-    ctx.fillStyle = '#ef4444'; ctx.fillText('● Blocked: ' + blocked, stX + 6, stY + 42);
-    var live = agents.filter(function(a) { return liveAgents[(a.name || '').toLowerCase()]; }).length;
-    ctx.fillStyle = '#38bdf8'; ctx.fillText('● Live: ' + live, stX + 6, stY + 52);
+    var pad = 12, y = 20;
+    ctx.textAlign = 'left';
+    ctx.fillStyle = '#e2e8f0'; ctx.font = 'bold 11px monospace';
+    ctx.fillText('🏢 OFFICE', pad, y); y += 18;
 
-    // All-hands meeting banner
-    if (allHandsActive) {
-      var bannerW = 200, bannerH = 28;
-      var bannerX = cw / 2 - bannerW / 2, bannerY = 10;
-      ctx.fillStyle = 'rgba(59,130,246,0.9)';
-      ctx.fillRect(bannerX, bannerY, bannerW, bannerH);
-      ctx.strokeStyle = '#60a5fa'; ctx.lineWidth = 1;
-      ctx.strokeRect(bannerX, bannerY, bannerW, bannerH);
-      ctx.fillStyle = '#fff';
-      ctx.font = 'bold 10px monospace'; ctx.textAlign = 'center';
-      ctx.fillText('📢 GENERAL MEETING', cw / 2, bannerY + 12);
-      ctx.font = '8px monospace';
-      ctx.fillStyle = '#dbeafe';
-      ctx.fillText('All agents in conference room', cw / 2, bannerY + 23);
+    var cnt = { live: 0, working: 0, idle: 0, blocked: 0 };
+    agents.forEach(function(a) { cnt[_st(a)]++; });
+    ctx.font = '9px monospace';
+    [['live', 'Live'], ['working', 'Working'], ['idle', 'Idle'], ['blocked', 'Blocked']].forEach(function(s) {
+      ctx.fillStyle = COL[s[0]]; ctx.beginPath(); ctx.arc(pad + 3, y - 3, 3, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#cbd5e1'; ctx.fillText(s[1] + ': ' + cnt[s[0]], pad + 12, y); y += 14;
+    });
+    y += 6;
+
+    // Controls — kept near the TOP so they're always visible regardless of window height
+    var bw = SB_W - 2 * pad, bx = pad;
+    function _btn(label, yy, stroke, fill) {
+      ctx.fillStyle = 'rgba(13,17,23,0.95)'; ctx.fillRect(bx, yy, bw, 20);
+      ctx.strokeStyle = stroke; ctx.lineWidth = 1; ctx.strokeRect(bx, yy, bw, 20);
+      ctx.fillStyle = fill; ctx.font = 'bold 9px monospace'; ctx.textAlign = 'center';
+      ctx.fillText(label, bx + bw / 2, yy + 14); ctx.textAlign = 'left';
+      return { x: bx, y: yy, w: bw, h: 20 };
+    }
+    officeBtns.recenter = _btn('⌖ Recenter', y, '#3b82f6', '#e2e8f0'); y += 24;
+    officeBtns.zoom = _btn('🔍 ' + Math.round(cam.zoom * 100) + '%', y, '#1e2d3d', '#94a3b8'); y += 24;
+    officeBtns.exit = _btn('✕ Exit Office', y, '#ef4444', '#ef4444'); y += 28;
+
+    ctx.strokeStyle = '#1e2d3d'; ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(SB_W - pad, y); ctx.stroke(); y += 12;
+    ctx.fillStyle = '#64748b'; ctx.font = '7px monospace'; ctx.fillText('TEAM', pad, y); y += 6;
+
+    // Agent roster — grouped by team, avatar + name + role, scrollable (wheel over the column)
+    var listTop = y, listBottom = ch - 6, viewH = listBottom - listTop;
+    var teamOrder = ['Leadership', 'Project', 'Research', 'Finance', 'Security', 'Operations'];
+    var roster = agents.slice().sort(function(a, b) {
+      var ta = teamOrder.indexOf(a.team); ta = ta < 0 ? 99 : ta;
+      var tb = teamOrder.indexOf(b.team); tb = tb < 0 ? 99 : tb;
+      return ta - tb || (a.name || '').localeCompare(b.name || '');
+    });
+    function activeTix(a) {
+      return (a.tickets || []).filter(function(t) { return t && t.status && t.status !== 'done'; }).slice(0, 4);
+    }
+    var HROW = 15, CARD_BASE = 36, TIX_H = 13, PAD_B = 7;
+    var rows = [], lastTeam = null;
+    roster.forEach(function(a) {
+      if (a.team !== lastTeam) { rows.push({ h: a.team || 'Team', hh: HROW }); lastTeam = a.team; }
+      var tix = activeTix(a);
+      rows.push({ a: a, tix: tix, hh: CARD_BASE + tix.length * TIX_H + PAD_B });
+    });
+    var totalH = rows.reduce(function(s, r) { return s + r.hh; }, 0);
+    var maxScroll = Math.max(0, totalH - viewH);
+    sbScroll = Math.max(0, Math.min(maxScroll, sbScroll));
+    sbHits = [];
+    ctx.save();
+    ctx.beginPath(); ctx.rect(0, listTop - 2, SB_W, viewH + 4); ctx.clip();
+    var yy = listTop - sbScroll;
+    rows.forEach(function(r) {
+      var visible = (yy + r.hh >= listTop - 2 && yy <= listBottom);
+      if (r.h) {
+        if (visible) {
+          ctx.fillStyle = TEAM_COLORS[r.h] || '#64748b';
+          ctx.font = 'bold 8px monospace'; ctx.textAlign = 'left';
+          ctx.fillText(r.h.toUpperCase(), pad, yy + 9);
+        }
+      } else if (visible) {
+        var a = r.a, st = _st(a);
+        // button-style card box
+        var bx0 = pad - 5, bw0 = SB_W - 2 * (pad - 5), by0 = yy, bh0 = r.hh - 6;
+        ctx.fillStyle = 'rgba(30,41,59,0.55)'; ctx.strokeStyle = '#2b3a4a'; ctx.lineWidth = 1;
+        if (ctx.roundRect) { ctx.beginPath(); ctx.roundRect(bx0, by0, bw0, bh0, 6); ctx.fill(); ctx.stroke(); }
+        else { ctx.fillRect(bx0, by0, bw0, bh0); ctx.strokeRect(bx0, by0, bw0, bh0); }
+        ctx.fillStyle = COL[st]; ctx.fillRect(bx0, by0 + 4, 3, bh0 - 8);  // status accent stripe
+        ctx.textAlign = 'left'; ctx.font = '17px serif';
+        ctx.fillText(ofEmoji(a.name), pad + 2, yy + 23);
+        ctx.fillStyle = '#e2e8f0'; ctx.font = 'bold 10px monospace';
+        ctx.fillText((a.name || '').slice(0, 14), pad + 26, yy + 16);
+        ctx.fillStyle = '#94a3b8'; ctx.font = '8px monospace';
+        ctx.fillText((a.title || a.team || '').slice(0, 19), pad + 26, yy + 28);
+        ctx.fillStyle = COL[st]; ctx.beginPath(); ctx.arc(bx0 + bw0 - 9, yy + 16, 4, 0, Math.PI * 2); ctx.fill();
+        var ty = yy + CARD_BASE;
+        r.tix.forEach(function(t) {
+          ctx.fillStyle = COL[st]; ctx.font = '9px monospace'; ctx.fillText('•', pad + 9, ty + 8);
+          ctx.fillStyle = '#9fb4cc'; ctx.font = '8px monospace';
+          ctx.fillText((t.id + ' ' + (t.title || '')).slice(0, 26), pad + 19, ty + 8);
+          ty += TIX_H;
+        });
+        sbHits.push({ x: bx0, y: by0, w: bw0, h: bh0, id: a.id });  // click card → spotlight on map
+      }
+      yy += r.hh;
+    });
+    ctx.restore();
+    if (maxScroll > 0 && sbScroll < maxScroll - 1) {
+      ctx.fillStyle = '#475569'; ctx.font = '7px monospace'; ctx.textAlign = 'center';
+      ctx.fillText('▾', SB_W / 2, listBottom + 2);
     }
 
-    // Recenter
-    var rcX = cw - 100, rcY = 10, rcW = 90, rcH = 22;
-    ctx.fillStyle = 'rgba(13,17,23,0.85)'; ctx.fillRect(rcX, rcY, rcW, rcH);
-    ctx.strokeStyle = '#3b82f6'; ctx.strokeRect(rcX, rcY, rcW, rcH);
-    ctx.fillStyle = '#e2e8f0'; ctx.font = '9px monospace'; ctx.textAlign = 'center';
-    ctx.fillText('⌖ Recenter', rcX + rcW / 2, rcY + 15);
-    officeBtns.recenter = { x: rcX, y: rcY, w: rcW, h: rcH };
+    // ── Map frame border ──
+    ctx.strokeStyle = '#2b3a4a'; ctx.lineWidth = 2;
+    ctx.strokeRect(frame.x - 1, frame.y - 1, frame.w + 2, frame.h + 2);
 
-    // Zoom
-    var zX = cw - 100, zY = 38, zW = 90, zH = 22;
-    ctx.fillStyle = 'rgba(13,17,23,0.85)'; ctx.fillRect(zX, zY, zW, zH);
-    ctx.strokeStyle = '#1e2d3d'; ctx.strokeRect(zX, zY, zW, zH);
-    ctx.fillStyle = '#94a3b8';
-    ctx.fillText('🔍 ' + Math.round(cam.zoom * 100) + '%', zX + zW / 2, zY + 15);
-    officeBtns.zoom = { x: zX, y: zY, w: zW, h: zH };
+    // ── All-hands banner (centered over the frame) ──
+    if (allHandsActive) {
+      var bnW = 220, bnH = 28, bnX = frame.x + frame.w / 2 - bnW / 2, bnY = frame.y + 8;
+      ctx.fillStyle = 'rgba(59,130,246,0.92)'; ctx.fillRect(bnX, bnY, bnW, bnH);
+      ctx.strokeStyle = '#60a5fa'; ctx.lineWidth = 1; ctx.strokeRect(bnX, bnY, bnW, bnH);
+      ctx.fillStyle = '#fff'; ctx.font = 'bold 10px monospace'; ctx.textAlign = 'center';
+      ctx.fillText('📢 GENERAL MEETING', bnX + bnW / 2, bnY + 12);
+      ctx.font = '8px monospace'; ctx.fillStyle = '#dbeafe';
+      ctx.fillText('All agents in conference room', bnX + bnW / 2, bnY + 23);
+      ctx.textAlign = 'left';
+    }
 
-    // Legend
-    var lgX = 10, lgY = ch - 40;
-    ctx.fillStyle = 'rgba(13,17,23,0.85)'; ctx.fillRect(lgX, lgY, 90, 32);
-    ctx.strokeStyle = '#1e2d3d'; ctx.strokeRect(lgX, lgY, 90, 32);
-    ctx.font = '7px monospace'; ctx.textAlign = 'left';
-    [{ c: '#22c55e', l: 'Working' }, { c: '#eab308', l: 'Idle' }, { c: '#ef4444', l: 'Blocked' }].forEach(function(it, i) {
-      ctx.fillStyle = it.c; ctx.beginPath(); ctx.arc(lgX + 8, lgY + 10 + i * 10, 2.5, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = '#94a3b8'; ctx.fillText(it.l, lgX + 14, lgY + 13 + i * 10);
-    });
-
-    // Minimap
-    var mmW = 140, mmH = 80, mmX = cw - mmW - 10, mmY = ch - mmH - 10;
+    // ── Minimap (bottom-right inside the frame) ──
+    var mmW = 120, mmH = 70, mmX = frame.x + frame.w - mmW - 8, mmY = frame.y + frame.h - mmH - 8;
     ctx.fillStyle = 'rgba(13,17,23,0.85)'; ctx.fillRect(mmX, mmY, mmW, mmH);
-    ctx.strokeStyle = '#1e2d3d'; ctx.strokeRect(mmX, mmY, mmW, mmH);
+    ctx.strokeStyle = '#1e2d3d'; ctx.lineWidth = 1; ctx.strokeRect(mmX, mmY, mmW, mmH);
     var sx = mmW / MAP_W, sy = mmH / MAP_H;
     agents.forEach(function(a) {
-      ctx.fillStyle = STATUS_COLORS[a.officeState] || '#64748b';
+      ctx.fillStyle = COL[_st(a)];
       ctx.fillRect(mmX + a.x * sx - 1, mmY + a.y * sy - 1, 2, 2);
     });
   }
 
   // ═══ CAMERA ═══
   function clampCam() {
-    var vw = window.innerWidth / cam.zoom, vh = window.innerHeight / cam.zoom;
-    cam.x = Math.max(-MAP_W * 0.3, Math.min(MAP_W * 1.3 - vw, cam.x));
-    cam.y = Math.max(-MAP_H * 0.3, Math.min(MAP_H * 1.3 - vh, cam.y));
+    // cam.x/y are SCREEN-pixel pan offsets (the render adds them straight to the centered map
+    // origin). Allow panning until any edge reaches the screen edge, + a margin, so every corner
+    // is reachable at any zoom.
+    var mapW = MAP_W * cam.zoom, mapH = MAP_H * cam.zoom;
+    var m = 60;
+    var maxX = Math.abs(mapW - frame.w) / 2 + m;
+    var maxY = Math.abs(mapH - frame.h) / 2 + m;
+    cam.x = Math.max(-maxX, Math.min(maxX, cam.x));
+    cam.y = Math.max(-maxY, Math.min(maxY, cam.y));
   }
 
   function recenterCamera() { cam.x = 0; cam.y = 0; clampCam(); }
 
   function initCamera() {
-    var vw = window.innerWidth, vh = window.innerHeight;
-    cam.zoom = Math.min(vw / MAP_W, vh / MAP_H) * 0.9;
+    computeLayout(canvas.clientWidth || window.innerWidth, canvas.clientHeight || window.innerHeight);
+    cam.zoom = Math.min(frame.w / MAP_W, frame.h / MAP_H) * 0.95;
     cam.x = 0; cam.y = 0;
     clampCam();
   }
@@ -1304,20 +1586,40 @@ var Office = (function() {
     });
     window.addEventListener('mousemove', function(e) {
       if (!camDragging) return;
-      cam.x = camDragCamStart.x - (e.clientX - camDragStart.x) / cam.zoom;
-      cam.y = camDragCamStart.y - (e.clientY - camDragStart.y) / cam.zoom;
+      // cam is in screen px → 1:1 with the cursor (grab-and-drag the map)
+      cam.x = camDragCamStart.x + (e.clientX - camDragStart.x);
+      cam.y = camDragCamStart.y + (e.clientY - camDragStart.y);
       clampCam();
     });
     window.addEventListener('mouseup', function() { camDragging = false; canvas.style.cursor = 'grab'; });
+    // WASD / arrow-key panning (only while the Office tab is active)
+    if (!window._officeKeysBound) {
+      window._officeKeysBound = true;
+      window.addEventListener('keydown', function(e) {
+        if (typeof CV === 'undefined' || CV !== 'office') return;
+        var step = 70, k = (e.key || '').toLowerCase();
+        if (k === 'w' || e.key === 'ArrowUp') cam.y += step;
+        else if (k === 's' || e.key === 'ArrowDown') cam.y -= step;
+        else if (k === 'a' || e.key === 'ArrowLeft') cam.x += step;
+        else if (k === 'd' || e.key === 'ArrowRight') cam.x -= step;
+        else return;
+        e.preventDefault();
+        clampCam();
+      });
+    }
     canvas.addEventListener('wheel', function(e) {
       e.preventDefault();
-      var f = e.deltaY > 0 ? 0.9 : 1.1;
-      var nz = Math.max(0.3, Math.min(3, cam.zoom * f));
       var rect = canvas.getBoundingClientRect();
       var mx = e.clientX - rect.left, my = e.clientY - rect.top;
-      var wx = cam.x + mx / cam.zoom, wy = cam.y + my / cam.zoom;
+      if (mx < SB_W) { sbScroll += (e.deltaY > 0 ? 26 : -26); if (sbScroll < 0) sbScroll = 0; return; }  // scroll roster, not map
+      var oz = cam.zoom;
+      var nz = Math.max(0.3, Math.min(3, oz * (e.deltaY > 0 ? 0.9 : 1.1)));
+      var off = mapOffset();                                 // map origin before zoom
+      var wx = (mx - off.x) / oz, wy = (my - off.y) / oz;    // world point under the cursor
       cam.zoom = nz;
-      cam.x = wx - mx / cam.zoom; cam.y = wy - my / cam.zoom;
+      // keep that same world point under the cursor after zooming
+      cam.x = mx - wx * nz - frame.x - (frame.w - MAP_W * nz) / 2;
+      cam.y = my - wy * nz - frame.y - (frame.h - MAP_H * nz) / 2;
       clampCam();
     }, { passive: false });
     canvas.addEventListener('touchstart', function(e) {
@@ -1333,8 +1635,8 @@ var Office = (function() {
     canvas.addEventListener('touchmove', function(e) {
       e.preventDefault();
       if (e.touches.length === 1 && camDragging) {
-        cam.x = camDragCamStart.x - (e.touches[0].clientX - camDragStart.x) / cam.zoom;
-        cam.y = camDragCamStart.y - (e.touches[0].clientY - camDragStart.y) / cam.zoom;
+        cam.x = camDragCamStart.x + (e.touches[0].clientX - camDragStart.x);
+        cam.y = camDragCamStart.y + (e.touches[0].clientY - camDragStart.y);
         clampCam();
       } else if (e.touches.length === 2) {
         var nd = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
@@ -1347,7 +1649,14 @@ var Office = (function() {
       var rect = canvas.getBoundingClientRect();
       var mx = e.clientX - rect.left, my = e.clientY - rect.top;
       if (typeof officeHandleClick === 'function' && officeHandleClick(mx, my)) return;
-      var wx = cam.x + mx / cam.zoom, wy = cam.y + my / cam.zoom;
+      if (mx < SB_W) {
+        for (var s = sbHits.length - 1; s >= 0; s--) {
+          var hh = sbHits[s];
+          if (mx >= hh.x && mx <= hh.x + hh.w && my >= hh.y && my <= hh.y + hh.h) { focusOnAgent(hh.id); return; }
+        }
+        return;  // clicks in the sidebar never select map agents
+      }
+      var off = mapOffset(); var wx = (mx - off.x) / cam.zoom, wy = (my - off.y) / cam.zoom;
       for (var i = agents.length - 1; i >= 0; i--) {
         var a = agents[i];
         if (Math.abs(wx - a.x) < 12 && Math.abs(wy - a.y) < 18) {
@@ -1361,10 +1670,12 @@ var Office = (function() {
   }
 
   function resizeCanvas() {
-    var w = window.innerWidth, h = window.innerHeight;
+    // size to the ACTUAL visible container (office-view = 100dvh), not window.innerHeight —
+    // otherwise the canvas overflows its container and the bottom of the sidebar gets clipped.
+    var w = canvas.clientWidth || window.innerWidth;
+    var h = canvas.clientHeight || window.innerHeight;
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = w * dpr; canvas.height = h * dpr;
-    canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
@@ -1376,6 +1687,7 @@ var Office = (function() {
     resizeCanvas();
     buildTileMap();
     buildFurniture();
+    applyObstacles();
     buildMapCache();
     setupInputHandlers();
     preloadSprites(function() { buildMapCache(); }); // rebuild with MetroCity furniture once loaded
