@@ -1,23 +1,22 @@
 {
-  "generatedAt": "2026-06-29T14:20:01.779685+00:00",
+  "generatedAt": "2026-06-29T14:30:01.696305+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 16.4,
+    "validator": 0.0,
     "observability": 0.0,
-    "guard": 240.0,
-    "backup": 20.0,
+    "guard": 250.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 31,
     "in_validation": 15,
-    "in_progress": 4,
-    "backlog": 1
+    "in_progress": 5
   },
   "tickets_total": 51,
   "done_today": 1,
@@ -29,10 +28,25 @@
     "cerebras:gpt-oss-120b": 25
   },
   "live_agents": [
+    "Argus",
     "Athena",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T14:30:01.722621+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-019",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T14:30:00.391927+00:00",
+      "agent": "Argus",
+      "event": "started",
+      "ticket": "STORY-053",
+      "content": ""
+    },
     {
       "ts": "2026-06-29T14:10:04.509323+00:00",
       "agent": "Athena",
@@ -102,20 +116,6 @@
       "event": "validating",
       "ticket": "STORY-053",
       "content": "[claude] Independently reviewing monitor's deliverable"
-    },
-    {
-      "ts": "2026-06-29T13:31:23.787448+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-046",
-      "content": "[claude] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-29T13:30:55.914447+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-023",
-      "content": "[claude] Independently reviewing qa's deliverable"
     }
   ],
   "problems": {}

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T14:20:01.767578+00:00",
+  "generated": "2026-06-29T14:30:01.688885+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -25,11 +25,6 @@
       "agent": "Gladiator",
       "status": "done",
       "events": [
-        {
-          "ts": "2026-06-28T00:00:01.289592+00:00",
-          "event": "dispatched",
-          "content": "tom started work: Deploy all agent workspaces to VM"
-        },
         {
           "ts": "2026-06-28T00:00:01.291967+00:00",
           "event": "working",
@@ -632,13 +627,8 @@
     },
     "STORY-053": {
       "agent": "Argus",
-      "status": "backlog",
+      "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-29T10:06:24.314316+00:00",
-          "event": "dispatched",
-          "content": "monitor started work: Automated service health checks setup"
-        },
         {
           "ts": "2026-06-29T10:06:24.319362+00:00",
           "event": "working",
@@ -693,6 +683,11 @@
           "ts": "2026-06-29T14:03:40.815060+00:00",
           "event": "validation_parked",
           "content": "Parked after 2 fails: The deliverable is a markdown specification containing code samples and a fabricated sample log, not the actual implemented health-check files or any verifiable evidence of a live system sending real Discord alerts \u2014 the spec has 2 of 5 services reported as failing, contradicting its own claim of be"
+        },
+        {
+          "ts": "2026-06-29T14:30:00.391927+00:00",
+          "event": "started",
+          "content": null
         }
       ],
       "deliverable": {
@@ -1368,6 +1363,12 @@
       "ticket": "STORY-023",
       "event": "delivered",
       "ts": "2026-06-29T14:10:04.509323+00:00"
+    },
+    {
+      "agent": "Argus",
+      "ticket": "STORY-053",
+      "event": "started",
+      "ts": "2026-06-29T14:30:00.391927+00:00"
     }
   ]
 }
