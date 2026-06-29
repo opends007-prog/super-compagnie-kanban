@@ -1281,7 +1281,14 @@ function formatTime(iso){
   if(diff<3600) return Math.floor(diff/60)+'m ago';
   if(diff<86400) return Math.floor(diff/3600)+'h ago';
   if(diff<604800) return Math.floor(diff/86400)+'d ago';
-  return d.toLocaleDateString();
+  return fmtET(iso);
+}
+// All absolute timestamps shown to the user render in Eastern Time (Toronto), DST-aware.
+function fmtET(iso){
+  if(iso===undefined||iso===null||iso==='')return '';
+  var d=new Date(iso);
+  if(isNaN(d.getTime()))return ''+iso;
+  return d.toLocaleString('en-CA',{timeZone:'America/Toronto',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false})+' ET';
 }
 
 function addComment(id){
@@ -1508,15 +1515,16 @@ function activityRender(){
   filtered.slice(0,50).forEach(function(e){
     var d=new Date(e.timestamp);
     var now=new Date();
-    var isToday=d.toDateString()===now.toDateString();
+    var ETZ={timeZone:'America/Toronto'};
+    var isToday=d.toLocaleDateString('en-CA',ETZ)===now.toLocaleDateString('en-CA',ETZ);
     var timeStr;
     if(isToday){
-      timeStr=d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false});
+      timeStr=d.toLocaleTimeString('en-US',{timeZone:'America/Toronto',hour:'2-digit',minute:'2-digit',hour12:false})+' ET';
     } else {
-      var month=d.toLocaleString('en-US',{month:'short'});
-      var day=d.getDate();
-      var hrs=d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false});
-      timeStr=month+' '+day+' '+hrs;
+      var month=d.toLocaleString('en-US',{timeZone:'America/Toronto',month:'short'});
+      var day=d.toLocaleString('en-CA',{timeZone:'America/Toronto',day:'numeric'});
+      var hrs=d.toLocaleTimeString('en-US',{timeZone:'America/Toronto',hour:'2-digit',minute:'2-digit',hour12:false});
+      timeStr=month+' '+day+' '+hrs+' ET';
     }
     var ref=e.ticketId?'Ticket: '+e.ticketId:(e.epicId?'Epic: '+e.epicId:'');
     html+='<div class="activity-item'+(e._new?' new':'')+'" onclick="activityOpenItem('+JSON.stringify(e).replace(/"/g,'&quot;')+')" style="cursor:pointer">';
@@ -1635,10 +1643,10 @@ function opsHtml(h){
   var ra=h.recent_activity||[];
   html+='<div style="font-size:12px;font-weight:700;color:var(--text3);margin:0 0 8px;letter-spacing:.5px">RECENT ACTIVITY</div><div style="font-size:12px">';
   ra.forEach(function(e){
-    var t=(e.ts||'').replace('T',' ').slice(0,16);
+    var t=fmtET(e.ts);
     html+='<div style="padding:5px 0;border-bottom:1px solid var(--bg3);color:var(--text)"><span style="color:var(--text3)">'+t+'</span> · <b>'+escapeHtml(e.agent||'')+'</b> · '+escapeHtml(e.event||'')+' '+(e.ticket?'<span style="color:var(--blue)">'+escapeHtml(e.ticket)+'</span>':'')+'<div style="color:var(--text3);font-size:11px">'+escapeHtml(e.content||'')+'</div></div>';
   });
-  html+='</div><div style="margin-top:16px;font-size:11px;color:var(--text3)">Updated '+(h.generatedAt||'').replace('T',' ').slice(0,19)+' UTC · refreshes every 10 min</div>';
+  html+='</div><div style="margin-top:16px;font-size:11px;color:var(--text3)">Updated '+fmtET(h.generatedAt)+' · refreshes every 10 min</div>';
   return html;
 }
 
