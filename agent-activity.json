@@ -1,48 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-28T12:02:29.457457+00:00",
-      "agent": "Prometheus",
-      "ticket": "STORY-056",
-      "event": "dispatched",
-      "content": "ml-engineer started work: ML model deployment options research"
-    },
-    {
-      "ts": "2026-06-28T12:02:29.459719+00:00",
-      "agent": "Prometheus",
-      "ticket": "STORY-056",
-      "event": "working",
-      "content": "[claude:owl-alpha] attempting: ML model deployment options research"
-    },
-    {
-      "ts": "2026-06-28T12:03:52.528192+00:00",
-      "agent": "Prometheus",
-      "ticket": "STORY-056",
-      "event": "delivered",
-      "content": "[claude:owl-alpha] Produced STORY-056-deliverable.md (8527b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-28T16:00:01.134027+00:00",
-      "agent": "Juno",
-      "ticket": "STORY-058",
-      "event": "dispatched",
-      "content": "budget started work: Cloud cost optimization analysis"
-    },
-    {
-      "ts": "2026-06-28T16:00:01.135064+00:00",
-      "agent": "Juno",
-      "ticket": "STORY-058",
-      "event": "working",
-      "content": "[claude:owl-alpha] attempting: Cloud cost optimization analysis"
-    },
-    {
-      "ts": "2026-06-28T16:01:47.313410+00:00",
-      "agent": "Juno",
-      "ticket": "STORY-058",
-      "event": "delivered",
-      "content": "[claude:owl-alpha] Produced STORY-058-deliverable.md (10301b) \u2192 in_validation"
-    },
-    {
       "ts": "2026-06-28T16:01:47.320753+00:00",
       "agent": "Iris",
       "ticket": "STORY-063",
@@ -1399,7 +1357,49 @@
       "ticket": "TD-267",
       "event": "validation_fail",
       "content": "FAIL #1: The deliverable is an unexecuted plan: no health-check.sh script is committed, no commits reference TD-267, and no Jira artifacts (token, query, export, transitions) exist to prove 21 orphan issues were closed."
+    },
+    {
+      "ts": "2026-06-29T17:40:01.906061+00:00",
+      "agent": "Claude",
+      "ticket": "TD-266",
+      "event": "dispatched",
+      "content": "claude started work: Fix researcher + finance work templates"
+    },
+    {
+      "ts": "2026-06-29T17:40:01.908231+00:00",
+      "agent": "Claude",
+      "ticket": "TD-266",
+      "event": "working",
+      "content": "[cerebras:gpt-oss-120b] attempting: Fix researcher + finance work templates"
+    },
+    {
+      "ts": "2026-06-29T17:40:04.077376+00:00",
+      "agent": "Claude",
+      "ticket": "TD-266",
+      "event": "delivered",
+      "content": "[cerebras:gpt-oss-120b] Produced TD-266-deliverable.md (13877b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T17:40:04.080970+00:00",
+      "agent": "Claude",
+      "ticket": "TD-267",
+      "event": "dispatched",
+      "content": "claude started work: Clean up 21 orphan Jira issues + fix health-check.sh"
+    },
+    {
+      "ts": "2026-06-29T17:40:04.083728+00:00",
+      "agent": "Claude",
+      "ticket": "TD-267",
+      "event": "working",
+      "content": "[cerebras:gpt-oss-120b] attempting: Clean up 21 orphan Jira issues + fix health-check.sh"
+    },
+    {
+      "ts": "2026-06-29T17:40:06.511249+00:00",
+      "agent": "Claude",
+      "ticket": "TD-267",
+      "event": "delivered",
+      "content": "[cerebras:gpt-oss-120b] Produced TD-267-deliverable.md (12994b) \u2192 in_validation"
     }
   ],
-  "lastUpdated": "2026-06-29T17:33:43.871002+00:00"
+  "lastUpdated": "2026-06-29T17:40:06.511266+00:00"
 }

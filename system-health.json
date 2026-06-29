@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-06-29T17:30:01.260401+00:00",
+  "generatedAt": "2026-06-29T17:40:01.807791+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
+    "validator": 6.3,
     "observability": 10.0,
-    "guard": 430.0,
-    "backup": 29.9,
+    "guard": 440.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
-    "backlog": 2,
-    "in_progress": 6,
-    "in_validation": 11
+    "backlog": 3,
+    "in_progress": 8,
+    "in_validation": 8
   },
   "tickets_total": 51,
   "done_today": 2,
   "delivered_today": 31,
-  "delivered_week": 35,
+  "delivered_week": 34,
   "model_mix_week": {
-    "claude:owl-alpha": 7,
+    "claude:owl-alpha": 6,
     "openclaw": 1,
     "cerebras:gpt-oss-120b": 27
   },
@@ -33,6 +33,48 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T17:33:43.870996+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "TD-267",
+      "content": "FAIL #1: The deliverable is an unexecuted plan: no health-check.sh script is committed, no commits reference TD-267, and"
+    },
+    {
+      "ts": "2026-06-29T17:32:46.280546+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-267",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-29T17:32:46.266135+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "TD-266",
+      "content": "FAIL #1: The deliverable is a markdown spec/plan describing the desired templates, not the actual implemented work \u2014 the"
+    },
+    {
+      "ts": "2026-06-29T17:31:37.858383+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-266",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-29T17:31:37.856248+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "TD-257",
+      "content": "Parked after 2 fails: The deliverable's sources are unverifiable placeholders (\u30101\u2020source\u3011 etc.) with no actual URLs or r"
+    },
+    {
+      "ts": "2026-06-29T17:30:49.870565+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-257",
+      "content": "[claude] Independently reviewing analyst's deliverable"
+    },
     {
       "ts": "2026-06-29T17:30:01.269378+00:00",
       "agent": "nemesis",
@@ -74,48 +116,6 @@
       "event": "validation_fail",
       "ticket": "TD-257",
       "content": "FAIL #1: The deliverable is a generic, surface-level overview of well-known tools with no original analysis, no specific"
-    },
-    {
-      "ts": "2026-06-29T17:04:05.104144+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-257",
-      "content": "[claude] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-29T17:01:31.930507+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-067",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T17:01:31.921568+00:00",
-      "agent": "nemesis",
-      "event": "validation_parked",
-      "ticket": "STORY-023",
-      "content": "Parked after 2 fails: The implementation and test suite are internally inconsistent: test_eval_with_constant_is_allowed "
-    },
-    {
-      "ts": "2026-06-29T17:00:01.762681+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-023",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T16:35:46.567858+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-067",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T16:35:46.560749+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "STORY-046",
-      "content": "PASS: The deliverable provides a complete, concrete fix: a YAML config file, a defensive loader with error handling, the"
     }
   ],
   "problems": {}
