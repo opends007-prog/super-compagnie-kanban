@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-28T02:00:01.564519+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-003",
-      "event": "validating",
-      "content": "[claude] Independently reviewing tom's deliverable"
-    },
-    {
-      "ts": "2026-06-28T02:00:41.009013+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-003",
-      "event": "validation_pass",
-      "content": "PASS: Complete runbook with three fully-implemented scripts (bootstrap.sh, deploy.sh, validate.sh), inline fallback runtimes, secrets management via sops, rollback procedure, and testable acceptance criteria \u2014 genuine deployment automation, not a stub."
-    },
-    {
       "ts": "2026-06-28T02:00:41.015555+00:00",
       "agent": "nemesis",
       "ticket": "STORY-019",
@@ -1399,7 +1385,21 @@
       "ticket": "STORY-063",
       "event": "validation_parked",
       "content": "Parked after 2 fails: The deliverable is a planning/specification document (authored by Iris PM with work items, timelines, and architecture diagrams) describing what to build, but no actual implementation artifacts exist on disk \u2014 no src/bot.py, Dockerfile, tests, or real code were produced; it is an outline, not comple"
+    },
+    {
+      "ts": "2026-06-29T15:00:00.325539+00:00",
+      "agent": "Iris",
+      "ticket": "STORY-063",
+      "event": "started",
+      "status": "in_progress"
+    },
+    {
+      "ts": "2026-06-29T15:00:01.635740+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-019",
+      "event": "validating",
+      "content": "[claude] Independently reviewing qa's deliverable"
     }
   ],
-  "lastUpdated": "2026-06-29T14:36:19.131811+00:00"
+  "lastUpdated": "2026-06-29T15:00:01.635756+00:00"
 }
