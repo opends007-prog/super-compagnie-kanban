@@ -1,37 +1,59 @@
 {
-  "generatedAt": "2026-06-29T15:10:01.732926+00:00",
+  "generatedAt": "2026-06-29T15:20:01.671688+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 6.3,
+    "work-executor": 9.9,
+    "validator": 16.3,
     "observability": 10.0,
-    "guard": 290.0,
-    "backup": 10.0,
+    "guard": 300.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 31,
-    "in_validation": 13,
-    "in_progress": 7
+    "in_validation": 14,
+    "in_progress": 6
   },
   "tickets_total": 51,
   "done_today": 1,
-  "delivered_today": 29,
+  "delivered_today": 30,
   "delivered_week": 36,
   "model_mix_week": {
-    "claude:owl-alpha": 10,
+    "claude:owl-alpha": 9,
     "openclaw": 1,
-    "cerebras:gpt-oss-120b": 25
+    "cerebras:gpt-oss-120b": 26
   },
   "live_agents": [
+    "Athena",
     "Iris",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T15:10:04.973795+00:00",
+      "agent": "Athena",
+      "event": "delivered",
+      "ticket": "STORY-067",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-067-deliverable.md (13837b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T15:10:01.816808+00:00",
+      "agent": "Athena",
+      "event": "working",
+      "ticket": "STORY-067",
+      "content": "[cerebras:gpt-oss-120b] attempting: Create comprehensive test suite and safety scanner"
+    },
+    {
+      "ts": "2026-06-29T15:10:01.815450+00:00",
+      "agent": "Athena",
+      "event": "dispatched",
+      "ticket": "STORY-067",
+      "content": "qa started work: Create comprehensive test suite and safety scanner"
+    },
     {
       "ts": "2026-06-29T15:03:45.053144+00:00",
       "agent": "nemesis",
@@ -94,27 +116,6 @@
       "event": "validating",
       "ticket": "STORY-046",
       "content": "[claude] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-29T14:30:42.846612+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-023",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T14:30:01.722621+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-019",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T14:30:00.391927+00:00",
-      "agent": "Argus",
-      "event": "started",
-      "ticket": "STORY-053",
-      "content": ""
     }
   ],
   "problems": {}
