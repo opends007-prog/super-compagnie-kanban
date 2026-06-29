@@ -741,7 +741,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Athena",
       "team": "Project",
       "epicId": "EPIC-006",
@@ -749,7 +749,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-29T10:00:47.337018+00:00",
+      "updatedAt": "2026-06-29T10:06:22.430688+00:00",
       "comments": [
         {
           "by": "Zeus",
@@ -795,6 +795,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-29T10:00:47.337018+00:00",
           "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The deliverable is a descriptive document that pastes the full source of a test file but never actually creates it: /home/admin/.openclaw/workspace/agents/tests/test_agent_tools.py does not exist on disk, nor do the source modules it would test (agent_tool.py, utils.py) \u2014 there is nothing runnable t"
+        },
+        {
+          "by": "Athena",
+          "timestamp": "2026-06-29T10:06:22.430688+00:00",
+          "text": "Delivered work/STORY-019-deliverable.md (10215 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
       "progress": 40,
@@ -1331,7 +1336,7 @@
       "description": "iris-sync.py line 302 references jira_epic_map which is never defined. Will throw NameError at runtime when creating new Jira issues with epics.",
       "severity": "HIGH",
       "category": "bug",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Hades",
       "team": "Project",
       "epicId": "EPIC-011",
@@ -1339,7 +1344,7 @@
       "blocks": null,
       "created_by": "OWL",
       "createdAt": "2026-06-16T00:00:00Z",
-      "updatedAt": "2026-06-29T09:00:01.063645+00:00",
+      "updatedAt": "2026-06-29T10:06:24.308339+00:00",
       "comments": [
         {
           "by": "reconciliation",
@@ -1348,6 +1353,11 @@
         {
           "by": "reconciliation",
           "text": "Parked to backlog 2026-06-27: needs a capable (paid) model or real build tooling \u2014 free engine can't complete code/audit tickets. Kept as TODO behind doable work so the executor stays productive."
+        },
+        {
+          "by": "Hades",
+          "timestamp": "2026-06-29T10:06:24.308339+00:00",
+          "text": "Delivered work/STORY-046-deliverable.md (12584 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
       "progress": 0,
@@ -1559,7 +1569,7 @@
       "description": "Set up automated health checks for all critical services: OpenClaw gateway, Tailscale, Discord bot, Jira sync, and agent workspaces. Include alerting via Discord webhook on failure.",
       "severity": "HIGH",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Argus",
       "team": "Operations",
       "epicId": "EPIC-009",
@@ -1567,7 +1577,7 @@
       "blocks": null,
       "created_by": "Zeus",
       "createdAt": "2026-06-17T04:10:26.614001+00:00",
-      "updatedAt": "2026-06-29T09:00:01.063645+00:00",
+      "updatedAt": "2026-06-29T10:06:26.720000+00:00",
       "comments": [
         {
           "by": "Zeus",
@@ -1589,6 +1599,11 @@
         {
           "by": "reconciliation",
           "text": "Parked to backlog 2026-06-27: needs a capable (paid) model or real build tooling \u2014 free engine can't complete code/audit tickets. Kept as TODO behind doable work so the executor stays productive."
+        },
+        {
+          "by": "Argus",
+          "timestamp": "2026-06-29T10:06:26.720000+00:00",
+          "text": "Delivered work/STORY-053-deliverable.md (16464 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
       "progress": 0,
@@ -1987,14 +2002,14 @@
       "id": "STORY-067",
       "title": "Create comprehensive test suite and safety scanner",
       "description": "Create test-suite/ with test_agents.sh, test_crons.sh, test_workspace.sh, test_security.sh, and safety-scanner.sh",
-      "status": "in_progress",
+      "status": "in_validation",
       "priority": "high",
       "team": "Project",
       "assignee": "qa",
       "progress": 0,
       "epicId": "EPIC-013",
       "createdAt": "2026-06-17T15:56:52.413900+00:00",
-      "updatedAt": "2026-06-29T09:00:01.063645+00:00",
+      "updatedAt": "2026-06-29T10:06:29.544862+00:00",
       "comments": [
         {
           "by": "Athena",
@@ -2008,6 +2023,11 @@
         {
           "by": "reconciliation",
           "text": "Parked to backlog 2026-06-27: needs a capable (paid) model or real build tooling \u2014 free engine can't complete code/audit tickets. Kept as TODO behind doable work so the executor stays productive."
+        },
+        {
+          "by": "Athena",
+          "timestamp": "2026-06-29T10:06:29.544862+00:00",
+          "text": "Delivered work/STORY-067-deliverable.md (18427 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
       "pushed_comments": [
