@@ -1,25 +1,25 @@
 {
-  "generatedAt": "2026-06-29T21:20:01.604838+00:00",
+  "generatedAt": "2026-06-29T21:30:02.051622+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
     "work-executor": 10.0,
-    "validator": 16.3,
-    "observability": 10.0,
-    "guard": 660.0,
-    "backup": 20.0,
+    "validator": 0.0,
+    "observability": 0.0,
+    "guard": 670.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
-    "backlog": 3,
-    "in_progress": 8,
+    "backlog": 6,
+    "in_progress": 9,
     "in_validation": 16
   },
-  "tickets_total": 59,
+  "tickets_total": 63,
   "done_today": 2,
   "delivered_today": 33,
   "delivered_week": 33,
@@ -27,13 +27,25 @@
     "cerebras:gpt-oss-120b": 33
   },
   "live_agents": [
-    "Fortuna",
-    "Iris",
     "Metis",
-    "Minerva",
+    "Thor",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T21:30:02.036246+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-067",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T21:30:00.383546+00:00",
+      "agent": "Thor",
+      "event": "started",
+      "ticket": "STORY-083",
+      "content": ""
+    },
     {
       "ts": "2026-06-29T21:10:03.582282+00:00",
       "agent": "Metis",
@@ -103,20 +115,6 @@
       "event": "dispatched",
       "ticket": "AUTO-008",
       "content": "org-excellence started work: Cold Outreach Email Templates for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-29T21:00:01.950226+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-067",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T20:50:27.924707+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-006",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-006-deliverable.md (16579b) \u2192 in_validation"
     }
   ],
   "problems": {}
