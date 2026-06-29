@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T17:50:01.727987+00:00",
+  "generated": "2026-06-29T18:00:02.045909+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -863,7 +863,7 @@
     },
     "TD-257": {
       "agent": "Minerva",
-      "status": "backlog",
+      "status": "in_progress",
       "events": [
         {
           "ts": "2026-06-29T02:57:52.375307+00:00",
@@ -919,6 +919,11 @@
           "ts": "2026-06-29T17:31:37.856248+00:00",
           "event": "validation_parked",
           "content": "Parked after 2 fails: The deliverable's sources are unverifiable placeholders (\u30101\u2020source\u3011 etc.) with no actual URLs or report titles, the IaC tooling pillar (Terraform, Pulumi, CDK) promised in the scope is entirely absent from the comparison table, and specific figures (market share percentages, YoY growth, pricing) app"
+        },
+        {
+          "ts": "2026-06-29T18:00:00.346114+00:00",
+          "event": "started",
+          "content": null
         }
       ],
       "deliverable": {
@@ -1304,6 +1309,12 @@
       "ticket": "TD-267",
       "event": "delivered",
       "ts": "2026-06-29T17:40:06.511249+00:00"
+    },
+    {
+      "agent": "Minerva",
+      "ticket": "TD-257",
+      "event": "started",
+      "ts": "2026-06-29T18:00:00.346114+00:00"
     }
   ]
 }
