@@ -912,7 +912,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "backlog",
       "assigned_to": "Athena",
       "team": "any",
       "epicId": "EPIC-002",
@@ -920,7 +920,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-29T14:10:04.508057+00:00",
+      "updatedAt": "2026-06-29T17:01:31.918927+00:00",
       "comments": [
         {
           "by": "Athena",
@@ -958,6 +958,11 @@
           "by": "Athena",
           "timestamp": "2026-06-29T14:10:04.508057+00:00",
           "text": "Delivered work/STORY-023-deliverable.md (19735 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-29T17:01:31.918927+00:00",
+          "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The implementation and test suite are internally inconsistent: test_eval_with_constant_is_allowed expects exec('print(42)') to be flagged as S001, but _detect_eval_exec skips ALL eval/exec calls with constant arguments \u2014 causing this test to FAIL when actually run. Additionally, S004's bare-name det"
         }
       ],
       "progress": 40,
@@ -973,7 +978,7 @@
       ],
       "pushed_progress": 100,
       "estimatedStartDate": "2026-06-30",
-      "validation_fails": 1
+      "validation_fails": 2
     },
     {
       "id": "STORY-026",
@@ -2416,16 +2421,16 @@
     {
       "id": "TD-257",
       "title": "Operations & Infrastructure",
-      "status": "in_validation",
+      "status": "in_progress",
       "severity": "MEDIUM",
       "category": "tech-debt",
       "team": "Research",
       "assigned_to": "Minerva",
       "epicId": null,
       "jira_key": "TD-257",
-      "progress": 50,
+      "progress": 40,
       "createdAt": "2026-06-23T00:05:53.080493+00:00",
-      "updatedAt": "2026-06-29T03:02:23.769593+00:00",
+      "updatedAt": "2026-06-29T17:05:30.469318+00:00",
       "comments": [
         {
           "by": "claude",
@@ -2439,6 +2444,11 @@
           "by": "Minerva",
           "timestamp": "2026-06-29T03:02:23.769593+00:00",
           "text": "Delivered work/TD-257-deliverable.md (8858 bytes) via claude:owl-alpha \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-29T17:05:30.469318+00:00",
+          "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The deliverable is a generic, surface-level overview of well-known tools with no original analysis, no specific data or citations, and reads like a placeholder outline rather than a genuine competitive analysis."
         }
       ],
       "pushed_comments": [
@@ -2447,7 +2457,8 @@
           "text": "Migrated from Jira TD-257"
         }
       ],
-      "estimatedStartDate": "2026-06-26"
+      "estimatedStartDate": "2026-06-26",
+      "validation_fails": 1
     },
     {
       "id": "TD-266",

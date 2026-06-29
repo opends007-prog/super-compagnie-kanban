@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-28T08:00:01.834895+00:00",
-      "agent": "Nemesis",
-      "ticket": "STORY-036",
-      "event": "working",
-      "content": "[claude:owl-alpha] attempting: External penetration testing"
-    },
-    {
-      "ts": "2026-06-28T08:03:21.423006+00:00",
-      "agent": "Nemesis",
-      "ticket": "STORY-036",
-      "event": "delivered",
-      "content": "[claude:owl-alpha] Produced STORY-036-deliverable.md (15485b) \u2192 in_validation"
-    },
-    {
       "ts": "2026-06-28T08:03:21.434850+00:00",
       "agent": "Vulcan",
       "ticket": "STORY-037",
@@ -1399,7 +1385,21 @@
       "ticket": "TD-257",
       "event": "validating",
       "content": "[claude] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-29T17:05:30.482610+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-257",
+      "event": "validation_fail",
+      "content": "FAIL #1: The deliverable is a generic, surface-level overview of well-known tools with no original analysis, no specific data or citations, and reads like a placeholder outline rather than a genuine competitive analysis."
+    },
+    {
+      "ts": "2026-06-29T17:05:30.488861+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-266",
+      "event": "validating",
+      "content": "[claude] Independently reviewing claude's deliverable"
     }
   ],
-  "lastUpdated": "2026-06-29T17:04:05.104243+00:00"
+  "lastUpdated": "2026-06-29T17:05:30.488875+00:00"
 }
