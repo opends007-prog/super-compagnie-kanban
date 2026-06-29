@@ -1,119 +1,123 @@
 {
-  "generatedAt": "2026-06-29T23:30:01.910711+00:00",
+  "generatedAt": "2026-06-29T23:40:01.437500+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 0.0,
+    "work-executor": 9.9,
+    "validator": 7.2,
     "observability": 10.0,
-    "guard": 790.0,
-    "backup": 30.0,
+    "guard": 800.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 33,
-    "backlog": 6,
-    "in_progress": 9,
+    "backlog": 2,
+    "in_progress": 13,
     "in_validation": 23
   },
   "tickets_total": 71,
   "done_today": 3,
-  "delivered_today": 43,
-  "delivered_week": 43,
+  "delivered_today": 46,
+  "delivered_week": 46,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 40,
+    "cerebras:gpt-oss-120b": 43,
     "claude:owl-alpha": 3
   },
   "live_agents": [
+    "Fortuna",
+    "Hades",
+    "Minerva",
+    "Thor",
     "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-29T23:30:01.929846+00:00",
+      "ts": "2026-06-29T23:32:03.282087+00:00",
       "agent": "nemesis",
       "event": "validating",
-      "ticket": "STORY-067",
-      "content": "[claude] Independently reviewing qa's deliverable"
+      "ticket": "STORY-087",
+      "content": "[claude] Independently reviewing income's deliverable"
     },
     {
-      "ts": "2026-06-29T23:02:57.004200+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "STORY-086",
-      "content": "PASS: The deliverable is a substantive, complete research evaluation of four payment gateway providers with cost modelin"
-    },
-    {
-      "ts": "2026-06-29T23:01:48.930107+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-086",
-      "content": "[claude] Independently reviewing business-analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-29T23:01:23.042598+00:00",
+      "ts": "2026-06-29T23:31:32.080751+00:00",
       "agent": "nemesis",
       "event": "validating",
       "ticket": "STORY-084",
       "content": "[claude] Independently reviewing qa's deliverable"
     },
     {
-      "ts": "2026-06-29T23:00:33.006542+00:00",
+      "ts": "2026-06-29T23:30:59.474551+00:00",
       "agent": "nemesis",
       "event": "validating",
       "ticket": "TD-267",
       "content": "[claude] Independently reviewing claude's deliverable"
     },
     {
-      "ts": "2026-06-29T23:00:01.398936+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-067",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T22:43:46.602550+00:00",
-      "agent": "Gladiator",
+      "ts": "2026-06-29T23:30:06.896829+00:00",
+      "agent": "Thor",
       "event": "delivered",
-      "ticket": "AUTO-013",
-      "content": "[claude:owl-alpha] Produced AUTO-013-deliverable.md (15193b) \u2192 in_validation"
+      "ticket": "AUTO-020",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-020-deliverable.md (18584b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-29T22:43:46.600884+00:00",
-      "agent": "Plutus",
+      "ts": "2026-06-29T23:30:06.895098+00:00",
+      "agent": "Fortuna",
       "event": "delivered",
-      "ticket": "AUTO-016",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-016-deliverable.md (9995b) \u2192 in_validation"
+      "ticket": "AUTO-017",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-017-deliverable.md (11274b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-29T22:43:46.598735+00:00",
+      "ts": "2026-06-29T23:30:06.893598+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-019",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-019-deliverable.md (10389b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-29T23:30:06.891259+00:00",
       "agent": "Minerva",
       "event": "delivered",
-      "ticket": "AUTO-014",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-014-deliverable.md (10011b) \u2192 in_validation"
+      "ticket": "AUTO-018",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-018-deliverable.md (8763b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-29T22:43:46.587971+00:00",
-      "agent": "Metis",
-      "event": "delivered",
-      "ticket": "AUTO-015",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-015-deliverable.md (16499b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T22:40:03.703010+00:00",
-      "agent": "Plutus",
+      "ts": "2026-06-29T23:30:03.928948+00:00",
+      "agent": "Thor",
       "event": "working",
-      "ticket": "AUTO-016",
-      "content": "[cerebras:gpt-oss-120b] attempting: ROI Calculator Spreadsheet Template for AI FAQ Receptionist"
+      "ticket": "AUTO-020",
+      "content": "[cerebras:gpt-oss-120b] attempting: Weekly FAQ Refresh Cron Job Specification"
     },
     {
-      "ts": "2026-06-29T22:40:03.700329+00:00",
-      "agent": "Plutus",
+      "ts": "2026-06-29T23:30:03.927448+00:00",
+      "agent": "Thor",
       "event": "dispatched",
-      "ticket": "AUTO-016",
-      "content": "finance started work: ROI Calculator Spreadsheet Template for AI FAQ Receptionist"
+      "ticket": "AUTO-020",
+      "content": "devops started work: Weekly FAQ Refresh Cron Job Specification"
+    },
+    {
+      "ts": "2026-06-29T23:30:02.339130+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-018",
+      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Industry Sample FAQ Knowledge Base"
+    },
+    {
+      "ts": "2026-06-29T23:30:02.331373+00:00",
+      "agent": "Minerva",
+      "event": "dispatched",
+      "ticket": "AUTO-018",
+      "content": "analyst started work: Healthcare Industry Sample FAQ Knowledge Base"
+    },
+    {
+      "ts": "2026-06-29T23:30:02.324621+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-019",
+      "content": "[cerebras:gpt-oss-120b] attempting: Security Risk Mitigation Checklist for AI FAQ Receptionist D"
     }
   ],
   "problems": {}
