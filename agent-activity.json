@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-28T04:00:01.704764+00:00",
-      "agent": "Nemesis",
-      "ticket": "STORY-036",
-      "event": "dispatched",
-      "content": "nemesis started work: External penetration testing"
-    },
-    {
-      "ts": "2026-06-28T04:00:01.707767+00:00",
-      "agent": "Nemesis",
-      "ticket": "STORY-036",
-      "event": "working",
-      "content": "[claude:owl-alpha] attempting: External penetration testing"
-    },
-    {
       "ts": "2026-06-28T04:04:41.922566+00:00",
       "agent": "Nemesis",
       "ticket": "STORY-036",
@@ -1399,7 +1385,21 @@
       "ticket": "STORY-019",
       "event": "validating",
       "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T16:30:37.258732+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-019",
+      "event": "validation_parked",
+      "content": "Parked after 2 fails: The deliverable document references /home/admin/.openclaw/workspace/agents/tests/test_agent_tools.py and agents/agent_tools.py, but neither file exists in the workspace; no actual test suite was written, only a design document."
+    },
+    {
+      "ts": "2026-06-29T16:30:37.261354+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-023",
+      "event": "validating",
+      "content": "[claude] Independently reviewing qa's deliverable"
     }
   ],
-  "lastUpdated": "2026-06-29T16:30:01.895186+00:00"
+  "lastUpdated": "2026-06-29T16:30:37.261360+00:00"
 }
