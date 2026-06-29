@@ -605,9 +605,8 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
 <!-- ═══ BOARD MODE FILTER (All / Epics / Stories) ═══ -->
 <div class="board-mode" id="boardModeFilter">
   <span class="board-mode-label">Show:</span>
-  <button class="bmode-btn active" id="bmode-all" onclick="setBoardMode('all')">📋 All</button>
+  <button class="bmode-btn active" id="bmode-stories" onclick="setBoardMode('stories')">📖 Stories</button>
   <button class="bmode-btn" id="bmode-epics" onclick="setBoardMode('epics')">📁 Epics</button>
-  <button class="bmode-btn" id="bmode-stories" onclick="setBoardMode('stories')">📖 Stories</button>
 </div>
 <div id="nowWorking" class="now-working"></div>
 
@@ -652,7 +651,7 @@ var LOGS={tickets:{},active:[]};
 function isLiveName(n){n=(n||'').toLowerCase();return ((LOGS&&LOGS.active)||[]).some(function(x){return (x.agent||'').toLowerCase()===n;});}
 var CV='kanban';
 var mobileColIdx=0;
-var boardMode='all'; // 'all' | 'epics' | 'stories'
+var boardMode='stories'; // 'epics' | 'stories' (default Stories; 'All' removed)
 
 // Column = Status. Stories appear in the column matching their status.
 var COL_ORDER=['backlog','planned','in_progress','waiting','in_validation','done'];

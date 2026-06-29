@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-06-29T20:40:01.577761+00:00",
+  "generatedAt": "2026-06-29T20:50:01.698271+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 6.8,
+    "work-executor": 9.8,
+    "validator": 16.8,
     "observability": 10.0,
-    "guard": 620.0,
-    "backup": 10.0,
+    "guard": 630.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
     "backlog": 6,
-    "in_progress": 12,
-    "in_validation": 9
+    "in_progress": 8,
+    "in_validation": 13
   },
   "tickets_total": 59,
   "done_today": 2,
-  "delivered_today": 32,
-  "delivered_week": 32,
+  "delivered_today": 33,
+  "delivered_week": 33,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 32
+    "cerebras:gpt-oss-120b": 33
   },
   "live_agents": [
     "Hades",
@@ -35,88 +35,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-29T20:32:28.691247+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-084",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T20:31:37.396452+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-083",
-      "content": "[claude] Independently reviewing devops's deliverable"
-    },
-    {
-      "ts": "2026-06-29T20:30:37.547337+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-267",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-29T20:30:10.160794+00:00",
+      "ts": "2026-06-29T20:40:11.001818+00:00",
       "agent": "Hades",
       "event": "delivered",
       "ticket": "AUTO-004",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-004-deliverable.md (12350b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-004-deliverable.md (11310b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-29T20:30:08.218371+00:00",
+      "ts": "2026-06-29T20:40:08.983395+00:00",
       "agent": "Hades",
       "event": "working",
       "ticket": "AUTO-004",
       "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy Impact Assessment (DPIA) Template"
     },
     {
-      "ts": "2026-06-29T20:30:08.214953+00:00",
+      "ts": "2026-06-29T20:40:08.981506+00:00",
       "agent": "Hades",
       "event": "dispatched",
       "ticket": "AUTO-004",
       "content": "security started work: Data Privacy Impact Assessment (DPIA) Template"
     },
     {
-      "ts": "2026-06-29T20:30:08.210767+00:00",
+      "ts": "2026-06-29T20:40:08.979044+00:00",
       "agent": "Thor",
       "event": "delivered",
       "ticket": "AUTO-003",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-003-deliverable.md (14153b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-003-deliverable.md (10711b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-29T20:30:05.942067+00:00",
+      "ts": "2026-06-29T20:40:06.816818+00:00",
       "agent": "Thor",
       "event": "working",
       "ticket": "AUTO-003",
       "content": "[cerebras:gpt-oss-120b] attempting: CI/CD Pipeline Blueprint for Agent Deployments to VM"
     },
     {
-      "ts": "2026-06-29T20:30:05.939363+00:00",
+      "ts": "2026-06-29T20:40:06.812787+00:00",
       "agent": "Thor",
       "event": "dispatched",
       "ticket": "AUTO-003",
       "content": "devops started work: CI/CD Pipeline Blueprint for Agent Deployments to VM"
     },
     {
-      "ts": "2026-06-29T20:30:05.936638+00:00",
+      "ts": "2026-06-29T20:40:06.809091+00:00",
       "agent": "Hermes",
       "event": "delivered",
       "ticket": "AUTO-002",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-002-deliverable.md (12519b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-002-deliverable.md (17005b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-29T20:30:03.656822+00:00",
+      "ts": "2026-06-29T20:40:04.057562+00:00",
       "agent": "Hermes",
       "event": "working",
       "ticket": "AUTO-002",
       "content": "[cerebras:gpt-oss-120b] attempting: Competitive Landscape Report for Autonomous AI Platforms"
     },
     {
-      "ts": "2026-06-29T20:30:03.654613+00:00",
+      "ts": "2026-06-29T20:40:04.054015+00:00",
       "agent": "Hermes",
       "event": "dispatched",
       "ticket": "AUTO-002",
       "content": "business-analyst started work: Competitive Landscape Report for Autonomous AI Platforms"
+    },
+    {
+      "ts": "2026-06-29T20:40:04.049828+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-001",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-001-deliverable.md (12647b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T20:40:01.692668+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-001",
+      "content": "[cerebras:gpt-oss-120b] attempting: Agent Onboarding Playbook"
+    },
+    {
+      "ts": "2026-06-29T20:40:01.690307+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-001",
+      "content": "org-excellence started work: Agent Onboarding Playbook"
     }
   ],
   "problems": {}
