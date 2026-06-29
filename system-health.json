@@ -1,121 +1,123 @@
 {
-  "generatedAt": "2026-06-29T22:30:02.091885+00:00",
+  "generatedAt": "2026-06-29T22:40:01.498313+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 0.0,
-    "observability": 0.0,
-    "guard": 730.0,
-    "backup": 30.0,
+    "work-executor": 9.8,
+    "validator": 8.0,
+    "observability": 10.0,
+    "guard": 740.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
-    "backlog": 6,
-    "in_progress": 9,
+    "backlog": 2,
+    "in_progress": 13,
     "in_validation": 20
   },
   "tickets_total": 67,
   "done_today": 2,
-  "delivered_today": 37,
-  "delivered_week": 37,
+  "delivered_today": 40,
+  "delivered_week": 40,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 35,
+    "cerebras:gpt-oss-120b": 38,
     "claude:owl-alpha": 2
   },
   "live_agents": [
-    "Hades",
-    "Vulcan",
+    "Gladiator",
+    "Metis",
+    "Minerva",
+    "Plutus",
     "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-29T22:30:02.079993+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-067",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T22:02:22.673612+00:00",
+      "ts": "2026-06-29T22:31:56.714635+00:00",
       "agent": "nemesis",
       "event": "validating",
       "ticket": "STORY-086",
       "content": "[claude] Independently reviewing business-analyst's deliverable"
     },
     {
-      "ts": "2026-06-29T22:01:11.961611+00:00",
+      "ts": "2026-06-29T22:31:12.334428+00:00",
       "agent": "nemesis",
       "event": "validating",
       "ticket": "STORY-084",
       "content": "[claude] Independently reviewing qa's deliverable"
     },
     {
-      "ts": "2026-06-29T22:01:09.837928+00:00",
+      "ts": "2026-06-29T22:30:36.339755+00:00",
       "agent": "nemesis",
       "event": "validating",
       "ticket": "TD-267",
       "content": "[claude] Independently reviewing claude's deliverable"
     },
     {
-      "ts": "2026-06-29T22:00:04.059832+00:00",
-      "agent": "Vulcan",
+      "ts": "2026-06-29T22:30:14.058811+00:00",
+      "agent": "Minerva",
       "event": "delivered",
-      "ticket": "AUTO-011",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-011-deliverable.md (14056b) \u2192 in_validation"
+      "ticket": "AUTO-014",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-014-deliverable.md (11306b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-29T22:00:04.047749+00:00",
-      "agent": "Hades",
+      "ts": "2026-06-29T22:30:14.052111+00:00",
+      "agent": "Metis",
       "event": "delivered",
-      "ticket": "AUTO-012",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-012-deliverable.md (10406b) \u2192 in_validation"
+      "ticket": "AUTO-015",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-015-deliverable.md (8784b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-29T22:00:01.646815+00:00",
-      "agent": "Hades",
+      "ts": "2026-06-29T22:30:14.048982+00:00",
+      "agent": "Plutus",
+      "event": "delivered",
+      "ticket": "AUTO-016",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-016-deliverable.md (10184b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-29T22:30:14.044727+00:00",
+      "agent": "Gladiator",
+      "event": "delivered",
+      "ticket": "AUTO-013",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-013-deliverable.md (8465b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-29T22:30:04.421757+00:00",
+      "agent": "Plutus",
       "event": "working",
-      "ticket": "AUTO-012",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data\u2011Privacy Checklist for AI FAQ Receptionist"
+      "ticket": "AUTO-016",
+      "content": "[cerebras:gpt-oss-120b] attempting: ROI Calculator Spreadsheet Template for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-29T22:00:01.643658+00:00",
-      "agent": "Vulcan",
+      "ts": "2026-06-29T22:30:04.420022+00:00",
+      "agent": "Plutus",
+      "event": "dispatched",
+      "ticket": "AUTO-016",
+      "content": "finance started work: ROI Calculator Spreadsheet Template for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-29T22:30:02.340908+00:00",
+      "agent": "Gladiator",
       "event": "working",
-      "ticket": "AUTO-011",
-      "content": "[cerebras:gpt-oss-120b] attempting: Sample FAQ Knowledge Base for Retail Client"
+      "ticket": "AUTO-013",
+      "content": "[cerebras:gpt-oss-120b] attempting: Landing Page Wireframe & Copy for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-29T22:00:01.639353+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-012",
-      "content": "security started work: Data\u2011Privacy Checklist for AI FAQ Receptionist"
+      "ts": "2026-06-29T22:30:02.327158+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-014",
+      "content": "[cerebras:gpt-oss-120b] attempting: Competitive Pricing Matrix for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-29T22:00:01.634920+00:00",
-      "agent": "Vulcan",
-      "event": "dispatched",
-      "ticket": "AUTO-011",
-      "content": "data-engineer started work: Sample FAQ Knowledge Base for Retail Client"
-    },
-    {
-      "ts": "2026-06-29T22:00:01.572352+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-067",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T21:50:06.091776+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-012",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-012-deliverable.md (16533b) \u2192 in_progress"
+      "ts": "2026-06-29T22:30:02.326138+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-015",
+      "content": "[cerebras:gpt-oss-120b] attempting: Client Contract Template for AI FAQ Receptionist Services"
     }
   ],
   "problems": {}
