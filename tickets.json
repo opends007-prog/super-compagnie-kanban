@@ -741,7 +741,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "backlog",
       "assigned_to": "Athena",
       "team": "Project",
       "epicId": "EPIC-006",
@@ -749,7 +749,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-29T10:06:22.430688+00:00",
+      "updatedAt": "2026-06-29T16:30:37.257237+00:00",
       "comments": [
         {
           "by": "Zeus",
@@ -800,6 +800,11 @@
           "by": "Athena",
           "timestamp": "2026-06-29T10:06:22.430688+00:00",
           "text": "Delivered work/STORY-019-deliverable.md (10215 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-29T16:30:37.257237+00:00",
+          "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The deliverable document references /home/admin/.openclaw/workspace/agents/tests/test_agent_tools.py and agents/agent_tools.py, but neither file exists in the workspace; no actual test suite was written, only a design document."
         }
       ],
       "progress": 40,
@@ -899,7 +904,7 @@
         }
       ],
       "pushed_progress": 25,
-      "validation_fails": 1
+      "validation_fails": 2
     },
     {
       "id": "STORY-023",
@@ -1362,7 +1367,7 @@
       "description": "iris-sync.py line 302 references jira_epic_map which is never defined. Will throw NameError at runtime when creating new Jira issues with epics.",
       "severity": "HIGH",
       "category": "bug",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Hades",
       "team": "Project",
       "epicId": "EPIC-011",
@@ -1370,7 +1375,7 @@
       "blocks": null,
       "created_by": "OWL",
       "createdAt": "2026-06-16T00:00:00Z",
-      "updatedAt": "2026-06-29T12:40:03.709868+00:00",
+      "updatedAt": "2026-06-29T16:35:46.559987+00:00",
       "comments": [
         {
           "by": "reconciliation",
@@ -1394,6 +1399,11 @@
           "by": "Hades",
           "timestamp": "2026-06-29T12:40:03.709868+00:00",
           "text": "Delivered work/STORY-046-deliverable.md (11460 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-29T16:35:46.559987+00:00",
+          "text": "VALIDATION PASS (independent review of STORY-046-deliverable.md): The deliverable provides a complete, concrete fix: a YAML config file, a defensive loader with error handling, the patched code replacing the undefined variable with a safe dict.get lookup, unit tests covering both happy path and fallback, a deployment checklist, risk assessment, and documentation g"
         }
       ],
       "progress": 40,
