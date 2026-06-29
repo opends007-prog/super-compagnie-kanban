@@ -2628,14 +2628,14 @@
     {
       "id": "STORY-084",
       "title": "Integrate payment gateway testing",
-      "status": "in_progress",
+      "status": "in_validation",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
       "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592321+00:00",
-      "updatedAt": "2026-06-29T21:34:35.199415+00:00",
+      "updatedAt": "2026-06-29T21:41:39.637206+00:00",
       "comments": [
         {
           "by": "api",
@@ -2650,6 +2650,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-29T21:34:35.199415+00:00",
           "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The test suite is functionally broken: test_concurrent_auth guarantees an AssertionError (slices a 5-entry fixture to [:10] then asserts len==10, so it has never passed green); test_auth_network_timeout sabotages other tests via mid-suite 'docker compose stop'; test_webhook_replay never counts settl"
+        },
+        {
+          "by": "Athena",
+          "timestamp": "2026-06-29T21:41:39.637206+00:00",
+          "text": "Delivered work/STORY-084-deliverable.md (13325 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
       "jira_key": "[2026-06-24 07:27:36] [INFO] Creating Jira issue: STORY-084 (Integrate payment gateway testing)\n[2026-06-24 07:27:36] [INFO] Created Jira issue: TD-326\n[2026-06-24 07:27:36] [INFO] Transitioning TD-326 -> In Progress (transition 31)\nTD-326",
@@ -2667,14 +2672,14 @@
     {
       "id": "STORY-086",
       "title": "Research payment gateway providers",
-      "status": "in_progress",
+      "status": "in_validation",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
       "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592334+00:00",
-      "updatedAt": "2026-06-29T21:35:29.829001+00:00",
+      "updatedAt": "2026-06-29T21:41:39.635679+00:00",
       "comments": [
         {
           "by": "api",
@@ -2689,6 +2694,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-29T21:35:29.829001+00:00",
           "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The cost analysis is fabricated and internally inconsistent: Stripe's estimated annual cost of $1.02M is roughly 4x the correct value (~$274k at 2.9%+$0.30 on 150k\u00d7$50), and the WTP table lists Adyen ($0.96M) as meeting the Low WTP tier (\u2264$0.95M), which is false. Quantitative data and references app"
+        },
+        {
+          "by": "Hermes",
+          "timestamp": "2026-06-29T21:41:39.635679+00:00",
+          "text": "Delivered work/STORY-086-deliverable.md (8218 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
       "jira_key": "[2026-06-24 07:27:37] [INFO] Creating Jira issue: STORY-086 (Research payment gateway providers)\n[2026-06-24 07:27:38] [INFO] Created Jira issue: TD-327\n[2026-06-24 07:27:38] [INFO] Transitioning TD-327 -> In Progress (transition 31)\nTD-327",
@@ -3133,7 +3143,7 @@
       "description": "Write a concise live demo script that walks a prospect through the AI FAQ Receptionist features, includes an intro, step\u2011by\u2011step walkthrough, and a Q&A segment. Deliverable: a markdown document with timed sections and talking points ready for a 15\u2011minute presentation.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Fortuna",
       "team": "any",
       "epicId": "EPIC-002",
@@ -3141,7 +3151,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T21:20:03.196250+00:00",
-      "updatedAt": "2026-06-29T21:20:03.196250+00:00",
+      "updatedAt": "2026-06-29T21:41:39.626396+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -3149,6 +3159,11 @@
           "by": "auto-planner",
           "timestamp": "2026-06-29T21:20:03.196250+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
+        },
+        {
+          "by": "Fortuna",
+          "timestamp": "2026-06-29T21:41:39.626396+00:00",
+          "text": "Delivered work/AUTO-009-deliverable.md (7039 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
         }
       ]
     },
@@ -3158,7 +3173,7 @@
       "description": "Create a one\u2011page guide listing the most common objections prospects raise (price, integration, data security, etc.) and provide ready\u2011to\u2011use responses and talking points. Deliverable: a markdown/PDF guide for the sales team to reference during calls.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Metis",
       "team": "any",
       "epicId": "EPIC-005",
@@ -3166,7 +3181,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T21:20:03.196250+00:00",
-      "updatedAt": "2026-06-29T21:20:03.196250+00:00",
+      "updatedAt": "2026-06-29T21:41:39.640826+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -3174,6 +3189,11 @@
           "by": "auto-planner",
           "timestamp": "2026-06-29T21:20:03.196250+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
+        },
+        {
+          "by": "Metis",
+          "timestamp": "2026-06-29T21:41:39.640826+00:00",
+          "text": "Delivered work/AUTO-010-deliverable.md (11451 bytes) via claude:owl-alpha \u2014 advanced to in_progress."
         }
       ]
     },

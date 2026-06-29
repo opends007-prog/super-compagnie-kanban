@@ -1,120 +1,127 @@
 {
-  "generatedAt": "2026-06-29T21:30:02.051622+00:00",
+  "generatedAt": "2026-06-29T21:40:02.167192+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 1,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 0.0,
-    "observability": 0.0,
-    "guard": 670.0,
-    "backup": 30.0,
+    "work-executor": 8.6,
+    "validator": 4.5,
+    "observability": 10.0,
+    "guard": 680.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
     "backlog": 6,
-    "in_progress": 9,
-    "in_validation": 16
+    "in_progress": 11,
+    "in_validation": 14
   },
   "tickets_total": 63,
   "done_today": 2,
-  "delivered_today": 33,
-  "delivered_week": 33,
+  "delivered_today": 30,
+  "delivered_week": 30,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 33
+    "cerebras:gpt-oss-120b": 29,
+    "claude:owl-alpha": 1
   },
   "live_agents": [
+    "Athena",
+    "Fortuna",
+    "Gladiator",
+    "Hades",
     "Metis",
+    "Nemesis",
     "Thor",
+    "Vulcan",
     "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-29T21:30:02.036246+00:00",
+      "ts": "2026-06-29T21:35:29.831009+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "STORY-086",
+      "content": "FAIL #1: The cost analysis is fabricated and internally inconsistent: Stripe's estimated annual cost of $1.02M is roughl"
+    },
+    {
+      "ts": "2026-06-29T21:34:35.205088+00:00",
       "agent": "nemesis",
       "event": "validating",
-      "ticket": "STORY-067",
-      "content": "[claude] Independently reviewing qa's deliverable"
+      "ticket": "STORY-086",
+      "content": "[claude] Independently reviewing business-analyst's deliverable"
     },
     {
-      "ts": "2026-06-29T21:30:00.383546+00:00",
-      "agent": "Thor",
-      "event": "started",
-      "ticket": "STORY-083",
-      "content": ""
+      "ts": "2026-06-29T21:34:35.202371+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "STORY-084",
+      "content": "FAIL #1: The test suite is functionally broken: test_concurrent_auth guarantees an AssertionError (slices a 5-entry fixt"
     },
     {
-      "ts": "2026-06-29T21:10:03.582282+00:00",
-      "agent": "Metis",
-      "event": "delivered",
-      "ticket": "AUTO-008",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-008-deliverable.md (7208b) \u2192 in_validation"
+      "ts": "2026-06-29T21:34:06.267981+00:00",
+      "agent": "Nemesis",
+      "event": "build_merged",
+      "ticket": "BUILD-001",
+      "content": "Merged BUILD-001/slugify.py \u2014 The module fulfills the ticket requirements, correctly handling case, whitespace, accents,"
     },
     {
-      "ts": "2026-06-29T21:10:01.970558+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-008",
-      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
+      "ts": "2026-06-29T21:33:53.825567+00:00",
+      "agent": "Athena",
+      "event": "build_test",
+      "ticket": "BUILD-001",
+      "content": "syntax/compile PASS on slugify.py"
     },
     {
-      "ts": "2026-06-29T21:10:01.968579+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-008",
-      "content": "org-excellence started work: Cold Outreach Email Templates for AI FAQ Receptionist"
+      "ts": "2026-06-29T21:33:52.598165+00:00",
+      "agent": "Gladiator",
+      "event": "building",
+      "ticket": "BUILD-001",
+      "content": "proposing BUILD-001/slugify.py"
     },
     {
-      "ts": "2026-06-29T21:03:11.644449+00:00",
+      "ts": "2026-06-29T21:31:39.125756+00:00",
       "agent": "nemesis",
       "event": "validating",
       "ticket": "STORY-084",
       "content": "[claude] Independently reviewing qa's deliverable"
     },
     {
-      "ts": "2026-06-29T21:03:11.641179+00:00",
-      "agent": "nemesis",
-      "event": "validation_parked",
-      "ticket": "STORY-083",
-      "content": "Parked after 2 fails: The deliverable omits the Kubernetes Deployment manifest that deploy.sh, rollback.sh, and the CI w"
+      "ts": "2026-06-29T21:31:25.692427+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-012",
+      "content": "[claude:owl-alpha] Produced AUTO-012-deliverable.md (7356b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-29T21:01:45.685381+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-083",
-      "content": "[claude] Independently reviewing devops's deliverable"
+      "ts": "2026-06-29T21:31:25.690998+00:00",
+      "agent": "Vulcan",
+      "event": "delivered",
+      "ticket": "AUTO-011",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-011-deliverable.md (13946b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-29T21:00:41.045370+00:00",
+      "ts": "2026-06-29T21:31:25.688952+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-009",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-009-deliverable.md (9621b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-29T21:31:25.685646+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-010",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-010-deliverable.md (11524b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-29T21:30:46.018641+00:00",
       "agent": "nemesis",
       "event": "validating",
       "ticket": "TD-267",
       "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-29T21:00:03.781600+00:00",
-      "agent": "Metis",
-      "event": "delivered",
-      "ticket": "AUTO-008",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-008-deliverable.md (7386b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T21:00:02.067781+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-008",
-      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-29T21:00:02.065277+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-008",
-      "content": "org-excellence started work: Cold Outreach Email Templates for AI FAQ Receptionist"
     }
   ],
   "problems": {}
