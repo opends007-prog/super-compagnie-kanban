@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T20:00:01.723379+00:00",
+  "generated": "2026-06-29T20:10:01.846203+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -588,16 +588,6 @@
       "status": "in_progress",
       "events": [
         {
-          "ts": "2026-06-29T00:01:01.676139+00:00",
-          "event": "delivered",
-          "content": "[claude:owl-alpha] Produced STORY-063-deliverable.md (6301b) \u2192 in_validation"
-        },
-        {
-          "ts": "2026-06-29T02:00:01.146821+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing pm's deliverable"
-        },
-        {
           "ts": "2026-06-29T02:00:18.160819+00:00",
           "event": "validation_fail",
           "content": "FAIL #1: This is a planning/outline document (author is Iris PM, status 'Planned') containing work items and architecture \u2014 not actual implementation. No real code, services, or tests have been produced; it describes what to build instead of building it."
@@ -654,11 +644,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-29T15:10:01.815450+00:00",
-          "event": "dispatched",
-          "content": "qa started work: Create comprehensive test suite and safety scanner"
-        },
-        {
           "ts": "2026-06-29T15:10:01.816808+00:00",
           "event": "working",
           "content": "[cerebras:gpt-oss-120b] attempting: Create comprehensive test suite and safety scanner"
@@ -710,6 +695,11 @@
         },
         {
           "ts": "2026-06-29T19:30:01.356630+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-29T20:00:01.735605+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
         }
@@ -957,11 +947,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-29T11:30:02.151726+00:00",
-          "event": "dispatched",
-          "content": "claude started work: Clean up 21 orphan Jira issues + fix health-check.sh"
-        },
-        {
           "ts": "2026-06-29T11:30:02.152787+00:00",
           "event": "working",
           "content": "[cerebras:gpt-oss-120b] attempting: Clean up 21 orphan Jira issues + fix health-check.sh"
@@ -1015,6 +1000,11 @@
           "ts": "2026-06-29T19:31:02.093249+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing claude's deliverable"
+        },
+        {
+          "ts": "2026-06-29T20:00:44.366974+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing claude's deliverable"
         }
       ],
       "deliverable": {
@@ -1025,23 +1015,8 @@
     },
     "STORY-083": {
       "agent": "Thor",
-      "status": "in_validation",
+      "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-29T00:01:01.678039+00:00",
-          "event": "dispatched",
-          "content": "devops started work: Set up payment gateway CI/CD"
-        },
-        {
-          "ts": "2026-06-29T00:01:01.679248+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: Set up payment gateway CI/CD"
-        },
-        {
-          "ts": "2026-06-29T00:02:24.565312+00:00",
-          "event": "delivered",
-          "content": "[claude:owl-alpha] Produced STORY-083-deliverable.md (8776b) \u2192 in_validation"
-        },
         {
           "ts": "2026-06-29T02:00:18.163270+00:00",
           "event": "validating",
@@ -1066,6 +1041,16 @@
           "ts": "2026-06-29T19:31:52.478059+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing devops's deliverable"
+        },
+        {
+          "ts": "2026-06-29T20:00:46.095073+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing devops's deliverable"
+        },
+        {
+          "ts": "2026-06-29T20:01:07.050814+00:00",
+          "event": "validation_fail",
+          "content": "FAIL #1: The deliverable is a design document describing intended files and behaviors, but none of the actual files (.github/workflows/payment-service.yml, Dockerfile, deploy.sh, rollback.sh, smoke-gateway.sh, etc.) exist in the working tree \u2014 it is a plan/outline rather than completed work."
         }
       ],
       "deliverable": {
@@ -1105,6 +1090,11 @@
         },
         {
           "ts": "2026-06-29T19:32:43.115142+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-29T20:01:07.054068+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
         }
@@ -1296,7 +1286,7 @@
       "agent": "nemesis",
       "ticket": "STORY-084",
       "event": "validating",
-      "ts": "2026-06-29T19:32:43.115142+00:00"
+      "ts": "2026-06-29T20:01:07.054068+00:00"
     }
   ]
 }
