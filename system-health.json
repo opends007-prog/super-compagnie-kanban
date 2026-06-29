@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-06-29T18:00:02.072862+00:00",
+  "generatedAt": "2026-06-29T18:10:01.255021+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
-    "observability": 0.0,
-    "guard": 460.0,
-    "backup": 30.0,
+    "validator": 6.9,
+    "observability": 10.0,
+    "guard": 470.0,
+    "backup": 9.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
-    "backlog": 2,
+    "backlog": 3,
     "in_progress": 7,
-    "in_validation": 10
+    "in_validation": 9
   },
   "tickets_total": 51,
   "done_today": 2,
@@ -34,6 +34,34 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T18:03:07.772488+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-083",
+      "content": "[claude] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-06-29T18:01:45.897579+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-267",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-29T18:01:45.893614+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "TD-266",
+      "content": "Parked after 2 fails: The deliverable only describes template content inline in a document but the actual files (templat"
+    },
+    {
+      "ts": "2026-06-29T18:00:56.113617+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-266",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
     {
       "ts": "2026-06-29T18:00:02.068932+00:00",
       "agent": "nemesis",
@@ -89,34 +117,6 @@
       "event": "dispatched",
       "ticket": "TD-266",
       "content": "claude started work: Fix researcher + finance work templates"
-    },
-    {
-      "ts": "2026-06-29T17:33:43.870996+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "TD-267",
-      "content": "FAIL #1: The deliverable is an unexecuted plan: no health-check.sh script is committed, no commits reference TD-267, and"
-    },
-    {
-      "ts": "2026-06-29T17:32:46.280546+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-267",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-29T17:32:46.266135+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "TD-266",
-      "content": "FAIL #1: The deliverable is a markdown spec/plan describing the desired templates, not the actual implemented work \u2014 the"
-    },
-    {
-      "ts": "2026-06-29T17:31:37.858383+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-266",
-      "content": "[claude] Independently reviewing claude's deliverable"
     }
   ],
   "problems": {}

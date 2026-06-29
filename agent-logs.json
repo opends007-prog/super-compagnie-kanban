@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T18:00:02.045909+00:00",
+  "generated": "2026-06-29T18:10:01.242470+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -558,16 +558,6 @@
       "status": "done",
       "events": [
         {
-          "ts": "2026-06-28T18:00:02.157848+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing budget's deliverable"
-        },
-        {
-          "ts": "2026-06-28T18:01:09.501548+00:00",
-          "event": "validation_fail",
-          "content": "FAIL #1: The headline $38,400/month savings figure is internally inconsistent with the section-level totals: Section 3 totals $34,130 in waste savings and Section 4 totals $22,780 in RI/spot savings, which sum to $56,910 \u2014 not $38,400 \u2014 and the BigQuery flat-rate arithmetic (claiming a $10,000/mo plan saves "
-        },
-        {
           "ts": "2026-06-28T20:00:01.676308+00:00",
           "event": "dispatched",
           "content": "budget started work: Cloud cost optimization analysis"
@@ -705,11 +695,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-29T10:06:26.731229+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Create comprehensive test suite and safety scanner"
-        },
-        {
           "ts": "2026-06-29T10:06:29.546110+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced STORY-067-deliverable.md (18427b) \u2192 in_validation"
@@ -761,6 +746,11 @@
         },
         {
           "ts": "2026-06-29T17:30:01.269378+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-29T18:00:02.068932+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
         }
@@ -934,7 +924,7 @@
     },
     "TD-266": {
       "agent": "Claude",
-      "status": "in_validation",
+      "status": "backlog",
       "events": [
         {
           "ts": "2026-06-29T00:00:00.240192+00:00",
@@ -985,6 +975,16 @@
           "ts": "2026-06-29T17:40:04.077376+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced TD-266-deliverable.md (13877b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-29T18:00:56.113617+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing claude's deliverable"
+        },
+        {
+          "ts": "2026-06-29T18:01:45.893614+00:00",
+          "event": "validation_parked",
+          "content": "Parked after 2 fails: The deliverable only describes template content inline in a document but the actual files (templates/researcher.md, templates/finance.md, scripts/verify-templates.sh) do not exist on disk in the target repository. This is a plan, not a concrete artifact."
         }
       ],
       "deliverable": {
@@ -1051,6 +1051,11 @@
           "ts": "2026-06-29T17:40:06.511249+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced TD-267-deliverable.md (12994b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-29T18:01:45.897579+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing claude's deliverable"
         }
       ],
       "deliverable": {
@@ -1080,6 +1085,11 @@
         },
         {
           "ts": "2026-06-29T02:00:18.163270+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing devops's deliverable"
+        },
+        {
+          "ts": "2026-06-29T18:03:07.772488+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing devops's deliverable"
         }
@@ -1299,12 +1309,6 @@
   },
   "active": [
     {
-      "agent": "nemesis",
-      "ticket": "TD-267",
-      "event": "validation_fail",
-      "ts": "2026-06-29T17:33:43.870996+00:00"
-    },
-    {
       "agent": "Claude",
       "ticket": "TD-267",
       "event": "delivered",
@@ -1315,6 +1319,12 @@
       "ticket": "TD-257",
       "event": "started",
       "ts": "2026-06-29T18:00:00.346114+00:00"
+    },
+    {
+      "agent": "nemesis",
+      "ticket": "STORY-083",
+      "event": "validating",
+      "ts": "2026-06-29T18:03:07.772488+00:00"
     }
   ]
 }
