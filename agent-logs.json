@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T23:00:01.402169+00:00",
+  "generated": "2026-06-29T23:10:01.944172+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -75,11 +75,6 @@
       "agent": "Athena",
       "status": "backlog",
       "events": [
-        {
-          "ts": "2026-06-29T17:00:01.762681+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing qa's deliverable"
-        },
         {
           "ts": "2026-06-29T17:01:31.921568+00:00",
           "event": "validation_parked",
@@ -185,18 +180,7 @@
     "STORY-046": {
       "agent": "Hades",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-06-29T16:35:17.361788+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing security's deliverable"
-        },
-        {
-          "ts": "2026-06-29T16:35:46.560749+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable provides a complete, concrete fix: a YAML config file, a defensive loader with error handling, the patched code replacing the undefined variable with a safe dict.get lookup, unit tests covering both happy path and fallback, a deployment checklist, risk assessment, and documentation g"
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "security/work/STORY-046-deliverable.md",
         "size": 11460,
@@ -586,11 +570,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-29T17:40:04.083728+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Clean up 21 orphan Jira issues + fix health-check.sh"
-        },
-        {
           "ts": "2026-06-29T17:40:06.511249+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced TD-267-deliverable.md (12994b) \u2192 in_validation"
@@ -642,6 +621,11 @@
         },
         {
           "ts": "2026-06-29T22:30:36.339755+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing claude's deliverable"
+        },
+        {
+          "ts": "2026-06-29T23:00:33.006542+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing claude's deliverable"
         }
@@ -728,11 +712,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-29T19:01:50.548666+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing qa's deliverable"
-        },
-        {
           "ts": "2026-06-29T19:32:43.115142+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
@@ -786,6 +765,11 @@
           "ts": "2026-06-29T22:31:12.334428+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-29T23:01:23.042598+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
         }
       ],
       "deliverable": {
@@ -796,7 +780,7 @@
     },
     "STORY-086": {
       "agent": "Hermes",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-06-29T21:34:35.205088+00:00",
@@ -832,6 +816,16 @@
           "ts": "2026-06-29T22:31:56.714635+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing business-analyst's deliverable"
+        },
+        {
+          "ts": "2026-06-29T23:01:48.930107+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing business-analyst's deliverable"
+        },
+        {
+          "ts": "2026-06-29T23:02:57.004200+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable is a substantive, complete research evaluation of four payment gateway providers with cost modeling, weighted scoring, WTP alignment, recommendation, and implementation roadmap \u2014 it fully satisfies the ticket despite some questionable pricing assumptions (notably Adyen's rate) and la"
         }
       ],
       "deliverable": {
@@ -1629,22 +1623,10 @@
   },
   "active": [
     {
-      "agent": "nemesis",
-      "ticket": "STORY-067",
-      "event": "validating",
-      "ts": "2026-06-29T23:00:01.398936+00:00"
-    },
-    {
-      "agent": "Gladiator",
-      "ticket": "AUTO-013",
+      "agent": "Plutus",
+      "ticket": "AUTO-016",
       "event": "delivered",
-      "ts": "2026-06-29T22:43:46.602550+00:00"
-    },
-    {
-      "agent": "Minerva",
-      "ticket": "AUTO-014",
-      "event": "delivered",
-      "ts": "2026-06-29T22:43:46.598735+00:00"
+      "ts": "2026-06-29T22:43:46.600884+00:00"
     },
     {
       "agent": "Metis",
@@ -1653,10 +1635,22 @@
       "ts": "2026-06-29T22:43:46.587971+00:00"
     },
     {
-      "agent": "Plutus",
-      "ticket": "AUTO-016",
+      "agent": "Minerva",
+      "ticket": "AUTO-014",
       "event": "delivered",
-      "ts": "2026-06-29T22:43:46.600884+00:00"
+      "ts": "2026-06-29T22:43:46.598735+00:00"
+    },
+    {
+      "agent": "Gladiator",
+      "ticket": "AUTO-013",
+      "event": "delivered",
+      "ts": "2026-06-29T22:43:46.602550+00:00"
+    },
+    {
+      "agent": "nemesis",
+      "ticket": "STORY-086",
+      "event": "validation_pass",
+      "ts": "2026-06-29T23:02:57.004200+00:00"
     }
   ]
 }

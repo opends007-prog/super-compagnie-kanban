@@ -1,26 +1,26 @@
 {
-  "generatedAt": "2026-06-29T23:00:01.388625+00:00",
+  "generatedAt": "2026-06-29T23:10:01.964303+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
+    "validator": 7.1,
     "observability": 10.0,
-    "guard": 760.0,
-    "backup": 30.0,
+    "guard": 770.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 32,
+    "done": 33,
     "backlog": 2,
     "in_progress": 9,
-    "in_validation": 24
+    "in_validation": 23
   },
   "tickets_total": 67,
-  "done_today": 2,
+  "done_today": 3,
   "delivered_today": 43,
   "delivered_week": 43,
   "model_mix_week": {
@@ -35,6 +35,34 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T23:02:57.004200+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "STORY-086",
+      "content": "PASS: The deliverable is a substantive, complete research evaluation of four payment gateway providers with cost modelin"
+    },
+    {
+      "ts": "2026-06-29T23:01:48.930107+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-086",
+      "content": "[claude] Independently reviewing business-analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-29T23:01:23.042598+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-084",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T23:00:33.006542+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-267",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
     {
       "ts": "2026-06-29T23:00:01.398936+00:00",
       "agent": "nemesis",
@@ -90,34 +118,6 @@
       "event": "working",
       "ticket": "AUTO-013",
       "content": "[claude:owl-alpha] attempting: Landing Page Wireframe & Copy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-29T22:40:01.623470+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-014",
-      "content": "[cerebras:gpt-oss-120b] attempting: Competitive Pricing Matrix for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-29T22:40:01.622207+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-015",
-      "content": "[cerebras:gpt-oss-120b] attempting: Client Contract Template for AI FAQ Receptionist Services"
-    },
-    {
-      "ts": "2026-06-29T22:40:01.620659+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-015",
-      "content": "org-excellence started work: Client Contract Template for AI FAQ Receptionist Services"
-    },
-    {
-      "ts": "2026-06-29T22:40:01.617657+00:00",
-      "agent": "Minerva",
-      "event": "dispatched",
-      "ticket": "AUTO-014",
-      "content": "analyst started work: Competitive Pricing Matrix for AI FAQ Receptionist"
     }
   ],
   "problems": {}
