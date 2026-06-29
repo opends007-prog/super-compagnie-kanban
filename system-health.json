@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-29T18:30:02.130948+00:00",
+  "generatedAt": "2026-06-29T18:40:01.572289+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
-    "observability": 0.0,
-    "guard": 490.0,
-    "backup": 29.9,
+    "validator": 7.8,
+    "observability": 10.0,
+    "guard": 500.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
@@ -22,9 +22,9 @@
   "tickets_total": 51,
   "done_today": 2,
   "delivered_today": 33,
-  "delivered_week": 34,
+  "delivered_week": 33,
   "model_mix_week": {
-    "claude:owl-alpha": 4,
+    "claude:owl-alpha": 3,
     "openclaw": 1,
     "cerebras:gpt-oss-120b": 29
   },
@@ -33,6 +33,27 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T18:31:27.851350+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-084",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T18:30:40.792318+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-083",
+      "content": "[claude] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-06-29T18:30:39.134855+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-267",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
     {
       "ts": "2026-06-29T18:30:02.139963+00:00",
       "agent": "nemesis",
@@ -95,27 +116,6 @@
       "event": "delivered",
       "ticket": "TD-267",
       "content": "[cerebras:gpt-oss-120b] Produced TD-267-deliverable.md (12994b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T17:40:04.083728+00:00",
-      "agent": "Claude",
-      "event": "working",
-      "ticket": "TD-267",
-      "content": "[cerebras:gpt-oss-120b] attempting: Clean up 21 orphan Jira issues + fix health-check.sh"
-    },
-    {
-      "ts": "2026-06-29T17:40:04.080970+00:00",
-      "agent": "Claude",
-      "event": "dispatched",
-      "ticket": "TD-267",
-      "content": "claude started work: Clean up 21 orphan Jira issues + fix health-check.sh"
-    },
-    {
-      "ts": "2026-06-29T17:40:04.077376+00:00",
-      "agent": "Claude",
-      "event": "delivered",
-      "ticket": "TD-266",
-      "content": "[cerebras:gpt-oss-120b] Produced TD-266-deliverable.md (13877b) \u2192 in_validation"
     }
   ],
   "problems": {}

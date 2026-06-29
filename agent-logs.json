@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T18:30:02.108911+00:00",
+  "generated": "2026-06-29T18:40:01.560212+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -558,16 +558,6 @@
       "status": "done",
       "events": [
         {
-          "ts": "2026-06-28T20:00:01.678086+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: Cloud cost optimization analysis"
-        },
-        {
-          "ts": "2026-06-28T20:03:11.033752+00:00",
-          "event": "delivered",
-          "content": "[claude:owl-alpha] Produced STORY-058-deliverable.md (10090b) \u2192 in_validation"
-        },
-        {
           "ts": "2026-06-28T22:00:01.506116+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing budget's deliverable"
@@ -690,11 +680,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-29T10:06:29.546110+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced STORY-067-deliverable.md (18427b) \u2192 in_validation"
-        },
-        {
           "ts": "2026-06-29T15:02:42.312951+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
@@ -746,6 +731,11 @@
         },
         {
           "ts": "2026-06-29T18:00:02.068932+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-29T18:30:02.139963+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
         }
@@ -993,11 +983,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-29T11:20:09.830571+00:00",
-          "event": "dispatched",
-          "content": "claude started work: Clean up 21 orphan Jira issues + fix health-check.sh"
-        },
-        {
           "ts": "2026-06-29T11:20:09.834483+00:00",
           "event": "working",
           "content": "[cerebras:gpt-oss-120b] attempting: Clean up 21 orphan Jira issues + fix health-check.sh"
@@ -1051,6 +1036,11 @@
           "ts": "2026-06-29T18:01:45.897579+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing claude's deliverable"
+        },
+        {
+          "ts": "2026-06-29T18:30:39.134855+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing claude's deliverable"
         }
       ],
       "deliverable": {
@@ -1087,6 +1077,11 @@
           "ts": "2026-06-29T18:03:07.772488+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing devops's deliverable"
+        },
+        {
+          "ts": "2026-06-29T18:30:40.792318+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing devops's deliverable"
         }
       ],
       "deliverable": {
@@ -1113,6 +1108,11 @@
           "ts": "2026-06-29T08:00:07.771954+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced STORY-084-deliverable.md (17490b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-29T18:31:27.851350+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
         }
       ],
       "deliverable": {
@@ -1304,16 +1304,16 @@
   },
   "active": [
     {
-      "agent": "nemesis",
-      "ticket": "STORY-083",
-      "event": "validating",
-      "ts": "2026-06-29T18:03:07.772488+00:00"
-    },
-    {
       "agent": "Claude",
       "ticket": "TD-266",
       "event": "started",
       "ts": "2026-06-29T18:30:00.343022+00:00"
+    },
+    {
+      "agent": "nemesis",
+      "ticket": "STORY-084",
+      "event": "validating",
+      "ts": "2026-06-29T18:31:27.851350+00:00"
     }
   ]
 }
