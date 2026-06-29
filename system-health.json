@@ -1,37 +1,59 @@
 {
-  "generatedAt": "2026-06-29T20:10:01.855474+00:00",
+  "generatedAt": "2026-06-29T20:20:01.976324+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 8.5,
+    "validator": 18.5,
     "observability": 10.0,
-    "guard": 590.0,
-    "backup": 9.9,
+    "guard": 600.0,
+    "backup": 19.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
     "backlog": 2,
-    "in_progress": 9,
-    "in_validation": 8
+    "in_progress": 8,
+    "in_validation": 9
   },
   "tickets_total": 51,
   "done_today": 2,
-  "delivered_today": 31,
-  "delivered_week": 31,
+  "delivered_today": 32,
+  "delivered_week": 32,
   "model_mix_week": {
     "claude:owl-alpha": 1,
     "openclaw": 1,
-    "cerebras:gpt-oss-120b": 29
+    "cerebras:gpt-oss-120b": 30
   },
   "live_agents": [
+    "Thor",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T20:10:03.864927+00:00",
+      "agent": "Thor",
+      "event": "delivered",
+      "ticket": "STORY-083",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-083-deliverable.md (10635b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T20:10:01.941158+00:00",
+      "agent": "Thor",
+      "event": "working",
+      "ticket": "STORY-083",
+      "content": "[cerebras:gpt-oss-120b] attempting: Set up payment gateway CI/CD"
+    },
+    {
+      "ts": "2026-06-29T20:10:01.940017+00:00",
+      "agent": "Thor",
+      "event": "dispatched",
+      "ticket": "STORY-083",
+      "content": "devops started work: Set up payment gateway CI/CD"
+    },
     {
       "ts": "2026-06-29T20:01:07.054068+00:00",
       "agent": "nemesis",
@@ -94,27 +116,6 @@
       "event": "validating",
       "ticket": "STORY-067",
       "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T19:01:50.548666+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-084",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T19:01:09.556845+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-083",
-      "content": "[claude] Independently reviewing devops's deliverable"
-    },
-    {
-      "ts": "2026-06-29T19:00:32.017898+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-267",
-      "content": "[claude] Independently reviewing claude's deliverable"
     }
   ],
   "problems": {}
