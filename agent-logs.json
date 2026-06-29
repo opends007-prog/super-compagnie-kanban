@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T14:30:01.688885+00:00",
+  "generated": "2026-06-29T14:40:01.428269+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -25,16 +25,6 @@
       "agent": "Gladiator",
       "status": "done",
       "events": [
-        {
-          "ts": "2026-06-28T00:00:01.291967+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: Deploy all agent workspaces to VM"
-        },
-        {
-          "ts": "2026-06-28T00:03:50.713164+00:00",
-          "event": "delivered",
-          "content": "[claude:owl-alpha] Produced STORY-003-deliverable.md (22498b) \u2192 in_validation"
-        },
         {
           "ts": "2026-06-28T02:00:01.564519+00:00",
           "event": "validating",
@@ -86,11 +76,6 @@
       "agent": "Athena",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-29T06:00:01.446932+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing qa's deliverable"
-        },
         {
           "ts": "2026-06-29T10:00:02.111017+00:00",
           "event": "validating",
@@ -145,6 +130,11 @@
           "ts": "2026-06-29T14:00:02.099975+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing qa's deliverable"
+        },
+        {
+          "ts": "2026-06-29T14:30:01.722621+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
         }
       ],
       "deliverable": {
@@ -157,11 +147,6 @@
       "agent": "Athena",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-29T11:10:01.949226+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: MVP: AI Agent Safety Scanner"
-        },
         {
           "ts": "2026-06-29T11:10:04.553427+00:00",
           "event": "delivered",
@@ -216,6 +201,11 @@
           "ts": "2026-06-29T14:10:04.509323+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced STORY-023-deliverable.md (19735b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-29T14:30:42.846612+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing qa's deliverable"
         }
       ],
       "deliverable": {
@@ -519,11 +509,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-29T10:06:22.443680+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Fix jira_epic_map undefined variable in iris-sync.py"
-        },
-        {
           "ts": "2026-06-29T10:06:24.309362+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced STORY-046-deliverable.md (12584b) \u2192 in_validation"
@@ -575,6 +560,11 @@
         },
         {
           "ts": "2026-06-29T14:01:42.311301+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing security's deliverable"
+        },
+        {
+          "ts": "2026-06-29T14:31:13.735972+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing security's deliverable"
         }
@@ -805,18 +795,8 @@
     },
     "STORY-063": {
       "agent": "Iris",
-      "status": "in_validation",
+      "status": "backlog",
       "events": [
-        {
-          "ts": "2026-06-28T20:03:11.035564+00:00",
-          "event": "dispatched",
-          "content": "pm started work: Set up Discord voice message integration"
-        },
-        {
-          "ts": "2026-06-28T20:03:11.036906+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: Set up Discord voice message integration"
-        },
         {
           "ts": "2026-06-28T20:07:51.181864+00:00",
           "event": "working",
@@ -866,6 +846,16 @@
           "ts": "2026-06-29T08:00:04.920427+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced STORY-063-deliverable.md (17394b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-29T14:31:38.981077+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing pm's deliverable"
+        },
+        {
+          "ts": "2026-06-29T14:36:19.131796+00:00",
+          "event": "validation_parked",
+          "content": "Parked after 2 fails: The deliverable is a planning/specification document (authored by Iris PM with work items, timelines, and architecture diagrams) describing what to build, but no actual implementation artifacts exist on disk \u2014 no src/bot.py, Dockerfile, tests, or real code were produced; it is an outline, not comple"
         }
       ],
       "deliverable": {
@@ -1353,12 +1343,6 @@
   },
   "active": [
     {
-      "agent": "nemesis",
-      "ticket": "STORY-053",
-      "event": "validation_parked",
-      "ts": "2026-06-29T14:03:40.815060+00:00"
-    },
-    {
       "agent": "Athena",
       "ticket": "STORY-023",
       "event": "delivered",
@@ -1369,6 +1353,12 @@
       "ticket": "STORY-053",
       "event": "started",
       "ts": "2026-06-29T14:30:00.391927+00:00"
+    },
+    {
+      "agent": "nemesis",
+      "ticket": "STORY-063",
+      "event": "validation_parked",
+      "ts": "2026-06-29T14:36:19.131796+00:00"
     }
   ]
 }

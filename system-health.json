@@ -1,29 +1,30 @@
 {
-  "generatedAt": "2026-06-29T14:30:01.696305+00:00",
+  "generatedAt": "2026-06-29T14:40:01.445259+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
-    "observability": 0.0,
-    "guard": 250.0,
-    "backup": 30.0,
+    "validator": 3.7,
+    "observability": 10.0,
+    "guard": 260.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 31,
-    "in_validation": 15,
-    "in_progress": 5
+    "in_validation": 14,
+    "in_progress": 5,
+    "backlog": 1
   },
   "tickets_total": 51,
   "done_today": 1,
   "delivered_today": 29,
-  "delivered_week": 39,
+  "delivered_week": 37,
   "model_mix_week": {
-    "claude:owl-alpha": 13,
+    "claude:owl-alpha": 11,
     "openclaw": 1,
     "cerebras:gpt-oss-120b": 25
   },
@@ -33,6 +34,34 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T14:36:19.131796+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "STORY-063",
+      "content": "Parked after 2 fails: The deliverable is a planning/specification document (authored by Iris PM with work items, timelin"
+    },
+    {
+      "ts": "2026-06-29T14:31:38.981077+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-063",
+      "content": "[claude] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-06-29T14:31:13.735972+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-046",
+      "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-29T14:30:42.846612+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-023",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
     {
       "ts": "2026-06-29T14:30:01.722621+00:00",
       "agent": "nemesis",
@@ -88,34 +117,6 @@
       "event": "validating",
       "ticket": "STORY-046",
       "content": "[claude] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-29T14:01:42.308992+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "STORY-023",
-      "content": "FAIL #1: The deliverable is only a test suite + guide, not the actual scanner implementation \u2014 safety_scanner.py is refe"
-    },
-    {
-      "ts": "2026-06-29T14:00:39.393906+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-023",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T14:00:02.099975+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-019",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T13:32:18.897131+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-053",
-      "content": "[claude] Independently reviewing monitor's deliverable"
     }
   ],
   "problems": {}
