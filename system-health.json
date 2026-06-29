@@ -1,37 +1,59 @@
 {
-  "generatedAt": "2026-06-29T17:10:01.862950+00:00",
+  "generatedAt": "2026-06-29T17:20:01.458165+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 1,
+  "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 3.4,
-    "observability": 10.0,
-    "guard": 410.0,
-    "backup": 9.9,
+    "validator": 13.4,
+    "observability": 0.0,
+    "guard": 420.0,
+    "backup": 19.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
     "backlog": 2,
-    "in_progress": 7,
-    "in_validation": 10
+    "in_progress": 6,
+    "in_validation": 11
   },
   "tickets_total": 51,
   "done_today": 2,
-  "delivered_today": 30,
+  "delivered_today": 31,
   "delivered_week": 35,
   "model_mix_week": {
-    "claude:owl-alpha": 8,
+    "claude:owl-alpha": 7,
     "openclaw": 1,
-    "cerebras:gpt-oss-120b": 26
+    "cerebras:gpt-oss-120b": 27
   },
   "live_agents": [
+    "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T17:10:04.397110+00:00",
+      "agent": "Minerva",
+      "event": "delivered",
+      "ticket": "TD-257",
+      "content": "[cerebras:gpt-oss-120b] Produced TD-257-deliverable.md (13687b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T17:10:01.964296+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "TD-257",
+      "content": "[cerebras:gpt-oss-120b] attempting: Operations & Infrastructure"
+    },
+    {
+      "ts": "2026-06-29T17:10:01.962132+00:00",
+      "agent": "Minerva",
+      "event": "dispatched",
+      "ticket": "TD-257",
+      "content": "analyst started work: Operations & Infrastructure"
+    },
     {
       "ts": "2026-06-29T17:05:30.488861+00:00",
       "agent": "nemesis",
@@ -94,27 +116,6 @@
       "event": "validating",
       "ticket": "STORY-046",
       "content": "[claude] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-29T16:30:37.261354+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-023",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T16:30:37.258732+00:00",
-      "agent": "nemesis",
-      "event": "validation_parked",
-      "ticket": "STORY-019",
-      "content": "Parked after 2 fails: The deliverable document references /home/admin/.openclaw/workspace/agents/tests/test_agent_tools."
-    },
-    {
-      "ts": "2026-06-29T16:30:01.895136+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-019",
-      "content": "[claude] Independently reviewing qa's deliverable"
     }
   ],
   "problems": {}
