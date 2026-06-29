@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-28T23:50:01.248197+00:00",
+  "generated": "2026-06-29T00:00:01.707031+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -1033,6 +1033,18 @@
         "content": "# STORY-082 \u2014 Auto-sync test ticket\n\n**Status:** Complete\n**Worker:** business-analyst (Hermes)\n\n## Purpose\nA test ticket exercising the automatic request\u2192board\u2192Jira sync via the ticket API.\n\n## What it validates\n\nThis ticket was created through the ticket-request pipeline (its comment records *\"Ticket created via\nrequest 17b48f63\"* by Lucy). That pipeline is:\n\n`POST /tickets` (FastAPI, `/home/admin/.openclaw/workspace/scripts/ticket-api.py`, 6,811 bytes, on\n`127.0.0.1:3090`) \u2192 writes `/home/admin/.openclaw/workspace/ticket-requests.json` \u2192\n`ticket-processor.sh` (cron `*/5`) applies the request to the board `tickets.json` \u2192\n`kanban-sync.sh` (cron `*/30`) auto-syncs it to Jira project `TD`.\n\n## Result (verified)\nThe auto-sync reached Jira: the ticket comment records **Jira TD-318** (the reconcile job later reset its\nstatus as \"indeterminate\" \u2014 which itself confirms the ticket was synced to a real Jira issue).\n\n## Evidence\n- `ticket-api.py` \u2014 `POST /tickets` handler writing `ticket-requests.json`; port `3090`.\n- crontab: `ticket-processor.sh` `*/5` (applies requests), `kanban-sync.sh` `*/30` (Jira auto-sync).\n- STORY-082 ticket comments: \"Ticket created via request 17b48f63\" and the reconcile note referencing\n  live `TD-318`.\n\n> Note: a deliberate auto-sync smoke-test ticket, not a feature; documented to record that the\n> request\u2192board\u2192Jira auto-sync works.\n"
       }
     },
+    "TD-266": {
+      "agent": "Claude",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-29T00:00:00.240192+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
+    },
     "STORY-083": {
       "agent": "Thor",
       "status": "in_progress",
@@ -1068,7 +1080,32 @@
         }
       ],
       "deliverable": null
+    },
+    "STORY-087": {
+      "agent": "Fortuna",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-29T00:00:00.240192+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
+      "deliverable": null
     }
   },
-  "active": []
+  "active": [
+    {
+      "agent": "Fortuna",
+      "ticket": "STORY-087",
+      "event": "started",
+      "ts": "2026-06-29T00:00:00.240192+00:00"
+    },
+    {
+      "agent": "Claude",
+      "ticket": "TD-266",
+      "event": "started",
+      "ts": "2026-06-29T00:00:00.240192+00:00"
+    }
+  ]
 }
