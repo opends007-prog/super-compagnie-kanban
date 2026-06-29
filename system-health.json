@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-29T13:50:01.775963+00:00",
+  "generatedAt": "2026-06-29T14:00:02.177675+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 16.3,
-    "observability": 10.0,
-    "guard": 210.0,
-    "backup": 20.0,
+    "work-executor": 0.0,
+    "validator": 0.0,
+    "observability": 0.0,
+    "guard": 220.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
@@ -31,6 +31,13 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T14:00:02.099975+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-019",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
     {
       "ts": "2026-06-29T13:32:18.897131+00:00",
       "agent": "nemesis",
@@ -107,13 +114,6 @@
       "event": "dispatched",
       "ticket": "STORY-053",
       "content": "monitor started work: Automated service health checks setup"
-    },
-    {
-      "ts": "2026-06-29T12:40:03.711518+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "STORY-046",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-046-deliverable.md (11460b) \u2192 in_validation"
     }
   ],
   "problems": {}

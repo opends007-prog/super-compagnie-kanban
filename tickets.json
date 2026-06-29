@@ -907,7 +907,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "in_progress",
       "assigned_to": "Athena",
       "team": "any",
       "epicId": "EPIC-002",
@@ -915,7 +915,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-29T11:10:04.551954+00:00",
+      "updatedAt": "2026-06-29T14:01:42.304936+00:00",
       "comments": [
         {
           "by": "Athena",
@@ -943,9 +943,14 @@
           "by": "Athena",
           "timestamp": "2026-06-29T11:10:04.551954+00:00",
           "text": "Delivered work/STORY-023-deliverable.md (13251 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-29T14:01:42.304936+00:00",
+          "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The deliverable is only a test suite + guide, not the actual scanner implementation \u2014 safety_scanner.py is referenced but absent. The test file itself contains critical bugs: TC-010's pytest.raises(AssertionError) is inverted (passes when performance FAILS), TC-007's UnicodeDecodeError is raised by "
         }
       ],
-      "progress": 0,
+      "progress": 40,
       "eta_hours": 0,
       "last_agent_update": "2026-06-15T23:21:06.309773",
       "jira_key": "TD-41",
@@ -957,7 +962,8 @@
         }
       ],
       "pushed_progress": 100,
-      "estimatedStartDate": "2026-06-30"
+      "estimatedStartDate": "2026-06-30",
+      "validation_fails": 1
     },
     {
       "id": "STORY-026",
@@ -1595,7 +1601,7 @@
       "description": "Set up automated health checks for all critical services: OpenClaw gateway, Tailscale, Discord bot, Jira sync, and agent workspaces. Include alerting via Discord webhook on failure.",
       "severity": "HIGH",
       "category": "feature",
-      "status": "in_validation",
+      "status": "backlog",
       "assigned_to": "Argus",
       "team": "Operations",
       "epicId": "EPIC-009",
@@ -1603,7 +1609,7 @@
       "blocks": null,
       "created_by": "Zeus",
       "createdAt": "2026-06-17T04:10:26.614001+00:00",
-      "updatedAt": "2026-06-29T12:40:05.828714+00:00",
+      "updatedAt": "2026-06-29T14:03:40.808641+00:00",
       "comments": [
         {
           "by": "Zeus",
@@ -1640,6 +1646,11 @@
           "by": "Argus",
           "timestamp": "2026-06-29T12:40:05.828714+00:00",
           "text": "Delivered work/STORY-053-deliverable.md (12652 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-29T14:03:40.808641+00:00",
+          "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The deliverable is a markdown specification containing code samples and a fabricated sample log, not the actual implemented health-check files or any verifiable evidence of a live system sending real Discord alerts \u2014 the spec has 2 of 5 services reported as failing, contradicting its own claim of be"
         }
       ],
       "progress": 40,
@@ -1665,7 +1676,7 @@
       ],
       "pushed_progress": -1,
       "estimatedStartDate": "2026-06-29",
-      "validation_fails": 1
+      "validation_fails": 2
     },
     {
       "id": "STORY-056",
