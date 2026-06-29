@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-29T15:20:01.671688+00:00",
+  "generatedAt": "2026-06-29T15:30:01.412747+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 16.3,
-    "observability": 10.0,
-    "guard": 300.0,
-    "backup": 20.0,
+    "work-executor": 10.0,
+    "validator": 0.0,
+    "observability": 0.0,
+    "guard": 310.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
@@ -29,10 +29,16 @@
   },
   "live_agents": [
     "Athena",
-    "Iris",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T15:30:01.414462+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-019",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
     {
       "ts": "2026-06-29T15:10:04.973795+00:00",
       "agent": "Athena",
@@ -109,13 +115,6 @@
       "event": "validating",
       "ticket": "STORY-063",
       "content": "[claude] Independently reviewing pm's deliverable"
-    },
-    {
-      "ts": "2026-06-29T14:31:13.735972+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-046",
-      "content": "[claude] Independently reviewing security's deliverable"
     }
   ],
   "problems": {}
