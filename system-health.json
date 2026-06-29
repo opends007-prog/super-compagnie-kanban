@@ -1,38 +1,80 @@
 {
-  "generatedAt": "2026-06-29T17:40:01.807791+00:00",
+  "generatedAt": "2026-06-29T17:50:01.737118+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 6.3,
+    "work-executor": 9.9,
+    "validator": 16.3,
     "observability": 10.0,
-    "guard": 440.0,
-    "backup": 10.0,
+    "guard": 450.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 32,
     "backlog": 3,
-    "in_progress": 8,
-    "in_validation": 8
+    "in_progress": 6,
+    "in_validation": 10
   },
   "tickets_total": 51,
   "done_today": 2,
-  "delivered_today": 31,
+  "delivered_today": 33,
   "delivered_week": 34,
   "model_mix_week": {
-    "claude:owl-alpha": 6,
+    "claude:owl-alpha": 4,
     "openclaw": 1,
-    "cerebras:gpt-oss-120b": 27
+    "cerebras:gpt-oss-120b": 29
   },
   "live_agents": [
-    "Minerva",
+    "Claude",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-29T17:40:06.511249+00:00",
+      "agent": "Claude",
+      "event": "delivered",
+      "ticket": "TD-267",
+      "content": "[cerebras:gpt-oss-120b] Produced TD-267-deliverable.md (12994b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T17:40:04.083728+00:00",
+      "agent": "Claude",
+      "event": "working",
+      "ticket": "TD-267",
+      "content": "[cerebras:gpt-oss-120b] attempting: Clean up 21 orphan Jira issues + fix health-check.sh"
+    },
+    {
+      "ts": "2026-06-29T17:40:04.080970+00:00",
+      "agent": "Claude",
+      "event": "dispatched",
+      "ticket": "TD-267",
+      "content": "claude started work: Clean up 21 orphan Jira issues + fix health-check.sh"
+    },
+    {
+      "ts": "2026-06-29T17:40:04.077376+00:00",
+      "agent": "Claude",
+      "event": "delivered",
+      "ticket": "TD-266",
+      "content": "[cerebras:gpt-oss-120b] Produced TD-266-deliverable.md (13877b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T17:40:01.908231+00:00",
+      "agent": "Claude",
+      "event": "working",
+      "ticket": "TD-266",
+      "content": "[cerebras:gpt-oss-120b] attempting: Fix researcher + finance work templates"
+    },
+    {
+      "ts": "2026-06-29T17:40:01.906061+00:00",
+      "agent": "Claude",
+      "event": "dispatched",
+      "ticket": "TD-266",
+      "content": "claude started work: Fix researcher + finance work templates"
+    },
     {
       "ts": "2026-06-29T17:33:43.870996+00:00",
       "agent": "nemesis",
@@ -74,48 +116,6 @@
       "event": "validating",
       "ticket": "TD-257",
       "content": "[claude] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-29T17:30:01.269378+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-067",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T17:10:04.397110+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "TD-257",
-      "content": "[cerebras:gpt-oss-120b] Produced TD-257-deliverable.md (13687b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T17:10:01.964296+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "TD-257",
-      "content": "[cerebras:gpt-oss-120b] attempting: Operations & Infrastructure"
-    },
-    {
-      "ts": "2026-06-29T17:10:01.962132+00:00",
-      "agent": "Minerva",
-      "event": "dispatched",
-      "ticket": "TD-257",
-      "content": "analyst started work: Operations & Infrastructure"
-    },
-    {
-      "ts": "2026-06-29T17:05:30.488861+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-266",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-29T17:05:30.482610+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "TD-257",
-      "content": "FAIL #1: The deliverable is a generic, surface-level overview of well-known tools with no original analysis, no specific"
     }
   ],
   "problems": {}
