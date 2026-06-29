@@ -1867,14 +1867,14 @@
       "id": "STORY-063",
       "title": "Set up Discord voice message integration",
       "description": "Enable Lucy to send voice messages to Discord using VoxCPM2-generated audio",
-      "status": "in_validation",
+      "status": "in_progress",
       "priority": "medium",
       "team": "any",
       "assignee": "lucy",
-      "progress": 50,
+      "progress": 40,
       "epicId": null,
       "createdAt": "2026-06-17T15:56:52.413900+00:00",
-      "updatedAt": "2026-06-29T00:01:01.674224+00:00",
+      "updatedAt": "2026-06-29T02:00:18.159114+00:00",
       "comments": [
         {
           "by": "Lucy",
@@ -1889,6 +1889,11 @@
           "by": "Iris",
           "timestamp": "2026-06-29T00:01:01.674224+00:00",
           "text": "Delivered work/STORY-063-deliverable.md (6301 bytes) via claude:owl-alpha \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-29T02:00:18.159114+00:00",
+          "text": "VALIDATION FAIL #1 \u2014 sent back to redo: This is a planning/outline document (author is Iris PM, status 'Planned') containing work items and architecture \u2014 not actual implementation. No real code, services, or tests have been produced; it describes what to build instead of building it."
         }
       ],
       "pushed_comments": [
@@ -1901,7 +1906,8 @@
       "jira_key": "TD-299",
       "assigned_to": "Iris",
       "estimatedStartDate": "2026-06-24",
-      "last_agent_update": "2026-06-25T14:00:00.367824+00:00"
+      "last_agent_update": "2026-06-25T14:00:00.367824+00:00",
+      "validation_fails": 1
     },
     {
       "id": "STORY-066",
