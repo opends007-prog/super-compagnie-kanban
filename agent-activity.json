@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-26T16:00:01.463412+00:00",
-      "agent": "Gladiator",
-      "ticket": "STORY-002",
-      "event": "dispatched",
-      "content": "tom started work: Deploy Kanban + Jira boards"
-    },
-    {
-      "ts": "2026-06-26T16:00:53.606734+00:00",
-      "agent": "Gladiator",
-      "ticket": "STORY-002",
-      "event": "no_deliverable",
-      "content": "No work produced (model unavailable) \u2014 status unchanged"
-    },
-    {
       "ts": "2026-06-26T16:00:53.642349+00:00",
       "agent": "Gladiator",
       "ticket": "STORY-003",
@@ -1399,7 +1385,21 @@
       "ticket": "STORY-033",
       "event": "delivered",
       "content": "[cerebras:gpt-oss-120b] Produced STORY-033-deliverable.md (10568b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-29T06:00:01.446932+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-019",
+      "event": "validating",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-29T06:00:45.960519+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-033",
+      "event": "validating",
+      "content": "[claude] Independently reviewing security's deliverable"
     }
   ],
-  "lastUpdated": "2026-06-29T04:00:06.454122+00:00"
+  "lastUpdated": "2026-06-29T06:00:45.960569+00:00"
 }
