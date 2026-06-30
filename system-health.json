@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-06-30T07:50:01.590212+00:00",
+  "generatedAt": "2026-06-30T08:00:01.253321+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.1,
-    "validator": 10.0,
+    "work-executor": 10.0,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1290.0,
-    "backup": 19.9,
+    "guard": 1300.0,
+    "backup": 29.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 62,
     "backlog": 5,
-    "in_progress": 14,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 3
+    "in_validation": 4
   },
   "tickets_total": 88,
   "done_today": 29,
-  "delivered_today": 22,
-  "delivered_week": 22,
+  "delivered_today": 23,
+  "delivered_week": 23,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 20,
+    "cerebras:gpt-oss-120b": 21,
     "claude:owl-alpha": 1,
     "openclaw": 1
   },
@@ -33,9 +33,45 @@
     "Fortuna",
     "Hades",
     "Minerva",
-    "Thor"
+    "Thor",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T08:00:01.296230+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-034",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T08:00:01.292187+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-033",
+      "content": "[claude] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-06-30T07:50:04.304834+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-036",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-036-deliverable.md (12803b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T07:50:01.740457+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-036",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy Impact Assessment for FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T07:50:01.739072+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-036",
+      "content": "security started work: Data Privacy Impact Assessment for FAQ Receptionist"
+    },
     {
       "ts": "2026-06-30T07:44:56.695420+00:00",
       "agent": "Thor",
@@ -84,41 +120,6 @@
       "event": "dispatched",
       "ticket": "AUTO-036",
       "content": "security started work: Data Privacy Impact Assessment for FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T07:40:02.353501+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "AUTO-033",
-      "content": "[claude:owl-alpha] attempting: Agent Team VM Deployment Checklist"
-    },
-    {
-      "ts": "2026-06-30T07:40:02.082127+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-035",
-      "content": "[cerebras:gpt-oss-120b] attempting: Target Client List for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T07:40:02.078802+00:00",
-      "agent": "Minerva",
-      "event": "dispatched",
-      "ticket": "AUTO-035",
-      "content": "analyst started work: Target Client List for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T07:40:02.075132+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-034",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-30T07:40:02.067048+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-034",
-      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
     }
   ],
   "problems": {}
