@@ -1588,7 +1588,34 @@ function renderOps(){
   if(!el)return;
   fetch('system-health.json?t='+Date.now()).then(function(r){return r.json();}).then(function(h){
     el.innerHTML=opsHtml(h);
+    fetch('cron-history.json?t='+Date.now()).then(function(r){return r.json();}).then(function(ch){
+      var slot=document.getElementById('cron-history-section'); if(slot)slot.innerHTML=cronHistHtml(ch);
+    }).catch(function(){var slot=document.getElementById('cron-history-section'); if(slot)slot.innerHTML='<div style="color:var(--text3);font-size:12px;margin-bottom:18px">Cron history not available yet — populated every 10 min.</div>';});
   }).catch(function(){el.innerHTML='<div style="color:var(--text3);padding:20px">Ops data not available yet — system-health.json is generated every 10 min.</div>';});
+}
+// CRON JOB HISTORY — a chronological success/failed feed (cron-history.json, refreshed every 10 min).
+// ⚙️ = system crontab job, 💬 = OpenClaw gateway LLM cron (the daily Discord posts). Newest first.
+function cronHistHtml(ch){
+  var ev=(ch&&ch.events)||[];
+  function badge(s){
+    var c=s==='fail'?'#e74c3c':(s==='warn'?'#e0a85a':'#2ecc71');
+    var t=s==='fail'?'FAILED':(s==='warn'?'WARN':'OK');
+    return '<span style="display:inline-block;min-width:54px;text-align:center;background:'+c+'22;color:'+c+';border:1px solid '+c+'66;border-radius:5px;padding:1px 6px;font-size:10px;font-weight:700">'+t+'</span>';
+  }
+  var nFail=ev.filter(function(e){return e.status==='fail';}).length, nWarn=ev.filter(function(e){return e.status==='warn';}).length;
+  var h='<div style="font-size:12px;font-weight:700;color:var(--text3);margin:0 0 8px;letter-spacing:.5px">CRON JOB HISTORY '
+    +'<span style="color:var(--text3);font-weight:400">— '+ev.length+' runs · '+nFail+' failed · '+nWarn+' warn</span></div>';
+  if(!ev.length) return h+'<div style="color:var(--text3);font-size:12px;margin-bottom:18px">No cron events recorded yet — populated every 10 min.</div>';
+  h+='<div style="font-size:12px;margin-bottom:18px;max-height:340px;overflow:auto;border:1px solid var(--bg3);border-radius:8px">';
+  ev.forEach(function(e){
+    var k=e.kind==='discord-cron'?'💬':'⚙️';
+    h+='<div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;border-bottom:1px solid var(--bg3)">'
+      +badge(e.status)
+      +'<div style="flex:1;min-width:0"><div style="color:var(--text)"><span style="color:var(--text3)">'+fmtET(e.ts)+'</span> · '+k+' <b>'+escapeHtml(e.job||'')+'</b></div>'
+      +'<div style="color:var(--text3);font-size:11px;word-break:break-word">'+escapeHtml(e.msg||'')+'</div></div></div>';
+  });
+  h+='</div>';
+  return h;
 }
 function opsCard(label,value,sub,color){
   return '<div style="background:var(--bg3);border-radius:10px;padding:14px 16px;min-width:120px;flex:1">'
@@ -1636,6 +1663,7 @@ function opsHtml(h){
     html+='<span style="background:var(--bg3);border-radius:6px;padding:4px 8px;color:'+(stale?'#e0a85a':'var(--text3)')+'">'+escapeHtml(k)+': '+lbl+'</span>';
   });
   html+='</div>';
+  html+='<div id="cron-history-section" style="margin-bottom:4px">loading cron history…</div>';
   var live=h.live_agents||[];
   html+='<div style="font-size:12px;font-weight:700;color:var(--text3);margin:0 0 8px;letter-spacing:.5px">LIVE NOW ('+live.length+')</div>'
     +'<div style="margin-bottom:18px;font-size:13px;color:var(--text)">'+(live.length?live.map(function(a){return '🟢 '+escapeHtml(a);}).join('&nbsp;&nbsp;'):'<span style="color:var(--text3)">resting (agents run in bursts)</span>')+'</div>';
