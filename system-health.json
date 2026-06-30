@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-30T15:30:01.873943+00:00",
+  "generatedAt": "2026-06-30T15:40:02.619393+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 10.0,
+    "work-executor": 9.9,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 1750.0,
-    "backup": 30.0,
+    "guard": 1760.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 88,
-    "backlog": 10,
-    "in_progress": 13,
+    "backlog": 6,
+    "in_progress": 17,
     "planned": 4
   },
   "tickets_total": 115,
@@ -24,97 +24,100 @@
   "delivered_today": 43,
   "delivered_week": 43,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 36,
-    "claude:owl-alpha": 3,
+    "cerebras:gpt-oss-120b": 37,
+    "claude:owl-alpha": 2,
     "openclaw": 4
   },
   "live_agents": [
-    "nemesis"
+    "Fortuna",
+    "Hades",
+    "Metis",
+    "Minerva"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T15:04:35.620429+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "STORY-202",
-      "content": "PASS: The deliverable provides a comprehensive analysis, concrete remediation steps, and verification procedures for the"
-    },
-    {
-      "ts": "2026-06-30T15:00:02.079357+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-202",
-      "content": "[claude,openclaw,groq] Independently reviewing devops's deliverable"
-    },
-    {
-      "ts": "2026-06-30T14:40:04.436268+00:00",
-      "agent": "Thor",
+      "ts": "2026-06-30T15:30:11.099179+00:00",
+      "agent": "Minerva",
       "event": "delivered",
-      "ticket": "STORY-202",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-202-deliverable.md (14933b) \u2192 in_validation"
+      "ticket": "AUTO-059",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-059-deliverable.md (10503b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-30T14:40:01.881275+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "STORY-202",
-      "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] openclaw-gateway.service keeps crashing"
-    },
-    {
-      "ts": "2026-06-30T14:40:01.877145+00:00",
-      "agent": "Thor",
-      "event": "dispatched",
-      "ticket": "STORY-202",
-      "content": "devops started work: [self-heal] openclaw-gateway.service keeps crashing"
-    },
-    {
-      "ts": "2026-06-30T14:30:06.237579+00:00",
-      "agent": "Thor",
+      "ts": "2026-06-30T15:30:11.097887+00:00",
+      "agent": "Fortuna",
       "event": "delivered",
-      "ticket": "STORY-202",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-202-deliverable.md (10168b) \u2192 in_progress"
+      "ticket": "AUTO-057",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-057-deliverable.md (7779b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-30T14:30:01.555227+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "STORY-202",
-      "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] openclaw-gateway.service keeps crashing"
-    },
-    {
-      "ts": "2026-06-30T14:30:01.551943+00:00",
-      "agent": "Thor",
-      "event": "dispatched",
-      "ticket": "STORY-202",
-      "content": "devops started work: [self-heal] openclaw-gateway.service keeps crashing"
-    },
-    {
-      "ts": "2026-06-30T14:21:40.641158+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "STORY-203",
-      "content": "PASS: The deliverable provides a complete, production\u2011ready script with retry/back\u2011off, environment handling, Docker bui"
-    },
-    {
-      "ts": "2026-06-30T14:20:04.891428+00:00",
-      "agent": "Thor",
+      "ts": "2026-06-30T15:30:11.096581+00:00",
+      "agent": "Metis",
       "event": "delivered",
-      "ticket": "STORY-202",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-202-deliverable.md (10183b) \u2192 in_progress"
+      "ticket": "AUTO-060",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-060-deliverable.md (6313b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-30T14:20:02.822605+00:00",
-      "agent": "Thor",
+      "ts": "2026-06-30T15:30:11.093898+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-058",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-058-deliverable.md (11241b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T15:30:04.839806+00:00",
+      "agent": "Metis",
       "event": "working",
-      "ticket": "STORY-202",
-      "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] openclaw-gateway.service keeps crashing"
+      "ticket": "AUTO-060",
+      "content": "[cerebras:gpt-oss-120b] attempting: Landing Page Copy for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T14:20:02.820342+00:00",
-      "agent": "Thor",
+      "ts": "2026-06-30T15:30:04.837844+00:00",
+      "agent": "Metis",
       "event": "dispatched",
-      "ticket": "STORY-202",
-      "content": "devops started work: [self-heal] openclaw-gateway.service keeps crashing"
+      "ticket": "AUTO-060",
+      "content": "org-excellence started work: Landing Page Copy for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T15:30:02.257501+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-059",
+      "content": "[cerebras:gpt-oss-120b] attempting: Industry Segmentation Report for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T15:30:02.249209+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-058",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy & Compliance Checklist for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T15:30:02.227725+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-058",
+      "content": "security started work: Data Privacy & Compliance Checklist for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T15:30:02.211198+00:00",
+      "agent": "Minerva",
+      "event": "dispatched",
+      "ticket": "AUTO-059",
+      "content": "analyst started work: Industry Segmentation Report for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T15:30:02.189589+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-057",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-06-30T15:30:02.132731+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-057",
+      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
     }
   ],
   "problems": {}
