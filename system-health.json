@@ -1,38 +1,96 @@
 {
-  "generatedAt": "2026-06-30T05:10:01.703998+00:00",
+  "generatedAt": "2026-06-30T05:20:01.776801+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 6.8,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1130.0,
-    "backup": 10.0,
+    "guard": 1140.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 46,
     "backlog": 3,
-    "in_progress": 15,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 16
+    "in_validation": 18
   },
   "tickets_total": 84,
   "done_today": 13,
-  "delivered_today": 32,
-  "delivered_week": 32,
+  "delivered_today": 30,
+  "delivered_week": 30,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 30,
+    "cerebras:gpt-oss-120b": 28,
     "claude:owl-alpha": 2
   },
   "live_agents": [
     "Fortuna",
+    "Hades",
+    "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T05:20:01.836139+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-011",
+      "content": "[claude] Independently reviewing data-engineer's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:20:01.822423+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-016",
+      "content": "[claude] Independently reviewing finance's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:10:04.130339+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-019",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-019-deliverable.md (12347b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T05:10:04.125900+00:00",
+      "agent": "Minerva",
+      "event": "delivered",
+      "ticket": "AUTO-018",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-018-deliverable.md (10207b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T05:10:01.853160+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-019",
+      "content": "[cerebras:gpt-oss-120b] attempting: Security Risk Mitigation Checklist for AI FAQ Receptionist D"
+    },
+    {
+      "ts": "2026-06-30T05:10:01.836682+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-019",
+      "content": "security started work: Security Risk Mitigation Checklist for AI FAQ Receptionist D"
+    },
+    {
+      "ts": "2026-06-30T05:10:01.827504+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-018",
+      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Industry Sample FAQ Knowledge Base"
+    },
+    {
+      "ts": "2026-06-30T05:10:01.825462+00:00",
+      "agent": "Minerva",
+      "event": "dispatched",
+      "ticket": "AUTO-018",
+      "content": "analyst started work: Healthcare Industry Sample FAQ Knowledge Base"
+    },
     {
       "ts": "2026-06-30T05:03:10.765305+00:00",
       "agent": "nemesis",
@@ -60,62 +118,6 @@
       "event": "validation_pass",
       "ticket": "AUTO-015",
       "content": "PASS: The deliverable is a complete, ready-to-use service agreement covering all required sections: scope (Section 1 wit"
-    },
-    {
-      "ts": "2026-06-30T05:02:47.734351+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-019",
-      "content": "[claude] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:02:41.732017+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-018",
-      "content": "[claude] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:02:13.853256+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-017",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:01:09.815137+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-016",
-      "content": "[claude] Independently reviewing finance's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:00:01.970421+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-015",
-      "content": "[claude] Independently reviewing org-excellence's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:00:01.964231+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-011",
-      "content": "[claude] Independently reviewing data-engineer's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:00:00.376460+00:00",
-      "agent": "Fortuna",
-      "event": "started",
-      "ticket": "STORY-087",
-      "content": ""
-    },
-    {
-      "ts": "2026-06-30T04:42:37.268375+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-014",
-      "content": "PASS: The deliverable fully satisfies the ticket: it researches the top 5 AI-FAQ competitors (OpenAI ChatGPT, Google Dia"
     }
   ],
   "problems": {}
