@@ -1,83 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-30T01:30:02.154294+00:00",
-      "agent": "Hermes",
-      "ticket": "AUTO-026",
-      "event": "dispatched",
-      "content": "business-analyst started work: Healthcare Cold Outreach Email Sequence"
-    },
-    {
-      "ts": "2026-06-30T01:30:02.156143+00:00",
-      "agent": "Hermes",
-      "ticket": "AUTO-026",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Cold Outreach Email Sequence"
-    },
-    {
-      "ts": "2026-06-30T01:30:02.158499+00:00",
-      "agent": "Metis",
-      "ticket": "AUTO-027",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Monthly FAQ Knowledge‑Base Refresh SOP"
-    },
-    {
-      "ts": "2026-06-30T01:30:03.267408+00:00",
-      "agent": "Athena",
-      "ticket": "STORY-200",
-      "event": "build_test",
-      "content": "syntax/compile PASS on faq_to_json.py"
-    },
-    {
-      "ts": "2026-06-30T01:30:03.443312+00:00",
-      "agent": "Nemesis",
-      "ticket": "STORY-200",
-      "event": "build_rejected",
-      "content": "review FAIL: no usable review"
-    },
-    {
-      "ts": "2026-06-30T01:30:04.139052+00:00",
-      "agent": "Nemesis",
-      "ticket": "AUTO-028",
-      "event": "dispatched",
-      "content": "nemesis started work: Data Retention & Deletion Policy for FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T01:30:04.140871+00:00",
-      "agent": "Nemesis",
-      "ticket": "AUTO-028",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T01:30:05.845199+00:00",
-      "agent": "Fortuna",
-      "ticket": "AUTO-025",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-025-deliverable.md (11285b) → in_progress"
-    },
-    {
-      "ts": "2026-06-30T01:30:05.853280+00:00",
-      "agent": "Hermes",
-      "ticket": "AUTO-026",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-026-deliverable.md (11186b) → in_progress"
-    },
-    {
-      "ts": "2026-06-30T01:30:05.855473+00:00",
-      "agent": "Metis",
-      "ticket": "AUTO-027",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-027-deliverable.md (10311b) → in_progress"
-    },
-    {
-      "ts": "2026-06-30T01:30:05.857170+00:00",
-      "agent": "Nemesis",
-      "ticket": "AUTO-028",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (9008b) → in_progress"
-    },
-    {
       "ts": "2026-06-30T01:30:44.003105+00:00",
       "agent": "nemesis",
       "ticket": "STORY-087",
@@ -89,7 +12,7 @@
       "agent": "nemesis",
       "ticket": "STORY-087",
       "event": "validation_fail",
-      "content": "FAIL #1: The deliverable contains a material mathematical error in the net revenue formula: it applies the renewal multiplier (≤1) as a revenue reducer, which incorrectly treats renewal probability as a discount factor rather than a probability of retention, causing the aggregate FY2024 actuals to show $9.8M"
+      "content": "FAIL #1: The deliverable contains a material mathematical error in the net revenue formula: it applies the renewal multiplier (\u22641) as a revenue reducer, which incorrectly treats renewal probability as a discount factor rather than a probability of retention, causing the aggregate FY2024 actuals to show $9.8M"
     },
     {
       "ts": "2026-06-30T01:32:28.815927+00:00",
@@ -152,42 +75,42 @@
       "agent": "Metis",
       "ticket": "AUTO-027",
       "event": "dispatched",
-      "content": "org-excellence started work: Monthly FAQ Knowledge‑Base Refresh SOP"
+      "content": "org-excellence started work: Monthly FAQ Knowledge\u2011Base Refresh SOP"
     },
     {
       "ts": "2026-06-30T01:40:03.815253+00:00",
       "agent": "Metis",
       "ticket": "AUTO-027",
       "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Monthly FAQ Knowledge‑Base Refresh SOP"
+      "content": "[cerebras:gpt-oss-120b] attempting: Monthly FAQ Knowledge\u2011Base Refresh SOP"
     },
     {
       "ts": "2026-06-30T01:40:05.803616+00:00",
       "agent": "Hermes",
       "ticket": "AUTO-026",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-026-deliverable.md (9959b) → in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-026-deliverable.md (9959b) \u2192 in_progress"
     },
     {
       "ts": "2026-06-30T01:40:05.808941+00:00",
       "agent": "Fortuna",
       "ticket": "AUTO-025",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-025-deliverable.md (11067b) → in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-025-deliverable.md (11067b) \u2192 in_progress"
     },
     {
       "ts": "2026-06-30T01:40:05.813973+00:00",
       "agent": "Fortuna",
       "ticket": "STORY-087",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-087-deliverable.md (11791b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-087-deliverable.md (11791b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T01:40:05.818107+00:00",
       "agent": "Metis",
       "ticket": "AUTO-027",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-027-deliverable.md (11014b) → in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-027-deliverable.md (11014b) \u2192 in_progress"
     },
     {
       "ts": "2026-06-30T01:50:02.315896+00:00",
@@ -222,14 +145,14 @@
       "agent": "Metis",
       "ticket": "AUTO-027",
       "event": "dispatched",
-      "content": "org-excellence started work: Monthly FAQ Knowledge‑Base Refresh SOP"
+      "content": "org-excellence started work: Monthly FAQ Knowledge\u2011Base Refresh SOP"
     },
     {
       "ts": "2026-06-30T01:50:02.327264+00:00",
       "agent": "Metis",
       "ticket": "AUTO-027",
       "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Monthly FAQ Knowledge‑Base Refresh SOP"
+      "content": "[cerebras:gpt-oss-120b] attempting: Monthly FAQ Knowledge\u2011Base Refresh SOP"
     },
     {
       "ts": "2026-06-30T01:50:04.251479+00:00",
@@ -250,28 +173,28 @@
       "agent": "Fortuna",
       "ticket": "AUTO-025",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-025-deliverable.md (10610b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-025-deliverable.md (10610b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T01:50:31.563936+00:00",
       "agent": "Hermes",
       "ticket": "AUTO-026",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-026-deliverable.md (9987b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-026-deliverable.md (9987b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T01:50:31.569149+00:00",
       "agent": "Metis",
       "ticket": "AUTO-027",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-027-deliverable.md (12097b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-027-deliverable.md (12097b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T01:50:31.576889+00:00",
       "agent": "Nemesis",
       "ticket": "AUTO-028",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (10899b) → in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (10899b) \u2192 in_progress"
     },
     {
       "ts": "2026-06-30T02:00:01.515831+00:00",
@@ -320,14 +243,14 @@
       "agent": "Nemesis",
       "ticket": "AUTO-028",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (10466b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (10466b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T02:00:03.593931+00:00",
       "agent": "Gladiator",
       "ticket": "STORY-200",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-200-deliverable.md (11771b) → in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-200-deliverable.md (11771b) \u2192 in_progress"
     },
     {
       "ts": "2026-06-30T02:00:03.940162+00:00",
@@ -418,21 +341,21 @@
       "agent": "Nemesis",
       "ticket": "AUTO-028",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (9710b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (9710b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T02:10:05.202928+00:00",
       "agent": "Gladiator",
       "ticket": "STORY-200",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-200-deliverable.md (11524b) → in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-200-deliverable.md (11524b) \u2192 in_progress"
     },
     {
       "ts": "2026-06-30T02:10:05.206071+00:00",
       "agent": "Fortuna",
       "ticket": "STORY-089",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-089-deliverable.md (13049b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-089-deliverable.md (13049b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T02:20:01.724139+00:00",
@@ -453,7 +376,7 @@
       "agent": "Gladiator",
       "ticket": "STORY-200",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-200-deliverable.md (12967b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-200-deliverable.md (12967b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T02:30:01.385693+00:00",
@@ -516,14 +439,14 @@
       "agent": "Hades",
       "ticket": "AUTO-031",
       "event": "dispatched",
-      "content": "security started work: Data‑Handling Security Checklist for AI FAQ Receptionist Dep"
+      "content": "security started work: Data\u2011Handling Security Checklist for AI FAQ Receptionist Dep"
     },
     {
       "ts": "2026-06-30T02:50:01.999544+00:00",
       "agent": "Hades",
       "ticket": "AUTO-031",
       "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data‑Handling Security Checklist for AI FAQ Receptionist Dep"
+      "content": "[cerebras:gpt-oss-120b] attempting: Data\u2011Handling Security Checklist for AI FAQ Receptionist Dep"
     },
     {
       "ts": "2026-06-30T02:50:03.801970+00:00",
@@ -544,28 +467,28 @@
       "agent": "Hades",
       "ticket": "AUTO-031",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-031-deliverable.md (7965b) → in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-031-deliverable.md (7965b) \u2192 in_progress"
     },
     {
       "ts": "2026-06-30T02:50:05.637794+00:00",
       "agent": "Minerva",
       "ticket": "AUTO-029",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-029-deliverable.md (11029b) → in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-029-deliverable.md (11029b) \u2192 in_progress"
     },
     {
       "ts": "2026-06-30T02:50:05.641451+00:00",
       "agent": "Fortuna",
       "ticket": "AUTO-030",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-030-deliverable.md (10225b) → in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-030-deliverable.md (10225b) \u2192 in_progress"
     },
     {
       "ts": "2026-06-30T02:50:05.650326+00:00",
       "agent": "Iris",
       "ticket": "AUTO-032",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-032-deliverable.md (9331b) → in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-032-deliverable.md (9331b) \u2192 in_progress"
     },
     {
       "ts": "2026-06-30T03:00:02.091670+00:00",
@@ -593,7 +516,7 @@
       "agent": "Hades",
       "ticket": "AUTO-031",
       "event": "dispatched",
-      "content": "security started work: Data‑Handling Security Checklist for AI FAQ Receptionist Dep"
+      "content": "security started work: Data\u2011Handling Security Checklist for AI FAQ Receptionist Dep"
     },
     {
       "ts": "2026-06-30T03:00:02.354922+00:00",
@@ -614,7 +537,7 @@
       "agent": "Hades",
       "ticket": "AUTO-031",
       "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data‑Handling Security Checklist for AI FAQ Receptionist Dep"
+      "content": "[cerebras:gpt-oss-120b] attempting: Data\u2011Handling Security Checklist for AI FAQ Receptionist Dep"
     },
     {
       "ts": "2026-06-30T03:00:03.115613+00:00",
@@ -649,28 +572,28 @@
       "agent": "Minerva",
       "ticket": "AUTO-029",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-029-deliverable.md (10437b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-029-deliverable.md (10437b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T03:02:19.358650+00:00",
       "agent": "Hades",
       "ticket": "AUTO-031",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-031-deliverable.md (8104b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-031-deliverable.md (8104b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T03:02:19.359999+00:00",
       "agent": "Iris",
       "ticket": "AUTO-032",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-032-deliverable.md (9669b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-032-deliverable.md (9669b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T03:02:19.361355+00:00",
       "agent": "Fortuna",
       "ticket": "AUTO-030",
       "event": "delivered",
-      "content": "[claude:owl-alpha] Produced AUTO-030-deliverable.md (7919b) → in_validation"
+      "content": "[claude:owl-alpha] Produced AUTO-030-deliverable.md (7919b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T03:06:46.807042+00:00",
@@ -810,7 +733,7 @@
       "agent": "nemesis",
       "ticket": "AUTO-002",
       "event": "validation_fail",
-      "content": "FAIL #1: The deliverable file AUTO-002-deliverable.md does not exist in the workspace — no artifact was produced, so there is nothing to review as complete work."
+      "content": "FAIL #1: The deliverable file AUTO-002-deliverable.md does not exist in the workspace \u2014 no artifact was produced, so there is nothing to review as complete work."
     },
     {
       "ts": "2026-06-30T03:19:38.455392+00:00",
@@ -985,28 +908,28 @@
       "agent": "Hades",
       "ticket": "AUTO-004",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-004-deliverable.md (13262b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-004-deliverable.md (13262b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T03:23:06.884983+00:00",
       "agent": "Hermes",
       "ticket": "AUTO-002",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-002-deliverable.md (14892b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-002-deliverable.md (14892b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T03:23:06.886995+00:00",
       "agent": "Prometheus",
       "ticket": "STORY-090",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-090-deliverable.md (15939b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-090-deliverable.md (15939b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T03:23:06.889419+00:00",
       "agent": "Thor",
       "ticket": "AUTO-003",
       "event": "delivered",
-      "content": "[claude:owl-alpha] Produced AUTO-003-deliverable.md (12943b) → in_validation"
+      "content": "[claude:owl-alpha] Produced AUTO-003-deliverable.md (12943b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T03:23:43.429669+00:00",
@@ -1027,7 +950,7 @@
       "agent": "nemesis",
       "ticket": "AUTO-005",
       "event": "validation_fail",
-      "content": "FAIL #1: The deliverable file AUTO-005-deliverable.md does not exist in the work directory — no artifact was written to disk, so there is nothing to review. Additionally, the inline content contains an internal math inconsistency: the §5.1 revenue table implies ~300k interactions/customer while the stated as"
+      "content": "FAIL #1: The deliverable file AUTO-005-deliverable.md does not exist in the work directory \u2014 no artifact was written to disk, so there is nothing to review. Additionally, the inline content contains an internal math inconsistency: the \u00a75.1 revenue table implies ~300k interactions/customer while the stated as"
     },
     {
       "ts": "2026-06-30T03:24:06.469156+00:00",
@@ -1048,7 +971,7 @@
       "agent": "nemesis",
       "ticket": "AUTO-009",
       "event": "validation_pass",
-      "content": "PASS: The deliverable is a complete, detailed 15-minute demo script with timed sections (totaling exactly 15:00), talking points, UI actions, scripted dialogue, anticipated Q&A with answers, and appendix materials — fully satisfying all ticket requirements."
+      "content": "PASS: The deliverable is a complete, detailed 15-minute demo script with timed sections (totaling exactly 15:00), talking points, UI actions, scripted dialogue, anticipated Q&A with answers, and appendix materials \u2014 fully satisfying all ticket requirements."
     },
     {
       "ts": "2026-06-30T03:24:06.484389+00:00",
@@ -1062,7 +985,7 @@
       "agent": "nemesis",
       "ticket": "AUTO-005",
       "event": "validation_fail",
-      "content": "FAIL #1: The deliverable file AUTO-005-deliverable.md does not exist in the work directory — no artifact was written to disk, so there is nothing to review. Additionally, the inline content contains an internal math inconsistency: the §5.1 revenue table implies ~300k interactions/customer while the stated as"
+      "content": "FAIL #1: The deliverable file AUTO-005-deliverable.md does not exist in the work directory \u2014 no artifact was written to disk, so there is nothing to review. Additionally, the inline content contains an internal math inconsistency: the \u00a75.1 revenue table implies ~300k interactions/customer while the stated as"
     },
     {
       "ts": "2026-06-30T03:25:32.572420+00:00",
@@ -1139,28 +1062,28 @@
       "agent": "Thor",
       "ticket": "AUTO-003",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-003-deliverable.md (14459b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-003-deliverable.md (14459b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T03:30:05.945069+00:00",
       "agent": "Hades",
       "ticket": "AUTO-004",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-004-deliverable.md (13063b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-004-deliverable.md (13063b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T03:30:05.946229+00:00",
       "agent": "Hermes",
       "ticket": "AUTO-002",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-002-deliverable.md (13031b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-002-deliverable.md (13031b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T03:30:05.947697+00:00",
       "agent": "Fortuna",
       "ticket": "AUTO-005",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-005-deliverable.md (9202b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-005-deliverable.md (9202b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T03:40:01.395172+00:00",
@@ -1195,7 +1118,7 @@
       "agent": "Prometheus",
       "ticket": "STORY-090",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-090-deliverable.md (12898b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-090-deliverable.md (12898b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T03:40:06.997221+00:00",
@@ -1237,7 +1160,7 @@
       "agent": "nemesis",
       "ticket": "AUTO-003",
       "event": "validation_parked",
-      "content": "Parked after 2 fails: The deploy.sh and rollback.sh scripts use a quoted heredoc ('EOF') which suppresses variable expansion, so ${IMAGE_NAME}, ${IMAGE_TAG}, and ${ENVIRONMENT} are sent as literals to the remote VM where they are undefined — docker pull/run would target an empty tag. Additionally, the rollback job refere"
+      "content": "Parked after 2 fails: The deploy.sh and rollback.sh scripts use a quoted heredoc ('EOF') which suppresses variable expansion, so ${IMAGE_NAME}, ${IMAGE_TAG}, and ${ENVIRONMENT} are sent as literals to the remote VM where they are undefined \u2014 docker pull/run would target an empty tag. Additionally, the rollback job refere"
     },
     {
       "ts": "2026-06-30T03:43:11.127700+00:00",
@@ -1265,7 +1188,7 @@
       "agent": "Prometheus",
       "ticket": "STORY-090",
       "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-090-deliverable.md (10637b) → in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-090-deliverable.md (10637b) \u2192 in_validation"
     },
     {
       "ts": "2026-06-30T04:00:01.152904+00:00",
@@ -1321,7 +1244,7 @@
       "agent": "nemesis",
       "ticket": "STORY-090",
       "event": "validation_parked",
-      "content": "Parked after 2 fails: The deliverable is a design document with illustrative code sketches, not a completed implementation — no actual trained model artifact (model.pkl) or feature spec (features.json) is produced, and the claimed experimental results ($1.32M MAE, 4.7% MAPE) are stated without evidence that the code was "
+      "content": "Parked after 2 fails: The deliverable is a design document with illustrative code sketches, not a completed implementation \u2014 no actual trained model artifact (model.pkl) or feature spec (features.json) is produced, and the claimed experimental results ($1.32M MAE, 4.7% MAPE) are stated without evidence that the code was "
     },
     {
       "ts": "2026-06-30T04:02:39.081212+00:00",
@@ -1391,7 +1314,7 @@
       "agent": "nemesis",
       "ticket": "AUTO-012",
       "event": "validation_pass",
-      "content": "PASS: The deliverable is a thorough, well-structured data-privacy checklist covering all required areas (user consent, data retention, GDPR compliance, anonymization) with specific implementation details, artifact references, and actionable owners/timelines—not a stub or placeholder."
+      "content": "PASS: The deliverable is a thorough, well-structured data-privacy checklist covering all required areas (user consent, data retention, GDPR compliance, anonymization) with specific implementation details, artifact references, and actionable owners/timelines\u2014not a stub or placeholder."
     },
     {
       "ts": "2026-06-30T04:30:00.474669+00:00",
@@ -1399,7 +1322,84 @@
       "ticket": "STORY-090",
       "event": "started",
       "status": "in_progress"
+    },
+    {
+      "ts": "2026-06-30T04:40:01.448744+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-267",
+      "event": "validating",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:40:01.452599+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-087",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:40:27.918680+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-089",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:41:08.619076+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-011",
+      "event": "validating",
+      "content": "[claude] Independently reviewing data-engineer's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:41:50.036587+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-013",
+      "event": "validating",
+      "content": "[claude] Independently reviewing tom's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:42:05.843193+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-014",
+      "event": "validating",
+      "content": "[claude] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:42:37.262102+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-267",
+      "event": "validation_parked",
+      "content": "Parked after 4 no-verdict attempts"
+    },
+    {
+      "ts": "2026-06-30T04:42:37.264267+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-087",
+      "event": "validation_parked",
+      "content": "Parked after 4 no-verdict attempts"
+    },
+    {
+      "ts": "2026-06-30T04:42:37.265555+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-089",
+      "event": "validation_parked",
+      "content": "Parked after 4 no-verdict attempts"
+    },
+    {
+      "ts": "2026-06-30T04:42:37.266914+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-013",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, self-contained HTML file with inline CSS and full persuasive copy covering all four required sections (Hero, Features, Pricing, CTA), targeting decision-makers with concrete metrics, tiered pricing, and a clear trial CTA \u2014 ready to open in a browser or hand off for CMS"
+    },
+    {
+      "ts": "2026-06-30T04:42:37.268375+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-014",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable fully satisfies the ticket: it researches the top 5 AI-FAQ competitors (OpenAI ChatGPT, Google Dialogflow CX, Microsoft Azure QnA Maker, IBM Watson Assistant, Zendesk Answer Bot), compiles a detailed side-by-side pricing matrix with per-request costs and free-tier information, and pr"
     }
   ],
-  "lastUpdated": "2026-06-30T04:21:42.438786+00:00"
+  "lastUpdated": "2026-06-30T04:42:37.268377+00:00"
 }

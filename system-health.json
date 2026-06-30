@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-30T04:30:01.668441+00:00",
+  "generatedAt": "2026-06-30T04:40:01.435409+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 1,
+  "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 8.3,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1090.0,
-    "backup": 30.0,
+    "guard": 1100.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
@@ -33,6 +33,20 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T04:40:01.452599+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-087",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:40:01.448744+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-267",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
     {
       "ts": "2026-06-30T04:30:00.474669+00:00",
       "agent": "Prometheus",
@@ -102,20 +116,6 @@
       "event": "validation_pass",
       "ticket": "AUTO-009",
       "content": "PASS: The deliverable is a fully fleshed-out 15-minute demo script with timed sections (totaling exactly 15:00), explici"
-    },
-    {
-      "ts": "2026-06-30T04:02:39.081212+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-005",
-      "content": "PASS: The deliverable is a complete, well-structured pricing sheet with a Free/Pro/Enterprise tiered model, feature matr"
-    },
-    {
-      "ts": "2026-06-30T04:02:39.079757+00:00",
-      "agent": "nemesis",
-      "event": "validation_parked",
-      "ticket": "STORY-090",
-      "content": "Parked after 2 fails: The deliverable is a design document with illustrative code sketches, not a completed implementati"
     }
   ],
   "problems": {}
