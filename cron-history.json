@@ -1,6 +1,27 @@
 {
-  "updated": "2026-06-30T20:00:05.307238+00:00",
+  "updated": "2026-06-30T20:10:03.411835+00:00",
   "events": [
+    {
+      "ts": "2026-06-30T20:10:03.411835+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-069: openclaw run timed out"
+    },
+    {
+      "ts": "2026-06-30T20:10:03.411835+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[validate]     AUTO-071: no usable verdict #1 (model unavailable?) \u2014 staying in_validation, retry next run"
+    },
+    {
+      "ts": "2026-06-30T20:10:03.411835+00:00",
+      "job": "generate-work",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[gen] groq error: HTTP Error 429: Too Many Requests \u2014 trying next engine"
+    },
     {
       "ts": "2026-06-30T20:00:05.307238+00:00",
       "job": "real-work-executor",
@@ -1729,27 +1750,6 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "1d ago"
-    },
-    {
-      "ts": "2026-06-29T17:30:01.756148+00:00",
-      "job": "Weekly Plan Review (Mon)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1d ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-29T17:00:02.422578+00:00",
-      "job": "Weekly Planning (Mon)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1d ago"
-    },
-    {
-      "ts": "2026-06-29T17:00:02.422578+00:00",
-      "job": "Weekly Plan Review (Mon)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1d ago \u00b7 groq/meta-llama/l..."
     }
   ]
 }
