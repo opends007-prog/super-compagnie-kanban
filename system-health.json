@@ -1,30 +1,31 @@
 {
-  "generatedAt": "2026-06-30T14:40:01.725421+00:00",
+  "generatedAt": "2026-06-30T14:50:02.078212+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 18.4,
+    "work-executor": 10.0,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 1700.0,
-    "backup": 10.0,
+    "guard": 1710.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 87,
     "backlog": 6,
-    "in_progress": 14,
-    "planned": 4
+    "in_progress": 13,
+    "planned": 4,
+    "in_validation": 1
   },
   "tickets_total": 111,
   "done_today": 54,
-  "delivered_today": 42,
-  "delivered_week": 42,
+  "delivered_today": 43,
+  "delivered_week": 43,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 35,
+    "cerebras:gpt-oss-120b": 36,
     "claude:owl-alpha": 3,
     "openclaw": 4
   },
@@ -33,6 +34,27 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T14:40:04.436268+00:00",
+      "agent": "Thor",
+      "event": "delivered",
+      "ticket": "STORY-202",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-202-deliverable.md (14933b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T14:40:01.881275+00:00",
+      "agent": "Thor",
+      "event": "working",
+      "ticket": "STORY-202",
+      "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] openclaw-gateway.service keeps crashing"
+    },
+    {
+      "ts": "2026-06-30T14:40:01.877145+00:00",
+      "agent": "Thor",
+      "event": "dispatched",
+      "ticket": "STORY-202",
+      "content": "devops started work: [self-heal] openclaw-gateway.service keeps crashing"
+    },
     {
       "ts": "2026-06-30T14:30:06.237579+00:00",
       "agent": "Thor",
@@ -95,27 +117,6 @@
       "event": "delivered",
       "ticket": "STORY-203",
       "content": "[cerebras:gpt-oss-120b] Produced STORY-203-deliverable.md (13418b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T14:10:13.719269+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "STORY-202",
-      "content": "[openclaw] attempting: [self-heal] openclaw-gateway.service keeps crashing"
-    },
-    {
-      "ts": "2026-06-30T14:10:02.312627+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "STORY-202",
-      "content": "[claude:owl-alpha] attempting: [self-heal] openclaw-gateway.service keeps crashing"
-    },
-    {
-      "ts": "2026-06-30T14:10:01.908175+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "STORY-203",
-      "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] Lucy 8 AM Morning Mot... failing"
     }
   ],
   "problems": {}
