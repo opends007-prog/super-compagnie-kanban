@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-06-30T10:30:02.725084+00:00",
+  "generatedAt": "2026-06-30T10:40:02.321533+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.0,
-    "validator": 10.0,
+    "work-executor": 9.9,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1450.0,
-    "backup": 30.0,
-    "site-sync": 5.0
+    "guard": 1460.0,
+    "backup": 10.0,
+    "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 69,
     "backlog": 6,
-    "in_progress": 14,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 3
+    "in_validation": 4
   },
   "tickets_total": 96,
   "done_today": 36,
-  "delivered_today": 30,
-  "delivered_week": 30,
+  "delivered_today": 31,
+  "delivered_week": 31,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 27,
+    "cerebras:gpt-oss-120b": 28,
     "openclaw": 2,
     "claude:owl-alpha": 1
   },
@@ -33,9 +33,45 @@
     "Fortuna",
     "Hermes",
     "Metis",
-    "Minerva"
+    "Minerva",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T10:40:02.390272+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-041",
+      "content": "[claude] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T10:40:02.373219+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-042",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T10:30:06.117118+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-042",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-042-deliverable.md (6359b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T10:30:03.450619+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-042",
+      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T10:30:03.435309+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-042",
+      "content": "income started work: Cold Outreach Email Templates for AI FAQ Receptionist"
+    },
     {
       "ts": "2026-06-30T10:25:03.235900+00:00",
       "agent": "Fortuna",
@@ -84,41 +120,6 @@
       "event": "dispatched",
       "ticket": "AUTO-044",
       "content": "org-excellence started work: Objection-Handling Guide for AI FAQ Receptionist Sales"
-    },
-    {
-      "ts": "2026-06-30T10:20:02.003931+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-042",
-      "content": "[claude:owl-alpha] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T10:20:01.730867+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-042",
-      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T10:20:01.729374+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-043",
-      "content": "[cerebras:gpt-oss-120b] attempting: Industry Pain Points Report for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T10:20:01.727905+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-042",
-      "content": "income started work: Cold Outreach Email Templates for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T10:20:01.721990+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "AUTO-043",
-      "content": "business-analyst started work: Industry Pain Points Report for AI FAQ Receptionist"
     }
   ],
   "problems": {}
