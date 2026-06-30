@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T06:40:01.792891+00:00",
+  "generated": "2026-06-30T06:50:02.012078+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -415,11 +415,6 @@
       "agent": "Claude",
       "status": "planned",
       "events": [
-        {
-          "ts": "2026-06-30T03:00:02.091670+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing claude's deliverable"
-        },
         {
           "ts": "2026-06-30T03:08:39.240303+00:00",
           "event": "validating",
@@ -1314,6 +1309,11 @@
           "ts": "2026-06-30T06:20:02.233175+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing finance's deliverable"
+        },
+        {
+          "ts": "2026-06-30T06:40:01.847651+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing finance's deliverable"
         }
       ],
       "deliverable": {
@@ -1705,11 +1705,6 @@
       "status": "done",
       "events": [
         {
-          "ts": "2026-06-30T03:00:02.345846+00:00",
-          "event": "dispatched",
-          "content": "analyst started work: Financial Services FAQ Knowledge Base (Sample)"
-        },
-        {
           "ts": "2026-06-30T03:00:02.347903+00:00",
           "event": "working",
           "content": "[cerebras:gpt-oss-120b] attempting: Financial Services FAQ Knowledge Base (Sample)"
@@ -1815,13 +1810,8 @@
     },
     "AUTO-032": {
       "agent": "Iris",
-      "status": "in_validation",
+      "status": "done",
       "events": [
-        {
-          "ts": "2026-06-30T02:50:05.650326+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-032-deliverable.md (9331b) \u2192 in_progress"
-        },
         {
           "ts": "2026-06-30T03:00:04.595983+00:00",
           "event": "dispatched",
@@ -1841,6 +1831,16 @@
           "ts": "2026-06-30T06:22:07.058021+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing pm's deliverable"
+        },
+        {
+          "ts": "2026-06-30T06:40:01.828481+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing pm's deliverable"
+        },
+        {
+          "ts": "2026-06-30T06:40:35.475770+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable contains 10 fully described frames with timestamps, visual sketches, narration cues, and on-screen text across a 75-second video, meeting all core requirements. Minor issues exist (blank sign-off signatures are a future dependency; Frame 4's visual sketch column contains narration te"
         }
       ],
       "deliverable": {
@@ -1852,16 +1852,10 @@
   },
   "active": [
     {
-      "agent": "Nemesis",
-      "ticket": "AUTO-028",
-      "event": "delivered",
-      "ts": "2026-06-30T06:10:03.654325+00:00"
-    },
-    {
       "agent": "nemesis",
-      "ticket": "AUTO-031",
+      "ticket": "AUTO-032",
       "event": "validation_pass",
-      "ts": "2026-06-30T06:22:53.509702+00:00"
+      "ts": "2026-06-30T06:40:35.475770+00:00"
     },
     {
       "agent": "qa",

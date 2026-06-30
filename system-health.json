@@ -1,27 +1,27 @@
 {
-  "generatedAt": "2026-06-30T06:40:01.803441+00:00",
+  "generatedAt": "2026-06-30T06:50:02.023635+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
+    "validator": 9.4,
     "observability": 10.0,
-    "guard": 1220.0,
-    "backup": 10.0,
+    "guard": 1230.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 61,
+    "done": 62,
     "backlog": 4,
     "in_progress": 13,
     "planned": 4,
-    "in_validation": 2
+    "in_validation": 1
   },
   "tickets_total": 84,
-  "done_today": 28,
+  "done_today": 29,
   "delivered_today": 19,
   "delivered_week": 19,
   "model_mix_week": {
@@ -29,11 +29,17 @@
     "claude:owl-alpha": 2
   },
   "live_agents": [
-    "Nemesis",
     "nemesis",
     "qa"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T06:40:35.475770+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-032",
+      "content": "PASS: The deliverable contains 10 fully described frames with timestamps, visual sketches, narration cues, and on-screen"
+    },
     {
       "ts": "2026-06-30T06:40:01.847651+00:00",
       "agent": "nemesis",
@@ -110,13 +116,6 @@
       "event": "validating",
       "ticket": "AUTO-028",
       "content": "[claude] Independently reviewing nemesis's deliverable"
-    },
-    {
-      "ts": "2026-06-30T06:20:02.233175+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-016",
-      "content": "[claude] Independently reviewing finance's deliverable"
     }
   ],
   "problems": {}
