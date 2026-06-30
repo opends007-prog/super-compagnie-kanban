@@ -6235,7 +6235,7 @@
       "description": "Create a one\u2011page pricing sheet with three tiered plans (Basic, Pro, Enterprise) that outlines price points, feature sets, and payment terms. Deliverable: a PDF ready for sales outreach and website copy.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Fortuna",
       "team": "any",
       "epicId": "EPIC-002",
@@ -6243,7 +6243,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T13:20:06.033795+00:00",
-      "updatedAt": "2026-06-30T13:34:55.319801+00:00",
+      "updatedAt": "2026-06-30T13:54:49.845148+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -6256,6 +6256,11 @@
           "by": "Fortuna",
           "timestamp": "2026-06-30T13:34:55.319801+00:00",
           "text": "Delivered work/AUTO-053-deliverable.md (5961 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
+        },
+        {
+          "by": "Fortuna",
+          "timestamp": "2026-06-30T13:54:49.845148+00:00",
+          "text": "Delivered work/AUTO-053-deliverable.md (5742 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ]
     },
@@ -6335,7 +6340,7 @@
       "description": "Draft a compliance checklist covering GDPR, CCPA, and industry\u2011specific data\u2011privacy requirements for the FAQ service. Deliverable: a checklist document (PDF) that the sales and engineering teams can use to verify readiness before a contract.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Nemesis",
       "team": "any",
       "epicId": "EPIC-010",
@@ -6343,7 +6348,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T13:20:06.033795+00:00",
-      "updatedAt": "2026-06-30T13:34:55.327829+00:00",
+      "updatedAt": "2026-06-30T13:54:50.476208+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -6356,6 +6361,11 @@
           "by": "Nemesis",
           "timestamp": "2026-06-30T13:34:55.327829+00:00",
           "text": "Delivered work/AUTO-056-deliverable.md (5520 bytes) via openclaw \u2014 advanced to in_progress."
+        },
+        {
+          "by": "Nemesis",
+          "timestamp": "2026-06-30T13:54:50.476208+00:00",
+          "text": "Delivered work/AUTO-056-deliverable.md (7783 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ]
     },
@@ -6383,20 +6393,50 @@
           "text": "Ticket created via request 9883a3f8"
         }
       ]
+    },
+    {
+      "id": "STORY-203",
+      "title": "[self-heal] Lucy 8 AM Morning Mot... failing",
+      "status": "in_progress",
+      "priority": "high",
+      "team": "any",
+      "assigned_to": "Thor",
+      "estimatedStartDate": null,
+      "progress": 0,
+      "description": "Recurring failure detected by self-heal in 'Lucy 8 AM Morning Mot...':\n\n2h ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed.\n\nInvestigate and fix; this was auto-filed from the cron history.",
+      "severity": "high",
+      "category": "bug",
+      "lane": null,
+      "filename": null,
+      "validation_fails": 0,
+      "epicId": null,
+      "createdAt": "2026-06-30T13:50:02.173394+00:00",
+      "updatedAt": "2026-06-30T13:54:50.439644+00:00",
+      "comments": [
+        {
+          "by": "self-heal",
+          "text": "Ticket created via request 12e3097d"
+        },
+        {
+          "by": "Thor",
+          "timestamp": "2026-06-30T13:54:50.439644+00:00",
+          "text": "Delivered work/STORY-203-deliverable.md (11234 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
+        }
+      ]
     }
   ],
   "stats": {
-    "totalTickets": 110,
+    "totalTickets": 111,
     "totalEpics": 14,
-    "backlog": 7,
-    "in_progress": 17,
+    "backlog": 8,
+    "in_progress": 15,
     "waiting": 0,
-    "in_validation": 0,
+    "in_validation": 2,
     "done": 82,
     "critical": 0,
     "blocked": 0,
     "review": 0,
-    "last_progress_update": "2026-06-30T13:35:02.353551+00:00",
+    "last_progress_update": "2026-06-30T13:50:02.174005+00:00",
     "planned": 4
   },
   "last_progress_update": "2026-06-22T16:30:02.987211"
