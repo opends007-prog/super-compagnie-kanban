@@ -1,119 +1,123 @@
 {
-  "generatedAt": "2026-06-30T10:10:02.148095+00:00",
+  "generatedAt": "2026-06-30T10:20:01.581357+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 10.0,
+    "work-executor": 8.3,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1430.0,
-    "backup": 10.0,
+    "guard": 1440.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 69,
-    "backlog": 10,
-    "in_progress": 13,
+    "backlog": 6,
+    "in_progress": 17,
     "planned": 4
   },
   "tickets_total": 96,
   "done_today": 36,
-  "delivered_today": 25,
-  "delivered_week": 25,
+  "delivered_today": 27,
+  "delivered_week": 27,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 23,
-    "openclaw": 2
+    "cerebras:gpt-oss-120b": 24,
+    "openclaw": 2,
+    "claude:owl-alpha": 1
   },
   "live_agents": [
-    "nemesis"
+    "Fortuna",
+    "Hermes",
+    "Metis",
+    "Minerva"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T09:41:09.282757+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-040",
-      "content": "PASS: The deliverable is a complete markdown checklist covering all ticket requirements\u2014VM baseline prerequisites, syste"
+      "ts": "2026-06-30T10:11:46.307415+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-044",
+      "content": "[claude:owl-alpha] Produced AUTO-044-deliverable.md (10271b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-30T09:41:09.279301+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-039",
-      "content": "PASS: The deliverable provides three complete, copy-paste-ready emails with subject lines, full body copy, and objection"
-    },
-    {
-      "ts": "2026-06-30T09:41:09.276981+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-038",
-      "content": "PASS: The deliverable is a complete, on-topic one-page markdown brief that identifies an outpatient clinic scenario, des"
-    },
-    {
-      "ts": "2026-06-30T09:41:09.274052+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-037",
-      "content": "PASS: The deliverable is a complete, substantive one-page sales pitch that covers all required sections\u2014headline, proble"
-    },
-    {
-      "ts": "2026-06-30T09:40:33.655222+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-040",
-      "content": "[claude] Independently reviewing devops's deliverable"
-    },
-    {
-      "ts": "2026-06-30T09:40:20.916716+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-039",
-      "content": "[claude] Independently reviewing pm's deliverable"
-    },
-    {
-      "ts": "2026-06-30T09:40:02.582207+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-038",
-      "content": "[claude] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T09:40:02.574844+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-037",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T09:26:06.036235+00:00",
+      "ts": "2026-06-30T10:11:46.306036+00:00",
       "agent": "Minerva",
       "event": "delivered",
-      "ticket": "AUTO-038",
-      "content": "[openclaw] Produced AUTO-038-deliverable.md (4730b) \u2192 in_validation"
+      "ticket": "AUTO-041",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-041-deliverable.md (15011b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-30T09:26:06.034800+00:00",
-      "agent": "Iris",
+      "ts": "2026-06-30T10:11:46.304338+00:00",
+      "agent": "Hermes",
       "event": "delivered",
-      "ticket": "AUTO-039",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-039-deliverable.md (6680b) \u2192 in_validation"
+      "ticket": "AUTO-043",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-043-deliverable.md (11621b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-30T09:26:06.030918+00:00",
-      "agent": "Thor",
-      "event": "delivered",
-      "ticket": "AUTO-040",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-040-deliverable.md (15244b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T09:26:06.027609+00:00",
+      "ts": "2026-06-30T10:11:46.301991+00:00",
       "agent": "Fortuna",
       "event": "delivered",
-      "ticket": "AUTO-037",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-037-deliverable.md (4112b) \u2192 in_validation"
+      "ticket": "AUTO-042",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-042-deliverable.md (6969b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T10:10:04.143566+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-044",
+      "content": "[claude:owl-alpha] attempting: Objection-Handling Guide for AI FAQ Receptionist Sales"
+    },
+    {
+      "ts": "2026-06-30T10:10:03.978891+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-044",
+      "content": "[cerebras:gpt-oss-120b] attempting: Objection-Handling Guide for AI FAQ Receptionist Sales"
+    },
+    {
+      "ts": "2026-06-30T10:10:03.970999+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-044",
+      "content": "org-excellence started work: Objection-Handling Guide for AI FAQ Receptionist Sales"
+    },
+    {
+      "ts": "2026-06-30T10:10:02.484366+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-041",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-06-30T10:10:02.481349+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-042",
+      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T10:10:02.477434+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-043",
+      "content": "[cerebras:gpt-oss-120b] attempting: Industry Pain Points Report for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T10:10:02.470496+00:00",
+      "agent": "Hermes",
+      "event": "dispatched",
+      "ticket": "AUTO-043",
+      "content": "business-analyst started work: Industry Pain Points Report for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T10:10:02.465094+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-042",
+      "content": "income started work: Cold Outreach Email Templates for AI FAQ Receptionist"
     }
   ],
   "problems": {}
