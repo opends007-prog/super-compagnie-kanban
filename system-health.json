@@ -1,30 +1,31 @@
 {
-  "generatedAt": "2026-06-30T11:50:01.443602+00:00",
+  "generatedAt": "2026-06-30T12:00:02.581441+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 9.0,
+    "validator": 19.0,
     "observability": 10.0,
-    "guard": 1530.0,
-    "backup": 19.9,
+    "guard": 1540.0,
+    "backup": 29.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 76,
     "backlog": 6,
-    "in_progress": 14,
-    "planned": 4
+    "in_progress": 13,
+    "planned": 4,
+    "in_validation": 1
   },
   "tickets_total": 100,
   "done_today": 43,
-  "delivered_today": 37,
-  "delivered_week": 37,
+  "delivered_today": 38,
+  "delivered_week": 38,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 30,
+    "cerebras:gpt-oss-120b": 31,
     "openclaw": 4,
     "claude:owl-alpha": 3
   },
@@ -36,6 +37,27 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T11:50:03.848377+00:00",
+      "agent": "Iris",
+      "event": "delivered",
+      "ticket": "AUTO-046",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-046-deliverable.md (7436b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T11:50:01.917824+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "AUTO-046",
+      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T11:50:01.914184+00:00",
+      "agent": "Iris",
+      "event": "dispatched",
+      "ticket": "AUTO-046",
+      "content": "pm started work: Cold Outreach Email Templates for AI FAQ Receptionist"
+    },
     {
       "ts": "2026-06-30T11:41:00.485112+00:00",
       "agent": "nemesis",
@@ -98,27 +120,6 @@
       "event": "delivered",
       "ticket": "AUTO-048",
       "content": "[openclaw] Produced AUTO-048-deliverable.md (7132b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T11:35:59.356944+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "AUTO-046",
-      "content": "[openclaw] Produced AUTO-046-deliverable.md (3500b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T11:35:59.352830+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-045",
-      "content": "[claude:owl-alpha] Produced AUTO-045-deliverable.md (9278b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T11:35:59.340058+00:00",
-      "agent": "Thor",
-      "event": "delivered",
-      "ticket": "AUTO-047",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-047-deliverable.md (9443b) \u2192 in_validation"
     }
   ],
   "problems": {}
