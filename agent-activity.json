@@ -1,90 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-29T21:31:25.688952+00:00",
-      "agent": "Fortuna",
-      "ticket": "AUTO-009",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-009-deliverable.md (9621b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-29T21:31:25.690998+00:00",
-      "agent": "Vulcan",
-      "ticket": "AUTO-011",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-011-deliverable.md (13946b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-29T21:31:25.692427+00:00",
-      "agent": "Hades",
-      "ticket": "AUTO-012",
-      "event": "delivered",
-      "content": "[claude:owl-alpha] Produced AUTO-012-deliverable.md (7356b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-29T21:31:39.125756+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-084",
-      "event": "validating",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T21:33:52.598165+00:00",
-      "agent": "Gladiator",
-      "ticket": "BUILD-001",
-      "event": "building",
-      "content": "proposing BUILD-001/slugify.py"
-    },
-    {
-      "ts": "2026-06-29T21:33:53.825567+00:00",
-      "agent": "Athena",
-      "ticket": "BUILD-001",
-      "event": "build_test",
-      "content": "syntax/compile PASS on slugify.py"
-    },
-    {
-      "ts": "2026-06-29T21:34:06.267981+00:00",
-      "agent": "Nemesis",
-      "ticket": "BUILD-001",
-      "event": "build_merged",
-      "content": "Merged BUILD-001/slugify.py \u2014 The module fulfills the ticket requirements, correctly handling case, whitespace, accents, punctuation, hyphen collapsing, and includes inline tests without evident bugs."
-    },
-    {
-      "ts": "2026-06-29T21:34:35.202371+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-084",
-      "event": "validation_fail",
-      "content": "FAIL #1: The test suite is functionally broken: test_concurrent_auth guarantees an AssertionError (slices a 5-entry fixture to [:10] then asserts len==10, so it has never passed green); test_auth_network_timeout sabotages other tests via mid-suite 'docker compose stop'; test_webhook_replay never counts settl"
-    },
-    {
-      "ts": "2026-06-29T21:34:35.205088+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-086",
-      "event": "validating",
-      "content": "[claude] Independently reviewing business-analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-29T21:35:29.831009+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-086",
-      "event": "validation_fail",
-      "content": "FAIL #1: The cost analysis is fabricated and internally inconsistent: Stripe's estimated annual cost of $1.02M is roughly 4x the correct value (~$274k at 2.9%+$0.30 on 150k\u00d7$50), and the WTP table lists Adyen ($0.96M) as meeting the Low WTP tier (\u2264$0.95M), which is false. Quantitative data and references app"
-    },
-    {
-      "ts": "2026-06-29T21:40:02.283447+00:00",
-      "agent": "Athena",
-      "ticket": "STORY-084",
-      "event": "dispatched",
-      "content": "qa started work: Integrate payment gateway testing"
-    },
-    {
-      "ts": "2026-06-29T21:40:02.284805+00:00",
-      "agent": "Athena",
-      "ticket": "STORY-084",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Integrate payment gateway testing"
-    },
-    {
       "ts": "2026-06-29T21:40:02.286313+00:00",
       "agent": "Hermes",
       "ticket": "STORY-086",
@@ -1399,7 +1315,91 @@
       "ticket": "AUTO-027",
       "event": "delivered",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-027-deliverable.md (11014b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T01:50:02.315896+00:00",
+      "agent": "Fortuna",
+      "ticket": "AUTO-025",
+      "event": "dispatched",
+      "content": "income started work: AI FAQ Receptionist Upsell Playbook"
+    },
+    {
+      "ts": "2026-06-30T01:50:02.317085+00:00",
+      "agent": "Hermes",
+      "ticket": "AUTO-026",
+      "event": "dispatched",
+      "content": "business-analyst started work: Healthcare Cold Outreach Email Sequence"
+    },
+    {
+      "ts": "2026-06-30T01:50:02.318095+00:00",
+      "agent": "Hermes",
+      "ticket": "AUTO-026",
+      "event": "working",
+      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Cold Outreach Email Sequence"
+    },
+    {
+      "ts": "2026-06-30T01:50:02.319180+00:00",
+      "agent": "Fortuna",
+      "ticket": "AUTO-025",
+      "event": "working",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Upsell Playbook"
+    },
+    {
+      "ts": "2026-06-30T01:50:02.324013+00:00",
+      "agent": "Metis",
+      "ticket": "AUTO-027",
+      "event": "dispatched",
+      "content": "org-excellence started work: Monthly FAQ Knowledge\u2011Base Refresh SOP"
+    },
+    {
+      "ts": "2026-06-30T01:50:02.327264+00:00",
+      "agent": "Metis",
+      "ticket": "AUTO-027",
+      "event": "working",
+      "content": "[cerebras:gpt-oss-120b] attempting: Monthly FAQ Knowledge\u2011Base Refresh SOP"
+    },
+    {
+      "ts": "2026-06-30T01:50:04.251479+00:00",
+      "agent": "Nemesis",
+      "ticket": "AUTO-028",
+      "event": "dispatched",
+      "content": "nemesis started work: Data Retention & Deletion Policy for FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T01:50:04.256179+00:00",
+      "agent": "Nemesis",
+      "ticket": "AUTO-028",
+      "event": "working",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T01:50:31.552077+00:00",
+      "agent": "Fortuna",
+      "ticket": "AUTO-025",
+      "event": "delivered",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-025-deliverable.md (10610b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T01:50:31.563936+00:00",
+      "agent": "Hermes",
+      "ticket": "AUTO-026",
+      "event": "delivered",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-026-deliverable.md (9987b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T01:50:31.569149+00:00",
+      "agent": "Metis",
+      "ticket": "AUTO-027",
+      "event": "delivered",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-027-deliverable.md (12097b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T01:50:31.576889+00:00",
+      "agent": "Nemesis",
+      "ticket": "AUTO-028",
+      "event": "delivered",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (10899b) \u2192 in_progress"
     }
   ],
-  "lastUpdated": "2026-06-30T01:40:05.818119+00:00"
+  "lastUpdated": "2026-06-30T01:50:31.576904+00:00"
 }
