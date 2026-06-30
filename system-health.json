@@ -1,30 +1,31 @@
 {
-  "generatedAt": "2026-06-30T10:20:01.581357+00:00",
+  "generatedAt": "2026-06-30T10:30:02.725084+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 8.3,
-    "validator": 0.0,
+    "work-executor": 5.0,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 1440.0,
-    "backup": 20.0,
-    "site-sync": 0.0
+    "guard": 1450.0,
+    "backup": 30.0,
+    "site-sync": 5.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 69,
     "backlog": 6,
-    "in_progress": 17,
-    "planned": 4
+    "in_progress": 14,
+    "planned": 4,
+    "in_validation": 3
   },
   "tickets_total": 96,
   "done_today": 36,
-  "delivered_today": 27,
-  "delivered_week": 27,
+  "delivered_today": 30,
+  "delivered_week": 30,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 24,
+    "cerebras:gpt-oss-120b": 27,
     "openclaw": 2,
     "claude:owl-alpha": 1
   },
@@ -36,88 +37,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T10:11:46.307415+00:00",
+      "ts": "2026-06-30T10:25:03.235900+00:00",
+      "agent": "Fortuna",
+      "event": "no_deliverable",
+      "ticket": "AUTO-042",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-06-30T10:25:03.231100+00:00",
       "agent": "Metis",
       "event": "delivered",
       "ticket": "AUTO-044",
-      "content": "[claude:owl-alpha] Produced AUTO-044-deliverable.md (10271b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-044-deliverable.md (10466b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T10:11:46.306036+00:00",
+      "ts": "2026-06-30T10:25:03.221362+00:00",
       "agent": "Minerva",
       "event": "delivered",
       "ticket": "AUTO-041",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-041-deliverable.md (15011b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-041-deliverable.md (12715b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T10:11:46.304338+00:00",
+      "ts": "2026-06-30T10:25:03.193124+00:00",
       "agent": "Hermes",
       "event": "delivered",
       "ticket": "AUTO-043",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-043-deliverable.md (11621b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-043-deliverable.md (10027b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T10:11:46.301991+00:00",
+      "ts": "2026-06-30T10:24:42.199100+00:00",
       "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-042",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-042-deliverable.md (6969b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T10:10:04.143566+00:00",
-      "agent": "Metis",
       "event": "working",
-      "ticket": "AUTO-044",
-      "content": "[claude:owl-alpha] attempting: Objection-Handling Guide for AI FAQ Receptionist Sales"
+      "ticket": "AUTO-042",
+      "content": "[openclaw] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T10:10:03.978891+00:00",
+      "ts": "2026-06-30T10:20:03.743009+00:00",
       "agent": "Metis",
       "event": "working",
       "ticket": "AUTO-044",
       "content": "[cerebras:gpt-oss-120b] attempting: Objection-Handling Guide for AI FAQ Receptionist Sales"
     },
     {
-      "ts": "2026-06-30T10:10:03.970999+00:00",
+      "ts": "2026-06-30T10:20:03.740951+00:00",
       "agent": "Metis",
       "event": "dispatched",
       "ticket": "AUTO-044",
       "content": "org-excellence started work: Objection-Handling Guide for AI FAQ Receptionist Sales"
     },
     {
-      "ts": "2026-06-30T10:10:02.484366+00:00",
-      "agent": "Minerva",
+      "ts": "2026-06-30T10:20:02.003931+00:00",
+      "agent": "Fortuna",
       "event": "working",
-      "ticket": "AUTO-041",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+      "ticket": "AUTO-042",
+      "content": "[claude:owl-alpha] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T10:10:02.481349+00:00",
+      "ts": "2026-06-30T10:20:01.730867+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-042",
       "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T10:10:02.477434+00:00",
+      "ts": "2026-06-30T10:20:01.729374+00:00",
       "agent": "Hermes",
       "event": "working",
       "ticket": "AUTO-043",
       "content": "[cerebras:gpt-oss-120b] attempting: Industry Pain Points Report for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T10:10:02.470496+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "AUTO-043",
-      "content": "business-analyst started work: Industry Pain Points Report for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T10:10:02.465094+00:00",
+      "ts": "2026-06-30T10:20:01.727905+00:00",
       "agent": "Fortuna",
       "event": "dispatched",
       "ticket": "AUTO-042",
       "content": "income started work: Cold Outreach Email Templates for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T10:20:01.721990+00:00",
+      "agent": "Hermes",
+      "event": "dispatched",
+      "ticket": "AUTO-043",
+      "content": "business-analyst started work: Industry Pain Points Report for AI FAQ Receptionist"
     }
   ],
   "problems": {}
