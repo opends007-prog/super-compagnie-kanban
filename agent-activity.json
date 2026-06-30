@@ -1,27 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-30T00:30:05.203089+00:00",
-      "agent": "Fortuna",
-      "ticket": "AUTO-023",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-023-deliverable.md (11404b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T00:30:05.207284+00:00",
-      "agent": "Clio",
-      "ticket": "AUTO-022",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-022-deliverable.md (15655b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T00:30:05.210237+00:00",
-      "agent": "Hades",
-      "ticket": "AUTO-024",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-024-deliverable.md (10993b) \u2192 in_progress"
-    },
-    {
       "ts": "2026-06-30T00:30:49.894405+00:00",
       "agent": "nemesis",
       "ticket": "TD-267",
@@ -1399,7 +1378,28 @@
       "ticket": "AUTO-010",
       "event": "validation_pass",
       "content": "PASS: The deliverable is a complete, well-structured one-page reference guide with a quick-reference table, detailed objection scripts for eight common objections (price, integration, data security, accuracy/trust, scalability, change management, vendor lock-in, cost of ownership), a usage guide, sample c"
+    },
+    {
+      "ts": "2026-06-30T03:25:32.570289+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-005",
+      "event": "validation_fail",
+      "content": "FAIL #1: The deliverable file AUTO-005-deliverable.md does not exist in the work directory \u2014 no artifact was written to disk, so there is nothing to review. Additionally, the inline content contains an internal math inconsistency: the \u00a75.1 revenue table implies ~300k interactions/customer while the stated as"
+    },
+    {
+      "ts": "2026-06-30T03:25:32.572420+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-007",
+      "event": "validation_pass",
+      "content": "PASS: Deliverable fully satisfies the ticket: it is a complete, one-page sales pitch with a compelling headline, bullet-point value statements, problem/solution/benefits/CTA sections, and a clearly flagged customer testimonial placeholder."
+    },
+    {
+      "ts": "2026-06-30T03:25:32.574090+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-008",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable fully satisfies the ticket: it provides three complete, ready-to-send cold-outreach email templates (initial, follow-up, break-up) tailored to the AI FAQ Receptionist client list, each with subject lines, personalization tokens, and concise body copy plus a supporting token map."
     }
   ],
-  "lastUpdated": "2026-06-30T03:24:06.484394+00:00"
+  "lastUpdated": "2026-06-30T03:25:32.574093+00:00"
 }
