@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-30T16:50:01.594399+00:00",
+  "generatedAt": "2026-06-30T17:00:02.433906+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 10.0,
+    "work-executor": 9.9,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 1830.0,
-    "backup": 20.0,
+    "guard": 1840.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 92,
-    "backlog": 10,
-    "in_progress": 13,
+    "backlog": 6,
+    "in_progress": 17,
     "planned": 4
   },
   "tickets_total": 119,
@@ -24,97 +24,100 @@
   "delivered_today": 43,
   "delivered_week": 43,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 37,
-    "claude:owl-alpha": 2,
+    "cerebras:gpt-oss-120b": 38,
+    "claude:owl-alpha": 1,
     "openclaw": 4
   },
   "live_agents": [
-    "nemesis"
+    "Fortuna",
+    "Iris",
+    "Minerva",
+    "Thor"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T16:24:58.954619+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-058",
-      "content": "PASS: The deliverable provides a comprehensive and detailed checklist for ensuring data privacy and compliance with GDPR"
-    },
-    {
-      "ts": "2026-06-30T16:20:01.713996+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-058",
-      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-30T16:10:17.254561+00:00",
-      "agent": "Hades",
+      "ts": "2026-06-30T16:50:09.060175+00:00",
+      "agent": "Minerva",
       "event": "delivered",
-      "ticket": "AUTO-058",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-058-deliverable.md (14835b) \u2192 in_validation"
+      "ticket": "AUTO-061",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-061-deliverable.md (8788b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-30T16:10:02.006493+00:00",
-      "agent": "Hades",
+      "ts": "2026-06-30T16:50:09.051238+00:00",
+      "agent": "Iris",
+      "event": "delivered",
+      "ticket": "AUTO-063",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-063-deliverable.md (7543b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T16:50:09.047027+00:00",
+      "agent": "Thor",
+      "event": "delivered",
+      "ticket": "AUTO-064",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-064-deliverable.md (16679b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T16:50:09.043671+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-062",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-062-deliverable.md (6074b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T16:50:03.840445+00:00",
+      "agent": "Thor",
       "event": "working",
-      "ticket": "AUTO-058",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy & Compliance Checklist for AI FAQ Receptionist"
+      "ticket": "AUTO-064",
+      "content": "[cerebras:gpt-oss-120b] attempting: Free\u2011Tool Deployment Checklist for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T16:10:02.003990+00:00",
-      "agent": "Hades",
+      "ts": "2026-06-30T16:50:03.837702+00:00",
+      "agent": "Thor",
       "event": "dispatched",
-      "ticket": "AUTO-058",
-      "content": "security started work: Data Privacy & Compliance Checklist for AI FAQ Receptionist"
+      "ticket": "AUTO-064",
+      "content": "devops started work: Free\u2011Tool Deployment Checklist for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T16:06:18.800035+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-060",
-      "content": "PASS: The deliverable provides a complete headline, sub\u2011headline, feature bullet points, and a strong call\u2011to\u2011action rea"
+      "ts": "2026-06-30T16:50:01.713951+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "AUTO-063",
+      "content": "[cerebras:gpt-oss-120b] attempting: One\u2011Page Sales Pitch Deck for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T16:06:18.793408+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-059",
-      "content": "PASS: The deliverable provides a detailed two\u2011page style report covering retail, hospitality, and healthcare market size"
+      "ts": "2026-06-30T16:50:01.707900+00:00",
+      "agent": "Iris",
+      "event": "dispatched",
+      "ticket": "AUTO-063",
+      "content": "pm started work: One\u2011Page Sales Pitch Deck for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T16:06:18.791910+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "AUTO-058",
-      "content": "FAIL #1: The deliverable is a security audit of unrelated files, not a GDPR/CCPA compliance checklist for the AI FAQ Rec"
+      "ts": "2026-06-30T16:50:01.704301+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-061",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
     },
     {
-      "ts": "2026-06-30T16:06:18.759168+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-057",
-      "content": "PASS: The deliverable provides a complete, sales\u2011ready one\u2011page markdown pricing sheet with researched tier pricing, per"
+      "ts": "2026-06-30T16:50:01.702761+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-062",
+      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T16:04:28.613592+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-060",
-      "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
+      "ts": "2026-06-30T16:50:01.700280+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-062",
+      "content": "income started work: Cold Outreach Email Templates for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T16:03:05.222556+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-059",
-      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T16:00:01.922243+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-058",
-      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
+      "ts": "2026-06-30T16:50:01.698220+00:00",
+      "agent": "Minerva",
+      "event": "dispatched",
+      "ticket": "AUTO-061",
+      "content": "analyst started work: AI FAQ Receptionist Pricing Sheet"
     }
   ],
   "problems": {}
