@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-30T02:10:01.927562+00:00",
-      "agent": "Nemesis",
-      "ticket": "AUTO-028",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T02:10:01.932576+00:00",
-      "agent": "Gladiator",
-      "ticket": "STORY-200",
-      "event": "dispatched",
-      "content": "tom started work: FAQ list to bot JSON converter"
-    },
-    {
       "ts": "2026-06-30T02:10:01.938747+00:00",
       "agent": "Gladiator",
       "ticket": "STORY-200",
@@ -1399,7 +1385,21 @@
       "ticket": "AUTO-016",
       "event": "delivered",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-016-deliverable.md (9623b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T06:00:01.406337+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-025",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:00:01.408921+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-016",
+      "event": "validating",
+      "content": "[claude] Independently reviewing finance's deliverable"
     }
   ],
-  "lastUpdated": "2026-06-30T05:50:05.249405+00:00"
+  "lastUpdated": "2026-06-30T06:00:01.408929+00:00"
 }

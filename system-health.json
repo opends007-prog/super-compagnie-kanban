@@ -1,38 +1,60 @@
 {
-  "generatedAt": "2026-06-30T05:50:01.991550+00:00",
+  "generatedAt": "2026-06-30T06:00:01.290591+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 7.5,
+    "work-executor": 9.9,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1170.0,
-    "backup": 20.0,
-    "site-sync": 0.0
+    "guard": 1180.0,
+    "backup": 30.0,
+    "site-sync": 5.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 53,
     "backlog": 4,
-    "in_progress": 14,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 9
+    "in_validation": 10
   },
   "tickets_total": 84,
   "done_today": 20,
-  "delivered_today": 25,
-  "delivered_week": 25,
+  "delivered_today": 26,
+  "delivered_week": 26,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 23,
+    "cerebras:gpt-oss-120b": 24,
     "claude:owl-alpha": 2
   },
   "live_agents": [
     "Metis",
+    "Plutus",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T05:50:05.249387+00:00",
+      "agent": "Plutus",
+      "event": "delivered",
+      "ticket": "AUTO-016",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-016-deliverable.md (9623b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T05:50:02.107431+00:00",
+      "agent": "Plutus",
+      "event": "working",
+      "ticket": "AUTO-016",
+      "content": "[cerebras:gpt-oss-120b] attempting: ROI Calculator Spreadsheet Template for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T05:50:02.103138+00:00",
+      "agent": "Plutus",
+      "event": "dispatched",
+      "ticket": "AUTO-016",
+      "content": "finance started work: ROI Calculator Spreadsheet Template for AI FAQ Receptionist"
+    },
     {
       "ts": "2026-06-30T05:42:33.714564+00:00",
       "agent": "nemesis",
@@ -95,27 +117,6 @@
       "event": "validating",
       "ticket": "AUTO-022",
       "content": "[claude] Independently reviewing data-analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:40:37.794394+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-021",
-      "content": "[claude] Independently reviewing org-excellence's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:40:01.588056+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-018",
-      "content": "[claude] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:40:01.583635+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-016",
-      "content": "[claude] Independently reviewing finance's deliverable"
     }
   ],
   "problems": {}
