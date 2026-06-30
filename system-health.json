@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-06-30T04:40:01.435409+00:00",
+  "generatedAt": "2026-06-30T04:50:01.897604+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
+    "validator": 7.4,
     "observability": 10.0,
-    "guard": 1100.0,
-    "backup": 10.0,
+    "guard": 1110.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 42,
-    "backlog": 3,
+    "done": 44,
+    "backlog": 6,
     "in_progress": 12,
     "planned": 2,
-    "in_validation": 25
+    "in_validation": 20
   },
   "tickets_total": 84,
-  "done_today": 9,
-  "delivered_today": 36,
-  "delivered_week": 36,
+  "done_today": 11,
+  "delivered_today": 32,
+  "delivered_week": 32,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 34,
+    "cerebras:gpt-oss-120b": 30,
     "claude:owl-alpha": 2
   },
   "live_agents": [
@@ -33,6 +33,69 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T04:42:37.268375+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-014",
+      "content": "PASS: The deliverable fully satisfies the ticket: it researches the top 5 AI-FAQ competitors (OpenAI ChatGPT, Google Dia"
+    },
+    {
+      "ts": "2026-06-30T04:42:37.266914+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-013",
+      "content": "PASS: The deliverable is a complete, self-contained HTML file with inline CSS and full persuasive copy covering all four"
+    },
+    {
+      "ts": "2026-06-30T04:42:37.265555+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "STORY-089",
+      "content": "Parked after 4 no-verdict attempts"
+    },
+    {
+      "ts": "2026-06-30T04:42:37.264267+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "STORY-087",
+      "content": "Parked after 4 no-verdict attempts"
+    },
+    {
+      "ts": "2026-06-30T04:42:37.262102+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "TD-267",
+      "content": "Parked after 4 no-verdict attempts"
+    },
+    {
+      "ts": "2026-06-30T04:42:05.843193+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-014",
+      "content": "[claude] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:41:50.036587+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-013",
+      "content": "[claude] Independently reviewing tom's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:41:08.619076+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-011",
+      "content": "[claude] Independently reviewing data-engineer's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:40:27.918680+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-089",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-06-30T04:40:01.452599+00:00",
       "agent": "nemesis",
@@ -53,69 +116,6 @@
       "event": "started",
       "ticket": "STORY-090",
       "content": ""
-    },
-    {
-      "ts": "2026-06-30T04:21:42.438777+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-012",
-      "content": "PASS: The deliverable is a thorough, well-structured data-privacy checklist covering all required areas (user consent, d"
-    },
-    {
-      "ts": "2026-06-30T04:21:42.432757+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-010",
-      "content": "PASS: The deliverable is a complete, ready-to-use objection-handling guide covering the most common objections (price, i"
-    },
-    {
-      "ts": "2026-06-30T04:21:21.269740+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-012",
-      "content": "[claude] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:21:03.550985+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-011",
-      "content": "[claude] Independently reviewing data-engineer's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:20:44.581152+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-010",
-      "content": "[claude] Independently reviewing org-excellence's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:20:38.339055+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-089",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:20:01.632462+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-087",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:20:01.614968+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-267",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:02:39.084718+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-009",
-      "content": "PASS: The deliverable is a fully fleshed-out 15-minute demo script with timed sections (totaling exactly 15:00), explici"
     }
   ],
   "problems": {}
