@@ -1,35 +1,94 @@
 {
-  "generatedAt": "2026-06-30T18:30:03.820603+00:00",
+  "generatedAt": "2026-06-30T18:40:01.525724+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 1,
   "crons": {
-    "work-executor": 5.0,
-    "validator": 4.9,
-    "observability": 10.1,
-    "guard": 1930.1,
-    "backup": 30.0,
+    "work-executor": 4.1,
+    "validator": 14.9,
+    "observability": 9.9,
+    "guard": 1940.0,
+    "backup": 9.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 98,
     "backlog": 6,
-    "in_progress": 15,
-    "planned": 4
+    "in_progress": 14,
+    "planned": 4,
+    "in_validation": 1
   },
   "tickets_total": 123,
   "done_today": 65,
-  "delivered_today": 0,
-  "delivered_week": 0,
-  "model_mix_week": {},
+  "delivered_today": 1,
+  "delivered_week": 1,
+  "model_mix_week": {
+    "cerebras:gpt-oss-120b": 1
+  },
   "live_agents": [
     "Fortuna",
     "Hermes",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T18:35:54.646018+00:00",
+      "agent": "Fortuna",
+      "event": "no_deliverable",
+      "ticket": "AUTO-065",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-06-30T18:35:54.638880+00:00",
+      "agent": "Hermes",
+      "event": "delivered",
+      "ticket": "AUTO-067",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-067-deliverable.md (6611b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T18:31:14.075501+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-065",
+      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
+    },
+    {
+      "ts": "2026-06-30T18:30:13.687088+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-065",
+      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
+    },
+    {
+      "ts": "2026-06-30T18:30:06.617075+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-067",
+      "content": "[cerebras:gpt-oss-120b] attempting: Industry Persona Profiles for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T18:30:06.615727+00:00",
+      "agent": "Hermes",
+      "event": "dispatched",
+      "ticket": "AUTO-067",
+      "content": "business-analyst started work: Industry Persona Profiles for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T18:30:06.610117+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-065",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
+    },
+    {
+      "ts": "2026-06-30T18:30:06.539132+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-065",
+      "content": "income started work: AI FAQ Receptionist Pricing & Packaging Guide"
+    },
     {
       "ts": "2026-06-30T18:25:10.069840+00:00",
       "agent": "nemesis",
@@ -57,55 +116,6 @@
       "event": "no_deliverable",
       "ticket": "AUTO-067",
       "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-06-30T18:20:24.492232+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-067",
-      "content": "[openclaw] attempting: Industry Persona Profiles for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T18:20:24.347075+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-065",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
-    },
-    {
-      "ts": "2026-06-30T18:20:03.661266+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-067",
-      "content": "[claude:owl-alpha] attempting: Industry Persona Profiles for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T18:20:03.568207+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-065",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
-    },
-    {
-      "ts": "2026-06-30T18:20:02.857603+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-067",
-      "content": "[cerebras:gpt-oss-120b] attempting: Industry Persona Profiles for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T18:20:02.848221+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "AUTO-067",
-      "content": "business-analyst started work: Industry Persona Profiles for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T18:20:02.845987+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-065",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
     }
   ],
   "problems": {}
