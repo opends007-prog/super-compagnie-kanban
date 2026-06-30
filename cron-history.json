@@ -1,6 +1,27 @@
 {
-  "updated": "2026-06-30T12:50:01.469835+00:00",
+  "updated": "2026-06-30T13:00:02.479007+00:00",
   "events": [
+    {
+      "ts": "2026-06-30T13:00:02.479007+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "ok",
+      "msg": "[work] tickets.json updated (only tickets with real deliverables advanced)"
+    },
+    {
+      "ts": "2026-06-30T12:59:02.479007+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
+    {
+      "ts": "2026-06-30T12:59:02.479007+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "1m ago \u00b7 groq/meta-llama/l..."
+    },
     {
       "ts": "2026-06-30T12:30:13.777551+00:00",
       "job": "Queue Tick 30m",
@@ -42,6 +63,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "2h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-06-30T10:00:02.479007+00:00",
+      "job": "Velocity (daily)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "3h ago"
     },
     {
       "ts": "2026-06-30T09:47:13.777551+00:00",

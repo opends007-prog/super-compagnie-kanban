@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-06-30T12:50:01.510770+00:00",
+  "generatedAt": "2026-06-30T13:00:02.481875+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 1,
+  "site_unpushed": 0,
   "crons": {
-    "work-executor": 0.0,
-    "validator": 10.0,
+    "work-executor": 10.0,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 1590.0,
-    "backup": 20.0,
+    "guard": 1600.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 77,
-    "backlog": 7,
+    "backlog": 6,
     "in_progress": 13,
     "planned": 4,
-    "in_validation": 4
+    "in_validation": 5
   },
   "tickets_total": 105,
   "done_today": 44,
-  "delivered_today": 44,
-  "delivered_week": 44,
+  "delivered_today": 46,
+  "delivered_week": 46,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 36,
+    "cerebras:gpt-oss-120b": 38,
     "openclaw": 5,
     "claude:owl-alpha": 3
   },
@@ -37,6 +37,34 @@
     "Thor"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T12:51:58.600158+00:00",
+      "agent": "Thor",
+      "event": "delivered",
+      "ticket": "STORY-201",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-201-deliverable.md (12483b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T12:51:56.226254+00:00",
+      "agent": "Thor",
+      "event": "working",
+      "ticket": "STORY-201",
+      "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] Lucy 8 AM Morning Mot... failing"
+    },
+    {
+      "ts": "2026-06-30T12:51:56.224214+00:00",
+      "agent": "Thor",
+      "event": "dispatched",
+      "ticket": "STORY-201",
+      "content": "devops started work: [self-heal] Lucy 8 AM Morning Mot... failing"
+    },
+    {
+      "ts": "2026-06-30T12:50:03.805335+00:00",
+      "agent": "Thor",
+      "event": "delivered",
+      "ticket": "STORY-201",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-201-deliverable.md (13152b) \u2192 in_progress"
+    },
     {
       "ts": "2026-06-30T12:50:01.540049+00:00",
       "agent": "Thor",
@@ -92,34 +120,6 @@
       "event": "working",
       "ticket": "AUTO-052",
       "content": "[cerebras:gpt-oss-120b] attempting: FAQ Knowledge Base QA Checklist"
-    },
-    {
-      "ts": "2026-06-30T12:40:04.101277+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-052",
-      "content": "org-excellence started work: FAQ Knowledge Base QA Checklist"
-    },
-    {
-      "ts": "2026-06-30T12:40:03.087851+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-051",
-      "content": "[claude:owl-alpha] attempting: Compliance Gap Analysis for FAQ Receptionist Data Handling"
-    },
-    {
-      "ts": "2026-06-30T12:40:02.818603+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-051",
-      "content": "[cerebras:gpt-oss-120b] attempting: Compliance Gap Analysis for FAQ Receptionist Data Handling"
-    },
-    {
-      "ts": "2026-06-30T12:40:02.809172+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-051",
-      "content": "security started work: Compliance Gap Analysis for FAQ Receptionist Data Handling"
     }
   ],
   "problems": {}
