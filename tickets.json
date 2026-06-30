@@ -3523,14 +3523,14 @@
     {
       "id": "STORY-090",
       "title": "Develop AI-driven revenue forecasting model",
-      "status": "in_progress",
+      "status": "in_validation",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
       "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592378+00:00",
-      "updatedAt": "2026-06-30T03:10:49.901492+00:00",
+      "updatedAt": "2026-06-30T03:50:03.454243+00:00",
       "comments": [
         {
           "by": "api",
@@ -3550,6 +3550,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-30T03:10:49.901492+00:00",
           "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The deliverable documents a plausible pipeline but is incomplete and contains a critical data-leakage flaw: the feature engineering computes lag and rolling features on the full dataset before the TimeSeriesSplit, causing validation-fold training data to leak future information into the training fol"
+        },
+        {
+          "by": "Prometheus",
+          "timestamp": "2026-06-30T03:50:03.454243+00:00",
+          "text": "Delivered work/STORY-090-deliverable.md (10637 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
       "jira_key": "[2026-06-24 07:27:43] [INFO] Creating Jira issue: STORY-090 (Develop AI-driven revenue forecasting model)\n[2026-06-24 07:27:44] [INFO] Created Jira issue: TD-331\n[2026-06-24 07:27:44] [INFO] Transitioning TD-331 -> In Progress (transition 31)\nTD-331",

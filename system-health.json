@@ -1,32 +1,32 @@
 {
-  "generatedAt": "2026-06-30T03:40:01.394519+00:00",
+  "generatedAt": "2026-06-30T03:50:01.282999+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 0.0,
-    "observability": 0.0,
-    "guard": 1040.0,
-    "backup": 10.0,
+    "work-executor": 10.0,
+    "validator": 6.8,
+    "observability": 10.0,
+    "guard": 1050.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 37,
-    "backlog": 1,
+    "done": 38,
+    "backlog": 3,
     "in_progress": 11,
     "planned": 3,
-    "in_validation": 32
+    "in_validation": 29
   },
   "tickets_total": 84,
-  "done_today": 4,
-  "delivered_today": 43,
-  "delivered_week": 43,
+  "done_today": 5,
+  "delivered_today": 41,
+  "delivered_week": 41,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 39,
-    "claude:owl-alpha": 4
+    "cerebras:gpt-oss-120b": 38,
+    "claude:owl-alpha": 3
   },
   "live_agents": [
     "Fortuna",
@@ -37,6 +37,76 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T03:43:11.127700+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-004",
+      "content": "PASS: The deliverable is a complete, filled-out DPIA for a specific dataset (Customer-Insights-2026-Q2) with concrete st"
+    },
+    {
+      "ts": "2026-06-30T03:43:11.126077+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "AUTO-003",
+      "content": "Parked after 2 fails: The deploy.sh and rollback.sh scripts use a quoted heredoc ('EOF') which suppresses variable expan"
+    },
+    {
+      "ts": "2026-06-30T03:43:11.123798+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "AUTO-002",
+      "content": "Parked after 2 fails: The report references 'Anthropic Claude 2' as a current platform, but Claude 2 was deprecated in 2"
+    },
+    {
+      "ts": "2026-06-30T03:42:01.264406+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-004",
+      "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:41:41.615320+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-003",
+      "content": "[claude] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:40:58.344566+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-002",
+      "content": "[claude] Independently reviewing business-analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:40:06.997221+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-089",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:40:03.907317+00:00",
+      "agent": "Prometheus",
+      "event": "delivered",
+      "ticket": "STORY-090",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-090-deliverable.md (12898b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T03:40:01.481323+00:00",
+      "agent": "Prometheus",
+      "event": "working",
+      "ticket": "STORY-090",
+      "content": "[cerebras:gpt-oss-120b] attempting: Develop AI-driven revenue forecasting model"
+    },
+    {
+      "ts": "2026-06-30T03:40:01.474257+00:00",
+      "agent": "Prometheus",
+      "event": "dispatched",
+      "ticket": "STORY-090",
+      "content": "ml-engineer started work: Develop AI-driven revenue forecasting model"
+    },
     {
       "ts": "2026-06-30T03:40:01.398667+00:00",
       "agent": "nemesis",
@@ -50,76 +120,6 @@
       "event": "validating",
       "ticket": "TD-267",
       "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-30T03:30:05.947697+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-005",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-005-deliverable.md (9202b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T03:30:05.946229+00:00",
-      "agent": "Hermes",
-      "event": "delivered",
-      "ticket": "AUTO-002",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-002-deliverable.md (13031b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T03:30:05.945069+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-004",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-004-deliverable.md (13063b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T03:30:05.943128+00:00",
-      "agent": "Thor",
-      "event": "delivered",
-      "ticket": "AUTO-003",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-003-deliverable.md (14459b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T03:30:04.066088+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-005",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-30T03:30:04.061873+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-005",
-      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-30T03:30:02.012383+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-004",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy Impact Assessment (DPIA) Template"
-    },
-    {
-      "ts": "2026-06-30T03:30:02.007220+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-004",
-      "content": "security started work: Data Privacy Impact Assessment (DPIA) Template"
-    },
-    {
-      "ts": "2026-06-30T03:30:02.005319+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "AUTO-003",
-      "content": "[cerebras:gpt-oss-120b] attempting: CI/CD Pipeline Blueprint for Agent Deployments to VM"
-    },
-    {
-      "ts": "2026-06-30T03:30:02.000699+00:00",
-      "agent": "Thor",
-      "event": "dispatched",
-      "ticket": "AUTO-003",
-      "content": "devops started work: CI/CD Pipeline Blueprint for Agent Deployments to VM"
     }
   ],
   "problems": {}
