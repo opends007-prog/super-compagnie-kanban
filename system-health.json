@@ -1,28 +1,28 @@
 {
-  "generatedAt": "2026-06-30T01:10:01.233700+00:00",
+  "generatedAt": "2026-06-30T01:20:01.512705+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 6.1,
+    "validator": 16.1,
     "observability": 10.0,
-    "guard": 890.0,
-    "backup": 10.0,
+    "guard": 900.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 33,
     "backlog": 2,
-    "in_progress": 11,
-    "in_validation": 28,
+    "in_progress": 10,
+    "in_validation": 29,
     "planned": 1
   },
   "tickets_total": 75,
   "done_today": 0,
-  "delivered_today": 13,
+  "delivered_today": 14,
   "delivered_week": 49,
   "model_mix_week": {
     "cerebras:gpt-oss-120b": 43,
@@ -36,6 +36,27 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T01:10:03.382472+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-024",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-024-deliverable.md (10994b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T01:10:01.337681+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-024",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T01:10:01.336172+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-024",
+      "content": "security started work: Data Retention & Deletion Policy for AI FAQ Receptionist"
+    },
     {
       "ts": "2026-06-30T01:03:17.314630+00:00",
       "agent": "nemesis",
@@ -98,27 +119,6 @@
       "event": "delivered",
       "ticket": "AUTO-024",
       "content": "[claude:owl-alpha] Produced AUTO-024-deliverable.md (8531b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T00:52:56.675864+00:00",
-      "agent": "Clio",
-      "event": "delivered",
-      "ticket": "AUTO-022",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-022-deliverable.md (19359b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T00:52:56.674217+00:00",
-      "agent": "Metis",
-      "event": "delivered",
-      "ticket": "AUTO-021",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-021-deliverable.md (9260b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T00:52:56.664175+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-023",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-023-deliverable.md (10653b) \u2192 in_validation"
     }
   ],
   "problems": {}

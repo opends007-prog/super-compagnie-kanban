@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T01:10:01.225806+00:00",
+  "generated": "2026-06-30T01:20:01.502493+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -814,11 +814,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-29T20:50:25.377080+00:00",
-          "event": "dispatched",
-          "content": "income started work: AI FAQ Receptionist Pricing Sheet"
-        },
-        {
           "ts": "2026-06-29T20:50:25.381720+00:00",
           "event": "working",
           "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
@@ -891,16 +886,6 @@
       "agent": "Metis",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-29T20:50:06.915376+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-06-29T20:50:08.229407+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-008-deliverable.md (6907b) \u2192 in_progress"
-        },
         {
           "ts": "2026-06-29T21:00:02.065277+00:00",
           "event": "dispatched",
@@ -1685,13 +1670,8 @@
     },
     "AUTO-024": {
       "agent": "Hades",
-      "status": "in_progress",
+      "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-30T00:30:03.561943+00:00",
-          "event": "dispatched",
-          "content": "security started work: Data Retention & Deletion Policy for AI FAQ Receptionist"
-        },
         {
           "ts": "2026-06-30T00:30:03.566054+00:00",
           "event": "working",
@@ -1736,27 +1716,42 @@
           "ts": "2026-06-30T01:00:03.992059+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-024-deliverable.md (10890b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-30T01:10:01.336172+00:00",
+          "event": "dispatched",
+          "content": "security started work: Data Retention & Deletion Policy for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T01:10:01.337681+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T01:10:03.382472+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced AUTO-024-deliverable.md (10994b) \u2192 in_validation"
         }
       ],
       "deliverable": {
         "file": "security/work/AUTO-024-deliverable.md",
-        "size": 10890,
-        "content": "# Data Retention & Deletion Policy  \n**AI FAQ Receptionist** \u2013 Version\u202f1.0  \n**Effective Date:** 2026\u201107\u201101  \n**Owner:** Security & Compliance Team (Lead: Hades\u202f\ud83d\udc80)  \n**Review Cycle:** Annually (or upon regulatory change)  \n\n---  \n\n## 1. Purpose  \n\nThis policy defines how the AI FAQ Receptionist (the \u201cService\u201d) handles **FAQ content, interaction logs, and user\u2011identifying data**. It establishes retention periods, secure deletion procedures, and compliance mappings to the **EU General Data Protection Regulation (GDPR)** and the **California Consumer Privacy Act (CCPA)**. The goal is to protect personal data, minimize unnecessary storage, and provide clear expectations to clients and end\u2011users.  \n\n---  \n\n## 2. Scope  \n\n| Scope Item | Description | Covered By |\n|------------|-------------|------------|\n| **FAQ Data** | All knowledge\u2011base articles, question\u2011answer pairs, and associated metadata (tags, categories). | Retention schedule \u2013 \u00a72.1 |\n| **Interaction Logs** | Timestamped records of each user query, AI response, session identifier, and optional user\u2011provided metadata (e.g., email, name). | Retention schedule \u2013 \u00a72.2 |\n| **User\u2011Identifying Data** | Any personal data supplied by a user (name, email, phone, IP address) that can be linked to an individual. | Retention schedule \u2013 \u00a72.3 |\n| **System Metadata** | Server logs, audit trails, and error reports that do not contain personal data. | Retained for operational purposes (see \u00a72.4). |\n\nThe policy applies to **all environments** (development, staging, production) and **all storage media** (cloud object stores, relational databases, backups, and logs).  \n\n---  \n\n## 3. Retention Periods  \n\n| Data Type | Retention Period | Rationale | Legal Basis |\n|-----------|------------------|-----------|-------------|\n| **FAQ Data** | **Indefinite** (subject to client\u2011initiated removal) | Knowledge base is a core product asset; no personal data is stored. | Not a personal data set under GDPR/CCPA. |\n| **Interaction Logs (non\u2011personal)** | **90\u202fdays** | Useful for performance tuning and model improvement while limiting exposure. | Legitimate interest (GDPR Art.\u202f6(1)(f)). |\n| **Interaction Logs (personal)** | **30\u202fdays** | Allows short\u2011term troubleshooting; longer storage would increase privacy risk. | Consent or legitimate interest with opt\u2011out (GDPR Art.\u202f6(1)(a/f)). |\n| **User\u2011Identifying Data** | **30\u202fdays** after the last interaction, or **upon user request** (whichever is earlier). | Aligns with the \u201cright to be forgotten\u201d and limits exposure. | GDPR Art.\u202f17, CCPA \u00a71798.105. |\n| **System Metadata** | **180\u202fdays** | Retained for security incident investigation and compliance auditing. | Legal obligation / security (GDPR Art.\u202f6(1)(c)). |\n| **Backups** | **Maximum of 30\u202fdays** beyond the primary data retention period. | Backups are rotated daily; older copies are purged to respect deletion deadlines. | GDPR Recital\u202f78 (data minimisation). |\n\n*All periods are calculated from the **date of last user interaction** or **date of data creation**, whichever is later.*  \n\n---  \n\n## 4. Secure Deletion Procedures  \n\n### 4.1. Automated Deletion Workflow  \n\n1. **Scheduler** \u2013 A cron\u2011based job (`retention-cleaner`) runs daily at 02:00\u202fUTC.  \n2. **Query** \u2013 The job queries the primary datastore for records where `last_interaction < NOW() - INTERVAL <period>` (e.g., 30\u202fdays).  \n3. **Sanitisation** \u2013 Identified rows are **soft\u2011deleted** (flagged `deleted_at`).  \n4. **Hard Delete** \u2013 After a 7\u2011day grace period, a second job (`retention-purger`) permanently removes flagged rows and triggers secure erasure of associated files/blobs.  \n5. **Audit Log** \u2013 Each deletion event writes an immutable entry to the **Compliance Audit Log** (append\u2011only, signed with an HSM\u2011based key).  \n\nAll scripts are version\u2011controlled in `/home/admin/.openclaw/workspace/workers/security/retention/` and signed with the organization\u2019s code\u2011signing certificate.  \n\n### 4.2. Secure Erasure Techniques  \n\n| Storage Type | Erasure Method | Tool / Command |\n|--------------|----------------|----------------|\n| **Object Store (e.g., S3, GCS)** | **Lifecycle policy** with `Delete` action; immediate deletion after purge. | `aws s3api delete-object` (with `--force`) |\n| **Relational DB (PostgreSQL)** | **VACUUM FULL** after hard delete; encryption at rest ensures overwritten pages are unrecoverable. | `VACUUM FULL <table>;` |\n| **File System (ext4, xfs)** | **shred** with 3 passes; for SSDs, use `blkdiscard` to issue TRIM. | `shred -n 3 -z -u <file>` |\n| **Backup Tapes / Snapshots** | **Overwrite** with random data before decommission; for immutable snapshots, delete the reference and let the provider purge after retention. | Provider\u2011specific API (e.g., `gcloud compute snapshots delete`). |\n\nAll erasure actions are logged with **timestamp, operator (system account), and cryptographic hash of the deleted object**.  \n\n### 4.3. User\u2011Initiated Deletion  \n\n- **Self\u2011service portal** \u2013 Users may request deletion of their data via the \u201cPrivacy\u201d UI.  \n- **Verification** \u2013 The system validates ownership (email link or OAuth token).  \n- **Immediate Action** \u2013 The request triggers the same soft\u2011delete \u2192 hard\u2011delete pipeline, bypassing the 7\u2011day grace period.  \n- **Confirmation** \u2013 A deletion receipt (PDF) is emailed to the requester, containing a unique reference ID.  \n\n---  \n\n## 5. Regulatory Mapping  \n\n| Requirement | GDPR | CCPA | Policy Alignment |\n|-------------|------|------|------------------|\n| **Right to Erasure** | Art.\u202f17 \u2013 Data subjects may request deletion. | \u00a71798.105 \u2013 Right to delete. | User\u2011initiated deletion workflow (\u00a74.3). |\n| **Data Minimisation** | Art.\u202f5(1)(c) \u2013 Store only necessary data. | \u00a71798.100(b) \u2013 Reasonable security. | Retention periods limit personal data to 30\u202fdays (\u00a73). |\n| **Purpose Limitation** | Art.\u202f5(1)(b) \u2013 Use data only for specified purpose. | \u00a71798.100(a) \u2013 Use only for disclosed purpose. | Interaction logs used solely for service improvement; no secondary marketing. |\n| **Accountability** | Art.\u202f5(2) \u2013 Ability to demonstrate compliance. | \u00a71798.150 \u2013 Reasonable security. | Immutable audit logs, annual review, and documented procedures (\u00a74.2). |\n| **Security of Processing** | Art.\u202f32 \u2013 Appropriate technical measures. | \u00a71798.150(b) \u2013 Security. | Encryption at rest, secure erasure, and signed audit logs. |\n| **Data Breach Notification** | Art.\u202f33 \u2013 Notify supervisory authority within 72\u202fh. | \u00a71798.105(b) \u2013 Notify consumer. | Incident response plan (separate document) references this policy for data scope. |\n\n---  \n\n## 6. Roles & Responsibilities  \n\n| Role | Responsibility | Contact |\n|------|----------------|---------|\n| **Security & Compliance Lead (Hades)** | Policy ownership, annual review, audit log integrity. | hades@company.com |\n| **DevOps Engineer** | Implement and maintain the retention\u2011cleaner jobs; ensure encryption keys are rotated. | devops@company.com |\n| **Data Engineer** | Configure database vacuuming, backup rotation, and verify deletion of archived snapshots. | dataeng@company.com |\n| **Product Owner (FAQ Receptionist)** | Communicate retention periods to clients; update UI for user\u2011initiated deletion. | product@company.com |\n| **Legal Counsel** | Validate regulatory mappings; approve any changes to retention periods. | legal@company.com |\n| **Customer Support** | Handle user deletion requests that come via support channels; forward to automated workflow. | support@company.com |\n\n---  \n\n## 7. Monitoring & Reporting  \n\n1. **Daily Dashboard** \u2013 `/home/admin/.openclaw/workspace/workers/security/retention/dashboard.html` displays:  \n   - Number of records pending soft\u2011delete.  \n   - Number of records purged in the last 24\u202fh.  \n   - Any deletion errors (e.g., permission denied).  \n\n2. **Monthly Report** \u2013 Sent to the Security & Compliance Lead, includes:  \n   - Total volume of personal data deleted.  \n   - Exceptions (if any) with justification.  \n   - Audit log hash summary for integrity verification.  \n\n3. **Quarterly Audit** \u2013 Independent auditor reviews a random sample of deletion events, verifies that the cryptographic hash in the audit log matches the original data fingerprint. Findings are documented in the **Compliance Audit Report** (stored under `/compliance/reports/`).  \n\n---  \n\n## 8. Incident Response Integration  \n\nWhen a data breach is detected:  \n\n1. **Scope Identification** \u2013 Use the audit log to determine whether any retained personal data falls within the breach window.  \n2. **Containment** \u2013 Immediately suspend the affected storage bucket or database instance.  \n3. **Notification** \u2013 If personal data is involved, trigger GDPR/CCPA breach notifications within the statutory timeframes.  \n4. **Post\u2011Incident Review** \u2013 Verify that the retention policy was correctly enforced; update the policy if gaps are identified.  \n\n---  \n\n## 9. Policy Review & Amendment  \n\n- **Annual Review:** Conducted by the Security & Compliance Lead, with input from Legal and Product teams.  \n- **Regulatory Change Tr"
+        "size": 10994,
+        "content": "# Data Retention & Deletion Policy  \n**AI FAQ Receptionist** \u2013 Version\u202f1.0 (2026\u201106\u201130)  \n\n---\n\n## 1. Purpose  \n\nThis policy defines how the AI FAQ Receptionist (the \u201cService\u201d) collects, stores, retains, and securely deletes all data it processes. It ensures compliance with the **General Data Protection Regulation (GDPR)**, **California Consumer Privacy Act (CCPA)**, and other applicable privacy statutes. The policy is incorporated by reference into all client contracts and service\u2011level agreements (SLAs).\n\n---\n\n## 2. Scope  \n\n| Scope Element | Description |\n|----------------|-------------|\n| **Data Types** | \u2022 **FAQ Content** \u2013 knowledge\u2011base articles, question\u2011answer pairs.<br>\u2022 **User Interactions** \u2013 chat transcripts, timestamps, session IDs, device metadata.<br>\u2022 **Operational Logs** \u2013 API request logs, error logs, audit trails.<br>\u2022 **Analytics** \u2013 aggregated usage metrics (e.g., query volume). |\n| **Systems Covered** | All production, staging, and backup environments that store the above data, including cloud storage (AWS S3, Azure Blob), relational databases (PostgreSQL), and log aggregation services (ELK, CloudWatch). |\n| **Geographies** | Data subjects located in the European Economic Area (EEA), California, and any other jurisdiction where the Service is offered. |\n| **Retention Triggers** | \u2022 End of retention period.<br>\u2022 User\u2011initiated deletion request (right to be forgotten).<br>\u2022 Legal hold or regulatory request. |\n\n---\n\n## 3. Retention Periods  \n\n| Data Category | Retention Period | Rationale | Deletion Trigger |\n|---------------|------------------|-----------|------------------|\n| **FAQ Content** | **Indefinite** (subject to versioning) | Core knowledge base; required for service continuity. Old versions are archived for audit purposes. | N/A \u2013 retained as long as the Service is active. |\n| **User Interaction Transcripts** | **90\u202fdays** | Sufficient for troubleshooting, quality assurance, and model improvement while limiting exposure of personal data. | Automatic purge after 90\u202fdays; immediate purge on user request. |\n| **Session Metadata (session ID, timestamps, device info)** | **180\u202fdays** | Needed for security incident investigation and fraud detection. | Automatic purge after 180\u202fdays; immediate purge on user request. |\n| **Operational Logs (API request/response, error logs)** | **30\u202fdays** (raw) \u2192 **12\u202fmonths** (aggregated) | Raw logs contain PII; aggregated logs are anonymized. | Raw logs auto\u2011deleted after 30\u202fdays; aggregated logs retained for 12\u202fmonths for compliance reporting. |\n| **Analytics (aggregated usage metrics)** | **24\u202fmonths** | Business intelligence and capacity planning. No PII retained. | Auto\u2011delete after 24\u202fmonths. |\n| **Backup Snapshots** | **30\u202fdays** (incremental) \u2192 **90\u202fdays** (full) | Enables disaster recovery while respecting data minimisation. | Expire snapshots according to schedule; any retained backup containing deleted PII must be overwritten. |\n\n*All retention periods are minimum; longer retention may be required for legal holds, ongoing investigations, or contractual obligations. In such cases, the data is placed on a \u201cLegal Hold\u201d list and excluded from automatic deletion.*\n\n---\n\n## 4. Legal Basis & Mapping  \n\n| Regulation | Requirement | Policy Alignment |\n|------------|-------------|------------------|\n| **GDPR Art.\u202f5(1)(e)** \u2013 Storage limitation | Personal data must not be kept longer than necessary. | Retention periods are defined per data category; automatic deletion mechanisms enforce limits. |\n| **GDPR Art.\u202f17** \u2013 Right to erasure | Data subjects may request deletion. | User\u2011initiated deletion triggers immediate purge of all personal data across primary and backup stores. |\n| **CCPA \u00a71798.105** \u2013 Deletion request | Consumers may request deletion of personal information. | Same deletion workflow as GDPR, with additional verification of California residency. |\n| **CCPA \u00a71798.115** \u2013 Retention period limitation | Personal information may be retained only as long as necessary for the disclosed purpose. | Retention periods are purpose\u2011specific (e.g., troubleshooting, security). |\n| **ISO\u202f27001 A.8.3** \u2013 Media handling | Secure disposal of media containing sensitive data. | Secure deletion procedures (see Section\u202f5) meet media\u2011disposal controls. |\n\n---\n\n## 5. Secure Deletion Procedures  \n\n### 5.1. Deletion Workflow  \n\n1. **Request Capture** \u2013 Deletion request received via API endpoint `/v1/data/delete` or via client portal.  \n2. **Identity Verification** \u2013 Verify requestor identity (OAuth token, email verification, or California consumer verification).  \n3. **Legal Hold Check** \u2013 Query the \u201cLegal Hold\u201d registry. If a hold exists, log the request and notify the compliance officer; do not delete.  \n4. **Deletion Execution** \u2013  \n   - **Database Records** \u2013 Issue `DELETE` statements with `WHERE` clauses targeting the user\u2019s unique identifier.  \n   - **Object Storage** \u2013 Issue `DELETE` calls to S3/Blob with `x-amz-delete-marker` and confirm versioned delete.  \n   - **Log Files** \u2013 Use log\u2011aggregation API to purge raw entries; retain only aggregated, anonymized data.  \n5. **Backup Sanitisation** \u2013 Trigger a **Secure Overwrite** job that rewrites any backup blocks containing the deleted data with random data, then re\u2011compresses the snapshot.  \n6. **Audit Logging** \u2013 Record the entire deletion event (request ID, timestamp, operator, outcome) in an immutable audit log (WORM\u2011enabled).  \n7. **Confirmation** \u2013 Return a JSON receipt to the requester and store a copy for 30\u202fdays for dispute resolution.\n\n### 5.2. Technical Controls  \n\n| Control | Implementation |\n|---------|----------------|\n| **Data\u2011at\u2011Rest Encryption** | AES\u2011256\u2011GCM for all storage layers; keys managed by AWS KMS / Azure Key Vault. |\n| **Secure Erase** | Use `shred` (Linux) or `sdelete` (Windows) for on\u2011premise disks; for cloud storage, rely on provider\u2019s *object versioning* and *delete marker* semantics, which guarantee eventual physical erasure per provider SLA. |\n| **WORM Logs** | Write\u2011once\u2011read\u2011many storage for audit logs (Amazon S3 Object Lock). |\n| **Automated Purge Scheduler** | Cron\u2011based job (`purge-data.sh`) runs daily, reads retention tables, and executes deletions. |\n| **Verification** | Post\u2011deletion, run a compliance query (`SELECT * FROM interactions WHERE user_id = ?`) to confirm zero rows; log result. |\n\n### 5.3. Incident Response  \n\nIf a deletion fails (e.g., due to storage error), the system:  \n\n1. Retries up to three times with exponential back\u2011off.  \n2. Escalates to the **Security Incident Response Team (SIRT)** with error details.  \n3. SIRT performs a manual forensic check and, if necessary, re\u2011runs the deletion with elevated privileges.  \n\nAll failure events are recorded in the immutable audit log and reported in the monthly compliance dashboard.\n\n---\n\n## 6. Roles & Responsibilities  \n\n| Role | Responsibilities |\n|------|------------------|\n| **Data Protection Officer (DPO)** | Approves retention periods, oversees legal hold process, reviews quarterly compliance reports. |\n| **Security Engineer** | Implements and maintains deletion scripts, monitors encryption key lifecycle, ensures secure erase tooling is up\u2011to\u2011date. |\n| **Compliance Analyst** | Handles user deletion requests, validates identity, updates Legal Hold registry, produces audit evidence for regulators. |\n| **Operations Manager** | Ensures backup retention schedules align with policy, coordinates with cloud providers for data\u2011sanitisation guarantees. |\n| **Product Owner** | Communicates policy changes to clients, incorporates retention settings into product roadmap. |\n\n---\n\n## 7. Monitoring & Reporting  \n\n| Metric | Frequency | Target | Reporting Tool |\n|--------|-----------|--------|----------------|\n| **Deletion Success Rate** | Daily | \u2265\u202f99.9\u202f% | Custom dashboard (Grafana) |\n| **Retention Compliance** | Weekly | 100\u202f% of records within defined windows | Elastic SIEM query |\n| **Legal Hold Overrides** | Real\u2011time alerts | <\u202f5 per month | PagerDuty |\n| **Backup Sanitisation Completion** | Monthly | All snapshots older than 90\u202fdays sanitized | AWS Backup console |\n\nAll metrics are reviewed in the **Monthly Data Governance Review**. Non\u2011conformities trigger a corrective action plan with defined remediation dates.\n\n---\n\n## 8. Client Communication  \n\n*When onboarding a new client, the following clause is added to the contract:*  \n\n> \u201cThe Service will retain user interaction data for a maximum of ninety (90) days and session metadata for one hundred eighty (180) days. Upon receipt of a written deletion request, the Service will permanently erase all personal data within thirty (30) days, subject to any applicable legal hold. The Service\u2019s Data Retention & Deletion Policy is available at\u202f[URL] and may be updated with prior notice.\u201d\n\nClients receive a **Data Retention Summary** (PDF) that outlines the same periods in plain language and provides a contact point for deletion requests.\n\n---\n\n## 9. Review & Revision History  \n\n| Version | Date "
       }
     }
   },
   "active": [
     {
-      "agent": "Hades",
-      "ticket": "AUTO-024",
-      "event": "delivered",
-      "ts": "2026-06-30T01:00:03.992059+00:00"
-    },
-    {
       "agent": "Metis",
       "ticket": "AUTO-021",
       "event": "delivered",
       "ts": "2026-06-30T00:52:56.674217+00:00"
+    },
+    {
+      "agent": "Fortuna",
+      "ticket": "AUTO-023",
+      "event": "delivered",
+      "ts": "2026-06-30T00:52:56.664175+00:00"
     },
     {
       "agent": "Clio",
@@ -1765,10 +1760,10 @@
       "ts": "2026-06-30T00:52:56.675864+00:00"
     },
     {
-      "agent": "Fortuna",
-      "ticket": "AUTO-023",
+      "agent": "Hades",
+      "ticket": "AUTO-024",
       "event": "delivered",
-      "ts": "2026-06-30T00:52:56.664175+00:00"
+      "ts": "2026-06-30T01:10:03.382472+00:00"
     },
     {
       "agent": "nemesis",
