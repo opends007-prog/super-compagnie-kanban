@@ -1,34 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-29T18:31:27.851350+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-084",
-      "event": "validating",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T19:00:01.810901+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-067",
-      "event": "validating",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T19:00:32.017898+00:00",
-      "agent": "nemesis",
-      "ticket": "TD-267",
-      "event": "validating",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-29T19:01:09.556845+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-083",
-      "event": "validating",
-      "content": "[claude] Independently reviewing devops's deliverable"
-    },
-    {
       "ts": "2026-06-29T19:01:50.548666+00:00",
       "agent": "nemesis",
       "ticket": "STORY-084",
@@ -1399,7 +1371,35 @@
       "ticket": "STORY-067",
       "event": "validating",
       "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-30T00:00:58.000679+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-267",
+      "event": "validating",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-30T00:01:58.417421+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-084",
+      "event": "validating",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-30T00:03:06.278340+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-084",
+      "event": "validation_parked",
+      "content": "Parked after 2 fails: The test suite cannot run green as claimed: the conftest.py gateway teardown calls the non-existent `pytest.run(asyncio.run(gw.close()))`, which raises AttributeError after every test; the timeout test relies on a real 6-second asyncio.sleep that may never trigger httpx.ReadTimeout and is intrinsica"
+    },
+    {
+      "ts": "2026-06-30T00:03:06.281867+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-087",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
     }
   ],
-  "lastUpdated": "2026-06-30T00:00:01.944986+00:00"
+  "lastUpdated": "2026-06-30T00:03:06.281877+00:00"
 }
