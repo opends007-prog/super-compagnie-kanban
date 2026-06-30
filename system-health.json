@@ -1,24 +1,23 @@
 {
-  "generatedAt": "2026-06-30T08:40:01.394030+00:00",
+  "generatedAt": "2026-06-30T08:50:02.115847+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
+    "validator": 9.2,
     "observability": 10.0,
-    "guard": 1340.0,
-    "backup": 10.0,
+    "guard": 1350.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 65,
-    "backlog": 5,
+    "backlog": 6,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 1
+    "planned": 4
   },
   "tickets_total": 88,
   "done_today": 32,
@@ -30,11 +29,16 @@
     "openclaw": 1
   },
   "live_agents": [
-    "Fortuna",
-    "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T08:40:52.798047+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "AUTO-035",
+      "content": "Parked after 2 fails: The deliverable is a competitive analysis of AI FAQ receptionist vendors, not the requested target"
+    },
     {
       "ts": "2026-06-30T08:40:01.435624+00:00",
       "agent": "nemesis",
@@ -111,13 +115,6 @@
       "event": "validation_pass",
       "ticket": "AUTO-036",
       "content": "PASS: The deliverable is a complete, substantive DPIA report covering scope, data flows, legal basis, risk assessment wi"
-    },
-    {
-      "ts": "2026-06-30T08:01:47.019437+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "AUTO-035",
-      "content": "FAIL #1: The deliverable is a competitive analysis of AI-FAQ receptionist vendors, not the requested target client list "
     }
   ],
   "problems": {}
