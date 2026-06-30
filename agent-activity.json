@@ -1,55 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-30T01:00:01.647335+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-067",
-      "event": "validating",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-30T01:00:01.812335+00:00",
-      "agent": "Hades",
-      "ticket": "AUTO-024",
-      "event": "dispatched",
-      "content": "security started work: Data Retention & Deletion Policy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T01:00:01.814390+00:00",
-      "agent": "Hades",
-      "ticket": "AUTO-024",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T01:00:03.992059+00:00",
-      "agent": "Hades",
-      "ticket": "AUTO-024",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-024-deliverable.md (10890b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T01:01:02.010047+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-067",
-      "event": "validation_parked",
-      "content": "Parked after 2 fails: The deliverable is a markdown design document with embedded code blocks, but the actual test-suite/ directory and scripts were never created on disk. No files exist at the specified paths \u2014 writing about code is not delivering code. Additionally, the embedded scripts contain bugs (e.g., pathlib.Path"
-    },
-    {
-      "ts": "2026-06-30T01:01:02.014571+00:00",
-      "agent": "nemesis",
-      "ticket": "TD-267",
-      "event": "validating",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-30T01:02:07.981619+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-087",
-      "event": "validating",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
       "ts": "2026-06-30T01:03:17.314630+00:00",
       "agent": "nemesis",
       "ticket": "STORY-088",
@@ -1399,7 +1350,56 @@
       "ticket": "TD-267",
       "event": "validating",
       "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:00:27.762985+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-089",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:01:03.885481+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-090",
+      "event": "validating",
+      "content": "[claude] Independently reviewing ml-engineer's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:01:16.188890+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-005",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:01:46.353779+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-009",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:02:39.079757+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-090",
+      "event": "validation_parked",
+      "content": "Parked after 2 fails: The deliverable is a design document with illustrative code sketches, not a completed implementation \u2014 no actual trained model artifact (model.pkl) or feature spec (features.json) is produced, and the claimed experimental results ($1.32M MAE, 4.7% MAPE) are stated without evidence that the code was "
+    },
+    {
+      "ts": "2026-06-30T04:02:39.081212+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-005",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, well-structured pricing sheet with a Free/Pro/Enterprise tiered model, feature matrix, per-seat pricing with annual/monthly options, payment terms, a revenue projection model with stated assumptions and sensitivity analysis, and competitive positioning against three co"
+    },
+    {
+      "ts": "2026-06-30T04:02:39.084718+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-009",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a fully fleshed-out 15-minute demo script with timed sections (totaling exactly 15:00), explicit talking points for every segment, intro, step-by-step walkthrough (setup, web chat, phone IVR, analytics), a Q&A section with five anticipated questions and answers, and a closing CTA "
     }
   ],
-  "lastUpdated": "2026-06-30T04:00:01.719625+00:00"
+  "lastUpdated": "2026-06-30T04:02:39.084722+00:00"
 }
