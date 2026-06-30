@@ -1,125 +1,127 @@
 {
-  "generatedAt": "2026-06-30T01:30:02.120217+00:00",
+  "generatedAt": "2026-06-30T01:40:02.040269+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 1,
   "crons": {
-    "work-executor": 0.0,
-    "validator": 0.0,
-    "observability": 0.0,
-    "guard": 910.0,
-    "backup": 30.0,
+    "work-executor": 9.9,
+    "validator": 1.6,
+    "observability": 10.0,
+    "guard": 920.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 33,
     "backlog": 6,
-    "in_progress": 10,
+    "in_progress": 11,
     "planned": 2,
-    "in_validation": 29
+    "in_validation": 28
   },
   "tickets_total": 80,
   "done_today": 0,
-  "delivered_today": 14,
-  "delivered_week": 46,
+  "delivered_today": 18,
+  "delivered_week": 48,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 40,
+    "cerebras:gpt-oss-120b": 42,
     "claude:owl-alpha": 6
   },
   "live_agents": [
+    "Athena",
     "Fortuna",
     "Gladiator",
     "Hades",
     "Hermes",
     "Metis",
+    "Nemesis",
     "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T01:30:02.158499+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-027",
-      "content": "[cerebras:gpt-oss-120b] attempting: Monthly FAQ Knowledge\u2011Base Refresh SOP"
-    },
-    {
-      "ts": "2026-06-30T01:30:02.156143+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-026",
-      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Cold Outreach Email Sequence"
-    },
-    {
-      "ts": "2026-06-30T01:30:02.154294+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "AUTO-026",
-      "content": "business-analyst started work: Healthcare Cold Outreach Email Sequence"
-    },
-    {
-      "ts": "2026-06-30T01:30:02.142610+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-027",
-      "content": "org-excellence started work: Monthly FAQ Knowledge\u2011Base Refresh SOP"
-    },
-    {
-      "ts": "2026-06-30T01:30:02.139020+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-025",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Upsell Playbook"
-    },
-    {
-      "ts": "2026-06-30T01:30:02.134108+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-025",
-      "content": "income started work: AI FAQ Receptionist Upsell Playbook"
-    },
-    {
-      "ts": "2026-06-30T01:30:02.119448+00:00",
-      "agent": "Gladiator",
-      "event": "building",
-      "ticket": "STORY-200",
-      "content": "proposing STORY-200/faq_to_json.py"
-    },
-    {
-      "ts": "2026-06-30T01:30:01.997124+00:00",
+      "ts": "2026-06-30T01:33:43.672791+00:00",
       "agent": "nemesis",
       "event": "validating",
-      "ticket": "TD-267",
-      "content": "[claude] Independently reviewing claude's deliverable"
+      "ticket": "STORY-089",
+      "content": "[claude] Independently reviewing income's deliverable"
     },
     {
-      "ts": "2026-06-30T01:10:03.382472+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-024",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-024-deliverable.md (10994b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T01:10:01.337681+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-024",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T01:10:01.336172+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-024",
-      "content": "security started work: Data Retention & Deletion Policy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T01:03:17.314630+00:00",
+      "ts": "2026-06-30T01:32:28.815927+00:00",
       "agent": "nemesis",
       "event": "validating",
       "ticket": "STORY-088",
       "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-30T01:32:28.812209+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "STORY-087",
+      "content": "FAIL #1: The deliverable contains a material mathematical error in the net revenue formula: it applies the renewal multi"
+    },
+    {
+      "ts": "2026-06-30T01:30:44.003105+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-087",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T01:30:05.857170+00:00",
+      "agent": "Nemesis",
+      "event": "delivered",
+      "ticket": "AUTO-028",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (9008b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T01:30:05.855473+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-027",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-027-deliverable.md (10311b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T01:30:05.853280+00:00",
+      "agent": "Hermes",
+      "event": "delivered",
+      "ticket": "AUTO-026",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-026-deliverable.md (11186b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T01:30:05.845199+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-025",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-025-deliverable.md (11285b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T01:30:04.140871+00:00",
+      "agent": "Nemesis",
+      "event": "working",
+      "ticket": "AUTO-028",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T01:30:04.139052+00:00",
+      "agent": "Nemesis",
+      "event": "dispatched",
+      "ticket": "AUTO-028",
+      "content": "nemesis started work: Data Retention & Deletion Policy for FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T01:30:03.443312+00:00",
+      "agent": "Nemesis",
+      "event": "build_rejected",
+      "ticket": "STORY-200",
+      "content": "review FAIL: no usable review"
+    },
+    {
+      "ts": "2026-06-30T01:30:03.267408+00:00",
+      "agent": "Athena",
+      "event": "build_test",
+      "ticket": "STORY-200",
+      "content": "syntax/compile PASS on faq_to_json.py"
     }
   ],
   "problems": {}
