@@ -1,41 +1,98 @@
 {
-  "generatedAt": "2026-06-30T01:20:01.512705+00:00",
+  "generatedAt": "2026-06-30T01:30:02.120217+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 16.1,
-    "observability": 10.0,
-    "guard": 900.0,
-    "backup": 20.0,
+    "work-executor": 0.0,
+    "validator": 0.0,
+    "observability": 0.0,
+    "guard": 910.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 33,
-    "backlog": 2,
+    "backlog": 6,
     "in_progress": 10,
-    "in_validation": 29,
-    "planned": 1
+    "planned": 2,
+    "in_validation": 29
   },
-  "tickets_total": 75,
+  "tickets_total": 80,
   "done_today": 0,
   "delivered_today": 14,
-  "delivered_week": 49,
+  "delivered_week": 46,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 43,
+    "cerebras:gpt-oss-120b": 40,
     "claude:owl-alpha": 6
   },
   "live_agents": [
-    "Clio",
     "Fortuna",
+    "Gladiator",
     "Hades",
+    "Hermes",
     "Metis",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T01:30:02.158499+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-027",
+      "content": "[cerebras:gpt-oss-120b] attempting: Monthly FAQ Knowledge\u2011Base Refresh SOP"
+    },
+    {
+      "ts": "2026-06-30T01:30:02.156143+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-026",
+      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Cold Outreach Email Sequence"
+    },
+    {
+      "ts": "2026-06-30T01:30:02.154294+00:00",
+      "agent": "Hermes",
+      "event": "dispatched",
+      "ticket": "AUTO-026",
+      "content": "business-analyst started work: Healthcare Cold Outreach Email Sequence"
+    },
+    {
+      "ts": "2026-06-30T01:30:02.142610+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-027",
+      "content": "org-excellence started work: Monthly FAQ Knowledge\u2011Base Refresh SOP"
+    },
+    {
+      "ts": "2026-06-30T01:30:02.139020+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-025",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Upsell Playbook"
+    },
+    {
+      "ts": "2026-06-30T01:30:02.134108+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-025",
+      "content": "income started work: AI FAQ Receptionist Upsell Playbook"
+    },
+    {
+      "ts": "2026-06-30T01:30:02.119448+00:00",
+      "agent": "Gladiator",
+      "event": "building",
+      "ticket": "STORY-200",
+      "content": "proposing STORY-200/faq_to_json.py"
+    },
+    {
+      "ts": "2026-06-30T01:30:01.997124+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-267",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
     {
       "ts": "2026-06-30T01:10:03.382472+00:00",
       "agent": "Hades",
@@ -63,62 +120,6 @@
       "event": "validating",
       "ticket": "STORY-088",
       "content": "[claude] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-30T01:02:07.981619+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-087",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T01:01:02.014571+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-267",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-30T01:01:02.010047+00:00",
-      "agent": "nemesis",
-      "event": "validation_parked",
-      "ticket": "STORY-067",
-      "content": "Parked after 2 fails: The deliverable is a markdown design document with embedded code blocks, but the actual test-suite"
-    },
-    {
-      "ts": "2026-06-30T01:00:03.992059+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-024",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-024-deliverable.md (10890b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T01:00:01.814390+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-024",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T01:00:01.812335+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-024",
-      "content": "security started work: Data Retention & Deletion Policy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T01:00:01.647335+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-067",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-30T00:52:56.676864+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-024",
-      "content": "[claude:owl-alpha] Produced AUTO-024-deliverable.md (8531b) \u2192 in_progress"
     }
   ],
   "problems": {}
