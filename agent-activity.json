@@ -1,27 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-30T02:50:05.650326+00:00",
-      "agent": "Iris",
-      "ticket": "AUTO-032",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-032-deliverable.md (9331b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T03:00:02.091670+00:00",
-      "agent": "nemesis",
-      "ticket": "TD-267",
-      "event": "validating",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-30T03:00:02.345846+00:00",
-      "agent": "Minerva",
-      "ticket": "AUTO-029",
-      "event": "dispatched",
-      "content": "analyst started work: Financial Services FAQ Knowledge Base (Sample)"
-    },
-    {
       "ts": "2026-06-30T03:00:02.347903+00:00",
       "agent": "Minerva",
       "ticket": "AUTO-029",
@@ -1399,7 +1378,28 @@
       "ticket": "AUTO-031",
       "event": "validation_pass",
       "content": "PASS: The deliverable is a complete, domain-specific security checklist genuinely covering data collection, storage, transmission, and deletion for the AI FAQ Receptionist, with concrete checkpoints, evidence requirements, reference standards, remediation guidance, a verification script, and acceptance cr"
+    },
+    {
+      "ts": "2026-06-30T06:40:01.828481+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-032",
+      "event": "validating",
+      "content": "[claude] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:40:01.847651+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-016",
+      "event": "validating",
+      "content": "[claude] Independently reviewing finance's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:40:35.475770+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-032",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable contains 10 fully described frames with timestamps, visual sketches, narration cues, and on-screen text across a 75-second video, meeting all core requirements. Minor issues exist (blank sign-off signatures are a future dependency; Frame 4's visual sketch column contains narration te"
     }
   ],
-  "lastUpdated": "2026-06-30T06:22:53.509706+00:00"
+  "lastUpdated": "2026-06-30T06:40:35.475774+00:00"
 }
