@@ -1,37 +1,58 @@
 {
-  "generatedAt": "2026-06-30T20:50:17.295142+00:00",
+  "generatedAt": "2026-06-30T21:00:10.911895+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 0.7,
-    "observability": 10.1,
-    "guard": 2070.4,
-    "backup": 20.1,
-    "site-sync": 0.1
+    "work-executor": 0.0,
+    "validator": 10.5,
+    "observability": 9.8,
+    "guard": 2080.2,
+    "backup": 29.9,
+    "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 102,
     "backlog": 6,
-    "in_progress": 14,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 1
+    "in_validation": 2
   },
   "tickets_total": 127,
   "done_today": 69,
-  "delivered_today": 1,
-  "delivered_week": 1,
+  "delivered_today": 2,
+  "delivered_week": 2,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 1
+    "cerebras:gpt-oss-120b": 2
   },
   "live_agents": [
     "Fortuna",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T20:50:36.368680+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-065",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-065-deliverable.md (10827b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T20:50:24.010202+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-065",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
+    },
+    {
+      "ts": "2026-06-30T20:50:24.004348+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-065",
+      "content": "income started work: AI FAQ Receptionist Pricing & Packaging Guide"
+    },
     {
       "ts": "2026-06-30T20:40:22.707595+00:00",
       "agent": "Fortuna",
