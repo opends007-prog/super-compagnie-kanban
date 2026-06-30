@@ -1,27 +1,27 @@
 {
-  "generatedAt": "2026-06-30T08:20:02.034067+00:00",
+  "generatedAt": "2026-06-30T08:30:01.319038+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
+    "validator": 5.3,
     "observability": 10.0,
-    "guard": 1320.0,
-    "backup": 20.0,
+    "guard": 1330.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 64,
+    "done": 65,
     "backlog": 5,
     "in_progress": 13,
     "planned": 4,
-    "in_validation": 2
+    "in_validation": 1
   },
   "tickets_total": 88,
-  "done_today": 31,
+  "done_today": 32,
   "delivered_today": 25,
   "delivered_week": 25,
   "model_mix_week": {
@@ -31,11 +31,17 @@
   },
   "live_agents": [
     "Fortuna",
-    "Hades",
     "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T08:24:42.298069+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-034",
+      "content": "PASS: The deliverable is a complete, fully-specified pricing sheet with three tiers (monthly fees, per-interaction overa"
+    },
     {
       "ts": "2026-06-30T08:20:02.082962+00:00",
       "agent": "nemesis",
@@ -112,13 +118,6 @@
       "event": "validation_fail",
       "ticket": "AUTO-034",
       "content": "FAIL #1: The revenue forecast in \u00a75 is arithmetically broken and self-contradictory: the Month-1 breakdown adds up to $9"
-    },
-    {
-      "ts": "2026-06-30T08:01:46.999943+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-033",
-      "content": "PASS: The deliverable is a comprehensive, actionable markdown checklist covering all required elements: OS setup, requir"
     }
   ],
   "problems": {}
