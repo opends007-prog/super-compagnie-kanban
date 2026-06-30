@@ -3128,7 +3128,8 @@
         }
       ],
       "estimatedStartDate": "2026-06-30",
-      "validation_fails": 1
+      "validation_fails": 1,
+      "review_attempts": 1
     },
     {
       "id": "STORY-083",
@@ -3384,7 +3385,8 @@
       "estimatedStartDate": "2026-06-29",
       "assigned_to": "Fortuna",
       "last_agent_update": "2026-06-29T00:00:00.240192+00:00",
-      "validation_fails": 1
+      "validation_fails": 1,
+      "review_attempts": 1
     },
     {
       "id": "STORY-088",
@@ -3515,7 +3517,8 @@
       ],
       "estimatedStartDate": "2026-06-30",
       "assigned_to": "Fortuna",
-      "validation_fails": 1
+      "validation_fails": 1,
+      "review_attempts": 1
     },
     {
       "id": "STORY-090",
@@ -3808,7 +3811,7 @@
       "description": "Research comparable SaaS pricing and design a tiered pricing model (Free, Pro, Enterprise) for the AI FAQ Receptionist service. Deliver a concise pricing sheet in Markdown format including features per tier, pricing, and payment terms.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "in_progress",
       "assigned_to": "Fortuna",
       "team": "any",
       "epicId": "EPIC-002",
@@ -3816,9 +3819,9 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T20:35:05.374462+00:00",
-      "updatedAt": "2026-06-29T20:50:27.920818+00:00",
-      "progress": 0,
-      "validation_fails": 0,
+      "updatedAt": "2026-06-30T03:24:06.452264+00:00",
+      "progress": 40,
+      "validation_fails": 1,
       "comments": [
         {
           "by": "auto-planner",
@@ -3834,6 +3837,11 @@
           "by": "Fortuna",
           "timestamp": "2026-06-29T20:50:27.920818+00:00",
           "text": "Delivered work/AUTO-005-deliverable.md (9430 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T03:24:06.452264+00:00",
+          "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The deliverable file AUTO-005-deliverable.md does not exist in the work directory \u2014 no artifact was written to disk, so there is nothing to review. Additionally, the inline content contains an internal math inconsistency: the \u00a75.1 revenue table implies ~300k interactions/customer while the stated as"
         }
       ],
       "jira_key": "[2026-06-29 21:29:47] [INFO] Creating Jira issue: AUTO-005 (AI FAQ Receptionist Pricing Sheet)\n[2026-06-29 21:29:48] [INFO] Created Jira issue: TD-336\n[2026-06-29 21:29:48] [WARN] No transition found for 'In Review' on TD-336 (already in status?)\nTD-336",
@@ -3853,7 +3861,8 @@
           "timestamp": "2026-06-29T20:50:27.920818+00:00",
           "text": "Delivered work/AUTO-005-deliverable.md (9430 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-006",
@@ -3919,7 +3928,7 @@
       "description": "Write a compelling one\u2011page sales pitch (HTML/Markdown) that outlines the problem, solution, benefits, and call\u2011to\u2011action for the AI FAQ Receptionist. Include headline, bullet\u2011point value statements, and a short customer testimonial placeholder.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Iris",
       "team": "any",
       "epicId": "EPIC-005",
@@ -3927,7 +3936,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T20:35:05.374462+00:00",
-      "updatedAt": "2026-06-29T20:50:27.915964+00:00",
+      "updatedAt": "2026-06-30T03:24:06.467223+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -3945,6 +3954,11 @@
           "by": "Iris",
           "timestamp": "2026-06-29T20:50:27.915964+00:00",
           "text": "Delivered work/AUTO-007-deliverable.md (4048 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T03:24:06.467223+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-007-deliverable.md): The deliverable is a complete, substantive one-page sales pitch covering headline, problem, solution, bullet-point value statements, benefits table, testimonial placeholder, pricing, and a three-part call-to-action with specific metrics and next steps."
         }
       ],
       "jira_key": "[2026-06-29 21:29:50] [INFO] Creating Jira issue: AUTO-007 (One\u2011Page Sales Pitch Copy for AI FAQ Receptionist)\n[2026-06-29 21:29:50] [INFO] Created Jira issue: TD-338\n[2026-06-29 21:29:51] [WARN] No transition found for 'In Review' on TD-338 (already in status?)\nTD-338",
@@ -3964,7 +3978,8 @@
           "timestamp": "2026-06-29T20:50:27.915964+00:00",
           "text": "Delivered work/AUTO-007-deliverable.md (4048 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-008",
@@ -3972,7 +3987,7 @@
       "description": "Create a series of three cold\u2011outreach email templates (initial contact, follow\u2011up, and break\u2011up) tailored to the target client list. Provide the templates in a Markdown file with subject lines, personalization tokens, and concise body copy.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Metis",
       "team": "any",
       "epicId": "EPIC-014",
@@ -3980,7 +3995,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T20:35:05.374462+00:00",
-      "updatedAt": "2026-06-29T21:10:03.571850+00:00",
+      "updatedAt": "2026-06-30T03:24:06.473707+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -3998,6 +4013,11 @@
           "by": "Metis",
           "timestamp": "2026-06-29T21:10:03.571850+00:00",
           "text": "Delivered work/AUTO-008-deliverable.md (7208 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T03:24:06.473707+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-008-deliverable.md): All three email templates (initial, follow-up, break-up) are fully written with subject lines, personalization tokens, and concise body copy in a Markdown file, meeting every requirement of the ticket."
         }
       ],
       "jira_key": "[2026-06-29 21:29:51] [INFO] Creating Jira issue: AUTO-008 (Cold Outreach Email Templates for AI FAQ Receptionist)\n[2026-06-29 21:29:51] [INFO] Created Jira issue: TD-339\n[2026-06-29 21:29:52] [WARN] No transition found for 'In Review' on TD-339 (already in status?)\nTD-339",
@@ -4017,7 +4037,8 @@
           "timestamp": "2026-06-29T21:10:03.571850+00:00",
           "text": "Delivered work/AUTO-008-deliverable.md (7208 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-009",
@@ -4025,7 +4046,7 @@
       "description": "Write a concise live demo script that walks a prospect through the AI FAQ Receptionist features, includes an intro, step\u2011by\u2011step walkthrough, and a Q&A segment. Deliverable: a markdown document with timed sections and talking points ready for a 15\u2011minute presentation.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Fortuna",
       "team": "any",
       "epicId": "EPIC-002",
@@ -4033,7 +4054,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T21:20:03.196250+00:00",
-      "updatedAt": "2026-06-29T21:50:06.088289+00:00",
+      "updatedAt": "2026-06-30T03:24:06.480771+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -4051,6 +4072,11 @@
           "by": "Fortuna",
           "timestamp": "2026-06-29T21:50:06.088289+00:00",
           "text": "Delivered work/AUTO-009-deliverable.md (8913 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T03:24:06.480771+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-009-deliverable.md): The deliverable is a complete, detailed 15-minute demo script with timed sections (totaling exactly 15:00), talking points, UI actions, scripted dialogue, anticipated Q&A with answers, and appendix materials \u2014 fully satisfying all ticket requirements."
         }
       ],
       "jira_key": "[2026-06-29 21:29:52] [INFO] Creating Jira issue: AUTO-009 (AI FAQ Receptionist Demo Script)\n[2026-06-29 21:29:53] [INFO] Created Jira issue: TD-340\n[2026-06-29 21:29:53] [WARN] No transition found for 'In Review' on TD-340 (already in status?)\nTD-340",
@@ -4070,7 +4096,8 @@
           "timestamp": "2026-06-29T21:50:06.088289+00:00",
           "text": "Delivered work/AUTO-009-deliverable.md (8913 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-010",
@@ -4078,7 +4105,7 @@
       "description": "Create a one\u2011page guide listing the most common objections prospects raise (price, integration, data security, etc.) and provide ready\u2011to\u2011use responses and talking points. Deliverable: a markdown/PDF guide for the sales team to reference during calls.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Metis",
       "team": "any",
       "epicId": "EPIC-005",
@@ -4086,7 +4113,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T21:20:03.196250+00:00",
-      "updatedAt": "2026-06-29T21:50:06.084960+00:00",
+      "updatedAt": "2026-06-30T03:24:06.483985+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -4104,6 +4131,11 @@
           "by": "Metis",
           "timestamp": "2026-06-29T21:50:06.084960+00:00",
           "text": "Delivered work/AUTO-010-deliverable.md (11442 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T03:24:06.483985+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-010-deliverable.md): The deliverable is a complete, well-structured one-page reference guide with a quick-reference table, detailed objection scripts for eight common objections (price, integration, data security, accuracy/trust, scalability, change management, vendor lock-in, cost of ownership), a usage guide, sample c"
         }
       ],
       "jira_key": "[2026-06-29 21:29:53] [INFO] Creating Jira issue: AUTO-010 (Objection\u2011Handling Guide for AI FAQ Receptionist)\n[2026-06-29 21:29:54] [INFO] Created Jira issue: TD-341\n[2026-06-29 21:29:54] [WARN] No transition found for 'In Review' on TD-341 (already in status?)\nTD-341",
@@ -4123,7 +4155,8 @@
           "timestamp": "2026-06-29T21:50:06.084960+00:00",
           "text": "Delivered work/AUTO-010-deliverable.md (11442 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-011",
@@ -5035,6 +5068,106 @@
           "by": "Iris",
           "timestamp": "2026-06-30T03:02:19.359752+00:00",
           "text": "Delivered work/AUTO-032-deliverable.md (9669 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-033",
+      "title": "Targeted Outreach List for Mid\u2011Market Retailers",
+      "description": "Research and compile a list of 50 mid\u2011market retail companies that are likely to benefit from the AI FAQ Receptionist. Include company name, primary contact, title, email, region, and a brief note on fit. Deliverable: CSV file with the compiled data.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Minerva",
+      "team": "any",
+      "epicId": "EPIC-002",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-06-30T03:20:03.159674+00:00",
+      "updatedAt": "2026-06-30T03:20:03.159674+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-06-30T03:20:03.159674+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-034",
+      "title": "AI FAQ Receptionist Service Level Agreement (SLA) Draft",
+      "description": "Draft a concise one\u2011page SLA for the AI FAQ Receptionist covering response time, uptime guarantee, support hours, and escalation procedures. Provide the SLA in markdown format ready for client signing. Deliverable: SLA document in markdown.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Metis",
+      "team": "any",
+      "epicId": "EPIC-005",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-06-30T03:20:03.159674+00:00",
+      "updatedAt": "2026-06-30T03:20:03.159674+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-06-30T03:20:03.159674+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-035",
+      "title": "GDPR Compliance Gap Analysis for AI FAQ Receptionist",
+      "description": "Review the current data\u2011retention policy and related controls for the AI FAQ Receptionist against GDPR requirements. Identify any compliance gaps and propose remediation steps. Deliverable: markdown report outlining findings and recommendations.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Hades",
+      "team": "any",
+      "epicId": "EPIC-010",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-06-30T03:20:03.159674+00:00",
+      "updatedAt": "2026-06-30T03:20:03.159674+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-06-30T03:20:03.159674+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-036",
+      "title": "Infrastructure Cost Estimation for VM Deployment",
+      "description": "Estimate the monthly cost of running the full Super Compagnie agent team on a virtual machine using low\u2011cost cloud options. Produce a cost breakdown (compute, storage, network) and a recommendation for the most economical configuration. Deliverable: CSV spreadsheet with cost items and total estimate.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Plutus",
+      "team": "any",
+      "epicId": "EPIC-001",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-06-30T03:20:03.159674+00:00",
+      "updatedAt": "2026-06-30T03:20:03.159674+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-06-30T03:20:03.159674+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
         }
       ]
     }

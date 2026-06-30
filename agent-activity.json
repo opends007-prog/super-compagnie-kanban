@@ -1,230 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-29T23:30:59.474551+00:00",
-      "agent": "nemesis",
-      "ticket": "TD-267",
-      "event": "validating",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-29T23:31:32.080751+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-084",
-      "event": "validating",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T23:32:03.282087+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-087",
-      "event": "validating",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-29T23:40:01.557997+00:00",
-      "agent": "Fortuna",
-      "ticket": "AUTO-017",
-      "event": "dispatched",
-      "content": "income started work: AI FAQ Receptionist Targeted Outreach Playbook"
-    },
-    {
-      "ts": "2026-06-29T23:40:01.559819+00:00",
-      "agent": "Minerva",
-      "ticket": "AUTO-018",
-      "event": "dispatched",
-      "content": "analyst started work: Healthcare Industry Sample FAQ Knowledge Base"
-    },
-    {
-      "ts": "2026-06-29T23:40:01.561130+00:00",
-      "agent": "Minerva",
-      "ticket": "AUTO-018",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Industry Sample FAQ Knowledge Base"
-    },
-    {
-      "ts": "2026-06-29T23:40:01.562367+00:00",
-      "agent": "Fortuna",
-      "ticket": "AUTO-017",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Targeted Outreach Playbook"
-    },
-    {
-      "ts": "2026-06-29T23:40:01.567337+00:00",
-      "agent": "Hades",
-      "ticket": "AUTO-019",
-      "event": "dispatched",
-      "content": "security started work: Security Risk Mitigation Checklist for AI FAQ Receptionist D"
-    },
-    {
-      "ts": "2026-06-29T23:40:01.570869+00:00",
-      "agent": "Hades",
-      "ticket": "AUTO-019",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Security Risk Mitigation Checklist for AI FAQ Receptionist D"
-    },
-    {
-      "ts": "2026-06-29T23:40:01.927293+00:00",
-      "agent": "Minerva",
-      "ticket": "AUTO-018",
-      "event": "working",
-      "content": "[claude:owl-alpha] attempting: Healthcare Industry Sample FAQ Knowledge Base"
-    },
-    {
-      "ts": "2026-06-29T23:40:03.561272+00:00",
-      "agent": "Thor",
-      "ticket": "AUTO-020",
-      "event": "dispatched",
-      "content": "devops started work: Weekly FAQ Refresh Cron Job Specification"
-    },
-    {
-      "ts": "2026-06-29T23:40:03.562900+00:00",
-      "agent": "Thor",
-      "ticket": "AUTO-020",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Weekly FAQ Refresh Cron Job Specification"
-    },
-    {
-      "ts": "2026-06-29T23:42:05.657217+00:00",
-      "agent": "Fortuna",
-      "ticket": "AUTO-017",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-017-deliverable.md (9187b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T23:42:05.662725+00:00",
-      "agent": "Hades",
-      "ticket": "AUTO-019",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-019-deliverable.md (11779b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T23:42:05.664468+00:00",
-      "agent": "Thor",
-      "ticket": "AUTO-020",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-020-deliverable.md (15025b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T23:42:05.667064+00:00",
-      "agent": "Minerva",
-      "ticket": "AUTO-018",
-      "event": "delivered",
-      "content": "[claude:owl-alpha] Produced AUTO-018-deliverable.md (8637b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T00:00:00.314263+00:00",
-      "agent": "Athena",
-      "ticket": "STORY-023",
-      "event": "started",
-      "status": "in_progress"
-    },
-    {
-      "ts": "2026-06-30T00:00:01.944944+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-067",
-      "event": "validating",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-30T00:00:58.000679+00:00",
-      "agent": "nemesis",
-      "ticket": "TD-267",
-      "event": "validating",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-30T00:01:58.417421+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-084",
-      "event": "validating",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-30T00:03:06.278340+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-084",
-      "event": "validation_parked",
-      "content": "Parked after 2 fails: The test suite cannot run green as claimed: the conftest.py gateway teardown calls the non-existent `pytest.run(asyncio.run(gw.close()))`, which raises AttributeError after every test; the timeout test relies on a real 6-second asyncio.sleep that may never trigger httpx.ReadTimeout and is intrinsica"
-    },
-    {
-      "ts": "2026-06-30T00:03:06.281867+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-087",
-      "event": "validating",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T00:30:01.175488+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-067",
-      "event": "validating",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-30T00:30:01.400366+00:00",
-      "agent": "Metis",
-      "ticket": "AUTO-021",
-      "event": "dispatched",
-      "content": "org-excellence started work: Client Onboarding Checklist for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T00:30:01.401779+00:00",
-      "agent": "Clio",
-      "ticket": "AUTO-022",
-      "event": "dispatched",
-      "content": "data-analyst started work: Success Metrics Dashboard Specification for AI FAQ Reception"
-    },
-    {
-      "ts": "2026-06-30T00:30:01.402821+00:00",
-      "agent": "Clio",
-      "ticket": "AUTO-022",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Success Metrics Dashboard Specification for AI FAQ Reception"
-    },
-    {
-      "ts": "2026-06-30T00:30:01.404001+00:00",
-      "agent": "Metis",
-      "ticket": "AUTO-021",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Client Onboarding Checklist for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T00:30:01.405921+00:00",
-      "agent": "Fortuna",
-      "ticket": "AUTO-023",
-      "event": "dispatched",
-      "content": "income started work: Referral Program Blueprint for AI FAQ Receptionist Services"
-    },
-    {
-      "ts": "2026-06-30T00:30:01.411594+00:00",
-      "agent": "Fortuna",
-      "ticket": "AUTO-023",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Referral Program Blueprint for AI FAQ Receptionist Services"
-    },
-    {
-      "ts": "2026-06-30T00:30:03.561943+00:00",
-      "agent": "Hades",
-      "ticket": "AUTO-024",
-      "event": "dispatched",
-      "content": "security started work: Data Retention & Deletion Policy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T00:30:03.566054+00:00",
-      "agent": "Hades",
-      "ticket": "AUTO-024",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T00:30:05.198415+00:00",
-      "agent": "Metis",
-      "ticket": "AUTO-021",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-021-deliverable.md (12407b) \u2192 in_progress"
-    },
-    {
       "ts": "2026-06-30T00:30:05.203089+00:00",
       "agent": "Fortuna",
       "ticket": "AUTO-023",
@@ -1399,7 +1175,231 @@
       "ticket": "AUTO-006",
       "event": "validation_pass",
       "content": "PASS: Deliverable is complete and on-topic: provides industry and regional analysis plus a well-formed CSV with 30 real prospect companies covering industry, region, key contact role, and justification."
+    },
+    {
+      "ts": "2026-06-30T03:20:01.563007+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-267",
+      "event": "validating",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:20:01.567897+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-087",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:20:01.730596+00:00",
+      "agent": "Hermes",
+      "ticket": "AUTO-002",
+      "event": "dispatched",
+      "content": "business-analyst started work: Competitive Landscape Report for Autonomous AI Platforms"
+    },
+    {
+      "ts": "2026-06-30T03:20:01.733254+00:00",
+      "agent": "Thor",
+      "ticket": "AUTO-003",
+      "event": "dispatched",
+      "content": "devops started work: CI/CD Pipeline Blueprint for Agent Deployments to VM"
+    },
+    {
+      "ts": "2026-06-30T03:20:01.738041+00:00",
+      "agent": "Hades",
+      "ticket": "AUTO-004",
+      "event": "dispatched",
+      "content": "security started work: Data Privacy Impact Assessment (DPIA) Template"
+    },
+    {
+      "ts": "2026-06-30T03:20:01.758300+00:00",
+      "agent": "Hermes",
+      "ticket": "AUTO-002",
+      "event": "working",
+      "content": "[cerebras:gpt-oss-120b] attempting: Competitive Landscape Report for Autonomous AI Platforms"
+    },
+    {
+      "ts": "2026-06-30T03:20:01.761363+00:00",
+      "agent": "Hades",
+      "ticket": "AUTO-004",
+      "event": "working",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy Impact Assessment (DPIA) Template"
+    },
+    {
+      "ts": "2026-06-30T03:20:01.772937+00:00",
+      "agent": "Thor",
+      "ticket": "AUTO-003",
+      "event": "working",
+      "content": "[cerebras:gpt-oss-120b] attempting: CI/CD Pipeline Blueprint for Agent Deployments to VM"
+    },
+    {
+      "ts": "2026-06-30T03:20:02.042329+00:00",
+      "agent": "Thor",
+      "ticket": "AUTO-003",
+      "event": "working",
+      "content": "[claude:owl-alpha] attempting: CI/CD Pipeline Blueprint for Agent Deployments to VM"
+    },
+    {
+      "ts": "2026-06-30T03:20:04.329340+00:00",
+      "agent": "Prometheus",
+      "ticket": "STORY-090",
+      "event": "dispatched",
+      "content": "ml-engineer started work: Develop AI-driven revenue forecasting model"
+    },
+    {
+      "ts": "2026-06-30T03:20:04.330924+00:00",
+      "agent": "Prometheus",
+      "ticket": "STORY-090",
+      "event": "working",
+      "content": "[cerebras:gpt-oss-120b] attempting: Develop AI-driven revenue forecasting model"
+    },
+    {
+      "ts": "2026-06-30T03:20:30.688599+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-089",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:20:52.147284+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-005",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:20:58.809158+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-007",
+      "event": "validating",
+      "content": "[claude] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:21:00.255785+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-267",
+      "event": "validating",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:21:00.257763+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-087",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:21:16.001406+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-008",
+      "event": "validating",
+      "content": "[claude] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:21:51.485327+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-089",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:22:31.208375+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-005",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:22:32.001052+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-007",
+      "event": "validating",
+      "content": "[claude] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:22:52.528247+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-008",
+      "event": "validating",
+      "content": "[claude] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:23:06.880716+00:00",
+      "agent": "Hades",
+      "ticket": "AUTO-004",
+      "event": "delivered",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-004-deliverable.md (13262b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T03:23:06.884983+00:00",
+      "agent": "Hermes",
+      "ticket": "AUTO-002",
+      "event": "delivered",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-002-deliverable.md (14892b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T03:23:06.886995+00:00",
+      "agent": "Prometheus",
+      "ticket": "STORY-090",
+      "event": "delivered",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-090-deliverable.md (15939b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T03:23:06.889419+00:00",
+      "agent": "Thor",
+      "ticket": "AUTO-003",
+      "event": "delivered",
+      "content": "[claude:owl-alpha] Produced AUTO-003-deliverable.md (12943b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T03:23:43.429669+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-009",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:23:51.504394+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-010",
+      "event": "validating",
+      "content": "[claude] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:24:06.464276+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-005",
+      "event": "validation_fail",
+      "content": "FAIL #1: The deliverable file AUTO-005-deliverable.md does not exist in the work directory \u2014 no artifact was written to disk, so there is nothing to review. Additionally, the inline content contains an internal math inconsistency: the \u00a75.1 revenue table implies ~300k interactions/customer while the stated as"
+    },
+    {
+      "ts": "2026-06-30T03:24:06.469156+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-007",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, substantive one-page sales pitch covering headline, problem, solution, bullet-point value statements, benefits table, testimonial placeholder, pricing, and a three-part call-to-action with specific metrics and next steps."
+    },
+    {
+      "ts": "2026-06-30T03:24:06.474072+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-008",
+      "event": "validation_pass",
+      "content": "PASS: All three email templates (initial, follow-up, break-up) are fully written with subject lines, personalization tokens, and concise body copy in a Markdown file, meeting every requirement of the ticket."
+    },
+    {
+      "ts": "2026-06-30T03:24:06.481130+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-009",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, detailed 15-minute demo script with timed sections (totaling exactly 15:00), talking points, UI actions, scripted dialogue, anticipated Q&A with answers, and appendix materials \u2014 fully satisfying all ticket requirements."
+    },
+    {
+      "ts": "2026-06-30T03:24:06.484389+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-010",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, well-structured one-page reference guide with a quick-reference table, detailed objection scripts for eight common objections (price, integration, data security, accuracy/trust, scalability, change management, vendor lock-in, cost of ownership), a usage guide, sample c"
     }
   ],
-  "lastUpdated": "2026-06-30T03:19:38.461704+00:00"
+  "lastUpdated": "2026-06-30T03:24:06.484394+00:00"
 }

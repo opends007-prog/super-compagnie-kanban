@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-06-30T03:10:02.201246+00:00",
+  "generatedAt": "2026-06-30T03:20:01.525052+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 1,
+  "site_unpushed": 0,
   "crons": {
-    "work-executor": 7.7,
-    "validator": 2.8,
-    "observability": 10.0,
-    "guard": 1010.0,
-    "backup": 10.0,
+    "work-executor": 10.0,
+    "validator": 0.0,
+    "observability": 0.0,
+    "guard": 1020.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 33,
-    "backlog": 1,
-    "in_progress": 10,
+    "done": 35,
+    "backlog": 2,
+    "in_progress": 14,
     "planned": 2,
-    "in_validation": 38
+    "in_validation": 31
   },
   "tickets_total": 84,
-  "done_today": 0,
+  "done_today": 2,
   "delivered_today": 40,
-  "delivered_week": 48,
+  "delivered_week": 44,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 44,
+    "cerebras:gpt-oss-120b": 40,
     "claude:owl-alpha": 4
   },
   "live_agents": [
@@ -37,87 +37,87 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T03:09:55.153163+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-090",
-      "content": "[claude] Independently reviewing ml-engineer's deliverable"
-    },
-    {
-      "ts": "2026-06-30T03:09:06.307798+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-089",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T03:08:39.244039+00:00",
+      "ts": "2026-06-30T03:20:01.567897+00:00",
       "agent": "nemesis",
       "event": "validating",
       "ticket": "STORY-087",
       "content": "[claude] Independently reviewing income's deliverable"
     },
     {
-      "ts": "2026-06-30T03:08:39.240303+00:00",
+      "ts": "2026-06-30T03:20:01.563007+00:00",
       "agent": "nemesis",
       "event": "validating",
       "ticket": "TD-267",
       "content": "[claude] Independently reviewing claude's deliverable"
     },
     {
-      "ts": "2026-06-30T03:08:39.236842+00:00",
+      "ts": "2026-06-30T03:19:38.461699+00:00",
       "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-088",
-      "content": "[claude] Independently reviewing security's deliverable"
+      "event": "validation_pass",
+      "ticket": "AUTO-006",
+      "content": "PASS: Deliverable is complete and on-topic: provides industry and regional analysis plus a well-formed CSV with 30 real "
     },
     {
-      "ts": "2026-06-30T03:07:15.434947+00:00",
+      "ts": "2026-06-30T03:19:38.459294+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "AUTO-004",
+      "content": "FAIL #1: The deliverable is a generic template filled with illustrative 'Example' rows and placeholder bracketed fields "
+    },
+    {
+      "ts": "2026-06-30T03:19:38.455392+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "AUTO-003",
+      "content": "FAIL #1: The deliverable is a design document describing a pipeline rather than an actual implementation: it references "
+    },
+    {
+      "ts": "2026-06-30T03:19:38.452198+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "AUTO-002",
+      "content": "FAIL #1: The deliverable file AUTO-002-deliverable.md does not exist in the workspace \u2014 no artifact was produced, so the"
+    },
+    {
+      "ts": "2026-06-30T03:18:28.678073+00:00",
       "agent": "nemesis",
       "event": "validating",
-      "ticket": "STORY-089",
+      "ticket": "AUTO-006",
+      "content": "[claude] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:17:45.889411+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-005",
       "content": "[claude] Independently reviewing income's deliverable"
     },
     {
-      "ts": "2026-06-30T03:06:46.807042+00:00",
+      "ts": "2026-06-30T03:17:33.681182+00:00",
       "agent": "nemesis",
       "event": "validating",
-      "ticket": "STORY-088",
+      "ticket": "AUTO-004",
       "content": "[claude] Independently reviewing security's deliverable"
     },
     {
-      "ts": "2026-06-30T03:02:19.361355+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-030",
-      "content": "[claude:owl-alpha] Produced AUTO-030-deliverable.md (7919b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T03:02:19.359999+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "AUTO-032",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-032-deliverable.md (9669b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T03:02:19.358650+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-031",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-031-deliverable.md (8104b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T03:02:19.356629+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-029",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-029-deliverable.md (10437b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T03:02:06.624295+00:00",
+      "ts": "2026-06-30T03:16:37.700242+00:00",
       "agent": "nemesis",
       "event": "validating",
-      "ticket": "STORY-087",
+      "ticket": "AUTO-003",
+      "content": "[claude] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:14:53.785500+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-002",
+      "content": "[claude] Independently reviewing business-analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:13:06.258923+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-089",
       "content": "[claude] Independently reviewing income's deliverable"
     }
   ],
