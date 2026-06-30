@@ -1,31 +1,32 @@
 {
-  "generatedAt": "2026-06-30T09:20:01.443427+00:00",
+  "generatedAt": "2026-06-30T09:30:01.390643+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 0.0,
+    "work-executor": 3.9,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 1380.0,
-    "backup": 20.0,
+    "guard": 1390.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 65,
     "backlog": 6,
-    "in_progress": 17,
-    "planned": 4
+    "in_progress": 13,
+    "planned": 4,
+    "in_validation": 4
   },
   "tickets_total": 92,
   "done_today": 32,
-  "delivered_today": 25,
-  "delivered_week": 25,
+  "delivered_today": 29,
+  "delivered_week": 29,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 24,
-    "openclaw": 1
+    "cerebras:gpt-oss-120b": 27,
+    "openclaw": 2
   },
   "live_agents": [
     "Fortuna",
@@ -35,88 +36,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T09:10:07.130652+00:00",
-      "agent": "Thor",
-      "event": "delivered",
-      "ticket": "AUTO-040",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-040-deliverable.md (12976b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T09:10:07.127282+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "AUTO-039",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-039-deliverable.md (7435b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T09:10:07.124109+00:00",
+      "ts": "2026-06-30T09:26:06.036235+00:00",
       "agent": "Minerva",
       "event": "delivered",
       "ticket": "AUTO-038",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-038-deliverable.md (7712b) \u2192 in_progress"
+      "content": "[openclaw] Produced AUTO-038-deliverable.md (4730b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T09:10:07.118352+00:00",
+      "ts": "2026-06-30T09:26:06.034800+00:00",
+      "agent": "Iris",
+      "event": "delivered",
+      "ticket": "AUTO-039",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-039-deliverable.md (6680b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T09:26:06.030918+00:00",
+      "agent": "Thor",
+      "event": "delivered",
+      "ticket": "AUTO-040",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-040-deliverable.md (15244b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T09:26:06.027609+00:00",
       "agent": "Fortuna",
       "event": "delivered",
       "ticket": "AUTO-037",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-037-deliverable.md (3717b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-037-deliverable.md (4112b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T09:10:02.777884+00:00",
+      "ts": "2026-06-30T09:24:42.047735+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-038",
+      "content": "[openclaw] attempting: Healthcare Use\u2011Case Brief for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T09:20:02.563202+00:00",
       "agent": "Thor",
       "event": "working",
       "ticket": "AUTO-040",
       "content": "[cerebras:gpt-oss-120b] attempting: Deployment Readiness Checklist for AI FAQ Receptionist on VM"
     },
     {
-      "ts": "2026-06-30T09:10:02.768120+00:00",
+      "ts": "2026-06-30T09:20:02.559185+00:00",
       "agent": "Thor",
       "event": "dispatched",
       "ticket": "AUTO-040",
       "content": "devops started work: Deployment Readiness Checklist for AI FAQ Receptionist on VM"
     },
     {
-      "ts": "2026-06-30T09:10:01.740296+00:00",
-      "agent": "Iris",
+      "ts": "2026-06-30T09:20:01.865589+00:00",
+      "agent": "Minerva",
       "event": "working",
-      "ticket": "AUTO-039",
-      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Sequence (3\u2011step) for AI FAQ Receptionis"
+      "ticket": "AUTO-038",
+      "content": "[claude:owl-alpha] attempting: Healthcare Use\u2011Case Brief for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T09:10:01.737308+00:00",
+      "ts": "2026-06-30T09:20:01.599658+00:00",
       "agent": "Minerva",
       "event": "working",
       "ticket": "AUTO-038",
       "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Use\u2011Case Brief for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T09:10:01.731441+00:00",
+      "ts": "2026-06-30T09:20:01.597874+00:00",
       "agent": "Minerva",
       "event": "dispatched",
       "ticket": "AUTO-038",
       "content": "analyst started work: Healthcare Use\u2011Case Brief for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T09:10:01.724877+00:00",
+      "ts": "2026-06-30T09:20:01.593977+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "AUTO-039",
+      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Sequence (3\u2011step) for AI FAQ Receptionis"
+    },
+    {
+      "ts": "2026-06-30T09:20:01.589790+00:00",
       "agent": "Iris",
       "event": "dispatched",
       "ticket": "AUTO-039",
       "content": "pm started work: Cold Outreach Email Sequence (3\u2011step) for AI FAQ Receptionis"
-    },
-    {
-      "ts": "2026-06-30T09:10:01.715331+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-037",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist One\u2011Page Sales Pitch"
-    },
-    {
-      "ts": "2026-06-30T09:10:01.712879+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-037",
-      "content": "income started work: AI FAQ Receptionist One\u2011Page Sales Pitch"
     }
   ],
   "problems": {}
