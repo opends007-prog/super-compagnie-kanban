@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-06-30T08:00:01.253321+00:00",
+  "generatedAt": "2026-06-30T08:10:01.365188+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
+    "validator": 8.2,
     "observability": 10.0,
-    "guard": 1300.0,
-    "backup": 29.9,
+    "guard": 1310.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 62,
+    "done": 64,
     "backlog": 5,
-    "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "in_progress": 15,
+    "planned": 4
   },
   "tickets_total": 88,
-  "done_today": 29,
+  "done_today": 31,
   "delivered_today": 23,
   "delivered_week": 23,
   "model_mix_week": {
@@ -37,6 +36,48 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T08:01:47.020817+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-036",
+      "content": "PASS: The deliverable is a complete, substantive DPIA report covering scope, data flows, legal basis, risk assessment wi"
+    },
+    {
+      "ts": "2026-06-30T08:01:47.019437+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "AUTO-035",
+      "content": "FAIL #1: The deliverable is a competitive analysis of AI-FAQ receptionist vendors, not the requested target client list "
+    },
+    {
+      "ts": "2026-06-30T08:01:47.017136+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "AUTO-034",
+      "content": "FAIL #1: The revenue forecast in \u00a75 is arithmetically broken and self-contradictory: the Month-1 breakdown adds up to $9"
+    },
+    {
+      "ts": "2026-06-30T08:01:46.999943+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-033",
+      "content": "PASS: The deliverable is a comprehensive, actionable markdown checklist covering all required elements: OS setup, requir"
+    },
+    {
+      "ts": "2026-06-30T08:01:02.408052+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-036",
+      "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-30T08:00:48.933869+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-035",
+      "content": "[claude] Independently reviewing analyst's deliverable"
+    },
     {
       "ts": "2026-06-30T08:00:01.296230+00:00",
       "agent": "nemesis",
@@ -78,48 +119,6 @@
       "event": "delivered",
       "ticket": "AUTO-033",
       "content": "[openclaw] Produced AUTO-033-deliverable.md (6273b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T07:44:56.693941+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-035",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-035-deliverable.md (14821b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T07:44:56.692127+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-036",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-036-deliverable.md (2896b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T07:44:56.689399+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-034",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-034-deliverable.md (11430b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T07:44:43.017610+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "AUTO-033",
-      "content": "[openclaw] attempting: Agent Team VM Deployment Checklist"
-    },
-    {
-      "ts": "2026-06-30T07:40:04.065808+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-036",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy Impact Assessment for FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T07:40:04.064325+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-036",
-      "content": "security started work: Data Privacy Impact Assessment for FAQ Receptionist"
     }
   ],
   "problems": {}
