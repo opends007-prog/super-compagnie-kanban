@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T07:00:02.037286+00:00",
+  "generated": "2026-06-30T07:10:01.503177+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -1263,7 +1263,7 @@
     },
     "AUTO-016": {
       "agent": "Plutus",
-      "status": "in_validation",
+      "status": "backlog",
       "events": [
         {
           "ts": "2026-06-30T05:01:09.815137+00:00",
@@ -1314,6 +1314,16 @@
           "ts": "2026-06-30T06:40:01.847651+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing finance's deliverable"
+        },
+        {
+          "ts": "2026-06-30T07:00:02.139764+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing finance's deliverable"
+        },
+        {
+          "ts": "2026-06-30T07:00:45.491144+00:00",
+          "event": "validation_parked",
+          "content": "Parked after 4 no-verdict attempts"
         }
       ],
       "deliverable": {
@@ -1705,11 +1715,6 @@
       "status": "done",
       "events": [
         {
-          "ts": "2026-06-30T03:00:02.347903+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Financial Services FAQ Knowledge Base (Sample)"
-        },
-        {
           "ts": "2026-06-30T03:02:19.356629+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-029-deliverable.md (10437b) \u2192 in_validation"
@@ -1776,11 +1781,6 @@
       "agent": "Hades",
       "status": "done",
       "events": [
-        {
-          "ts": "2026-06-30T03:00:02.351296+00:00",
-          "event": "dispatched",
-          "content": "security started work: Data\u2011Handling Security Checklist for AI FAQ Receptionist Dep"
-        },
         {
           "ts": "2026-06-30T03:00:02.372069+00:00",
           "event": "working",
@@ -1853,9 +1853,9 @@
   "active": [
     {
       "agent": "nemesis",
-      "ticket": "AUTO-032",
-      "event": "validation_pass",
-      "ts": "2026-06-30T06:40:35.475770+00:00"
+      "ticket": "AUTO-016",
+      "event": "validation_parked",
+      "ts": "2026-06-30T07:00:45.491144+00:00"
     }
   ]
 }
