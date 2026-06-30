@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-06-30T04:50:01.897604+00:00",
+  "generatedAt": "2026-06-30T05:00:01.879632+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
     "work-executor": 10.0,
-    "validator": 7.4,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1110.0,
-    "backup": 20.0,
+    "guard": 1120.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 44,
-    "backlog": 6,
-    "in_progress": 12,
-    "planned": 2,
+    "backlog": 3,
+    "in_progress": 13,
+    "planned": 4,
     "in_validation": 20
   },
   "tickets_total": 84,
@@ -29,10 +29,31 @@
     "claude:owl-alpha": 2
   },
   "live_agents": [
-    "Prometheus",
+    "Fortuna",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T05:00:01.970421+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-015",
+      "content": "[claude] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:00:01.964231+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-011",
+      "content": "[claude] Independently reviewing data-engineer's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:00:00.376460+00:00",
+      "agent": "Fortuna",
+      "event": "started",
+      "ticket": "STORY-087",
+      "content": ""
+    },
     {
       "ts": "2026-06-30T04:42:37.268375+00:00",
       "agent": "nemesis",
@@ -95,27 +116,6 @@
       "event": "validating",
       "ticket": "STORY-089",
       "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:40:01.452599+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-087",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:40:01.448744+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-267",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:30:00.474669+00:00",
-      "agent": "Prometheus",
-      "event": "started",
-      "ticket": "STORY-090",
-      "content": ""
     }
   ],
   "problems": {}
