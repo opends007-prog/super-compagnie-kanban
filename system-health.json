@@ -1,30 +1,31 @@
 {
-  "generatedAt": "2026-06-30T08:10:01.365188+00:00",
+  "generatedAt": "2026-06-30T08:20:02.034067+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 8.2,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1310.0,
-    "backup": 10.0,
+    "guard": 1320.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 64,
     "backlog": 5,
-    "in_progress": 15,
-    "planned": 4
+    "in_progress": 13,
+    "planned": 4,
+    "in_validation": 2
   },
   "tickets_total": 88,
   "done_today": 31,
-  "delivered_today": 23,
-  "delivered_week": 23,
+  "delivered_today": 25,
+  "delivered_week": 25,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 21,
+    "cerebras:gpt-oss-120b": 23,
     "claude:owl-alpha": 1,
     "openclaw": 1
   },
@@ -32,10 +33,65 @@
     "Fortuna",
     "Hades",
     "Minerva",
-    "Thor",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T08:20:02.082962+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-035",
+      "content": "[claude] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T08:20:02.071849+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-034",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T08:10:04.312370+00:00",
+      "agent": "Minerva",
+      "event": "delivered",
+      "ticket": "AUTO-035",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-035-deliverable.md (14639b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T08:10:04.306500+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-034",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-034-deliverable.md (10384b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T08:10:01.571597+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-035",
+      "content": "[cerebras:gpt-oss-120b] attempting: Target Client List for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T08:10:01.569309+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-034",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-06-30T08:10:01.568123+00:00",
+      "agent": "Minerva",
+      "event": "dispatched",
+      "ticket": "AUTO-035",
+      "content": "analyst started work: Target Client List for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T08:10:01.565735+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-034",
+      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
+    },
     {
       "ts": "2026-06-30T08:01:47.020817+00:00",
       "agent": "nemesis",
@@ -63,62 +119,6 @@
       "event": "validation_pass",
       "ticket": "AUTO-033",
       "content": "PASS: The deliverable is a comprehensive, actionable markdown checklist covering all required elements: OS setup, requir"
-    },
-    {
-      "ts": "2026-06-30T08:01:02.408052+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-036",
-      "content": "[claude] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-30T08:00:48.933869+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-035",
-      "content": "[claude] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T08:00:01.296230+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-034",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T08:00:01.292187+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-033",
-      "content": "[claude] Independently reviewing devops's deliverable"
-    },
-    {
-      "ts": "2026-06-30T07:50:04.304834+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-036",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-036-deliverable.md (12803b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T07:50:01.740457+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-036",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy Impact Assessment for FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T07:50:01.739072+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-036",
-      "content": "security started work: Data Privacy Impact Assessment for FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T07:44:56.695420+00:00",
-      "agent": "Thor",
-      "event": "delivered",
-      "ticket": "AUTO-033",
-      "content": "[openclaw] Produced AUTO-033-deliverable.md (6273b) \u2192 in_validation"
     }
   ],
   "problems": {}
