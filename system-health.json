@@ -1,117 +1,118 @@
 {
-  "generatedAt": "2026-06-30T19:40:02.109640+00:00",
+  "generatedAt": "2026-06-30T19:50:02.268944+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.0,
-    "validator": 20.0,
+    "work-executor": 4.8,
+    "validator": 4.8,
     "observability": 10.0,
-    "guard": 2000.0,
-    "backup": 10.0,
+    "guard": 2010.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 99,
-    "backlog": 7,
-    "in_progress": 16,
+    "backlog": 6,
+    "in_progress": 17,
     "planned": 4,
     "in_validation": 1
   },
   "tickets_total": 127,
   "done_today": 66,
-  "delivered_today": 5,
-  "delivered_week": 5,
+  "delivered_today": 1,
+  "delivered_week": 1,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 5
+    "cerebras:gpt-oss-120b": 1
   },
   "live_agents": [
     "Fortuna",
     "Hermes",
-    "Iris"
+    "Metis",
+    "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T19:35:03.185169+00:00",
-      "agent": "Fortuna",
-      "event": "no_deliverable",
-      "ticket": "AUTO-065",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+      "ts": "2026-06-30T19:45:14.354566+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-072",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-072-deliverable.md (12753b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-30T19:35:03.178970+00:00",
-      "agent": "Fortuna",
-      "event": "no_deliverable",
-      "ticket": "AUTO-069",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-06-30T19:35:03.171142+00:00",
+      "ts": "2026-06-30T19:45:14.350823+00:00",
       "agent": "Hermes",
       "event": "no_deliverable",
       "ticket": "AUTO-071",
       "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-06-30T19:35:03.134355+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "AUTO-070",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-070-deliverable.md (5606b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T19:30:22.107020+00:00",
+      "ts": "2026-06-30T19:45:14.349479+00:00",
       "agent": "Fortuna",
-      "event": "working",
+      "event": "no_deliverable",
       "ticket": "AUTO-065",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-06-30T19:30:21.301091+00:00",
+      "ts": "2026-06-30T19:45:14.344168+00:00",
+      "agent": "Fortuna",
+      "event": "no_deliverable",
+      "ticket": "AUTO-069",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-06-30T19:45:12.577377+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-070",
+      "content": "PASS: The deliverable provides a comprehensive and detailed one-page sales pitch deck for the AI FAQ Receptionist, cover"
+    },
+    {
+      "ts": "2026-06-30T19:45:11.960702+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-072",
+      "content": "[cerebras:gpt-oss-120b] attempting: Objection Handling Guide for AI FAQ Receptionist Sales Calls"
+    },
+    {
+      "ts": "2026-06-30T19:45:11.949439+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-072",
+      "content": "org-excellence started work: Objection Handling Guide for AI FAQ Receptionist Sales Calls"
+    },
+    {
+      "ts": "2026-06-30T19:40:31.573971+00:00",
       "agent": "Hermes",
       "event": "working",
       "ticket": "AUTO-071",
       "content": "[openclaw] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top 5 Ven"
     },
     {
-      "ts": "2026-06-30T19:30:21.286155+00:00",
+      "ts": "2026-06-30T19:40:31.564402+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-069",
       "content": "[openclaw] attempting: Cold Outreach Email Sequence for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T19:30:04.295173+00:00",
+      "ts": "2026-06-30T19:40:31.553125+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-065",
+      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
+    },
+    {
+      "ts": "2026-06-30T19:40:04.473891+00:00",
       "agent": "Hermes",
       "event": "working",
       "ticket": "AUTO-071",
       "content": "[claude:owl-alpha] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top 5 Ven"
     },
     {
-      "ts": "2026-06-30T19:30:03.754782+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-071",
-      "content": "[cerebras:gpt-oss-120b] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top 5 Ven"
-    },
-    {
-      "ts": "2026-06-30T19:30:03.753247+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "AUTO-071",
-      "content": "business-analyst started work: Competitive Feature Matrix: AI FAQ Receptionist vs Top 5 Ven"
-    },
-    {
-      "ts": "2026-06-30T19:30:02.525463+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-065",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
-    },
-    {
-      "ts": "2026-06-30T19:30:02.444781+00:00",
+      "ts": "2026-06-30T19:40:04.448780+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-069",
