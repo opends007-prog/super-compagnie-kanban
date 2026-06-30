@@ -1,6 +1,20 @@
 {
-  "updated": "2026-06-30T20:40:08.292581+00:00",
+  "updated": "2026-06-30T20:50:15.869292+00:00",
   "events": [
+    {
+      "ts": "2026-06-30T20:50:15.869292+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "ok",
+      "msg": "[work] tickets.json updated (only tickets with real deliverables advanced)"
+    },
+    {
+      "ts": "2026-06-30T20:50:15.869292+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[validate]     AUTO-069: no usable verdict #1 (model unavailable?) \u2014 staying in_validation, retry next run"
+    },
     {
       "ts": "2026-06-30T20:40:08.292581+00:00",
       "job": "real-work-executor",
@@ -1732,20 +1746,6 @@
     },
     {
       "ts": "2026-06-29T19:10:02.186999+00:00",
-      "job": "Weekly Plan Review (Mon)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1d ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-29T18:50:02.070674+00:00",
-      "job": "Weekly Planning (Mon)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1d ago"
-    },
-    {
-      "ts": "2026-06-29T18:50:02.070674+00:00",
       "job": "Weekly Plan Review (Mon)",
       "kind": "discord-cron",
       "status": "ok",

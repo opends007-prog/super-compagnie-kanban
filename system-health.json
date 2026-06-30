@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-06-30T20:40:07.225323+00:00",
+  "generatedAt": "2026-06-30T20:50:17.295142+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 3.5,
-    "validator": 11.6,
-    "observability": 9.9,
-    "guard": 2060.1,
-    "backup": 9.8,
-    "site-sync": 5.0
+    "work-executor": 10.0,
+    "validator": 0.7,
+    "observability": 10.1,
+    "guard": 2070.4,
+    "backup": 20.1,
+    "site-sync": 0.1
   },
   "guard_recent_restore": false,
   "status_counts": {
@@ -22,100 +22,36 @@
   },
   "tickets_total": 127,
   "done_today": 69,
-  "delivered_today": 6,
-  "delivered_week": 6,
+  "delivered_today": 1,
+  "delivered_week": 1,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 6
+    "cerebras:gpt-oss-120b": 1
   },
   "live_agents": [
     "Fortuna",
-    "Metis",
     "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T20:36:37.749131+00:00",
-      "agent": "Fortuna",
-      "event": "no_deliverable",
-      "ticket": "AUTO-065",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-06-30T20:36:37.299752+00:00",
+      "ts": "2026-06-30T20:40:22.707595+00:00",
       "agent": "Fortuna",
       "event": "delivered",
-      "ticket": "AUTO-069",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-069-deliverable.md (7953b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T20:31:50.318441+00:00",
-      "agent": "Fortuna",
-      "event": "working",
       "ticket": "AUTO-065",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-065-deliverable.md (10305b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T20:30:18.007591+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-065",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
-    },
-    {
-      "ts": "2026-06-30T20:30:13.915041+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-069",
-      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Sequence for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T20:30:13.911315+00:00",
+      "ts": "2026-06-30T20:40:10.457864+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-065",
       "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
     },
     {
-      "ts": "2026-06-30T20:30:13.905858+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-069",
-      "content": "income started work: Cold Outreach Email Sequence for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T20:30:13.903267+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-065",
-      "content": "income started work: AI FAQ Receptionist Pricing & Packaging Guide"
-    },
-    {
-      "ts": "2026-06-30T20:28:31.112929+00:00",
+      "ts": "2026-06-30T20:40:10.430760+00:00",
       "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-072",
-      "content": "PASS: The deliverable provides a comprehensive objection-handling guide for the AI FAQ Receptionist, including scripted "
-    },
-    {
-      "ts": "2026-06-30T20:28:31.052224+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-071",
-      "content": "PASS: The deliverable provides a comprehensive and detailed comparison of the AI FAQ Receptionist with five leading comp"
-    },
-    {
-      "ts": "2026-06-30T20:28:22.065824+00:00",
-      "agent": "Fortuna",
-      "event": "no_deliverable",
-      "ticket": "AUTO-065",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-06-30T20:28:22.030930+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
+      "event": "validating",
       "ticket": "AUTO-069",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-069-deliverable.md (7123b) \u2192 in_validation"
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
     }
   ],
   "problems": {}
