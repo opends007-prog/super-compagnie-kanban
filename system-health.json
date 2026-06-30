@@ -1,120 +1,123 @@
 {
-  "generatedAt": "2026-06-30T13:30:01.562897+00:00",
+  "generatedAt": "2026-06-30T13:40:02.283469+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 10.0,
-    "observability": 0.0,
-    "guard": 1630.0,
-    "backup": 29.9,
+    "work-executor": 5.1,
+    "validator": 20.0,
+    "observability": 10.0,
+    "guard": 1640.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 82,
-    "backlog": 10,
-    "in_progress": 13,
+    "backlog": 7,
+    "in_progress": 17,
     "planned": 4
   },
-  "tickets_total": 109,
+  "tickets_total": 110,
   "done_today": 49,
-  "delivered_today": 43,
-  "delivered_week": 43,
+  "delivered_today": 44,
+  "delivered_week": 44,
   "model_mix_week": {
+    "openclaw": 6,
     "cerebras:gpt-oss-120b": 35,
-    "openclaw": 5,
     "claude:owl-alpha": 3
   },
   "live_agents": [
-    "nemesis"
+    "Fortuna",
+    "Hermes",
+    "Iris",
+    "Nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T13:08:14.395000+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "STORY-201",
-      "content": "PASS: The deliverable provides a complete, ready\u2011to\u2011run script, systemd unit, environment file, deployment, verification"
-    },
-    {
-      "ts": "2026-06-30T13:08:14.393135+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-052",
-      "content": "PASS: The deliverable is a comprehensive and detailed checklist for QA engineers, content owners, and product managers t"
-    },
-    {
-      "ts": "2026-06-30T13:08:14.389880+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-051",
-      "content": "PASS: The deliverable provides a concrete analysis with identified regulatory gaps, risk ratings, and concise remediatio"
-    },
-    {
-      "ts": "2026-06-30T13:08:14.387088+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-050",
-      "content": "PASS: The deliverable provides a complete one\u2011page sales pitch with a headline, problem, solution, ROI data, bullet\u2011poin"
-    },
-    {
-      "ts": "2026-06-30T13:08:14.378992+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-049",
-      "content": "PASS: The document provides a comprehensive and detailed pricing sheet for the AI FAQ Receptionist, including competitiv"
-    },
-    {
-      "ts": "2026-06-30T13:05:34.451503+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-201",
-      "content": "[claude,openclaw,groq] Independently reviewing devops's deliverable"
-    },
-    {
-      "ts": "2026-06-30T13:04:37.252826+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-052",
-      "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
-    },
-    {
-      "ts": "2026-06-30T13:03:12.281391+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-051",
-      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-30T13:00:03.056240+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-049",
-      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T13:00:03.008310+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-050",
-      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T12:51:58.600158+00:00",
-      "agent": "Thor",
+      "ts": "2026-06-30T13:34:55.328394+00:00",
+      "agent": "Nemesis",
       "event": "delivered",
-      "ticket": "STORY-201",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-201-deliverable.md (12483b) \u2192 in_validation"
+      "ticket": "AUTO-056",
+      "content": "[openclaw] Produced AUTO-056-deliverable.md (5520b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-30T12:51:56.226254+00:00",
-      "agent": "Thor",
+      "ts": "2026-06-30T13:34:55.325851+00:00",
+      "agent": "Hermes",
+      "event": "delivered",
+      "ticket": "AUTO-055",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-055-deliverable.md (8603b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T13:34:55.320353+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-053",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-053-deliverable.md (5961b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T13:34:55.305969+00:00",
+      "agent": "Iris",
+      "event": "delivered",
+      "ticket": "AUTO-054",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-054-deliverable.md (6086b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T13:30:14.838985+00:00",
+      "agent": "Nemesis",
       "event": "working",
-      "ticket": "STORY-201",
-      "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] Lucy 8 AM Morning Mot... failing"
+      "ticket": "AUTO-056",
+      "content": "[openclaw] attempting: Data\u2011Handling Compliance Checklist for FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T13:30:07.982964+00:00",
+      "agent": "Nemesis",
+      "event": "working",
+      "ticket": "AUTO-056",
+      "content": "[claude:owl-alpha] attempting: Data\u2011Handling Compliance Checklist for FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T13:30:04.614225+00:00",
+      "agent": "Nemesis",
+      "event": "working",
+      "ticket": "AUTO-056",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data\u2011Handling Compliance Checklist for FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T13:30:04.608443+00:00",
+      "agent": "Nemesis",
+      "event": "dispatched",
+      "ticket": "AUTO-056",
+      "content": "nemesis started work: Data\u2011Handling Compliance Checklist for FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T13:30:01.906318+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-055",
+      "content": "[cerebras:gpt-oss-120b] attempting: Industry Pain\u2011Point Research Report for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T13:30:01.897339+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "AUTO-054",
+      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Template Pack"
+    },
+    {
+      "ts": "2026-06-30T13:30:01.894517+00:00",
+      "agent": "Iris",
+      "event": "dispatched",
+      "ticket": "AUTO-054",
+      "content": "pm started work: Cold Outreach Email Template Pack"
+    },
+    {
+      "ts": "2026-06-30T13:30:01.890421+00:00",
+      "agent": "Hermes",
+      "event": "dispatched",
+      "ticket": "AUTO-055",
+      "content": "business-analyst started work: Industry Pain\u2011Point Research Report for AI FAQ Receptionist"
     }
   ],
   "problems": {}
