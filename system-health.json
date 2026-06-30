@@ -1,31 +1,30 @@
 {
-  "generatedAt": "2026-06-30T14:00:01.846479+00:00",
+  "generatedAt": "2026-06-30T14:10:01.771631+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.2,
+    "work-executor": 9.9,
     "validator": 0.0,
     "observability": 10.0,
-    "guard": 1660.0,
-    "backup": 30.0,
+    "guard": 1670.0,
+    "backup": 9.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 82,
+    "done": 86,
     "backlog": 7,
     "in_progress": 14,
-    "planned": 4,
-    "in_validation": 4
+    "planned": 4
   },
   "tickets_total": 111,
-  "done_today": 49,
-  "delivered_today": 45,
-  "delivered_week": 45,
+  "done_today": 53,
+  "delivered_today": 43,
+  "delivered_week": 43,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 37,
+    "cerebras:gpt-oss-120b": 35,
     "openclaw": 5,
     "claude:owl-alpha": 3
   },
@@ -35,92 +34,93 @@
     "Iris",
     "Nemesis",
     "Thor",
-    "nemesis"
+    "nemesis",
+    "qa"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T14:00:02.233654+00:00",
+      "ts": "2026-06-30T14:09:59.243743+00:00",
+      "agent": "qa",
+      "event": "validation_pass",
+      "ticket": "AUTO-056",
+      "content": "PASS: The deliverable provides a complete, concrete checklist covering GDPR, CCPA and HIPAA with evidence requirements a"
+    },
+    {
+      "ts": "2026-06-30T14:09:59.239950+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-055",
+      "content": "PASS: The deliverable provides a full 2\u2011page research report with industry pain points, data sources, quotes, scoring, a"
+    },
+    {
+      "ts": "2026-06-30T14:09:59.233835+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-054",
+      "content": "PASS: The deliverable contains three complete cold\u2011outreach email templates with subject lines, body copy, and defined p"
+    },
+    {
+      "ts": "2026-06-30T14:09:59.212362+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-053",
+      "content": "PASS: The deliverable provides a comprehensive and detailed pricing sheet for the AI FAQ Receptionist, including three t"
+    },
+    {
+      "ts": "2026-06-30T14:05:07.355351+00:00",
+      "agent": "qa",
+      "event": "validating",
+      "ticket": "AUTO-056",
+      "content": "[claude,openclaw,groq] Independently reviewing nemesis's deliverable"
+    },
+    {
+      "ts": "2026-06-30T14:05:05.889864+00:00",
       "agent": "nemesis",
       "event": "validating",
-      "ticket": "AUTO-053",
-      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+      "ticket": "AUTO-055",
+      "content": "[claude,openclaw,groq] Independently reviewing business-analyst's deliverable"
     },
     {
-      "ts": "2026-06-30T13:54:50.515582+00:00",
+      "ts": "2026-06-30T14:00:07.336418+00:00",
       "agent": "Thor",
-      "event": "no_deliverable",
-      "ticket": "STORY-202",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-06-30T13:54:50.485257+00:00",
-      "agent": "Nemesis",
       "event": "delivered",
-      "ticket": "AUTO-056",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-056-deliverable.md (7783b) \u2192 in_validation"
+      "ticket": "STORY-202",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-202-deliverable.md (11825b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-30T13:54:50.448773+00:00",
+      "ts": "2026-06-30T14:00:07.325881+00:00",
       "agent": "Thor",
       "event": "delivered",
       "ticket": "STORY-203",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-203-deliverable.md (11234b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-203-deliverable.md (10026b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T13:54:50.152453+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-053",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-053-deliverable.md (5742b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T13:50:09.168653+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "STORY-202",
-      "content": "[openclaw] attempting: [self-heal] openclaw-gateway.service keeps crashing"
-    },
-    {
-      "ts": "2026-06-30T13:50:04.662337+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "STORY-203",
-      "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] Lucy 8 AM Morning Mot... failing"
-    },
-    {
-      "ts": "2026-06-30T13:50:04.660653+00:00",
-      "agent": "Thor",
-      "event": "dispatched",
-      "ticket": "STORY-203",
-      "content": "devops started work: [self-heal] Lucy 8 AM Morning Mot... failing"
-    },
-    {
-      "ts": "2026-06-30T13:50:03.191855+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "STORY-202",
-      "content": "[claude:owl-alpha] attempting: [self-heal] openclaw-gateway.service keeps crashing"
-    },
-    {
-      "ts": "2026-06-30T13:50:02.645878+00:00",
+      "ts": "2026-06-30T14:00:02.511872+00:00",
       "agent": "Thor",
       "event": "working",
       "ticket": "STORY-202",
       "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] openclaw-gateway.service keeps crashing"
     },
     {
-      "ts": "2026-06-30T13:50:02.643580+00:00",
+      "ts": "2026-06-30T14:00:02.464512+00:00",
       "agent": "Thor",
       "event": "dispatched",
       "ticket": "STORY-202",
       "content": "devops started work: [self-heal] openclaw-gateway.service keeps crashing"
     },
     {
-      "ts": "2026-06-30T13:50:02.624873+00:00",
-      "agent": "Fortuna",
+      "ts": "2026-06-30T14:00:02.442465+00:00",
+      "agent": "Thor",
       "event": "working",
-      "ticket": "AUTO-053",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+      "ticket": "STORY-203",
+      "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] Lucy 8 AM Morning Mot... failing"
+    },
+    {
+      "ts": "2026-06-30T14:00:02.363757+00:00",
+      "agent": "Thor",
+      "event": "dispatched",
+      "ticket": "STORY-203",
+      "content": "devops started work: [self-heal] Lucy 8 AM Morning Mot... failing"
     }
   ],
   "problems": {}
