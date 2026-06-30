@@ -1,48 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-30T01:50:02.327264+00:00",
-      "agent": "Metis",
-      "ticket": "AUTO-027",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Monthly FAQ Knowledge\u2011Base Refresh SOP"
-    },
-    {
-      "ts": "2026-06-30T01:50:04.251479+00:00",
-      "agent": "Nemesis",
-      "ticket": "AUTO-028",
-      "event": "dispatched",
-      "content": "nemesis started work: Data Retention & Deletion Policy for FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T01:50:04.256179+00:00",
-      "agent": "Nemesis",
-      "ticket": "AUTO-028",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T01:50:31.552077+00:00",
-      "agent": "Fortuna",
-      "ticket": "AUTO-025",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-025-deliverable.md (10610b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T01:50:31.563936+00:00",
-      "agent": "Hermes",
-      "ticket": "AUTO-026",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-026-deliverable.md (9987b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T01:50:31.569149+00:00",
-      "agent": "Metis",
-      "ticket": "AUTO-027",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-027-deliverable.md (12097b) \u2192 in_validation"
-    },
-    {
       "ts": "2026-06-30T01:50:31.576889+00:00",
       "agent": "Nemesis",
       "ticket": "AUTO-028",
@@ -1399,7 +1357,49 @@
       "ticket": "AUTO-019",
       "event": "validating",
       "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:25:12.776846+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-020",
+      "event": "validating",
+      "content": "[claude] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:25:48.334771+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-021",
+      "event": "validating",
+      "content": "[claude] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:26:04.825318+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-011",
+      "event": "validation_parked",
+      "content": "Parked after 4 no-verdict attempts"
+    },
+    {
+      "ts": "2026-06-30T05:26:04.828575+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-019",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, substantive security checklist with 17 detailed controls covering encryption, authentication, logging, access review, and more, plus a one-page implementation guide with step-by-step deployment instructions, prerequisites, common remediation paths, and a sign-off secti"
+    },
+    {
+      "ts": "2026-06-30T05:26:04.833376+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-020",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, executable markdown specification that covers all required elements\u2014the command (full bash script), schedule (Sunday 02:30 UTC cron plus systemd timer), all required environment variables (ten, with descriptions and examples), and explicit error-handling steps for six "
+    },
+    {
+      "ts": "2026-06-30T05:26:04.838095+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-021",
+      "event": "validation_fail",
+      "content": "FAIL #1: The document is a generic template with placeholder values (e.g. <client_id>, 202X dates, fictitious script paths and revision-history entries dated after today) and no client-specific content, so it reads as a stub rather than completed onboarding work."
     }
   ],
-  "lastUpdated": "2026-06-30T05:24:41.937034+00:00"
+  "lastUpdated": "2026-06-30T05:26:04.838100+00:00"
 }

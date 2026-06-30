@@ -4233,7 +4233,7 @@
       "description": "Assemble a realistic set of 40\u201150 retail\u2011industry FAQ entries (questions, answers, and metadata) that can be used to demo the AI FAQ Receptionist. Deliverable: a CSV file with columns for question, answer, category, and confidence score placeholders.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "backlog",
       "assigned_to": "Vulcan",
       "team": "any",
       "epicId": "EPIC-009",
@@ -4241,9 +4241,9 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T21:20:03.196250+00:00",
-      "updatedAt": "2026-06-29T22:00:04.059285+00:00",
+      "updatedAt": "2026-06-30T05:26:04.824402+00:00",
       "progress": 0,
-      "validation_fails": 0,
+      "validation_fails": 2,
       "comments": [
         {
           "by": "auto-planner",
@@ -4259,6 +4259,11 @@
           "by": "Vulcan",
           "timestamp": "2026-06-29T22:00:04.059285+00:00",
           "text": "Delivered work/AUTO-011-deliverable.md (14056 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T05:26:04.824402+00:00",
+          "text": "AUTO-PARKED after 4 reviews produced no usable verdict \u2014 the reviewer model could not evaluate this deliverable (too large / unavailable). Needs a manual or paid review."
         }
       ],
       "jira_key": "[2026-06-29 21:29:54] [INFO] Creating Jira issue: AUTO-011 (Sample FAQ Knowledge Base for Retail Client)\n[2026-06-29 21:29:55] [INFO] Created Jira issue: TD-342\n[2026-06-29 21:29:55] [WARN] No transition found for 'In Review' on TD-342 (already in status?)\nTD-342",
@@ -4279,7 +4284,7 @@
           "text": "Delivered work/AUTO-011-deliverable.md (14056 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
-      "review_attempts": 3
+      "review_attempts": 4
     },
     {
       "id": "AUTO-012",
@@ -4569,7 +4574,7 @@
           "text": "Delivered work/AUTO-016-deliverable.md (9995 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
-      "review_attempts": 1
+      "review_attempts": 2
     },
     {
       "id": "AUTO-017",
@@ -4656,7 +4661,7 @@
           "text": "Delivered work/AUTO-018-deliverable.md (10207 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
-      "review_attempts": 0
+      "review_attempts": 1
     },
     {
       "id": "AUTO-019",
@@ -4664,7 +4669,7 @@
       "description": "Create a concise checklist of security controls (encryption, authentication, logging, access review) that must be verified before any client deployment of the AI FAQ Receptionist. Deliverable: a PDF checklist plus a one\u2011page implementation guide.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Hades",
       "team": "any",
       "epicId": "EPIC-010",
@@ -4672,7 +4677,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T23:20:04.182924+00:00",
-      "updatedAt": "2026-06-30T05:10:04.129747+00:00",
+      "updatedAt": "2026-06-30T05:26:04.828288+00:00",
       "progress": 40,
       "validation_fails": 1,
       "comments": [
@@ -4700,6 +4705,11 @@
           "by": "Hades",
           "timestamp": "2026-06-30T05:10:04.129747+00:00",
           "text": "Delivered work/AUTO-019-deliverable.md (12347 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T05:26:04.828288+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-019-deliverable.md): The deliverable is a complete, substantive security checklist with 17 detailed controls covering encryption, authentication, logging, access review, and more, plus a one-page implementation guide with step-by-step deployment instructions, prerequisites, common remediation paths, and a sign-off secti"
         }
       ],
       "review_attempts": 0
@@ -4710,7 +4720,7 @@
       "description": "Draft a lightweight specification for a weekly cron job that pulls updated FAQ content from a client\u2011provided Google Sheet and refreshes the AI FAQ Receptionist knowledge base. Deliverable: a markdown spec detailing the command, schedule, required environment variables, and error\u2011handling steps.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Thor",
       "team": "any",
       "epicId": "EPIC-014",
@@ -4718,7 +4728,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T23:20:04.182924+00:00",
-      "updatedAt": "2026-06-29T23:42:05.664174+00:00",
+      "updatedAt": "2026-06-30T05:26:04.832751+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -4736,8 +4746,14 @@
           "by": "Thor",
           "timestamp": "2026-06-29T23:42:05.664174+00:00",
           "text": "Delivered work/AUTO-020-deliverable.md (15025 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T05:26:04.832751+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-020-deliverable.md): The deliverable is a complete, executable markdown specification that covers all required elements\u2014the command (full bash script), schedule (Sunday 02:30 UTC cron plus systemd timer), all required environment variables (ten, with descriptions and examples), and explicit error-handling steps for six "
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-021",
@@ -4745,7 +4761,7 @@
       "description": "Create a step\u2011by\u2011step onboarding checklist covering data ingestion, FAQ configuration, testing, and handoff. Deliverable: a markdown checklist document that can be given to new clients to ensure a smooth start.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "in_progress",
       "assigned_to": "Metis",
       "team": "any",
       "epicId": "EPIC-002",
@@ -4753,9 +4769,9 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T00:20:04.192757+00:00",
-      "updatedAt": "2026-06-30T00:52:56.673920+00:00",
-      "progress": 0,
-      "validation_fails": 0,
+      "updatedAt": "2026-06-30T05:26:04.836158+00:00",
+      "progress": 40,
+      "validation_fails": 1,
       "comments": [
         {
           "by": "auto-planner",
@@ -4771,8 +4787,14 @@
           "by": "Metis",
           "timestamp": "2026-06-30T00:52:56.673920+00:00",
           "text": "Delivered work/AUTO-021-deliverable.md (9260 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T05:26:04.836158+00:00",
+          "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The document is a generic template with placeholder values (e.g. <client_id>, 202X dates, fictitious script paths and revision-history entries dated after today) and no client-specific content, so it reads as a stub rather than completed onboarding work."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-022",
@@ -5191,106 +5213,6 @@
           "by": "Iris",
           "timestamp": "2026-06-30T03:02:19.359752+00:00",
           "text": "Delivered work/AUTO-032-deliverable.md (9669 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
-        }
-      ]
-    },
-    {
-      "id": "AUTO-033",
-      "title": "Legal Industry Target Prospect List for AI FAQ Receptionist",
-      "description": "Research and compile a list of 50 potential legal\u2011firm clients in North America that could benefit from the AI FAQ Receptionist. Include company name, primary contact, email, phone, and a brief note on why the solution fits. Deliverable: an Excel/CSV file with the prospect data.",
-      "severity": "MEDIUM",
-      "category": "feature",
-      "status": "backlog",
-      "assigned_to": "Fortuna",
-      "team": "any",
-      "epicId": "EPIC-002",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "auto-planner",
-      "createdAt": "2026-06-30T05:20:05.030117+00:00",
-      "updatedAt": "2026-06-30T05:20:05.030117+00:00",
-      "progress": 0,
-      "validation_fails": 0,
-      "comments": [
-        {
-          "by": "auto-planner",
-          "timestamp": "2026-06-30T05:20:05.030117+00:00",
-          "text": "Auto-generated to keep the team busy (backlog was low)."
-        }
-      ]
-    },
-    {
-      "id": "AUTO-034",
-      "title": "One\u2011Page Sales Pitch Deck (Markdown) for AI FAQ Receptionist",
-      "description": "Write a concise, single\u2011page sales pitch covering problem statement, solution overview, key benefits, pricing options, and a clear call\u2011to\u2011action. Format the content in Markdown so it can be easily converted to PDF or slide format. Deliverable: a .md file ready for publishing.",
-      "severity": "MEDIUM",
-      "category": "feature",
-      "status": "backlog",
-      "assigned_to": "Iris",
-      "team": "any",
-      "epicId": "EPIC-005",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "auto-planner",
-      "createdAt": "2026-06-30T05:20:05.030117+00:00",
-      "updatedAt": "2026-06-30T05:20:05.030117+00:00",
-      "progress": 0,
-      "validation_fails": 0,
-      "comments": [
-        {
-          "by": "auto-planner",
-          "timestamp": "2026-06-30T05:20:05.030117+00:00",
-          "text": "Auto-generated to keep the team busy (backlog was low)."
-        }
-      ]
-    },
-    {
-      "id": "AUTO-035",
-      "title": "Objection\u2011Handling Playbook for AI FAQ Receptionist Sales Calls",
-      "description": "Identify the top 10 common objections prospects raise when evaluating an AI FAQ Receptionist and craft scripted responses with supporting data points. Organize the material as a quick\u2011reference guide for sales reps. Deliverable: a PDF/Markdown playbook.",
-      "severity": "MEDIUM",
-      "category": "feature",
-      "status": "backlog",
-      "assigned_to": "Minerva",
-      "team": "any",
-      "epicId": "EPIC-009",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "auto-planner",
-      "createdAt": "2026-06-30T05:20:05.030117+00:00",
-      "updatedAt": "2026-06-30T05:20:05.030117+00:00",
-      "progress": 0,
-      "validation_fails": 0,
-      "comments": [
-        {
-          "by": "auto-planner",
-          "timestamp": "2026-06-30T05:20:05.030117+00:00",
-          "text": "Auto-generated to keep the team busy (backlog was low)."
-        }
-      ]
-    },
-    {
-      "id": "AUTO-036",
-      "title": "Competitive Feature Gap Matrix \u2013 AI FAQ Receptionist vs Top 5 Competitors",
-      "description": "Select five leading FAQ\u2011automation vendors, list their core features, pricing, integration options, and security claims, then compare them against our offering to highlight gaps and opportunities. Produce a side\u2011by\u2011side matrix that can inform product roadmap decisions. Deliverable: an Excel spreadsheet with the comparison matrix.",
-      "severity": "MEDIUM",
-      "category": "feature",
-      "status": "backlog",
-      "assigned_to": "Hermes",
-      "team": "any",
-      "epicId": "EPIC-013",
-      "blockedBy": null,
-      "blocks": null,
-      "created_by": "auto-planner",
-      "createdAt": "2026-06-30T05:20:05.030117+00:00",
-      "updatedAt": "2026-06-30T05:20:05.030117+00:00",
-      "progress": 0,
-      "validation_fails": 0,
-      "comments": [
-        {
-          "by": "auto-planner",
-          "timestamp": "2026-06-30T05:20:05.030117+00:00",
-          "text": "Auto-generated to keep the team busy (backlog was low)."
         }
       ]
     }
