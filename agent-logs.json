@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T04:00:01.669101+00:00",
+  "generated": "2026-06-30T04:10:02.226836+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -294,18 +294,7 @@
     "STORY-067": {
       "agent": "Athena",
       "status": "planned",
-      "events": [
-        {
-          "ts": "2026-06-30T01:00:01.647335+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing qa's deliverable"
-        },
-        {
-          "ts": "2026-06-30T01:01:02.010047+00:00",
-          "event": "validation_parked",
-          "content": "Parked after 2 fails: The deliverable is a markdown design document with embedded code blocks, but the actual test-suite/ directory and scripts were never created on disk. No files exist at the specified paths \u2014 writing about code is not delivering code. Additionally, the embedded scripts contain bugs (e.g., pathlib.Path"
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "qa/work/STORY-067-deliverable.md",
         "size": 13837,
@@ -427,11 +416,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-30T01:01:02.014571+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing claude's deliverable"
-        },
-        {
           "ts": "2026-06-30T01:30:01.997124+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing claude's deliverable"
@@ -473,6 +457,11 @@
         },
         {
           "ts": "2026-06-30T03:40:01.395172+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing claude's deliverable"
+        },
+        {
+          "ts": "2026-06-30T04:00:01.719612+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing claude's deliverable"
         }
@@ -517,11 +506,6 @@
       "agent": "Fortuna",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-30T01:32:28.812209+00:00",
-          "event": "validation_fail",
-          "content": "FAIL #1: The deliverable contains a material mathematical error in the net revenue formula: it applies the renewal multiplier (\u22641) as a revenue reducer, which incorrectly treats renewal probability as a discount factor rather than a probability of retention, causing the aggregate FY2024 actuals to show $9.8M"
-        },
         {
           "ts": "2026-06-30T01:40:02.153486+00:00",
           "event": "dispatched",
@@ -574,6 +558,11 @@
         },
         {
           "ts": "2026-06-30T03:40:01.398667+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing income's deliverable"
+        },
+        {
+          "ts": "2026-06-30T04:00:01.713873+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing income's deliverable"
         }
@@ -640,11 +629,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-30T02:04:27.854274+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing income's deliverable"
-        },
-        {
           "ts": "2026-06-30T02:06:10.324134+00:00",
           "event": "validation_fail",
           "content": "FAIL #1: The deliverable's central financial model does not reconcile with itself: the three uplift components sum to $66,330 (total $1,392,930, a ~4.999% uplift) but the deliverable asserts a $66,400 increase and 5% uplift with a garbled figure \"$1,393, -\". Outside its own workspace it also leaks hardcoded "
@@ -698,6 +682,11 @@
           "ts": "2026-06-30T03:40:06.997221+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing income's deliverable"
+        },
+        {
+          "ts": "2026-06-30T04:00:27.762985+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing income's deliverable"
         }
       ],
       "deliverable": {
@@ -708,13 +697,8 @@
     },
     "STORY-090": {
       "agent": "Prometheus",
-      "status": "in_validation",
+      "status": "backlog",
       "events": [
-        {
-          "ts": "2026-06-30T03:09:55.153163+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing ml-engineer's deliverable"
-        },
         {
           "ts": "2026-06-30T03:10:49.902388+00:00",
           "event": "validation_fail",
@@ -764,6 +748,16 @@
           "ts": "2026-06-30T03:50:03.456379+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced STORY-090-deliverable.md (10637b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-30T04:01:03.885481+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing ml-engineer's deliverable"
+        },
+        {
+          "ts": "2026-06-30T04:02:39.079757+00:00",
+          "event": "validation_parked",
+          "content": "Parked after 2 fails: The deliverable is a design document with illustrative code sketches, not a completed implementation \u2014 no actual trained model artifact (model.pkl) or feature spec (features.json) is produced, and the claimed experimental results ($1.32M MAE, 4.7% MAPE) are stated without evidence that the code was "
         }
       ],
       "deliverable": {
@@ -983,7 +977,7 @@
     },
     "AUTO-005": {
       "agent": "Fortuna",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-06-30T03:17:45.889411+00:00",
@@ -1024,6 +1018,16 @@
           "ts": "2026-06-30T03:30:05.947697+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-005-deliverable.md (9202b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-30T04:01:16.188890+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing income's deliverable"
+        },
+        {
+          "ts": "2026-06-30T04:02:39.081212+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable is a complete, well-structured pricing sheet with a Free/Pro/Enterprise tiered model, feature matrix, per-seat pricing with annual/monthly options, payment terms, a revenue projection model with stated assumptions and sensitivity analysis, and competitive positioning against three co"
         }
       ],
       "deliverable": {
@@ -1117,7 +1121,7 @@
     },
     "AUTO-009": {
       "agent": "Fortuna",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-06-30T03:23:43.429669+00:00",
@@ -1128,6 +1132,16 @@
           "ts": "2026-06-30T03:24:06.481130+00:00",
           "event": "validation_pass",
           "content": "PASS: The deliverable is a complete, detailed 15-minute demo script with timed sections (totaling exactly 15:00), talking points, UI actions, scripted dialogue, anticipated Q&A with answers, and appendix materials \u2014 fully satisfying all ticket requirements."
+        },
+        {
+          "ts": "2026-06-30T04:01:46.353779+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing income's deliverable"
+        },
+        {
+          "ts": "2026-06-30T04:02:39.084718+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable is a fully fleshed-out 15-minute demo script with timed sections (totaling exactly 15:00), explicit talking points for every segment, intro, step-by-step walkthrough (setup, web chat, phone IVR, analytics), a Q&A section with five anticipated questions and answers, and a closing CTA "
         }
       ],
       "deliverable": {
@@ -1270,13 +1284,7 @@
     "AUTO-022": {
       "agent": "Clio",
       "status": "in_validation",
-      "events": [
-        {
-          "ts": "2026-06-30T00:52:56.675864+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-022-deliverable.md (19359b) \u2192 in_validation"
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "data-analyst/work/AUTO-022-deliverable.md",
         "size": 19359,
@@ -1297,26 +1305,6 @@
       "agent": "Hades",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-30T00:52:56.676864+00:00",
-          "event": "delivered",
-          "content": "[claude:owl-alpha] Produced AUTO-024-deliverable.md (8531b) \u2192 in_progress"
-        },
-        {
-          "ts": "2026-06-30T01:00:01.812335+00:00",
-          "event": "dispatched",
-          "content": "security started work: Data Retention & Deletion Policy for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-06-30T01:00:01.814390+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-06-30T01:00:03.992059+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-024-deliverable.md (10890b) \u2192 in_validation"
-        },
         {
           "ts": "2026-06-30T01:10:01.336172+00:00",
           "event": "dispatched",
@@ -1821,40 +1809,22 @@
   },
   "active": [
     {
-      "agent": "Hermes",
-      "ticket": "AUTO-002",
+      "agent": "Prometheus",
+      "ticket": "STORY-090",
       "event": "delivered",
-      "ts": "2026-06-30T03:30:05.946229+00:00"
+      "ts": "2026-06-30T03:50:03.456379+00:00"
     },
     {
-      "agent": "Thor",
-      "ticket": "AUTO-003",
-      "event": "delivered",
-      "ts": "2026-06-30T03:30:05.943128+00:00"
+      "agent": "nemesis",
+      "ticket": "AUTO-009",
+      "event": "validation_pass",
+      "ts": "2026-06-30T04:02:39.084718+00:00"
     },
     {
       "agent": "Hades",
       "ticket": "STORY-088",
       "event": "started",
       "ts": "2026-06-30T04:00:01.152904+00:00"
-    },
-    {
-      "agent": "Fortuna",
-      "ticket": "AUTO-005",
-      "event": "delivered",
-      "ts": "2026-06-30T03:30:05.947697+00:00"
-    },
-    {
-      "agent": "nemesis",
-      "ticket": "AUTO-004",
-      "event": "validation_pass",
-      "ts": "2026-06-30T03:43:11.127700+00:00"
-    },
-    {
-      "agent": "Prometheus",
-      "ticket": "STORY-090",
-      "event": "delivered",
-      "ts": "2026-06-30T03:50:03.456379+00:00"
     }
   ]
 }
