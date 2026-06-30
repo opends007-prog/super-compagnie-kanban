@@ -1,122 +1,122 @@
 {
-  "generatedAt": "2026-06-30T06:00:01.290591+00:00",
+  "generatedAt": "2026-06-30T06:10:01.650027+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 0.0,
+    "work-executor": 10.0,
+    "validator": 7.7,
     "observability": 10.0,
-    "guard": 1180.0,
-    "backup": 30.0,
-    "site-sync": 5.0
+    "guard": 1190.0,
+    "backup": 9.9,
+    "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 53,
+    "done": 57,
     "backlog": 4,
-    "in_progress": 13,
+    "in_progress": 14,
     "planned": 4,
-    "in_validation": 10
+    "in_validation": 5
   },
   "tickets_total": 84,
-  "done_today": 20,
-  "delivered_today": 26,
-  "delivered_week": 26,
+  "done_today": 24,
+  "delivered_today": 22,
+  "delivered_week": 22,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 24,
+    "cerebras:gpt-oss-120b": 20,
     "claude:owl-alpha": 2
   },
   "live_agents": [
-    "Metis",
     "Plutus",
-    "nemesis"
+    "nemesis",
+    "qa"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T06:02:18.420151+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "STORY-200",
+      "content": "PASS: The deliverable is a complete, self-contained Python script that genuinely implements the FAQ-to-JSON conversion w"
+    },
+    {
+      "ts": "2026-06-30T06:02:18.418646+00:00",
+      "agent": "qa",
+      "event": "validation_fail",
+      "ticket": "AUTO-028",
+      "content": "FAIL #1: The ticket explicitly requires a PDF policy brief, but the deliverable is a Markdown document (.md), not a PDF."
+    },
+    {
+      "ts": "2026-06-30T06:02:18.415898+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-027",
+      "content": "PASS: The deliverable is a complete, step-by-step SOP covering all ticket requirements: end-to-end collection of new FAQ"
+    },
+    {
+      "ts": "2026-06-30T06:02:18.412744+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-026",
+      "content": "PASS: The deliverable is a complete, five-step cold-outreach email sequence with subject lines, body copy, personalizati"
+    },
+    {
+      "ts": "2026-06-30T06:02:18.407821+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-025",
+      "content": "PASS: The deliverable is a complete, substantive playbook with all required sections\u2014positioning framework, pricing and "
+    },
+    {
+      "ts": "2026-06-30T06:01:42.325785+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-200",
+      "content": "[claude] Independently reviewing tom's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:01:16.310123+00:00",
+      "agent": "qa",
+      "event": "validating",
+      "ticket": "AUTO-028",
+      "content": "[claude] Independently reviewing nemesis's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:00:45.927144+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-027",
+      "content": "[claude] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:00:19.641435+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-026",
+      "content": "[claude] Independently reviewing business-analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:00:01.408921+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-016",
+      "content": "[claude] Independently reviewing finance's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:00:01.406337+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-025",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-06-30T05:50:05.249387+00:00",
       "agent": "Plutus",
       "event": "delivered",
       "ticket": "AUTO-016",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-016-deliverable.md (9623b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T05:50:02.107431+00:00",
-      "agent": "Plutus",
-      "event": "working",
-      "ticket": "AUTO-016",
-      "content": "[cerebras:gpt-oss-120b] attempting: ROI Calculator Spreadsheet Template for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T05:50:02.103138+00:00",
-      "agent": "Plutus",
-      "event": "dispatched",
-      "ticket": "AUTO-016",
-      "content": "finance started work: ROI Calculator Spreadsheet Template for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T05:42:33.714564+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-024",
-      "content": "PASS: The deliverable is a complete, contract-ready policy covering retention periods for FAQ content/user interactions/"
-    },
-    {
-      "ts": "2026-06-30T05:42:33.711189+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-023",
-      "content": "PASS: The deliverable is a complete program outline covering incentive structure with financial modeling, sample email a"
-    },
-    {
-      "ts": "2026-06-30T05:42:33.708705+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-022",
-      "content": "PASS: The deliverable is a complete design spec: it defines 8 KPIs with business definitions, data fields, SQL calculati"
-    },
-    {
-      "ts": "2026-06-30T05:42:33.706625+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-021",
-      "content": "PASS: The deliverable is a complete, well-structured onboarding checklist covering all four required phases (data ingest"
-    },
-    {
-      "ts": "2026-06-30T05:42:33.703224+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-018",
-      "content": "PASS: The deliverable contains 20 fully-written, AI-ready healthcare FAQ Q&A pairs with substantive answers and plausibl"
-    },
-    {
-      "ts": "2026-06-30T05:42:33.701344+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "AUTO-016",
-      "content": "FAIL #1: No .xlsx file exists in the working directory; the deliverable is only a markdown specification describing form"
-    },
-    {
-      "ts": "2026-06-30T05:42:18.258827+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-024",
-      "content": "[claude] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:42:03.959188+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-023",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:41:10.311634+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-022",
-      "content": "[claude] Independently reviewing data-analyst's deliverable"
     }
   ],
   "problems": {}

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T06:00:01.311082+00:00",
+  "generated": "2026-06-30T06:10:01.633695+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -416,11 +416,6 @@
       "status": "planned",
       "events": [
         {
-          "ts": "2026-06-30T02:30:01.385693+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing claude's deliverable"
-        },
-        {
           "ts": "2026-06-30T03:00:02.091670+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing claude's deliverable"
@@ -511,11 +506,6 @@
       "agent": "Fortuna",
       "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-30T02:34:12.812328+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing income's deliverable"
-        },
         {
           "ts": "2026-06-30T03:02:06.624295+00:00",
           "event": "validating",
@@ -618,11 +608,6 @@
       "agent": "Fortuna",
       "status": "planned",
       "events": [
-        {
-          "ts": "2026-06-30T02:10:05.206071+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced STORY-089-deliverable.md (13049b) \u2192 in_validation"
-        },
         {
           "ts": "2026-06-30T02:37:05.955132+00:00",
           "event": "validating",
@@ -1329,6 +1314,11 @@
           "ts": "2026-06-30T05:50:05.249387+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-016-deliverable.md (9623b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-30T06:00:01.408921+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing finance's deliverable"
         }
       ],
       "deliverable": {
@@ -1587,8 +1577,19 @@
     },
     "AUTO-025": {
       "agent": "Fortuna",
-      "status": "in_validation",
-      "events": [],
+      "status": "done",
+      "events": [
+        {
+          "ts": "2026-06-30T06:00:01.406337+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing income's deliverable"
+        },
+        {
+          "ts": "2026-06-30T06:02:18.407821+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable is a complete, substantive playbook with all required sections\u2014positioning framework, pricing and packaging, objection handling matrix, and sample conversation scripts\u2014supported by an ROI calculator, implementation checklist, and quick reference card, fully satisfying the ticket requ"
+        }
+      ],
       "deliverable": {
         "file": "income/work/AUTO-025-deliverable.md",
         "size": 10610,
@@ -1597,8 +1598,19 @@
     },
     "AUTO-026": {
       "agent": "Hermes",
-      "status": "in_validation",
-      "events": [],
+      "status": "done",
+      "events": [
+        {
+          "ts": "2026-06-30T06:00:19.641435+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing business-analyst's deliverable"
+        },
+        {
+          "ts": "2026-06-30T06:02:18.412744+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable is a complete, five-step cold-outreach email sequence with subject lines, body copy, personalization tokens, and follow-up timing recommendations tailored to healthcare providers, highlighting HIPAA compliance and patient-support benefits as required."
+        }
+      ],
       "deliverable": {
         "file": "business-analyst/work/AUTO-026-deliverable.md",
         "size": 9987,
@@ -1607,8 +1619,19 @@
     },
     "AUTO-027": {
       "agent": "Metis",
-      "status": "in_validation",
-      "events": [],
+      "status": "done",
+      "events": [
+        {
+          "ts": "2026-06-30T06:00:45.927144+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing org-excellence's deliverable"
+        },
+        {
+          "ts": "2026-06-30T06:02:18.415898+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable is a complete, step-by-step SOP covering all ticket requirements: end-to-end collection of new FAQ items, KB updates, monthly publishing cadence, defined roles, tools, a detailed checklist, and a rollback plan including triggers and post-rollback validation."
+        }
+      ],
       "deliverable": {
         "file": "org-excellence/work/AUTO-027-deliverable.md",
         "size": 12097,
@@ -1617,17 +1640,17 @@
     },
     "AUTO-028": {
       "agent": "Nemesis",
-      "status": "in_validation",
+      "status": "in_progress",
       "events": [
         {
-          "ts": "2026-06-30T02:10:01.927562+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for FAQ Receptionist"
+          "ts": "2026-06-30T06:01:16.310123+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing nemesis's deliverable"
         },
         {
-          "ts": "2026-06-30T02:10:05.197599+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (9710b) \u2192 in_validation"
+          "ts": "2026-06-30T06:02:18.418646+00:00",
+          "event": "validation_fail",
+          "content": "FAIL #1: The ticket explicitly requires a PDF policy brief, but the deliverable is a Markdown document (.md), not a PDF. Additionally, the retention schedule adopts a 24-month period for PHI while citing HIPAA's 6-year retention requirement, creating a likely HIPAA compliance conflict rather than demonstrati"
         }
       ],
       "deliverable": {
@@ -1638,37 +1661,17 @@
     },
     "STORY-200": {
       "agent": "Gladiator",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
-          "ts": "2026-06-30T02:10:01.932576+00:00",
-          "event": "dispatched",
-          "content": "tom started work: FAQ list to bot JSON converter"
+          "ts": "2026-06-30T06:01:42.325785+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing tom's deliverable"
         },
         {
-          "ts": "2026-06-30T02:10:01.938747+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: FAQ list to bot JSON converter"
-        },
-        {
-          "ts": "2026-06-30T02:10:05.202928+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced STORY-200-deliverable.md (11524b) \u2192 in_progress"
-        },
-        {
-          "ts": "2026-06-30T02:20:01.724139+00:00",
-          "event": "dispatched",
-          "content": "tom started work: FAQ list to bot JSON converter"
-        },
-        {
-          "ts": "2026-06-30T02:20:01.725839+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: FAQ list to bot JSON converter"
-        },
-        {
-          "ts": "2026-06-30T02:20:03.644458+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced STORY-200-deliverable.md (12967b) \u2192 in_validation"
+          "ts": "2026-06-30T06:02:18.420151+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable is a complete, self-contained Python script that genuinely implements the FAQ-to-JSON conversion with configurable delimiter, robust error handling with line numbers, correct output schema (top-level 'faqs' array with 'question'/'answer' fields), order preservation, comment/blank-lin"
         }
       ],
       "deliverable": {
@@ -1849,22 +1852,22 @@
   },
   "active": [
     {
-      "agent": "Metis",
-      "ticket": "AUTO-021",
-      "event": "delivered",
-      "ts": "2026-06-30T05:30:05.409342+00:00"
-    },
-    {
       "agent": "nemesis",
-      "ticket": "AUTO-024",
+      "ticket": "STORY-200",
       "event": "validation_pass",
-      "ts": "2026-06-30T05:42:33.714564+00:00"
+      "ts": "2026-06-30T06:02:18.420151+00:00"
     },
     {
       "agent": "Plutus",
       "ticket": "AUTO-016",
       "event": "delivered",
       "ts": "2026-06-30T05:50:05.249387+00:00"
+    },
+    {
+      "agent": "qa",
+      "ticket": "AUTO-028",
+      "event": "validation_fail",
+      "ts": "2026-06-30T06:02:18.418646+00:00"
     }
   ]
 }
