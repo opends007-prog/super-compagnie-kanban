@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-30T06:50:02.023635+00:00",
+  "generatedAt": "2026-06-30T07:00:02.474492+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 9.4,
-    "observability": 10.0,
-    "guard": 1230.0,
-    "backup": 20.0,
+    "work-executor": 0.0,
+    "validator": 0.0,
+    "observability": 0.0,
+    "guard": 1240.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
@@ -29,10 +29,16 @@
     "claude:owl-alpha": 2
   },
   "live_agents": [
-    "nemesis",
-    "qa"
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T07:00:02.139764+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-016",
+      "content": "[claude] Independently reviewing finance's deliverable"
+    },
     {
       "ts": "2026-06-30T06:40:35.475770+00:00",
       "agent": "nemesis",
@@ -109,13 +115,6 @@
       "event": "validating",
       "ticket": "AUTO-029",
       "content": "[claude] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T06:20:02.244384+00:00",
-      "agent": "qa",
-      "event": "validating",
-      "ticket": "AUTO-028",
-      "content": "[claude] Independently reviewing nemesis's deliverable"
     }
   ],
   "problems": {}
