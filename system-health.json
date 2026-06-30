@@ -1,41 +1,61 @@
 {
-  "generatedAt": "2026-06-30T16:10:01.831822+00:00",
+  "generatedAt": "2026-06-30T16:20:01.593303+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 1,
+  "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 3.7,
+    "work-executor": 9.7,
+    "validator": 13.7,
     "observability": 10.0,
-    "guard": 1790.0,
-    "backup": 9.9,
+    "guard": 1800.0,
+    "backup": 19.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 91,
     "backlog": 6,
-    "in_progress": 14,
-    "planned": 4
+    "in_progress": 13,
+    "planned": 4,
+    "in_validation": 1
   },
   "tickets_total": 115,
   "done_today": 58,
-  "delivered_today": 42,
-  "delivered_week": 42,
+  "delivered_today": 43,
+  "delivered_week": 43,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 36,
+    "cerebras:gpt-oss-120b": 37,
     "claude:owl-alpha": 2,
     "openclaw": 4
   },
   "live_agents": [
     "Fortuna",
     "Hades",
-    "Metis",
-    "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T16:10:17.254561+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-058",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-058-deliverable.md (14835b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T16:10:02.006493+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-058",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy & Compliance Checklist for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T16:10:02.003990+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-058",
+      "content": "security started work: Data Privacy & Compliance Checklist for AI FAQ Receptionist"
+    },
     {
       "ts": "2026-06-30T16:06:18.800035+00:00",
       "agent": "nemesis",
@@ -98,27 +118,6 @@
       "event": "delivered",
       "ticket": "AUTO-057",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-057-deliverable.md (6604b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T15:50:01.990903+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-057",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-30T15:50:01.987563+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-057",
-      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-30T15:40:54.872366+00:00",
-      "agent": "Fortuna",
-      "event": "no_deliverable",
-      "ticket": "AUTO-057",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     }
   ],
   "problems": {}
