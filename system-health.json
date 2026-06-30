@@ -1,32 +1,32 @@
 {
-  "generatedAt": "2026-06-30T03:50:01.282999+00:00",
+  "generatedAt": "2026-06-30T04:00:01.683135+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 6.8,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1050.0,
-    "backup": 20.0,
-    "site-sync": 0.0
+    "guard": 1060.0,
+    "backup": 30.0,
+    "site-sync": 5.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 38,
     "backlog": 3,
     "in_progress": 11,
-    "planned": 3,
-    "in_validation": 29
+    "planned": 2,
+    "in_validation": 30
   },
   "tickets_total": 84,
   "done_today": 5,
-  "delivered_today": 41,
-  "delivered_week": 41,
+  "delivered_today": 38,
+  "delivered_week": 38,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 38,
-    "claude:owl-alpha": 3
+    "cerebras:gpt-oss-120b": 36,
+    "claude:owl-alpha": 2
   },
   "live_agents": [
     "Fortuna",
@@ -37,6 +37,48 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T04:00:01.719612+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-267",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:00:01.713873+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-087",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:00:01.152904+00:00",
+      "agent": "Hades",
+      "event": "started",
+      "ticket": "STORY-088",
+      "content": ""
+    },
+    {
+      "ts": "2026-06-30T03:50:03.456379+00:00",
+      "agent": "Prometheus",
+      "event": "delivered",
+      "ticket": "STORY-090",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-090-deliverable.md (10637b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T03:50:01.374043+00:00",
+      "agent": "Prometheus",
+      "event": "working",
+      "ticket": "STORY-090",
+      "content": "[cerebras:gpt-oss-120b] attempting: Develop AI-driven revenue forecasting model"
+    },
+    {
+      "ts": "2026-06-30T03:50:01.372669+00:00",
+      "agent": "Prometheus",
+      "event": "dispatched",
+      "ticket": "STORY-090",
+      "content": "ml-engineer started work: Develop AI-driven revenue forecasting model"
+    },
     {
       "ts": "2026-06-30T03:43:11.127700+00:00",
       "agent": "nemesis",
@@ -78,48 +120,6 @@
       "event": "validating",
       "ticket": "AUTO-002",
       "content": "[claude] Independently reviewing business-analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T03:40:06.997221+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-089",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T03:40:03.907317+00:00",
-      "agent": "Prometheus",
-      "event": "delivered",
-      "ticket": "STORY-090",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-090-deliverable.md (12898b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T03:40:01.481323+00:00",
-      "agent": "Prometheus",
-      "event": "working",
-      "ticket": "STORY-090",
-      "content": "[cerebras:gpt-oss-120b] attempting: Develop AI-driven revenue forecasting model"
-    },
-    {
-      "ts": "2026-06-30T03:40:01.474257+00:00",
-      "agent": "Prometheus",
-      "event": "dispatched",
-      "ticket": "STORY-090",
-      "content": "ml-engineer started work: Develop AI-driven revenue forecasting model"
-    },
-    {
-      "ts": "2026-06-30T03:40:01.398667+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-087",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T03:40:01.395172+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-267",
-      "content": "[claude] Independently reviewing claude's deliverable"
     }
   ],
   "problems": {}
