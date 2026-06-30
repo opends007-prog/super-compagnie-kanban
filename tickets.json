@@ -2759,14 +2759,14 @@
     {
       "id": "STORY-088",
       "title": "Audit payment gateway compliance",
-      "status": "in_progress",
+      "status": "in_validation",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
       "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592357+00:00",
-      "updatedAt": "2026-06-30T00:37:23.538575+00:00",
+      "updatedAt": "2026-06-30T00:41:57.537089+00:00",
       "comments": [
         {
           "by": "api",
@@ -2786,6 +2786,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-30T00:37:23.538575+00:00",
           "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The audit report lacks actual evidence excerpts \u2014 it claims tools were run and results captured, but includes zero raw tool output (no sslyze/npm audit/docker inspect/nikto output), redacts all code-level evidence as [REDACTED-SECRET], and references runtime artifacts not included. Without verifiabl"
+        },
+        {
+          "by": "Hades",
+          "timestamp": "2026-06-30T00:41:57.537089+00:00",
+          "text": "Delivered work/STORY-088-deliverable.md (12837 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
       "jira_key": "[2026-06-24 07:27:40] [INFO] Creating Jira issue: STORY-088 (Audit payment gateway compliance)\n[2026-06-24 07:27:41] [INFO] Created Jira issue: TD-329\n[2026-06-24 07:27:41] [INFO] Transitioning TD-329 -> In Progress (transition 31)\nTD-329",
@@ -3579,7 +3584,7 @@
       "description": "Create a step\u2011by\u2011step onboarding checklist covering data ingestion, FAQ configuration, testing, and handoff. Deliverable: a markdown checklist document that can be given to new clients to ensure a smooth start.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Metis",
       "team": "any",
       "epicId": "EPIC-002",
@@ -3587,7 +3592,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T00:20:04.192757+00:00",
-      "updatedAt": "2026-06-30T00:20:04.192757+00:00",
+      "updatedAt": "2026-06-30T00:41:57.543718+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -3595,6 +3600,11 @@
           "by": "auto-planner",
           "timestamp": "2026-06-30T00:20:04.192757+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
+        },
+        {
+          "by": "Metis",
+          "timestamp": "2026-06-30T00:41:57.543718+00:00",
+          "text": "Delivered work/AUTO-021-deliverable.md (6929 bytes) via claude:owl-alpha \u2014 advanced to in_progress."
         }
       ]
     },
@@ -3604,7 +3614,7 @@
       "description": "Define key performance indicators (e.g., queries per day, resolution rate, average response time, NPS) and design the layout of a one\u2011page dashboard, including chart types and data sources. Deliverable: a design spec (markdown/PDF) with mock\u2011up sketches and data\u2011field definitions.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Clio",
       "team": "any",
       "epicId": "EPIC-009",
@@ -3612,7 +3622,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T00:20:04.192757+00:00",
-      "updatedAt": "2026-06-30T00:20:04.192757+00:00",
+      "updatedAt": "2026-06-30T00:41:57.541327+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -3620,6 +3630,11 @@
           "by": "auto-planner",
           "timestamp": "2026-06-30T00:20:04.192757+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
+        },
+        {
+          "by": "Clio",
+          "timestamp": "2026-06-30T00:41:57.541327+00:00",
+          "text": "Delivered work/AUTO-022-deliverable.md (16755 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
         }
       ]
     },
@@ -3629,7 +3644,7 @@
       "description": "Design a referral incentive program (discount or commission) with marketing copy, tracking mechanism, and rollout plan. Deliverable: a program outline document (markdown) that includes sample email copy and a tracking spreadsheet template.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Fortuna",
       "team": "any",
       "epicId": "EPIC-004",
@@ -3637,7 +3652,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T00:20:04.192757+00:00",
-      "updatedAt": "2026-06-30T00:20:04.192757+00:00",
+      "updatedAt": "2026-06-30T00:41:57.542531+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -3645,6 +3660,11 @@
           "by": "auto-planner",
           "timestamp": "2026-06-30T00:20:04.192757+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
+        },
+        {
+          "by": "Fortuna",
+          "timestamp": "2026-06-30T00:41:57.542531+00:00",
+          "text": "Delivered work/AUTO-023-deliverable.md (11437 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
         }
       ]
     },

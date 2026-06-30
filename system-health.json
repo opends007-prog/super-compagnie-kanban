@@ -1,120 +1,124 @@
 {
-  "generatedAt": "2026-06-30T00:30:01.201127+00:00",
+  "generatedAt": "2026-06-30T00:40:01.881886+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 0.0,
+    "work-executor": 9.9,
+    "validator": 2.6,
     "observability": 10.0,
-    "guard": 850.0,
-    "backup": 29.9,
+    "guard": 860.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 33,
     "backlog": 5,
-    "in_progress": 10,
-    "in_validation": 26,
+    "in_progress": 11,
+    "in_validation": 25,
     "planned": 1
   },
   "tickets_total": 75,
   "done_today": 0,
-  "delivered_today": 0,
-  "delivered_week": 48,
+  "delivered_today": 4,
+  "delivered_week": 50,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 44,
+    "cerebras:gpt-oss-120b": 46,
     "claude:owl-alpha": 4
   },
   "live_agents": [
+    "Clio",
+    "Fortuna",
+    "Hades",
+    "Metis",
     "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T00:30:01.175488+00:00",
+      "ts": "2026-06-30T00:37:23.557573+00:00",
       "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-067",
-      "content": "[claude] Independently reviewing qa's deliverable"
+      "event": "validation_fail",
+      "ticket": "STORY-088",
+      "content": "FAIL #1: The audit report lacks actual evidence excerpts \u2014 it claims tools were run and results captured, but includes z"
     },
     {
-      "ts": "2026-06-30T00:03:06.281867+00:00",
+      "ts": "2026-06-30T00:36:17.399058+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-088",
+      "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-30T00:35:29.965304+00:00",
       "agent": "nemesis",
       "event": "validating",
       "ticket": "STORY-087",
       "content": "[claude] Independently reviewing income's deliverable"
     },
     {
-      "ts": "2026-06-30T00:03:06.278340+00:00",
-      "agent": "nemesis",
-      "event": "validation_parked",
-      "ticket": "STORY-084",
-      "content": "Parked after 2 fails: The test suite cannot run green as claimed: the conftest.py gateway teardown calls the non-existen"
-    },
-    {
-      "ts": "2026-06-30T00:01:58.417421+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-084",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-30T00:00:58.000679+00:00",
+      "ts": "2026-06-30T00:30:49.894405+00:00",
       "agent": "nemesis",
       "event": "validating",
       "ticket": "TD-267",
       "content": "[claude] Independently reviewing claude's deliverable"
     },
     {
-      "ts": "2026-06-30T00:00:01.944944+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-067",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-30T00:00:00.314263+00:00",
-      "agent": "Athena",
-      "event": "started",
-      "ticket": "STORY-023",
-      "content": ""
-    },
-    {
-      "ts": "2026-06-29T23:42:05.667064+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-018",
-      "content": "[claude:owl-alpha] Produced AUTO-018-deliverable.md (8637b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T23:42:05.664468+00:00",
-      "agent": "Thor",
-      "event": "delivered",
-      "ticket": "AUTO-020",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-020-deliverable.md (15025b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-29T23:42:05.662725+00:00",
+      "ts": "2026-06-30T00:30:05.210237+00:00",
       "agent": "Hades",
       "event": "delivered",
-      "ticket": "AUTO-019",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-019-deliverable.md (11779b) \u2192 in_validation"
+      "ticket": "AUTO-024",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-024-deliverable.md (10993b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-29T23:42:05.657217+00:00",
+      "ts": "2026-06-30T00:30:05.207284+00:00",
+      "agent": "Clio",
+      "event": "delivered",
+      "ticket": "AUTO-022",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-022-deliverable.md (15655b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T00:30:05.203089+00:00",
       "agent": "Fortuna",
       "event": "delivered",
-      "ticket": "AUTO-017",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-017-deliverable.md (9187b) \u2192 in_validation"
+      "ticket": "AUTO-023",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-023-deliverable.md (11404b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-29T23:40:03.562900+00:00",
-      "agent": "Thor",
+      "ts": "2026-06-30T00:30:05.198415+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-021",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-021-deliverable.md (12407b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T00:30:03.566054+00:00",
+      "agent": "Hades",
       "event": "working",
-      "ticket": "AUTO-020",
-      "content": "[cerebras:gpt-oss-120b] attempting: Weekly FAQ Refresh Cron Job Specification"
+      "ticket": "AUTO-024",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T00:30:03.561943+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-024",
+      "content": "security started work: Data Retention & Deletion Policy for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T00:30:01.411594+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-023",
+      "content": "[cerebras:gpt-oss-120b] attempting: Referral Program Blueprint for AI FAQ Receptionist Services"
+    },
+    {
+      "ts": "2026-06-30T00:30:01.405921+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-023",
+      "content": "income started work: Referral Program Blueprint for AI FAQ Receptionist Services"
     }
   ],
   "problems": {}
