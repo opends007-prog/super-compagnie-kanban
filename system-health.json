@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-06-30T10:40:02.321533+00:00",
+  "generatedAt": "2026-06-30T10:50:01.436952+00:00",
   "gateway_up": true,
-  "disk_pct": 29,
+  "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 0.0,
+    "work-executor": 10.0,
+    "validator": 8.2,
     "observability": 10.0,
-    "guard": 1460.0,
-    "backup": 10.0,
+    "guard": 1470.0,
+    "backup": 19.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 69,
+    "done": 72,
     "backlog": 6,
-    "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "in_progress": 14,
+    "planned": 4
   },
   "tickets_total": 96,
-  "done_today": 36,
+  "done_today": 39,
   "delivered_today": 31,
   "delivered_week": 31,
   "model_mix_week": {
@@ -37,6 +36,48 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T10:41:48.226130+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-044",
+      "content": "PASS: The deliverable is a complete, well-structured one-page objection-handling cheat sheet covering all three required"
+    },
+    {
+      "ts": "2026-06-30T10:41:48.224196+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "AUTO-043",
+      "content": "FAIL #1: The report is a fabricated placeholder: contains unverifiable statistics (12% of calls, \u20ac12M fines, +15% DSAT, "
+    },
+    {
+      "ts": "2026-06-30T10:41:48.220282+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-042",
+      "content": "PASS: The deliverable contains five complete, personalized cold-outreach email templates covering retail, healthcare, an"
+    },
+    {
+      "ts": "2026-06-30T10:41:48.213136+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-041",
+      "content": "PASS: The deliverable fully satisfies the ticket: it provides a comprehensive market research section, competitor pricin"
+    },
+    {
+      "ts": "2026-06-30T10:40:49.389134+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-044",
+      "content": "[claude] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-06-30T10:40:34.307790+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-043",
+      "content": "[claude] Independently reviewing business-analyst's deliverable"
+    },
     {
       "ts": "2026-06-30T10:40:02.390272+00:00",
       "agent": "nemesis",
@@ -78,48 +119,6 @@
       "event": "no_deliverable",
       "ticket": "AUTO-042",
       "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-06-30T10:25:03.231100+00:00",
-      "agent": "Metis",
-      "event": "delivered",
-      "ticket": "AUTO-044",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-044-deliverable.md (10466b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T10:25:03.221362+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-041",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-041-deliverable.md (12715b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T10:25:03.193124+00:00",
-      "agent": "Hermes",
-      "event": "delivered",
-      "ticket": "AUTO-043",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-043-deliverable.md (10027b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T10:24:42.199100+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-042",
-      "content": "[openclaw] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T10:20:03.743009+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-044",
-      "content": "[cerebras:gpt-oss-120b] attempting: Objection-Handling Guide for AI FAQ Receptionist Sales"
-    },
-    {
-      "ts": "2026-06-30T10:20:03.740951+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-044",
-      "content": "org-excellence started work: Objection-Handling Guide for AI FAQ Receptionist Sales"
     }
   ],
   "problems": {}
