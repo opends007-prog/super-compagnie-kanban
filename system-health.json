@@ -1,27 +1,27 @@
 {
-  "generatedAt": "2026-06-30T21:00:10.911895+00:00",
+  "generatedAt": "2026-06-30T21:10:05.074278+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 0.0,
-    "validator": 10.5,
-    "observability": 9.8,
-    "guard": 2080.2,
-    "backup": 29.9,
+    "work-executor": 9.9,
+    "validator": 0.3,
+    "observability": 9.9,
+    "guard": 2090.1,
+    "backup": 9.7,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 102,
+    "done": 103,
     "backlog": 6,
     "in_progress": 13,
     "planned": 4,
-    "in_validation": 2
+    "in_validation": 1
   },
   "tickets_total": 127,
-  "done_today": 69,
+  "done_today": 70,
   "delivered_today": 2,
   "delivered_week": 2,
   "model_mix_week": {
@@ -32,6 +32,27 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T21:09:46.812751+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-065",
+      "content": "PASS: The deliverable provides a comprehensive and detailed pricing and packaging guide for the AI FAQ Receptionist, inc"
+    },
+    {
+      "ts": "2026-06-30T21:00:13.648981+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-065",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T21:00:13.606008+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-069",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-06-30T20:50:36.368680+00:00",
       "agent": "Fortuna",
