@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-06-30T11:10:01.356412+00:00",
+  "generatedAt": "2026-06-30T11:20:01.421125+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 5.3,
+    "validator": 15.3,
     "observability": 10.0,
-    "guard": 1490.0,
-    "backup": 10.0,
+    "guard": 1500.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 72,
-    "backlog": 6,
+    "done": 73,
+    "backlog": 10,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 1
+    "planned": 4
   },
-  "tickets_total": 96,
-  "done_today": 39,
+  "tickets_total": 100,
+  "done_today": 40,
   "delivered_today": 32,
   "delivered_week": 32,
   "model_mix_week": {
@@ -34,6 +33,20 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T11:18:56.244891+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-043",
+      "content": "PASS: The deliverable fully satisfies the ticket: it provides the top 5 operational pain points for each of three target"
+    },
+    {
+      "ts": "2026-06-30T11:18:01.159019+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-043",
+      "content": "[claude,openclaw,groq] Independently reviewing business-analyst's deliverable"
+    },
     {
       "ts": "2026-06-30T11:00:02.748066+00:00",
       "agent": "nemesis",
@@ -103,20 +116,6 @@
       "event": "validating",
       "ticket": "AUTO-043",
       "content": "[claude] Independently reviewing business-analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T10:40:02.390272+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-041",
-      "content": "[claude] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T10:40:02.373219+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-042",
-      "content": "[claude] Independently reviewing income's deliverable"
     }
   ],
   "problems": {}
