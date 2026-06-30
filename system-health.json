@@ -1,40 +1,95 @@
 {
-  "generatedAt": "2026-06-30T05:20:01.776801+00:00",
+  "generatedAt": "2026-06-30T05:30:02.182246+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
+    "validator": 4.0,
     "observability": 10.0,
-    "guard": 1140.0,
-    "backup": 20.0,
+    "guard": 1150.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 46,
-    "backlog": 3,
-    "in_progress": 13,
+    "done": 48,
+    "backlog": 4,
+    "in_progress": 14,
     "planned": 4,
-    "in_validation": 18
+    "in_validation": 14
   },
   "tickets_total": 84,
-  "done_today": 13,
-  "delivered_today": 30,
-  "delivered_week": 30,
+  "done_today": 15,
+  "delivered_today": 27,
+  "delivered_week": 27,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 28,
+    "cerebras:gpt-oss-120b": 25,
     "claude:owl-alpha": 2
   },
   "live_agents": [
-    "Fortuna",
     "Hades",
     "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T05:26:04.838095+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "AUTO-021",
+      "content": "FAIL #1: The document is a generic template with placeholder values (e.g. <client_id>, 202X dates, fictitious script pat"
+    },
+    {
+      "ts": "2026-06-30T05:26:04.833376+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-020",
+      "content": "PASS: The deliverable is a complete, executable markdown specification that covers all required elements\u2014the command (fu"
+    },
+    {
+      "ts": "2026-06-30T05:26:04.828575+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-019",
+      "content": "PASS: The deliverable is a complete, substantive security checklist with 17 detailed controls covering encryption, authe"
+    },
+    {
+      "ts": "2026-06-30T05:26:04.825318+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "AUTO-011",
+      "content": "Parked after 4 no-verdict attempts"
+    },
+    {
+      "ts": "2026-06-30T05:25:48.334771+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-021",
+      "content": "[claude] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:25:12.776846+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-020",
+      "content": "[claude] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:24:41.936949+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-019",
+      "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:21:13.714071+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-018",
+      "content": "[claude] Independently reviewing analyst's deliverable"
+    },
     {
       "ts": "2026-06-30T05:20:01.836139+00:00",
       "agent": "nemesis",
@@ -62,62 +117,6 @@
       "event": "delivered",
       "ticket": "AUTO-018",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-018-deliverable.md (10207b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T05:10:01.853160+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-019",
-      "content": "[cerebras:gpt-oss-120b] attempting: Security Risk Mitigation Checklist for AI FAQ Receptionist D"
-    },
-    {
-      "ts": "2026-06-30T05:10:01.836682+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-019",
-      "content": "security started work: Security Risk Mitigation Checklist for AI FAQ Receptionist D"
-    },
-    {
-      "ts": "2026-06-30T05:10:01.827504+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-018",
-      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Industry Sample FAQ Knowledge Base"
-    },
-    {
-      "ts": "2026-06-30T05:10:01.825462+00:00",
-      "agent": "Minerva",
-      "event": "dispatched",
-      "ticket": "AUTO-018",
-      "content": "analyst started work: Healthcare Industry Sample FAQ Knowledge Base"
-    },
-    {
-      "ts": "2026-06-30T05:03:10.765305+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "AUTO-019",
-      "content": "FAIL #1: The deliverable is a markdown document, not the required PDF checklist plus one-page implementation guide; it i"
-    },
-    {
-      "ts": "2026-06-30T05:03:10.763350+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "AUTO-018",
-      "content": "FAIL #1: 19 of 20 source references are fabricated (fictional healthprovider.com URLs and a nonexistent CMS PDF; only th"
-    },
-    {
-      "ts": "2026-06-30T05:03:10.759899+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-017",
-      "content": "PASS: The deliverable is a complete, ready-for-reps playbook that genuinely covers all ticket requirements: a 7-step pro"
-    },
-    {
-      "ts": "2026-06-30T05:03:10.756185+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-015",
-      "content": "PASS: The deliverable is a complete, ready-to-use service agreement covering all required sections: scope (Section 1 wit"
     }
   ],
   "problems": {}

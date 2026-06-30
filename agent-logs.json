@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T05:20:01.775043+00:00",
+  "generated": "2026-06-30T05:30:02.183031+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -1183,7 +1183,7 @@
     },
     "AUTO-011": {
       "agent": "Vulcan",
-      "status": "in_validation",
+      "status": "backlog",
       "events": [
         {
           "ts": "2026-06-30T04:21:03.550985+00:00",
@@ -1199,6 +1199,16 @@
           "ts": "2026-06-30T05:00:01.964231+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing data-engineer's deliverable"
+        },
+        {
+          "ts": "2026-06-30T05:20:01.836139+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing data-engineer's deliverable"
+        },
+        {
+          "ts": "2026-06-30T05:26:04.825318+00:00",
+          "event": "validation_parked",
+          "content": "Parked after 4 no-verdict attempts"
         }
       ],
       "deliverable": {
@@ -1299,6 +1309,11 @@
           "ts": "2026-06-30T05:01:09.815137+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing finance's deliverable"
+        },
+        {
+          "ts": "2026-06-30T05:20:01.822423+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing finance's deliverable"
         }
       ],
       "deliverable": {
@@ -1356,6 +1371,11 @@
           "ts": "2026-06-30T05:10:04.125900+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-018-deliverable.md (10207b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-30T05:21:13.714071+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing analyst's deliverable"
         }
       ],
       "deliverable": {
@@ -1366,7 +1386,7 @@
     },
     "AUTO-019": {
       "agent": "Hades",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-06-30T05:02:47.734351+00:00",
@@ -1392,6 +1412,16 @@
           "ts": "2026-06-30T05:10:04.130339+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-019-deliverable.md (12347b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-30T05:24:41.936949+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing security's deliverable"
+        },
+        {
+          "ts": "2026-06-30T05:26:04.828575+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable is a complete, substantive security checklist with 17 detailed controls covering encryption, authentication, logging, access review, and more, plus a one-page implementation guide with step-by-step deployment instructions, prerequisites, common remediation paths, and a sign-off secti"
         }
       ],
       "deliverable": {
@@ -1402,8 +1432,19 @@
     },
     "AUTO-020": {
       "agent": "Thor",
-      "status": "in_validation",
-      "events": [],
+      "status": "done",
+      "events": [
+        {
+          "ts": "2026-06-30T05:25:12.776846+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing devops's deliverable"
+        },
+        {
+          "ts": "2026-06-30T05:26:04.833376+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable is a complete, executable markdown specification that covers all required elements\u2014the command (full bash script), schedule (Sunday 02:30 UTC cron plus systemd timer), all required environment variables (ten, with descriptions and examples), and explicit error-handling steps for six "
+        }
+      ],
       "deliverable": {
         "file": "devops/work/AUTO-020-deliverable.md",
         "size": 15025,
@@ -1412,8 +1453,19 @@
     },
     "AUTO-021": {
       "agent": "Metis",
-      "status": "in_validation",
-      "events": [],
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-30T05:25:48.334771+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing org-excellence's deliverable"
+        },
+        {
+          "ts": "2026-06-30T05:26:04.838095+00:00",
+          "event": "validation_fail",
+          "content": "FAIL #1: The document is a generic template with placeholder values (e.g. <client_id>, 202X dates, fictitious script paths and revision-history entries dated after today) and no client-specific content, so it reads as a stub rather than completed onboarding work."
+        }
+      ],
       "deliverable": {
         "file": "org-excellence/work/AUTO-021-deliverable.md",
         "size": 9260,
@@ -1453,18 +1505,7 @@
     "AUTO-025": {
       "agent": "Fortuna",
       "status": "in_validation",
-      "events": [
-        {
-          "ts": "2026-06-30T01:50:02.319180+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Upsell Playbook"
-        },
-        {
-          "ts": "2026-06-30T01:50:31.552077+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-025-deliverable.md (10610b) \u2192 in_validation"
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "income/work/AUTO-025-deliverable.md",
         "size": 10610,
@@ -1474,23 +1515,7 @@
     "AUTO-026": {
       "agent": "Hermes",
       "status": "in_validation",
-      "events": [
-        {
-          "ts": "2026-06-30T01:50:02.317085+00:00",
-          "event": "dispatched",
-          "content": "business-analyst started work: Healthcare Cold Outreach Email Sequence"
-        },
-        {
-          "ts": "2026-06-30T01:50:02.318095+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Cold Outreach Email Sequence"
-        },
-        {
-          "ts": "2026-06-30T01:50:31.563936+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-026-deliverable.md (9987b) \u2192 in_validation"
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "business-analyst/work/AUTO-026-deliverable.md",
         "size": 9987,
@@ -1500,23 +1525,7 @@
     "AUTO-027": {
       "agent": "Metis",
       "status": "in_validation",
-      "events": [
-        {
-          "ts": "2026-06-30T01:50:02.324013+00:00",
-          "event": "dispatched",
-          "content": "org-excellence started work: Monthly FAQ Knowledge\u2011Base Refresh SOP"
-        },
-        {
-          "ts": "2026-06-30T01:50:02.327264+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Monthly FAQ Knowledge\u2011Base Refresh SOP"
-        },
-        {
-          "ts": "2026-06-30T01:50:31.569149+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-027-deliverable.md (12097b) \u2192 in_validation"
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "org-excellence/work/AUTO-027-deliverable.md",
         "size": 12097,
@@ -1527,16 +1536,6 @@
       "agent": "Nemesis",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-30T01:50:04.251479+00:00",
-          "event": "dispatched",
-          "content": "nemesis started work: Data Retention & Deletion Policy for FAQ Receptionist"
-        },
-        {
-          "ts": "2026-06-30T01:50:04.256179+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for FAQ Receptionist"
-        },
         {
           "ts": "2026-06-30T01:50:31.576889+00:00",
           "event": "delivered",
@@ -1822,16 +1821,10 @@
   },
   "active": [
     {
-      "agent": "Fortuna",
-      "ticket": "STORY-087",
-      "event": "started",
-      "ts": "2026-06-30T05:00:00.376460+00:00"
-    },
-    {
       "agent": "nemesis",
-      "ticket": "AUTO-019",
+      "ticket": "AUTO-021",
       "event": "validation_fail",
-      "ts": "2026-06-30T05:03:10.765305+00:00"
+      "ts": "2026-06-30T05:26:04.838095+00:00"
     },
     {
       "agent": "Minerva",
