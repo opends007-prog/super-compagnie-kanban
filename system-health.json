@@ -1,31 +1,30 @@
 {
-  "generatedAt": "2026-06-30T13:00:02.481875+00:00",
+  "generatedAt": "2026-06-30T13:10:02.173990+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
     "work-executor": 10.0,
-    "validator": 20.0,
+    "validator": 1.8,
     "observability": 10.0,
-    "guard": 1600.0,
-    "backup": 30.0,
+    "guard": 1610.0,
+    "backup": 9.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 77,
+    "done": 82,
     "backlog": 6,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 5
+    "planned": 4
   },
   "tickets_total": 105,
-  "done_today": 44,
-  "delivered_today": 46,
-  "delivered_week": 46,
+  "done_today": 49,
+  "delivered_today": 43,
+  "delivered_week": 43,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 38,
+    "cerebras:gpt-oss-120b": 35,
     "openclaw": 5,
     "claude:owl-alpha": 3
   },
@@ -34,9 +33,80 @@
     "Hades",
     "Metis",
     "Minerva",
-    "Thor"
+    "Thor",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T13:08:14.395000+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "STORY-201",
+      "content": "PASS: The deliverable provides a complete, ready\u2011to\u2011run script, systemd unit, environment file, deployment, verification"
+    },
+    {
+      "ts": "2026-06-30T13:08:14.393135+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-052",
+      "content": "PASS: The deliverable is a comprehensive and detailed checklist for QA engineers, content owners, and product managers t"
+    },
+    {
+      "ts": "2026-06-30T13:08:14.389880+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-051",
+      "content": "PASS: The deliverable provides a concrete analysis with identified regulatory gaps, risk ratings, and concise remediatio"
+    },
+    {
+      "ts": "2026-06-30T13:08:14.387088+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-050",
+      "content": "PASS: The deliverable provides a complete one\u2011page sales pitch with a headline, problem, solution, ROI data, bullet\u2011poin"
+    },
+    {
+      "ts": "2026-06-30T13:08:14.378992+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-049",
+      "content": "PASS: The document provides a comprehensive and detailed pricing sheet for the AI FAQ Receptionist, including competitiv"
+    },
+    {
+      "ts": "2026-06-30T13:05:34.451503+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-201",
+      "content": "[claude,openclaw,groq] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-06-30T13:04:37.252826+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-052",
+      "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-06-30T13:03:12.281391+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-051",
+      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-30T13:00:03.056240+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-049",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T13:00:03.008310+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-050",
+      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+    },
     {
       "ts": "2026-06-30T12:51:58.600158+00:00",
       "agent": "Thor",
@@ -50,76 +120,6 @@
       "event": "working",
       "ticket": "STORY-201",
       "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] Lucy 8 AM Morning Mot... failing"
-    },
-    {
-      "ts": "2026-06-30T12:51:56.224214+00:00",
-      "agent": "Thor",
-      "event": "dispatched",
-      "ticket": "STORY-201",
-      "content": "devops started work: [self-heal] Lucy 8 AM Morning Mot... failing"
-    },
-    {
-      "ts": "2026-06-30T12:50:03.805335+00:00",
-      "agent": "Thor",
-      "event": "delivered",
-      "ticket": "STORY-201",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-201-deliverable.md (13152b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T12:50:01.540049+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "STORY-201",
-      "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] Lucy 8 AM Morning Mot... failing"
-    },
-    {
-      "ts": "2026-06-30T12:50:01.537676+00:00",
-      "agent": "Thor",
-      "event": "dispatched",
-      "ticket": "STORY-201",
-      "content": "devops started work: [self-heal] Lucy 8 AM Morning Mot... failing"
-    },
-    {
-      "ts": "2026-06-30T12:43:43.545567+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-051",
-      "content": "[openclaw] Produced AUTO-051-deliverable.md (11079b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T12:43:43.544463+00:00",
-      "agent": "Metis",
-      "event": "delivered",
-      "ticket": "AUTO-052",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-052-deliverable.md (11186b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T12:43:43.542824+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-049",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-049-deliverable.md (9481b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T12:43:43.532379+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-050",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-050-deliverable.md (4455b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T12:40:09.096111+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-051",
-      "content": "[openclaw] attempting: Compliance Gap Analysis for FAQ Receptionist Data Handling"
-    },
-    {
-      "ts": "2026-06-30T12:40:04.103219+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-052",
-      "content": "[cerebras:gpt-oss-120b] attempting: FAQ Knowledge Base QA Checklist"
     }
   ],
   "problems": {}

@@ -1,6 +1,34 @@
 {
-  "updated": "2026-06-30T13:00:02.479007+00:00",
+  "updated": "2026-06-30T13:10:02.175532+00:00",
   "events": [
+    {
+      "ts": "2026-06-30T13:10:02.175532+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[validate]     STORY-201: engine 'claude' gave no usable verdict \u2014 trying next in chain"
+    },
+    {
+      "ts": "2026-06-30T13:10:02.175532+00:00",
+      "job": "generate-work",
+      "kind": "system",
+      "status": "ok",
+      "msg": "[gen] added 4 new backlog tickets (AUTO-*)"
+    },
+    {
+      "ts": "2026-06-30T13:10:02.175532+00:00",
+      "job": "builder-lane",
+      "kind": "system",
+      "status": "ok",
+      "msg": "[builder] no builder tickets to process"
+    },
+    {
+      "ts": "2026-06-30T13:10:02.175532+00:00",
+      "job": "quick-backup",
+      "kind": "system",
+      "status": "ok",
+      "msg": "be47e7b..af76166  master -> master"
+    },
     {
       "ts": "2026-06-30T13:00:02.479007+00:00",
       "job": "real-work-executor",
@@ -51,6 +79,13 @@
       "msg": "47m ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed."
     },
     {
+      "ts": "2026-06-30T11:10:02.175532+00:00",
+      "job": "Daily 7 AM Standup",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "2h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-06-30T10:47:13.777551+00:00",
       "job": "Velocity (daily)",
       "kind": "discord-cron",
@@ -63,6 +98,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "2h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-06-30T10:10:02.175532+00:00",
+      "job": "Daily 6 AM Memory Mai...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "3h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-06-30T10:00:02.479007+00:00",
@@ -121,6 +163,13 @@
       "msg": "FailoverError: \u26a0\ufe0f API rate limit reached. Please try again later."
     },
     {
+      "ts": "2026-06-30T03:10:02.175532+00:00",
+      "job": "Daily 11 PM Backup (B...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "10h ago"
+    },
+    {
       "ts": "2026-06-30T02:47:13.777551+00:00",
       "job": "Daily 11 PM Backup (B...",
       "kind": "discord-cron",
@@ -128,11 +177,32 @@
       "msg": "10h ago"
     },
     {
+      "ts": "2026-06-29T14:10:02.175532+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "23h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-06-29T13:47:13.777551+00:00",
       "job": "Daily 10 AM Improvement",
       "kind": "discord-cron",
       "status": "ok",
       "msg": "23h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-06-29T13:10:02.175532+00:00",
+      "job": "Weekly Planning (Mon)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1d ago"
+    },
+    {
+      "ts": "2026-06-29T13:10:02.175532+00:00",
+      "job": "Weekly Plan Review (Mon)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1d ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-06-29T12:47:13.777551+00:00",
