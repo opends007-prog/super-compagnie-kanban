@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-30T08:30:01.319038+00:00",
+  "generatedAt": "2026-06-30T08:40:01.394030+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 5.3,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1330.0,
-    "backup": 30.0,
+    "guard": 1340.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
@@ -35,6 +35,13 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T08:40:01.435624+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-035",
+      "content": "[claude] Independently reviewing analyst's deliverable"
+    },
     {
       "ts": "2026-06-30T08:24:42.298069+00:00",
       "agent": "nemesis",
@@ -111,13 +118,6 @@
       "event": "validation_fail",
       "ticket": "AUTO-035",
       "content": "FAIL #1: The deliverable is a competitive analysis of AI-FAQ receptionist vendors, not the requested target client list "
-    },
-    {
-      "ts": "2026-06-30T08:01:47.017136+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "AUTO-034",
-      "content": "FAIL #1: The revenue forecast in \u00a75 is arithmetically broken and self-contradictory: the Month-1 breakdown adds up to $9"
     }
   ],
   "problems": {}

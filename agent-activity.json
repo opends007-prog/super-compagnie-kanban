@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-30T03:21:00.255785+00:00",
-      "agent": "nemesis",
-      "ticket": "TD-267",
-      "event": "validating",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-30T03:21:00.257763+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-087",
-      "event": "validating",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
       "ts": "2026-06-30T03:21:16.001406+00:00",
       "agent": "nemesis",
       "ticket": "AUTO-008",
@@ -1399,7 +1385,21 @@
       "ticket": "AUTO-034",
       "event": "validation_pass",
       "content": "PASS: The deliverable is a complete, fully-specified pricing sheet with three tiers (monthly fees, per-interaction overages, interaction caps), cost-based justifications for each tier, a full add-on catalog with compatibility rules, a feature comparison grid with annual discounts, and a coherent 12-month "
+    },
+    {
+      "ts": "2026-06-30T08:40:01.435624+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-035",
+      "event": "validating",
+      "content": "[claude] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T08:40:52.798047+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-035",
+      "event": "validation_parked",
+      "content": "Parked after 2 fails: The deliverable is a competitive analysis of AI FAQ receptionist vendors, not the requested target client list. The ticket requires a CSV with 50 prospect companies (Company, Industry, Region, Contact, Role, Email), but no prospect company list or CSV file is included."
     }
   ],
-  "lastUpdated": "2026-06-30T08:24:42.298079+00:00"
+  "lastUpdated": "2026-06-30T08:40:52.798068+00:00"
 }

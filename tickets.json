@@ -5426,7 +5426,7 @@
       "description": "Research and compile a list of 50 high\u2011potential prospect companies by industry (e.g., retail, healthcare, SaaS) and region, including primary contact name, role, and email where publicly available. Deliverable: a CSV file with columns for Company, Industry, Region, Contact, Role, Email.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "backlog",
       "assigned_to": "Minerva",
       "team": "any",
       "epicId": "EPIC-009",
@@ -5434,9 +5434,9 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T07:20:03.775065+00:00",
-      "updatedAt": "2026-06-30T08:10:04.311657+00:00",
+      "updatedAt": "2026-06-30T08:40:52.792834+00:00",
       "progress": 40,
-      "validation_fails": 1,
+      "validation_fails": 2,
       "comments": [
         {
           "by": "auto-planner",
@@ -5462,9 +5462,14 @@
           "by": "Minerva",
           "timestamp": "2026-06-30T08:10:04.311657+00:00",
           "text": "Delivered work/AUTO-035-deliverable.md (14639 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T08:40:52.792834+00:00",
+          "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The deliverable is a competitive analysis of AI FAQ receptionist vendors, not the requested target client list. The ticket requires a CSV with 50 prospect companies (Company, Industry, Region, Contact, Role, Email), but no prospect company list or CSV file is included."
         }
       ],
-      "review_attempts": 1
+      "review_attempts": 0
     },
     {
       "id": "AUTO-036",
