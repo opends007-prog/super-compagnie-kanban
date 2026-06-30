@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-06-30T16:20:01.593303+00:00",
+  "generatedAt": "2026-06-30T16:30:01.853836+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.7,
-    "validator": 13.7,
+    "work-executor": 10.0,
+    "validator": 5.1,
     "observability": 10.0,
-    "guard": 1800.0,
-    "backup": 19.9,
+    "guard": 1810.0,
+    "backup": 29.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 91,
+    "done": 92,
     "backlog": 6,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 1
+    "planned": 4
   },
   "tickets_total": 115,
-  "done_today": 58,
+  "done_today": 59,
   "delivered_today": 43,
   "delivered_week": 43,
   "model_mix_week": {
@@ -30,11 +29,24 @@
     "openclaw": 4
   },
   "live_agents": [
-    "Fortuna",
     "Hades",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T16:24:58.954619+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-058",
+      "content": "PASS: The deliverable provides a comprehensive and detailed checklist for ensuring data privacy and compliance with GDPR"
+    },
+    {
+      "ts": "2026-06-30T16:20:01.713996+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-058",
+      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
+    },
     {
       "ts": "2026-06-30T16:10:17.254561+00:00",
       "agent": "Hades",
@@ -104,20 +116,6 @@
       "event": "validating",
       "ticket": "AUTO-058",
       "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-30T16:00:01.917264+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-057",
-      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T15:50:05.726208+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-057",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-057-deliverable.md (6604b) \u2192 in_validation"
     }
   ],
   "problems": {}
