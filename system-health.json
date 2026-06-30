@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-30T04:10:02.233653+00:00",
+  "generatedAt": "2026-06-30T04:20:01.571255+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 7.4,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1070.0,
-    "backup": 10.0,
+    "guard": 1080.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
@@ -34,6 +34,20 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T04:20:01.632462+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-087",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:20:01.614968+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-267",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
     {
       "ts": "2026-06-30T04:02:39.084718+00:00",
       "agent": "nemesis",
@@ -103,20 +117,6 @@
       "event": "started",
       "ticket": "STORY-088",
       "content": ""
-    },
-    {
-      "ts": "2026-06-30T03:50:03.456379+00:00",
-      "agent": "Prometheus",
-      "event": "delivered",
-      "ticket": "STORY-090",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-090-deliverable.md (10637b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T03:50:01.374043+00:00",
-      "agent": "Prometheus",
-      "event": "working",
-      "ticket": "STORY-090",
-      "content": "[cerebras:gpt-oss-120b] attempting: Develop AI-driven revenue forecasting model"
     }
   ],
   "problems": {}
