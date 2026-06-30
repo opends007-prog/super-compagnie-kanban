@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T21:40:01.494562+00:00",
+  "generated": "2026-06-30T21:50:01.963878+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -1249,7 +1249,7 @@
     },
     "AUTO-069": {
       "agent": "Fortuna",
-      "status": "in_validation",
+      "status": "backlog",
       "events": [
         {
           "ts": "2026-06-30T20:40:10.430760+00:00",
@@ -1265,6 +1265,16 @@
           "ts": "2026-06-30T21:20:07.308371+00:00",
           "event": "validating",
           "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+        },
+        {
+          "ts": "2026-06-30T21:40:01.635163+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+        },
+        {
+          "ts": "2026-06-30T21:44:49.862048+00:00",
+          "event": "validation_parked",
+          "content": "Parked after 4 no-verdict attempts"
         }
       ],
       "deliverable": {
@@ -1308,8 +1318,8 @@
     {
       "agent": "nemesis",
       "ticket": "AUTO-069",
-      "event": "validating",
-      "ts": "2026-06-30T21:20:07.308371+00:00"
+      "event": "validation_parked",
+      "ts": "2026-06-30T21:44:49.862048+00:00"
     }
   ]
 }

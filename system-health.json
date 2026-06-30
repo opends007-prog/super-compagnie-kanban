@@ -1,24 +1,23 @@
 {
-  "generatedAt": "2026-06-30T21:40:01.503984+00:00",
+  "generatedAt": "2026-06-30T21:50:01.971938+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 12.4,
+    "validator": 5.2,
     "observability": 10.0,
-    "guard": 2120.0,
-    "backup": 10.0,
+    "guard": 2130.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 103,
-    "backlog": 6,
+    "backlog": 7,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 1
+    "planned": 4
   },
   "tickets_total": 127,
   "done_today": 70,
@@ -31,6 +30,20 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T21:44:49.862048+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "AUTO-069",
+      "content": "Parked after 4 no-verdict attempts"
+    },
+    {
+      "ts": "2026-06-30T21:40:01.635163+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-069",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-06-30T21:20:07.308371+00:00",
       "agent": "nemesis",

@@ -1,6 +1,13 @@
 {
-  "updated": "2026-06-30T21:40:01.501354+00:00",
+  "updated": "2026-06-30T21:50:01.971671+00:00",
   "events": [
+    {
+      "ts": "2026-06-30T21:50:01.971671+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[validate]     AUTO-069: engine 'groq' gave no usable verdict \u2014 trying next in chain"
+    },
     {
       "ts": "2026-06-30T21:30:02.014230+00:00",
       "job": "validate-work",
@@ -1743,13 +1750,6 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "12h ago"
-    },
-    {
-      "ts": "2026-06-30T03:00:01.847693+00:00",
-      "job": "Daily 11 PM Backup (B...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "15h ago"
     }
   ]
 }
