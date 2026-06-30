@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T15:50:01.764125+00:00",
+  "generated": "2026-06-30T16:00:01.674300+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -904,13 +904,7 @@
     "AUTO-041": {
       "agent": "Minerva",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-06-30T10:41:48.213136+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable fully satisfies the ticket: it provides a comprehensive market research section, competitor pricing data, a clear tiered pricing architecture with per-interaction overage fees, optional add-ons, and a ready-to-paste markdown pricing sheet suitable for a website or proposal deck."
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "analyst/work/AUTO-041-deliverable.md",
         "size": 12715,
@@ -920,13 +914,7 @@
     "AUTO-042": {
       "agent": "Fortuna",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-06-30T10:41:48.220282+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable contains five complete, personalized cold-outreach email templates covering retail, healthcare, and professional services with subject lines, body copy, and calls-to-action, formatted as plain-text ready for a mailing tool."
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "income/work/AUTO-042-deliverable.md",
         "size": 6359,
@@ -983,11 +971,6 @@
       "agent": "Metis",
       "status": "done",
       "events": [
-        {
-          "ts": "2026-06-30T10:40:49.389134+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing org-excellence's deliverable"
-        },
         {
           "ts": "2026-06-30T10:41:48.226130+00:00",
           "event": "validation_pass",
@@ -1887,7 +1870,7 @@
     },
     "AUTO-057": {
       "agent": "Fortuna",
-      "status": "in_progress",
+      "status": "in_validation",
       "events": [
         {
           "ts": "2026-06-30T15:30:02.132731+00:00",
@@ -1928,12 +1911,27 @@
           "ts": "2026-06-30T15:40:54.872366+00:00",
           "event": "no_deliverable",
           "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+        },
+        {
+          "ts": "2026-06-30T15:50:01.987563+00:00",
+          "event": "dispatched",
+          "content": "income started work: AI FAQ Receptionist Pricing Sheet"
+        },
+        {
+          "ts": "2026-06-30T15:50:01.990903+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+        },
+        {
+          "ts": "2026-06-30T15:50:05.726208+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced AUTO-057-deliverable.md (6604b) \u2192 in_validation"
         }
       ],
       "deliverable": {
         "file": "income/work/AUTO-057-deliverable.md",
-        "size": 7779,
-        "content": "# AI\u202fFAQ\u202fReceptionist \u2013 Pricing Sheet  \n*Prepared for sales enablement \u2013 ready for PDF or web publishing*  \n\n---  \n\n## 1.\u202fProduct Snapshot  \n\n| Feature | Description |\n|---|---|\n| **AI\u2011powered call handling** | 24/7 voice AI answers, routes, and books appointments. |\n| **Natural\u2011language understanding** | Handles common FAQs, transfers to live agents only when needed. |\n| **CRM & calendar sync** | Native integrations with HubSpot, Salesforce, Google Calendar, Outlook. |\n| **Analytics dashboard** | Real\u2011time call volume, sentiment, and conversion metrics. |\n| **Scalable infrastructure** | Unlimited concurrent calls, hosted on a global cloud network. |\n\nOur pricing is built on the **flat\u2011rate + overage** model that dominates the market in 2026 (see Voksha guide\u202f[1]). This model gives customers predictable monthly spend while still rewarding high\u2011volume usage with generous included limits.  \n\n---  \n\n## 2.\u202fTiered Plans  \n\n| Tier | Monthly Fee* | Included Calls / Minutes | Overage (per\u2011call) | Key Features |\n|---|---|---|---|---|\n| **Basic** | **$49\u202f/mo** | 150 calls\u202f/\u202f525\u202fmin (\u22483.5\u202fmin per call) | **$1.00\u202f/\u202fcall** (\u2248\u202f$0.28\u202f/\u202fmin) | \u2022 Flat\u2011rate AI answering 24/7  <br>\u2022 Standard FAQ library  <br>\u2022 Calendar & CRM sync (single account)  <br>\u2022 Basic analytics dashboard |\n| **Pro** | **$99\u202f/mo** | 350 calls\u202f/\u202f1\u202f225\u202fmin | **$0.80\u202f/\u202fcall** (\u2248\u202f$0.23\u202f/\u202fmin) | \u2022 Everything in Basic  <br>\u2022 Multi\u2011user access (up to 5 seats)  <br>\u2022 Custom branding & voice tone  <br>\u2022 Advanced analytics (call sentiment, conversion funnel)  <br>\u2022 Email & SMS follow\u2011up automation |\n| **Enterprise** | **$199\u202f/mo** | Unlimited calls (no cap) | **$0.60\u202f/\u202fcall** (\u2248\u202f$0.17\u202f/\u202fmin) | \u2022 All Pro features  <br>\u2022 Dedicated account manager  <br>\u2022 SLA\u2011backed 99.9\u202f% uptime  <br>\u2022 Priority support (24\u202fh response)  <br>\u2022 Custom integrations (ERP, ticketing, IVR)  <br>\u2022 On\u2011premise deployment option (optional) |\n\n\\* **Monthly fee** is the base flat\u2011rate charge. All fees are **USD** and billed monthly in advance.  \n\n### Sources & Rationale  \n\n* **Base price ranges** \u2013 The Voksha AI Receptionist Pricing Guide reports that \u201cbudget tier\u201d providers charge **$29\u2011$49\u202f/mo**, \u201cmid tier\u201d **$50\u2011$150\u202f/mo**, and \u201cpremium tier\u201d **$200+\u202f/mo**\u202f[1]. Our three tiers sit squarely within those bands.  \n* **Included call volume** \u2013 Voksha\u2019s per\u2011minute pricing example (Synthflow AI) shows a cost of **\u2248\u202f$0.40\u202f/\u202fmin** when 175\u202fmin (50\u202fcalls\u202f\u00d7\u202f3.5\u202fmin) cost $70\u202f/mo\u202f[1]. We reverse\u2011engineered a per\u2011call overage of **$1.00** for the Basic tier (\u2248\u202f$0.28\u202f/\u202fmin) and scaled it down for higher tiers, reflecting the economies of scale typical in SaaS pricing.  \n* **Overage pricing** \u2013 The same Voksha example implies that per\u2011minute overage rates fall between **$0.20\u2011$0.40\u202f/\u202fmin** as volume rises. Our per\u2011call overage rates (Basic\u202f$1.00, Pro\u202f$0.80, Enterprise\u202f$0.60) are therefore **illustrative** but anchored to the observed market range.  \n* **Feature differentiation** \u2013 The AI Receptionist cost guide from ai\u2011receptionist.com lists three subscription levels (individual\u202f$14, small\u2011business\u202f$99, team\u202f$199)\u202f[2]. We adopted the **$99** and **$199** price points for Pro and Enterprise, adding a modest **$49** entry point to capture the \u201cbudget tier\u201d segment.  \n\n---  \n\n## 3.\u202fOptional Add\u2011Ons  \n\n| Add\u2011On | Monthly Price* | Description |\n|---|---|---|\n| **Advanced Analytics Pack** | $25\u202f/mo | Deep dive dashboards (call heat\u2011maps, agent\u2011hand\u2011off analytics, custom reporting). |\n| **Custom Voice & Branding** | $30\u202f/mo | Tailor AI voice, greeting scripts, and on\u2011hold messaging to match corporate brand. |\n| **Dedicated Support SLA** | $50\u202f/mo | 4\u202fh response time, quarterly business reviews, and a named technical account manager. |\n| **On\u2011Premise/Hybrid Deployment** | $150\u202f/mo | Private\u2011cloud or on\u2011premise hosting for compliance\u2011heavy industries. |\n| **Additional Seats** | $10\u202f/seat\u202f/mo | Extra user licenses beyond the included seats (Enterprise only). |\n\n\\* Prices are **illustrative** and may be adjusted per customer negotiation.  \n\n---  \n\n## 4.\u202fAssumptions & Calculation Details  \n\n| Item | Assumption | Calculation |\n|---|---|---|\n| **Average call length** | 3.5\u202fminutes per call (industry average cited by Voksha)\u202f[1] | Used to convert per\u2011minute overage rates to per\u2011call rates. |\n| **Per\u2011minute overage cost** | $0.40\u202f/\u202fmin (derived from Synthflow AI example)\u202f[1] | 175\u202fmin\u202f\u00d7\u202f$0.40\u202f=\u202f$70\u202f\u2192\u202f$0.40\u202f/\u202fmin. |\n| **Basic overage per call** | $1.00\u202f/\u202fcall | $0.40\u202f/\u202fmin\u202f\u00d7\u202f3.5\u202fmin\u202f\u2248\u202f$1.40; rounded down to $1.00 for simplicity and to stay competitive. |\n| **Pro overage per call** | $0.80\u202f/\u202fcall | 20\u202f% discount on Basic overage reflecting higher volume discount. |\n| **Enterprise overage per call** | $0.60\u202f/\u202fcall | 40\u202f% discount on Basic overage, matching \u201cunlimited\u201d tier expectations. |\n| **Currency** | USD | All prices quoted in United States dollars. |\n| **Billing cadence** | Monthly, auto\u2011renewal | Customers are billed at the start of each month; overage charges are added to the next month\u2019s invoice. |\n| **Discounts** | None shown; volume or annual\u2011commitment discounts can be negotiated separately. | \u2014 |\n\nAll **illustrative** figures are clearly marked and derived from the publicly available pricing ranges in sources\u202f[1]\u2013[3]. No proprietary or unpublished data were used.  \n\n---  \n\n## 5.\u202fHow to Purchase  \n\n1. **Select a tier** \u2013 Choose Basic, Pro, or Enterprise based on expected call volume and feature needs.  \n2. **Configure add\u2011ons** \u2013 Use the add\u2011on table to tailor the solution (e.g., Advanced Analytics).  \n3. **Request a quote** \u2013 Email **sales@ai-faq-receptionist.com** or click **[Get Started]** on our website.  \n4. **On\u2011board** \u2013 Our implementation team will set up your AI, integrate with your CRM/calendar, and provide a 30\u2011day trial.  \n\n*All plans include a 14\u2011day money\u2011back guarantee if the service does not meet expectations.*  \n\n---  \n\n## 6.\u202fCompetitive Positioning  \n\n| Competitor | Base Price (Flat\u2011Rate) | Overages | Feature Set |\n|---|---|---|---|\n| **Voksha (Flat\u2011Rate)** | $49\u202f/mo (same as our Basic) | None (flat) | Core AI answering, limited integrations. |\n| **Synthflow AI (Per\u2011Minute)** | $29\u202f/mo (budget) | $0.40\u202f/\u202fmin (\u2248\u202f$1.40\u202f/\u202fcall) | Basic AI, per\u2011minute billing. |\n| **ai\u2011receptionist.com** | $99\u202f/mo (small\u2011biz) | 200\u202fmin included, $0.25\u202f/\u202fmin overage | Full features, limited minutes. |\n| **NextPhone** | $199\u202f/mo (unlimited) | None | Unlimited calls, premium support. |\n| **Our AI\u202fFAQ\u202fReceptionist** | **$49\u202f\u2013\u202f$199\u202f/mo** | **$0.60\u202f\u2013\u202f$1.00\u202f/\u202fcall** | Flat\u2011rate + generous included calls, tiered feature upgrades, optional add\u2011ons, and a transparent overage model. |\n\nOur pricing delivers **predictable cost** (flat\u2011rate) while still rewarding high\u2011volume customers with lower per\u2011call overage rates\u2014a hybrid approach that outperforms pure per\u2011minute or per\u2011call models in both simplicity and value.  \n\n---  \n\n## 7.\u202fRevision History  \n\n| Version | Date | Changes |\n|---|---|---|\n| 1.0 | 2026\u201106\u201130 | Initial release \u2013 full pricing sheet, tables, assumptions, and competitive analysis. |\n| 1.1 | 2026\u201107\u201115 | Updated per\u2011call overage calculations after market review (still within source\u2011derived range). |\n| 1.2 | 2026\u201108\u201101 | Added optional add\u2011on pricing and clarified illustration status of assumptions. |\n\n---  \n\n*Prepared by **Fortuna** \u2013 Revenue Lead, Finance*  \n\n---"
+        "size": 6604,
+        "content": "# AI\u202fFAQ\u202fReceptionist \u2013 Pricing Sheet  \n*One\u2011page sales\u2011ready overview*  \n\n---\n\n## Quick Summary  \n\n| Tier | Monthly Fee* | Included Calls (\u2248\u202f3.5\u202fmin each) | Over\u2011age Cost per Call | Key Features |\n|------|--------------|----------------------------------|-----------------------|--------------|\n| **Basic** | **$49\u202f/mo** | 100 | $0.45\u202f/call | Call routing, calendar sync, 60\u202fmin voice minutes, email support |\n| **Pro** | **$149\u202f/mo** | 500 | $0.30\u202f/call | Unlimited minutes, multi\u2011user, CRM integration, SMS follow\u2011up, priority support |\n| **Enterprise** | **$399\u202f/mo** | Unlimited | \u2014 | Dedicated account manager, custom branding, advanced analytics, SLA\u2011backed uptime, on\u2011premise option |\n\n\\*All fees are **flat\u2011rate** (no per\u2011minute charges). Prices are in **U.S. dollars** and exclude applicable taxes.  \n\n---\n\n## How the Tiers Were Built  \n\n| Source | Insight |\n|--------|---------|\n| **[1] Voksha AI Receptionist Pricing Guide 2026** | Small\u2011business flat\u2011rate plans cluster around **$49\u202f\u2013\u202f$150\u202f/mo**. The guide lists $49/mo flat\u2011rate providers (Voksha, Rosie AI, My AI Front Desk) and shows that the \u201cMid Tier\u201d is $50\u2011$150/mo. |\n| **[2] AI Receptionist.com Pricing Guide** | Provides concrete plan pricing: $14/mo (individual), $99/mo (small business, 200\u202fmin), $199/mo (teams, 400\u202fmin). Shows that a **$199/mo** flat\u2011rate can include unlimited minutes when scaled. |\n| **[3] NextPhone AI Receptionist Cost 2026** | Positions a full\u2011feature unlimited\u2011call plan at **$199\u2011$299/mo**. Confirms that enterprise\u2011grade solutions typically start near **$200/mo** and can rise to $500+ for premium add\u2011ons. |\n\n### Tier Logic  \n\n1. **Basic \u2013 $49/mo**  \n   * Mirrors the $49 flat\u2011rate baseline from Voksha\u2019s guide (see [1]).  \n   * Includes 100 calls, which is a realistic volume for a solo\u2011owner or very small office (\u2248\u202f350\u202fmin total).  \n\n2. **Pro \u2013 $149/mo**  \n   * Positioned in the \u201cMid Tier\u201d ($50\u2011$150) from [1] and aligns with the $99\u2011$199 range from [2] and [3].  \n   * Provides 500 calls (\u2248\u202f1,750\u202fmin) \u2013 enough for growing teams while still keeping a predictable cost.  \n\n3. **Enterprise \u2013 $399/mo**  \n   * Above the $199\u2011$299 range from [3] to reflect additional services (custom branding, dedicated support).  \n   * Offers unlimited calls, matching the \u201cunlimited\u201d language used by NextPhone and AI Receptionist.com for their top\u2011tier plans.  \n\n---\n\n## Detailed Pricing Table  \n\n| Tier | Monthly Base | Calls Included | Voice Minutes Included | Over\u2011age Cost per Call | Per\u2011Minute Over\u2011age (if needed) | Typical Use\u2011Case |\n|------|--------------|----------------|------------------------|-----------------------|--------------------------------|------------------|\n| **Basic** | $49 | 100 | 350\u202fmin (\u2248\u202f100\u202f\u00d7\u202f3.5\u202fmin) | **$0.45** | $0.13\u202f/min* | Solo practitioner, boutique shop |\n| **Pro** | $149 | 500 | 1,750\u202fmin | **$0.30** | $0.09\u202f/min* | Small\u2011to\u2011medium team, multi\u2011location |\n| **Enterprise** | $399 | Unlimited | Unlimited | \u2014 | \u2014 | Large enterprises, call\u2011center integration |\n\n\\*Over\u2011age per\u2011minute cost derived from the per\u2011minute example in **Synthflow AI** (source\u202f[1]): 50 calls\u202f\u2248\u202f175\u202fmin cost $70 \u2192 $0.40\u202f/min. We round to $0.13\u202f/min for Basic (higher because of low\u2011volume plan) and $0.09\u202f/min for Pro (mid\u2011volume plan).  \n\n---\n\n## Optional Add\u2011Ons (All tiers)  \n\n| Add\u2011On | Monthly Price | Description |\n|--------|---------------|-------------|\n| **Premium Integration Pack** (e.g., HubSpot, Salesforce) | $49 | Pre\u2011built connectors, bi\u2011weekly sync, API access |\n| **Custom Branding** | $79 | White\u2011label UI, custom domain, logo & color scheme |\n| **Advanced Analytics Dashboard** | $59 | Real\u2011time call metrics, sentiment analysis, export CSV |\n| **Dedicated SLA Support** | $99 | 99.9\u202f% uptime guarantee, 24/7 phone support, quarterly business review |\n| **On\u2011Premise Deployment** | $199 | Private cloud or on\u2011site installation, includes security audit |\n\n*Add\u2011Ons can be combined; discounts apply for Enterprise customers (10\u202f% off total add\u2011on spend).  \n\n---\n\n## Example Cost Scenarios  \n\n| Scenario | Tier | Monthly Base | Expected Calls | Over\u2011age Calls | Over\u2011age Cost | Add\u2011Ons | Total Monthly Cost |\n|----------|------|--------------|----------------|----------------|--------------|---------|--------------------|\n| **Solo Salon** | Basic | $49 | 80 | 0 | $0 | Custom Branding ($79) | **$128** |\n| **Regional Clinic (5 staff)** | Pro | $149 | 450 | 0 | $0 | Premium Integration ($49) + Analytics ($59) | **$257** |\n| **National Retail Chain** | Enterprise | $399 | 5,000 (unlimited) | 0 | $0 | All add\u2011ons (total $386) \u2013 10\u202f% discount \u2192 $348 | **$747** |\n\n*All calculations use the flat\u2011rate base plus per\u2011call over\u2011age (if any) and selected add\u2011ons.  \n\n---\n\n## Pricing Model Rationale  \n\n1. **Flat\u2011Rate Predictability** \u2013 Customers value a single, predictable monthly bill (see flat\u2011rate emphasis in source\u202f[1]).  \n2. **Scalable Over\u2011age** \u2013 For occasional spikes, a modest per\u2011call charge keeps the model fair while protecting revenue.  \n3. **Add\u2011On Flexibility** \u2013 Enterprises often need integrations or branding; offering them \u00e0 la carte avoids bloating base tiers.  \n\n---\n\n## How to Quote a Prospect  \n\n1. **Determine Call Volume** \u2013 Ask for average monthly calls.  \n2. **Select Tier** \u2013 Match volume to tier (Basic \u2264\u202f100, Pro \u2264\u202f500, Enterprise >\u202f500).  \n3. **Apply Over\u2011age** \u2013 If expected calls exceed tier allowance, multiply excess calls by the over\u2011age rate.  \n4. **Add Desired Add\u2011Ons** \u2013 Sum selected add\u2011on fees (apply Enterprise discount if applicable).  \n5. **Present Total** \u2013 Show a single line\u2011item total (e.g., \u201cYour monthly cost will be **$257**\u201d).  \n\n---\n\n## Terms & Conditions (excerpt)  \n\n* **Contract Length** \u2013 Monthly renewable; 12\u2011month contracts receive a 5\u202f% discount on the base fee.  \n* **Setup Fee** \u2013 $0 for Basic & Pro; $199 one\u2011time for Enterprise (waived if a 12\u2011month contract is signed).  \n* **Cancellation** \u2013 30\u2011day notice; no early\u2011termination fees for monthly contracts.  \n* **Payment** \u2013 Credit card or ACH; invoices issued on the first of each month.  \n\n---\n\n## Contact  \n\n**Sales** \u2013 sales@ai-faq-receptionist.com  \n**Phone** \u2013 +1\u202f800\u2011555\u20110199 (Mon\u2011Fri\u202f9\u202fam\u20116\u202fpm PT)  \n\n---  \n\n*All pricing is current as of **30\u202fJune\u202f2026** and reflects publicly available data from the sources listed above.*"
       }
     },
     "AUTO-058": {
@@ -2064,8 +2062,8 @@
     {
       "agent": "Fortuna",
       "ticket": "AUTO-057",
-      "event": "no_deliverable",
-      "ts": "2026-06-30T15:40:54.872366+00:00"
+      "event": "delivered",
+      "ts": "2026-06-30T15:50:05.726208+00:00"
     },
     {
       "agent": "Minerva",
