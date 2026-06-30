@@ -1,69 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-30T02:10:01.938747+00:00",
-      "agent": "Gladiator",
-      "ticket": "STORY-200",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: FAQ list to bot JSON converter"
-    },
-    {
-      "ts": "2026-06-30T02:10:05.197599+00:00",
-      "agent": "Nemesis",
-      "ticket": "AUTO-028",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (9710b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T02:10:05.202928+00:00",
-      "agent": "Gladiator",
-      "ticket": "STORY-200",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-200-deliverable.md (11524b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T02:10:05.206071+00:00",
-      "agent": "Fortuna",
-      "ticket": "STORY-089",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-089-deliverable.md (13049b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T02:20:01.724139+00:00",
-      "agent": "Gladiator",
-      "ticket": "STORY-200",
-      "event": "dispatched",
-      "content": "tom started work: FAQ list to bot JSON converter"
-    },
-    {
-      "ts": "2026-06-30T02:20:01.725839+00:00",
-      "agent": "Gladiator",
-      "ticket": "STORY-200",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: FAQ list to bot JSON converter"
-    },
-    {
-      "ts": "2026-06-30T02:20:03.644458+00:00",
-      "agent": "Gladiator",
-      "ticket": "STORY-200",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-200-deliverable.md (12967b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T02:30:01.385693+00:00",
-      "agent": "nemesis",
-      "ticket": "TD-267",
-      "event": "validating",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-30T02:34:12.812328+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-087",
-      "event": "validating",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
       "ts": "2026-06-30T02:36:37.372849+00:00",
       "agent": "nemesis",
       "ticket": "STORY-088",
@@ -1399,7 +1336,70 @@
       "ticket": "AUTO-016",
       "event": "validating",
       "content": "[claude] Independently reviewing finance's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:00:19.641435+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-026",
+      "event": "validating",
+      "content": "[claude] Independently reviewing business-analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:00:45.927144+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-027",
+      "event": "validating",
+      "content": "[claude] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:01:16.310123+00:00",
+      "agent": "qa",
+      "ticket": "AUTO-028",
+      "event": "validating",
+      "content": "[claude] Independently reviewing nemesis's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:01:42.325785+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-200",
+      "event": "validating",
+      "content": "[claude] Independently reviewing tom's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:02:18.407821+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-025",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, substantive playbook with all required sections\u2014positioning framework, pricing and packaging, objection handling matrix, and sample conversation scripts\u2014supported by an ROI calculator, implementation checklist, and quick reference card, fully satisfying the ticket requ"
+    },
+    {
+      "ts": "2026-06-30T06:02:18.412744+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-026",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, five-step cold-outreach email sequence with subject lines, body copy, personalization tokens, and follow-up timing recommendations tailored to healthcare providers, highlighting HIPAA compliance and patient-support benefits as required."
+    },
+    {
+      "ts": "2026-06-30T06:02:18.415898+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-027",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, step-by-step SOP covering all ticket requirements: end-to-end collection of new FAQ items, KB updates, monthly publishing cadence, defined roles, tools, a detailed checklist, and a rollback plan including triggers and post-rollback validation."
+    },
+    {
+      "ts": "2026-06-30T06:02:18.418646+00:00",
+      "agent": "qa",
+      "ticket": "AUTO-028",
+      "event": "validation_fail",
+      "content": "FAIL #1: The ticket explicitly requires a PDF policy brief, but the deliverable is a Markdown document (.md), not a PDF. Additionally, the retention schedule adopts a 24-month period for PHI while citing HIPAA's 6-year retention requirement, creating a likely HIPAA compliance conflict rather than demonstrati"
+    },
+    {
+      "ts": "2026-06-30T06:02:18.420151+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-200",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, self-contained Python script that genuinely implements the FAQ-to-JSON conversion with configurable delimiter, robust error handling with line numbers, correct output schema (top-level 'faqs' array with 'question'/'answer' fields), order preservation, comment/blank-lin"
     }
   ],
-  "lastUpdated": "2026-06-30T06:00:01.408929+00:00"
+  "lastUpdated": "2026-06-30T06:02:18.420154+00:00"
 }
