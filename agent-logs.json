@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T19:10:02.166942+00:00",
+  "generated": "2026-06-30T19:20:01.812092+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -1176,31 +1176,6 @@
       "status": "in_progress",
       "events": [
         {
-          "ts": "2026-06-30T18:40:16.847834+00:00",
-          "event": "working",
-          "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
-        },
-        {
-          "ts": "2026-06-30T18:44:57.075116+00:00",
-          "event": "no_deliverable",
-          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-        },
-        {
-          "ts": "2026-06-30T18:50:02.436673+00:00",
-          "event": "dispatched",
-          "content": "income started work: AI FAQ Receptionist Pricing & Packaging Guide"
-        },
-        {
-          "ts": "2026-06-30T18:50:02.441660+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
-        },
-        {
-          "ts": "2026-06-30T18:50:03.001909+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
-        },
-        {
           "ts": "2026-06-30T18:50:19.303196+00:00",
           "event": "working",
           "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
@@ -1232,6 +1207,31 @@
         },
         {
           "ts": "2026-06-30T19:04:09.359803+00:00",
+          "event": "no_deliverable",
+          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+        },
+        {
+          "ts": "2026-06-30T19:10:03.280591+00:00",
+          "event": "dispatched",
+          "content": "income started work: AI FAQ Receptionist Pricing & Packaging Guide"
+        },
+        {
+          "ts": "2026-06-30T19:10:03.282399+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
+        },
+        {
+          "ts": "2026-06-30T19:10:10.520399+00:00",
+          "event": "working",
+          "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
+        },
+        {
+          "ts": "2026-06-30T19:10:22.533399+00:00",
+          "event": "working",
+          "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
+        },
+        {
+          "ts": "2026-06-30T19:15:03.626923+00:00",
           "event": "no_deliverable",
           "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
         }
@@ -1334,6 +1334,96 @@
         "size": 6792,
         "content": "# AI FAQ Receptionist \u2013 Live Demo Script & One\u2011Page Pitch Deck Outline  \n\n---  \n\n## \ud83d\udcfd\ufe0f Live Demo Script (\u2248 8\u202fmin)\n\n| Time | Segment | Script |\n|------|---------|--------|\n| **0:00\u20110:30** | **Welcome & Context** | \u201cHello, I\u2019m **[Your Name]**, Solutions Engineer at **Metis AI**. Thanks for joining us today. In the next few minutes I\u2019ll show you how our **AI FAQ Receptionist** can turn your static knowledge\u2011base into an instant, conversational help desk that works 24/7, reduces support ticket volume, and improves customer satisfaction.\u201d |\n| **0:30\u20111:30** | **Problem Recap (Customer Pain)** | \u201cMost teams struggle with three core issues: <br>1\ufe0f\u20e3 **Knowledge\u2011base decay** \u2013 articles become outdated, leading to repeated questions. <br>2\ufe0f\u20e3 **High support cost** \u2013 agents spend\u202f\u2248\u202f30\u202f% of their time answering repetitive FAQs (illustrative). <br>3\ufe0f\u20e3 **Poor self\u2011service experience** \u2013 customers abandon a search after a few clicks.\u201d |\n| **1:30\u20112:30** | **Solution Overview** | \u201cOur AI FAQ Receptionist sits on top of your existing KB, indexes every article, and serves answers via a natural\u2011language chat widget. It learns from interactions, flags stale content, and can hand\u2011off to a live agent when needed.\u201d |\n| **2:30\u20113:30** | **Demo Setup \u2013 Connecting the KB** | 1. **Open the Admin Console** (URL: `https://admin.metis.ai`). <br>2. Click **\u2018Integrations \u2192 Knowledge\u2011Base\u2019**. <br>3. Choose the source \u2013 e.g., **Confluence**, **Zendesk**, or a **Markdown folder**. <br>4. Click **\u2018Connect\u2019**; the system runs an initial crawl (\u2248\u202f30\u202fseconds). <br>5. Review the **\u2018Content Health Dashboard\u2019** \u2013 you\u2019ll see a heat\u2011map of article freshness and coverage. |\n| **3:30\u20114:30** | **Demo \u2013 Real\u2011Time Interaction** | 1. Switch to the **Live Demo Page** (`https://demo.metis.ai`). <br>2. The chat widget appears in the lower\u2011right corner. <br>3. Type a common question, e.g., *\u201cHow do I reset my password?\u201d* <br>4. The AI instantly replies with a concise answer pulled from the KB, includes a **\u2018Read more\u2019** link, and offers a **\u2018Copy to clipboard\u2019** button. <br>5. Show the **\u2018Follow\u2011up\u2019** capability: ask *\u201cWhat if I\u2019m locked out after the reset?\u201d* \u2013 the AI follows the conversation contextually. |\n| **4:30\u20115:30** | **Demo \u2013 Escalation & Handoff** | \u201cNow let\u2019s trigger a handoff. Type a question the AI can\u2019t answer, e.g., *\u2018Can you schedule a demo for next Thursday?\u2019* The AI replies: *\u2018I\u2019m transferring you to a human agent.\u2019* A **live\u2011chat window** opens, and the conversation transcript is automatically attached, so the agent sees the full context.\u201d |\n| **5:30\u20116:30** | **Demo \u2013 Analytics & Continuous Improvement** | 1. Return to the **Admin Console \u2192 Analytics**. <br>2. Highlight the **\u2018Top 5 FAQ Queries\u2019** chart \u2013 shows volume and satisfaction rating (thumbs\u2011up/down). <br>3. Click a query to see the **\u2018Answer Effectiveness\u2019** score; if below a threshold, the system suggests edits or flags the source article for review. |\n| **6:30\u20117:30** | **Value Demonstration (KPIs)** | \u201cWith the AI FAQ Receptionist you can expect: <br>\u2022 **Ticket deflection** \u2013 up to 40\u202f% reduction in repetitive tickets (illustrative). <br>\u2022 **First\u2011contact resolution** \u2013 average response time <\u202f5\u202fseconds. <br>\u2022 **Customer NPS lift** \u2013 +5\u201110 points (illustrative). <br>All of this is achieved without hiring additional staff; the AI scales with your traffic.\u201d |\n| **7:30\u20118:00** | **Closing & Call\u2011to\u2011Action** | \u201cThat concludes the live walk\u2011through. In the next step we can set up a **sandbox** for your team, import your actual knowledge\u2011base, and run a pilot for 30\u202fdays. What date works for a deeper technical workshop?\u201d |\n\n---  \n\n## \ud83d\udcc4 One\u2011Page Pitch Deck Outline  \n\n> **Design Note:** The deck is intended for a single slide (portrait) that a designer can flesh out with brand colors, icons, and minimal text. Below is the exact copy for each visual block.  \n\n| Section | Content (copy) | Visual Cue |\n|---------|----------------|------------|\n| **Header** | **Metis AI \u2013 AI FAQ Receptionist** | Large bold title, Metis logo on left |\n| **Sub\u2011header** | *\u201cTurn static FAQs into a 24/7 conversational help desk.\u201d* | Smaller font, tagline under title |\n| **Problem** | \u2022 Knowledge\u2011base articles become stale \u2192 customers keep asking the same questions.<br>\u2022 Support teams spend\u202f\u2248\u202f30\u202f% of time on repetitive tickets (illustrative).<br>\u2022 Self\u2011service search yields low satisfaction \u2013 users abandon after 2 clicks. | Three icons (clock, headset, frustrated user) stacked horizontally |\n| **Solution** | **AI FAQ Receptionist** \u2013 a conversational layer that: <br>1\ufe0f\u20e3 Indexes your existing KB in seconds.<br>2\ufe0f\u20e3 Answers in natural language, with instant \u201cread\u2011more\u201d links.<br>3\ufe0f\u20e3 Escalates to live agents with full context.<br>4\ufe0f\u20e3 Provides analytics to keep content fresh. | Central graphic of a chat bubble overlaying a document stack |\n| **Benefits** | **Quantifiable**: <br>\u2022 Up to **40\u202f%** ticket deflection (illustrative).<br>\u2022 <\u202f5\u202fs average answer latency.<br>\u2022 +5\u201110 NPS points (illustrative).<br>**Qualitative**: <br>\u2022 24/7 support without extra headcount.<br>\u2022 Consistent brand voice across all channels.<br>\u2022 Continuous content health monitoring. | Two columns: left \u2013 bar chart placeholders; right \u2013 bullet icons (speedometer, smiley, shield) |\n| **Customer Quote** | *\u201cOur support tickets dropped dramatically after deploying the AI FAQ Receptionist \u2013 the bot handles the routine stuff, letting our agents focus on complex issues.\u201d* \u2013 **(Illustrative) Customer Success Manager** | Speech bubble with a silhouette icon |\n| **CTA** | **Start a 30\u2011day pilot** \u2013 No\u2011commitment sandbox, full KB import, and KPI dashboard. <br>**Book a demo:** <br>\ud83d\udcc5 **[Calendly link]** <br>\u2709\ufe0f **demo@metis.ai** | Button\u2011style graphic with \u201cBook Demo\u201d text, highlighted in brand accent color |\n| **Footer** | \u00a9\u202f2026 Metis AI \u2013 All Rights Reserved | Small font, legal disclaimer |\n\n---  \n\n### How to Use This Deliverable  \n\n1. **Copy the script** into your demo\u2011run playbook. Assign a presenter and rehearse the timing to keep the flow within 8\u202fminutes.  \n2. **Provide the deck copy** to your design team. They can replace the placeholder icons and charts with actual brand assets.  \n3. **Set up a sandbox** for the prospect (use the same steps shown in the script) and schedule the follow\u2011up technical workshop.  \n\n---  \n\n*All figures marked \u201cillustrative\u201d are placeholders for discussion; replace them with your organization\u2019s actual metrics before presenting to customers.*"
       }
+    },
+    "AUTO-069": {
+      "agent": "Fortuna",
+      "status": "backlog",
+      "events": [
+        {
+          "ts": "2026-06-30T19:10:03.283754+00:00",
+          "event": "dispatched",
+          "content": "income started work: Cold Outreach Email Sequence for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T19:10:03.285417+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Sequence for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T19:10:08.819439+00:00",
+          "event": "working",
+          "content": "[claude:owl-alpha] attempting: Cold Outreach Email Sequence for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T19:10:22.476480+00:00",
+          "event": "working",
+          "content": "[openclaw] attempting: Cold Outreach Email Sequence for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T19:15:03.625824+00:00",
+          "event": "no_deliverable",
+          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+        }
+      ],
+      "deliverable": null
+    },
+    "AUTO-070": {
+      "agent": "Iris",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-30T19:10:03.284542+00:00",
+          "event": "dispatched",
+          "content": "pm started work: One-Page Sales Pitch Deck (Markdown) for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T19:10:03.288029+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: One-Page Sales Pitch Deck (Markdown) for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T19:15:03.616388+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced AUTO-070-deliverable.md (5995b) \u2192 in_progress"
+        }
+      ],
+      "deliverable": {
+        "file": "pm/work/AUTO-070-deliverable.md",
+        "size": 5995,
+        "content": "# AI FAQ Receptionist \u2013 One\u2011Page Sales Pitch Deck  \n*Markdown version ready for slide conversion*  \n\n---  \n\n## Slide\u202f1 \u2013 Title & Tagline  \n**AI FAQ Receptionist**  \n*\u201cNever miss a lead, never repeat a answer.\u201d*  \n\n- **Product** \u2013 Intelligent voice\u2011and\u2011text receptionist that answers inbound calls, qualifies leads, captures context, and routes follow\u2011up actions.  \n- **Target Audience** \u2013 Small\u2011to\u2011mid\u2011size businesses that rely on phone inquiries (e.g., home services, consulting, SaaS support).  \n- **Owner** \u2013 Iris (Project Manager, Project Team)  \n\n---  \n\n## Slide\u202f2 \u2013 The Problem (Why Now?)  \n\n- **Lost Opportunities After Hours** \u2013 Calls received outside business hours often go to voicemail, resulting in missed sales leads and delayed follow\u2011up.  \n- **Inconsistent Capture of Call Details** \u2013 Human operators miss or mis\u2011record key information, leading to fragmented context and extra effort for sales teams.  \n- **High Cost of Manual Gatekeeping** \u2013 Hiring dedicated reception staff or outsourcing call handling adds recurring payroll/contract costs.  \n\n> *\u201cAI receptionists are built for the part of the business that still depends on a good first conversation. They can answer inbound calls, qualify leads, capture context, summarize the need, recommend next actions, and route important decisions back to a human reviewer.\u201d* \u2013 Source\u202f[1]  \n\n---  \n\n## Slide\u202f3 \u2013 The Solution (What We Offer)  \n\n**AI FAQ Receptionist** \u2013 A cloud\u2011native AI agent that:  \n\n1. **Answers Calls 24/7** \u2013 Natural\u2011language voice interface greets callers and handles FAQs instantly.  \n2. **Qualifies & Captures Leads** \u2013 Asks pre\u2011defined qualification questions, records responses, and stores them in your CRM.  \n3. **Summarizes & Routes** \u2013 Generates a concise summary (who, what, urgency) and forwards to the appropriate human owner.  \n4. **Learns & Improves** \u2013 Continuous fine\u2011tuning from real interactions reduces \u201chand\u2011off\u201d rates over time.  \n\n---  \n\n## Slide\u202f4 \u2013 Value Proposition (Benefits)  \n\n| Benefit | Impact |\n|---------|--------|\n| **Never Miss a Lead** | 24/7 coverage captures every inbound inquiry. |\n| **Higher Lead Quality** | Structured qualification improves conversion odds. |\n| **Reduced Staffing Costs** | One AI agent replaces multiple gatekeeper shifts. |\n| **Consistent Customer Experience** | Same friendly tone and accurate answers every call. |\n| **Actionable Insights** | Call transcripts and analytics feed sales enablement. |\n\n> *\u201cTeams that miss opportunities after hours, lose detail between calls and follow\u2011up, or need cleaner intake before sales work begins, this is practical AI with business oversight built in.\u201d* \u2013 Source\u202f[1]  \n\n---  \n\n## Slide\u202f5 \u2013 Core Features  \n\n- **Voice & Text Support** \u2013 Handles both phone and chat channels.  \n- **Custom FAQ Builder** \u2013 Upload your knowledge base; AI extracts answers.  \n- **Lead Qualification Wizard** \u2013 Drag\u2011and\u2011drop question flow (e.g., budget, timeline).  \n- **CRM Integration** \u2013 Native connectors for HubSpot, Salesforce, Pipedrive.  \n- **Analytics Dashboard** \u2013 Call volume, intent trends, and agent performance metrics.  \n\n---  \n\n## Slide\u202f6 \u2013 Pricing (Illustrative)  \n\n| Plan | Monthly Price* | Included | Ideal For |\n|------|----------------|----------|-----------|\n| **Starter** | **$49** | 500\u202fcalls, basic FAQ, email support | Solo entrepreneurs, home\u2011service pros |\n| **Growth** | **$149** | 2,500\u202fcalls, advanced qualification, CRM sync, phone support | SMBs, agencies |\n| **Enterprise** | **Custom** | Unlimited calls, dedicated account manager, SLA, on\u2011premise option | Large teams, regulated industries |\n\n\\*Prices are **illustrative** \u2013 final pricing to be confirmed after market validation.  \n\n---  \n\n## Slide\u202f7 \u2013 Competitive Edge  \n\n| Competitor | 24/7 Voice | Lead Qualification | CRM Sync | Pricing |\n|------------|------------|-------------------|----------|---------|\n| Traditional Call Centers | \u2716 | \u2716 | \u2716 | High (per\u2011agent) |\n| Basic IVR Systems | \u2714 | \u2716 | \u2716 | Low\u2011mid |\n| **AI FAQ Receptionist** | **\u2714** | **\u2714** | **\u2714** | **Mid\u2011range, scalable** |\n\n---  \n\n## Slide\u202f8 \u2013 Go\u2011to\u2011Market Timeline (Critical Path)  \n\n| Milestone | Owner | Dependency | Acceptance Criteria |\n|-----------|-------|------------|----------------------|\n| **M1 \u2013 MVP Build** | Engineering Lead | Requirements doc | AI can answer 80\u202f% of FAQ set with <5\u202fs latency |\n| **M2 \u2013 Beta Launch (10 customers)** | Sales Ops | MVP Build | \u2265\u202f3\u202f\u03b2 customers report \u2265\u202f20\u202f% increase in qualified leads |\n| **M3 \u2013 Pricing Validation** | Product Manager (Iris) | Beta data | Pricing tiers achieve \u2265\u202f30\u202f% conversion to paid plans |\n| **M4 \u2013 Full Launch** | Marketing Lead | Pricing Validation | Public website live, 1,000 sign\u2011ups in first 30\u202fdays |\n| **M5 \u2013 SLA & Enterprise Offer** | Customer Success | Full Launch | Enterprise contracts signed with \u2265\u202f$5k ARR each |\n\n*Critical Path*: **M1 \u2192 M2 \u2192 M3** \u2013 delays in MVP directly push back beta and pricing validation.  \n\n---  \n\n## Slide\u202f9 \u2013 Call to Action  \n\n**Ready to capture every lead?**  \n\n- **Book a Live Demo** \u2013 https://ai-faq-receptionist.com/demo  \n- **Start Free Trial** \u2013 14\u2011day, no credit card required.  \n- **Contact Sales** \u2013 sales@ai-faq-receptionist.com  \n\n*Let\u2019s turn every \u201chello\u201d into a qualified opportunity.*  \n\n---  \n\n## References  \n\n1. Keith Gould, *AI receptionist handles awkward sales pitch*, LinkedIn post (2024). https://www.linkedin.com/posts/keithgould_my-ai-can-handle-itself-ive-recently-signed-activity-7473275844380102656-pkux  \n2. Ainna, *How Do You Write a Product One\u2011Pager That Actually Works?* (2026). https://ainna.ai/resources/faq/one-pager-guide-faq  \n3. Xtensio, *AI One\u2011Pager Generator* (2026). https://xtensio.com/ai/ai-one-pager-generator  \n\n---  \n\n*Prepared by Iris \u2013 Project Manager, Project Team \u2013 2026\u201106\u201130*"
+      }
+    },
+    "AUTO-071": {
+      "agent": "Hermes",
+      "status": "backlog",
+      "events": [
+        {
+          "ts": "2026-06-30T19:10:08.539935+00:00",
+          "event": "dispatched",
+          "content": "business-analyst started work: Competitive Feature Matrix: AI FAQ Receptionist vs Top 5 Ven"
+        },
+        {
+          "ts": "2026-06-30T19:10:08.540721+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top 5 Ven"
+        },
+        {
+          "ts": "2026-06-30T19:10:13.470973+00:00",
+          "event": "working",
+          "content": "[claude:owl-alpha] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top 5 Ven"
+        },
+        {
+          "ts": "2026-06-30T19:10:23.136026+00:00",
+          "event": "working",
+          "content": "[openclaw] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top 5 Ven"
+        },
+        {
+          "ts": "2026-06-30T19:15:03.633368+00:00",
+          "event": "no_deliverable",
+          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+        }
+      ],
+      "deliverable": null
     }
   },
   "active": [
@@ -1341,13 +1431,19 @@
       "agent": "Fortuna",
       "ticket": "AUTO-065",
       "event": "no_deliverable",
-      "ts": "2026-06-30T19:04:09.359803+00:00"
+      "ts": "2026-06-30T19:15:03.626923+00:00"
     },
     {
-      "agent": "nemesis",
-      "ticket": "AUTO-067",
-      "event": "validation_pass",
-      "ts": "2026-06-30T18:44:43.271358+00:00"
+      "agent": "Iris",
+      "ticket": "AUTO-070",
+      "event": "delivered",
+      "ts": "2026-06-30T19:15:03.616388+00:00"
+    },
+    {
+      "agent": "Hermes",
+      "ticket": "AUTO-071",
+      "event": "no_deliverable",
+      "ts": "2026-06-30T19:15:03.633368+00:00"
     }
   ]
 }
