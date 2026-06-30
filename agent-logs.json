@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T17:10:01.927692+00:00",
+  "generated": "2026-06-30T17:20:02.291333+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -944,13 +944,7 @@
     "AUTO-045": {
       "agent": "Fortuna",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-06-30T11:41:00.468894+00:00",
-          "event": "validation_pass",
-          "content": "PASS: Complete three-tier pricing sheet (Basic $49, Pro $149, Enterprise $499) with monthly costs, usage limits, and concise value propositions per tier, delivered as a well-structured markdown file ready for PDF/web conversion, plus supporting cost rationale and revenue forecast."
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "income/work/AUTO-045-deliverable.md",
         "size": 9278,
@@ -961,16 +955,6 @@
       "agent": "Iris",
       "status": "done",
       "events": [
-        {
-          "ts": "2026-06-30T11:41:00.476479+00:00",
-          "event": "validation_fail",
-          "content": "FAIL #1: The deliverable is a thin, generic stub: each template uses near-identical copy-paste body text, vague unattributed 'study' ROI claims, and placeholder bracketed fields instead of genuinely personalized, sector-specific outreach \u2014 it reads like a first-draft outline, not finished work."
-        },
-        {
-          "ts": "2026-06-30T11:50:01.914184+00:00",
-          "event": "dispatched",
-          "content": "pm started work: Cold Outreach Email Templates for AI FAQ Receptionist"
-        },
         {
           "ts": "2026-06-30T11:50:01.917824+00:00",
           "event": "working",
@@ -1001,13 +985,7 @@
     "AUTO-047": {
       "agent": "Thor",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-06-30T11:41:00.482920+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable provides a complete, step-by-step VM deployment checklist covering all required areas (OS setup, packages, environment variables, start-up scripts) with ready-to-run commands, verification steps, rollback procedures, and no unexpanded placeholders beyond intentionally flagged secret "
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "devops/work/AUTO-047-deliverable.md",
         "size": 9443,
@@ -1017,18 +995,7 @@
     "AUTO-048": {
       "agent": "Clio",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-06-30T11:40:38.578108+00:00",
-          "event": "validating",
-          "content": "[claude,openclaw,groq] Independently reviewing data-analyst's deliverable"
-        },
-        {
-          "ts": "2026-06-30T11:41:00.485112+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable fully specifies the core usage metrics (QPD, ART, USS) with SQL calculations, defines a complete JSON logging schema and Kafka emission guarantees, and documents the storage location (Kafka, PostgreSQL interactions table, analytics view) with access control \u2014 ready for data team impl"
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "data-analyst/work/AUTO-048-deliverable.md",
         "size": 7132,
@@ -2004,7 +1971,7 @@
     },
     "AUTO-063": {
       "agent": "Iris",
-      "status": "in_progress",
+      "status": "in_validation",
       "events": [
         {
           "ts": "2026-06-30T16:50:01.707900+00:00",
@@ -2045,17 +2012,32 @@
           "ts": "2026-06-30T17:04:52.923046+00:00",
           "event": "no_deliverable",
           "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+        },
+        {
+          "ts": "2026-06-30T17:10:02.305911+00:00",
+          "event": "dispatched",
+          "content": "pm started work: One\u2011Page Sales Pitch Deck for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T17:10:02.315954+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: One\u2011Page Sales Pitch Deck for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T17:10:04.485392+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced AUTO-063-deliverable.md (5348b) \u2192 in_validation"
         }
       ],
       "deliverable": {
         "file": "pm/work/AUTO-063-deliverable.md",
-        "size": 7543,
-        "content": "# ONE\u2011PAGE SALES PITCH DECK \u2013 AI FAQ Receptionist  \n*Prepared for internal use \u2013 ready for copy\u2011paste into PowerPoint, Google Slides, or any slide editor.*  \n\n---  \n\n## \ud83d\udcc4 Deliverable Metadata  \n\n| Item | Detail |\n|------|--------|\n| **Owner** | Iris (Project Manager \u2013 PM) |\n| **Content Author** | Alex Rivera (Product Marketing) |\n| **Design Owner** | Maya Patel (Design Lead) |\n| **Stakeholder Review** | Sam Liu (Head of Sales) |\n| **Dependencies** | \u2022 Company logo & brand palette  <br>\u2022 Final pricing approval from Finance  <br>\u2022 Access to the AI FAQ Receptionist demo video (Source\u202f[1]) |\n| **Acceptance Criteria** | 1. All six sections (Problem, Solution, Benefits, ROI, Pricing Snapshot, Call\u2011to\u2011Action) present on a single slide layout.<br>2. Editable markdown that maps 1\u2011to\u20111 onto PowerPoint/Google Slides placeholders (title, subtitle, bullet, image, table).<br>3. No invented statistics; any numeric claim is either sourced or explicitly marked \u201cillustrative\u201d with the underlying assumption noted.<br>4. All source citations present and correct.<br>5. Final file passes a quick\u2011copy test: pasting the markdown into a blank slide yields a legible, formatted slide. |\n| **Timeline** | **Day\u202f1** \u2013 Draft content (Owner: Alex) \u2013 4\u202fh  <br>**Day\u202f1** \u2013 Design layout mock\u2011up (Owner: Maya) \u2013 2\u202fh  <br>**Day\u202f2** \u2013 Review & sign\u2011off (Owner: Sam) \u2013 1\u202fh  <br>**Day\u202f2** \u2013 Export to PPTX & Google Slides link (Owner: Iris) \u2013 1\u202fh |\n| **Critical Path** | Content creation \u2192 Design mock\u2011up \u2192 Stakeholder review. Any delay in content pushes the whole schedule. |\n| **Version** | v1.0 \u2013 2026\u201106\u201130 |\n\n---  \n\n## \ud83c\udfaf ONE\u2011PAGE SLIDE CONTENT  \n\nBelow is the exact markdown that can be copied into a slide.  \nReplace the bracketed placeholders (`[\u2026]`) with your company\u2011specific values before presenting.\n\n```\n# [Company Name] \u2013 AI FAQ Receptionist  \n\n## Problem  \n- Small\u2011to\u2011mid\u2011size businesses receive **30\u201150%** of calls that are routine FAQs (hours, location, appointment scheduling).  \n- Front\u2011desk staff spend **average 15\u202fmin per call** handling these repeats, reducing capacity for revenue\u2011generating conversations.  \n- Missed or mis\u2011answered FAQs lead to **customer dissatisfaction** and lost bookings.  \n\n## Solution  \n**AI FAQ Receptionist** \u2013 a voice\u2011first AI agent that:  \n- Answers common questions instantly 24/7.  \n- Routes complex calls to a live agent with context.  \n- Integrates with existing phone systems (Twilio, RingCentral) and CRMs (HubSpot, Salesforce).  \n\n## Key Benefits (Bullet\u2011point)  \n- **+30\u202f%** reduction in live\u2011agent call volume (illustrative \u2013 based on typical FAQ call share).  \n- **Instant response** \u2192 average handling time drops from 15\u202fmin to **<30\u202fs**.  \n- **Zero\u2011cost scaling** \u2013 add unlimited concurrent callers without hiring.  \n- **Data insights** \u2013 real\u2011time analytics on FAQ trends for marketing & ops.  \n\n## ROI (Illustrative)  \n| Metric | Before AI | After AI | \u0394 |\n|--------|-----------|----------|---|\n| Avg. monthly live\u2011agent hours | 200\u202fh | 140\u202fh | **\u201130\u202f%** |\n| Agent cost @ $30\u202fh\u207b\u00b9 | $6,000 | $4,200 | **\u2011$1,800** |\n| Additional bookings (\u2191\u202f5\u202f%) | $12,000 | $12,600 | **+$600** |\n| **Net monthly impact** | \u2014 | \u2014 | **+$2,400** |\n\n*Assumptions*: average agent cost $30\u202fh\u207b\u00b9, typical FAQ call share 40\u202f% (industry norm). Calculations follow the ROI framing from Anthony Shoosh\u2019s pricing chapter (Source\u202f[1]) and the one\u2011pager ROI focus from Ainna (Source\u202f[2]).  \n\n## Pricing Snapshot (Illustrative)  \n| Plan | Monthly Price | Included Calls | SLA |\n|------|---------------|----------------|-----|\n| **Starter** | $199\u202f/mo | 1,000\u202fcalls | 99\u202f% uptime |\n| **Growth** | $399\u202f/mo | 3,000\u202fcalls | 99.5\u202f% uptime |\n| **Enterprise** | $799\u202f/mo | Unlimited | 99.9\u202f% uptime + dedicated support |\n\n*All plans include analytics dashboard, CRM integration, and 24/7 AI support.*  \nPricing structure follows the tiered model described in the \u201cPricing\u201d segment of the AI Receptionist guide (Source\u202f[1]).  \n\n## Call\u2011to\u2011Action  \n- **Free 14\u2011day trial** \u2013 no credit card required.  \n- Book a **15\u2011minute demo** at [Calendly link] or reply to this email.  \n- **Limited\u2011time launch discount**: 20\u202f% off the first 3\u202fmonths for contracts signed before **[Date]**.  \n\n*Contact*:  \n[Your Name] \u2013 Sales Lead  \nPhone: **[Phone]**  \nEmail: **[Email]**  \n```\n\n---  \n\n## \ud83d\udcd0 DESIGN GUIDELINES (for the slide designer)  \n\n| Element | Specification |\n|---------|----------------|\n| **Slide Size** | 16:9 (standard) |\n| **Font** | Heading \u2013 **Montserrat Bold 36pt**; Body \u2013 **Montserrat Regular 24pt** |\n| **Colors** | Primary \u2013 #0A74DA (brand blue); Accent \u2013 #FFB400 (brand amber); Background \u2013 #FFFFFF |\n| **Icons** | Use simple line icons for \u201cPhone\u201d, \u201cAnalytics\u201d, \u201cClock\u201d, \u201cDollar\u201d. |\n| **Layout** | Left\u2011column (Problem\u202f+\u202fSolution) occupies 45\u202f% width; Right\u2011column (Benefits\u202f+\u202fROI\u202f+\u202fPricing) occupies 55\u202f%. Call\u2011to\u2011Action spans full width at bottom with a contrasting button background (#FFB400). |\n| **Images** | Insert a placeholder image (800\u202f\u00d7\u202f450) titled \u201cAI Receptionist in action\u201d \u2013 replace with a screenshot from the demo video (Source\u202f[1]). |\n| **Table Styling** | Light gray header row, alternating white/gray rows for readability. |\n\n---  \n\n## \ud83d\udccc How to Convert the Markdown to a Slide  \n\n1. **Open PowerPoint** \u2192 *Insert* \u2192 *Text Box* \u2192 paste the markdown.  \n2. PowerPoint will retain line breaks; manually apply the heading, sub\u2011heading, and bullet styles per the design guidelines.  \n3. Insert a **Table** for ROI and Pricing sections using the markdown tables as a guide.  \n4. Replace the placeholder image with a screenshot from the AI FAQ Receptionist demo (available in the video linked in Source\u202f[1]).  \n5. Adjust colors and fonts to match your brand palette.  \n\n*Tip*: If you prefer Google Slides, create a new slide, paste the markdown, and use the same styling steps.  \n\n---  \n\n## \u2705 Acceptance Checklist (to be completed by Sam Liu)  \n\n- [ ] All six sections present and legible on a single slide.  \n- [ ] No invented statistics; numeric claims are either sourced or labeled \u201cillustrative\u201d with assumptions noted.  \n- [ ] Branding (logo, colors) applied correctly.  \n- [ ] ROI table reflects the illustrative assumptions clearly.  \n- [ ] Pricing snapshot matches the tiered model from Source\u202f[1].  \n- [ ] Call\u2011to\u2011Action includes a working Calendly link and contact details.  \n\n---  \n\n## \ud83d\udcda Source Attribution  \n\n1. **Anthony Shoosh \u2013 \u201cBuild & Sell AI Receptionists (Full A\u2011Z Guide 2026)\u201d** \u2013 video provides the end\u2011to\u2011end pricing model and ROI framing used for the pricing snapshot and illustrative ROI calculations. URL: https://www.youtube.com/watch?v=Jf8fyPTw2xk  (cited as Source\u202f[1]).  \n2. **Ainna \u2013 \u201cHow Do You Write a Product One\u2011Pager That Actually Works?\u201d** \u2013 outlines the one\u2011pager structure (Problem, Solution, Benefits, ROI, Pricing, CTA) that shaped this deck layout. URL: https://ainna.ai/resources/faq/one-pager-guide-faq  (cited as Source\u202f[2]).  \n3. **Facebook Group \u2013 \u201cWhat marketing strategies work for AI receptionist services?\u201d** \u2013 reinforces the need to surface ROI and a clear CTA in sales collateral. URL: https://www.facebook.com/groups/2815042615255352/posts/26205417452457872  (cited as Source\u202f[3]).  \n\n---  \n\n*End of Deliverable*"
+        "size": 5348,
+        "content": "# AI\u202fFAQ Receptionist \u2013 One\u2011Page Sales Pitch Deck  \n*(Editable Markdown \u2013 copy\u2011paste into PowerPoint, Google Slides, or any design tool)*  \n\n---\n\n## 1\ufe0f\u20e3 Title & Tagline  \n**AI\u202fFAQ Receptionist** \u2013\u202f*\u201cYour 24/7 front\u2011desk, powered by voice AI.\u201d*  \n\n*Visual cue:* Company logo (top\u2011left), a stylised headset\u2011mic icon (top\u2011right).  \n\n---\n\n## 2\ufe0f\u20e3 Problem (Why the market needs this)  \n\n| Pain Point | Impact on Business |\n|------------|-------------------|\n| **Missed calls & unanswered FAQs** \u2013 customers abandon after 2\u202frings. | \u2191 churn, lost revenue. |\n| **High staffing cost** \u2013 $15\u2011$25\u202f/hr for a live receptionist (incl. benefits). | 30\u202f% of operating budget. |\n| **Inconsistent information** \u2013 human agents give varied answers, leading to confusion. | Lower brand trust, repeat contacts. |\n| **Limited after\u2011hours coverage** \u2013 small businesses close at 5\u202fpm, yet customers expect support. | Missed sales opportunities. |\n\n*Source:* General industry observations (no specific citation required).  \n\n---\n\n## 3\ufe0f\u20e3 Solution (What we deliver)  \n\n**AI\u202fFAQ Receptionist** \u2013 a cloud\u2011hosted, voice\u2011AI agent that:  \n\n1. **Answers callers instantly** with natural\u2011language responses to the top 20\u201130 FAQs.  \n2. **Routes complex queries** to a live agent via a seamless hand\u2011off.  \n3. **Operates 24\u202f\u00d7\u202f7** with no overtime or shift scheduling.  \n4. **Integrates** with existing phone systems (Twilio, RingCentral) and CRM (HubSpot, Zoho).  \n\n*Key tech stack (from Source\u202f[1]):* Retell\u202fAI for voice synthesis, Cal.com for scheduling, and a simple web dashboard for FAQ management.  \n\n---\n\n## 4\ufe0f\u20e3 Key Benefits (Value proposition)  \n\n| Benefit | Business Outcome |\n|---------|-------------------|\n| **Instant response** \u2013 average answer time <\u202f5\u202fseconds. | \u2191 customer satisfaction (NPS\u202f+\u202f15). |\n| **Cost reduction** \u2013 replace 1\u202fFTE receptionist. | \u2193 staffing expense up to **30\u202f%** (illustrative). |\n| **Scalable coverage** \u2013 unlimited concurrent calls. | Supports growth without proportional cost. |\n| **Consistent branding** \u2013 same tone & messaging every call. | Improves brand perception, reduces errors. |\n| **Data insights** \u2013 call analytics & FAQ performance dashboard. | Enables continuous improvement, better marketing. |\n\n*Benefit framing follows the one\u2011pager guidance in Source\u202f[2] (focus on problem\u2011solution\u2011impact).*\n\n---\n\n## 5\ufe0f\u20e3 ROI Snapshot (Illustrative, based on typical SMB metrics)  \n\n| Metric | Before AI\u202fReceptionist | After AI\u202fReceptionist | \u0394 |\n|--------|------------------------|-----------------------|---|\n| **Monthly staffing cost** | $2,400 (1\u202fFTE @ $2,000\u202f+\u202fbenefits) | $0 | **\u2011100\u202f%** |\n| **Average call handling time** | 2\u202fmin | 0.5\u202fmin | **\u201175\u202f%** |\n| **Monthly missed\u2011call revenue** | $1,200 | $300 | **\u201175\u202f%** |\n| **Net profit increase** | $3,200 | $4,500 | **+40\u202f%** |\n\n*All figures are **illustrative**; they are derived from typical small\u2011business call volumes and staffing rates (see Source\u202f[1] for pricing context).*\n\n---\n\n## 6\ufe0f\u20e3 Pricing Snapshot (Editable \u2013 adapt per client)  \n\n| Plan | Monthly Price* | Included |\n|------|----------------|----------|\n| **Starter** | **$199** | Up to 5\u202fFAQ intents, 100\u202fcall minutes, basic dashboard. |\n| **Growth** | **$349** | Up to 15\u202fFAQ intents, 500\u202fcall minutes, advanced analytics, live\u2011hand\u2011off. |\n| **Enterprise** | **$599** | Unlimited FAQs, unlimited minutes, custom integration, dedicated support. |\n\n\\*Prices are **illustrative** and based on the pricing chapter of Source\u202f[1] (typical SaaS AI\u2011service tiers).  \n\n*Add\u2011on:* **$49\u202f/\u202fadditional 100\u202fcall minutes** (pay\u2011as\u2011you\u2011go).  \n\n---\n\n## 7\ufe0f\u20e3 Call\u2011to\u2011Action (Next Steps)  \n\n1. **Book a 15\u2011min demo** \u2013 see the AI\u202fFAQ Receptionist in action.  \n2. **Free 30\u2011day trial** \u2013 no credit\u2011card required, full feature access.  \n3. **Onboarding** \u2013 dedicated success manager, FAQ setup within 48\u202fhrs.  \n\n*Contact:*  \n- **Name:** Iris\u202f(Project Manager)  \n- **Email:** iris@yourcompany.com  \n- **Phone:** +1\u202f555\u2011123\u20114567  \n- **Calendly:** https://cal.com/iris-demo  \n\n---\n\n## 8\ufe0f\u20e3 Footer (Legal / Disclaimer)  \n\n*All ROI and pricing numbers are **illustrative** and should be validated with the client\u2019s actual call volume and staffing costs. The AI\u202fFAQ Receptionist complies with GDPR and CCPA data\u2011privacy standards.*  \n\n---\n\n### How to use this markdown in a slide deck  \n\n| Slide # | Content (copy\u2011paste) | Suggested Visual |\n|---------|----------------------|------------------|\n| 1 | Title & Tagline | Logo + hero image of a phone with AI wave |\n| 2 | Problem table | Icons for missed calls, cost, inconsistency |\n| 3 | Solution bullet list | Diagram of AI agent \u2194 phone system \u2194 CRM |\n| 4 | Benefits table | Check\u2011marks with KPI icons |\n| 5 | ROI snapshot chart | Bar chart (before vs. after) |\n| 6 | Pricing table | Tiered pricing cards |\n| 7 | CTA & Contact | Button style \u201cBook Demo\u201d + contact details |\n| 8 | Footer disclaimer | Small font, legal text |\n\nCopy each section into your slide tool, replace the illustrative numbers with client\u2011specific data, and adjust branding colors as needed.  \n\n---  \n\n*Prepared by Iris \u2013 Project Manager, Project Team \u2013 30\u202fJun\u202f2026*"
       }
     },
     "AUTO-064": {
       "agent": "Thor",
-      "status": "in_progress",
+      "status": "in_validation",
       "events": [
         {
           "ts": "2026-06-30T16:50:03.837702+00:00",
@@ -2096,21 +2078,36 @@
           "ts": "2026-06-30T17:04:52.925218+00:00",
           "event": "no_deliverable",
           "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+        },
+        {
+          "ts": "2026-06-30T17:10:02.312318+00:00",
+          "event": "dispatched",
+          "content": "devops started work: Free\u2011Tool Deployment Checklist for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T17:10:02.318260+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Free\u2011Tool Deployment Checklist for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T17:10:04.487967+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced AUTO-064-deliverable.md (12070b) \u2192 in_validation"
         }
       ],
       "deliverable": {
         "file": "devops/work/AUTO-064-deliverable.md",
-        "size": 2243,
-        "content": "## Free-Tool Deployment Checklist for AI FAQ Receptionist\n\n### \u2705 Required Files\n\n- **Dockerfile** (Local LLM deployment)\n- **environment.json** (environment variables)\n- **systemd.service** (deployment service)\n- **README.md** (deployment guide)\n- **rollback.sh** (rollback procedure)\n- **static-site-config.json** (hosting setup)\n- **test.sh** (deployment validation)\n- **test.env** (environment setup)\n- **version.json** (deployment version)\n- **rollback.yaml** (rollback procedure)\n- **build.log** (build logs)\n- **test.log** (test results)\n- **checksum.json** (checksum verification}\n\n### \ud83d\udee0 Key Steps\n\n1. **1.1.1.1.1.1.1**\n   - Create Dockerfile with local LLM (e.g., `local-llm.sh`) to deploy the AI FAQ system\n\n2. **1.2.1.2.2.2.2.2.2.2**\n   - Configure environment variables in `environment.json` (e.g., `export API_KEY=your_api_key`) to connect to the AI system\n\n3. **1.3.1.3.3.3.3.3.3**\n   - Set up systemd service in `systemd.service` (e.g., `systemd.service: openclaw-gateway.service`) to manage the service\n\n4. **1.4.1.4.4.4.4.4.4**\n   - Test the deployment using `test.sh` (check if the service starts, logs, and environment variables are set)\n\n5. **1.5.1.5.5.5.5.5.5**\n   - Validate the environment setup using `test.env` (check if the service is running and environment variables are set)\n\n6. **1.6.1.6.6.6.6.6.6**\n   - Verify the deployment using checksum verification in `checksum.json`\n\n### \ud83d\udce6 Verification\n\n- Check if the service is running using systemd service output\n- Verify environment variables in the deployment log\n- Validate the service is set up with the correct environment\n- Ensure the deployment script runs without errors\n- Test the service with a simple webhook (e.g., `curl -X POST http://localhost:8080/api/faq`)\n\n### \ud83d\udcdd Rollback Procedure\n\n- If deployment fails, use `rollback.yaml` to revert back to a previous state\n- Include a rollback script that allows for undoing changes in the deployment process\n- Ensure all files are backed up before deployment\n\n### \u26a0\ufe0f Important Notes\n\n- This checklist is based on free tools and assumes no external service integration\n- All files are self-contained and verified\n- No statistics, prices, or quotes are included\n- All steps are concrete and verified\n"
+        "size": 12070,
+        "content": "# Free\u2011Tool Deployment Checklist for AI FAQ Receptionist  \n*Target audience: client engineers with basic Linux/CLI experience*  \n\n**Workspace root** (create under your devops workspace):  \n\n```\n/home/admin/.openclaw/workspace/workers/devops/ai-faq-receptionist/\n```\n\n---\n\n## 1. Prerequisites  \n\n| Item | Minimum version / requirement | How to obtain (free) |\n|------|------------------------------|----------------------|\n| **Linux host** (Ubuntu\u202f22.04 LTS recommended) | Kernel\u202f5.15+, 4\u202fCPU, 8\u202fGB RAM (LLM inference can run on CPU\u2011only) | Existing VM, WSL2, or a bare\u2011metal box |\n| **Docker Engine** | 24.0+ | `sudo apt-get install -y docker.io` |\n| **Git** | 2.30+ | `sudo apt-get install -y git` |\n| **Python 3.11** | 3.11+ | `sudo apt-get install -y python3 python3-venv` |\n| **Free static\u2011site host** | GitHub Pages (no cost) | Create a free GitHub account |\n| **Free webhook host** | Fly.io free tier (or Render.com free) | Sign\u2011up at https://fly.io or https://render.com |\n| **Local LLM runtime** | Ollama (free, open\u2011source) | `curl -fsSL https://ollama.com/install.sh | sh` |\n\n> **Note** \u2013 All tools listed above are free\u2011to\u2011use. No paid API keys are required.\n\n---\n\n## 2. Directory Layout  \n\n```\nai-faq-receptionist/\n\u251c\u2500 README.md                # This checklist (for future reference)\n\u251c\u2500 faq/\n\u2502   \u2514\u2500 faq.yaml             # FAQ data (questions + answers)\n\u251c\u2500 site/\n\u2502   \u251c\u2500 index.html           # Static landing page\n\u2502   \u2514\u2500 assets/\n\u2502       \u2514\u2500 style.css\n\u251c\u2500 webhook/\n\u2502   \u251c\u2500 app.py               # Flask webhook server\n\u2502   \u251c\u2500 requirements.txt\n\u2502   \u2514\u2500 .env                 # Runtime env (LLM endpoint, model name)\n\u2514\u2500 docker-compose.yml       # Optional: spin up Ollama + webhook together\n```\n\nAll paths are relative to the workspace root shown above.\n\n---\n\n## 3. Step\u2011by\u2011Step Deployment  \n\n### 3.1 Install & Verify Ollama (local LLM)  \n\n```bash\n# Install (already covered in prerequisites)\ncurl -fsSL https://ollama.com/install.sh | sh\n\n# Start the Ollama daemon (runs as a systemd service)\nsystemctl --user enable --now ollama\n\n# Pull a small, free model (e.g., llama3:8b)\nollama pull llama3:8b\n\n# Quick sanity test\nollama run llama3:8b \"What is the capital of France?\"\n```\n\n**Expected output** (first line of answer): `Paris`.  \nIf the model does not respond, check `journalctl --user -u ollama` for errors.\n\n**Rollback** \u2013 Stop the daemon: `systemctl --user stop ollama`.  \nDelete the model: `ollama rm llama3:8b`.\n\n---\n\n### 3.2 Prepare FAQ Data  \n\nCreate `faq/faq.yaml` (UTF\u20118). Example content:\n\n```yaml\n# faq/faq.yaml\n- question: \"How do I reset my password?\"\n  answer: |\n    1. Click the **Forgot password** link on the login page.  \n    2. Enter your registered email address.  \n    3. Check your inbox for a reset link (valid for 24\u202fh).  \n    4. Follow the link and set a new password.\n\n- question: \"What is your support SLA?\"\n  answer: |\n    Our standard support SLA is **24\u202fhours** for critical issues and **48\u202fhours** for non\u2011critical tickets.\n```\n\n**Verification** \u2013 Run a quick Python script to load the YAML:\n\n```bash\npython3 -c \"import yaml, sys; print(yaml.safe_load(open('faq/faq.yaml')))\"\n```\n\nThe script should output a Python list of dictionaries without errors.\n\n**Rollback** \u2013 Replace the file with a backup (`cp faq/faq.yaml.bak faq/faq.yaml`) or delete it.\n\n---\n\n### 3.3 Build the Static Site  \n\nCreate `site/index.html`:\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>AI FAQ Receptionist</title>\n  <link rel=\"stylesheet\" href=\"assets/style.css\">\n  <script>\n    async function ask() {\n      const q = document.getElementById('question').value;\n      const resp = await fetch('https://YOUR_WEBHOOK_URL/ask', {\n        method: 'POST',\n        headers: {'Content-Type': 'application/json'},\n        body: JSON.stringify({question: q})\n      });\n      const data = await resp.json();\n      document.getElementById('answer').textContent = data.answer;\n    }\n  </script>\n</head>\n<body>\n  <h1>AI FAQ Receptionist</h1>\n  <input id=\"question\" type=\"text\" placeholder=\"Ask a question\u2026\" size=\"60\"/>\n  <button onclick=\"ask()\">Ask</button>\n  <pre id=\"answer\" style=\"margin-top:1em;\"></pre>\n</body>\n</html>\n```\n\nCreate a minimal CSS file `site/assets/style.css` (optional).  \n\n**Deploy to GitHub Pages**  \n\n```bash\ncd /home/admin/.openclaw/workspace/workers/devops/ai-faq-receptionist/site\ngit init\ngit remote add origin https://github.com/<YOUR_GITHUB_USER>/ai-faq-receptionist.git\ngit add .\ngit commit -m \"Initial static site\"\ngit branch -M main\ngit push -u origin main\n# Enable GitHub Pages in the repo settings \u2192 source: main / root\n```\n\nGitHub will publish the site at `https://<YOUR_GITHUB_USER>.github.io/ai-faq-receptionist/`.  \n\n**Verification** \u2013 Open the URL in a browser; the page should load with the input box.  \n\n**Rollback** \u2013 Delete the repo or remove the `index.html` file; GitHub Pages will return a 404.\n\n---\n\n### 3.4 Create the Webhook Server (Flask)  \n\n**`webhook/requirements.txt`**\n\n```\nflask==3.0.0\npython-dotenv==1.0.0\nrequests==2.31.0\npyyaml==6.0\n```\n\n**`webhook/.env`** (do **not** commit this file to any public repo)\n\n```\nOLLAMA_HOST=http://127.0.0.1:11434\nMODEL_NAME=llama3:8b\n```\n\n**`webhook/app.py`**\n\n```python\n#!/usr/bin/env python3\nimport os\nimport json\nimport requests\nimport yaml\nfrom flask import Flask, request, jsonify\nfrom dotenv import load_dotenv\n\nload_dotenv()  # reads .env\n\nOLLAMA_HOST = os.getenv(\"OLLAMA_HOST\", \"http://127.0.0.1:11434\")\nMODEL = os.getenv(\"MODEL_NAME\", \"llama3:8b\")\nFAQ_PATH = os.path.abspath(\"../faq/faq.yaml\")\n\napp = Flask(__name__)\n\ndef load_faq():\n    with open(FAQ_PATH, \"r\", encoding=\"utf-8\") as f:\n        return yaml.safe_load(f)\n\ndef ask_ollama(prompt: str) -> str:\n    payload = {\n        \"model\": MODEL,\n        \"prompt\": prompt,\n        \"stream\": False\n    }\n    r = requests.post(f\"{OLLAMA_HOST}/api/generate\", json=payload, timeout=30)\n    r.raise_for_status()\n    return r.json().get(\"response\", \"\").strip()\n\n@app.post(\"/ask\")\ndef ask():\n    data = request.get_json()\n    question = data.get(\"question\", \"\").strip()\n    if not question:\n        return jsonify({\"error\": \"question missing\"}), 400\n\n    # First, try to match a static FAQ entry\n    for entry in load_faq():\n        if question.lower() in entry[\"question\"].lower():\n            return jsonify({\"answer\": entry[\"answer\"]})\n\n    # Fallback to LLM\n    answer = ask_ollama(question)\n    return jsonify({\"answer\": answer})\n\nif __name__ == \"__main__\":\n    # Run locally for testing\n    app.run(host=\"0.0.0.0\", port=8000)\n```\n\n**Local test**  \n\n```bash\ncd /home/admin/.openclaw/workspace/workers/devops/ai-faq-receptionist/webhook\npython3 -m venv .venv\nsource .venv/bin/activate\npip install -r requirements.txt\npython app.py   # should listen on 0.0.0.0:8000\n```\n\nIn another terminal:\n\n```bash\ncurl -s -X POST -H \"Content-Type: application/json\" \\\n  -d '{\"question\":\"How do I reset my password?\"}' \\\n  http://127.0.0.1:8000/ask | jq .\n```\n\n**Expected JSON** (pretty\u2011printed):\n\n```json\n{\n  \"answer\": \"1. Click the **Forgot password** link on the login page.\\n2. Enter your registered email address.\\n3. Check your inbox for a reset link (valid for 24\u202fh).\\n4. Follow the link and set a new password.\"\n}\n```\n\n**Rollback** \u2013 Stop the Flask process (`Ctrl\u2011C`), delete the virtual environment (`rm -rf .venv`), or remove the repo.\n\n---\n\n### 3.5 Deploy the Webhook to a Free Cloud Host (Fly.io)  \n\n> Fly.io offers a free tier with 3\u202fGB RAM and 160\u202fGB\u2011hours per month \u2013 sufficient for a low\u2011traffic FAQ bot.\n\n#### 3.5.1 Install Fly CLI  \n\n```bash\ncurl -L https://fly.io/install.sh | sh\nexport PATH=$HOME/.fly/bin:$PATH\n```\n\n#### 3.5.2 Initialise Fly App  \n\n```bash\ncd /home/admin/.openclaw/workspace/workers/devops/ai-faq-receptionist/webhook\nfly launch --name ai-faq-receptionist --no-deploy\n```\n\nWhen prompted:\n\n- **Organization**: select your personal org.  \n- **Region**: choose a region close to your users (e.g., `iad` for US East).  \n- **App config**: accept defaults (Dockerfile will be auto\u2011generated).\n\n#### 3.5.3 Add Environment Variables  \n\n```bash\nfly secrets set OLLAMA_HOST=http://host.docker.internal:11434 \\\n               MODEL_NAME=llama3:8b\n```\n\n`host.docker.internal` resolves to the host machine from inside the Fly container, allowing the container to reach the local Ollama daemon running on the same host.  \n\n#### 3.5.4 Deploy  \n\n```bash\nfly deploy\n```\n\nFly will build a Docker image (based on the generated `Dockerfile`) and start the service.  \n\n**Obtain the public URL**  \n\n```bash\nfly status\n# Look for \"URL: https://<app-name>.fly.dev\"\n```\n\nCopy that URL \u2013 it will be the value for `YOUR_WEBHOOK_URL` in `site/index.html`. Replace the placeholder manually or with `sed`:\n\n```bash\nsed -i \"s|https://YOUR_WEBHOOK_URL|https://<app-name>.fly.dev|g\" \\\n    /home/admin/.openclaw/workspace/workers/devops/ai-faq-receptionist/site/index.html\ngit -C /home/admin/.openclaw/workspace/workers/devops/ai-faq-receptionist/site \\\n    commit -am \"Set webhook URL\"\ngit push\n```\n\n#### 3.5.5 Verify Remote Webhook"
       }
     }
   },
   "active": [
     {
-      "agent": "Minerva",
-      "ticket": "AUTO-061",
+      "agent": "Thor",
+      "ticket": "AUTO-064",
       "event": "delivered",
-      "ts": "2026-06-30T17:04:52.921707+00:00"
+      "ts": "2026-06-30T17:10:04.487967+00:00"
     },
     {
       "agent": "Fortuna",
@@ -2121,14 +2118,14 @@
     {
       "agent": "Iris",
       "ticket": "AUTO-063",
-      "event": "no_deliverable",
-      "ts": "2026-06-30T17:04:52.923046+00:00"
+      "event": "delivered",
+      "ts": "2026-06-30T17:10:04.485392+00:00"
     },
     {
-      "agent": "Thor",
-      "ticket": "AUTO-064",
-      "event": "no_deliverable",
-      "ts": "2026-06-30T17:04:52.925218+00:00"
+      "agent": "Minerva",
+      "ticket": "AUTO-061",
+      "event": "delivered",
+      "ts": "2026-06-30T17:04:52.921707+00:00"
     }
   ]
 }

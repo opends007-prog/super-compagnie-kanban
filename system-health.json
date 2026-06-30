@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-06-30T17:10:01.937449+00:00",
+  "generatedAt": "2026-06-30T17:20:02.306720+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.2,
-    "validator": 10.0,
+    "work-executor": 10.0,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 1850.0,
-    "backup": 10.0,
+    "guard": 1860.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 92,
     "backlog": 6,
-    "in_progress": 15,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 2
+    "in_validation": 4
   },
   "tickets_total": 119,
   "done_today": 59,
-  "delivered_today": 41,
-  "delivered_week": 41,
+  "delivered_today": 43,
+  "delivered_week": 43,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 39,
+    "cerebras:gpt-oss-120b": 41,
     "openclaw": 2
   },
   "live_agents": [
@@ -35,6 +35,48 @@
     "Thor"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T17:10:04.487967+00:00",
+      "agent": "Thor",
+      "event": "delivered",
+      "ticket": "AUTO-064",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-064-deliverable.md (12070b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T17:10:04.485392+00:00",
+      "agent": "Iris",
+      "event": "delivered",
+      "ticket": "AUTO-063",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-063-deliverable.md (5348b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T17:10:02.318260+00:00",
+      "agent": "Thor",
+      "event": "working",
+      "ticket": "AUTO-064",
+      "content": "[cerebras:gpt-oss-120b] attempting: Free\u2011Tool Deployment Checklist for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T17:10:02.315954+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "AUTO-063",
+      "content": "[cerebras:gpt-oss-120b] attempting: One\u2011Page Sales Pitch Deck for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T17:10:02.312318+00:00",
+      "agent": "Thor",
+      "event": "dispatched",
+      "ticket": "AUTO-064",
+      "content": "devops started work: Free\u2011Tool Deployment Checklist for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T17:10:02.305911+00:00",
+      "agent": "Iris",
+      "event": "dispatched",
+      "ticket": "AUTO-063",
+      "content": "pm started work: One\u2011Page Sales Pitch Deck for AI FAQ Receptionist"
+    },
     {
       "ts": "2026-06-30T17:04:52.925218+00:00",
       "agent": "Thor",
@@ -76,48 +118,6 @@
       "event": "working",
       "ticket": "AUTO-064",
       "content": "[openclaw] attempting: Free\u2011Tool Deployment Checklist for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T17:00:05.711476+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "AUTO-064",
-      "content": "[claude:owl-alpha] attempting: Free\u2011Tool Deployment Checklist for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T17:00:05.404066+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "AUTO-064",
-      "content": "[cerebras:gpt-oss-120b] attempting: Free\u2011Tool Deployment Checklist for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T17:00:05.386680+00:00",
-      "agent": "Thor",
-      "event": "dispatched",
-      "ticket": "AUTO-064",
-      "content": "devops started work: Free\u2011Tool Deployment Checklist for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T17:00:03.247420+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-063",
-      "content": "[claude:owl-alpha] attempting: One\u2011Page Sales Pitch Deck for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T17:00:02.674380+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-061",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-30T17:00:02.652263+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-062",
-      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
     }
   ],
   "problems": {}
