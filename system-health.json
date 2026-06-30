@@ -1,39 +1,87 @@
 {
-  "generatedAt": "2026-06-30T04:20:01.571255+00:00",
+  "generatedAt": "2026-06-30T04:30:01.668441+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
+    "validator": 8.3,
     "observability": 10.0,
-    "guard": 1080.0,
-    "backup": 20.0,
+    "guard": 1090.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 40,
-    "backlog": 4,
-    "in_progress": 11,
+    "done": 42,
+    "backlog": 3,
+    "in_progress": 12,
     "planned": 2,
-    "in_validation": 27
+    "in_validation": 25
   },
   "tickets_total": 84,
-  "done_today": 7,
-  "delivered_today": 37,
-  "delivered_week": 37,
+  "done_today": 9,
+  "delivered_today": 36,
+  "delivered_week": 36,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 35,
+    "cerebras:gpt-oss-120b": 34,
     "claude:owl-alpha": 2
   },
   "live_agents": [
-    "Hades",
     "Prometheus",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T04:30:00.474669+00:00",
+      "agent": "Prometheus",
+      "event": "started",
+      "ticket": "STORY-090",
+      "content": ""
+    },
+    {
+      "ts": "2026-06-30T04:21:42.438777+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-012",
+      "content": "PASS: The deliverable is a thorough, well-structured data-privacy checklist covering all required areas (user consent, d"
+    },
+    {
+      "ts": "2026-06-30T04:21:42.432757+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-010",
+      "content": "PASS: The deliverable is a complete, ready-to-use objection-handling guide covering the most common objections (price, i"
+    },
+    {
+      "ts": "2026-06-30T04:21:21.269740+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-012",
+      "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:21:03.550985+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-011",
+      "content": "[claude] Independently reviewing data-engineer's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:20:44.581152+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-010",
+      "content": "[claude] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-06-30T04:20:38.339055+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-089",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-06-30T04:20:01.632462+00:00",
       "agent": "nemesis",
@@ -68,55 +116,6 @@
       "event": "validation_parked",
       "ticket": "STORY-090",
       "content": "Parked after 2 fails: The deliverable is a design document with illustrative code sketches, not a completed implementati"
-    },
-    {
-      "ts": "2026-06-30T04:01:46.353779+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-009",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:01:16.188890+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-005",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:01:03.885481+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-090",
-      "content": "[claude] Independently reviewing ml-engineer's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:00:27.762985+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-089",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:00:01.719612+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-267",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:00:01.713873+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-087",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T04:00:01.152904+00:00",
-      "agent": "Hades",
-      "event": "started",
-      "ticket": "STORY-088",
-      "content": ""
     }
   ],
   "problems": {}

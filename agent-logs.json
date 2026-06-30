@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T04:20:01.557524+00:00",
+  "generated": "2026-06-30T04:30:01.638632+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -416,11 +416,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-30T01:30:01.997124+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing claude's deliverable"
-        },
-        {
           "ts": "2026-06-30T02:00:01.515831+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing claude's deliverable"
@@ -462,6 +457,11 @@
         },
         {
           "ts": "2026-06-30T04:00:01.719612+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing claude's deliverable"
+        },
+        {
+          "ts": "2026-06-30T04:20:01.614968+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing claude's deliverable"
         }
@@ -506,11 +506,6 @@
       "agent": "Fortuna",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-30T01:40:02.153486+00:00",
-          "event": "dispatched",
-          "content": "income started work: Enterprise client revenue analysis"
-        },
         {
           "ts": "2026-06-30T01:40:02.154736+00:00",
           "event": "working",
@@ -565,6 +560,11 @@
           "ts": "2026-06-30T04:00:01.713873+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing income's deliverable"
+        },
+        {
+          "ts": "2026-06-30T04:20:01.632462+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing income's deliverable"
         }
       ],
       "deliverable": {
@@ -577,11 +577,6 @@
       "agent": "Hades",
       "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-30T01:03:17.314630+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing security's deliverable"
-        },
         {
           "ts": "2026-06-30T01:32:28.815927+00:00",
           "event": "validating",
@@ -628,11 +623,6 @@
       "agent": "Fortuna",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-30T02:06:10.324134+00:00",
-          "event": "validation_fail",
-          "content": "FAIL #1: The deliverable's central financial model does not reconcile with itself: the three uplift components sum to $66,330 (total $1,392,930, a ~4.999% uplift) but the deliverable asserts a $66,400 increase and 5% uplift with a garbled figure \"$1,393, -\". Outside its own workspace it also leaks hardcoded "
-        },
         {
           "ts": "2026-06-30T02:10:01.924125+00:00",
           "event": "dispatched",
@@ -687,6 +677,11 @@
           "ts": "2026-06-30T04:00:27.762985+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing income's deliverable"
+        },
+        {
+          "ts": "2026-06-30T04:20:38.339055+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing income's deliverable"
         }
       ],
       "deliverable": {
@@ -697,13 +692,8 @@
     },
     "STORY-090": {
       "agent": "Prometheus",
-      "status": "backlog",
+      "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-30T03:10:49.902388+00:00",
-          "event": "validation_fail",
-          "content": "FAIL #1: The deliverable documents a plausible pipeline but is incomplete and contains a critical data-leakage flaw: the feature engineering computes lag and rolling features on the full dataset before the TimeSeriesSplit, causing validation-fold training data to leak future information into the training fol"
-        },
         {
           "ts": "2026-06-30T03:20:04.329340+00:00",
           "event": "dispatched",
@@ -758,6 +748,11 @@
           "ts": "2026-06-30T04:02:39.079757+00:00",
           "event": "validation_parked",
           "content": "Parked after 2 fails: The deliverable is a design document with illustrative code sketches, not a completed implementation \u2014 no actual trained model artifact (model.pkl) or feature spec (features.json) is produced, and the claimed experimental results ($1.32M MAE, 4.7% MAPE) are stated without evidence that the code was "
+        },
+        {
+          "ts": "2026-06-30T04:30:00.474669+00:00",
+          "event": "started",
+          "content": null
         }
       ],
       "deliverable": {
@@ -1152,7 +1147,7 @@
     },
     "AUTO-010": {
       "agent": "Metis",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-06-30T03:23:51.504394+00:00",
@@ -1163,6 +1158,16 @@
           "ts": "2026-06-30T03:24:06.484389+00:00",
           "event": "validation_pass",
           "content": "PASS: The deliverable is a complete, well-structured one-page reference guide with a quick-reference table, detailed objection scripts for eight common objections (price, integration, data security, accuracy/trust, scalability, change management, vendor lock-in, cost of ownership), a usage guide, sample c"
+        },
+        {
+          "ts": "2026-06-30T04:20:44.581152+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing org-excellence's deliverable"
+        },
+        {
+          "ts": "2026-06-30T04:21:42.432757+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable is a complete, ready-to-use objection-handling guide covering the most common objections (price, integration, data security, accuracy/trust, scalability, change management, vendor lock-in, cost of ownership) with 30-second core responses, detailed talking points, a quick-reference ta"
         }
       ],
       "deliverable": {
@@ -1174,7 +1179,13 @@
     "AUTO-011": {
       "agent": "Vulcan",
       "status": "in_validation",
-      "events": [],
+      "events": [
+        {
+          "ts": "2026-06-30T04:21:03.550985+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing data-engineer's deliverable"
+        }
+      ],
       "deliverable": {
         "file": "data-engineer/work/AUTO-011-deliverable.md",
         "size": 14056,
@@ -1183,8 +1194,19 @@
     },
     "AUTO-012": {
       "agent": "Hades",
-      "status": "in_validation",
-      "events": [],
+      "status": "done",
+      "events": [
+        {
+          "ts": "2026-06-30T04:21:21.269740+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing security's deliverable"
+        },
+        {
+          "ts": "2026-06-30T04:21:42.438777+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable is a thorough, well-structured data-privacy checklist covering all required areas (user consent, data retention, GDPR compliance, anonymization) with specific implementation details, artifact references, and actionable owners/timelines\u2014not a stub or placeholder."
+        }
+      ],
       "deliverable": {
         "file": "security/work/AUTO-012-deliverable.md",
         "size": 10406,
@@ -1304,23 +1326,7 @@
     "AUTO-024": {
       "agent": "Hades",
       "status": "in_validation",
-      "events": [
-        {
-          "ts": "2026-06-30T01:10:01.336172+00:00",
-          "event": "dispatched",
-          "content": "security started work: Data Retention & Deletion Policy for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-06-30T01:10:01.337681+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-06-30T01:10:03.382472+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-024-deliverable.md (10994b) \u2192 in_validation"
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "security/work/AUTO-024-deliverable.md",
         "size": 10994,
@@ -1331,16 +1337,6 @@
       "agent": "Fortuna",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-30T01:30:02.134108+00:00",
-          "event": "dispatched",
-          "content": "income started work: AI FAQ Receptionist Upsell Playbook"
-        },
-        {
-          "ts": "2026-06-30T01:30:02.139020+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Upsell Playbook"
-        },
         {
           "ts": "2026-06-30T01:30:05.845199+00:00",
           "event": "delivered",
@@ -1443,11 +1439,6 @@
       "agent": "Metis",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-30T01:30:02.142610+00:00",
-          "event": "dispatched",
-          "content": "org-excellence started work: Monthly FAQ Knowledge\u2011Base Refresh SOP"
-        },
         {
           "ts": "2026-06-30T01:30:02.158499+00:00",
           "event": "working",
@@ -1809,22 +1800,16 @@
   },
   "active": [
     {
+      "agent": "nemesis",
+      "ticket": "AUTO-012",
+      "event": "validation_pass",
+      "ts": "2026-06-30T04:21:42.438777+00:00"
+    },
+    {
       "agent": "Prometheus",
       "ticket": "STORY-090",
-      "event": "delivered",
-      "ts": "2026-06-30T03:50:03.456379+00:00"
-    },
-    {
-      "agent": "Hades",
-      "ticket": "STORY-088",
       "event": "started",
-      "ts": "2026-06-30T04:00:01.152904+00:00"
-    },
-    {
-      "agent": "nemesis",
-      "ticket": "AUTO-009",
-      "event": "validation_pass",
-      "ts": "2026-06-30T04:02:39.084718+00:00"
+      "ts": "2026-06-30T04:30:00.474669+00:00"
     }
   ]
 }
