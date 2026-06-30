@@ -1,42 +1,67 @@
 {
-  "generatedAt": "2026-06-30T14:20:02.507788+00:00",
+  "generatedAt": "2026-06-30T14:30:01.389101+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.1,
-    "validator": 10.1,
+    "work-executor": 9.9,
+    "validator": 8.3,
     "observability": 10.0,
-    "guard": 1680.0,
-    "backup": 19.9,
+    "guard": 1690.0,
+    "backup": 29.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 86,
+    "done": 87,
     "backlog": 7,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 1
+    "planned": 4
   },
   "tickets_total": 111,
-  "done_today": 53,
-  "delivered_today": 40,
-  "delivered_week": 40,
+  "done_today": 54,
+  "delivered_today": 41,
+  "delivered_week": 41,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 33,
+    "cerebras:gpt-oss-120b": 34,
     "claude:owl-alpha": 3,
     "openclaw": 4
   },
   "live_agents": [
-    "Fortuna",
-    "Nemesis",
     "Thor",
     "nemesis",
     "qa"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T14:21:40.641158+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "STORY-203",
+      "content": "PASS: The deliverable provides a complete, production\u2011ready script with retry/back\u2011off, environment handling, Docker bui"
+    },
+    {
+      "ts": "2026-06-30T14:20:04.891428+00:00",
+      "agent": "Thor",
+      "event": "delivered",
+      "ticket": "STORY-202",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-202-deliverable.md (10183b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T14:20:02.822605+00:00",
+      "agent": "Thor",
+      "event": "working",
+      "ticket": "STORY-202",
+      "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] openclaw-gateway.service keeps crashing"
+    },
+    {
+      "ts": "2026-06-30T14:20:02.820342+00:00",
+      "agent": "Thor",
+      "event": "dispatched",
+      "ticket": "STORY-202",
+      "content": "devops started work: [self-heal] openclaw-gateway.service keeps crashing"
+    },
     {
       "ts": "2026-06-30T14:14:54.150541+00:00",
       "agent": "Thor",
@@ -92,34 +117,6 @@
       "event": "dispatched",
       "ticket": "STORY-203",
       "content": "devops started work: [self-heal] Lucy 8 AM Morning Mot... failing"
-    },
-    {
-      "ts": "2026-06-30T14:09:59.243743+00:00",
-      "agent": "qa",
-      "event": "validation_pass",
-      "ticket": "AUTO-056",
-      "content": "PASS: The deliverable provides a complete, concrete checklist covering GDPR, CCPA and HIPAA with evidence requirements a"
-    },
-    {
-      "ts": "2026-06-30T14:09:59.239950+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-055",
-      "content": "PASS: The deliverable provides a full 2\u2011page research report with industry pain points, data sources, quotes, scoring, a"
-    },
-    {
-      "ts": "2026-06-30T14:09:59.233835+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-054",
-      "content": "PASS: The deliverable contains three complete cold\u2011outreach email templates with subject lines, body copy, and defined p"
-    },
-    {
-      "ts": "2026-06-30T14:09:59.212362+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-053",
-      "content": "PASS: The deliverable provides a comprehensive and detailed pricing sheet for the AI FAQ Receptionist, including three t"
     }
   ],
   "problems": {}
