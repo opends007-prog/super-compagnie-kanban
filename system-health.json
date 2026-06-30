@@ -1,123 +1,125 @@
 {
-  "generatedAt": "2026-06-30T12:40:02.636265+00:00",
+  "generatedAt": "2026-06-30T12:50:01.510770+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
     "work-executor": 0.0,
-    "validator": 0.0,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 1580.0,
-    "backup": 10.0,
+    "guard": 1590.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 77,
-    "backlog": 6,
-    "in_progress": 17,
-    "planned": 4
+    "backlog": 7,
+    "in_progress": 13,
+    "planned": 4,
+    "in_validation": 4
   },
-  "tickets_total": 104,
+  "tickets_total": 105,
   "done_today": 44,
-  "delivered_today": 40,
-  "delivered_week": 40,
+  "delivered_today": 44,
+  "delivered_week": 44,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 33,
-    "openclaw": 4,
+    "cerebras:gpt-oss-120b": 36,
+    "openclaw": 5,
     "claude:owl-alpha": 3
   },
   "live_agents": [
     "Fortuna",
     "Hades",
     "Metis",
-    "Minerva"
+    "Minerva",
+    "Thor"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T12:40:02.773693+00:00",
-      "agent": "Fortuna",
+      "ts": "2026-06-30T12:50:01.540049+00:00",
+      "agent": "Thor",
       "event": "working",
-      "ticket": "AUTO-049",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Package Sheet"
+      "ticket": "STORY-201",
+      "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] Lucy 8 AM Morning Mot... failing"
     },
     {
-      "ts": "2026-06-30T12:40:02.766197+00:00",
-      "agent": "Fortuna",
+      "ts": "2026-06-30T12:50:01.537676+00:00",
+      "agent": "Thor",
       "event": "dispatched",
-      "ticket": "AUTO-049",
-      "content": "income started work: AI FAQ Receptionist Pricing & Package Sheet"
+      "ticket": "STORY-201",
+      "content": "devops started work: [self-heal] Lucy 8 AM Morning Mot... failing"
     },
     {
-      "ts": "2026-06-30T12:30:07.355411+00:00",
-      "agent": "Metis",
-      "event": "delivered",
-      "ticket": "AUTO-052",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-052-deliverable.md (12763b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T12:30:07.354150+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-049",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-049-deliverable.md (9549b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T12:30:07.351752+00:00",
+      "ts": "2026-06-30T12:43:43.545567+00:00",
       "agent": "Hades",
       "event": "delivered",
       "ticket": "AUTO-051",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-051-deliverable.md (11096b) \u2192 in_progress"
+      "content": "[openclaw] Produced AUTO-051-deliverable.md (11079b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T12:30:07.350234+00:00",
+      "ts": "2026-06-30T12:43:43.544463+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-052",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-052-deliverable.md (11186b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T12:43:43.542824+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-049",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-049-deliverable.md (9481b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T12:43:43.532379+00:00",
       "agent": "Minerva",
       "event": "delivered",
       "ticket": "AUTO-050",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-050-deliverable.md (4596b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-050-deliverable.md (4455b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T12:30:04.275943+00:00",
+      "ts": "2026-06-30T12:40:09.096111+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-051",
+      "content": "[openclaw] attempting: Compliance Gap Analysis for FAQ Receptionist Data Handling"
+    },
+    {
+      "ts": "2026-06-30T12:40:04.103219+00:00",
       "agent": "Metis",
       "event": "working",
       "ticket": "AUTO-052",
       "content": "[cerebras:gpt-oss-120b] attempting: FAQ Knowledge Base QA Checklist"
     },
     {
-      "ts": "2026-06-30T12:30:04.274401+00:00",
+      "ts": "2026-06-30T12:40:04.101277+00:00",
       "agent": "Metis",
       "event": "dispatched",
       "ticket": "AUTO-052",
       "content": "org-excellence started work: FAQ Knowledge Base QA Checklist"
     },
     {
-      "ts": "2026-06-30T12:30:02.699122+00:00",
+      "ts": "2026-06-30T12:40:03.087851+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-051",
+      "content": "[claude:owl-alpha] attempting: Compliance Gap Analysis for FAQ Receptionist Data Handling"
+    },
+    {
+      "ts": "2026-06-30T12:40:02.818603+00:00",
       "agent": "Hades",
       "event": "working",
       "ticket": "AUTO-051",
       "content": "[cerebras:gpt-oss-120b] attempting: Compliance Gap Analysis for FAQ Receptionist Data Handling"
     },
     {
-      "ts": "2026-06-30T12:30:02.686959+00:00",
+      "ts": "2026-06-30T12:40:02.809172+00:00",
       "agent": "Hades",
       "event": "dispatched",
       "ticket": "AUTO-051",
       "content": "security started work: Compliance Gap Analysis for FAQ Receptionist Data Handling"
-    },
-    {
-      "ts": "2026-06-30T12:30:02.680887+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-049",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Package Sheet"
-    },
-    {
-      "ts": "2026-06-30T12:30:02.678971+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-050",
-      "content": "[cerebras:gpt-oss-120b] attempting: One\u2011page Sales Pitch for AI FAQ Receptionist"
     }
   ],
   "problems": {}
