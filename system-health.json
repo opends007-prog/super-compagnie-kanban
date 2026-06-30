@@ -1,121 +1,124 @@
 {
-  "generatedAt": "2026-06-30T11:20:01.421125+00:00",
+  "generatedAt": "2026-06-30T11:30:01.566444+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 15.3,
+    "work-executor": 7.7,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 1500.0,
-    "backup": 20.0,
+    "guard": 1510.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 73,
-    "backlog": 10,
-    "in_progress": 13,
+    "backlog": 6,
+    "in_progress": 17,
     "planned": 4
   },
   "tickets_total": 100,
   "done_today": 40,
-  "delivered_today": 32,
-  "delivered_week": 32,
+  "delivered_today": 36,
+  "delivered_week": 36,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 29,
+    "cerebras:gpt-oss-120b": 32,
     "openclaw": 2,
-    "claude:owl-alpha": 1
+    "claude:owl-alpha": 2
   },
   "live_agents": [
-    "Hermes",
+    "Clio",
+    "Fortuna",
+    "Iris",
+    "Thor",
     "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T11:18:56.244891+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-043",
-      "content": "PASS: The deliverable fully satisfies the ticket: it provides the top 5 operational pain points for each of three target"
-    },
-    {
-      "ts": "2026-06-30T11:18:01.159019+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-043",
-      "content": "[claude,openclaw,groq] Independently reviewing business-analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T11:00:02.748066+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-043",
-      "content": "[claude] Independently reviewing business-analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T10:50:05.679753+00:00",
-      "agent": "Hermes",
+      "ts": "2026-06-30T11:22:16.955162+00:00",
+      "agent": "Thor",
       "event": "delivered",
-      "ticket": "AUTO-043",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-043-deliverable.md (14087b) \u2192 in_validation"
+      "ticket": "AUTO-047",
+      "content": "[claude:owl-alpha] Produced AUTO-047-deliverable.md (15198b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-30T10:50:01.527877+00:00",
-      "agent": "Hermes",
+      "ts": "2026-06-30T11:22:16.953450+00:00",
+      "agent": "Clio",
+      "event": "delivered",
+      "ticket": "AUTO-048",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-048-deliverable.md (13197b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T11:22:16.949497+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-045",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-045-deliverable.md (7871b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T11:22:16.918675+00:00",
+      "agent": "Iris",
+      "event": "delivered",
+      "ticket": "AUTO-046",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-046-deliverable.md (7062b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T11:20:02.984968+00:00",
+      "agent": "Clio",
       "event": "working",
-      "ticket": "AUTO-043",
-      "content": "[cerebras:gpt-oss-120b] attempting: Industry Pain Points Report for AI FAQ Receptionist"
+      "ticket": "AUTO-048",
+      "content": "[cerebras:gpt-oss-120b] attempting: FAQ Receptionist Usage Metrics Specification"
     },
     {
-      "ts": "2026-06-30T10:50:01.524790+00:00",
-      "agent": "Hermes",
+      "ts": "2026-06-30T11:20:02.980954+00:00",
+      "agent": "Clio",
       "event": "dispatched",
-      "ticket": "AUTO-043",
-      "content": "business-analyst started work: Industry Pain Points Report for AI FAQ Receptionist"
+      "ticket": "AUTO-048",
+      "content": "data-analyst started work: FAQ Receptionist Usage Metrics Specification"
     },
     {
-      "ts": "2026-06-30T10:41:48.226130+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-044",
-      "content": "PASS: The deliverable is a complete, well-structured one-page objection-handling cheat sheet covering all three required"
+      "ts": "2026-06-30T11:20:01.919399+00:00",
+      "agent": "Thor",
+      "event": "working",
+      "ticket": "AUTO-047",
+      "content": "[claude:owl-alpha] attempting: VM Deployment Checklist for Full Agent Team"
     },
     {
-      "ts": "2026-06-30T10:41:48.224196+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "AUTO-043",
-      "content": "FAIL #1: The report is a fabricated placeholder: contains unverifiable statistics (12% of calls, \u20ac12M fines, +15% DSAT, "
+      "ts": "2026-06-30T11:20:01.594133+00:00",
+      "agent": "Thor",
+      "event": "working",
+      "ticket": "AUTO-047",
+      "content": "[cerebras:gpt-oss-120b] attempting: VM Deployment Checklist for Full Agent Team"
     },
     {
-      "ts": "2026-06-30T10:41:48.220282+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-042",
-      "content": "PASS: The deliverable contains five complete, personalized cold-outreach email templates covering retail, healthcare, an"
+      "ts": "2026-06-30T11:20:01.586290+00:00",
+      "agent": "Thor",
+      "event": "dispatched",
+      "ticket": "AUTO-047",
+      "content": "devops started work: VM Deployment Checklist for Full Agent Team"
     },
     {
-      "ts": "2026-06-30T10:41:48.213136+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-041",
-      "content": "PASS: The deliverable fully satisfies the ticket: it provides a comprehensive market research section, competitor pricin"
+      "ts": "2026-06-30T11:20:01.583913+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "AUTO-046",
+      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-06-30T10:40:49.389134+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-044",
-      "content": "[claude] Independently reviewing org-excellence's deliverable"
+      "ts": "2026-06-30T11:20:01.577797+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-045",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
     },
     {
-      "ts": "2026-06-30T10:40:34.307790+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-043",
-      "content": "[claude] Independently reviewing business-analyst's deliverable"
+      "ts": "2026-06-30T11:20:01.573580+00:00",
+      "agent": "Iris",
+      "event": "dispatched",
+      "ticket": "AUTO-046",
+      "content": "pm started work: Cold Outreach Email Templates for AI FAQ Receptionist"
     }
   ],
   "problems": {}
