@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-30T09:30:01.390643+00:00",
+  "generatedAt": "2026-06-30T09:40:02.528799+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 3.9,
-    "validator": 10.0,
+    "work-executor": 10.0,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1390.0,
-    "backup": 30.0,
+    "guard": 1400.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
@@ -22,19 +22,34 @@
   },
   "tickets_total": 92,
   "done_today": 32,
-  "delivered_today": 29,
-  "delivered_week": 29,
+  "delivered_today": 28,
+  "delivered_week": 28,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 27,
+    "cerebras:gpt-oss-120b": 26,
     "openclaw": 2
   },
   "live_agents": [
     "Fortuna",
     "Iris",
     "Minerva",
-    "Thor"
+    "Thor",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T09:40:02.582207+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-038",
+      "content": "[claude] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T09:40:02.574844+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-037",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-06-30T09:26:06.036235+00:00",
       "agent": "Minerva",
@@ -104,20 +119,6 @@
       "event": "dispatched",
       "ticket": "AUTO-038",
       "content": "analyst started work: Healthcare Use\u2011Case Brief for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T09:20:01.593977+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-039",
-      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Sequence (3\u2011step) for AI FAQ Receptionis"
-    },
-    {
-      "ts": "2026-06-30T09:20:01.589790+00:00",
-      "agent": "Iris",
-      "event": "dispatched",
-      "ticket": "AUTO-039",
-      "content": "pm started work: Cold Outreach Email Sequence (3\u2011step) for AI FAQ Receptionis"
     }
   ],
   "problems": {}
