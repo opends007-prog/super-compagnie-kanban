@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T02:00:01.494893+00:00",
+  "generated": "2026-06-30T02:10:01.748217+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -501,6 +501,11 @@
           "ts": "2026-06-30T01:30:01.997124+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing claude's deliverable"
+        },
+        {
+          "ts": "2026-06-30T02:00:01.515831+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing claude's deliverable"
         }
       ],
       "deliverable": {
@@ -523,11 +528,6 @@
       "agent": "Athena",
       "status": "planned",
       "events": [
-        {
-          "ts": "2026-06-29T21:41:39.637452+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced STORY-084-deliverable.md (13325b) \u2192 in_validation"
-        },
         {
           "ts": "2026-06-29T22:01:11.961611+00:00",
           "event": "validating",
@@ -569,21 +569,6 @@
       "agent": "Hermes",
       "status": "done",
       "events": [
-        {
-          "ts": "2026-06-29T21:40:02.286313+00:00",
-          "event": "dispatched",
-          "content": "business-analyst started work: Research payment gateway providers"
-        },
-        {
-          "ts": "2026-06-29T21:40:02.287313+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Research payment gateway providers"
-        },
-        {
-          "ts": "2026-06-29T21:41:39.635917+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced STORY-086-deliverable.md (8218b) \u2192 in_validation"
-        },
         {
           "ts": "2026-06-29T22:02:22.673612+00:00",
           "event": "validating",
@@ -659,6 +644,11 @@
           "ts": "2026-06-30T01:40:05.813973+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced STORY-087-deliverable.md (11791b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-06-30T02:02:34.646334+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing income's deliverable"
         }
       ],
       "deliverable": {
@@ -705,6 +695,11 @@
           "ts": "2026-06-30T01:32:28.815927+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing security's deliverable"
+        },
+        {
+          "ts": "2026-06-30T02:03:14.403952+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing security's deliverable"
         }
       ],
       "deliverable": {
@@ -715,12 +710,22 @@
     },
     "STORY-089": {
       "agent": "Fortuna",
-      "status": "in_validation",
+      "status": "in_progress",
       "events": [
         {
           "ts": "2026-06-30T01:33:43.672791+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing income's deliverable"
+        },
+        {
+          "ts": "2026-06-30T02:04:27.854274+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing income's deliverable"
+        },
+        {
+          "ts": "2026-06-30T02:06:10.324134+00:00",
+          "event": "validation_fail",
+          "content": "FAIL #1: The deliverable's central financial model does not reconcile with itself: the three uplift components sum to $66,330 (total $1,392,930, a ~4.999% uplift) but the deliverable asserts a $66,400 increase and 5% uplift with a garbled figure \"$1,393, -\". Outside its own workspace it also leaks hardcoded "
         }
       ],
       "deliverable": {
@@ -824,31 +829,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-29T21:40:02.292800+00:00",
-          "event": "dispatched",
-          "content": "income started work: AI FAQ Receptionist Demo Script"
-        },
-        {
-          "ts": "2026-06-29T21:40:02.294253+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Demo Script"
-        },
-        {
-          "ts": "2026-06-29T21:41:39.632810+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-009-deliverable.md (7039b) \u2192 in_progress"
-        },
-        {
-          "ts": "2026-06-29T21:50:01.846561+00:00",
-          "event": "dispatched",
-          "content": "income started work: AI FAQ Receptionist Demo Script"
-        },
-        {
-          "ts": "2026-06-29T21:50:01.847951+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Demo Script"
-        },
-        {
           "ts": "2026-06-29T21:50:06.088871+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-009-deliverable.md (8913b) \u2192 in_validation"
@@ -864,31 +844,6 @@
       "agent": "Metis",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-29T21:40:03.589763+00:00",
-          "event": "dispatched",
-          "content": "org-excellence started work: Objection\u2011Handling Guide for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-06-29T21:40:03.591850+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Guide for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-06-29T21:40:03.775129+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: Objection\u2011Handling Guide for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-06-29T21:41:39.641093+00:00",
-          "event": "delivered",
-          "content": "[claude:owl-alpha] Produced AUTO-010-deliverable.md (11451b) \u2192 in_progress"
-        },
-        {
-          "ts": "2026-06-29T21:50:01.849820+00:00",
-          "event": "dispatched",
-          "content": "org-excellence started work: Objection\u2011Handling Guide for AI FAQ Receptionist"
-        },
         {
           "ts": "2026-06-29T21:50:01.855413+00:00",
           "event": "working",
@@ -1771,12 +1726,27 @@
           "ts": "2026-06-30T01:50:31.576889+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (10899b) \u2192 in_progress"
+        },
+        {
+          "ts": "2026-06-30T02:00:01.744278+00:00",
+          "event": "dispatched",
+          "content": "nemesis started work: Data Retention & Deletion Policy for FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T02:00:01.756373+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T02:00:03.575851+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (10466b) \u2192 in_validation"
         }
       ],
       "deliverable": {
         "file": "nemesis/work/AUTO-028-deliverable.md",
-        "size": 10899,
-        "content": "# Data Retention & Deletion Policy for FAQ Receptionist  \n**Document ID:** AUTO\u2011028\u2011FAQ\u2011RDP  \n**Effective Date:** 2026\u201107\u201101  \n**Version:** 1.0  \n**Prepared by:** Nemesis \u2013 Auditor/Sentinel (Security\u202f&\u202fCompliance)  \n\n---  \n\n## 1. Purpose  \n\nThis policy establishes the mandatory procedures for retaining, archiving, and securely deleting client Frequently\u2011Asked\u2011Question (FAQ) data processed by the **FAQ Receptionist** system. The policy ensures compliance with the European Union General Data Protection Regulation (GDPR) and the United States Health Insurance Portability and Accountability Act (HIPAA) where protected health information (PHI) is involved. It also provides a framework for auditability, risk mitigation, and consistent enforcement across all environments (development, staging, production).\n\n---  \n\n## 2. Scope  \n\n- **Applicability:** All FAQ Receptionist instances, including cloud\u2011hosted services, on\u2011premises deployments, and any backup or archival storage used by the organization.  \n- **Data Covered:**  \n  - End\u2011user submitted questions, answers, and metadata (e.g., timestamps, user identifiers).  \n  - Attachments (images, PDFs, audio) uploaded with FAQ entries.  \n  - System\u2011generated logs that contain personal data or PHI.  \n- **Exclusions:** Publicly available knowledge\u2011base articles that contain no personal data or PHI are outside the scope of this policy.  \n\n---  \n\n## 3. Definitions  \n\n| Term | Definition |\n|------|------------|\n| **Personal Data** | Any information relating to an identified or identifiable natural person (GDPR Art.\u202f4(1)). |\n| **Protected Health Information (PHI)** | Individually identifiable health information covered by HIPAA (45\u202fCFR\u202f164.502). |\n| **Retention Period** | The maximum time a data item may be stored before deletion or anonymisation. |\n| **Archival Storage** | Long\u2011term, low\u2011cost storage that preserves data in a non\u2011editable, tamper\u2011evident format. |\n| **Secure Deletion** | The process of rendering data unrecoverable using cryptographic erasure or approved sanitisation methods (NIST SP\u202f800\u201188 Rev.\u202f1). |\n| **Audit Trail** | Immutable records of actions performed on data (creation, modification, access, deletion). |\n\n---  \n\n## 4. Retention Schedule  \n\n| Data Type | Retention Period | Legal Basis |\n|-----------|------------------|-------------|\n| **FAQ entries containing only non\u2011personal data** | 24\u202fmonths | Business need; no statutory requirement. |\n| **FAQ entries containing Personal Data** | 30\u202fmonths from the date of last interaction | GDPR Art.\u202f5(1)(e) \u2013 storage limitation; aligns with typical contractual obligations. |\n| **FAQ entries containing PHI** | 6\u202fyears after the last patient interaction | HIPAA 45\u202fCFR\u202f164.530(j) \u2013 retention of medical records. |\n| **System logs with Personal Data/PHI** | 12\u202fmonths (rolling) | GDPR Art.\u202f5(1)(e); HIPAA 45\u202fCFR\u202f164.308(b)(1)(ii). |\n| **Backup copies of the above data** | No longer than the longest applicable retention period + 30\u202fdays | Ensures backup does not extend retention unintentionally. |\n| **Archived FAQ data (encrypted, read\u2011only)** | Up to 10\u202fyears, after which data is reviewed for deletion or anonymisation. | Long\u2011term research/analytics justification; must be documented. |\n\n*All retention periods commence on the **date of last user interaction** (i.e., the most recent answer or comment).*\n\n---  \n\n## 5. Archiving  \n\n1. **Eligibility:** Data that has reached its active retention period but must be retained for longer (e.g., for research, legal hold) is moved to **Archive Tier**.  \n2. **Storage Medium:** Encrypted Amazon S3 Glacier Deep Archive, Azure Blob Archive, or equivalent, with **AES\u2011256\u2011GCM** encryption at rest.  \n3. **Metadata:** Each archived object receives a **Retention Tag** (`archived_until: YYYY\u2011MM\u2011DD`) stored in the object\u2019s metadata.  \n4. **Access Controls:**  \n   - Only the **Compliance Team** and designated **Data Custodians** may retrieve archived data.  \n   - Retrieval requires **MFA\u2011protected** IAM role and a documented business justification logged in the ticketing system.  \n5. **Integrity Verification:** Quarterly SHA\u2011256 checksum validation against stored hash values. Any mismatch triggers an incident response per the **Data Integrity Incident Procedure** (ref.\u202f`/home/admin/.openclaw/workspace/policies/incident/DIIP.md`).  \n\n---  \n\n## 6. Secure Deletion  \n\n### 6.1. Deletion Triggers  \n\n- End of the applicable retention period.  \n- Explicit user request for erasure (GDPR Art.\u202f17 \u2013 Right to be Forgotten).  \n- PHI removal request under HIPAA (45\u202fCFR\u202f164.528).  \n\n### 6.2. Deletion Methods  \n\n| Storage Type | Method | Reference |\n|--------------|--------|-----------|\n| **Primary relational DB (PostgreSQL)** | `DELETE` followed by `VACUUM FULL` and `pgcrypto`\u2011based column\u2011level shredding (`pgp_sym_encrypt(NULL)`) | NIST SP\u202f800\u201188 Rev.\u202f1 \u00a7\u202f3.4.2 |\n| **NoSQL document store (MongoDB)** | `deleteMany` with `writeConcern: \"majority\"` then `compact` on the collection | NIST SP\u202f800\u201188 Rev.\u202f1 \u00a7\u202f3.4.2 |\n| **Object storage (S3, Azure Blob)** | **Cryptographic Erasure**: rotate the encryption key and delete the key from the KMS; the ciphertext becomes unrecoverable. | NIST SP\u202f800\u201188 Rev.\u202f1 \u00a7\u202f3.5 |\n| **Backup tapes / offline media** | **Degaussing** or **Physical Destruction** per vendor SOP. | NIST SP\u202f800\u201188 Rev.\u202f1 \u00a7\u202f4.3 |\n| **Logs retained in SIEM** | Automated purge via log\u2011retention policy; verification via immutable index. | GDPR Recital\u202f78; HIPAA 45\u202fCFR\u202f164.308(b)(1)(ii) |\n\n### 6.3. Verification  \n\nAfter deletion, a **Deletion Confirmation Report** is generated automatically, containing:  \n\n- Object identifier(s)  \n- Timestamp (UTC)  \n- Method used  \n- SHA\u2011256 hash of the pre\u2011deletion data (stored only in the audit log, not retained).  \n\nThe report is signed with the organization\u2019s **HSM\u2011based RSA\u20114096** key and stored in the immutable audit log for 24\u202fmonths.\n\n---  \n\n## 7. Technical Controls  \n\n| Control | Description | Implementation |\n|---------|-------------|----------------|\n| **Encryption at Rest** | AES\u2011256\u2011GCM for all databases and object stores. | PostgreSQL `pgcrypto`, MongoDB `Encrypted Storage Engine`, S3 SSE\u2011KMS. |\n| **Encryption in Transit** | TLS\u202f1.3 with forward secrecy for all API endpoints. | NGINX `ssl_protocols TLSv1.3;` and `ssl_ciphers TLS_AES_256_GCM_SHA384`. |\n| **Access Management** | Role\u2011Based Access Control (RBAC) with least privilege. | IAM policies: `faq-receptionist-read`, `faq-receptionist-write`, `faq-receptionist-archive`. |\n| **Logging & Monitoring** | Immutable audit logs via CloudTrail / Azure Activity Log; log retention 12\u202fmonths. | Centralised SIEM (Elastic Stack) with write\u2011once index. |\n| **Data Masking** | Pseudonymisation of Personal Data for analytics. | `pgp_sym_encrypt` for column\u2011level masking; tokenisation service for PHI. |\n| **Key Management** | Centralised KMS with automatic rotation every 90\u202fdays. | AWS KMS / Azure Key Vault, keys stored in HSM. |\n| **Automated Retention Enforcement** | Scheduled jobs (cron) that query retention tags and invoke deletion scripts. | Python `retention_enforcer.py` (path: `/home/admin/.openclaw/workspace/scripts/retention_enforcer.py`). |\n| **Incident Response Integration** | Deletion failures trigger alerts to the **Security Operations Center** (SOC). | PagerDuty integration with severity `critical`. |\n\n---  \n\n## 8. Audit & Monitoring Procedures  \n\n1. **Quarterly Audit** \u2013 The **Compliance Team** conducts a formal audit of the FAQ Receptionist data lifecycle. The audit checklist includes:  \n   - Verification that all data objects have a `retention_tag` attribute.  \n   - Confirmation that no object exceeds its retention period without archival or deletion.  \n   - Review of the **Deletion Confirmation Reports** for the preceding quarter.  \n2. **Monthly Metrics Dashboard** \u2013 KPI indicators displayed in the compliance portal:  \n   - % of data within retention limits.  \n   - Number of deletion operations performed vs. scheduled.  \n   - Number of archive retrievals and their justification.  \n3. **Audit Trail Storage** \u2013 All audit logs are stored in an immutable WORM (Write\u2011Once\u2011Read\u2011Many) bucket for a minimum of **7\u202fyears** (GDPR Art.\u202f5(2); HIPAA 45\u202fCFR\u202f164.310(d)(2)).  \n4. **Independent Review** \u2013 An external auditor (e.g., ISO\u202f27001 certifier) shall review the policy and its implementation annually and provide a compliance report.  \n5. **Exception Handling** \u2013 Any deviation (e.g., legal hold) must be recorded in the **Retention Exception Register** (`/home/admin/.openclaw/workspace/compliance/exception_register.xlsx`) and approved by the **Chief Privacy Officer**.  \n\n---  \n\n## 9. Roles & Responsibilities  \n\n| Role | Responsibility |\n|------|----------------|\n| **Data Owner (Product Management)** | Define business justification for extended retention; approve archival. |\n| **System Administrator** | Implement and maintain technical controls; ensure encryption keys are rotated. |\n| **Compliance Officer** | Oversee policy enforcement; conduct qua"
+        "size": 10466,
+        "content": "# Data Retention & Deletion Policy for FAQ Receptionist  \n**Document ID:** AUTO\u2011028\u2011DRDP\u20112024\u201101  \n**Effective Date:** 2024\u201107\u201101  \n**Version:** 1.0  \n**Prepared by:** Nemesis \u2013 Auditor/Sentinel (Security\u202f/\u202fCompliance)  \n**Location:** `/home/admin/.openclaw/workspace/workers/nemesis/`  \n\n---\n\n## 1. Purpose  \n\nThis policy establishes the mandatory procedures for retaining, archiving, and securely deleting client Frequently\u2011Asked\u2011Question (FAQ) data processed by the **FAQ Receptionist** system. It ensures compliance with the European Union General Data Protection Regulation (GDPR) and the United States Health Insurance Portability and Accountability Act (HIPAA) where protected health information (PHI) is involved. The policy defines retention periods, technical safeguards, and audit mechanisms to demonstrate accountability and mitigate privacy\u2011related risks.\n\n---\n\n## 2. Scope  \n\n- **Applicability:** All FAQ Receptionist instances, including production, staging, and development environments, that store or process client\u2011provided FAQ content, metadata, and any associated personal data (e.g., user identifiers, contact details, PHI).  \n- **Exclusions:** Publicly available FAQ content that contains no personal data, and logs retained solely for security incident response that are governed by separate security\u2011log retention policies.  \n\n---\n\n## 3. Definitions  \n\n| Term | Definition |\n|------|------------|\n| **FAQ Data** | Textual content, attachments, and metadata submitted by a client to populate the FAQ Receptionist knowledge base. |\n| **Personal Data** | Any information relating to an identified or identifiable natural person (GDPR Art.\u202f4(1)). |\n| **Protected Health Information (PHI)** | Individually identifiable health information covered by HIPAA (45\u202fC.F.R.\u202f\u00a7\u202f164.501). |\n| **Retention Period** | The maximum time FAQ Data may be stored before archival or deletion. |\n| **Archival** | Transfer of data to a low\u2011cost, low\u2011access storage tier while preserving integrity and confidentiality. |\n| **Secure Deletion** | Irreversible erasure of data using cryptographic sanitization methods (e.g., NIST SP\u202f800\u201188 Rev.\u202f1). |\n| **Audit Trail** | Immutable log entries that record creation, modification, access, archival, and deletion events. |\n\n---\n\n## 4. Retention Schedule  \n\n| Data Category | Retention Period | Rationale |\n|---------------|------------------|-----------|\n| **FAQ Content (non\u2011personal)** | **Indefinite** | No privacy risk; retained as part of the knowledge base. |\n| **FAQ Content containing Personal Data** | **5\u202fyears** from the date of last interaction | GDPR requires limitation to the \u201cnecessary\u201d period (Art.\u202f5(1)(e)). A 5\u2011year window aligns with typical contractual obligations and provides a defensible balance. |\n| **FAQ Content containing PHI** | **6\u202fyears** from the date of last interaction | HIPAA mandates retention of medical records for at least 6\u202fyears (45\u202fC.F.R.\u202f\u00a7\u202f164.530). |\n| **Metadata (access logs, edit histories)** | **2\u202fyears** | Sufficient for forensic investigations while limiting exposure. |\n| **Backup Copies** | **Same as primary data** | Backups must not extend retention beyond the primary dataset. |\n\n*All retention periods commence on the **last client\u2011initiated interaction** (e.g., last edit or query) associated with the specific FAQ entry.*\n\n---\n\n## 5. Archiving Procedure  \n\n1. **Eligibility Check** \u2013 After the retention period expires, data is evaluated for archival eligibility.  \n2. **Encryption** \u2013 Prior to transfer, data is encrypted with AES\u2011256\u2011GCM using a dedicated archival key stored in the organization\u2019s Hardware Security Module (HSM).  \n3. **Storage Tier** \u2013 Archived data is moved to an immutable, WORM\u2011compliant object store (e.g., Amazon S3 Glacier Deep Archive with Object Lock).  \n4. **Retention Tagging** \u2013 Each archived object receives a metadata tag `archived_until=<ISO\u2011date>` indicating the final deletion date.  \n5. **Access Controls** \u2013 Retrieval requires dual\u2011approval from a Data Protection Officer (DPO) and a System Administrator, logged in the audit trail.  \n\nArchiving preserves data integrity for potential legal holds while removing it from active production storage, reducing attack surface.\n\n---\n\n## 6. Secure Deletion Process  \n\nWhen the `archived_until` date is reached, the following steps are executed automatically by the **Deletion Scheduler** service:\n\n1. **Key Revocation** \u2013 The archival encryption key is destroyed in the HSM, rendering the ciphertext unrecoverable.  \n2. **Sanitization** \u2013 For any residual plaintext copies (e.g., temporary files, caches), the system runs the NIST\u2011recommended **Clear** method for SSDs (overwrite with random data) followed by **Cryptographic Erase** where supported.  \n3. **Verification** \u2013 A cryptographic hash of the deleted object is recorded (`hash=deleted`) to prove completion without revealing content.  \n4. **Audit Log Entry** \u2013 An immutable log entry records: object ID, deletion timestamp, method, and responsible service account.  \n\nAll deletion actions are performed under the privileged service account `faq-deleter` with MFA\u2011protected credentials.\n\n---\n\n## 7. Technical Controls  \n\n| Control | Description | Implementation |\n|---------|-------------|----------------|\n| **Data Classification** | Automatic tagging of incoming FAQ submissions as `non\u2011personal`, `personal`, or `PHI` using a DLP engine (e.g., Microsoft Information Protection). | Integrated at the API gateway; classification stored as object metadata. |\n| **Encryption at Rest** | AES\u2011256\u2011GCM encryption for all stored FAQ data. | Managed by the cloud provider\u2019s KMS; keys rotated annually. |\n| **Encryption in Transit** | TLS\u202f1.3 with forward secrecy for all client\u2011FAQ interactions. | Enforced by load balancer; certificate managed via ACME. |\n| **Access Control** | Role\u2011Based Access Control (RBAC) with least\u2011privilege principle. | `faq-admin` (full), `faq-editor` (edit only), `faq-viewer` (read\u2011only). |\n| **Audit Logging** | Immutable, tamper\u2011evident logs stored in a dedicated SIEM (e.g., Elastic Stack with write\u2011once index). | Log entries include user ID, operation, object ID, timestamp, and outcome. |\n| **Backup Encryption** | End\u2011to\u2011end encryption of backup snapshots; keys stored separately from backup data. | Utilizes cloud provider\u2019s encrypted snapshot feature. |\n| **Retention Enforcement** | Automated lifecycle policies enforce the schedule in the storage layer. | Configured via bucket lifecycle rules (e.g., S3 Lifecycle). |\n\nAll technical controls are documented in the **FAQ Receptionist Security Architecture** (file: `/home/admin/.openclaw/workspace/docs/faq-architecture.pdf`).\n\n---\n\n## 8. Audit & Monitoring  \n\n1. **Quarterly Review** \u2013 The Compliance Team runs a script (`/home/admin/.openclaw/workspace/scripts/audit_retention.sh`) that:  \n   - Queries the storage API for objects exceeding retention limits.  \n   - Generates a discrepancy report (`/var/log/compliance/retention_q2024.csv`).  \n   - Sends findings to the DPO via encrypted email.  \n\n2. **Annual Independent Audit** \u2013 An external auditor validates:  \n   - Alignment of retention periods with GDPR Art.\u202f5(1)(e) and HIPAA 45\u202fC.F.R.\u202f\u00a7\u202f164.530.  \n   - Effectiveness of encryption and deletion mechanisms per NIST SP\u202f800\u201188 Rev.\u202f1.  \n\n3. **Incident Response Integration** \u2013 Any unauthorized access detection triggers a mandatory forensic preservation of the affected FAQ entries for a minimum of 30\u202fdays, overriding the normal deletion schedule.  \n\n4. **Metrics Dashboard** \u2013 Real\u2011time visualization of retention status, archival counts, and deletion success rates is available in the compliance portal (`https://compliance.example.com/dashboard`).  \n\nAll audit artifacts are retained for 3\u202fyears in the audit repository (`/home/admin/.openclaw/audit/`).\n\n---\n\n## 9. Roles & Responsibilities  \n\n| Role | Responsibility |\n|------|----------------|\n| **Data Protection Officer (DPO)** | Approve archival retrieval requests; oversee policy compliance; receive quarterly retention reports. |\n| **System Administrator** | Configure storage lifecycle rules; manage HSM keys; ensure secure deletion scripts are operational. |\n| **Compliance Analyst** | Execute quarterly audits; maintain audit logs; coordinate external audit engagements. |\n| **FAQ Receptionist Service Owner** | Ensure the application tags data correctly; monitor technical controls; report incidents. |\n| **Legal Counsel** | Interpret contractual obligations; advise on jurisdiction\u2011specific nuances (e.g., state\u2011level HIPAA equivalents). |\n\n---\n\n## 10. Policy Review & Revision  \n\n- **Review Cycle:** Annually, or sooner if regulatory changes occur (e.g., GDPR amendments, HIPAA updates).  \n- **Change Management:** All revisions must be approved by the DPO and documented in the version control system (`git repo: /home/admin/.openclaw/policies/faq-retention`).  \n- **Distribution:** Updated policy PDFs are stored in the central policy library (`/home/admin/.openclaw/policy_library/`) and communic"
       }
     },
     "STORY-200": {
@@ -1797,35 +1767,51 @@
           "ts": "2026-06-30T01:30:03.443312+00:00",
           "event": "build_rejected",
           "content": "review FAIL: no usable review"
+        },
+        {
+          "ts": "2026-06-30T02:00:01.733799+00:00",
+          "event": "building",
+          "content": "proposing STORY-200/faq_to_json.py"
+        },
+        {
+          "ts": "2026-06-30T02:00:01.750782+00:00",
+          "event": "dispatched",
+          "content": "tom started work: FAQ list to bot JSON converter"
+        },
+        {
+          "ts": "2026-06-30T02:00:01.752670+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: FAQ list to bot JSON converter"
+        },
+        {
+          "ts": "2026-06-30T02:00:03.593931+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced STORY-200-deliverable.md (11771b) \u2192 in_progress"
+        },
+        {
+          "ts": "2026-06-30T02:00:03.940162+00:00",
+          "event": "build_test",
+          "content": "syntax/compile PASS on faq_to_json.py"
+        },
+        {
+          "ts": "2026-06-30T02:00:04.961280+00:00",
+          "event": "build_rejected",
+          "content": "review FAIL: The question/answer detection only matches \"? \" and \"! \" (with a space) and thus fails to recognize lines that start with just \"?\" or \"!\", which the specification allows."
         }
       ],
-      "deliverable": null
+      "deliverable": {
+        "file": "tom/work/STORY-200-deliverable.md",
+        "size": 11771,
+        "content": "# FAQ List \u2192 Bot JSON Converter  \n**Ticket:** STORY\u2011200 \u2013 \u201cFAQ list to bot JSON converter\u201d  \n\n---  \n\n## 1. Overview  \n\nThis document delivers a **stand\u2011alone Python utility** that reads a plain\u2011text FAQ list (one *question* line followed by its *answer* line, separated by a blank line) and produces the `knowledge.json` file expected by the FAQ bot. The utility includes **inline unit tests** that validate parsing, JSON generation, and edge\u2011case handling.  \n\nAll code, documentation, and tests are contained in a single Markdown file, ready to be copied into the workspace at  \n\n```\n/home/admin/.openclaw/workspace/workers/tom/faq_to_json.py\n```  \n\nRunning the script will create `knowledge.json` in the same directory.  \n\n---  \n\n## 2. Input Specification  \n\nThe converter accepts a UTF\u20118 text file named `faq.txt` with the following structure:\n\n```\nQ: <question line 1>\nA: <answer line 1>\n<optional continuation lines for the answer>\n\nQ: <question line 2>\nA: <answer line 2>\n...\n```\n\n* Blank lines separate distinct Q/A pairs.  \n* The leading `Q:` and `A:` tokens are mandatory (case\u2011insensitive).  \n* Answers may span multiple lines until the next blank line or EOF.  \n\n**Example `faq.txt`**  \n\n```\nQ: How do I reset my password?\nA: Click the \u201cForgot password\u201d link on the login page.\n   You will receive an email with a reset link.\n\nQ: What is the support email?\nA: support@example.com\n```\n\n---  \n\n## 3. Output Specification  \n\nThe bot expects a JSON array where each element is an object with two keys:\n\n| Key      | Type   | Description                                 |\n|----------|--------|---------------------------------------------|\n| `question` | string | The exact question text (without the `Q:` prefix). |\n| `answer`   | string | The answer text, preserving line breaks (`\\n`).      |\n\nThe generated file **must be named** `knowledge.json`.  \n\n**Resulting `knowledge.json` for the example above**  \n\n```json\n[\n  {\n    \"question\": \"How do I reset my password?\",\n    \"answer\": \"Click the \u201cForgot password\u201d link on the login page.\\nYou will receive an email with a reset link.\"\n  },\n  {\n    \"question\": \"What is the support email?\",\n    \"answer\": \"support@example.com\"\n  }\n]\n```\n\n---  \n\n## 4. Implementation  \n\n```python\n#!/usr/bin/env python3\n\"\"\"\nfaq_to_json.py \u2013 Convert a plain\u2011text FAQ list to the JSON format required by the FAQ bot.\n\nUsage:\n    python3 faq_to_json.py [--input <faq.txt>] [--output <knowledge.json>]\n\nIf no arguments are supplied the script reads `faq.txt` and writes `knowledge.json`\nin the current working directory.\n\nThe module also contains a small unittest suite that can be executed with:\n    python3 -m unittest faq_to_json.py\n\"\"\"\n\nimport argparse\nimport json\nimport pathlib\nimport re\nimport sys\nfrom typing import List, Dict\n\n# ----------------------------------------------------------------------\n# Core parsing logic\n# ----------------------------------------------------------------------\ndef parse_faq(text: str) -> List[Dict[str, str]]:\n    \"\"\"\n    Parse the raw FAQ text into a list of ``{'question': ..., 'answer': ...}`` dicts.\n\n    The parser is tolerant of extra whitespace and mixed\u2011case prefixes.\n    It raises ``ValueError`` if a Q/A pair is malformed.\n\n    Parameters\n    ----------\n    text: str\n        The complete contents of the FAQ source file.\n\n    Returns\n    -------\n    List[Dict[str, str]]\n        Ordered list of parsed Q/A objects.\n\n    Examples\n    --------\n    >>> sample = \"Q: What?\\\\nA: Answer\\\\n\\\\nQ: Next?\\\\nA: Next answer\"\n    >>> parse_faq(sample)\n    [{'question': 'What?', 'answer': 'Answer'}, {'question': 'Next?', 'answer': 'Next answer'}]\n    \"\"\"\n    # Split on double newlines \u2013 each block should contain one Q/A pair\n    blocks = [b.strip() for b in re.split(r'\\n\\s*\\n', text.strip()) if b.strip()]\n    result = []\n\n    for block in blocks:\n        lines = block.splitlines()\n        if not lines:\n            continue\n\n        # Identify Q line\n        q_match = re.match(r'^\\s*Q\\s*:\\s*(.+)$', lines[0], re.IGNORECASE)\n        if not q_match:\n            raise ValueError(f\"Missing or malformed question line: '{lines[0]}'\")\n        question = q_match.group(1).strip()\n\n        # Identify A line (may be multiline)\n        if len(lines) < 2:\n            raise ValueError(f\"Missing answer for question: '{question}'\")\n        a_match = re.match(r'^\\s*A\\s*:\\s*(.*)$', lines[1], re.IGNORECASE)\n        if not a_match:\n            raise ValueError(f\"Missing or malformed answer line: '{lines[1]}'\")\n        # Capture the first answer line content (may be empty)\n        answer_lines = [a_match.group(1).strip()]\n\n        # Any subsequent lines belong to the answer until the block ends\n        if len(lines) > 2:\n            answer_lines.extend(l.rstrip() for l in lines[2:])\n\n        answer = \"\\n\".join(answer_lines).strip()\n        result.append({\"question\": question, \"answer\": answer})\n\n    return result\n\n\ndef write_json(data: List[Dict[str, str]], path: pathlib.Path) -> None:\n    \"\"\"\n    Write the FAQ data to *path* as pretty\u2011printed JSON.\n\n    Parameters\n    ----------\n    data: List[Dict[str, str]]\n        Parsed FAQ entries.\n    path: pathlib.Path\n        Destination file.\n    \"\"\"\n    with path.open('w', encoding='utf-8') as fp:\n        json.dump(data, fp, ensure_ascii=False, indent=2)\n\n\n# ----------------------------------------------------------------------\n# CLI handling\n# ----------------------------------------------------------------------\ndef main(argv: List[str] | None = None) -> int:\n    parser = argparse.ArgumentParser(\n        description=\"Convert a plain\u2011text FAQ list to the bot's knowledge.json format.\"\n    )\n    parser.add_argument(\n        \"--input\",\n        \"-i\",\n        default=\"faq.txt\",\n        help=\"Path to the source FAQ text file (default: faq.txt).\",\n    )\n    parser.add_argument(\n        \"--output\",\n        \"-o\",\n        default=\"knowledge.json\",\n        help=\"Path for the generated JSON file (default: knowledge.json).\",\n    )\n    args = parser.parse_args(argv)\n\n    input_path = pathlib.Path(args.input)\n    output_path = pathlib.Path(args.output)\n\n    if not input_path.is_file():\n        sys.stderr.write(f\"Error: input file '{input_path}' does not exist.\\n\")\n        return 1\n\n    try:\n        raw = input_path.read_text(encoding=\"utf-8\")\n        faq_data = parse_faq(raw)\n        write_json(faq_data, output_path)\n    except Exception as exc:\n        sys.stderr.write(f\"Conversion failed: {exc}\\n\")\n        return 1\n\n    print(f\"\u2705 Successfully wrote {len(faq_data)} entries to {output_path}\")\n    return 0\n\n\n# ----------------------------------------------------------------------\n# Inline unit tests\n# ----------------------------------------------------------------------\nimport unittest\n\nclass TestFaqParser(unittest.TestCase):\n    def test_simple_pair(self):\n        src = \"Q: What is X?\\nA: X is the thing.\"\n        parsed = parse_faq(src)\n        self.assertEqual(parsed, [{\"question\": \"What is X?\", \"answer\": \"X is the thing.\"}])\n\n    def test_multiple_pairs(self):\n        src = (\n            \"Q: First?\\nA: First answer.\\n\\n\"\n            \"Q: Second?\\nA: Line1\\nLine2\\nLine3\"\n        )\n        parsed = parse_faq(src)\n        self.assertEqual(len(parsed), 2)\n        self.assertEqual(parsed[0][\"question\"], \"First?\")\n        self.assertEqual(parsed[1][\"answer\"], \"Line1\\nLine2\\nLine3\")\n\n    def test_whitespace_and_case(self):\n        src = \"  q:  spaced ?  \\n  a:  answer  \\n\\nQ:CAPS?\\nA:UPPER\"\n        parsed = parse_faq(src)\n        self.assertEqual(parsed[0][\"question\"], \"spaced ?\")\n        self.assertEqual(parsed[0][\"answer\"], \"answer\")\n        self.assertEqual(parsed[1][\"question\"], \"CAPS?\")\n        self.assertEqual(parsed[1][\"answer\"], \"UPPER\")\n\n    def test_missing_question(self):\n        src = \"A: No question here\"\n        with self.assertRaises(ValueError):\n            parse_faq(src)\n\n    def test_missing_answer(self):\n        src = \"Q: Lonely question?\"\n        with self.assertRaises(ValueError):\n            parse_faq(src)\n\n    def test_json_output(self):\n        data = [{\"question\": \"Q?\", \"answer\": \"A\"}]\n        tmp = pathlib.Path(\"tmp_test.json\")\n        try:\n            write_json(data, tmp)\n            loaded = json.loads(tmp.read_text(encoding=\"utf-8\"))\n            self.assertEqual(loaded, data)\n        finally:\n            if tmp.is_file():\n                tmp.unlink()\n\nif __name__ == \"__main__\":\n    # When the script is executed directly, run the CLI; when imported by unittest,\n    # the test runner will invoke the TestCase classes.\n    if \"unittest\" in sys.modules:\n        unittest.main()\n    else:\n        sys.exit(main())\n```\n\n---  \n\n## 5. Usage Instructions  \n\n1. **Place the source FAQ**  \n   Save your FAQ list as `faq.txt` in the same directory as the script (or any other path you prefer).  \n\n2. **Run the converter**  \n\n   ```bash\n   cd /home/admin/.openclaw/workspace/workers/tom/\n   python3 faq_to_json.py          # uses default faq.txt \u2192 knowledge.json\n   ```\n\n   Or with explicit paths:  \n\n   ```b"
+      }
     }
   },
   "active": [
-    {
-      "agent": "nemesis",
-      "ticket": "STORY-089",
-      "event": "validating",
-      "ts": "2026-06-30T01:33:43.672791+00:00"
-    },
-    {
-      "agent": "Gladiator",
-      "ticket": "STORY-200",
-      "event": "building",
-      "ts": "2026-06-30T01:30:02.119448+00:00"
-    },
     {
       "agent": "Fortuna",
       "ticket": "AUTO-025",
       "event": "delivered",
       "ts": "2026-06-30T01:50:31.552077+00:00"
-    },
-    {
-      "agent": "Metis",
-      "ticket": "AUTO-027",
-      "event": "delivered",
-      "ts": "2026-06-30T01:50:31.569149+00:00"
     },
     {
       "agent": "Hermes",
@@ -1834,16 +1820,34 @@
       "ts": "2026-06-30T01:50:31.563936+00:00"
     },
     {
-      "agent": "Athena",
-      "ticket": "STORY-200",
-      "event": "build_test",
-      "ts": "2026-06-30T01:30:03.267408+00:00"
+      "agent": "Metis",
+      "ticket": "AUTO-027",
+      "event": "delivered",
+      "ts": "2026-06-30T01:50:31.569149+00:00"
     },
     {
       "agent": "Nemesis",
-      "ticket": "AUTO-028",
+      "ticket": "STORY-200",
+      "event": "build_rejected",
+      "ts": "2026-06-30T02:00:04.961280+00:00"
+    },
+    {
+      "agent": "nemesis",
+      "ticket": "STORY-089",
+      "event": "validation_fail",
+      "ts": "2026-06-30T02:06:10.324134+00:00"
+    },
+    {
+      "agent": "Gladiator",
+      "ticket": "STORY-200",
       "event": "delivered",
-      "ts": "2026-06-30T01:50:31.576889+00:00"
+      "ts": "2026-06-30T02:00:03.593931+00:00"
+    },
+    {
+      "agent": "Athena",
+      "ticket": "STORY-200",
+      "event": "build_test",
+      "ts": "2026-06-30T02:00:03.940162+00:00"
     }
   ]
 }
