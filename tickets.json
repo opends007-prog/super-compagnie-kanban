@@ -3389,14 +3389,14 @@
     {
       "id": "STORY-088",
       "title": "Audit payment gateway compliance",
-      "status": "in_validation",
+      "status": "backlog",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
       "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592357+00:00",
-      "updatedAt": "2026-06-30T00:41:57.537089+00:00",
+      "updatedAt": "2026-06-30T03:10:49.891055+00:00",
       "comments": [
         {
           "by": "api",
@@ -3421,6 +3421,11 @@
           "by": "Hades",
           "timestamp": "2026-06-30T00:41:57.537089+00:00",
           "text": "Delivered work/STORY-088-deliverable.md (12837 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T03:10:49.891055+00:00",
+          "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The deliverable cites specific file paths, line numbers, and tool outputs as evidence but does not include the referenced source files for verification. Without access to the actual Dockerfile, api_client.py, requirements.txt, config.yaml, logger.py, ci.yml, and tool output files, this reads as a st"
         }
       ],
       "jira_key": "[2026-06-24 07:27:40] [INFO] Creating Jira issue: STORY-088 (Audit payment gateway compliance)\n[2026-06-24 07:27:41] [INFO] Created Jira issue: TD-329\n[2026-06-24 07:27:41] [INFO] Transitioning TD-329 -> In Progress (transition 31)\nTD-329",
@@ -3452,7 +3457,7 @@
       ],
       "estimatedStartDate": "2026-06-30",
       "assigned_to": "Hades",
-      "validation_fails": 1
+      "validation_fails": 2
     },
     {
       "id": "STORY-089",
@@ -3515,14 +3520,14 @@
     {
       "id": "STORY-090",
       "title": "Develop AI-driven revenue forecasting model",
-      "status": "in_validation",
+      "status": "in_progress",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
-      "progress": 0,
+      "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592378+00:00",
-      "updatedAt": "2026-06-29T11:20:09.823488+00:00",
+      "updatedAt": "2026-06-30T03:10:49.901492+00:00",
       "comments": [
         {
           "by": "api",
@@ -3537,6 +3542,11 @@
           "by": "Prometheus",
           "timestamp": "2026-06-29T11:20:09.823488+00:00",
           "text": "Delivered work/STORY-090-deliverable.md (13931 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T03:10:49.901492+00:00",
+          "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The deliverable documents a plausible pipeline but is incomplete and contains a critical data-leakage flaw: the feature engineering computes lag and rolling features on the full dataset before the TimeSeriesSplit, causing validation-fold training data to leak future information into the training fol"
         }
       ],
       "jira_key": "[2026-06-24 07:27:43] [INFO] Creating Jira issue: STORY-090 (Develop AI-driven revenue forecasting model)\n[2026-06-24 07:27:44] [INFO] Created Jira issue: TD-331\n[2026-06-24 07:27:44] [INFO] Transitioning TD-331 -> In Progress (transition 31)\nTD-331",
@@ -3557,7 +3567,8 @@
         }
       ],
       "estimatedStartDate": "2026-06-30",
-      "assigned_to": "Prometheus"
+      "assigned_to": "Prometheus",
+      "validation_fails": 1
     },
     {
       "id": "AUTO-001",
@@ -3565,7 +3576,7 @@
       "description": "Draft a concise onboarding playbook that outlines steps for new AI agents to integrate into Super Compagnie's workflow, including Jira ticket creation, code repository access, and communication protocols. Deliverable: a Markdown document ready for internal distribution.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Metis",
       "team": "any",
       "epicId": "EPIC-005",
@@ -3573,7 +3584,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T20:24:52.456390+00:00",
-      "updatedAt": "2026-06-29T20:40:04.046935+00:00",
+      "updatedAt": "2026-06-30T03:10:49.903802+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -3591,6 +3602,11 @@
           "by": "Metis",
           "timestamp": "2026-06-29T20:40:04.046935+00:00",
           "text": "Delivered work/AUTO-001-deliverable.md (12647 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T03:10:49.903802+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-001-deliverable.md): The deliverable is a complete, ready-to-distribute Markdown playbook that genuinely covers all ticket requirements: Jira ticket creation (with template and service-account registration), code repository access (GitHub team membership, PAT, and validation), and communication protocols (Slack/Teams/em"
         }
       ],
       "jira_key": "[2026-06-29 21:29:43] [INFO] Creating Jira issue: AUTO-001 (Agent Onboarding Playbook)\n[2026-06-29 21:29:44] [INFO] Created Jira issue: TD-332\n[2026-06-29 21:29:44] [WARN] No transition found for 'In Review' on TD-332 (already in status?)\nTD-332",

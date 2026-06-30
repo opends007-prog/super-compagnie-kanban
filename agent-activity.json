@@ -1,62 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-29T23:01:23.042598+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-084",
-      "event": "validating",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T23:01:48.930107+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-086",
-      "event": "validating",
-      "content": "[claude] Independently reviewing business-analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-29T23:02:57.004200+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-086",
-      "event": "validation_pass",
-      "content": "PASS: The deliverable is a substantive, complete research evaluation of four payment gateway providers with cost modeling, weighted scoring, WTP alignment, recommendation, and implementation roadmap \u2014 it fully satisfies the ticket despite some questionable pricing assumptions (notably Adyen's rate) and la"
-    },
-    {
-      "ts": "2026-06-29T23:30:01.929846+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-067",
-      "event": "validating",
-      "content": "[claude] Independently reviewing qa's deliverable"
-    },
-    {
-      "ts": "2026-06-29T23:30:02.306383+00:00",
-      "agent": "Fortuna",
-      "ticket": "AUTO-017",
-      "event": "dispatched",
-      "content": "income started work: AI FAQ Receptionist Targeted Outreach Playbook"
-    },
-    {
-      "ts": "2026-06-29T23:30:02.308591+00:00",
-      "agent": "Fortuna",
-      "ticket": "AUTO-017",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Targeted Outreach Playbook"
-    },
-    {
-      "ts": "2026-06-29T23:30:02.312205+00:00",
-      "agent": "Hades",
-      "ticket": "AUTO-019",
-      "event": "dispatched",
-      "content": "security started work: Security Risk Mitigation Checklist for AI FAQ Receptionist D"
-    },
-    {
-      "ts": "2026-06-29T23:30:02.324621+00:00",
-      "agent": "Hades",
-      "ticket": "AUTO-019",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Security Risk Mitigation Checklist for AI FAQ Receptionist D"
-    },
-    {
       "ts": "2026-06-29T23:30:02.331373+00:00",
       "agent": "Minerva",
       "ticket": "AUTO-018",
@@ -1399,7 +1343,63 @@
       "ticket": "STORY-090",
       "event": "validating",
       "content": "[claude] Independently reviewing ml-engineer's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:10:26.242563+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-001",
+      "event": "validating",
+      "content": "[claude] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:10:49.900165+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-088",
+      "event": "validation_parked",
+      "content": "Parked after 2 fails: The deliverable cites specific file paths, line numbers, and tool outputs as evidence but does not include the referenced source files for verification. Without access to the actual Dockerfile, api_client.py, requirements.txt, config.yaml, logger.py, ci.yml, and tool output files, this reads as a st"
+    },
+    {
+      "ts": "2026-06-30T03:10:49.902388+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-090",
+      "event": "validation_fail",
+      "content": "FAIL #1: The deliverable documents a plausible pipeline but is incomplete and contains a critical data-leakage flaw: the feature engineering computes lag and rolling features on the full dataset before the TimeSeriesSplit, causing validation-fold training data to leak future information into the training fol"
+    },
+    {
+      "ts": "2026-06-30T03:10:49.904031+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-001",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, ready-to-distribute Markdown playbook that genuinely covers all ticket requirements: Jira ticket creation (with template and service-account registration), code repository access (GitHub team membership, PAT, and validation), and communication protocols (Slack/Teams/em"
+    },
+    {
+      "ts": "2026-06-30T03:12:00.062476+00:00",
+      "agent": "nemesis",
+      "ticket": "TD-267",
+      "event": "validating",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:12:00.094413+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-087",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:13:06.258923+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-089",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:14:53.785500+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-002",
+      "event": "validating",
+      "content": "[claude] Independently reviewing business-analyst's deliverable"
     }
   ],
-  "lastUpdated": "2026-06-30T03:09:55.153234+00:00"
+  "lastUpdated": "2026-06-30T03:14:53.818282+00:00"
 }

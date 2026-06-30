@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-06-30T03:00:02.061766+00:00",
+  "generatedAt": "2026-06-30T03:10:02.201246+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 0.0,
+    "work-executor": 7.7,
+    "validator": 2.8,
     "observability": 10.0,
-    "guard": 1000.0,
-    "backup": 30.0,
+    "guard": 1010.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 33,
     "backlog": 1,
-    "in_progress": 14,
+    "in_progress": 10,
     "planned": 2,
-    "in_validation": 34
+    "in_validation": 38
   },
   "tickets_total": 84,
   "done_today": 0,
-  "delivered_today": 36,
-  "delivered_week": 51,
+  "delivered_today": 40,
+  "delivered_week": 48,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 47,
+    "cerebras:gpt-oss-120b": 44,
     "claude:owl-alpha": 4
   },
   "live_agents": [
@@ -37,88 +37,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T03:00:02.091670+00:00",
+      "ts": "2026-06-30T03:09:55.153163+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-090",
+      "content": "[claude] Independently reviewing ml-engineer's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:09:06.307798+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-089",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:08:39.244039+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-087",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:08:39.240303+00:00",
       "agent": "nemesis",
       "event": "validating",
       "ticket": "TD-267",
       "content": "[claude] Independently reviewing claude's deliverable"
     },
     {
-      "ts": "2026-06-30T02:50:05.650326+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "AUTO-032",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-032-deliverable.md (9331b) \u2192 in_progress"
+      "ts": "2026-06-30T03:08:39.236842+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-088",
+      "content": "[claude] Independently reviewing security's deliverable"
     },
     {
-      "ts": "2026-06-30T02:50:05.641451+00:00",
+      "ts": "2026-06-30T03:07:15.434947+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-089",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:06:46.807042+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-088",
+      "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:02:19.361355+00:00",
       "agent": "Fortuna",
       "event": "delivered",
       "ticket": "AUTO-030",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-030-deliverable.md (10225b) \u2192 in_progress"
+      "content": "[claude:owl-alpha] Produced AUTO-030-deliverable.md (7919b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T02:50:05.637794+00:00",
+      "ts": "2026-06-30T03:02:19.359999+00:00",
+      "agent": "Iris",
+      "event": "delivered",
+      "ticket": "AUTO-032",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-032-deliverable.md (9669b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T03:02:19.358650+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-031",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-031-deliverable.md (8104b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T03:02:19.356629+00:00",
       "agent": "Minerva",
       "event": "delivered",
       "ticket": "AUTO-029",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-029-deliverable.md (11029b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-029-deliverable.md (10437b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T02:50:05.633753+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-031",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-031-deliverable.md (7965b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T02:50:03.807277+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-032",
-      "content": "[cerebras:gpt-oss-120b] attempting: Demo Video Storyboard for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T02:50:03.801970+00:00",
-      "agent": "Iris",
-      "event": "dispatched",
-      "ticket": "AUTO-032",
-      "content": "pm started work: Demo Video Storyboard for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T02:50:01.999544+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-031",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data\u2011Handling Security Checklist for AI FAQ Receptionist Dep"
-    },
-    {
-      "ts": "2026-06-30T02:50:01.992766+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-031",
-      "content": "security started work: Data\u2011Handling Security Checklist for AI FAQ Receptionist Dep"
-    },
-    {
-      "ts": "2026-06-30T02:50:01.978774+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-029",
-      "content": "[cerebras:gpt-oss-120b] attempting: Financial Services FAQ Knowledge Base (Sample)"
-    },
-    {
-      "ts": "2026-06-30T02:50:01.958302+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-030",
-      "content": "[cerebras:gpt-oss-120b] attempting: Pricing Tier Recommendations for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T02:50:01.954468+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-030",
-      "content": "income started work: Pricing Tier Recommendations for AI FAQ Receptionist"
+      "ts": "2026-06-30T03:02:06.624295+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-087",
+      "content": "[claude] Independently reviewing income's deliverable"
     }
   ],
   "problems": {}
