@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-06-30T13:50:01.966132+00:00",
+  "generatedAt": "2026-06-30T14:00:01.846479+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.1,
-    "validator": 10.0,
+    "work-executor": 5.2,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1650.0,
-    "backup": 20.0,
+    "guard": 1660.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 82,
-    "backlog": 8,
-    "in_progress": 15,
+    "backlog": 7,
+    "in_progress": 14,
     "planned": 4,
-    "in_validation": 2
+    "in_validation": 4
   },
   "tickets_total": 111,
   "done_today": 49,
-  "delivered_today": 44,
-  "delivered_week": 44,
+  "delivered_today": 45,
+  "delivered_week": 45,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 36,
+    "cerebras:gpt-oss-120b": 37,
     "openclaw": 5,
     "claude:owl-alpha": 3
   },
@@ -33,92 +33,94 @@
     "Fortuna",
     "Hermes",
     "Iris",
-    "Nemesis"
+    "Nemesis",
+    "Thor",
+    "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T13:44:53.563766+00:00",
-      "agent": "Nemesis",
+      "ts": "2026-06-30T14:00:02.233654+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-053",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T13:54:50.515582+00:00",
+      "agent": "Thor",
       "event": "no_deliverable",
-      "ticket": "AUTO-056",
+      "ticket": "STORY-202",
       "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-06-30T13:44:53.562182+00:00",
-      "agent": "Fortuna",
-      "event": "no_deliverable",
-      "ticket": "AUTO-053",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-06-30T13:44:53.559661+00:00",
-      "agent": "Hermes",
+      "ts": "2026-06-30T13:54:50.485257+00:00",
+      "agent": "Nemesis",
       "event": "delivered",
-      "ticket": "AUTO-055",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-055-deliverable.md (11068b) \u2192 in_validation"
+      "ticket": "AUTO-056",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-056-deliverable.md (7783b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T13:44:53.509511+00:00",
-      "agent": "Iris",
+      "ts": "2026-06-30T13:54:50.448773+00:00",
+      "agent": "Thor",
       "event": "delivered",
-      "ticket": "AUTO-054",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-054-deliverable.md (7191b) \u2192 in_validation"
+      "ticket": "STORY-203",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-203-deliverable.md (11234b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-30T13:40:13.040174+00:00",
+      "ts": "2026-06-30T13:54:50.152453+00:00",
       "agent": "Fortuna",
-      "event": "working",
+      "event": "delivered",
       "ticket": "AUTO-053",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-053-deliverable.md (5742b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T13:40:13.020736+00:00",
-      "agent": "Nemesis",
+      "ts": "2026-06-30T13:50:09.168653+00:00",
+      "agent": "Thor",
       "event": "working",
-      "ticket": "AUTO-056",
-      "content": "[openclaw] attempting: Data\u2011Handling Compliance Checklist for FAQ Receptionist"
+      "ticket": "STORY-202",
+      "content": "[openclaw] attempting: [self-heal] openclaw-gateway.service keeps crashing"
     },
     {
-      "ts": "2026-06-30T13:40:07.720489+00:00",
-      "agent": "Nemesis",
+      "ts": "2026-06-30T13:50:04.662337+00:00",
+      "agent": "Thor",
       "event": "working",
-      "ticket": "AUTO-056",
-      "content": "[claude:owl-alpha] attempting: Data\u2011Handling Compliance Checklist for FAQ Receptionist"
+      "ticket": "STORY-203",
+      "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] Lucy 8 AM Morning Mot... failing"
     },
     {
-      "ts": "2026-06-30T13:40:06.522191+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-053",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-30T13:40:04.095906+00:00",
-      "agent": "Nemesis",
-      "event": "working",
-      "ticket": "AUTO-056",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data\u2011Handling Compliance Checklist for FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T13:40:04.094208+00:00",
-      "agent": "Nemesis",
+      "ts": "2026-06-30T13:50:04.660653+00:00",
+      "agent": "Thor",
       "event": "dispatched",
-      "ticket": "AUTO-056",
-      "content": "nemesis started work: Data\u2011Handling Compliance Checklist for FAQ Receptionist"
+      "ticket": "STORY-203",
+      "content": "devops started work: [self-heal] Lucy 8 AM Morning Mot... failing"
     },
     {
-      "ts": "2026-06-30T13:40:02.536107+00:00",
-      "agent": "Hermes",
+      "ts": "2026-06-30T13:50:03.191855+00:00",
+      "agent": "Thor",
       "event": "working",
-      "ticket": "AUTO-055",
-      "content": "[cerebras:gpt-oss-120b] attempting: Industry Pain\u2011Point Research Report for AI FAQ Receptionist"
+      "ticket": "STORY-202",
+      "content": "[claude:owl-alpha] attempting: [self-heal] openclaw-gateway.service keeps crashing"
     },
     {
-      "ts": "2026-06-30T13:40:02.529220+00:00",
-      "agent": "Iris",
+      "ts": "2026-06-30T13:50:02.645878+00:00",
+      "agent": "Thor",
       "event": "working",
-      "ticket": "AUTO-054",
-      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Template Pack"
+      "ticket": "STORY-202",
+      "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] openclaw-gateway.service keeps crashing"
+    },
+    {
+      "ts": "2026-06-30T13:50:02.643580+00:00",
+      "agent": "Thor",
+      "event": "dispatched",
+      "ticket": "STORY-202",
+      "content": "devops started work: [self-heal] openclaw-gateway.service keeps crashing"
+    },
+    {
+      "ts": "2026-06-30T13:50:02.624873+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-053",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
     }
   ],
   "problems": {}
