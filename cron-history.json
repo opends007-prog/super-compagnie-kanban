@@ -1,6 +1,20 @@
 {
-  "updated": "2026-06-30T23:20:01.987206+00:00",
+  "updated": "2026-06-30T23:30:01.331195+00:00",
   "events": [
+    {
+      "ts": "2026-06-30T23:30:01.331195+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-077: cerebras dispatch error: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-06-30T23:29:01.331195+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-06-30T23:10:02.056291+00:00",
       "job": "validate-work",
@@ -84,6 +98,13 @@
       "kind": "system",
       "status": "warn",
       "msg": "[validate]     AUTO-069: no usable verdict #3 (model unavailable?) \u2014 staying in_validation, retry next run"
+    },
+    {
+      "ts": "2026-06-30T21:30:01.331195+00:00",
+      "job": "Hourly Check-in",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "2h ago"
     },
     {
       "ts": "2026-06-30T21:29:02.014230+00:00",
@@ -800,6 +821,13 @@
       "msg": "6h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-06-30T13:30:01.331195+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "10h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-06-30T13:29:01.537775+00:00",
       "job": "Queue Tick 30m",
       "kind": "discord-cron",
@@ -1043,6 +1071,13 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "2h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-06-30T12:30:01.331195+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "11h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-06-30T12:20:02.550497+00:00",
@@ -1395,6 +1430,13 @@
       "msg": "3h ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed."
     },
     {
+      "ts": "2026-06-30T11:30:01.331195+00:00",
+      "job": "Lucy 8 AM Morning Mot...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "12h ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed."
+    },
+    {
       "ts": "2026-06-30T11:20:02.550497+00:00",
       "job": "Daily 7 AM Standup",
       "kind": "discord-cron",
@@ -1647,6 +1689,13 @@
       "msg": "4h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-06-30T10:30:01.331195+00:00",
+      "job": "Daily 7 AM Standup",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "13h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-06-30T10:20:03.283601+00:00",
       "job": "Velocity (daily)",
       "kind": "discord-cron",
@@ -1701,55 +1750,6 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "13h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T10:20:01.987206+00:00",
-      "job": "Velocity (daily)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "13h ago"
-    },
-    {
-      "ts": "2026-06-30T10:20:01.863394+00:00",
-      "job": "Daily 6 AM Memory Mai...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "12h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T10:20:01.863394+00:00",
-      "job": "Velocity (daily)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "12h ago"
-    },
-    {
-      "ts": "2026-06-30T10:20:01.821755+00:00",
-      "job": "Daily 6 AM Memory Mai...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "9h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T10:20:01.821755+00:00",
-      "job": "Velocity (daily)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "9h ago"
-    },
-    {
-      "ts": "2026-06-30T10:10:02.175532+00:00",
-      "job": "Daily 6 AM Memory Mai...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "3h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T10:00:02.479007+00:00",
-      "job": "Velocity (daily)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "3h ago"
     }
   ]
 }
