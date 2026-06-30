@@ -3457,14 +3457,14 @@
     {
       "id": "STORY-089",
       "title": "Optimize revenue workflow processes",
-      "status": "in_validation",
+      "status": "in_progress",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
-      "progress": 0,
+      "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592368+00:00",
-      "updatedAt": "2026-06-29T11:20:07.569284+00:00",
+      "updatedAt": "2026-06-30T02:06:10.278418+00:00",
       "comments": [
         {
           "by": "api",
@@ -3479,6 +3479,11 @@
           "by": "Fortuna",
           "timestamp": "2026-06-29T11:20:07.569284+00:00",
           "text": "Delivered work/STORY-089-deliverable.md (16183 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T02:06:10.278418+00:00",
+          "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The deliverable's central financial model does not reconcile with itself: the three uplift components sum to $66,330 (total $1,392,930, a ~4.999% uplift) but the deliverable asserts a $66,400 increase and 5% uplift with a garbled figure \"$1,393, -\". Outside its own workspace it also leaks hardcoded "
         }
       ],
       "jira_key": "[2026-06-24 07:27:42] [INFO] Creating Jira issue: STORY-089 (Optimize revenue workflow processes)\n[2026-06-24 07:27:43] [INFO] Created Jira issue: TD-330\n[2026-06-24 07:27:43] [INFO] Transitioning TD-330 -> In Progress (transition 31)\nTD-330",
@@ -3499,7 +3504,8 @@
         }
       ],
       "estimatedStartDate": "2026-06-30",
-      "assigned_to": "Fortuna"
+      "assigned_to": "Fortuna",
+      "validation_fails": 1
     },
     {
       "id": "STORY-090",
@@ -4814,7 +4820,7 @@
     {
       "id": "STORY-200",
       "title": "FAQ list to bot JSON converter",
-      "status": "in_progress",
+      "status": "backlog",
       "priority": "medium",
       "team": "any",
       "assigned_to": "Gladiator",
@@ -4825,19 +4831,14 @@
       "category": null,
       "lane": "builder",
       "filename": "faq_to_json.py",
-      "validation_fails": 1,
+      "validation_fails": 0,
       "epicId": "EPIC-006",
       "createdAt": "2026-06-30T01:27:50.861684+00:00",
-      "updatedAt": "2026-06-30T02:00:03.130591+00:00",
+      "updatedAt": "2026-06-30T01:27:50.861694+00:00",
       "comments": [
         {
           "by": "CEO",
           "text": "Ticket created via request c33e16df"
-        },
-        {
-          "by": "Nemesis",
-          "timestamp": "2026-06-30T02:00:03.130591+00:00",
-          "text": "BUILDER LANE: rejected (not merged) \u2014 review FAIL: The question/answer detection only matches \"? \" and \"! \" (with a space) and thus fails to recognize lines that start with just \"?\" or \"!\", which the specification allows.. Branch discarded."
         }
       ]
     }

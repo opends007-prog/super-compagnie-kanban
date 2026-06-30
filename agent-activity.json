@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-29T21:50:01.849820+00:00",
-      "agent": "Metis",
-      "ticket": "AUTO-010",
-      "event": "dispatched",
-      "content": "org-excellence started work: Objection\u2011Handling Guide for AI FAQ Receptionist"
-    },
-    {
       "ts": "2026-06-29T21:50:01.855413+00:00",
       "agent": "Metis",
       "ticket": "AUTO-010",
@@ -1399,7 +1392,14 @@
       "ticket": "STORY-089",
       "event": "validating",
       "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T02:06:10.324134+00:00",
+      "agent": "nemesis",
+      "ticket": "STORY-089",
+      "event": "validation_fail",
+      "content": "FAIL #1: The deliverable's central financial model does not reconcile with itself: the three uplift components sum to $66,330 (total $1,392,930, a ~4.999% uplift) but the deliverable asserts a $66,400 increase and 5% uplift with a garbled figure \"$1,393, -\". Outside its own workspace it also leaks hardcoded "
     }
   ],
-  "lastUpdated": "2026-06-30T02:04:27.854306+00:00"
+  "lastUpdated": "2026-06-30T02:06:10.327386+00:00"
 }
