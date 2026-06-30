@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-30T02:30:01.375617+00:00",
+  "generatedAt": "2026-06-30T02:40:03.703156+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
+    "validator": 2.2,
     "observability": 10.0,
-    "guard": 970.0,
-    "backup": 30.0,
+    "guard": 980.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
@@ -23,19 +23,39 @@
   "tickets_total": 80,
   "done_today": 0,
   "delivered_today": 32,
-  "delivered_week": 50,
+  "delivered_week": 48,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 46,
+    "cerebras:gpt-oss-120b": 44,
     "claude:owl-alpha": 4
   },
   "live_agents": [
-    "Athena",
     "Fortuna",
     "Gladiator",
     "Nemesis",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T02:37:05.955132+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-089",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T02:36:37.372849+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-088",
+      "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-30T02:34:12.812328+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-087",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-06-30T02:30:01.385693+00:00",
       "agent": "nemesis",
@@ -98,27 +118,6 @@
       "event": "dispatched",
       "ticket": "STORY-200",
       "content": "tom started work: FAQ list to bot JSON converter"
-    },
-    {
-      "ts": "2026-06-30T02:10:01.927562+00:00",
-      "agent": "Nemesis",
-      "event": "working",
-      "ticket": "AUTO-028",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T02:10:01.926072+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "STORY-089",
-      "content": "[cerebras:gpt-oss-120b] attempting: Optimize revenue workflow processes"
-    },
-    {
-      "ts": "2026-06-30T02:10:01.924125+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "STORY-089",
-      "content": "income started work: Optimize revenue workflow processes"
     }
   ],
   "problems": {}
