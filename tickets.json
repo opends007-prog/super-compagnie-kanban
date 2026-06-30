@@ -4528,7 +4528,7 @@
       "description": "Create a simple Excel/CSV template with built\u2011in formulas that lets prospects estimate cost savings and revenue uplift based on call volume and handling time. Deliverable: an .xlsx file with usage instructions and sample data.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "in_progress",
       "assigned_to": "Plutus",
       "team": "any",
       "epicId": "EPIC-002",
@@ -4536,9 +4536,9 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T22:20:03.315672+00:00",
-      "updatedAt": "2026-06-29T22:43:46.600568+00:00",
-      "progress": 0,
-      "validation_fails": 0,
+      "updatedAt": "2026-06-30T05:42:33.698642+00:00",
+      "progress": 40,
+      "validation_fails": 1,
       "comments": [
         {
           "by": "auto-planner",
@@ -4554,6 +4554,11 @@
           "by": "Plutus",
           "timestamp": "2026-06-29T22:43:46.600568+00:00",
           "text": "Delivered work/AUTO-016-deliverable.md (9995 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T05:42:33.698642+00:00",
+          "text": "VALIDATION FAIL #1 \u2014 sent back to redo: No .xlsx file exists in the working directory; the deliverable is only a markdown specification describing formulas and sample data, not the functional Excel template the ticket requires."
         }
       ],
       "jira_key": "[2026-06-29 21:30:00] [INFO] Creating Jira issue: AUTO-016 (ROI Calculator Spreadsheet Template for AI FAQ Receptionist)\n[2026-06-29 21:30:00] [INFO] Created Jira issue: TD-347\n[2026-06-29 21:30:00] [WARN] No transition found for 'In Review' on TD-347 (already in status?)\nTD-347",
@@ -4574,7 +4579,7 @@
           "text": "Delivered work/AUTO-016-deliverable.md (9995 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
-      "review_attempts": 2
+      "review_attempts": 0
     },
     {
       "id": "AUTO-017",
@@ -4623,7 +4628,7 @@
       "description": "Research the most common customer\u2011service questions in the healthcare sector and compile a sample set of 20 Q&A pairs tailored for the AI FAQ Receptionist. Deliverable: a markdown file with the questions, suggested answer snippets, and source references.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Minerva",
       "team": "any",
       "epicId": "EPIC-009",
@@ -4631,7 +4636,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T23:20:04.182924+00:00",
-      "updatedAt": "2026-06-30T05:10:04.123930+00:00",
+      "updatedAt": "2026-06-30T05:42:33.702982+00:00",
       "progress": 40,
       "validation_fails": 1,
       "comments": [
@@ -4659,9 +4664,14 @@
           "by": "Minerva",
           "timestamp": "2026-06-30T05:10:04.123930+00:00",
           "text": "Delivered work/AUTO-018-deliverable.md (10207 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T05:42:33.702982+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-018-deliverable.md): The deliverable contains 20 fully-written, AI-ready healthcare FAQ Q&A pairs with substantive answers and plausible, correctly-formatted source references from authoritative domains (CDC, HHS, Mayo Clinic, Cleveland Clinic, Medicare, Kaiser Permanente, ONC/healthit.gov, Healthline, RadiologyInfo, et"
         }
       ],
-      "review_attempts": 1
+      "review_attempts": 0
     },
     {
       "id": "AUTO-019",
@@ -4761,7 +4771,7 @@
       "description": "Create a step\u2011by\u2011step onboarding checklist covering data ingestion, FAQ configuration, testing, and handoff. Deliverable: a markdown checklist document that can be given to new clients to ensure a smooth start.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Metis",
       "team": "any",
       "epicId": "EPIC-002",
@@ -4769,7 +4779,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T00:20:04.192757+00:00",
-      "updatedAt": "2026-06-30T05:30:05.406955+00:00",
+      "updatedAt": "2026-06-30T05:42:33.706388+00:00",
       "progress": 40,
       "validation_fails": 1,
       "comments": [
@@ -4797,6 +4807,11 @@
           "by": "Metis",
           "timestamp": "2026-06-30T05:30:05.406955+00:00",
           "text": "Delivered work/AUTO-021-deliverable.md (15091 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T05:42:33.706388+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-021-deliverable.md): The deliverable is a complete, well-structured onboarding checklist covering all four required phases (data ingestion, FAQ configuration, testing, and handoff) with detailed tasks, owners, artifacts, success metrics, roles, risks, and appendices \u2014 it is a ready-to-use document for new clients, not a"
         }
       ],
       "review_attempts": 0
@@ -4807,7 +4822,7 @@
       "description": "Define key performance indicators (e.g., queries per day, resolution rate, average response time, NPS) and design the layout of a one\u2011page dashboard, including chart types and data sources. Deliverable: a design spec (markdown/PDF) with mock\u2011up sketches and data\u2011field definitions.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Clio",
       "team": "any",
       "epicId": "EPIC-009",
@@ -4815,7 +4830,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T00:20:04.192757+00:00",
-      "updatedAt": "2026-06-30T00:52:56.675626+00:00",
+      "updatedAt": "2026-06-30T05:42:33.708446+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -4833,8 +4848,14 @@
           "by": "Clio",
           "timestamp": "2026-06-30T00:52:56.675626+00:00",
           "text": "Delivered work/AUTO-022-deliverable.md (19359 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T05:42:33.708446+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-022-deliverable.md): The deliverable is a complete design spec: it defines 8 KPIs with business definitions, data fields, SQL calculations, and targets; provides a one-page dashboard layout with chart types, positioning, and interaction details; includes data-field glossary, data sources, and an implementation checklist"
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-023",
@@ -4842,7 +4863,7 @@
       "description": "Design a referral incentive program (discount or commission) with marketing copy, tracking mechanism, and rollout plan. Deliverable: a program outline document (markdown) that includes sample email copy and a tracking spreadsheet template.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Fortuna",
       "team": "any",
       "epicId": "EPIC-004",
@@ -4850,7 +4871,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T00:20:04.192757+00:00",
-      "updatedAt": "2026-06-30T00:52:56.661596+00:00",
+      "updatedAt": "2026-06-30T05:42:33.710963+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -4868,8 +4889,14 @@
           "by": "Fortuna",
           "timestamp": "2026-06-30T00:52:56.661596+00:00",
           "text": "Delivered work/AUTO-023-deliverable.md (10653 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T05:42:33.710963+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-023-deliverable.md): The deliverable is a complete program outline covering incentive structure with financial modeling, sample email and landing-page copy, a tracking mechanism (unique codes plus SQL-style workflow), a phased rollout plan, and an exportable spreadsheet template \u2014 all ticket requirements are genuinely a"
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-024",
@@ -4877,7 +4904,7 @@
       "description": "Draft a policy specifying retention periods for FAQ data, logs, and user interactions, outlining secure deletion procedures and mapping to GDPR/CCPA requirements. Deliverable: a policy document (markdown) ready for inclusion in client contracts.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Hades",
       "team": "any",
       "epicId": "EPIC-010",
@@ -4885,7 +4912,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T00:20:04.192757+00:00",
-      "updatedAt": "2026-06-30T01:10:03.378831+00:00",
+      "updatedAt": "2026-06-30T05:42:33.714270+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -4903,8 +4930,14 @@
           "by": "Hades",
           "timestamp": "2026-06-30T01:10:03.378831+00:00",
           "text": "Delivered work/AUTO-024-deliverable.md (10994 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T05:42:33.714270+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-024-deliverable.md): The deliverable is a complete, contract-ready policy covering retention periods for FAQ content/user interactions/logs, secure deletion workflows and technical controls, and explicit GDPR/CCPA mapping \u2014 it satisfies the ticket in full."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-025",

@@ -1,90 +1,6 @@
 {
   "events": [
     {
-      "ts": "2026-06-30T02:00:01.744278+00:00",
-      "agent": "Nemesis",
-      "ticket": "AUTO-028",
-      "event": "dispatched",
-      "content": "nemesis started work: Data Retention & Deletion Policy for FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T02:00:01.750782+00:00",
-      "agent": "Gladiator",
-      "ticket": "STORY-200",
-      "event": "dispatched",
-      "content": "tom started work: FAQ list to bot JSON converter"
-    },
-    {
-      "ts": "2026-06-30T02:00:01.752670+00:00",
-      "agent": "Gladiator",
-      "ticket": "STORY-200",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: FAQ list to bot JSON converter"
-    },
-    {
-      "ts": "2026-06-30T02:00:01.756373+00:00",
-      "agent": "Nemesis",
-      "ticket": "AUTO-028",
-      "event": "working",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T02:00:03.575851+00:00",
-      "agent": "Nemesis",
-      "ticket": "AUTO-028",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (10466b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T02:00:03.593931+00:00",
-      "agent": "Gladiator",
-      "ticket": "STORY-200",
-      "event": "delivered",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-200-deliverable.md (11771b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T02:00:03.940162+00:00",
-      "agent": "Athena",
-      "ticket": "STORY-200",
-      "event": "build_test",
-      "content": "syntax/compile PASS on faq_to_json.py"
-    },
-    {
-      "ts": "2026-06-30T02:00:04.961280+00:00",
-      "agent": "Nemesis",
-      "ticket": "STORY-200",
-      "event": "build_rejected",
-      "content": "review FAIL: The question/answer detection only matches \"? \" and \"! \" (with a space) and thus fails to recognize lines that start with just \"?\" or \"!\", which the specification allows."
-    },
-    {
-      "ts": "2026-06-30T02:02:34.646334+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-087",
-      "event": "validating",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T02:03:14.403952+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-088",
-      "event": "validating",
-      "content": "[claude] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-30T02:04:27.854274+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-089",
-      "event": "validating",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T02:06:10.324134+00:00",
-      "agent": "nemesis",
-      "ticket": "STORY-089",
-      "event": "validation_fail",
-      "content": "FAIL #1: The deliverable's central financial model does not reconcile with itself: the three uplift components sum to $66,330 (total $1,392,930, a ~4.999% uplift) but the deliverable asserts a $66,400 increase and 5% uplift with a garbled figure \"$1,393, -\". Outside its own workspace it also leaks hardcoded "
-    },
-    {
       "ts": "2026-06-30T02:10:01.922207+00:00",
       "agent": "Nemesis",
       "ticket": "AUTO-028",
@@ -1399,7 +1315,91 @@
       "ticket": "AUTO-021",
       "event": "delivered",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-021-deliverable.md (15091b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T05:40:01.583635+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-016",
+      "event": "validating",
+      "content": "[claude] Independently reviewing finance's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:40:01.588056+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-018",
+      "event": "validating",
+      "content": "[claude] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:40:37.794394+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-021",
+      "event": "validating",
+      "content": "[claude] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:41:10.311634+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-022",
+      "event": "validating",
+      "content": "[claude] Independently reviewing data-analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:42:03.959188+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-023",
+      "event": "validating",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:42:18.258827+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-024",
+      "event": "validating",
+      "content": "[claude] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:42:33.701344+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-016",
+      "event": "validation_fail",
+      "content": "FAIL #1: No .xlsx file exists in the working directory; the deliverable is only a markdown specification describing formulas and sample data, not the functional Excel template the ticket requires."
+    },
+    {
+      "ts": "2026-06-30T05:42:33.703224+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-018",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable contains 20 fully-written, AI-ready healthcare FAQ Q&A pairs with substantive answers and plausible, correctly-formatted source references from authoritative domains (CDC, HHS, Mayo Clinic, Cleveland Clinic, Medicare, Kaiser Permanente, ONC/healthit.gov, Healthline, RadiologyInfo, et"
+    },
+    {
+      "ts": "2026-06-30T05:42:33.706625+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-021",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, well-structured onboarding checklist covering all four required phases (data ingestion, FAQ configuration, testing, and handoff) with detailed tasks, owners, artifacts, success metrics, roles, risks, and appendices \u2014 it is a ready-to-use document for new clients, not a"
+    },
+    {
+      "ts": "2026-06-30T05:42:33.708705+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-022",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete design spec: it defines 8 KPIs with business definitions, data fields, SQL calculations, and targets; provides a one-page dashboard layout with chart types, positioning, and interaction details; includes data-field glossary, data sources, and an implementation checklist"
+    },
+    {
+      "ts": "2026-06-30T05:42:33.711189+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-023",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete program outline covering incentive structure with financial modeling, sample email and landing-page copy, a tracking mechanism (unique codes plus SQL-style workflow), a phased rollout plan, and an exportable spreadsheet template \u2014 all ticket requirements are genuinely a"
+    },
+    {
+      "ts": "2026-06-30T05:42:33.714564+00:00",
+      "agent": "nemesis",
+      "ticket": "AUTO-024",
+      "event": "validation_pass",
+      "content": "PASS: The deliverable is a complete, contract-ready policy covering retention periods for FAQ content/user interactions/logs, secure deletion workflows and technical controls, and explicit GDPR/CCPA mapping \u2014 it satisfies the ticket in full."
     }
   ],
-  "lastUpdated": "2026-06-30T05:30:05.409368+00:00"
+  "lastUpdated": "2026-06-30T05:42:33.714570+00:00"
 }

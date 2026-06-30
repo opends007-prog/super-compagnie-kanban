@@ -1,24 +1,24 @@
 {
-  "generatedAt": "2026-06-30T05:30:02.182246+00:00",
+  "generatedAt": "2026-06-30T05:40:01.547506+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 4.0,
+    "work-executor": 9.9,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1150.0,
-    "backup": 30.0,
+    "guard": 1160.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 48,
     "backlog": 4,
-    "in_progress": 14,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 14
+    "in_validation": 15
   },
   "tickets_total": 84,
   "done_today": 15,
@@ -30,10 +30,46 @@
   },
   "live_agents": [
     "Hades",
+    "Metis",
     "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T05:40:01.588056+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-018",
+      "content": "[claude] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:40:01.583635+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-016",
+      "content": "[claude] Independently reviewing finance's deliverable"
+    },
+    {
+      "ts": "2026-06-30T05:30:05.409342+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-021",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-021-deliverable.md (15091b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T05:30:02.607007+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-021",
+      "content": "[cerebras:gpt-oss-120b] attempting: Client Onboarding Checklist for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T05:30:02.598655+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-021",
+      "content": "org-excellence started work: Client Onboarding Checklist for AI FAQ Receptionist"
+    },
     {
       "ts": "2026-06-30T05:26:04.838095+00:00",
       "agent": "nemesis",
@@ -82,41 +118,6 @@
       "event": "validating",
       "ticket": "AUTO-019",
       "content": "[claude] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:21:13.714071+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-018",
-      "content": "[claude] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:20:01.836139+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-011",
-      "content": "[claude] Independently reviewing data-engineer's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:20:01.822423+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-016",
-      "content": "[claude] Independently reviewing finance's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:10:04.130339+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-019",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-019-deliverable.md (12347b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T05:10:04.125900+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-018",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-018-deliverable.md (10207b) \u2192 in_validation"
     }
   ],
   "problems": {}
