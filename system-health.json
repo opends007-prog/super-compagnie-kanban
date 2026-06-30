@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-06-30T22:40:02.004037+00:00",
+  "generatedAt": "2026-06-30T22:50:02.294994+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
     "work-executor": 10.0,
-    "validator": 20.0,
+    "validator": 0.5,
     "observability": 10.0,
-    "guard": 2180.0,
-    "backup": 10.0,
+    "guard": 2190.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 103,
+    "done": 107,
     "backlog": 7,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "planned": 4
   },
   "tickets_total": 131,
-  "done_today": 70,
+  "done_today": 74,
   "delivered_today": 10,
   "delivered_week": 10,
   "model_mix_week": {
@@ -31,9 +30,66 @@
     "Fortuna",
     "Hades",
     "Thor",
-    "Vulcan"
+    "Vulcan",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T22:49:31.598639+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-076",
+      "content": "PASS: The specification comprehensively defines interaction metrics, provides a complete JSON schema, and outlines a lig"
+    },
+    {
+      "ts": "2026-06-30T22:49:31.590106+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-075",
+      "content": "PASS: The deliverable provides a complete, step\u2011by\u2011step markdown playbook with all required files, commands, configurati"
+    },
+    {
+      "ts": "2026-06-30T22:49:31.581453+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-074",
+      "content": "PASS: The guide fully identifies applicable regulations, details concrete compliance actions, and supplies a concise che"
+    },
+    {
+      "ts": "2026-06-30T22:49:31.540904+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-073",
+      "content": "PASS: The deliverable provides researched competitive pricing, defines a clear tiered pricing structure with per\u2011month a"
+    },
+    {
+      "ts": "2026-06-30T22:44:46.654711+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-075",
+      "content": "[claude,openclaw,groq] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-06-30T22:44:46.625466+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-076",
+      "content": "[claude,openclaw,groq] Independently reviewing data-engineer's deliverable"
+    },
+    {
+      "ts": "2026-06-30T22:40:02.126100+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-073",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T22:40:02.123277+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-074",
+      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
+    },
     {
       "ts": "2026-06-30T22:30:04.187848+00:00",
       "agent": "Fortuna",
@@ -61,62 +117,6 @@
       "event": "no_deliverable",
       "ticket": "AUTO-073",
       "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-06-30T22:20:41.728002+00:00",
-      "agent": "Vulcan",
-      "event": "delivered",
-      "ticket": "AUTO-076",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-076-deliverable.md (13705b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T22:20:41.726935+00:00",
-      "agent": "Thor",
-      "event": "delivered",
-      "ticket": "AUTO-075",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-075-deliverable.md (14903b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T22:20:41.725160+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-074",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-074-deliverable.md (11399b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T22:20:13.811502+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-073",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-30T22:20:04.203094+00:00",
-      "agent": "Vulcan",
-      "event": "working",
-      "ticket": "AUTO-076",
-      "content": "[cerebras:gpt-oss-120b] attempting: FAQ Interaction Metrics Collection Specification"
-    },
-    {
-      "ts": "2026-06-30T22:20:04.112667+00:00",
-      "agent": "Vulcan",
-      "event": "dispatched",
-      "ticket": "AUTO-076",
-      "content": "data-engineer started work: FAQ Interaction Metrics Collection Specification"
-    },
-    {
-      "ts": "2026-06-30T22:20:02.402664+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-073",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-30T22:20:01.989010+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "AUTO-075",
-      "content": "[cerebras:gpt-oss-120b] attempting: VM Deployment Playbook for AI Agent Team"
     }
   ],
   "problems": {}
