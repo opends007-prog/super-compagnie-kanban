@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-06-30T11:40:01.862009+00:00",
+  "generatedAt": "2026-06-30T11:50:01.443602+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 1,
+  "site_unpushed": 0,
   "crons": {
-    "work-executor": 4.0,
-    "validator": 20.0,
+    "work-executor": 10.0,
+    "validator": 9.0,
     "observability": 10.0,
-    "guard": 1520.0,
-    "backup": 9.9,
+    "guard": 1530.0,
+    "backup": 19.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 73,
+    "done": 76,
     "backlog": 6,
-    "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "in_progress": 14,
+    "planned": 4
   },
   "tickets_total": 100,
-  "done_today": 40,
+  "done_today": 43,
   "delivered_today": 37,
   "delivered_week": 37,
   "model_mix_week": {
@@ -37,6 +36,62 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T11:41:00.485112+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-048",
+      "content": "PASS: The deliverable fully specifies the core usage metrics (QPD, ART, USS) with SQL calculations, defines a complete J"
+    },
+    {
+      "ts": "2026-06-30T11:41:00.482920+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-047",
+      "content": "PASS: The deliverable provides a complete, step-by-step VM deployment checklist covering all required areas (OS setup, p"
+    },
+    {
+      "ts": "2026-06-30T11:41:00.476479+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "AUTO-046",
+      "content": "FAIL #1: The deliverable is a thin, generic stub: each template uses near-identical copy-paste body text, vague unattrib"
+    },
+    {
+      "ts": "2026-06-30T11:41:00.468894+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-045",
+      "content": "PASS: Complete three-tier pricing sheet (Basic $49, Pro $149, Enterprise $499) with monthly costs, usage limits, and con"
+    },
+    {
+      "ts": "2026-06-30T11:40:38.578108+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-048",
+      "content": "[claude,openclaw,groq] Independently reviewing data-analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T11:40:21.414370+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-047",
+      "content": "[claude,openclaw,groq] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-06-30T11:40:02.156464+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-046",
+      "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-06-30T11:40:02.132083+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-045",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-06-30T11:35:59.358622+00:00",
       "agent": "Clio",
@@ -64,62 +119,6 @@
       "event": "delivered",
       "ticket": "AUTO-047",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-047-deliverable.md (9443b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T11:34:44.130517+00:00",
-      "agent": "Clio",
-      "event": "working",
-      "ticket": "AUTO-048",
-      "content": "[openclaw] attempting: FAQ Receptionist Usage Metrics Specification"
-    },
-    {
-      "ts": "2026-06-30T11:31:32.672710+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-046",
-      "content": "[openclaw] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T11:30:03.723825+00:00",
-      "agent": "Clio",
-      "event": "working",
-      "ticket": "AUTO-048",
-      "content": "[claude:owl-alpha] attempting: FAQ Receptionist Usage Metrics Specification"
-    },
-    {
-      "ts": "2026-06-30T11:30:03.539837+00:00",
-      "agent": "Clio",
-      "event": "working",
-      "ticket": "AUTO-048",
-      "content": "[cerebras:gpt-oss-120b] attempting: FAQ Receptionist Usage Metrics Specification"
-    },
-    {
-      "ts": "2026-06-30T11:30:03.530836+00:00",
-      "agent": "Clio",
-      "event": "dispatched",
-      "ticket": "AUTO-048",
-      "content": "data-analyst started work: FAQ Receptionist Usage Metrics Specification"
-    },
-    {
-      "ts": "2026-06-30T11:30:02.103375+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-045",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-30T11:30:02.077896+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-046",
-      "content": "[claude:owl-alpha] attempting: Cold Outreach Email Templates for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T11:30:01.706180+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-045",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
     }
   ],
   "problems": {}
