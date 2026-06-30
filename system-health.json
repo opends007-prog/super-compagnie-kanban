@@ -1,127 +1,125 @@
 {
-  "generatedAt": "2026-06-30T03:30:01.829160+00:00",
+  "generatedAt": "2026-06-30T03:40:01.394519+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 6.9,
-    "validator": 4.5,
-    "observability": 10.0,
-    "guard": 1030.0,
-    "backup": 30.0,
+    "work-executor": 9.9,
+    "validator": 0.0,
+    "observability": 0.0,
+    "guard": 1040.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 37,
     "backlog": 1,
-    "in_progress": 15,
+    "in_progress": 11,
     "planned": 3,
-    "in_validation": 28
+    "in_validation": 32
   },
   "tickets_total": 84,
   "done_today": 4,
-  "delivered_today": 40,
-  "delivered_week": 40,
+  "delivered_today": 43,
+  "delivered_week": 43,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 36,
+    "cerebras:gpt-oss-120b": 39,
     "claude:owl-alpha": 4
   },
   "live_agents": [
     "Fortuna",
     "Hades",
     "Hermes",
-    "Iris",
-    "Minerva",
     "Prometheus",
     "Thor",
     "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T03:25:32.574090+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-008",
-      "content": "PASS: The deliverable fully satisfies the ticket: it provides three complete, ready-to-send cold-outreach email template"
-    },
-    {
-      "ts": "2026-06-30T03:25:32.572420+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-007",
-      "content": "PASS: Deliverable fully satisfies the ticket: it is a complete, one-page sales pitch with a compelling headline, bullet-"
-    },
-    {
-      "ts": "2026-06-30T03:25:32.570289+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "AUTO-005",
-      "content": "FAIL #1: The deliverable file AUTO-005-deliverable.md does not exist in the work directory \u2014 no artifact was written to "
-    },
-    {
-      "ts": "2026-06-30T03:24:06.484389+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-010",
-      "content": "PASS: The deliverable is a complete, well-structured one-page reference guide with a quick-reference table, detailed obj"
-    },
-    {
-      "ts": "2026-06-30T03:24:06.481130+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-009",
-      "content": "PASS: The deliverable is a complete, detailed 15-minute demo script with timed sections (totaling exactly 15:00), talkin"
-    },
-    {
-      "ts": "2026-06-30T03:24:06.474072+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-008",
-      "content": "PASS: All three email templates (initial, follow-up, break-up) are fully written with subject lines, personalization tok"
-    },
-    {
-      "ts": "2026-06-30T03:24:06.469156+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-007",
-      "content": "PASS: The deliverable is a complete, substantive one-page sales pitch covering headline, problem, solution, bullet-point"
-    },
-    {
-      "ts": "2026-06-30T03:24:06.464276+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "AUTO-005",
-      "content": "FAIL #1: The deliverable file AUTO-005-deliverable.md does not exist in the work directory \u2014 no artifact was written to "
-    },
-    {
-      "ts": "2026-06-30T03:23:51.504394+00:00",
+      "ts": "2026-06-30T03:40:01.398667+00:00",
       "agent": "nemesis",
       "event": "validating",
-      "ticket": "AUTO-010",
-      "content": "[claude] Independently reviewing org-excellence's deliverable"
-    },
-    {
-      "ts": "2026-06-30T03:23:43.429669+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-009",
+      "ticket": "STORY-087",
       "content": "[claude] Independently reviewing income's deliverable"
     },
     {
-      "ts": "2026-06-30T03:23:06.889419+00:00",
+      "ts": "2026-06-30T03:40:01.395172+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-267",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-30T03:30:05.947697+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-005",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-005-deliverable.md (9202b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T03:30:05.946229+00:00",
+      "agent": "Hermes",
+      "event": "delivered",
+      "ticket": "AUTO-002",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-002-deliverable.md (13031b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T03:30:05.945069+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-004",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-004-deliverable.md (13063b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T03:30:05.943128+00:00",
       "agent": "Thor",
       "event": "delivered",
       "ticket": "AUTO-003",
-      "content": "[claude:owl-alpha] Produced AUTO-003-deliverable.md (12943b) \u2192 in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-003-deliverable.md (14459b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T03:23:06.886995+00:00",
-      "agent": "Prometheus",
-      "event": "delivered",
-      "ticket": "STORY-090",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-090-deliverable.md (15939b) \u2192 in_validation"
+      "ts": "2026-06-30T03:30:04.066088+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-005",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-06-30T03:30:04.061873+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-005",
+      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-06-30T03:30:02.012383+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-004",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy Impact Assessment (DPIA) Template"
+    },
+    {
+      "ts": "2026-06-30T03:30:02.007220+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-004",
+      "content": "security started work: Data Privacy Impact Assessment (DPIA) Template"
+    },
+    {
+      "ts": "2026-06-30T03:30:02.005319+00:00",
+      "agent": "Thor",
+      "event": "working",
+      "ticket": "AUTO-003",
+      "content": "[cerebras:gpt-oss-120b] attempting: CI/CD Pipeline Blueprint for Agent Deployments to VM"
+    },
+    {
+      "ts": "2026-06-30T03:30:02.000699+00:00",
+      "agent": "Thor",
+      "event": "dispatched",
+      "ticket": "AUTO-003",
+      "content": "devops started work: CI/CD Pipeline Blueprint for Agent Deployments to VM"
     }
   ],
   "problems": {}

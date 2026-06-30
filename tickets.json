@@ -3128,7 +3128,8 @@
         }
       ],
       "estimatedStartDate": "2026-06-30",
-      "validation_fails": 1
+      "validation_fails": 1,
+      "review_attempts": 1
     },
     {
       "id": "STORY-083",
@@ -3384,7 +3385,8 @@
       "estimatedStartDate": "2026-06-29",
       "assigned_to": "Fortuna",
       "last_agent_update": "2026-06-29T00:00:00.240192+00:00",
-      "validation_fails": 1
+      "validation_fails": 1,
+      "review_attempts": 1
     },
     {
       "id": "STORY-088",
@@ -3515,7 +3517,8 @@
       ],
       "estimatedStartDate": "2026-06-30",
       "assigned_to": "Fortuna",
-      "validation_fails": 1
+      "validation_fails": 1,
+      "review_attempts": 1
     },
     {
       "id": "STORY-090",
@@ -3634,7 +3637,7 @@
       "description": "Research and compile a comparative analysis of leading autonomous AI platform providers, focusing on pricing models, feature sets, and market positioning. Deliverable: a 2\u2011page PDF/Markdown report with key takeaways and potential partnership opportunities.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "backlog",
       "assigned_to": "Hermes",
       "team": "any",
       "epicId": "EPIC-009",
@@ -3642,9 +3645,9 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T20:24:52.456390+00:00",
-      "updatedAt": "2026-06-30T03:30:05.946000+00:00",
+      "updatedAt": "2026-06-30T03:43:11.119560+00:00",
       "progress": 40,
-      "validation_fails": 1,
+      "validation_fails": 2,
       "comments": [
         {
           "by": "auto-planner",
@@ -3670,6 +3673,11 @@
           "by": "Hermes",
           "timestamp": "2026-06-30T03:30:05.946000+00:00",
           "text": "Delivered work/AUTO-002-deliverable.md (13031 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T03:43:11.119560+00:00",
+          "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The report references 'Anthropic Claude 2' as a current platform, but Claude 2 was deprecated in 2024 and superseded by Claude 3/4.x; the Anthropic pricing model ($5k/month subscription) appears fabricated rather than sourced from public data; cost projections across providers use inconsistent token"
         }
       ],
       "jira_key": "[2026-06-29 21:29:44] [INFO] Creating Jira issue: AUTO-002 (Competitive Landscape Report for Autonomous AI Platforms)\n[2026-06-29 21:29:45] [INFO] Created Jira issue: TD-333\n[2026-06-29 21:29:45] [WARN] No transition found for 'In Review' on TD-333 (already in status?)\nTD-333",
@@ -3689,7 +3697,8 @@
           "timestamp": "2026-06-29T20:40:06.808108+00:00",
           "text": "Delivered work/AUTO-002-deliverable.md (17005 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-003",
@@ -3697,7 +3706,7 @@
       "description": "Design a reusable CI/CD pipeline (YAML) that automates building, testing, and deploying agent code to the target VM, including environment variable handling and rollback steps. Deliverable: pipeline configuration file plus a one\u2011page implementation guide.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "backlog",
       "assigned_to": "Thor",
       "team": "any",
       "epicId": "EPIC-001",
@@ -3705,9 +3714,9 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T20:24:52.456390+00:00",
-      "updatedAt": "2026-06-30T03:30:05.942303+00:00",
+      "updatedAt": "2026-06-30T03:43:11.124921+00:00",
       "progress": 40,
-      "validation_fails": 1,
+      "validation_fails": 2,
       "comments": [
         {
           "by": "auto-planner",
@@ -3733,6 +3742,11 @@
           "by": "Thor",
           "timestamp": "2026-06-30T03:30:05.942303+00:00",
           "text": "Delivered work/AUTO-003-deliverable.md (14459 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T03:43:11.124921+00:00",
+          "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The deploy.sh and rollback.sh scripts use a quoted heredoc ('EOF') which suppresses variable expansion, so ${IMAGE_NAME}, ${IMAGE_TAG}, and ${ENVIRONMENT} are sent as literals to the remote VM where they are undefined \u2014 docker pull/run would target an empty tag. Additionally, the rollback job refere"
         }
       ],
       "jira_key": "[2026-06-29 21:29:45] [INFO] Creating Jira issue: AUTO-003 (CI/CD Pipeline Blueprint for Agent Deployments to VM)\n[2026-06-29 21:29:46] [INFO] Created Jira issue: TD-334\n[2026-06-29 21:29:46] [WARN] No transition found for 'In Review' on TD-334 (already in status?)\nTD-334",
@@ -3752,7 +3766,8 @@
           "timestamp": "2026-06-29T20:40:08.978214+00:00",
           "text": "Delivered work/AUTO-003-deliverable.md (10711 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-004",
@@ -3760,7 +3775,7 @@
       "description": "Create a standardized DPIA template and checklist to evaluate privacy risks for any new dataset the company ingests or generates. Deliverable: a filled-out Word/Google Docs template with guidance notes and a short FAQ.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Hades",
       "team": "any",
       "epicId": "EPIC-010",
@@ -3768,7 +3783,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T20:24:52.456390+00:00",
-      "updatedAt": "2026-06-30T03:30:05.944844+00:00",
+      "updatedAt": "2026-06-30T03:43:11.127442+00:00",
       "progress": 40,
       "validation_fails": 1,
       "comments": [
@@ -3796,6 +3811,11 @@
           "by": "Hades",
           "timestamp": "2026-06-30T03:30:05.944844+00:00",
           "text": "Delivered work/AUTO-004-deliverable.md (13063 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T03:43:11.127442+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-004-deliverable.md): The deliverable is a complete, filled-out DPIA for a specific dataset (Customer-Insights-2026-Q2) with concrete stakeholders, risk assessments with scored mitigations, data subject rights processes, review signatures, a self-assessment checklist, and FAQ. It is genuine work addressing real privacy r"
         }
       ],
       "jira_key": "[2026-06-29 21:29:47] [INFO] Creating Jira issue: AUTO-004 (Data Privacy Impact Assessment (DPIA) Template)\n[2026-06-29 21:29:47] [INFO] Created Jira issue: TD-335\n[2026-06-29 21:29:47] [WARN] No transition found for 'In Review' on TD-335 (already in status?)\nTD-335",
@@ -3815,7 +3835,8 @@
           "timestamp": "2026-06-29T20:40:11.000180+00:00",
           "text": "Delivered work/AUTO-004-deliverable.md (11310 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-005",
