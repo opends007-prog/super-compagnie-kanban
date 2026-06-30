@@ -4584,7 +4584,7 @@
           "text": "Delivered work/AUTO-016-deliverable.md (9995 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
-      "review_attempts": 1
+      "review_attempts": 2
     },
     {
       "id": "AUTO-017",
@@ -5073,7 +5073,7 @@
       "description": "Produce a policy document that defines how client FAQ data is retained, archived, and securely deleted in compliance with GDPR and HIPAA where applicable. Deliverable: a policy brief (PDF) with retention periods, technical controls, and audit procedures.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Nemesis",
       "team": "any",
       "epicId": "EPIC-010",
@@ -5081,7 +5081,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T01:20:02.779750+00:00",
-      "updatedAt": "2026-06-30T06:10:03.652635+00:00",
+      "updatedAt": "2026-06-30T06:22:53.496852+00:00",
       "progress": 40,
       "validation_fails": 1,
       "comments": [
@@ -5109,6 +5109,11 @@
           "by": "Nemesis",
           "timestamp": "2026-06-30T06:10:03.652635+00:00",
           "text": "Delivered work/AUTO-028-deliverable.md (8637 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "qa",
+          "timestamp": "2026-06-30T06:22:53.496852+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-028-deliverable.md): The deliverable is a complete, substantive policy brief covering retention periods (with a correct GDPR/HIPAA split \u2014 PII at 24 months vs PHI at 6 years), technical controls, archival with secure-deletion procedures, audit procedures, and data subject rights; it is not a stub, plan, or placeholder. "
         }
       ],
       "review_attempts": 0
@@ -5160,7 +5165,7 @@
       "description": "Research the most common questions financial institutions ask their customers and draft a sample knowledge base of 10 Q&A pairs tailored to a financial services client. Deliver the knowledge base as a markdown document ready to be imported into the AI FAQ Receptionist system.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Minerva",
       "team": "any",
       "epicId": "EPIC-002",
@@ -5168,7 +5173,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T02:40:06.133067+00:00",
-      "updatedAt": "2026-06-30T03:02:19.354201+00:00",
+      "updatedAt": "2026-06-30T06:22:53.500752+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -5186,8 +5191,14 @@
           "by": "Minerva",
           "timestamp": "2026-06-30T03:02:19.354201+00:00",
           "text": "Delivered work/AUTO-029-deliverable.md (10437 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T06:22:53.500752+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-029-deliverable.md): The deliverable is a complete, substantive markdown knowledge base containing 10 Q&A pairs covering common financial services topics (account opening, KYC, digital banking, transfers, overdraft, credit cards, loans, investments, security, and support), formatted and ready for import into the AI FAQ "
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-030",
@@ -5195,7 +5206,7 @@
       "description": "Analyze market pricing data and develop a three\u2011tier pricing recommendation (Basic, Professional, Enterprise) with feature bundles and price points. Produce a concise recommendation document (PDF/markdown) that includes justification and a quick comparison table.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Fortuna",
       "team": "any",
       "epicId": "EPIC-009",
@@ -5203,7 +5214,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T02:40:06.133067+00:00",
-      "updatedAt": "2026-06-30T03:02:19.361107+00:00",
+      "updatedAt": "2026-06-30T06:22:53.505714+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -5221,8 +5232,14 @@
           "by": "Fortuna",
           "timestamp": "2026-06-30T03:02:19.361107+00:00",
           "text": "Delivered work/AUTO-030-deliverable.md (7919 bytes) via claude:owl-alpha \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T06:22:53.505714+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-030-deliverable.md): Complete deliverable: all required elements present (market benchmarks, three tiers with feature bundles and price points, cost model, justification, comparison table, revenue model) and all financial math cross-checks reconcile (floor price, per-tier margins, blended Enterprise margin, revenue sum,"
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-031",
@@ -5230,7 +5247,7 @@
       "description": "Create a security checklist focused on data collection, storage, transmission, and deletion for deployments of the AI FAQ Receptionist. The deliverable is a one\u2011page checklist (markdown) that can be used by the implementation team to verify compliance.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Hades",
       "team": "any",
       "epicId": "EPIC-010",
@@ -5238,7 +5255,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-30T02:40:06.133067+00:00",
-      "updatedAt": "2026-06-30T03:02:19.358390+00:00",
+      "updatedAt": "2026-06-30T06:22:53.509421+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -5256,8 +5273,14 @@
           "by": "Hades",
           "timestamp": "2026-06-30T03:02:19.358390+00:00",
           "text": "Delivered work/AUTO-031-deliverable.md (8104 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-06-30T06:22:53.509421+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-031-deliverable.md): The deliverable is a complete, domain-specific security checklist genuinely covering data collection, storage, transmission, and deletion for the AI FAQ Receptionist, with concrete checkpoints, evidence requirements, reference standards, remediation guidance, a verification script, and acceptance cr"
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-032",
@@ -5292,7 +5315,8 @@
           "timestamp": "2026-06-30T03:02:19.359752+00:00",
           "text": "Delivered work/AUTO-032-deliverable.md (9669 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
-      ]
+      ],
+      "review_attempts": 1
     }
   ],
   "stats": {

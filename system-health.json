@@ -1,39 +1,75 @@
 {
-  "generatedAt": "2026-06-30T06:10:01.650027+00:00",
+  "generatedAt": "2026-06-30T06:20:02.198814+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 7.7,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 1190.0,
-    "backup": 9.9,
+    "guard": 1200.0,
+    "backup": 19.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 57,
     "backlog": 4,
-    "in_progress": 14,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 5
+    "in_validation": 6
   },
   "tickets_total": 84,
   "done_today": 24,
-  "delivered_today": 22,
-  "delivered_week": 22,
+  "delivered_today": 23,
+  "delivered_week": 23,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 20,
+    "cerebras:gpt-oss-120b": 21,
     "claude:owl-alpha": 2
   },
   "live_agents": [
+    "Nemesis",
     "Plutus",
     "nemesis",
     "qa"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T06:20:02.244384+00:00",
+      "agent": "qa",
+      "event": "validating",
+      "ticket": "AUTO-028",
+      "content": "[claude] Independently reviewing nemesis's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:20:02.233175+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-016",
+      "content": "[claude] Independently reviewing finance's deliverable"
+    },
+    {
+      "ts": "2026-06-30T06:10:03.654325+00:00",
+      "agent": "Nemesis",
+      "event": "delivered",
+      "ticket": "AUTO-028",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (8637b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T06:10:01.781080+00:00",
+      "agent": "Nemesis",
+      "event": "working",
+      "ticket": "AUTO-028",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T06:10:01.779596+00:00",
+      "agent": "Nemesis",
+      "event": "dispatched",
+      "ticket": "AUTO-028",
+      "content": "nemesis started work: Data Retention & Deletion Policy for FAQ Receptionist"
+    },
     {
       "ts": "2026-06-30T06:02:18.420151+00:00",
       "agent": "nemesis",
@@ -82,41 +118,6 @@
       "event": "validating",
       "ticket": "AUTO-028",
       "content": "[claude] Independently reviewing nemesis's deliverable"
-    },
-    {
-      "ts": "2026-06-30T06:00:45.927144+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-027",
-      "content": "[claude] Independently reviewing org-excellence's deliverable"
-    },
-    {
-      "ts": "2026-06-30T06:00:19.641435+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-026",
-      "content": "[claude] Independently reviewing business-analyst's deliverable"
-    },
-    {
-      "ts": "2026-06-30T06:00:01.408921+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-016",
-      "content": "[claude] Independently reviewing finance's deliverable"
-    },
-    {
-      "ts": "2026-06-30T06:00:01.406337+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-025",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T05:50:05.249387+00:00",
-      "agent": "Plutus",
-      "event": "delivered",
-      "ticket": "AUTO-016",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-016-deliverable.md (9623b) \u2192 in_validation"
     }
   ],
   "problems": {}
