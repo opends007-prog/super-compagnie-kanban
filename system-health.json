@@ -1,31 +1,30 @@
 {
-  "generatedAt": "2026-06-30T09:40:02.528799+00:00",
+  "generatedAt": "2026-06-30T09:50:01.860851+00:00",
   "gateway_up": true,
   "disk_pct": 29,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
+    "validator": 8.9,
     "observability": 10.0,
-    "guard": 1400.0,
-    "backup": 10.0,
+    "guard": 1410.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 65,
+    "done": 69,
     "backlog": 6,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "planned": 4
   },
   "tickets_total": 92,
-  "done_today": 32,
-  "delivered_today": 28,
-  "delivered_week": 28,
+  "done_today": 36,
+  "delivered_today": 25,
+  "delivered_week": 25,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 26,
+    "cerebras:gpt-oss-120b": 23,
     "openclaw": 2
   },
   "live_agents": [
@@ -36,6 +35,48 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T09:41:09.282757+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-040",
+      "content": "PASS: The deliverable is a complete markdown checklist covering all ticket requirements\u2014VM baseline prerequisites, syste"
+    },
+    {
+      "ts": "2026-06-30T09:41:09.279301+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-039",
+      "content": "PASS: The deliverable provides three complete, copy-paste-ready emails with subject lines, full body copy, and objection"
+    },
+    {
+      "ts": "2026-06-30T09:41:09.276981+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-038",
+      "content": "PASS: The deliverable is a complete, on-topic one-page markdown brief that identifies an outpatient clinic scenario, des"
+    },
+    {
+      "ts": "2026-06-30T09:41:09.274052+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-037",
+      "content": "PASS: The deliverable is a complete, substantive one-page sales pitch that covers all required sections\u2014headline, proble"
+    },
+    {
+      "ts": "2026-06-30T09:40:33.655222+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-040",
+      "content": "[claude] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-06-30T09:40:20.916716+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-039",
+      "content": "[claude] Independently reviewing pm's deliverable"
+    },
     {
       "ts": "2026-06-30T09:40:02.582207+00:00",
       "agent": "nemesis",
@@ -77,48 +118,6 @@
       "event": "delivered",
       "ticket": "AUTO-037",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-037-deliverable.md (4112b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T09:24:42.047735+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-038",
-      "content": "[openclaw] attempting: Healthcare Use\u2011Case Brief for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T09:20:02.563202+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "AUTO-040",
-      "content": "[cerebras:gpt-oss-120b] attempting: Deployment Readiness Checklist for AI FAQ Receptionist on VM"
-    },
-    {
-      "ts": "2026-06-30T09:20:02.559185+00:00",
-      "agent": "Thor",
-      "event": "dispatched",
-      "ticket": "AUTO-040",
-      "content": "devops started work: Deployment Readiness Checklist for AI FAQ Receptionist on VM"
-    },
-    {
-      "ts": "2026-06-30T09:20:01.865589+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-038",
-      "content": "[claude:owl-alpha] attempting: Healthcare Use\u2011Case Brief for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T09:20:01.599658+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-038",
-      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Use\u2011Case Brief for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T09:20:01.597874+00:00",
-      "agent": "Minerva",
-      "event": "dispatched",
-      "ticket": "AUTO-038",
-      "content": "analyst started work: Healthcare Use\u2011Case Brief for AI FAQ Receptionist"
     }
   ],
   "problems": {}
