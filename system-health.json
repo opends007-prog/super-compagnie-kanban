@@ -1,32 +1,32 @@
 {
-  "generatedAt": "2026-06-30T00:40:01.881886+00:00",
+  "generatedAt": "2026-06-30T00:50:02.040373+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 1,
+  "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 2.6,
+    "work-executor": 8.1,
+    "validator": 12.6,
     "observability": 10.0,
-    "guard": 860.0,
-    "backup": 10.0,
+    "guard": 870.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 33,
-    "backlog": 5,
-    "in_progress": 11,
-    "in_validation": 25,
+    "backlog": 2,
+    "in_progress": 13,
+    "in_validation": 26,
     "planned": 1
   },
   "tickets_total": 75,
   "done_today": 0,
-  "delivered_today": 4,
-  "delivered_week": 50,
+  "delivered_today": 8,
+  "delivered_week": 51,
   "model_mix_week": {
     "cerebras:gpt-oss-120b": 46,
-    "claude:owl-alpha": 4
+    "claude:owl-alpha": 5
   },
   "live_agents": [
     "Clio",
@@ -37,88 +37,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T00:37:23.557573+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "STORY-088",
-      "content": "FAIL #1: The audit report lacks actual evidence excerpts \u2014 it claims tools were run and results captured, but includes z"
-    },
-    {
-      "ts": "2026-06-30T00:36:17.399058+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-088",
-      "content": "[claude] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-06-30T00:35:29.965304+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-087",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T00:30:49.894405+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "TD-267",
-      "content": "[claude] Independently reviewing claude's deliverable"
-    },
-    {
-      "ts": "2026-06-30T00:30:05.210237+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-024",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-024-deliverable.md (10993b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T00:30:05.207284+00:00",
-      "agent": "Clio",
-      "event": "delivered",
-      "ticket": "AUTO-022",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-022-deliverable.md (15655b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T00:30:05.203089+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-023",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-023-deliverable.md (11404b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T00:30:05.198415+00:00",
+      "ts": "2026-06-30T00:41:57.543953+00:00",
       "agent": "Metis",
       "event": "delivered",
       "ticket": "AUTO-021",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-021-deliverable.md (12407b) \u2192 in_progress"
+      "content": "[claude:owl-alpha] Produced AUTO-021-deliverable.md (6929b) \u2192 in_progress"
     },
     {
-      "ts": "2026-06-30T00:30:03.566054+00:00",
+      "ts": "2026-06-30T00:41:57.542766+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-023",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-023-deliverable.md (11437b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T00:41:57.541575+00:00",
+      "agent": "Clio",
+      "event": "delivered",
+      "ticket": "AUTO-022",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-022-deliverable.md (16755b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T00:41:57.539453+00:00",
       "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-024",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for AI FAQ Receptionist"
+      "event": "delivered",
+      "ticket": "STORY-088",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-088-deliverable.md (12837b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T00:30:03.561943+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-024",
-      "content": "security started work: Data Retention & Deletion Policy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T00:30:01.411594+00:00",
+      "ts": "2026-06-30T00:40:04.434138+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-023",
       "content": "[cerebras:gpt-oss-120b] attempting: Referral Program Blueprint for AI FAQ Receptionist Services"
     },
     {
-      "ts": "2026-06-30T00:30:01.405921+00:00",
+      "ts": "2026-06-30T00:40:04.429133+00:00",
       "agent": "Fortuna",
       "event": "dispatched",
       "ticket": "AUTO-023",
       "content": "income started work: Referral Program Blueprint for AI FAQ Receptionist Services"
+    },
+    {
+      "ts": "2026-06-30T00:40:02.266940+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-021",
+      "content": "[claude:owl-alpha] attempting: Client Onboarding Checklist for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T00:40:02.021011+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "STORY-088",
+      "content": "[cerebras:gpt-oss-120b] attempting: Audit payment gateway compliance"
+    },
+    {
+      "ts": "2026-06-30T00:40:02.012482+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-021",
+      "content": "[cerebras:gpt-oss-120b] attempting: Client Onboarding Checklist for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T00:40:02.011389+00:00",
+      "agent": "Clio",
+      "event": "working",
+      "ticket": "AUTO-022",
+      "content": "[cerebras:gpt-oss-120b] attempting: Success Metrics Dashboard Specification for AI FAQ Reception"
+    },
+    {
+      "ts": "2026-06-30T00:40:02.009736+00:00",
+      "agent": "Clio",
+      "event": "dispatched",
+      "ticket": "AUTO-022",
+      "content": "data-analyst started work: Success Metrics Dashboard Specification for AI FAQ Reception"
+    },
+    {
+      "ts": "2026-06-30T00:40:02.008055+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-021",
+      "content": "org-excellence started work: Client Onboarding Checklist for AI FAQ Receptionist"
     }
   ],
   "problems": {}
