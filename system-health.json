@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-06-30T00:00:02.109506+00:00",
+  "generatedAt": "2026-06-30T00:10:01.849616+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 0.0,
-    "observability": 0.0,
-    "guard": 820.0,
-    "backup": 30.0,
+    "validator": 6.1,
+    "observability": 10.0,
+    "guard": 830.0,
+    "backup": 9.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 33,
-    "backlog": 1,
+    "backlog": 2,
     "in_progress": 10,
-    "in_validation": 27
+    "in_validation": 26
   },
   "tickets_total": 71,
   "done_today": 0,
@@ -36,6 +36,34 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T00:03:06.281867+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-087",
+      "content": "[claude] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-06-30T00:03:06.278340+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "STORY-084",
+      "content": "Parked after 2 fails: The test suite cannot run green as claimed: the conftest.py gateway teardown calls the non-existen"
+    },
+    {
+      "ts": "2026-06-30T00:01:58.417421+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-084",
+      "content": "[claude] Independently reviewing qa's deliverable"
+    },
+    {
+      "ts": "2026-06-30T00:00:58.000679+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-267",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
     {
       "ts": "2026-06-30T00:00:01.944944+00:00",
       "agent": "nemesis",
@@ -91,34 +119,6 @@
       "event": "dispatched",
       "ticket": "AUTO-020",
       "content": "devops started work: Weekly FAQ Refresh Cron Job Specification"
-    },
-    {
-      "ts": "2026-06-29T23:40:01.927293+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-018",
-      "content": "[claude:owl-alpha] attempting: Healthcare Industry Sample FAQ Knowledge Base"
-    },
-    {
-      "ts": "2026-06-29T23:40:01.570869+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-019",
-      "content": "[cerebras:gpt-oss-120b] attempting: Security Risk Mitigation Checklist for AI FAQ Receptionist D"
-    },
-    {
-      "ts": "2026-06-29T23:40:01.567337+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-019",
-      "content": "security started work: Security Risk Mitigation Checklist for AI FAQ Receptionist D"
-    },
-    {
-      "ts": "2026-06-29T23:40:01.562367+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-017",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Targeted Outreach Playbook"
     }
   ],
   "problems": {}
