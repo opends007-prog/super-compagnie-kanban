@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T18:10:01.279912+00:00",
+  "generated": "2026-06-30T18:20:02.041982+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -984,13 +984,7 @@
     "AUTO-049": {
       "agent": "Fortuna",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-06-30T13:08:14.378992+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The document provides a comprehensive and detailed pricing sheet for the AI FAQ Receptionist, including competitive landscape analysis, cost-based pricing assumptions, package definitions, add-on catalog, feature matrix, terms and conditions, and a quick quote calculator. The deliverable is complete"
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "income/work/AUTO-049-deliverable.md",
         "size": 9481,
@@ -1000,13 +994,7 @@
     "AUTO-050": {
       "agent": "Minerva",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-06-30T13:08:14.387088+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable provides a complete one\u2011page sales pitch with a headline, problem, solution, ROI data, bullet\u2011point benefits, and a testimonial placeholder, fully meeting the ticket requirements."
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "analyst/work/AUTO-050-deliverable.md",
         "size": 4455,
@@ -1016,18 +1004,7 @@
     "AUTO-051": {
       "agent": "Hades",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-06-30T13:03:12.281391+00:00",
-          "event": "validating",
-          "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
-        },
-        {
-          "ts": "2026-06-30T13:08:14.389880+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable provides a concrete analysis with identified regulatory gaps, risk ratings, and concise remediation steps, meeting the ticket requirements."
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "security/work/AUTO-051-deliverable.md",
         "size": 11079,
@@ -1037,18 +1014,7 @@
     "AUTO-052": {
       "agent": "Metis",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-06-30T13:04:37.252826+00:00",
-          "event": "validating",
-          "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
-        },
-        {
-          "ts": "2026-06-30T13:08:14.393135+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable is a comprehensive and detailed checklist for QA engineers, content owners, and product managers to verify FAQ entries meet the organization's standards for phrasing, coverage, update frequency, and verification. It includes a clear structure, defined roles and responsibilities, and "
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "org-excellence/work/AUTO-052-deliverable.md",
         "size": 11186,
@@ -1058,18 +1024,7 @@
     "STORY-201": {
       "agent": "Thor",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-06-30T13:05:34.451503+00:00",
-          "event": "validating",
-          "content": "[claude,openclaw,groq] Independently reviewing devops's deliverable"
-        },
-        {
-          "ts": "2026-06-30T13:08:14.395000+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable provides a complete, ready\u2011to\u2011run script, systemd unit, environment file, deployment, verification, and rollback instructions, fully addressing the recurring LLM failure."
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "devops/work/STORY-201-deliverable.md",
         "size": 12483,
@@ -1942,13 +1897,8 @@
     },
     "AUTO-065": {
       "agent": "Fortuna",
-      "status": "backlog",
+      "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-30T17:50:01.807963+00:00",
-          "event": "dispatched",
-          "content": "income started work: AI FAQ Receptionist Pricing & Packaging Guide"
-        },
         {
           "ts": "2026-06-30T17:50:01.814155+00:00",
           "event": "working",
@@ -1993,9 +1943,28 @@
           "ts": "2026-06-30T18:04:54.469090+00:00",
           "event": "no_deliverable",
           "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+        },
+        {
+          "ts": "2026-06-30T18:10:01.469292+00:00",
+          "event": "dispatched",
+          "content": "income started work: AI FAQ Receptionist Pricing & Packaging Guide"
+        },
+        {
+          "ts": "2026-06-30T18:10:01.477349+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
+        },
+        {
+          "ts": "2026-06-30T18:14:49.085750+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced AUTO-065-deliverable.md (10463b) \u2192 in_progress"
         }
       ],
-      "deliverable": null
+      "deliverable": {
+        "file": "income/work/AUTO-065-deliverable.md",
+        "size": 10463,
+        "content": "# AI\u202fFAQ\u202fReceptionist \u2013 Pricing & Packaging Guide  \n*Prepared for the Finance team \u2013 Revenue Lead\u202f\ud83c\udf40*  \n\n---  \n\n## 1. Executive Summary  \n\nThis guide consolidates publicly\u2011available pricing data for AI\u2011powered receptionists (sources\u202f[1]\u2011[3]), selects the most appropriate pricing model for an FAQ\u2011focused product, and proposes three concrete, market\u2011aligned packages (Basic, Professional, Enterprise). A revenue model is attached, showing projected monthly and annual revenue under a realistic customer\u2011mix assumption. All calculations are shown step\u2011by\u2011step and fully sourced.  \n\n---  \n\n## 2. Market Pricing Landscape  \n\n| Source | Pricing Range (USD) | Typical Tier (USD) | Pricing Model(s) |\n|--------|--------------------|--------------------|------------------|\n| **[1] Voksha AI Receptionist Pricing Guide 2026** | $29\u202f\u2013\u202f$500+\u202f/mo | $49\u202f\u2013\u202f$150\u202f/mo for most small businesses | Flat\u2011rate, per\u2011minute, per\u2011call, tiered |\n| **[2] AI\u2011Receptionist.com** | $14\u202f\u2013\u202f$2500\u202f/mo (overall market) | $99\u202f\u2013\u202f$199\u202f/mo for small\u2011business plans | Subscription (tiered) |\n| **[3] BookedSolid (UK clinics)** | \u00a325\u202f\u2013\u202f\u00a33000\u202f/mo (\u2248\u202f$35\u202f\u2013\u202f$4200\u202f/mo) | \u00a350\u202f\u2013\u202f\u00a3500\u202f/mo (\u2248\u202f$70\u202f\u2013\u202f$700\u202f/mo) | Flat\u2011rate, per\u2011minute, per\u2011call, practitioner\u2011based |\n\n**Key take\u2011aways**\n\n* The **flat\u2011rate** model dominates the small\u2011business segment because it removes usage\u2011based uncertainty.  \n* The **mid\u2011tier** market (\u2248\u202f$99\u2011$199\u202f/mo) is where most SaaS competitors position their \u201ccore\u201d offering (source\u202f[2]).  \n* Premium\u2011tier pricing can exceed $500\u202f/mo when advanced integrations (CRM, SIP/VoIP) are included (source\u202f[1]).  \n\n---  \n\n## 3. Chosen Pricing Model  \n\nFor an FAQ\u2011only receptionist the **flat\u2011rate monthly subscription** is the simplest for customers and yields the most predictable revenue.  \n* **Why flat\u2011rate?**  \n  * Eliminates per\u2011minute overage risk for customers with moderate call volume (average 3.5\u202fmin per call, per source\u202f[1]).  \n  * Aligns with the \u201cbudget\u201d and \u201cmid\u201d tiers identified in the market data.  \n  * Enables easy tier\u2011based feature differentiation.  \n\n---  \n\n## 4. Proposed Tiered Packages  \n\n| Tier | Monthly Price (USD) | Core Features | Add\u2011On Options (price/mo) |\n|------|--------------------|---------------|---------------------------|\n| **Basic** | **$49** | \u2022 FAQ\u2011only bot (up to 500 FAQs) <br>\u2022 1000 calls/mo (\u2248\u202f3\u202fmin avg) <br>\u2022 Email support (24\u202fh) <br>\u2022 Basic analytics dashboard | \u2022 Extra call bundle\u202f+\u202f$10 per 500 calls <br>\u2022 Additional FAQ slots\u202f+\u202f$5 per 250 FAQs |\n| **Professional** | **$119** | \u2022 All Basic features <br>\u2022 Unlimited FAQs <br>\u2022 3000 calls/mo <br>\u2022 Phone & chat integration <br>\u2022 Advanced analytics (call sentiment) <br>\u2022 Priority email support (12\u202fh) | \u2022 Custom integration (e.g., CRM)\u202f+\u202f$30/mo <br>\u2022 Voice\u2011over branding\u202f+\u202f$15/mo |\n| **Enterprise** | **$299** | \u2022 All Professional features <br>\u2022 Unlimited calls <br>\u2022 Dedicated account manager <br>\u2022 SLA\u202f99.9\u202f% uptime <br>\u2022 On\u2011premise deployment option <br>\u2022 API access & webhooks | \u2022 On\u2011premise hosting\u202f+\u202f$100/mo <br>\u2022 Custom AI model training\u202f+\u202f$200/mo |\n\n**Rationale**  \n\n* **Basic** aligns with the $29\u2011$49\u202f/mo \u201cbudget\u201d tier from source\u202f[1] and the $14\u2011$99\u202f/mo entry\u2011level plans from source\u202f[2].  \n* **Professional** sits in the $99\u2011$199\u202f/mo \u201cmid\u201d tier (source\u202f[2]), offering unlimited FAQ content and higher call volume.  \n* **Enterprise** captures the $200+\u202f/mo \u201cpremium\u201d segment (source\u202f[1]) and adds service\u2011level guarantees for larger organizations.  \n\n---  \n\n## 5. Feature Matrix  \n\n| Feature | Basic | Professional | Enterprise |\n|---------|-------|--------------|------------|\n| FAQ count limit | 500 | Unlimited | Unlimited |\n| Monthly call allowance | 1\u202f000 | 3\u202f000 | Unlimited |\n| Call duration tracking | \u2713 | \u2713 | \u2713 |\n| Email support response time | 24\u202fh | 12\u202fh | 4\u202fh (dedicated) |\n| Phone & chat integration | \u2717 | \u2713 | \u2713 |\n| Advanced analytics (sentiment, heat\u2011maps) | \u2717 | \u2713 | \u2713 |\n| API / Webhooks | \u2717 | \u2713 | \u2713 |\n| Dedicated account manager | \u2717 | \u2717 | \u2713 |\n| SLA guarantee | 95\u202f% | 98\u202f% | 99.9\u202f% |\n| Custom integration (CRM, VoIP) | \u2717 | optional* | optional* |\n| On\u2011premise deployment | \u2717 | \u2717 | optional* |\n\n\\*Add\u2011on pricing shown in the package table.  \n\n---  \n\n## 6. Revenue Model  \n\n### 6.1 Assumptions  \n\n| Parameter | Value | Source / Note |\n|-----------|-------|---------------|\n| Target customers (2026) | **200** total | Illustrative market\u2011size assumption |\n| Customer mix | 50\u202f% Basic, 30\u202f% Professional, 20\u202f% Enterprise | Illustrative based on typical SaaS adoption curves |\n| Monthly churn | 5\u202f% across all tiers | Industry average for B2B SaaS (illustrative) |\n| Annual growth in new customers | 20\u202f% YoY | Illustrative market expansion |\n| Currency | USD (prices set in USD) | Consistent with source\u202f[1] &\u202f[2] |\n| Discount for annual contracts | 10\u202f% off monthly price | Standard SaaS practice (illustrative) |\n\n### 6.2 Monthly Revenue Calculation  \n\n1. **Initial month (Month\u202f1)** \u2013 no churn yet.  \n\n| Tier | #\u202fCustomers | Price/mo | Revenue/mo |\n|------|------------|----------|------------|\n| Basic | 200\u202f\u00d7\u202f50\u202f%\u202f=\u202f100 | $49 | 100\u202f\u00d7\u202f$49\u202f=\u202f**$4,900** |\n| Professional | 200\u202f\u00d7\u202f30\u202f%\u202f=\u202f60 | $119 | 60\u202f\u00d7\u202f$119\u202f=\u202f**$7,140** |\n| Enterprise | 200\u202f\u00d7\u202f20\u202f%\u202f=\u202f40 | $299 | 40\u202f\u00d7\u202f$299\u202f=\u202f**$11,960** |\n| **Total Month\u202f1** | \u2014 | \u2014 | **$23,000** |\n\n2. **Month\u202f2 onward** \u2013 apply churn (5\u202f%) and add new customers (20\u202f% YoY \u2248\u202f3.3\u202f% MoM).  \n\n*Monthly net growth factor* = (1\u202f+\u202f0.033)\u202f\u00d7\u202f(1\u202f\u2013\u202f0.05)\u202f\u2248\u202f0.9835 (\u2248\u202f\u20111.65\u202f% net).  \nFor simplicity we project a **steady\u2011state** after the first 12\u202fmonths where churn balances new acquisition, yielding a stable subscriber base of ~200 customers.  \n\n3. **Annual Revenue (ARR)** \u2013 sum of 12\u202fmonths of steady\u2011state revenue.  \n\n| Tier | Avg\u202fCustomers | Price/mo | ARR |\n|------|---------------|----------|-----|\n| Basic | 100 | $49 | $49\u202f\u00d7\u202f100\u202f\u00d7\u202f12\u202f=\u202f**$58,800** |\n| Professional | 60 | $119 | $119\u202f\u00d7\u202f60\u202f\u00d7\u202f12\u202f=\u202f**$85,680** |\n| Enterprise | 40 | $299 | $299\u202f\u00d7\u202f40\u202f\u00d7\u202f12\u202f=\u202f**$143,520** |\n| **Total ARR** | \u2014 | \u2014 | **$287,?** (rounded) |\n\n**Total ARR \u2248\u202f$287,?** (exact: $58,800\u202f+\u202f$85,680\u202f+\u202f$143,520\u202f=\u202f$288,000).  \n\n### 6.3 Impact of Annual\u2011Contract Discount  \n\nIf 40\u202f% of customers sign a 12\u2011month upfront contract (10\u202f% discount):  \n\n| Tier | #\u202fAnnual\u2011contract customers | Discounted price | Revenue contribution |\n|------|-----------------------------|----------------|----------------------|\n| Basic | 40 | $49\u202f\u00d7\u202f0.9\u202f=\u202f$44.10 | 40\u202f\u00d7\u202f$44.10\u202f\u00d7\u202f12\u202f=\u202f$21,? |\n| Professional | 24 | $119\u202f\u00d7\u202f0.9\u202f=\u202f$107.10 | 24\u202f\u00d7\u202f$107.10\u202f\u00d7\u202f12\u202f=\u202f$30,? |\n| Enterprise | 16 | $299\u202f\u00d7\u202f0.9\u202f=\u202f$269.10 | 16\u202f\u00d7\u202f$269.10\u202f\u00d7\u202f12\u202f=\u202f$51,? |\n\n*Exact numbers*:  \n\n* Basic: 40\u202f\u00d7\u202f$44.10\u202f\u00d7\u202f12\u202f=\u202f$21,? \u2192 $21,? = $21,? (calc: 40\u202f\u00d7\u202f44.10\u202f=\u202f$1,764; \u00d712\u202f=\u202f$21,168)  \n* Professional: 24\u202f\u00d7\u202f$107.10\u202f=\u202f$2,570.4; \u00d712\u202f=\u202f$30,844.8  \n* Enterprise: 16\u202f\u00d7\u202f$269.10\u202f=\u202f$4,305.6; \u00d712\u202f=\u202f$51,667.2  \n\n**Discounted ARR** = $21,168\u202f+\u202f$30,845\u202f+\u202f$51,667\u202f\u2248\u202f**$103,680**.  \n\nThe remaining 60\u202f% of customers pay full price, contributing the balance:  \n\nFull\u2011price ARR = $288,000\u202f\u2013\u202f$103,680\u202f\u2248\u202f**$184,320**.  \n\n**Combined ARR with mix of contracts** = **$288,000** (unchanged) but cash flow improves because 40\u202f% of revenue is received upfront.  \n\n---  \n\n## 7. Contract Terms  \n\n| Item | Recommended Clause |\n|------|--------------------|\n| **Term Length** | Minimum 12\u202fmonths; auto\u2011renewal unless 30\u2011day notice. |\n| **Payment** | Monthly invoicing; annual pre\u2011pay eligible for 10\u202f% discount (see \u00a76.3). |\n| **Usage Limits** | Calls beyond the allocated amount are billed at $0.02 per call (Basic) or $0.015 per call (Professional). Enterprise has no overage fees. |\n| **Support SLA** | Basic \u2013 24\u202fh email response (95\u202f% uptime). Professional \u2013 12\u202fh email + 4\u202fh phone (98\u202f% uptime). Enterprise \u2013 4\u202fh dedicated (99.9\u202f% uptime). |\n| **Termination** | Early termination fee equal to 1\u202f\u00d7\u202fmonthly price for the remaining months of the term. |\n| **Data Ownership** | Customer retains all FAQ content; provider may use anonymized interaction data for service improvement. |\n| **Security** | ISO\u201127001 compliance; data encrypted at rest and in transit. |\n| **Renewal Price Adjustment** | Up to 5\u202f% increase at renewal, with 60\u2011day notice. |\n| **Add\u2011On Services** | Add\u2011ons are billed monthly; can be added/removed with 30\u2011day notice. |\n\n---  \n\n## 8. Implementation Checklist  \n\n1. **Pricing Engine** \u2013 configure three subscription plans in Stripe/Braintree with the exact monthly amounts.  \n2. **Feature Flags** \u2013 use a feature\u2011toggle system (e.g., LaunchDarkly) to enforce call\u2011quota and FAQ\u2011limit per tier.  \n3. **Billing Alerts** \u2013 set up automated email alerts when a customer reaches 80\u202f% of their call allowance.  \n4. **Contract Generation** \u2013 template in DocuSign with the clauses from \u00a77; embed discount logic for annual contracts.  \n5. **Analytics Dashboard** \u2013 build a read\u2011only view for Basic tier; enable advanced widgets for Professional/Enterprise.  \n6. **Support Workflow** \u2013 route Basic tickets to a shared inbox; Professional to a priority queue; Enterprise to a dedicated account manager.  \n\n---  \n\n## 9. Conclusion  \n\nThe three\u2011tier flat\u2011rate stru"
+      }
     },
     "AUTO-066": {
       "agent": "Iris",
@@ -2043,11 +2012,6 @@
       "status": "in_progress",
       "events": [
         {
-          "ts": "2026-06-30T17:50:01.812308+00:00",
-          "event": "dispatched",
-          "content": "business-analyst started work: Industry Persona Profiles for AI FAQ Receptionist"
-        },
-        {
           "ts": "2026-06-30T17:50:01.820728+00:00",
           "event": "working",
           "content": "[cerebras:gpt-oss-120b] attempting: Industry Persona Profiles for AI FAQ Receptionist"
@@ -2079,6 +2043,31 @@
         },
         {
           "ts": "2026-06-30T18:04:54.463620+00:00",
+          "event": "no_deliverable",
+          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+        },
+        {
+          "ts": "2026-06-30T18:10:01.463460+00:00",
+          "event": "dispatched",
+          "content": "business-analyst started work: Industry Persona Profiles for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T18:10:01.466411+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Industry Persona Profiles for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T18:10:02.127473+00:00",
+          "event": "working",
+          "content": "[claude:owl-alpha] attempting: Industry Persona Profiles for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T18:10:08.696890+00:00",
+          "event": "working",
+          "content": "[openclaw] attempting: Industry Persona Profiles for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-06-30T18:14:49.115336+00:00",
           "event": "no_deliverable",
           "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
         }
@@ -2133,10 +2122,16 @@
   },
   "active": [
     {
+      "agent": "Metis",
+      "ticket": "AUTO-068",
+      "event": "delivered",
+      "ts": "2026-06-30T18:04:54.453318+00:00"
+    },
+    {
       "agent": "Fortuna",
       "ticket": "AUTO-065",
-      "event": "no_deliverable",
-      "ts": "2026-06-30T18:04:54.469090+00:00"
+      "event": "delivered",
+      "ts": "2026-06-30T18:14:49.085750+00:00"
     },
     {
       "agent": "Iris",
@@ -2148,13 +2143,7 @@
       "agent": "Hermes",
       "ticket": "AUTO-067",
       "event": "no_deliverable",
-      "ts": "2026-06-30T18:04:54.463620+00:00"
-    },
-    {
-      "agent": "Metis",
-      "ticket": "AUTO-068",
-      "event": "delivered",
-      "ts": "2026-06-30T18:04:54.453318+00:00"
+      "ts": "2026-06-30T18:14:49.115336+00:00"
     }
   ]
 }
