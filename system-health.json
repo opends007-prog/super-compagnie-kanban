@@ -1,31 +1,30 @@
 {
-  "generatedAt": "2026-06-30T16:00:01.617083+00:00",
+  "generatedAt": "2026-06-30T16:10:01.831822+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 20.0,
+    "work-executor": 10.0,
+    "validator": 3.7,
     "observability": 10.0,
-    "guard": 1780.0,
-    "backup": 29.9,
+    "guard": 1790.0,
+    "backup": 9.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 88,
+    "done": 91,
     "backlog": 6,
-    "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "in_progress": 14,
+    "planned": 4
   },
   "tickets_total": 115,
-  "done_today": 55,
-  "delivered_today": 43,
-  "delivered_week": 43,
+  "done_today": 58,
+  "delivered_today": 42,
+  "delivered_week": 42,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 37,
+    "cerebras:gpt-oss-120b": 36,
     "claude:owl-alpha": 2,
     "openclaw": 4
   },
@@ -33,9 +32,66 @@
     "Fortuna",
     "Hades",
     "Metis",
-    "Minerva"
+    "Minerva",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T16:06:18.800035+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-060",
+      "content": "PASS: The deliverable provides a complete headline, sub\u2011headline, feature bullet points, and a strong call\u2011to\u2011action rea"
+    },
+    {
+      "ts": "2026-06-30T16:06:18.793408+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-059",
+      "content": "PASS: The deliverable provides a detailed two\u2011page style report covering retail, hospitality, and healthcare market size"
+    },
+    {
+      "ts": "2026-06-30T16:06:18.791910+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "AUTO-058",
+      "content": "FAIL #1: The deliverable is a security audit of unrelated files, not a GDPR/CCPA compliance checklist for the AI FAQ Rec"
+    },
+    {
+      "ts": "2026-06-30T16:06:18.759168+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-057",
+      "content": "PASS: The deliverable provides a complete, sales\u2011ready one\u2011page markdown pricing sheet with researched tier pricing, per"
+    },
+    {
+      "ts": "2026-06-30T16:04:28.613592+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-060",
+      "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-06-30T16:03:05.222556+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-059",
+      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-06-30T16:00:01.922243+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-058",
+      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-06-30T16:00:01.917264+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-057",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-06-30T15:50:05.726208+00:00",
       "agent": "Fortuna",
@@ -63,62 +119,6 @@
       "event": "no_deliverable",
       "ticket": "AUTO-057",
       "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-06-30T15:40:54.867866+00:00",
-      "agent": "Metis",
-      "event": "delivered",
-      "ticket": "AUTO-060",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-060-deliverable.md (6499b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T15:40:54.864476+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-059",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-059-deliverable.md (10897b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T15:40:54.853054+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-058",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-058-deliverable.md (9268b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T15:40:21.055729+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-057",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-30T15:40:05.397638+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-060",
-      "content": "[cerebras:gpt-oss-120b] attempting: Landing Page Copy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T15:40:05.394522+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-060",
-      "content": "org-excellence started work: Landing Page Copy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T15:40:03.724869+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-057",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-30T15:40:03.211476+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-059",
-      "content": "[cerebras:gpt-oss-120b] attempting: Industry Segmentation Report for AI FAQ Receptionist"
     }
   ],
   "problems": {}
