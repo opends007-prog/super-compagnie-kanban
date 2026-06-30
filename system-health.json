@@ -1,43 +1,69 @@
 {
-  "generatedAt": "2026-06-30T02:20:01.628267+00:00",
+  "generatedAt": "2026-06-30T02:30:01.375617+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 13.9,
+    "work-executor": 10.0,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 960.0,
-    "backup": 20.0,
+    "guard": 970.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 33,
     "backlog": 1,
-    "in_progress": 11,
+    "in_progress": 10,
     "planned": 2,
-    "in_validation": 33
+    "in_validation": 34
   },
   "tickets_total": 80,
   "done_today": 0,
-  "delivered_today": 31,
-  "delivered_week": 49,
+  "delivered_today": 32,
+  "delivered_week": 50,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 45,
+    "cerebras:gpt-oss-120b": 46,
     "claude:owl-alpha": 4
   },
   "live_agents": [
     "Athena",
     "Fortuna",
     "Gladiator",
-    "Hermes",
-    "Metis",
     "Nemesis",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T02:30:01.385693+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-267",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-30T02:20:03.644458+00:00",
+      "agent": "Gladiator",
+      "event": "delivered",
+      "ticket": "STORY-200",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-200-deliverable.md (12967b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T02:20:01.725839+00:00",
+      "agent": "Gladiator",
+      "event": "working",
+      "ticket": "STORY-200",
+      "content": "[cerebras:gpt-oss-120b] attempting: FAQ list to bot JSON converter"
+    },
+    {
+      "ts": "2026-06-30T02:20:01.724139+00:00",
+      "agent": "Gladiator",
+      "event": "dispatched",
+      "ticket": "STORY-200",
+      "content": "tom started work: FAQ list to bot JSON converter"
+    },
     {
       "ts": "2026-06-30T02:10:05.206071+00:00",
       "agent": "Fortuna",
@@ -93,34 +119,6 @@
       "event": "dispatched",
       "ticket": "STORY-089",
       "content": "income started work: Optimize revenue workflow processes"
-    },
-    {
-      "ts": "2026-06-30T02:10:01.922207+00:00",
-      "agent": "Nemesis",
-      "event": "dispatched",
-      "ticket": "AUTO-028",
-      "content": "nemesis started work: Data Retention & Deletion Policy for FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T02:06:10.324134+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "STORY-089",
-      "content": "FAIL #1: The deliverable's central financial model does not reconcile with itself: the three uplift components sum to $6"
-    },
-    {
-      "ts": "2026-06-30T02:04:27.854274+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-089",
-      "content": "[claude] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T02:03:14.403952+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-088",
-      "content": "[claude] Independently reviewing security's deliverable"
     }
   ],
   "problems": {}
