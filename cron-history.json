@@ -1,6 +1,20 @@
 {
-  "updated": "2026-06-30T17:20:02.307873+00:00",
+  "updated": "2026-06-30T17:30:01.756148+00:00",
   "events": [
+    {
+      "ts": "2026-06-30T17:30:01.756148+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[validate]     AUTO-064: reviewer run error (openclaw): Command '['openclaw', 'agent', '--agent', 'nemesis', '--session-key', 'review-AUTO-064', '-m', 'You are an INDEPENDENT work reviewer. Strictly r"
+    },
+    {
+      "ts": "2026-06-30T17:29:01.756148+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-06-30T17:20:02.307873+00:00",
       "job": "real-work-executor",
@@ -98,6 +112,13 @@
       "kind": "system",
       "status": "ok",
       "msg": "[gen] added 4 new backlog tickets (AUTO-*)"
+    },
+    {
+      "ts": "2026-06-30T15:30:01.756148+00:00",
+      "job": "Hourly Check-in",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "2h ago"
     },
     {
       "ts": "2026-06-30T15:29:01.878337+00:00",
@@ -296,6 +317,13 @@
       "msg": "3h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-06-30T13:30:01.756148+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "4h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-06-30T13:30:01.537775+00:00",
       "job": "validate-work",
       "kind": "system",
@@ -420,6 +448,20 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "4h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-06-30T12:30:01.756148+00:00",
+      "job": "Daily 8 AM Security A...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "5h ago"
+    },
+    {
+      "ts": "2026-06-30T12:30:01.756148+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "5h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-06-30T12:30:01.537775+00:00",
@@ -583,6 +625,13 @@
       "msg": "5h ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed."
     },
     {
+      "ts": "2026-06-30T11:30:01.756148+00:00",
+      "job": "Lucy 8 AM Morning Mot...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "6h ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed."
+    },
+    {
       "ts": "2026-06-30T11:30:01.537775+00:00",
       "job": "Hourly Check-in",
       "kind": "discord-cron",
@@ -707,6 +756,20 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "6h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-06-30T10:30:01.756148+00:00",
+      "job": "Velocity (daily)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "7h ago"
+    },
+    {
+      "ts": "2026-06-30T10:30:01.756148+00:00",
+      "job": "Daily 7 AM Standup",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "7h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-06-30T10:30:01.537775+00:00",
@@ -849,6 +912,13 @@
       "msg": "7h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-06-30T09:30:01.756148+00:00",
+      "job": "Daily 6 AM Memory Mai...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "8h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-06-30T09:30:01.537775+00:00",
       "job": "Daily 6 AM Memory Mai...",
       "kind": "discord-cron",
@@ -910,6 +980,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "13h ago"
+    },
+    {
+      "ts": "2026-06-30T03:30:01.756148+00:00",
+      "job": "Daily 11 PM Backup (B...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "14h ago"
     },
     {
       "ts": "2026-06-30T03:20:02.328973+00:00",
@@ -987,6 +1064,20 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "14h ago"
+    },
+    {
+      "ts": "2026-06-29T17:30:01.756148+00:00",
+      "job": "Weekly Planning (Mon)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1d ago"
+    },
+    {
+      "ts": "2026-06-29T17:30:01.756148+00:00",
+      "job": "Weekly Plan Review (Mon)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1d ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-06-29T17:00:02.422578+00:00",
