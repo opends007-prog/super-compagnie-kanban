@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T05:00:01.882896+00:00",
+  "generated": "2026-06-30T05:10:01.695047+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -587,11 +587,6 @@
       "agent": "Hades",
       "status": "in_progress",
       "events": [
-        {
-          "ts": "2026-06-30T01:32:28.815927+00:00",
-          "event": "validating",
-          "content": "[claude] Independently reviewing security's deliverable"
-        },
         {
           "ts": "2026-06-30T02:03:14.403952+00:00",
           "event": "validating",
@@ -1199,6 +1194,11 @@
           "ts": "2026-06-30T04:41:08.619076+00:00",
           "event": "validating",
           "content": "[claude] Independently reviewing data-engineer's deliverable"
+        },
+        {
+          "ts": "2026-06-30T05:00:01.964231+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing data-engineer's deliverable"
         }
       ],
       "deliverable": {
@@ -1272,8 +1272,19 @@
     },
     "AUTO-015": {
       "agent": "Metis",
-      "status": "in_validation",
-      "events": [],
+      "status": "done",
+      "events": [
+        {
+          "ts": "2026-06-30T05:00:01.970421+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing org-excellence's deliverable"
+        },
+        {
+          "ts": "2026-06-30T05:03:10.756185+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable is a complete, ready-to-use service agreement covering all required sections: scope (Section 1 with deliverables and acceptance criteria), fees (Section 2 with payment terms), SLA (Section 3 with availability, response times, and service credits), data privacy (Section 4 with securit"
+        }
+      ],
       "deliverable": {
         "file": "org-excellence/work/AUTO-015-deliverable.md",
         "size": 16499,
@@ -1283,7 +1294,13 @@
     "AUTO-016": {
       "agent": "Plutus",
       "status": "in_validation",
-      "events": [],
+      "events": [
+        {
+          "ts": "2026-06-30T05:01:09.815137+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing finance's deliverable"
+        }
+      ],
       "deliverable": {
         "file": "finance/work/AUTO-016-deliverable.md",
         "size": 9995,
@@ -1292,8 +1309,19 @@
     },
     "AUTO-017": {
       "agent": "Fortuna",
-      "status": "in_validation",
-      "events": [],
+      "status": "done",
+      "events": [
+        {
+          "ts": "2026-06-30T05:02:13.853256+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing income's deliverable"
+        },
+        {
+          "ts": "2026-06-30T05:03:10.759899+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable is a complete, ready-for-reps playbook that genuinely covers all ticket requirements: a 7-step prospecting workflow, a personalized LinkedIn connection script with thank-you note, a 4-touch email follow-up cadence (Days 1/3/7/12) with subject lines and CTAs, and a full call script wi"
+        }
+      ],
       "deliverable": {
         "file": "income/work/AUTO-017-deliverable.md",
         "size": 9187,
@@ -1302,8 +1330,19 @@
     },
     "AUTO-018": {
       "agent": "Minerva",
-      "status": "in_validation",
-      "events": [],
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-30T05:02:41.732017+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing analyst's deliverable"
+        },
+        {
+          "ts": "2026-06-30T05:03:10.763350+00:00",
+          "event": "validation_fail",
+          "content": "FAIL #1: 19 of 20 source references are fabricated (fictional healthprovider.com URLs and a nonexistent CMS PDF; only the CDC flu link is real), and all in\u2011table citations are stub \u3010N\u2020source\u3011 markers rather than verifiable references\u2014the deliverable is a placeholder, not a complete, sourced knowledge base."
+        }
+      ],
       "deliverable": {
         "file": "analyst/work/AUTO-018-deliverable.md",
         "size": 8637,
@@ -1312,8 +1351,19 @@
     },
     "AUTO-019": {
       "agent": "Hades",
-      "status": "in_validation",
-      "events": [],
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-06-30T05:02:47.734351+00:00",
+          "event": "validating",
+          "content": "[claude] Independently reviewing security's deliverable"
+        },
+        {
+          "ts": "2026-06-30T05:03:10.765305+00:00",
+          "event": "validation_fail",
+          "content": "FAIL #1: The deliverable is a markdown document, not the required PDF checklist plus one-page implementation guide; it is a template/plan with placeholder evidence fields and no actual verified controls, so it does not satisfy the deliverable format or the 'verified before deployment' requirement."
+        }
+      ],
       "deliverable": {
         "file": "security/work/AUTO-019-deliverable.md",
         "size": 11779,
@@ -1375,16 +1425,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-30T01:40:02.156056+00:00",
-          "event": "dispatched",
-          "content": "income started work: AI FAQ Receptionist Upsell Playbook"
-        },
-        {
-          "ts": "2026-06-30T01:40:02.163548+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Upsell Playbook"
-        },
-        {
           "ts": "2026-06-30T01:40:05.808941+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-025-deliverable.md (11067b) \u2192 in_progress"
@@ -1416,16 +1456,6 @@
       "status": "in_validation",
       "events": [
         {
-          "ts": "2026-06-30T01:40:02.161699+00:00",
-          "event": "dispatched",
-          "content": "business-analyst started work: Healthcare Cold Outreach Email Sequence"
-        },
-        {
-          "ts": "2026-06-30T01:40:02.164781+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Cold Outreach Email Sequence"
-        },
-        {
           "ts": "2026-06-30T01:40:05.803616+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-026-deliverable.md (9959b) \u2192 in_progress"
@@ -1456,11 +1486,6 @@
       "agent": "Metis",
       "status": "in_validation",
       "events": [
-        {
-          "ts": "2026-06-30T01:40:03.806440+00:00",
-          "event": "dispatched",
-          "content": "org-excellence started work: Monthly FAQ Knowledge\u2011Base Refresh SOP"
-        },
         {
           "ts": "2026-06-30T01:40:03.815253+00:00",
           "event": "working",
@@ -1793,9 +1818,9 @@
   "active": [
     {
       "agent": "nemesis",
-      "ticket": "AUTO-014",
-      "event": "validation_pass",
-      "ts": "2026-06-30T04:42:37.268375+00:00"
+      "ticket": "AUTO-019",
+      "event": "validation_fail",
+      "ts": "2026-06-30T05:03:10.765305+00:00"
     },
     {
       "agent": "Fortuna",

@@ -4618,7 +4618,7 @@
       "description": "Research the most common customer\u2011service questions in the healthcare sector and compile a sample set of 20 Q&A pairs tailored for the AI FAQ Receptionist. Deliverable: a markdown file with the questions, suggested answer snippets, and source references.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Minerva",
       "team": "any",
       "epicId": "EPIC-009",
@@ -4626,7 +4626,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T23:20:04.182924+00:00",
-      "updatedAt": "2026-06-30T05:03:10.761892+00:00",
+      "updatedAt": "2026-06-30T05:10:04.123930+00:00",
       "progress": 40,
       "validation_fails": 1,
       "comments": [
@@ -4649,6 +4649,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-30T05:03:10.761892+00:00",
           "text": "VALIDATION FAIL #1 \u2014 sent back to redo: 19 of 20 source references are fabricated (fictional healthprovider.com URLs and a nonexistent CMS PDF; only the CDC flu link is real), and all in\u2011table citations are stub \u3010N\u2020source\u3011 markers rather than verifiable references\u2014the deliverable is a placeholder, not a complete, sourced knowledge base."
+        },
+        {
+          "by": "Minerva",
+          "timestamp": "2026-06-30T05:10:04.123930+00:00",
+          "text": "Delivered work/AUTO-018-deliverable.md (10207 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
       "review_attempts": 0
@@ -4659,7 +4664,7 @@
       "description": "Create a concise checklist of security controls (encryption, authentication, logging, access review) that must be verified before any client deployment of the AI FAQ Receptionist. Deliverable: a PDF checklist plus a one\u2011page implementation guide.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Hades",
       "team": "any",
       "epicId": "EPIC-010",
@@ -4667,7 +4672,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-06-29T23:20:04.182924+00:00",
-      "updatedAt": "2026-06-30T05:03:10.764297+00:00",
+      "updatedAt": "2026-06-30T05:10:04.129747+00:00",
       "progress": 40,
       "validation_fails": 1,
       "comments": [
@@ -4690,6 +4695,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-30T05:03:10.764297+00:00",
           "text": "VALIDATION FAIL #1 \u2014 sent back to redo: The deliverable is a markdown document, not the required PDF checklist plus one-page implementation guide; it is a template/plan with placeholder evidence fields and no actual verified controls, so it does not satisfy the deliverable format or the 'verified before deployment' requirement."
+        },
+        {
+          "by": "Hades",
+          "timestamp": "2026-06-30T05:10:04.129747+00:00",
+          "text": "Delivered work/AUTO-019-deliverable.md (12347 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
       "review_attempts": 0
