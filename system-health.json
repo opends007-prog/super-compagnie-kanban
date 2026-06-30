@@ -1,30 +1,31 @@
 {
-  "generatedAt": "2026-06-30T22:20:01.858185+00:00",
+  "generatedAt": "2026-06-30T22:30:01.951342+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 20.0,
+    "work-executor": 9.3,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 2160.0,
-    "backup": 20.0,
+    "guard": 2170.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 103,
     "backlog": 7,
-    "in_progress": 17,
-    "planned": 4
+    "in_progress": 14,
+    "planned": 4,
+    "in_validation": 3
   },
   "tickets_total": 131,
   "done_today": 70,
-  "delivered_today": 6,
-  "delivered_week": 6,
+  "delivered_today": 9,
+  "delivered_week": 9,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 6
+    "cerebras:gpt-oss-120b": 9
   },
   "live_agents": [
     "Fortuna",
@@ -34,88 +35,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T22:10:06.696177+00:00",
+      "ts": "2026-06-30T22:20:41.728582+00:00",
       "agent": "Fortuna",
-      "event": "delivered",
+      "event": "no_deliverable",
       "ticket": "AUTO-073",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-073-deliverable.md (5732b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-06-30T22:10:06.693392+00:00",
+      "ts": "2026-06-30T22:20:41.728002+00:00",
       "agent": "Vulcan",
       "event": "delivered",
       "ticket": "AUTO-076",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-076-deliverable.md (13039b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-076-deliverable.md (13705b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T22:10:06.691421+00:00",
+      "ts": "2026-06-30T22:20:41.726935+00:00",
       "agent": "Thor",
       "event": "delivered",
       "ticket": "AUTO-075",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-075-deliverable.md (18769b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-075-deliverable.md (14903b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T22:10:06.687787+00:00",
+      "ts": "2026-06-30T22:20:41.725160+00:00",
       "agent": "Hades",
       "event": "delivered",
       "ticket": "AUTO-074",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-074-deliverable.md (13705b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-074-deliverable.md (11399b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T22:10:03.834190+00:00",
+      "ts": "2026-06-30T22:20:13.811502+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-073",
+      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-06-30T22:20:04.203094+00:00",
       "agent": "Vulcan",
       "event": "working",
       "ticket": "AUTO-076",
       "content": "[cerebras:gpt-oss-120b] attempting: FAQ Interaction Metrics Collection Specification"
     },
     {
-      "ts": "2026-06-30T22:10:03.833154+00:00",
+      "ts": "2026-06-30T22:20:04.112667+00:00",
       "agent": "Vulcan",
       "event": "dispatched",
       "ticket": "AUTO-076",
       "content": "data-engineer started work: FAQ Interaction Metrics Collection Specification"
     },
     {
-      "ts": "2026-06-30T22:10:01.437278+00:00",
+      "ts": "2026-06-30T22:20:02.402664+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-073",
+      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-06-30T22:20:01.989010+00:00",
       "agent": "Thor",
       "event": "working",
       "ticket": "AUTO-075",
       "content": "[cerebras:gpt-oss-120b] attempting: VM Deployment Playbook for AI Agent Team"
     },
     {
-      "ts": "2026-06-30T22:10:01.433672+00:00",
+      "ts": "2026-06-30T22:20:01.983639+00:00",
       "agent": "Thor",
       "event": "dispatched",
       "ticket": "AUTO-075",
       "content": "devops started work: VM Deployment Playbook for AI Agent Team"
     },
     {
-      "ts": "2026-06-30T22:10:01.431409+00:00",
+      "ts": "2026-06-30T22:20:01.982830+00:00",
       "agent": "Hades",
       "event": "working",
       "ticket": "AUTO-074",
       "content": "[cerebras:gpt-oss-120b] attempting: FAQ Receptionist Data Privacy Compliance Guide"
     },
     {
-      "ts": "2026-06-30T22:10:01.429383+00:00",
+      "ts": "2026-06-30T22:20:01.976554+00:00",
       "agent": "Hades",
       "event": "dispatched",
       "ticket": "AUTO-074",
       "content": "security started work: FAQ Receptionist Data Privacy Compliance Guide"
-    },
-    {
-      "ts": "2026-06-30T22:10:01.428997+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-073",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-06-30T22:10:01.428292+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-073",
-      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
     }
   ],
   "problems": {}
