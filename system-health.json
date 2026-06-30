@@ -1,25 +1,25 @@
 {
-  "generatedAt": "2026-06-30T19:00:01.673289+00:00",
+  "generatedAt": "2026-06-30T19:10:02.177985+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.0,
-    "validator": 15.3,
+    "work-executor": 5.9,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 1960.0,
-    "backup": 29.9,
+    "guard": 1970.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 99,
-    "backlog": 6,
+    "backlog": 10,
     "in_progress": 14,
     "planned": 4
   },
-  "tickets_total": 123,
+  "tickets_total": 127,
   "done_today": 66,
   "delivered_today": 1,
   "delivered_week": 1,
@@ -28,10 +28,44 @@
   },
   "live_agents": [
     "Fortuna",
-    "Hermes",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T19:04:09.359803+00:00",
+      "agent": "Fortuna",
+      "event": "no_deliverable",
+      "ticket": "AUTO-065",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-06-30T19:00:22.112989+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-065",
+      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
+    },
+    {
+      "ts": "2026-06-30T19:00:02.662088+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-065",
+      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
+    },
+    {
+      "ts": "2026-06-30T19:00:02.006430+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-065",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
+    },
+    {
+      "ts": "2026-06-30T19:00:02.003346+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-065",
+      "content": "income started work: AI FAQ Receptionist Pricing & Packaging Guide"
+    },
     {
       "ts": "2026-06-30T18:54:59.597690+00:00",
       "agent": "Fortuna",
@@ -80,41 +114,6 @@
       "event": "validation_pass",
       "ticket": "AUTO-067",
       "content": "PASS: The deliverable provides five detailed buyer personas with demographics, pain points, decision criteria, and messa"
-    },
-    {
-      "ts": "2026-06-30T18:40:16.847834+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-065",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
-    },
-    {
-      "ts": "2026-06-30T18:40:02.739051+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-065",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
-    },
-    {
-      "ts": "2026-06-30T18:40:01.777297+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-065",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
-    },
-    {
-      "ts": "2026-06-30T18:40:01.772177+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-065",
-      "content": "income started work: AI FAQ Receptionist Pricing & Packaging Guide"
-    },
-    {
-      "ts": "2026-06-30T18:40:01.768457+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-067",
-      "content": "[claude,openclaw,groq] Independently reviewing business-analyst's deliverable"
     }
   ],
   "problems": {}

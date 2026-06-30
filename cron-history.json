@@ -1,6 +1,20 @@
 {
-  "updated": "2026-06-30T19:00:01.735249+00:00",
+  "updated": "2026-06-30T19:10:02.186999+00:00",
   "events": [
+    {
+      "ts": "2026-06-30T19:10:02.186999+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-065: cerebras dispatch error: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-06-30T19:10:02.186999+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "ok",
+      "msg": "[validate] no validations applied this run"
+    },
     {
       "ts": "2026-06-30T19:00:01.735249+00:00",
       "job": "real-work-executor",
@@ -1414,6 +1428,20 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "14h ago"
+    },
+    {
+      "ts": "2026-06-29T19:10:02.186999+00:00",
+      "job": "Weekly Planning (Mon)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1d ago"
+    },
+    {
+      "ts": "2026-06-29T19:10:02.186999+00:00",
+      "job": "Weekly Plan Review (Mon)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1d ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-06-29T18:50:02.070674+00:00",
