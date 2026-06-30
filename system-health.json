@@ -1,42 +1,52 @@
 {
-  "generatedAt": "2026-06-30T12:00:02.581441+00:00",
+  "generatedAt": "2026-06-30T12:10:01.422821+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 19.0,
+    "validator": 7.0,
     "observability": 10.0,
-    "guard": 1540.0,
-    "backup": 29.9,
+    "guard": 1550.0,
+    "backup": 9.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 76,
+    "done": 77,
     "backlog": 6,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 1
+    "planned": 4
   },
   "tickets_total": 100,
-  "done_today": 43,
-  "delivered_today": 38,
-  "delivered_week": 38,
+  "done_today": 44,
+  "delivered_today": 37,
+  "delivered_week": 37,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 31,
+    "cerebras:gpt-oss-120b": 30,
     "openclaw": 4,
     "claude:owl-alpha": 3
   },
   "live_agents": [
-    "Clio",
-    "Fortuna",
     "Iris",
-    "Thor",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-06-30T12:03:01.039848+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-046",
+      "content": "PASS: The deliverable provides five complete, sector\u2011specific cold\u2011outreach email templates with subject lines, body cop"
+    },
+    {
+      "ts": "2026-06-30T12:00:03.023663+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-046",
+      "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+    },
     {
       "ts": "2026-06-30T11:50:03.848377+00:00",
       "agent": "Iris",
@@ -106,20 +116,6 @@
       "event": "validating",
       "ticket": "AUTO-046",
       "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
-    },
-    {
-      "ts": "2026-06-30T11:40:02.132083+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-045",
-      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-06-30T11:35:59.358622+00:00",
-      "agent": "Clio",
-      "event": "delivered",
-      "ticket": "AUTO-048",
-      "content": "[openclaw] Produced AUTO-048-deliverable.md (7132b) \u2192 in_validation"
     }
   ],
   "problems": {}
