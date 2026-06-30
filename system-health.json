@@ -1,32 +1,32 @@
 {
-  "generatedAt": "2026-06-30T01:50:02.205118+00:00",
+  "generatedAt": "2026-06-30T02:00:01.503712+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 11.6,
-    "observability": 10.0,
-    "guard": 930.0,
-    "backup": 20.0,
+    "work-executor": 9.5,
+    "validator": 0.0,
+    "observability": 0.0,
+    "guard": 940.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 33,
-    "backlog": 3,
-    "in_progress": 13,
+    "backlog": 2,
+    "in_progress": 11,
     "planned": 2,
-    "in_validation": 29
+    "in_validation": 32
   },
   "tickets_total": 80,
   "done_today": 0,
-  "delivered_today": 22,
-  "delivered_week": 51,
+  "delivered_today": 26,
+  "delivered_week": 52,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 45,
-    "claude:owl-alpha": 6
+    "cerebras:gpt-oss-120b": 47,
+    "claude:owl-alpha": 5
   },
   "live_agents": [
     "Athena",
@@ -39,88 +39,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T01:40:05.818107+00:00",
+      "ts": "2026-06-30T02:00:01.515831+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "TD-267",
+      "content": "[claude] Independently reviewing claude's deliverable"
+    },
+    {
+      "ts": "2026-06-30T01:50:31.576889+00:00",
+      "agent": "Nemesis",
+      "event": "delivered",
+      "ticket": "AUTO-028",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-028-deliverable.md (10899b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-06-30T01:50:31.569149+00:00",
       "agent": "Metis",
       "event": "delivered",
       "ticket": "AUTO-027",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-027-deliverable.md (11014b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-027-deliverable.md (12097b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T01:40:05.813973+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "STORY-087",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-087-deliverable.md (11791b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-06-30T01:40:05.808941+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-025",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-025-deliverable.md (11067b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T01:40:05.803616+00:00",
+      "ts": "2026-06-30T01:50:31.563936+00:00",
       "agent": "Hermes",
       "event": "delivered",
       "ticket": "AUTO-026",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-026-deliverable.md (9959b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-026-deliverable.md (9987b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T01:40:03.815253+00:00",
+      "ts": "2026-06-30T01:50:31.552077+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-025",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-025-deliverable.md (10610b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-06-30T01:50:04.256179+00:00",
+      "agent": "Nemesis",
+      "event": "working",
+      "ticket": "AUTO-028",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T01:50:04.251479+00:00",
+      "agent": "Nemesis",
+      "event": "dispatched",
+      "ticket": "AUTO-028",
+      "content": "nemesis started work: Data Retention & Deletion Policy for FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T01:50:02.327264+00:00",
       "agent": "Metis",
       "event": "working",
       "ticket": "AUTO-027",
       "content": "[cerebras:gpt-oss-120b] attempting: Monthly FAQ Knowledge\u2011Base Refresh SOP"
     },
     {
-      "ts": "2026-06-30T01:40:03.806440+00:00",
+      "ts": "2026-06-30T01:50:02.324013+00:00",
       "agent": "Metis",
       "event": "dispatched",
       "ticket": "AUTO-027",
       "content": "org-excellence started work: Monthly FAQ Knowledge\u2011Base Refresh SOP"
     },
     {
-      "ts": "2026-06-30T01:40:02.164781+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-026",
-      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Cold Outreach Email Sequence"
-    },
-    {
-      "ts": "2026-06-30T01:40:02.163548+00:00",
+      "ts": "2026-06-30T01:50:02.319180+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-025",
       "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Upsell Playbook"
     },
     {
-      "ts": "2026-06-30T01:40:02.161699+00:00",
+      "ts": "2026-06-30T01:50:02.318095+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-026",
+      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Cold Outreach Email Sequence"
+    },
+    {
+      "ts": "2026-06-30T01:50:02.317085+00:00",
       "agent": "Hermes",
       "event": "dispatched",
       "ticket": "AUTO-026",
       "content": "business-analyst started work: Healthcare Cold Outreach Email Sequence"
-    },
-    {
-      "ts": "2026-06-30T01:40:02.156056+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-025",
-      "content": "income started work: AI FAQ Receptionist Upsell Playbook"
-    },
-    {
-      "ts": "2026-06-30T01:40:02.154736+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "STORY-087",
-      "content": "[cerebras:gpt-oss-120b] attempting: Enterprise client revenue analysis"
-    },
-    {
-      "ts": "2026-06-30T01:40:02.153486+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "STORY-087",
-      "content": "income started work: Enterprise client revenue analysis"
     }
   ],
   "problems": {}

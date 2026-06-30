@@ -4814,7 +4814,7 @@
     {
       "id": "STORY-200",
       "title": "FAQ list to bot JSON converter",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "medium",
       "team": "any",
       "assigned_to": "Gladiator",
@@ -4825,14 +4825,19 @@
       "category": null,
       "lane": "builder",
       "filename": "faq_to_json.py",
-      "validation_fails": 0,
+      "validation_fails": 1,
       "epicId": "EPIC-006",
       "createdAt": "2026-06-30T01:27:50.861684+00:00",
-      "updatedAt": "2026-06-30T01:27:50.861694+00:00",
+      "updatedAt": "2026-06-30T02:00:03.130591+00:00",
       "comments": [
         {
           "by": "CEO",
           "text": "Ticket created via request c33e16df"
+        },
+        {
+          "by": "Nemesis",
+          "timestamp": "2026-06-30T02:00:03.130591+00:00",
+          "text": "BUILDER LANE: rejected (not merged) \u2014 review FAIL: The question/answer detection only matches \"? \" and \"! \" (with a space) and thus fails to recognize lines that start with just \"?\" or \"!\", which the specification allows.. Branch discarded."
         }
       ]
     }
