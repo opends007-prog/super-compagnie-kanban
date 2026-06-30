@@ -1,30 +1,31 @@
 {
-  "generatedAt": "2026-06-30T19:30:01.531215+00:00",
+  "generatedAt": "2026-06-30T19:40:02.109640+00:00",
   "gateway_up": true,
   "disk_pct": 28,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.4,
-    "validator": 10.0,
+    "work-executor": 5.0,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 1990.0,
-    "backup": 30.0,
+    "guard": 2000.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 99,
     "backlog": 7,
-    "in_progress": 17,
-    "planned": 4
+    "in_progress": 16,
+    "planned": 4,
+    "in_validation": 1
   },
   "tickets_total": 127,
   "done_today": 66,
-  "delivered_today": 4,
-  "delivered_week": 4,
+  "delivered_today": 5,
+  "delivered_week": 5,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 4
+    "cerebras:gpt-oss-120b": 5
   },
   "live_agents": [
     "Fortuna",
@@ -33,88 +34,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-06-30T19:24:35.717422+00:00",
+      "ts": "2026-06-30T19:35:03.185169+00:00",
       "agent": "Fortuna",
       "event": "no_deliverable",
       "ticket": "AUTO-065",
       "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-06-30T19:24:35.714914+00:00",
-      "agent": "Iris",
+      "ts": "2026-06-30T19:35:03.178970+00:00",
+      "agent": "Fortuna",
       "event": "no_deliverable",
-      "ticket": "AUTO-070",
+      "ticket": "AUTO-069",
       "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-06-30T19:24:35.713389+00:00",
+      "ts": "2026-06-30T19:35:03.171142+00:00",
       "agent": "Hermes",
-      "event": "delivered",
+      "event": "no_deliverable",
       "ticket": "AUTO-071",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-071-deliverable.md (11719b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-06-30T19:24:35.702915+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-069",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-069-deliverable.md (6947b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-06-30T19:20:11.580559+00:00",
+      "ts": "2026-06-30T19:35:03.134355+00:00",
       "agent": "Iris",
-      "event": "working",
+      "event": "delivered",
       "ticket": "AUTO-070",
-      "content": "[openclaw] attempting: One-Page Sales Pitch Deck (Markdown) for AI FAQ Receptionist"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-070-deliverable.md (5606b) \u2192 in_validation"
     },
     {
-      "ts": "2026-06-30T19:20:11.507075+00:00",
+      "ts": "2026-06-30T19:30:22.107020+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-065",
       "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
     },
     {
-      "ts": "2026-06-30T19:20:05.865825+00:00",
+      "ts": "2026-06-30T19:30:21.301091+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-071",
+      "content": "[openclaw] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top 5 Ven"
+    },
+    {
+      "ts": "2026-06-30T19:30:21.286155+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-069",
+      "content": "[openclaw] attempting: Cold Outreach Email Sequence for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-06-30T19:30:04.295173+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-071",
+      "content": "[claude:owl-alpha] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top 5 Ven"
+    },
+    {
+      "ts": "2026-06-30T19:30:03.754782+00:00",
       "agent": "Hermes",
       "event": "working",
       "ticket": "AUTO-071",
       "content": "[cerebras:gpt-oss-120b] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top 5 Ven"
     },
     {
-      "ts": "2026-06-30T19:20:05.836435+00:00",
+      "ts": "2026-06-30T19:30:03.753247+00:00",
       "agent": "Hermes",
       "event": "dispatched",
       "ticket": "AUTO-071",
       "content": "business-analyst started work: Competitive Feature Matrix: AI FAQ Receptionist vs Top 5 Ven"
     },
     {
-      "ts": "2026-06-30T19:20:02.775798+00:00",
+      "ts": "2026-06-30T19:30:02.525463+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-065",
       "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
     },
     {
-      "ts": "2026-06-30T19:20:02.674738+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-070",
-      "content": "[claude:owl-alpha] attempting: One-Page Sales Pitch Deck (Markdown) for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T19:20:02.006200+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-070",
-      "content": "[cerebras:gpt-oss-120b] attempting: One-Page Sales Pitch Deck (Markdown) for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-06-30T19:20:02.002884+00:00",
+      "ts": "2026-06-30T19:30:02.444781+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-069",
-      "content": "[cerebras:gpt-oss-120b] attempting: Cold Outreach Email Sequence for AI FAQ Receptionist"
+      "content": "[claude:owl-alpha] attempting: Cold Outreach Email Sequence for AI FAQ Receptionist"
     }
   ],
   "problems": {}
