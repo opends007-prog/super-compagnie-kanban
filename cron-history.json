@@ -1,12 +1,54 @@
 {
-  "updated": "2026-06-30T11:00:02.697807+00:00",
+  "updated": "2026-06-30T11:10:01.339400+00:00",
   "events": [
+    {
+      "ts": "2026-06-30T11:10:01.339400+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[validate] tickets.json updated"
+    },
+    {
+      "ts": "2026-06-30T11:10:01.339400+00:00",
+      "job": "generate-work",
+      "kind": "system",
+      "status": "ok",
+      "msg": "[gen] added 4 new backlog tickets (AUTO-*)"
+    },
+    {
+      "ts": "2026-06-30T11:10:01.339400+00:00",
+      "job": "builder-lane",
+      "kind": "system",
+      "status": "ok",
+      "msg": "[builder] no builder tickets to process"
+    },
+    {
+      "ts": "2026-06-30T11:10:01.339400+00:00",
+      "job": "quick-backup",
+      "kind": "system",
+      "status": "ok",
+      "msg": "a05fcdd..2301af1  master -> master"
+    },
+    {
+      "ts": "2026-06-30T11:05:01.339400+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "5m ago"
+    },
     {
       "ts": "2026-06-30T11:00:02.697807+00:00",
       "job": "real-work-executor",
       "kind": "system",
       "status": "ok",
       "msg": "[work] tickets.json updated (only tickets with real deliverables advanced)"
+    },
+    {
+      "ts": "2026-06-30T11:00:01.339400+00:00",
+      "job": "Daily 7 AM Standup",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "10m ago \u00b7 google/gemini-2.5..."
     },
     {
       "ts": "2026-06-30T10:59:02.697807+00:00",
@@ -44,6 +86,13 @@
       "msg": "20m ago"
     },
     {
+      "ts": "2026-06-30T10:30:01.339400+00:00",
+      "job": "Velocity (daily)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "40m ago"
+    },
+    {
       "ts": "2026-06-30T10:29:58.050006+00:00",
       "job": "Queue Tick 30m",
       "kind": "discord-cron",
@@ -77,6 +126,34 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "46m ago \u00b7 google/gemini-2.5..."
+    },
+    {
+      "ts": "2026-06-30T07:02:16.466-04:00",
+      "job": "gateway cron (LLM turn)",
+      "kind": "discord-cron",
+      "status": "warn",
+      "msg": "FailoverError: \u26a0\ufe0f API rate limit reached. Please try again later."
+    },
+    {
+      "ts": "2026-06-30T07:02:16.464-04:00",
+      "job": "gateway cron (LLM turn)",
+      "kind": "discord-cron",
+      "status": "warn",
+      "msg": "FailoverError: \u26a0\ufe0f API rate limit reached. Please try again later."
+    },
+    {
+      "ts": "2026-06-30T07:02:14.616-04:00",
+      "job": "gateway cron (LLM turn)",
+      "kind": "discord-cron",
+      "status": "warn",
+      "msg": "FailoverError: LLM request timed out."
+    },
+    {
+      "ts": "2026-06-30T07:02:14.613-04:00",
+      "job": "gateway cron (LLM turn)",
+      "kind": "discord-cron",
+      "status": "warn",
+      "msg": "FailoverError: LLM request timed out."
     },
     {
       "ts": "2026-06-30T06:00:32.899-04:00",
