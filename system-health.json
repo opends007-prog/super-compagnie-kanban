@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-07-01T13:20:01.434656+00:00",
+  "generatedAt": "2026-07-01T13:30:02.042812+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 12.7,
+    "work-executor": 10.0,
+    "validator": 6.8,
     "observability": 10.0,
-    "guard": 3060.0,
-    "backup": 19.9,
+    "guard": 3070.0,
+    "backup": 29.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 157,
+    "done": 158,
     "backlog": 8,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 1
+    "planned": 4
   },
   "tickets_total": 183,
-  "done_today": 46,
+  "done_today": 47,
   "delivered_today": 2,
   "delivered_week": 2,
   "model_mix_week": {
@@ -32,6 +31,20 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T13:23:11.895657+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-125",
+      "content": "PASS: The deliverable provides a comprehensive competitive analysis of the AI FAQ Receptionist pricing landscape, identi"
+    },
+    {
+      "ts": "2026-07-01T13:20:01.549818+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-125",
+      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+    },
     {
       "ts": "2026-07-01T13:10:08.269616+00:00",
       "agent": "Minerva",
