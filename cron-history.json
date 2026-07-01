@@ -1,6 +1,20 @@
 {
-  "updated": "2026-07-01T05:20:01.908810+00:00",
+  "updated": "2026-07-01T05:30:01.995196+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T05:30:01.995196+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[validate]     AUTO-100: engine 'claude' gave no usable verdict \u2014 trying next in chain"
+    },
+    {
+      "ts": "2026-07-01T05:29:01.995196+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-07-01T05:20:01.908810+00:00",
       "job": "real-work-executor",
@@ -84,6 +98,13 @@
       "kind": "system",
       "status": "ok",
       "msg": "[validate] no validations applied this run"
+    },
+    {
+      "ts": "2026-07-01T03:30:01.995196+00:00",
+      "job": "Daily 11 PM Backup (B...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "2h ago"
     },
     {
       "ts": "2026-07-01T03:30:01.597592+00:00",
@@ -238,6 +259,13 @@
       "kind": "system",
       "status": "ok",
       "msg": "[work] tickets.json updated (only tickets with real deliverables advanced)"
+    },
+    {
+      "ts": "2026-07-01T01:30:01.995196+00:00",
+      "job": "Hourly Check-in",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "4h ago"
     },
     {
       "ts": "2026-07-01T01:30:01.674419+00:00",
@@ -1234,6 +1262,13 @@
       "msg": "8h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-06-30T13:30:01.995196+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "16h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-06-30T13:30:01.944641+00:00",
       "job": "Daily 10 AM Improvement",
       "kind": "discord-cron",
@@ -1591,6 +1626,20 @@
       "msg": "9h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-06-30T12:30:01.995196+00:00",
+      "job": "Daily 8 AM Security A...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "17h ago"
+    },
+    {
+      "ts": "2026-06-30T12:30:01.995196+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "17h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-06-30T12:30:01.944641+00:00",
       "job": "Validation Reviewer (...",
       "kind": "discord-cron",
@@ -1701,55 +1750,6 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "2h ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed."
-    },
-    {
-      "ts": "2026-06-30T12:20:02.328973+00:00",
-      "job": "Lucy 8 AM Morning Mot...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "3h ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed."
-    },
-    {
-      "ts": "2026-06-30T12:20:02.328973+00:00",
-      "job": "Daily 8 AM Security A...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "3h ago"
-    },
-    {
-      "ts": "2026-06-30T12:20:02.218728+00:00",
-      "job": "Daily 8 AM Security A...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "13h ago"
-    },
-    {
-      "ts": "2026-06-30T12:20:02.060294+00:00",
-      "job": "Lucy 8 AM Morning Mot...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "6h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T12:20:02.060294+00:00",
-      "job": "Daily 8 AM Security A...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "6h ago"
-    },
-    {
-      "ts": "2026-06-30T12:20:01.987206+00:00",
-      "job": "Lucy 8 AM Morning Mot...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "11h ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed."
-    },
-    {
-      "ts": "2026-06-30T12:20:01.982662+00:00",
-      "job": "Lucy 8 AM Morning Mot...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "15h ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed."
     }
   ]
 }

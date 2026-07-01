@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-01T05:20:01.892090+00:00",
+  "generated": "2026-07-01T05:30:01.973106+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -1296,16 +1296,6 @@
       "status": "done",
       "events": [
         {
-          "ts": "2026-06-30T23:20:05.448340+00:00",
-          "event": "working",
-          "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-        },
-        {
-          "ts": "2026-06-30T23:22:23.340048+00:00",
-          "event": "delivered",
-          "content": "[openclaw] Produced AUTO-077-deliverable.md (6132b) \u2192 in_validation"
-        },
-        {
           "ts": "2026-06-30T23:40:02.140875+00:00",
           "event": "validating",
           "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
@@ -1327,16 +1317,6 @@
       "status": "done",
       "events": [
         {
-          "ts": "2026-06-30T23:22:23.325654+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-078-deliverable.md (5398b) \u2192 in_validation"
-        },
-        {
-          "ts": "2026-06-30T23:40:02.136055+00:00",
-          "event": "validating",
-          "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
-        },
-        {
           "ts": "2026-06-30T23:47:15.948774+00:00",
           "event": "validation_pass",
           "content": "PASS: The deliverable provides a complete, ready\u2011to\u2011use one\u2011page sales pitch with headline, problem statement, solution description, benefits, ROI calculations, talking points, and a clear call\u2011to\u2011action, fully meeting the ticket requirements."
@@ -1352,11 +1332,6 @@
       "agent": "Vulcan",
       "status": "done",
       "events": [
-        {
-          "ts": "2026-06-30T23:22:23.337913+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-079-deliverable.md (15236b) \u2192 in_validation"
-        },
         {
           "ts": "2026-06-30T23:42:41.666798+00:00",
           "event": "validating",
@@ -1378,21 +1353,6 @@
       "agent": "Hades",
       "status": "done",
       "events": [
-        {
-          "ts": "2026-06-30T23:20:03.335210+00:00",
-          "event": "dispatched",
-          "content": "security started work: Security Hardening Checklist for AI FAQ Receptionist Deploym"
-        },
-        {
-          "ts": "2026-06-30T23:20:03.337264+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Security Hardening Checklist for AI FAQ Receptionist Deploym"
-        },
-        {
-          "ts": "2026-06-30T23:22:23.339381+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-080-deliverable.md (13029b) \u2192 in_validation"
-        },
         {
           "ts": "2026-06-30T23:44:48.832490+00:00",
           "event": "validating",
@@ -2348,7 +2308,7 @@
     },
     "AUTO-097": {
       "agent": "Minerva",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-07-01T04:50:01.830019+00:00",
@@ -2389,6 +2349,16 @@
           "ts": "2026-07-01T05:02:28.966129+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-097-deliverable.md (10070b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-07-01T05:20:02.035304+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+        },
+        {
+          "ts": "2026-07-01T05:27:12.591634+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable thoroughly researched market rates, established a clear tiered pricing model, and provided a sales-ready markdown pricing sheet with all requested components, satisfying the ticket requirements."
         }
       ],
       "deliverable": {
@@ -2399,7 +2369,7 @@
     },
     "AUTO-098": {
       "agent": "Iris",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-07-01T04:50:01.833243+00:00",
@@ -2430,6 +2400,16 @@
           "ts": "2026-07-01T05:02:28.946760+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-098-deliverable.md (11719b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-07-01T05:20:02.029914+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+        },
+        {
+          "ts": "2026-07-01T05:27:12.615004+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable provides a complete, step\u2011by\u2011step onboarding playbook covering data collection, FAQ authoring, demo preparation, go\u2011live checklist, and post\u2011launch support, with timeline, responsibilities, and a ready\u2011to\u2011use checklist as required."
         }
       ],
       "deliverable": {
@@ -2440,7 +2420,7 @@
     },
     "AUTO-099": {
       "agent": "Hermes",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-07-01T04:50:01.834750+00:00",
@@ -2481,6 +2461,16 @@
           "ts": "2026-07-01T05:02:28.968195+00:00",
           "event": "delivered",
           "content": "[openclaw] Produced AUTO-099-deliverable.md (7041b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-07-01T05:22:27.462493+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing business-analyst's deliverable"
+        },
+        {
+          "ts": "2026-07-01T05:27:12.619002+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The report includes 3\u20115 competitor pricing, a comparative table, gap analysis, and actionable recommendations, fully meeting the ticket requirements."
         }
       ],
       "deliverable": {
@@ -2491,7 +2481,7 @@
     },
     "AUTO-100": {
       "agent": "Hades",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-07-01T04:50:04.466484+00:00",
@@ -2522,6 +2512,16 @@
           "ts": "2026-07-01T05:02:28.967234+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-100-deliverable.md (11968b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-07-01T05:24:44.718655+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
+        },
+        {
+          "ts": "2026-07-01T05:27:12.621888+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable provides a full markdown compliance checklist covering GDPR, CCPA and other regulations with concrete items on data handling, storage, consent, user rights and documentation."
         }
       ],
       "deliverable": {
@@ -2533,16 +2533,16 @@
   },
   "active": [
     {
-      "agent": "Hades",
-      "ticket": "AUTO-100",
-      "event": "delivered",
-      "ts": "2026-07-01T05:02:28.967234+00:00"
-    },
-    {
       "agent": "Minerva",
       "ticket": "AUTO-097",
       "event": "delivered",
       "ts": "2026-07-01T05:02:28.966129+00:00"
+    },
+    {
+      "agent": "Hermes",
+      "ticket": "AUTO-099",
+      "event": "delivered",
+      "ts": "2026-07-01T05:02:28.968195+00:00"
     },
     {
       "agent": "Iris",
@@ -2551,10 +2551,16 @@
       "ts": "2026-07-01T05:02:28.946760+00:00"
     },
     {
-      "agent": "Hermes",
-      "ticket": "AUTO-099",
+      "agent": "Hades",
+      "ticket": "AUTO-100",
       "event": "delivered",
-      "ts": "2026-07-01T05:02:28.968195+00:00"
+      "ts": "2026-07-01T05:02:28.967234+00:00"
+    },
+    {
+      "agent": "nemesis",
+      "ticket": "AUTO-100",
+      "event": "validation_pass",
+      "ts": "2026-07-01T05:27:12.621888+00:00"
     }
   ]
 }
