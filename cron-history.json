@@ -1,6 +1,20 @@
 {
-  "updated": "2026-07-01T22:20:01.379228+00:00",
+  "updated": "2026-07-01T22:30:01.849076+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T22:30:01.849076+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "ok",
+      "msg": "[validate] tickets.json updated"
+    },
+    {
+      "ts": "2026-07-01T22:29:01.849076+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-07-01T22:10:01.478319+00:00",
       "job": "validate-work",
@@ -639,6 +653,13 @@
       "msg": "3h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-07-01T13:30:01.849076+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "9h ago \u00b7 google/gemini-2.5..."
+    },
+    {
       "ts": "2026-07-01T13:30:01.835117+00:00",
       "job": "Hourly Check-in",
       "kind": "discord-cron",
@@ -882,6 +903,20 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "4h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T12:30:01.849076+00:00",
+      "job": "Daily 8 AM Security A...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "10h ago"
+    },
+    {
+      "ts": "2026-07-01T12:30:01.849076+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "10h ago \u00b7 google/gemini-2.5..."
     },
     {
       "ts": "2026-07-01T12:30:01.835117+00:00",
@@ -1318,6 +1353,13 @@
       "msg": "5h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-07-01T11:30:01.849076+00:00",
+      "job": "Lucy 8 AM Morning Mot...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "11h ago \u00b7 google/gemini-2.5..."
+    },
+    {
       "ts": "2026-07-01T11:30:01.835117+00:00",
       "job": "Lucy 8 AM Morning Mot...",
       "kind": "discord-cron",
@@ -1675,6 +1717,20 @@
       "msg": "[validate]     AUTO-119: engine 'openclaw' gave no usable verdict \u2014 trying next in chain"
     },
     {
+      "ts": "2026-07-01T10:30:01.849076+00:00",
+      "job": "Velocity (daily)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "12h ago"
+    },
+    {
+      "ts": "2026-07-01T10:30:01.849076+00:00",
+      "job": "Daily 7 AM Standup",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "12h ago \u00b7 google/gemini-2.5..."
+    },
+    {
       "ts": "2026-07-01T10:30:01.835117+00:00",
       "job": "Velocity (daily)",
       "kind": "discord-cron",
@@ -1694,62 +1750,6 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "8h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-07-01T10:30:01.615775+00:00",
-      "job": "Velocity (daily)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "9h ago"
-    },
-    {
-      "ts": "2026-07-01T10:30:01.615775+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "9h ago \u00b7 google/gemini-2.5..."
-    },
-    {
-      "ts": "2026-07-01T10:30:01.521128+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "11h ago \u00b7 google/gemini-2.5..."
-    },
-    {
-      "ts": "2026-07-01T10:30:01.490085+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "4h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-07-01T10:30:01.300084+00:00",
-      "job": "Velocity (daily)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "2h ago"
-    },
-    {
-      "ts": "2026-07-01T10:30:01.300084+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "2h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-07-01T10:30:01.218921+00:00",
-      "job": "Velocity (daily)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "7h ago"
-    },
-    {
-      "ts": "2026-07-01T10:30:01.218921+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "7h ago \u00b7 groq/meta-llama/l..."
     }
   ]
 }
