@@ -1,31 +1,32 @@
 {
-  "generatedAt": "2026-07-01T07:00:02.087354+00:00",
+  "generatedAt": "2026-07-01T07:10:01.696151+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 0.0,
-    "validator": 0.0,
+    "work-executor": 6.6,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 2680.0,
-    "backup": 30.0,
+    "guard": 2690.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 134,
-    "backlog": 9,
-    "in_progress": 16,
-    "planned": 4
+    "backlog": 8,
+    "in_progress": 14,
+    "planned": 4,
+    "in_validation": 3
   },
   "tickets_total": 163,
   "done_today": 23,
-  "delivered_today": 44,
-  "delivered_week": 44,
+  "delivered_today": 45,
+  "delivered_week": 45,
   "model_mix_week": {
     "cerebras:gpt-oss-120b": 38,
-    "openclaw": 6
+    "openclaw": 7
   },
   "live_agents": [
     "Fortuna",
@@ -35,88 +36,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T07:00:02.153067+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-106",
-      "content": "[cerebras:gpt-oss-120b] attempting: Live Demo Script for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T07:00:02.139052+00:00",
-      "agent": "Iris",
-      "event": "dispatched",
-      "ticket": "AUTO-106",
-      "content": "pm started work: Live Demo Script for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T06:50:35.779367+00:00",
-      "agent": "Fortuna",
-      "event": "no_deliverable",
-      "ticket": "AUTO-105",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T06:50:35.777904+00:00",
+      "ts": "2026-07-01T07:03:25.934047+00:00",
       "agent": "Hermes",
       "event": "delivered",
       "ticket": "AUTO-107",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-107-deliverable.md (10097b) \u2192 in_progress"
+      "content": "[openclaw] Produced AUTO-107-deliverable.md (3766b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T06:50:35.776583+00:00",
+      "ts": "2026-07-01T07:03:25.932829+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-105",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-105-deliverable.md (8947b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-01T07:03:25.931510+00:00",
       "agent": "Metis",
       "event": "delivered",
       "ticket": "AUTO-108",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-108-deliverable.md (14558b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-108-deliverable.md (9251b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T06:50:35.762975+00:00",
+      "ts": "2026-07-01T07:03:25.919997+00:00",
       "agent": "Iris",
       "event": "delivered",
       "ticket": "AUTO-106",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-106-deliverable.md (7642b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-106-deliverable.md (7409b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T06:50:07.419277+00:00",
+      "ts": "2026-07-01T07:00:05.534405+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-107",
+      "content": "[openclaw] attempting: Competitive Feature Matrix for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T07:00:03.970447+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-105",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
     },
     {
-      "ts": "2026-07-01T06:50:05.702664+00:00",
+      "ts": "2026-07-01T07:00:03.968942+00:00",
       "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-105",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T06:50:04.259610+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-108",
-      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Guide for AI FAQ Receptionist Sales"
-    },
-    {
-      "ts": "2026-07-01T06:50:04.256326+00:00",
-      "agent": "Metis",
       "event": "dispatched",
-      "ticket": "AUTO-108",
-      "content": "org-excellence started work: Objection\u2011Handling Guide for AI FAQ Receptionist Sales"
+      "ticket": "AUTO-105",
+      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
     },
     {
-      "ts": "2026-07-01T06:50:02.108462+00:00",
+      "ts": "2026-07-01T07:00:02.652583+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-107",
+      "content": "[claude:owl-alpha] attempting: Competitive Feature Matrix for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T07:00:02.191283+00:00",
       "agent": "Hermes",
       "event": "working",
       "ticket": "AUTO-107",
       "content": "[cerebras:gpt-oss-120b] attempting: Competitive Feature Matrix for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-07-01T06:50:02.107178+00:00",
-      "agent": "Fortuna",
+      "ts": "2026-07-01T07:00:02.182416+00:00",
+      "agent": "Hermes",
+      "event": "dispatched",
+      "ticket": "AUTO-107",
+      "content": "business-analyst started work: Competitive Feature Matrix for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T07:00:02.176459+00:00",
+      "agent": "Metis",
       "event": "working",
-      "ticket": "AUTO-105",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+      "ticket": "AUTO-108",
+      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Guide for AI FAQ Receptionist Sales"
+    },
+    {
+      "ts": "2026-07-01T07:00:02.159761+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-108",
+      "content": "org-excellence started work: Objection\u2011Handling Guide for AI FAQ Receptionist Sales"
     }
   ],
   "problems": {}
