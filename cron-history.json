@@ -1,6 +1,27 @@
 {
-  "updated": "2026-07-01T21:50:02.054155+00:00",
+  "updated": "2026-07-01T22:00:01.562905+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T22:00:01.562905+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "ok",
+      "msg": "[work] tickets.json updated (only tickets with real deliverables advanced)"
+    },
+    {
+      "ts": "2026-07-01T21:59:01.562905+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
+    {
+      "ts": "2026-07-01T21:59:01.562905+00:00",
+      "job": "Hourly Check-in",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-07-01T21:50:02.054155+00:00",
       "job": "real-work-executor",
@@ -1080,6 +1101,13 @@
       "msg": "5h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-07-01T12:00:01.562905+00:00",
+      "job": "Daily 8 AM Security A...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "10h ago"
+    },
+    {
       "ts": "2026-07-01T11:59:02.127461+00:00",
       "job": "Queue Tick 30m",
       "kind": "discord-cron",
@@ -1722,34 +1750,6 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "5h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-07-01T10:20:02.187979+00:00",
-      "job": "Daily 6 AM Memory Mai...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "1h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-07-01T10:20:02.129144+00:00",
-      "job": "Daily 6 AM Memory Mai...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "11h ago \u00b7 google/gemini-2.5..."
-    },
-    {
-      "ts": "2026-07-01T10:20:02.129144+00:00",
-      "job": "Velocity (daily)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "11h ago"
-    },
-    {
-      "ts": "2026-07-01T10:20:01.941010+00:00",
-      "job": "Velocity (daily)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "8h ago"
     }
   ]
 }

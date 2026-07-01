@@ -1,32 +1,32 @@
 {
-  "generatedAt": "2026-07-01T21:50:02.056704+00:00",
+  "generatedAt": "2026-07-01T22:00:01.413858+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 8.6,
-    "validator": 10.0,
+    "work-executor": 10.0,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 3570.0,
-    "backup": 20.0,
+    "guard": 3580.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 179,
     "backlog": 8,
-    "in_progress": 14,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 3
+    "in_validation": 4
   },
   "tickets_total": 208,
   "done_today": 68,
-  "delivered_today": 38,
-  "delivered_week": 38,
+  "delivered_today": 36,
+  "delivered_week": 36,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 35,
-    "openclaw": 3
+    "cerebras:gpt-oss-120b": 34,
+    "openclaw": 2
   },
   "live_agents": [
     "Fortuna",
@@ -35,6 +35,27 @@
     "Minerva"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T21:50:04.364536+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-149",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-149-deliverable.md (8324b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T21:50:02.208652+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-149",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Tiered Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T21:50:02.207432+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-149",
+      "content": "income started work: AI FAQ Receptionist Tiered Pricing Sheet"
+    },
     {
       "ts": "2026-07-01T21:41:23.416645+00:00",
       "agent": "Fortuna",
@@ -97,27 +118,6 @@
       "event": "working",
       "ticket": "AUTO-151",
       "content": "[cerebras:gpt-oss-120b] attempting: Demo Script for AI FAQ Receptionist Live Presentation"
-    },
-    {
-      "ts": "2026-07-01T21:40:01.386803+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-150",
-      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Industry Target Client List"
-    },
-    {
-      "ts": "2026-07-01T21:40:01.384606+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-149",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Tiered Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T21:40:01.383198+00:00",
-      "agent": "Iris",
-      "event": "dispatched",
-      "ticket": "AUTO-151",
-      "content": "pm started work: Demo Script for AI FAQ Receptionist Live Presentation"
     }
   ],
   "problems": {}
