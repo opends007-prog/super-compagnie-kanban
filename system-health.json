@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-07-01T22:50:02.113426+00:00",
+  "generatedAt": "2026-07-01T23:00:01.374010+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.3,
-    "validator": 10.0,
+    "work-executor": 9.9,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 3630.0,
-    "backup": 20.0,
+    "guard": 3640.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 181,
     "backlog": 8,
-    "in_progress": 14,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 5
+    "in_validation": 6
   },
   "tickets_total": 212,
   "done_today": 70,
-  "delivered_today": 37,
-  "delivered_week": 37,
+  "delivered_today": 38,
+  "delivered_week": 38,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 34,
+    "cerebras:gpt-oss-120b": 35,
     "openclaw": 3
   },
   "live_agents": [
@@ -36,6 +36,27 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T22:50:04.979924+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-154",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-154-deliverable.md (9252b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T22:50:02.257736+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-154",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Tiered Packages"
+    },
+    {
+      "ts": "2026-07-01T22:50:02.256636+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-154",
+      "content": "income started work: AI FAQ Receptionist Pricing & Tiered Packages"
+    },
     {
       "ts": "2026-07-01T22:44:45.826504+00:00",
       "agent": "Fortuna",
@@ -98,27 +119,6 @@
       "event": "validation_pass",
       "ticket": "AUTO-151",
       "content": "PASS: The deliverable provides a comprehensive and detailed demo script for the AI FAQ Receptionist live presentation, i"
-    },
-    {
-      "ts": "2026-07-01T22:40:02.511411+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-154",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Tiered Packages"
-    },
-    {
-      "ts": "2026-07-01T22:40:02.010827+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-154",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Tiered Packages"
-    },
-    {
-      "ts": "2026-07-01T22:40:02.009430+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-154",
-      "content": "income started work: AI FAQ Receptionist Pricing & Tiered Packages"
     }
   ],
   "problems": {}
