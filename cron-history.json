@@ -1,6 +1,20 @@
 {
-  "updated": "2026-07-01T14:40:03.274953+00:00",
+  "updated": "2026-07-01T14:50:01.849611+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T14:50:01.849611+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   STORY-204: openclaw run timed out"
+    },
+    {
+      "ts": "2026-07-01T14:50:01.849611+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[validate]     AUTO-132: engine 'openclaw' gave no usable verdict \u2014 trying next in chain"
+    },
     {
       "ts": "2026-07-01T14:40:03.274953+00:00",
       "job": "real-work-executor",
@@ -154,6 +168,13 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "1m ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T12:50:01.849611+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "2h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T12:50:01.727794+00:00",
@@ -310,6 +331,20 @@
       "msg": "2h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-07-01T11:50:01.849611+00:00",
+      "job": "Lucy 8 AM Morning Mot...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "3h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T11:50:01.849611+00:00",
+      "job": "Daily 8 AM Security A...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "3h ago"
+    },
+    {
       "ts": "2026-07-01T11:50:01.400728+00:00",
       "job": "real-work-executor",
       "kind": "system",
@@ -441,6 +476,20 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "3h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T10:50:01.849611+00:00",
+      "job": "Velocity (daily)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "4h ago"
+    },
+    {
+      "ts": "2026-07-01T10:50:01.849611+00:00",
+      "job": "Daily 7 AM Standup",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "4h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T10:50:01.727794+00:00",
@@ -658,6 +707,13 @@
       "kind": "system",
       "status": "ok",
       "msg": "[validate] no validations applied this run"
+    },
+    {
+      "ts": "2026-07-01T09:50:01.849611+00:00",
+      "job": "Daily 6 AM Memory Mai...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "5h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T09:50:01.727794+00:00",
@@ -1162,6 +1218,13 @@
       "kind": "system",
       "status": "ok",
       "msg": "[validate] no validations applied this run"
+    },
+    {
+      "ts": "2026-07-01T02:50:01.849611+00:00",
+      "job": "Daily 11 PM Backup (B...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "12h ago"
     },
     {
       "ts": "2026-07-01T02:40:02.083601+00:00",
@@ -1687,69 +1750,6 @@
       "kind": "system",
       "status": "warn",
       "msg": "[validate]     AUTO-069: no usable verdict #3 (model unavailable?) \u2014 staying in_validation, retry next run"
-    },
-    {
-      "ts": "2026-06-30T21:30:01.331195+00:00",
-      "job": "Hourly Check-in",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "2h ago"
-    },
-    {
-      "ts": "2026-06-30T21:29:02.014230+00:00",
-      "job": "Queue Tick 30m",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1m ago"
-    },
-    {
-      "ts": "2026-06-30T21:10:04.840017+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[validate]     AUTO-069: no usable verdict #2 (model unavailable?) \u2014 staying in_validation, retry next run"
-    },
-    {
-      "ts": "2026-06-30T20:50:15.869292+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "ok",
-      "msg": "[work] tickets.json updated (only tickets with real deliverables advanced)"
-    },
-    {
-      "ts": "2026-06-30T20:50:15.869292+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[validate]     AUTO-069: no usable verdict #1 (model unavailable?) \u2014 staying in_validation, retry next run"
-    },
-    {
-      "ts": "2026-06-30T20:40:08.292581+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-065: openclaw run timed out"
-    },
-    {
-      "ts": "2026-06-30T20:30:11.784509+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-065: openclaw run timed out"
-    },
-    {
-      "ts": "2026-06-30T20:30:11.784509+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[validate]     AUTO-072: engine 'openclaw' gave no usable verdict \u2014 trying next in chain"
-    },
-    {
-      "ts": "2026-06-30T20:30:11.784509+00:00",
-      "job": "generate-work",
-      "kind": "system",
-      "status": "ok",
-      "msg": "[gen] added 4 new backlog tickets (AUTO-*)"
     }
   ]
 }
