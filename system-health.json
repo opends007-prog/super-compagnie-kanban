@@ -1,27 +1,27 @@
 {
-  "generatedAt": "2026-07-01T02:00:01.476487+00:00",
+  "generatedAt": "2026-07-01T02:10:02.116364+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 12.8,
+    "work-executor": 10.0,
+    "validator": 5.3,
     "observability": 10.0,
-    "guard": 2380.0,
-    "backup": 30.0,
+    "guard": 2390.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 117,
+    "done": 118,
     "backlog": 7,
     "in_progress": 13,
     "planned": 4,
-    "in_validation": 2
+    "in_validation": 1
   },
   "tickets_total": 143,
-  "done_today": 6,
+  "done_today": 7,
   "delivered_today": 18,
   "delivered_week": 36,
   "model_mix_week": {
@@ -29,12 +29,32 @@
     "openclaw": 2
   },
   "live_agents": [
-    "Fortuna",
     "Iris",
     "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T02:04:46.391244+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-086",
+      "content": "PASS: The deliverable provides a comprehensive 2-page guide that includes common sales objections, ready-made responses,"
+    },
+    {
+      "ts": "2026-07-01T02:00:01.596566+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-087",
+      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-07-01T02:00:01.591688+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-086",
+      "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+    },
     {
       "ts": "2026-07-01T01:50:04.568401+00:00",
       "agent": "Minerva",
@@ -97,27 +117,6 @@
       "event": "validation_fail",
       "ticket": "AUTO-086",
       "content": "FAIL #1: The deliverable is only a Markdown draft and does not include the required 2\u2011page PDF file, so it does not meet"
-    },
-    {
-      "ts": "2026-07-01T01:47:11.492705+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-085",
-      "content": "PASS: The deliverable provides a full markdown pricing sheet with three tiered plans, detailed feature lists, pricing ra"
-    },
-    {
-      "ts": "2026-07-01T01:44:43.383757+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-088",
-      "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
-    },
-    {
-      "ts": "2026-07-01T01:42:27.987395+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-087",
-      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
     }
   ],
   "problems": {}

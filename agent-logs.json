@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-01T02:00:01.517089+00:00",
+  "generated": "2026-07-01T02:10:02.114195+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -2058,13 +2058,8 @@
     },
     "AUTO-086": {
       "agent": "Iris",
-      "status": "in_validation",
+      "status": "done",
       "events": [
-        {
-          "ts": "2026-07-01T01:10:02.013020+00:00",
-          "event": "dispatched",
-          "content": "pm started work: Objection\u2011Handling Guide for AI FAQ Receptionist"
-        },
         {
           "ts": "2026-07-01T01:10:02.015731+00:00",
           "event": "working",
@@ -2114,6 +2109,16 @@
           "ts": "2026-07-01T01:50:04.567234+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-086-deliverable.md (7900b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-07-01T02:00:01.591688+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+        },
+        {
+          "ts": "2026-07-01T02:04:46.391244+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable provides a comprehensive 2-page guide that includes common sales objections, ready-made responses, and a quick-reference cheat sheet for the AI FAQ Receptionist, fully meeting the ticket requirements."
         }
       ],
       "deliverable": {
@@ -2180,6 +2185,11 @@
           "ts": "2026-07-01T01:50:04.568401+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-087-deliverable.md (11922b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-07-01T02:00:01.596566+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
         }
       ],
       "deliverable": {
@@ -2242,16 +2252,10 @@
   },
   "active": [
     {
-      "agent": "Fortuna",
-      "ticket": "AUTO-085",
-      "event": "delivered",
-      "ts": "2026-07-01T01:30:03.980131+00:00"
-    },
-    {
       "agent": "nemesis",
-      "ticket": "AUTO-088",
+      "ticket": "AUTO-086",
       "event": "validation_pass",
-      "ts": "2026-07-01T01:47:11.547152+00:00"
+      "ts": "2026-07-01T02:04:46.391244+00:00"
     },
     {
       "agent": "Iris",
