@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-01T13:50:02.035319+00:00",
+  "generated": "2026-07-01T14:00:01.713759+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -1874,14 +1874,158 @@
         "size": 14592,
         "content": "# Data Security Checklist for FAQ Receptionist Deployments  \n*Prepared for pre\u2011deployment review \u2013\u202fTicket **AUTO\u2011128***  \n\n**Scope** \u2013 This checklist applies to every instance of the **FAQ Receptionist** service that processes, stores, or transmits end\u2011user data (including query text, user identifiers, and interaction logs). It covers data handling, encryption (at rest & in\u2011flight), access controls, GDPR/CCPA considerations, client\u2011side security, and verification steps required before the service goes live.  \n\n---  \n\n## 1. Data Handling & Storage  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 1.1 | **Data Classification** \u2013 All data processed by the FAQ Receptionist must be classified (e.g., PII, Sensitive Personal Data, Non\u2011PII). | Review the data\u2011flow diagram and confirm each field is tagged with a classification label in the source\u2011code metadata (e.g., `@PII`). | Add missing classification tags and update the data\u2011inventory spreadsheet. | High |\n| 1.2 | **Data Minimisation** \u2013 Only data required for answering FAQs may be collected; optional fields must be disabled by default. | Run a static analysis (e.g., `grep -R \"user_email\"`). Verify that optional fields are gated behind a feature\u2011flag and default to *off*. | Remove unnecessary collection points or implement opt\u2011in toggles. | Medium |\n| 1.3 | **Retention Policy** \u2013 Retain interaction logs no longer than **30\u202fdays** (or as required by contract). | Inspect the log\u2011rotation configuration (`/etc/logrotate.d/faq-receptionist`) and confirm `maxage 30`. | Adjust `logrotate` or add a scheduled purge job (`cron`) to enforce the policy. | High |\n| 1.4 | **Secure Deletion** \u2013 When data is purged, it must be overwritten to prevent recovery. | Verify that the purge script uses `shred -u` or an equivalent secure delete method. | Replace plain `rm` commands with `shred -u` or enable filesystem\u2011level secure delete (`mount -o discard`). | Medium |\n| 1.5 | **Data Export Controls** \u2013 Export of raw logs must be restricted to authorised service accounts. | Check IAM policies for the `faq-export` role; ensure `s3:GetObject` is limited to a specific bucket prefix. | Refine the IAM policy to `Condition`\u2011based access (e.g., `aws:SourceVpce`). | Critical |\n\n*Source: Ticket description & internal data\u2011flow review*\u30101\u3011  \n\n---  \n\n## 2. Encryption at Rest  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 2.1 | **Database Encryption** \u2013 All relational (PostgreSQL) and NoSQL (MongoDB) stores must use **AES\u2011256\u2011GCM** at the storage layer. | Connect to the DB and run `SELECT * FROM pg_settings WHERE name = 'data_encryption';` (PostgreSQL) or check `storageEngine.encryptionKeyFile` (MongoDB). | Enable Transparent Data Encryption (TDE) and rotate the master key quarterly. | Critical |\n| 2.2 | **File\u2011System Encryption** \u2013 Any on\u2011disk cache or temporary files must reside on an encrypted volume (e.g., LUKS). | `lsblk -f` \u2192 confirm `crypt` type for `/var/lib/faq-receptionist/tmp`. | Create a LUKS container for the temp directory and mount it at service start. | High |\n| 2.3 | **Key Management** \u2013 Encryption keys must be stored in a dedicated KMS (e.g., AWS KMS, HashiCorp Vault) and never hard\u2011coded. | Review environment variables; ensure `VAULT_ADDR` is set and no `*_KEY` values appear in source. | Migrate any hard\u2011coded keys to Vault secrets and enforce IAM policies for secret access. | Critical |\n| 2.4 | **Backup Encryption** \u2013 Backups (snapshot or dump) must be encrypted before transfer to off\u2011site storage. | Inspect backup script (`backup.sh`) for `gpg --symmetric --cipher-algo AES256`. | Add GPG encryption step or enable encrypted S3 bucket (`aws s3 cp --sse AES256`). | High |\n\n*Reference: NIST SP\u202f800\u201153 Rev.\u202f5 \u2013 SC\u201112, SC\u201113*\u30102\u3011  \n\n---  \n\n## 3. Encryption in Transit  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 3.1 | **TLS\u202f1.2+** \u2013 All HTTP endpoints must enforce TLS\u202f1.2 minimum, using **ECDHE\u2011RSA\u2011AES256\u2011GCM\u2011SHA384** cipher suite. | Run `openssl s_client -connect api.example.com:443 -tls1_2` and check `Cipher` line. | Update Nginx/Envoy config to `ssl_protocols TLSv1.2 TLSv1.3;` and `ssl_ciphers 'ECDHE\u2011RSA\u2011AES256\u2011GCM\u2011SHA384'`. | Critical |\n| 3.2 | **Certificate Management** \u2013 Certificates must be rotated every 90\u202fdays and validated via automated monitoring. | Verify `certbot renew --dry-run` runs without errors in CI. | Add a cron job for `certbot renew` and integrate with monitoring (e.g., Prometheus alert). | High |\n| 3.3 | **Mutual TLS for Internal Services** \u2013 Service\u2011to\u2011service calls (e.g., FAQ \u2192 Knowledge\u2011Base) must use mTLS. | Capture traffic with `tcpdump` and confirm client certificate exchange. | Deploy sidecar proxy (Envoy) with `tls_context` configured for mTLS. | Critical |\n| 3.4 | **HSTS Header** \u2013 All responses must include `Strict-Transport-Security: max-age=31536000; includeSubDomains`. | `curl -I https://api.example.com/health` \u2192 check for `strict-transport-security`. | Add header in reverse\u2011proxy configuration. | Medium |\n| 3.5 | **WebSocket Security** \u2013 If the FAQ UI uses WebSockets, they must be upgraded over `wss://` and enforce the same TLS settings. | Test with `wscat -c wss://api.example.com/ws` and verify TLS version. | Update client code to use `wss://` and enforce TLS version in server config. | Medium |\n\n*Reference: OWASP Transport Layer Protection Cheat Sheet*\u30103\u3011  \n\n---  \n\n## 4. Access Controls  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 4.1 | **Principle of Least Privilege (PoLP)** \u2013 Service accounts must have only the permissions required for their function. | Review IAM policies attached to `faq-service-account`. Ensure no `*:*` wildcards. | Refine policies to explicit actions (`dynamodb:Query`, `s3:PutObject`). | Critical |\n| 4.2 | **Role\u2011Based Access Control (RBAC)** \u2013 Admin UI must enforce RBAC with separate roles: *Viewer*, *Operator*, *Admin*. | Attempt to access admin endpoint with a `viewer` token; expect `403`. | Implement role checks in middleware and audit logs for denied attempts. | High |\n| 4.3 | **Multi\u2011Factor Authentication (MFA)** \u2013 All privileged accounts (admin, devops) must require MFA. | Verify MFA is enabled in IAM (`aws iam get-login-profile`). | Enforce MFA via IAM policy condition `aws:MultiFactorAuthPresent`. | Critical |\n| 4.4 | **Audit Trail for Privilege Changes** \u2013 Any change to IAM roles or policies must be logged. | Check CloudTrail for `PutRolePolicy` events. | Enable CloudTrail data events for IAM and set alerts on policy changes. | High |\n| 4.5 | **Secret Rotation** \u2013 API keys and tokens used by the FAQ Receptionist must rotate every 90\u202fdays. | Review CI pipeline for `rotate\u2011secrets` job. | Add automated rotation job and integrate with Vault. | High |\n\n*Reference: CIS Controls v8 \u2013 Control\u202f4.1, 4.2*\u30104\u3011  \n\n---  \n\n## 5. Logging, Monitoring & Incident Response  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 5.1 | **Centralised Logging** \u2013 All logs must be shipped to a SIEM (e.g., Elastic Stack) over TLS. | Confirm `filebeat.yml` includes `output.elasticsearch.hosts: [\"https://siem.example.com:9200\"]`. | Update Filebeat config to use TLS and enable certificate verification. | High |\n| 5.2 | **Log Integrity** \u2013 Logs must be tamper\u2011evident (e.g., signed or stored with immutable write\u2011once storage). | Verify that the SIEM index is configured with `index.lifecycle.name: immutable`. | Enable index lifecycle policy that sets `index.blocks.write: true` after 24\u202fh. | Medium |\n| 5.3 | **Alerting** \u2013 Generate alerts for: (a) failed authentication >\u202f5/min, (b) data export requests, (c) encryption key access. | Review Prometheus rules file (`alert.rules.yml`). | Add missing alert rules and configure PagerDuty webhook. | Critical |\n| 5.4 | **Incident Response Playbook** \u2013 A documented playbook must exist and be version\u2011controlled. | Locate `IR_PLAYBOOK.md` in the repo; verify last commit <\u202f30\u202fdays. | Draft missing sections (containment, forensic collection) and commit. | High |\n| 5.5 | **Retention of Security Logs** \u2013 Retain security\u2011relevant logs for at least **365\u202fdays**. | Check SIEM retention policy. | Adjust policy to `retention.days: 365`. | Medium |\n\n*Reference: ISO/IEC\u202f27001\u202fA.12.4*\u30105\u3011  \n\n---  \n\n## 6. GDPR & CCPA Compliance  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 6.1 | **Lawful Basis Documentation** \u2013 Each data field must have a documented lawful basis (e.g., consent, legitimate interest). | Review `privacy_matrix.xlsx` for every field. | Add missing entries and obtain consent where required. | High |\n| 6.2 | **Data Subject Rights (DSR) API** \u2013 Provide endpoints for **access**, **rectificat"
       }
+    },
+    "AUTO-129": {
+      "agent": "Fortuna",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-07-01T13:50:02.177929+00:00",
+          "event": "dispatched",
+          "content": "income started work: AI FAQ Receptionist Pricing Sheet"
+        },
+        {
+          "ts": "2026-07-01T13:50:02.180340+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+        },
+        {
+          "ts": "2026-07-01T13:54:51.181358+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced AUTO-129-deliverable.md (9749b) \u2192 in_progress"
+        }
+      ],
+      "deliverable": {
+        "file": "income/work/AUTO-129-deliverable.md",
+        "size": 9749,
+        "content": "# AI FAQ Receptionist \u2013 Pricing Sheet  \n*Ready for publishing on the landing page*  \n\n---  \n\n## 1. Quick Summary  \n\n| Plan | Monthly Price* | Call/Minute Allocation | Key Features |\n|------|----------------|------------------------|--------------|\n| **Basic** | **$49\u202f/mo** | 200\u202fminutes (incl.)\u202f| \u2022 AI\u2011driven FAQ answering  <br>\u2022 1\u202fuser seat  <br>\u2022 Calendar & basic CRM integration  <br>\u2022 Email support (24\u202fh)  <br>\u2022 Standard analytics |\n| **Pro** | **$99\u202f/mo** | Unlimited calls (flat\u2011rate) | \u2022 All Basic features  <br>\u2022 5\u202fuser seats  <br>\u2022 Advanced CRM & SIP/VoIP integration  <br>\u2022 Multi\u2011language support (up to 5 languages)  <br>\u2022 Priority email\u202f+\u202fphone support  <br>\u2022 Custom branding & reporting |\n| **Enterprise** | **$199\u202f/mo** | Unlimited calls (flat\u2011rate) | \u2022 All Pro features  <br>\u2022 Unlimited user seats  <br>\u2022 Dedicated account manager  <br>\u2022 SLA 99.9\u202f% uptime guarantee  <br>\u2022 On\u2011premise or private\u2011cloud deployment option  <br>\u2022 Advanced analytics, AI training & custom workflow automation |\n\n\\* Prices are **flat\u2011rate monthly fees** (no per\u2011call or per\u2011minute overage charges).  \n\n---  \n\n## 2. Feature Matrix  \n\n| Feature | Basic | Pro | Enterprise |\n|---------|-------|-----|------------|\n| **AI FAQ Engine** (natural\u2011language answer generation) | \u2705 | \u2705 | \u2705 |\n| **Call Handling** (answer, route, voicemail) | \u2705 (200\u202fmin) | \u2705 (unlimited) | \u2705 (unlimited) |\n| **User Seats** | 1 | 5 | Unlimited |\n| **Calendar Integration** (Google/Outlook) | \u2705 | \u2705 | \u2705 |\n| **CRM Integration** (HubSpot, Salesforce) | Basic | Advanced (custom fields) | Full (bidirectional sync) |\n| **Multi\u2011Language** | English only | Up to 5 languages | Unlimited languages |\n| **SIP/VoIP Integration** | \u2013 | \u2705 | \u2705 |\n| **Custom Branding** (logo, greeting) | Standard | \u2705 | \u2705 (white\u2011label) |\n| **Analytics Dashboard** | Standard metrics | Advanced KPIs & export | Full\u2011stack analytics + AI training insights |\n| **Support** | Email (within 24\u202fh) | Priority email + phone (within 4\u202fh) | Dedicated manager, 24/7 live chat & phone |\n| **Uptime SLA** | \u2013 | 99.5\u202f% | 99.9\u202f% |\n| **Deployment** | Cloud (shared) | Cloud (dedicated) | Cloud (private) **or** on\u2011premise |\n| **Setup Fee** | $0 | $0 | $0 (optional custom integration fee \u2013 quoted) |\n\n---  \n\n## 3. Pricing Assumptions & Cost Model  \n\n| Item | Source | How we derived the price |\n|------|--------|--------------------------|\n| **Basic tier price** | Voksha guide lists a **$29\u2011$49\u202f/mo budget tier** for flat\u2011rate plans\u30101\u2020L1-L4\u3011. We selected the **upper\u2011mid point** ($49) to cover a modest minute allowance while remaining competitive with the $49 flat\u2011rate offered by Voksha, Rosie AI, and My\u202fAI\u202fFront\u202fDesk\u30101\u2020L9-L12\u3011. |\n| **Pro tier price** | ai\u2011receptionist.com publishes a **$99\u202f/mo** plan for small businesses with 200\u202fminutes of usage\u30102\u2020L13-L16\u3011. This aligns with the mid\u2011tier range ($50\u2011$150\u202f/mo) described in the Voksha guide\u30101\u2020L4-L6\u3011. We adopt the $99 figure directly. |\n| **Enterprise tier price** | NextPhone\u2019s \u201cfull\u2011featured\u201d flat\u2011rate is **$199\u2011$299\u202f/mo** for unlimited calls\u30103\u2020L7-L9\u3011. We choose the **lower bound ($199)** to stay price\u2011competitive while providing the full feature set. |\n| **Minute allocation for Basic** | ai\u2011receptionist.com gives **60\u202fminutes for $14\u202f/mo**\u30102\u2020L13-L15\u3011. Scaling linearly (60\u202fmin \u2192 $14) gives **~$0.233\u202f/min**. At $49\u202f/mo, the implied minute budget is **\u2248\u202f210\u202fmin**. We round to **200\u202fminutes** for simplicity and label it **illustrative**. |\n| **Overage pricing (if needed)** | Not required for flat\u2011rate plans; however, a **per\u2011minute overage rate of $0.20\u202f/min** is a common industry figure (see budget tier per\u2011minute costs in Voksha\u2019s \u201cper\u2011minute\u201d example of ~$70 for 50 calls)\u30101\u2020L19-L22\u3011. This rate is **illustrative** and used only for internal cost modeling. |\n| **Support SLA** | NextPhone guarantees **99.9\u202f% uptime** for premium plans\u30103\u2020L7-L9\u3011. We adopt the same SLA for Enterprise. |\n| **Setup fees** | All three sources show **$0 setup** for flat\u2011rate plans (Voksha\u2019s providers list $0 setup)\u30101\u2020L9-L12\u3011. We therefore keep the launch fee at $0. |\n\n**Cost Model Example \u2013 Pro Plan**\n\n- Monthly fee: **$99** (flat)  \n- Unlimited calls \u2192 no per\u2011call or per\u2011minute cost.  \n- Support cost (internal) = $30\u202f/mo (estimated) \u2192 **margin** = $69.  \n\n**Cost Model Example \u2013 Basic Plan (illustrative)**  \n\n- Monthly fee: **$49**  \n- Included minutes: 200\u202fmin \u2192 value at $0.233\u202f/min = $46.6 (derived from $14/60\u202fmin)  \n- Overage (if any) = $0.20\u202f/min (illustrative)  \n- Net margin \u2248 $2.4 (illustrative) \u2013 shows the Basic tier is a **loss\u2011leader** designed to attract volume and upsell to Pro/Enterprise.  \n\n---  \n\n## 4. Why These Prices Are Competitive  \n\n| Competitor | Typical Price Range (2026) | Our Position |\n|------------|---------------------------|--------------|\n| **Budget tier** (Dialzara, Synthflow AI) | $29\u2011$49\u202f/mo (often per\u2011minute)\u30101\u2020L15-L22\u3011 | **Basic** matches the high end of budget tier, but offers a **flat\u2011rate** with 200\u202fmin included, avoiding hidden per\u2011minute fees. |\n| **Mid tier** (most providers) | $50\u2011$150\u202f/mo\u30101\u2020L4-L6\u3011 | **Pro** sits at $99\u202f/mo, directly in the middle, delivering unlimited calls and advanced features. |\n| **Premium tier** (NextPhone, etc.) | $199\u2011$500+\u202f/mo\u30101\u2020L6-L8\u3011\u30103\u2020L7-L9\u3011 | **Enterprise** at $199\u202f/mo provides the same unlimited\u2011call guarantee and adds dedicated support, matching the low\u2011end premium price. |\n\n---  \n\n## 5. Publication\u2011Ready Markdown  \n\n```markdown\n# AI FAQ Receptionist \u2013 Pricing\n\n## Quick Summary\n| Plan | Monthly Price* | Call/Minute Allocation | Key Features |\n|------|----------------|------------------------|--------------|\n| **Basic** | **$49\u202f/mo** | 200\u202fminutes (incl.) | \u2022 AI\u2011driven FAQ answering  <br>\u2022 1\u202fuser seat  <br>\u2022 Calendar & basic CRM integration  <br>\u2022 Email support (24\u202fh)  <br>\u2022 Standard analytics |\n| **Pro** | **$99\u202f/mo** | Unlimited calls (flat\u2011rate) | \u2022 All Basic features  <br>\u2022 5\u202fuser seats  <br>\u2022 Advanced CRM & SIP/VoIP integration  <br>\u2022 Multi\u2011language (up to 5)  <br>\u2022 Priority email\u202f+\u202fphone support  <br>\u2022 Custom branding & reporting |\n| **Enterprise** | **$199\u202f/mo** | Unlimited calls (flat\u2011rate) | \u2022 All Pro features  <br>\u2022 Unlimited user seats  <br>\u2022 Dedicated account manager  <br>\u2022 SLA 99.9\u202f% uptime  <br>\u2022 Private\u2011cloud or on\u2011premise deployment  <br>\u2022 Advanced analytics & AI training |\n\n\\*Flat\u2011rate monthly fees, no per\u2011call or per\u2011minute overage charges.\n\n## Feature Matrix\n| Feature | Basic | Pro | Enterprise |\n|---------|-------|-----|------------|\n| AI FAQ Engine | \u2705 | \u2705 | \u2705 |\n| Call Handling | \u2705 (200\u202fmin) | \u2705 (unlimited) | \u2705 (unlimited) |\n| User Seats | 1 | 5 | Unlimited |\n| Calendar Integration | \u2705 | \u2705 | \u2705 |\n| CRM Integration | Basic | Advanced | Full |\n| Multi\u2011Language | English only | Up to 5 languages | Unlimited |\n| SIP/VoIP Integration | \u2013 | \u2705 | \u2705 |\n| Custom Branding | Standard | \u2705 | \u2705 (white\u2011label) |\n| Analytics Dashboard | Standard | Advanced + export | Full\u2011stack + AI insights |\n| Support | Email (24\u202fh) | Priority email\u202f+\u202fphone (4\u202fh) | Dedicated manager, 24/7 live chat |\n| SLA | \u2013 | 99.5\u202f% | 99.9\u202f% |\n| Deployment | Cloud (shared) | Cloud (dedicated) | Private\u2011cloud / on\u2011premise |\n| Setup Fee | $0 | $0 | $0 (optional custom integration) |\n\n## Pricing Assumptions & Cost Model\n- **Basic price** derived from Voksha\u2019s budget tier ($29\u2011$49\u202f/mo flat\u2011rate)\u30101\u2020L1-L4\u3011; we selected $49\u202f/mo to include a modest minute allowance.\n- **Pro price** taken directly from ai\u2011receptionist.com\u2019s $99\u202f/mo small\u2011business plan\u30102\u2020L13-L16\u3011.\n- **Enterprise price** aligns with NextPhone\u2019s $199\u2011$299\u202f/mo unlimited\u2011call premium\u30103\u2020L7-L9\u3011; we use the lower bound $199\u202f/mo.\n- **Minute allocation for Basic** is illustrative: scaling $14/60\u202fmin \u2192 $0.233\u202f/min, giving ~200\u202fmin at $49\u202f/mo.\n- **Overage rate** (if needed) set at $0.20\u202f/min (illustrative) based on typical per\u2011minute costs shown in Voksha\u2019s per\u2011minute example (~$70 for 50 calls)\u30101\u2020L19-L22\u3011.\n- **Support SLA** mirrors NextPhone\u2019s 99.9\u202f% uptime guarantee for premium plans\u30103\u2020L7-L9\u3011.\n\n## Why It Works\n| Competitor | Typical Price Range (2026) | Our Position |\n|------------|---------------------------|--------------|\n| Budget tier (Dialzara, Synthflow AI) | $29\u2011$49\u202f/mo (often per\u2011minute)\u30101\u2020L15-L22\u3011 | Basic offers flat\u2011rate, 200\u202fmin included, no hidden fees. |\n| Mid tier (most providers) | $50\u2011$150\u202f/mo\u30101\u2020L4-L6\u3011 | Pro at $99\u202f/mo gives unlimited calls and advanced features. |\n| Premium tier (NextPhone, etc.) | $199\u2011$500+\u202f/mo\u30101\u2020L6-L8\u3011\u30103\u2020L7-L9\u3011 | Enterprise matches low\u2011end premium with dedicated support and SLA. |\n\n*All figures are based on publicly available 2026 pricing guides (see Sources). Any illustrative assumptions are clearly labeled.*\n\n---  \n\n## Sources  \n\n1. Voksha \u2013 *AI Receptionist Pricing Guide 2026* \u2013 pricing tiers, flat\u2011rate examples, per\u2011minute cost illustration. https://voksha.com/guide/ai-receptionist-pricing-guide  \n2. AI Receptionist \u2013 *How Much Does an AI Receptionist Cost? 2026 Pricing Guide & ROI Analysis*. https://ai-receptionist.com/blog/ai-receptionist-cost-and-pricing-guide  \n3. NextPhone \u2013 *AI Receptionist Cost"
+      }
+    },
+    "AUTO-130": {
+      "agent": "Iris",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-07-01T13:50:02.179010+00:00",
+          "event": "dispatched",
+          "content": "pm started work: Landing Page Copy for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-07-01T13:50:02.179898+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Landing Page Copy for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-07-01T13:50:02.492260+00:00",
+          "event": "working",
+          "content": "[claude:owl-alpha] attempting: Landing Page Copy for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-07-01T13:50:04.928727+00:00",
+          "event": "working",
+          "content": "[openclaw] attempting: Landing Page Copy for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-07-01T13:54:51.198217+00:00",
+          "event": "delivered",
+          "content": "[openclaw] Produced AUTO-130-deliverable.md (2621b) \u2192 in_progress"
+        }
+      ],
+      "deliverable": {
+        "file": "pm/work/AUTO-130-deliverable.md",
+        "size": 2621,
+        "content": "# AI FAQ Receptionist: Your Smartest Front Desk\n\n## Never Miss a Question Again. Elevate Your Customer Experience.\n\nThe AI FAQ Receptionist is your intelligent, always-on virtual assistant, designed to handle frequently asked questions with accuracy and speed, freeing up your human team to focus on more complex issues.\n\n### Key Benefits:\n\n*   **24/7 Availability:** Provide instant answers to your customers, anytime, anywhere.\n*   **Instant Response Times:** Eliminate wait times and improve customer satisfaction with immediate responses.\n*   **Consistent Accuracy:** Ensure every customer receives the same accurate information, every time.\n*   **Reduced Workload:** Automate repetitive inquiries, allowing your support staff to handle high-priority tasks.\n*   **Cost Savings:** Achieve [Illustrative: Up to 30%] reduction in support costs through efficient query handling.\n*   **Actionable Insights:** Gain valuable data on customer needs and common questions to refine your services.\n\n### Get Started Today!\n\nReady to transform your customer service?\n\n**[Illustrative Call-to-Action Button: Request a Free Demo]**\n\nOr, contact our sales team for a personalized quote.\n\n### Frequently Asked Questions (FAQ)\n\n**Q: What is the AI FAQ Receptionist?**\nA: It's an AI-powered system that acts as a virtual receptionist, designed to answer common questions automatically via text or chat interfaces.\n\n**Q: How is it different from a human receptionist?**\nA: While a human receptionist can handle complex, nuanced, or emotional interactions, our AI receptionist excels at providing quick, consistent, and accurate answers to a high volume of repetitive inquiries, operating 24/7. It complements your human team, not replaces them.\n\n**Q: What kind of questions can it answer?**\nA: It's trained on your specific knowledge base and can answer questions related to business hours, product features, pricing (if provided), service details, common troubleshooting steps, and more.\n\n**Q: How long does it take to set up?**\nA: Setup time varies based on the complexity of your knowledge base and integration needs. Most basic implementations can be live within [Illustrative: 1-2 weeks].\n\n**Q: What are the pricing details?**\nA: Pricing is tailored to your needs, typically based on the volume of queries and customization required. Please contact us for a personalized quote or to request a demo to discuss your specific requirements.\n\n**Q: Can it integrate with my existing website or chat tools?**\nA: Yes, the AI FAQ Receptionist is designed for seamless integration with most websites, live chat platforms, and messaging apps.\n"
+      }
+    },
+    "AUTO-131": {
+      "agent": "Nemesis",
+      "status": "backlog",
+      "events": [
+        {
+          "ts": "2026-07-01T13:50:02.180682+00:00",
+          "event": "dispatched",
+          "content": "nemesis started work: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
+        },
+        {
+          "ts": "2026-07-01T13:50:02.181311+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
+        },
+        {
+          "ts": "2026-07-01T13:50:06.252485+00:00",
+          "event": "working",
+          "content": "[claude:owl-alpha] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
+        },
+        {
+          "ts": "2026-07-01T13:50:10.839798+00:00",
+          "event": "working",
+          "content": "[openclaw] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
+        },
+        {
+          "ts": "2026-07-01T13:54:51.198738+00:00",
+          "event": "no_deliverable",
+          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+        }
+      ],
+      "deliverable": null
+    },
+    "AUTO-132": {
+      "agent": "Metis",
+      "status": "backlog",
+      "events": [
+        {
+          "ts": "2026-07-01T13:50:27.072222+00:00",
+          "event": "dispatched",
+          "content": "org-excellence started work: Agent Deployment Process Documentation"
+        },
+        {
+          "ts": "2026-07-01T13:50:27.077054+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Agent Deployment Process Documentation"
+        },
+        {
+          "ts": "2026-07-01T13:50:27.356475+00:00",
+          "event": "working",
+          "content": "[claude:owl-alpha] attempting: Agent Deployment Process Documentation"
+        },
+        {
+          "ts": "2026-07-01T13:50:36.170406+00:00",
+          "event": "working",
+          "content": "[openclaw] attempting: Agent Deployment Process Documentation"
+        },
+        {
+          "ts": "2026-07-01T13:54:51.197305+00:00",
+          "event": "no_deliverable",
+          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+        }
+      ],
+      "deliverable": null
     }
   },
   "active": [
     {
-      "agent": "nemesis",
-      "ticket": "AUTO-125",
-      "event": "validation_pass",
-      "ts": "2026-07-01T13:23:11.895657+00:00"
+      "agent": "Fortuna",
+      "ticket": "AUTO-129",
+      "event": "delivered",
+      "ts": "2026-07-01T13:54:51.181358+00:00"
+    },
+    {
+      "agent": "Iris",
+      "ticket": "AUTO-130",
+      "event": "delivered",
+      "ts": "2026-07-01T13:54:51.198217+00:00"
+    },
+    {
+      "agent": "Nemesis",
+      "ticket": "AUTO-131",
+      "event": "no_deliverable",
+      "ts": "2026-07-01T13:54:51.198738+00:00"
+    },
+    {
+      "agent": "Metis",
+      "ticket": "AUTO-132",
+      "event": "no_deliverable",
+      "ts": "2026-07-01T13:54:51.197305+00:00"
     }
   ]
 }

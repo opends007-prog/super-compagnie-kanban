@@ -1,113 +1,122 @@
 {
-  "generatedAt": "2026-07-01T13:50:02.047355+00:00",
+  "generatedAt": "2026-07-01T14:00:01.754864+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 10.0,
+    "work-executor": 5.2,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 3090.0,
-    "backup": 20.0,
+    "guard": 3100.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
-  "status_counts": {},
-  "tickets_total": 0,
-  "done_today": 0,
-  "delivered_today": 2,
-  "delivered_week": 2,
+  "status_counts": {
+    "done": 158,
+    "backlog": 11,
+    "in_progress": 15,
+    "planned": 4
+  },
+  "tickets_total": 188,
+  "done_today": 47,
+  "delivered_today": 4,
+  "delivered_week": 4,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 2
+    "cerebras:gpt-oss-120b": 3,
+    "openclaw": 1
   },
   "live_agents": [
-    "nemesis"
+    "Fortuna",
+    "Iris",
+    "Metis",
+    "Nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T13:23:11.895657+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-125",
-      "content": "PASS: The deliverable provides a comprehensive competitive analysis of the AI FAQ Receptionist pricing landscape, identi"
+      "ts": "2026-07-01T13:54:51.198738+00:00",
+      "agent": "Nemesis",
+      "event": "no_deliverable",
+      "ticket": "AUTO-131",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-07-01T13:20:01.549818+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-125",
-      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-07-01T13:10:08.269616+00:00",
-      "agent": "Minerva",
+      "ts": "2026-07-01T13:54:51.198217+00:00",
+      "agent": "Iris",
       "event": "delivered",
-      "ticket": "AUTO-125",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-125-deliverable.md (10472b) \u2192 in_validation"
+      "ticket": "AUTO-130",
+      "content": "[openclaw] Produced AUTO-130-deliverable.md (2621b) \u2192 in_progress"
     },
     {
-      "ts": "2026-07-01T13:10:02.216404+00:00",
-      "agent": "Minerva",
+      "ts": "2026-07-01T13:54:51.197305+00:00",
+      "agent": "Metis",
+      "event": "no_deliverable",
+      "ticket": "AUTO-132",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-01T13:54:51.181358+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-129",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-129-deliverable.md (9749b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-01T13:50:36.170406+00:00",
+      "agent": "Metis",
       "event": "working",
-      "ticket": "AUTO-125",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+      "ticket": "AUTO-132",
+      "content": "[openclaw] attempting: Agent Deployment Process Documentation"
     },
     {
-      "ts": "2026-07-01T13:10:02.215496+00:00",
-      "agent": "Minerva",
+      "ts": "2026-07-01T13:50:27.356475+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-132",
+      "content": "[claude:owl-alpha] attempting: Agent Deployment Process Documentation"
+    },
+    {
+      "ts": "2026-07-01T13:50:27.077054+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-132",
+      "content": "[cerebras:gpt-oss-120b] attempting: Agent Deployment Process Documentation"
+    },
+    {
+      "ts": "2026-07-01T13:50:27.072222+00:00",
+      "agent": "Metis",
       "event": "dispatched",
-      "ticket": "AUTO-125",
-      "content": "analyst started work: AI FAQ Receptionist Pricing Sheet"
+      "ticket": "AUTO-132",
+      "content": "org-excellence started work: Agent Deployment Process Documentation"
     },
     {
-      "ts": "2026-07-01T13:07:19.640255+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-128",
-      "content": "PASS: The deliverable provides a comprehensive and detailed checklist covering all aspects of data security for FAQ Rece"
+      "ts": "2026-07-01T13:50:10.839798+00:00",
+      "agent": "Nemesis",
+      "event": "working",
+      "ticket": "AUTO-131",
+      "content": "[openclaw] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
     },
     {
-      "ts": "2026-07-01T13:07:19.636732+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-127",
-      "content": "PASS: The deliverable provides a complete markdown playbook with the top 10 objections, concise core answers, rebuttal p"
+      "ts": "2026-07-01T13:50:06.252485+00:00",
+      "agent": "Nemesis",
+      "event": "working",
+      "ticket": "AUTO-131",
+      "content": "[claude:owl-alpha] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
     },
     {
-      "ts": "2026-07-01T13:07:19.632471+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-126",
-      "content": "PASS: The deliverable provides a complete and detailed CSV dataset of high-value prospect segments for an AI-driven FAQ "
+      "ts": "2026-07-01T13:50:04.928727+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "AUTO-130",
+      "content": "[openclaw] attempting: Landing Page Copy for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-07-01T13:03:40.399541+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-128",
-      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-07-01T13:00:04.658303+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-125",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-125-deliverable.md (8631b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T13:00:02.288638+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-127",
-      "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
-    },
-    {
-      "ts": "2026-07-01T13:00:02.284081+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-126",
-      "content": "[claude,openclaw,groq] Independently reviewing data-engineer's deliverable"
+      "ts": "2026-07-01T13:50:02.492260+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "AUTO-130",
+      "content": "[claude:owl-alpha] attempting: Landing Page Copy for AI FAQ Receptionist"
     }
   ],
   "problems": {}

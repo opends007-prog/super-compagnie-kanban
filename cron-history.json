@@ -1,6 +1,41 @@
 {
-  "updated": "2026-07-01T13:50:02.056023+00:00",
+  "updated": "2026-07-01T14:00:01.762058+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T14:00:01.762058+00:00",
+      "job": "ticket-processor",
+      "kind": "system",
+      "status": "fail",
+      "msg": "Failed: 9e0c5fe1, 268323af"
+    },
+    {
+      "ts": "2026-07-01T14:00:01.762058+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-131: openclaw run timed out"
+    },
+    {
+      "ts": "2026-07-01T13:59:01.762058+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
+    {
+      "ts": "2026-07-01T13:59:01.762058+00:00",
+      "job": "Hourly Check-in",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
+    {
+      "ts": "2026-07-01T13:59:01.762058+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "1m ago \u00b7 groq/meta-llama/l..."
+    },
     {
       "ts": "2026-07-01T13:50:02.056023+00:00",
       "job": "validate-work",
@@ -154,6 +189,13 @@
       "kind": "system",
       "status": "warn",
       "msg": "[work]   AUTO-121: openclaw run timed out"
+    },
+    {
+      "ts": "2026-07-01T12:00:01.762058+00:00",
+      "job": "Daily 8 AM Security A...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "2h ago"
     },
     {
       "ts": "2026-07-01T11:59:02.127461+00:00",
@@ -462,6 +504,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "3h ago"
+    },
+    {
+      "ts": "2026-07-01T10:00:01.762058+00:00",
+      "job": "Velocity (daily)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "4h ago"
     },
     {
       "ts": "2026-07-01T10:00:01.479854+00:00",
@@ -959,6 +1008,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "6h ago"
+    },
+    {
+      "ts": "2026-07-01T03:00:01.762058+00:00",
+      "job": "Daily 11 PM Backup (B...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "11h ago"
     },
     {
       "ts": "2026-07-01T03:00:01.754667+00:00",
@@ -1694,62 +1750,6 @@
       "kind": "system",
       "status": "warn",
       "msg": "[work]   AUTO-065: openclaw run timed out"
-    },
-    {
-      "ts": "2026-06-30T18:50:02.070674+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[validate]     AUTO-067: engine 'claude' gave no usable verdict \u2014 trying next in chain"
-    },
-    {
-      "ts": "2026-06-30T18:50:02.070674+00:00",
-      "job": "generate-work",
-      "kind": "system",
-      "status": "ok",
-      "msg": "[gen] added 4 new backlog tickets (AUTO-*)"
-    },
-    {
-      "ts": "2026-06-30T18:40:01.541242+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-065: openclaw run timed out"
-    },
-    {
-      "ts": "2026-06-30T18:30:04.462699+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-065: openclaw run timed out"
-    },
-    {
-      "ts": "2026-06-30T18:30:04.462699+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[validate]     AUTO-066: engine 'openclaw' gave no usable verdict \u2014 trying next in chain"
-    },
-    {
-      "ts": "2026-06-30T18:30:04.462699+00:00",
-      "job": "generate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[gen] cerebras error: HTTP Error 429: Too Many Requests \u2014 trying next engine"
-    },
-    {
-      "ts": "2026-06-30T18:30:01.541242+00:00",
-      "job": "Queue Tick 30m",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "10m ago"
-    },
-    {
-      "ts": "2026-06-30T18:20:02.060294+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-067: openclaw run timed out"
     }
   ]
 }
