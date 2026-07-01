@@ -1,40 +1,96 @@
 {
-  "generatedAt": "2026-07-01T07:20:02.118174+00:00",
+  "generatedAt": "2026-07-01T07:30:02.144607+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 20.0,
+    "validator": 6.1,
     "observability": 10.0,
-    "guard": 2700.0,
-    "backup": 20.0,
+    "guard": 2710.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 134,
+    "done": 138,
     "backlog": 8,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "planned": 4
   },
   "tickets_total": 163,
-  "done_today": 23,
-  "delivered_today": 44,
-  "delivered_week": 44,
+  "done_today": 27,
+  "delivered_today": 42,
+  "delivered_week": 42,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 37,
+    "cerebras:gpt-oss-120b": 35,
     "openclaw": 7
   },
   "live_agents": [
     "Fortuna",
     "Hermes",
     "Iris",
-    "Metis"
+    "Metis",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T07:23:56.897704+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-108",
+      "content": "PASS: The deliverable comprehensively addresses all aspects of the ticket, providing a well-structured and detailed guid"
+    },
+    {
+      "ts": "2026-07-01T07:23:56.895384+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-107",
+      "content": "PASS: The deliverable provides a comprehensive competitive matrix as requested, including core features, pricing, differ"
+    },
+    {
+      "ts": "2026-07-01T07:23:56.893014+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-106",
+      "content": "PASS: The deliverable is a complete and well-structured markdown document that fully meets the ticket requirements, incl"
+    },
+    {
+      "ts": "2026-07-01T07:23:56.882246+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-105",
+      "content": "PASS: The deliverable provides a comprehensive and well-structured pricing sheet for the AI FAQ Receptionist, including "
+    },
+    {
+      "ts": "2026-07-01T07:22:09.098556+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-108",
+      "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-07-01T07:21:53.789389+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-107",
+      "content": "[claude,openclaw,groq] Independently reviewing business-analyst's deliverable"
+    },
+    {
+      "ts": "2026-07-01T07:20:02.231594+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-106",
+      "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-07-01T07:20:02.225860+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-105",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-07-01T07:10:04.139098+00:00",
       "agent": "Fortuna",
@@ -62,62 +118,6 @@
       "event": "delivered",
       "ticket": "AUTO-107",
       "content": "[openclaw] Produced AUTO-107-deliverable.md (3766b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T07:03:25.932829+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-105",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-105-deliverable.md (8947b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-01T07:03:25.931510+00:00",
-      "agent": "Metis",
-      "event": "delivered",
-      "ticket": "AUTO-108",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-108-deliverable.md (9251b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T07:03:25.919997+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "AUTO-106",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-106-deliverable.md (7409b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T07:00:05.534405+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-107",
-      "content": "[openclaw] attempting: Competitive Feature Matrix for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T07:00:03.970447+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-105",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T07:00:03.968942+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-105",
-      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T07:00:02.652583+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-107",
-      "content": "[claude:owl-alpha] attempting: Competitive Feature Matrix for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T07:00:02.191283+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-107",
-      "content": "[cerebras:gpt-oss-120b] attempting: Competitive Feature Matrix for AI FAQ Receptionist"
     }
   ],
   "problems": {}
