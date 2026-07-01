@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-07-01T21:00:01.827948+00:00",
+  "generatedAt": "2026-07-01T21:10:01.359818+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 15.3,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 3520.0,
-    "backup": 30.0,
+    "guard": 3530.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 178,
+    "done": 179,
     "backlog": 8,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 1
+    "planned": 4
   },
   "tickets_total": 204,
-  "done_today": 67,
+  "done_today": 68,
   "delivered_today": 34,
   "delivered_week": 34,
   "model_mix_week": {
@@ -32,6 +31,20 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T21:00:04.102129+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-147",
+      "content": "PASS: The deliverable provides a comprehensive and detailed competitive feature matrix comparing the AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T21:00:02.001181+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-147",
+      "content": "[groq,claude,openclaw] Independently reviewing business-analyst's deliverable"
+    },
     {
       "ts": "2026-07-01T20:44:46.225229+00:00",
       "agent": "nemesis",
@@ -101,20 +114,6 @@
       "event": "validation_pass",
       "ticket": "AUTO-147",
       "content": "PASS: The deliverable provides a comprehensive and detailed competitive feature matrix comparing the AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T20:20:02.666427+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-146",
-      "content": "PASS: The deliverable provides a comprehensive objection-handling guide for AI FAQ Receptionist sales, including a core "
-    },
-    {
-      "ts": "2026-07-01T20:20:02.208724+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-148",
-      "content": "[groq,claude,openclaw] Independently reviewing tom's deliverable"
     }
   ],
   "problems": {}
