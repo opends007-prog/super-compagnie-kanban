@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-01T17:30:01.218921+00:00",
+  "updated": "2026-07-01T17:40:02.186227+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T17:40:02.186227+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-138: cerebras dispatch error: HTTP Error 429: Too Many Requests"
+    },
     {
       "ts": "2026-07-01T17:30:01.218921+00:00",
       "job": "validate-work",
@@ -665,6 +672,13 @@
       "kind": "system",
       "status": "warn",
       "msg": "[gen] cerebras error: HTTP Error 429: Too Many Requests \u2014 trying next engine"
+    },
+    {
+      "ts": "2026-07-01T11:40:02.186227+00:00",
+      "job": "Daily 8 AM Security A...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "6h ago"
     },
     {
       "ts": "2026-07-01T11:40:02.081619+00:00",
@@ -1724,32 +1738,18 @@
       "msg": "12h ago"
     },
     {
+      "ts": "2026-07-01T02:40:02.186227+00:00",
+      "job": "Daily 11 PM Backup (B...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "15h ago"
+    },
+    {
       "ts": "2026-07-01T02:40:02.083601+00:00",
       "job": "Daily 11 PM Backup (B...",
       "kind": "discord-cron",
       "status": "ok",
       "msg": "4h ago"
-    },
-    {
-      "ts": "2026-07-01T02:40:02.081619+00:00",
-      "job": "Daily 11 PM Backup (B...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "14h ago"
-    },
-    {
-      "ts": "2026-07-01T02:40:01.956453+00:00",
-      "job": "Daily 11 PM Backup (B...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "7h ago"
-    },
-    {
-      "ts": "2026-07-01T02:40:01.902275+00:00",
-      "job": "Daily 11 PM Backup (B...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "13h ago"
     }
   ]
 }

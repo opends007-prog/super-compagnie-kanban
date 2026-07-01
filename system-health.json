@@ -1,119 +1,122 @@
 {
-  "generatedAt": "2026-07-01T17:30:01.238813+00:00",
+  "generatedAt": "2026-07-01T17:40:02.179352+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 10.0,
+    "work-executor": 6.4,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 3310.0,
-    "backup": 30.0,
+    "guard": 3320.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 167,
-    "backlog": 12,
-    "in_progress": 13,
+    "backlog": 9,
+    "in_progress": 16,
     "planned": 4
   },
   "tickets_total": 196,
   "done_today": 56,
-  "delivered_today": 11,
-  "delivered_week": 11,
+  "delivered_today": 14,
+  "delivered_week": 14,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 10,
+    "cerebras:gpt-oss-120b": 13,
     "openclaw": 1
   },
   "live_agents": [
-    "nemesis"
+    "Fortuna",
+    "Iris",
+    "Metis",
+    "Minerva"
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T17:04:48.805156+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-136",
-      "content": "PASS: The deliverable provides a comprehensive and detailed checklist for VM security hardening, covering all required a"
-    },
-    {
-      "ts": "2026-07-01T17:04:48.802025+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-134",
-      "content": "PASS: The deliverable provides a comprehensive one-page markdown guide that addresses common objections to an AI FAQ Rec"
-    },
-    {
-      "ts": "2026-07-01T17:00:01.791860+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-136",
-      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-07-01T17:00:01.790187+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-134",
-      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-07-01T16:50:06.974757+00:00",
+      "ts": "2026-07-01T17:33:39.865407+00:00",
       "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-134",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-134-deliverable.md (10183b) \u2192 in_validation"
+      "event": "no_deliverable",
+      "ticket": "AUTO-138",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-07-01T16:50:01.721996+00:00",
+      "ts": "2026-07-01T17:33:39.864880+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-140",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-140-deliverable.md (11457b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-01T17:33:39.859268+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-137",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-137-deliverable.md (7956b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-01T17:33:39.853431+00:00",
+      "agent": "Iris",
+      "event": "delivered",
+      "ticket": "AUTO-139",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-139-deliverable.md (6400b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-01T17:30:10.399010+00:00",
       "agent": "Minerva",
       "event": "working",
-      "ticket": "AUTO-134",
-      "content": "[cerebras:gpt-oss-120b] attempting: Objection-Handling Guide for AI FAQ Receptionist Sales Calls"
+      "ticket": "AUTO-138",
+      "content": "[openclaw] attempting: Healthcare Provider Cold Outreach Email Sequence"
     },
     {
-      "ts": "2026-07-01T16:50:01.721096+00:00",
+      "ts": "2026-07-01T17:30:05.869174+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-138",
+      "content": "[claude:owl-alpha] attempting: Healthcare Provider Cold Outreach Email Sequence"
+    },
+    {
+      "ts": "2026-07-01T17:30:03.144002+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-140",
+      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Guide for AI FAQ Receptionist Sales Calls"
+    },
+    {
+      "ts": "2026-07-01T17:30:03.143172+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-140",
+      "content": "org-excellence started work: Objection\u2011Handling Guide for AI FAQ Receptionist Sales Calls"
+    },
+    {
+      "ts": "2026-07-01T17:30:01.384359+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "AUTO-139",
+      "content": "[cerebras:gpt-oss-120b] attempting: Landing Page Copy for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T17:30:01.383947+00:00",
+      "agent": "Iris",
+      "event": "dispatched",
+      "ticket": "AUTO-139",
+      "content": "pm started work: Landing Page Copy for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T17:30:01.380792+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-138",
+      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Provider Cold Outreach Email Sequence"
+    },
+    {
+      "ts": "2026-07-01T17:30:01.379945+00:00",
       "agent": "Minerva",
       "event": "dispatched",
-      "ticket": "AUTO-134",
-      "content": "analyst started work: Objection-Handling Guide for AI FAQ Receptionist Sales Calls"
-    },
-    {
-      "ts": "2026-07-01T16:48:55.129200+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-135",
-      "content": "PASS: The deliverable is complete, well-structured, and meets all the acceptance criteria specified in the ticket."
-    },
-    {
-      "ts": "2026-07-01T16:48:55.128209+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "AUTO-134",
-      "content": "FAIL #1: The deliverable is a competitive analysis rather than the required one-page objection\u2011handling guide, so it doe"
-    },
-    {
-      "ts": "2026-07-01T16:48:55.122590+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-133",
-      "content": "PASS: The deliverable provides a complete markdown pricing sheet with three tiered packages, feature lists, price points"
-    },
-    {
-      "ts": "2026-07-01T16:44:49.586889+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-136",
-      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-07-01T16:44:12.203963+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-135",
-      "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+      "ticket": "AUTO-138",
+      "content": "analyst started work: Healthcare Provider Cold Outreach Email Sequence"
     }
   ],
   "problems": {}
