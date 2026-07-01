@@ -1,31 +1,32 @@
 {
-  "generatedAt": "2026-07-01T03:00:01.434951+00:00",
+  "generatedAt": "2026-07-01T03:10:01.776898+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 20.0,
+    "work-executor": 8.5,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 2440.0,
-    "backup": 30.0,
+    "guard": 2450.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 118,
     "backlog": 8,
-    "in_progress": 17,
-    "planned": 4
+    "in_progress": 13,
+    "planned": 4,
+    "in_validation": 4
   },
   "tickets_total": 147,
   "done_today": 7,
-  "delivered_today": 22,
-  "delivered_week": 40,
+  "delivered_today": 26,
+  "delivered_week": 44,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 38,
-    "openclaw": 2
+    "cerebras:gpt-oss-120b": 41,
+    "openclaw": 3
   },
   "live_agents": [
     "Fortuna",
@@ -35,88 +36,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T02:50:07.904094+00:00",
+      "ts": "2026-07-01T03:01:31.414749+00:00",
       "agent": "Minerva",
       "event": "delivered",
       "ticket": "AUTO-089",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-089-deliverable.md (5966b) \u2192 in_progress"
+      "content": "[openclaw] Produced AUTO-089-deliverable.md (4324b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T02:50:07.903010+00:00",
+      "ts": "2026-07-01T03:01:31.413543+00:00",
       "agent": "Gladiator",
       "event": "delivered",
       "ticket": "AUTO-092",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-092-deliverable.md (5001b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-092-deliverable.md (5422b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T02:50:07.901941+00:00",
+      "ts": "2026-07-01T03:01:31.412215+00:00",
       "agent": "Fortuna",
       "event": "delivered",
       "ticket": "AUTO-090",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-090-deliverable.md (13201b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-090-deliverable.md (12334b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T02:50:07.900078+00:00",
+      "ts": "2026-07-01T03:01:31.399787+00:00",
       "agent": "Iris",
       "event": "delivered",
       "ticket": "AUTO-091",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-091-deliverable.md (8670b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-091-deliverable.md (8755b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T02:50:04.014570+00:00",
+      "ts": "2026-07-01T03:00:05.283397+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-089",
+      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Package Sheet"
+    },
+    {
+      "ts": "2026-07-01T03:00:03.338404+00:00",
       "agent": "Gladiator",
       "event": "working",
       "ticket": "AUTO-092",
       "content": "[cerebras:gpt-oss-120b] attempting: Landing\u2011Page Copy & Single\u2011File HTML Template for AI FAQ Rec"
     },
     {
-      "ts": "2026-07-01T02:50:04.013129+00:00",
+      "ts": "2026-07-01T03:00:03.336605+00:00",
       "agent": "Gladiator",
       "event": "dispatched",
       "ticket": "AUTO-092",
       "content": "tom started work: Landing\u2011Page Copy & Single\u2011File HTML Template for AI FAQ Rec"
     },
     {
-      "ts": "2026-07-01T02:50:02.282360+00:00",
-      "agent": "Iris",
+      "ts": "2026-07-01T03:00:02.098577+00:00",
+      "agent": "Minerva",
       "event": "working",
-      "ticket": "AUTO-091",
-      "content": "[cerebras:gpt-oss-120b] attempting: Client Onboarding Checklist & Process Document"
+      "ticket": "AUTO-089",
+      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Package Sheet"
     },
     {
-      "ts": "2026-07-01T02:50:02.277953+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-090",
-      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Playbook for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T02:50:02.274425+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-090",
-      "content": "income started work: Objection\u2011Handling Playbook for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T02:50:02.273425+00:00",
-      "agent": "Iris",
-      "event": "dispatched",
-      "ticket": "AUTO-091",
-      "content": "pm started work: Client Onboarding Checklist & Process Document"
-    },
-    {
-      "ts": "2026-07-01T02:50:02.272455+00:00",
+      "ts": "2026-07-01T03:00:01.611692+00:00",
       "agent": "Minerva",
       "event": "working",
       "ticket": "AUTO-089",
       "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Package Sheet"
     },
     {
-      "ts": "2026-07-01T02:50:02.270427+00:00",
-      "agent": "Minerva",
+      "ts": "2026-07-01T03:00:01.604074+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-090",
+      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Playbook for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T03:00:01.593388+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "AUTO-091",
+      "content": "[cerebras:gpt-oss-120b] attempting: Client Onboarding Checklist & Process Document"
+    },
+    {
+      "ts": "2026-07-01T03:00:01.591670+00:00",
+      "agent": "Iris",
       "event": "dispatched",
-      "ticket": "AUTO-089",
-      "content": "analyst started work: AI FAQ Receptionist Pricing & Package Sheet"
+      "ticket": "AUTO-091",
+      "content": "pm started work: Client Onboarding Checklist & Process Document"
     }
   ],
   "problems": {}
