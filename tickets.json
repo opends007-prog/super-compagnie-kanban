@@ -9463,7 +9463,7 @@
       "description": "Research competitor pricing and define three tiered plans (Basic, Pro, Enterprise) with feature lists and price points. Deliverable: a markdown pricing sheet ready to be posted on the landing page.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Fortuna",
       "team": "any",
       "epicId": "EPIC-002",
@@ -9471,7 +9471,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-01T13:40:03.098013+00:00",
-      "updatedAt": "2026-07-01T13:40:03.098013+00:00",
+      "updatedAt": "2026-07-01T13:54:51.092669+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -9479,6 +9479,11 @@
           "by": "auto-planner",
           "timestamp": "2026-07-01T13:40:03.098013+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
+        },
+        {
+          "by": "Fortuna",
+          "timestamp": "2026-07-01T13:54:51.092669+00:00",
+          "text": "Delivered work/AUTO-129-deliverable.md (9749 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
         }
       ]
     },
@@ -9488,7 +9493,7 @@
       "description": "Write headline, sub\u2011headline, benefits, call\u2011to\u2011action, and an FAQ section for a single\u2011page landing site promoting the AI FAQ Receptionist service. Deliverable: a markdown file containing the full copy ready for web publishing.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Iris",
       "team": "any",
       "epicId": "EPIC-002",
@@ -9496,7 +9501,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-01T13:40:03.098013+00:00",
-      "updatedAt": "2026-07-01T13:40:03.098013+00:00",
+      "updatedAt": "2026-07-01T13:54:51.198111+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -9504,6 +9509,11 @@
           "by": "auto-planner",
           "timestamp": "2026-07-01T13:40:03.098013+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
+        },
+        {
+          "by": "Iris",
+          "timestamp": "2026-07-01T13:54:51.198111+00:00",
+          "text": "Delivered work/AUTO-130-deliverable.md (2621 bytes) via openclaw \u2014 advanced to in_progress."
         }
       ]
     },
@@ -9556,20 +9566,45 @@
           "text": "Auto-generated to keep the team busy (backlog was low)."
         }
       ]
+    },
+    {
+      "id": "STORY-204",
+      "title": "[self-heal] openclaw-gateway.service keeps crashing",
+      "status": "backlog",
+      "priority": "high",
+      "team": "any",
+      "assigned_to": "Thor",
+      "estimatedStartDate": null,
+      "progress": 0,
+      "description": "openclaw-gateway.service was down and self-heal already restarted it 2 times in 24.0h. It is NOT auto-restarting again to avoid a loop. Investigate root cause (journalctl --user -u openclaw-gateway.service).",
+      "severity": "critical",
+      "category": "bug",
+      "lane": null,
+      "filename": null,
+      "validation_fails": 0,
+      "epicId": null,
+      "createdAt": "2026-07-01T13:50:02.074485+00:00",
+      "updatedAt": "2026-07-01T13:50:02.074503+00:00",
+      "comments": [
+        {
+          "by": "self-heal",
+          "text": "Ticket created via request 405c5b35"
+        }
+      ]
     }
   ],
   "stats": {
-    "totalTickets": 111,
+    "totalTickets": 188,
     "totalEpics": 14,
-    "backlog": 8,
-    "in_progress": 15,
+    "backlog": 13,
+    "in_progress": 13,
     "waiting": 0,
-    "in_validation": 2,
-    "done": 82,
+    "in_validation": 0,
+    "done": 158,
     "critical": 0,
     "blocked": 0,
     "review": 0,
-    "last_progress_update": "2026-06-30T13:50:02.174005+00:00",
+    "last_progress_update": "2026-07-01T13:50:02.074653+00:00",
     "planned": 4
   },
   "last_progress_update": "2026-06-22T16:30:02.987211"
