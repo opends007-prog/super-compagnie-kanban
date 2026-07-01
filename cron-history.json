@@ -1,6 +1,20 @@
 {
-  "updated": "2026-07-01T15:50:01.550485+00:00",
+  "updated": "2026-07-01T16:00:02.096029+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T15:59:02.096029+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
+    {
+      "ts": "2026-07-01T15:59:02.096029+00:00",
+      "job": "Hourly Check-in",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-07-01T15:50:01.550485+00:00",
       "job": "validate-work",
@@ -142,6 +156,13 @@
       "msg": "[work]   AUTO-131: openclaw run timed out"
     },
     {
+      "ts": "2026-07-01T14:00:02.096029+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "2h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-07-01T14:00:01.762058+00:00",
       "job": "ticket-processor",
       "kind": "system",
@@ -245,6 +266,13 @@
       "kind": "system",
       "status": "ok",
       "msg": "628576b..b84a922  master -> master"
+    },
+    {
+      "ts": "2026-07-01T13:00:02.096029+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "3h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T13:00:02.058864+00:00",
@@ -406,6 +434,20 @@
       "kind": "system",
       "status": "warn",
       "msg": "[work]   AUTO-121: openclaw run timed out"
+    },
+    {
+      "ts": "2026-07-01T12:00:02.096029+00:00",
+      "job": "Lucy 8 AM Morning Mot...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "4h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T12:00:02.096029+00:00",
+      "job": "Daily 8 AM Security A...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "4h ago"
     },
     {
       "ts": "2026-07-01T12:00:01.762058+00:00",
@@ -581,6 +623,13 @@
       "kind": "system",
       "status": "ok",
       "msg": "[gen] added 4 new backlog tickets (AUTO-*)"
+    },
+    {
+      "ts": "2026-07-01T11:00:02.096029+00:00",
+      "job": "Daily 7 AM Standup",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "5h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T11:00:01.754667+00:00",
@@ -826,6 +875,20 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "2h ago"
+    },
+    {
+      "ts": "2026-07-01T10:00:02.096029+00:00",
+      "job": "Daily 6 AM Memory Mai...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "6h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T10:00:02.096029+00:00",
+      "job": "Velocity (daily)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "6h ago"
     },
     {
       "ts": "2026-07-01T10:00:02.058864+00:00",
@@ -1346,6 +1409,13 @@
       "msg": "9h ago"
     },
     {
+      "ts": "2026-07-01T03:00:02.096029+00:00",
+      "job": "Daily 11 PM Backup (B...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "13h ago"
+    },
+    {
       "ts": "2026-07-01T03:00:02.058864+00:00",
       "job": "Daily 11 PM Backup (B...",
       "kind": "discord-cron",
@@ -1680,76 +1750,6 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "4h ago"
-    },
-    {
-      "ts": "2026-07-01T01:30:01.913770+00:00",
-      "job": "Hourly Check-in",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "9h ago"
-    },
-    {
-      "ts": "2026-07-01T01:30:01.674419+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-085: cerebras dispatch error: HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-07-01T01:30:01.597592+00:00",
-      "job": "Hourly Check-in",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "2h ago"
-    },
-    {
-      "ts": "2026-07-01T01:30:01.366893+00:00",
-      "job": "Hourly Check-in",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "10h ago"
-    },
-    {
-      "ts": "2026-07-01T01:30:01.354944+00:00",
-      "job": "Hourly Check-in",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "3h ago"
-    },
-    {
-      "ts": "2026-07-01T01:30:01.325233+00:00",
-      "job": "Hourly Check-in",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "5h ago"
-    },
-    {
-      "ts": "2026-07-01T01:29:01.674419+00:00",
-      "job": "Queue Tick 30m",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1m ago"
-    },
-    {
-      "ts": "2026-07-01T01:10:01.900162+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "ok",
-      "msg": "[validate] no validations applied this run"
-    },
-    {
-      "ts": "2026-07-01T00:59:02.174326+00:00",
-      "job": "Queue Tick 30m",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1m ago"
-    },
-    {
-      "ts": "2026-07-01T00:50:01.715974+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[validate]     AUTO-081: reviewer run error (openclaw): Command '['openclaw', 'agent', '--agent', 'nemesis', '--session-key', 'review-AUTO-081', '-m', 'You are an INDEPENDENT work reviewer. Strictly r"
     }
   ]
 }
