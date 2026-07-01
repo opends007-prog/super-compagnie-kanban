@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-07-01T16:30:02.018167+00:00",
+  "generatedAt": "2026-07-01T16:40:02.095255+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.3,
-    "validator": 10.0,
+    "work-executor": 9.9,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 3250.0,
-    "backup": 30.0,
+    "guard": 3260.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 163,
     "backlog": 8,
-    "in_progress": 15,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 2
+    "in_validation": 4
   },
   "tickets_total": 192,
   "done_today": 52,
-  "delivered_today": 8,
-  "delivered_week": 8,
+  "delivered_today": 10,
+  "delivered_week": 10,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 7,
+    "cerebras:gpt-oss-120b": 9,
     "openclaw": 1
   },
   "live_agents": [
@@ -35,6 +35,48 @@
     "Minerva"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T16:30:05.215051+00:00",
+      "agent": "Minerva",
+      "event": "delivered",
+      "ticket": "AUTO-134",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-134-deliverable.md (12628b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T16:30:05.213245+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-133",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-133-deliverable.md (8302b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T16:30:02.178889+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-133",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T16:30:02.178024+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-134",
+      "content": "[cerebras:gpt-oss-120b] attempting: Objection-Handling Guide for AI FAQ Receptionist Sales Calls"
+    },
+    {
+      "ts": "2026-07-01T16:30:02.177345+00:00",
+      "agent": "Minerva",
+      "event": "dispatched",
+      "ticket": "AUTO-134",
+      "content": "analyst started work: Objection-Handling Guide for AI FAQ Receptionist Sales Calls"
+    },
+    {
+      "ts": "2026-07-01T16:30:02.176103+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-133",
+      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
+    },
     {
       "ts": "2026-07-01T16:24:46.378632+00:00",
       "agent": "Minerva",
@@ -76,48 +118,6 @@
       "event": "working",
       "ticket": "AUTO-133",
       "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T16:20:03.567186+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-133",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T16:20:03.094573+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-133",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T16:20:03.092305+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-133",
-      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T16:20:02.070300+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-134",
-      "content": "[claude:owl-alpha] attempting: Objection-Handling Guide for AI FAQ Receptionist Sales Calls"
-    },
-    {
-      "ts": "2026-07-01T16:20:01.804866+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-136",
-      "content": "[cerebras:gpt-oss-120b] attempting: VM Security Hardening Checklist for Agent Deployment"
-    },
-    {
-      "ts": "2026-07-01T16:20:01.803094+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-136",
-      "content": "security started work: VM Security Hardening Checklist for Agent Deployment"
     }
   ],
   "problems": {}
