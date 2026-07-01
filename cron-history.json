@@ -1,6 +1,20 @@
 {
-  "updated": "2026-07-01T14:50:01.849611+00:00",
+  "updated": "2026-07-01T15:00:02.279107+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T15:00:02.279107+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-131: openclaw run timed out"
+    },
+    {
+      "ts": "2026-07-01T14:59:02.279107+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-07-01T14:50:01.849611+00:00",
       "job": "real-work-executor",
@@ -651,6 +665,13 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "2h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T10:00:02.279107+00:00",
+      "job": "Velocity (daily)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "5h ago"
     },
     {
       "ts": "2026-07-01T10:00:02.127461+00:00",
@@ -1729,27 +1750,6 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "1m ago"
-    },
-    {
-      "ts": "2026-06-30T21:50:01.971671+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[validate]     AUTO-069: engine 'groq' gave no usable verdict \u2014 trying next in chain"
-    },
-    {
-      "ts": "2026-06-30T21:50:01.395659+00:00",
-      "job": "Hourly Check-in",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "2h ago"
-    },
-    {
-      "ts": "2026-06-30T21:30:02.014230+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[validate]     AUTO-069: no usable verdict #3 (model unavailable?) \u2014 staying in_validation, retry next run"
     }
   ]
 }
