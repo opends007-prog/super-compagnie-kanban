@@ -1,119 +1,122 @@
 {
-  "generatedAt": "2026-07-01T12:30:01.283089+00:00",
+  "generatedAt": "2026-07-01T12:40:01.709059+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 10.0,
+    "work-executor": 6.9,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 3010.0,
-    "backup": 29.9,
+    "guard": 3020.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 154,
-    "backlog": 12,
-    "in_progress": 13,
+    "backlog": 8,
+    "in_progress": 17,
     "planned": 4
   },
   "tickets_total": 183,
   "done_today": 43,
-  "delivered_today": 10,
-  "delivered_week": 10,
+  "delivered_today": 14,
+  "delivered_week": 14,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 8,
-    "openclaw": 2
+    "cerebras:gpt-oss-120b": 11,
+    "openclaw": 3
   },
   "live_agents": [
-    "nemesis"
+    "Hades",
+    "Metis",
+    "Minerva",
+    "Vulcan"
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T12:08:35.789332+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-124",
-      "content": "PASS: The deliverable provides a comprehensive and detailed landing page copy, including a headline, sub-headline, benef"
+      "ts": "2026-07-01T12:33:09.660535+00:00",
+      "agent": "Vulcan",
+      "event": "delivered",
+      "ticket": "AUTO-126",
+      "content": "[openclaw] Produced AUTO-126-deliverable.md (3351b) \u2192 in_progress"
     },
     {
-      "ts": "2026-07-01T12:08:35.787506+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-123",
-      "content": "PASS: The deliverable provides a comprehensive objection handling guide for the AI FAQ Receptionist, including top ten o"
-    },
-    {
-      "ts": "2026-07-01T12:08:35.783888+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-122",
-      "content": "PASS: The deliverable provides a comprehensive and detailed demo script, walkthrough, and slide deck outline for showcas"
-    },
-    {
-      "ts": "2026-07-01T12:08:35.750106+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-121",
-      "content": "PASS: The deliverable provides a comprehensive analysis of competitive pricing models for AI-driven FAQ services, define"
-    },
-    {
-      "ts": "2026-07-01T12:04:08.098387+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-124",
-      "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
-    },
-    {
-      "ts": "2026-07-01T12:03:48.664055+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-123",
-      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-07-01T12:00:03.071722+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-122",
-      "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
-    },
-    {
-      "ts": "2026-07-01T12:00:03.060095+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-121",
-      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-07-01T11:54:46.252723+00:00",
+      "ts": "2026-07-01T12:33:09.659842+00:00",
       "agent": "Minerva",
       "event": "delivered",
-      "ticket": "AUTO-121",
-      "content": "[openclaw] Produced AUTO-121-deliverable.md (3785b) \u2192 in_validation"
+      "ticket": "AUTO-125",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-125-deliverable.md (9326b) \u2192 in_progress"
     },
     {
-      "ts": "2026-07-01T11:54:46.238598+00:00",
-      "agent": "Iris",
+      "ts": "2026-07-01T12:33:09.659212+00:00",
+      "agent": "Hades",
       "event": "delivered",
-      "ticket": "AUTO-122",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-122-deliverable.md (9153b) \u2192 in_validation"
+      "ticket": "AUTO-128",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-128-deliverable.md (10492b) \u2192 in_progress"
     },
     {
-      "ts": "2026-07-01T11:50:05.946438+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-121",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Packages Sheet"
+      "ts": "2026-07-01T12:33:09.653757+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-127",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-127-deliverable.md (15424b) \u2192 in_progress"
     },
     {
-      "ts": "2026-07-01T11:50:01.949318+00:00",
+      "ts": "2026-07-01T12:30:11.379107+00:00",
+      "agent": "Vulcan",
+      "event": "working",
+      "ticket": "AUTO-126",
+      "content": "[openclaw] attempting: Target Client Segmentation Dataset for FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T12:30:06.228241+00:00",
+      "agent": "Vulcan",
+      "event": "working",
+      "ticket": "AUTO-126",
+      "content": "[claude:owl-alpha] attempting: Target Client Segmentation Dataset for FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T12:30:04.029070+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-128",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Security Checklist for FAQ Receptionist Deployments"
+    },
+    {
+      "ts": "2026-07-01T12:30:04.027588+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-128",
+      "content": "security started work: Data Security Checklist for FAQ Receptionist Deployments"
+    },
+    {
+      "ts": "2026-07-01T12:30:01.430859+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-127",
+      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Playbook for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T12:30:01.429611+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-127",
+      "content": "org-excellence started work: Objection\u2011Handling Playbook for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T12:30:01.421599+00:00",
       "agent": "Minerva",
       "event": "working",
-      "ticket": "AUTO-121",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Packages Sheet"
+      "ticket": "AUTO-125",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T12:30:01.420401+00:00",
+      "agent": "Vulcan",
+      "event": "working",
+      "ticket": "AUTO-126",
+      "content": "[cerebras:gpt-oss-120b] attempting: Target Client Segmentation Dataset for FAQ Receptionist"
     }
   ],
   "problems": {}
