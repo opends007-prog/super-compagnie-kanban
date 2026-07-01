@@ -1,40 +1,104 @@
 {
-  "generatedAt": "2026-07-01T20:20:01.425165+00:00",
+  "generatedAt": "2026-07-01T20:30:02.142859+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.2,
-    "validator": 20.0,
+    "work-executor": 10.0,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 3480.0,
-    "backup": 20.0,
+    "guard": 3490.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 175,
     "backlog": 8,
-    "in_progress": 14,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 3
+    "in_validation": 4
   },
   "tickets_total": 204,
   "done_today": 64,
-  "delivered_today": 35,
-  "delivered_week": 35,
+  "delivered_today": 36,
+  "delivered_week": 36,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 32,
+    "cerebras:gpt-oss-120b": 33,
     "openclaw": 3
   },
   "live_agents": [
     "Gladiator",
     "Hermes",
     "Metis",
-    "Plutus"
+    "Plutus",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T20:20:03.199041+00:00",
+      "agent": "Plutus",
+      "event": "delivered",
+      "ticket": "AUTO-145",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-145-deliverable.md (6258b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T20:20:02.678645+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-148",
+      "content": "PASS: The deliverable is a complete and functional single-page HTML/CSS template that meets all the requirements specifi"
+    },
+    {
+      "ts": "2026-07-01T20:20:02.671917+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-147",
+      "content": "PASS: The deliverable provides a comprehensive and detailed competitive feature matrix comparing the AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T20:20:02.666427+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-146",
+      "content": "PASS: The deliverable provides a comprehensive objection-handling guide for AI FAQ Receptionist sales, including a core "
+    },
+    {
+      "ts": "2026-07-01T20:20:02.208724+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-148",
+      "content": "[groq,claude,openclaw] Independently reviewing tom's deliverable"
+    },
+    {
+      "ts": "2026-07-01T20:20:01.591214+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-147",
+      "content": "[groq,claude,openclaw] Independently reviewing business-analyst's deliverable"
+    },
+    {
+      "ts": "2026-07-01T20:20:01.582444+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-146",
+      "content": "[groq,claude,openclaw] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-07-01T20:20:01.581293+00:00",
+      "agent": "Plutus",
+      "event": "working",
+      "ticket": "AUTO-145",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T20:20:01.579000+00:00",
+      "agent": "Plutus",
+      "event": "dispatched",
+      "ticket": "AUTO-145",
+      "content": "finance started work: AI FAQ Receptionist Pricing Sheet"
+    },
     {
       "ts": "2026-07-01T20:14:47.349639+00:00",
       "agent": "Plutus",
@@ -55,69 +119,6 @@
       "event": "working",
       "ticket": "AUTO-145",
       "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T20:10:02.573577+00:00",
-      "agent": "Plutus",
-      "event": "working",
-      "ticket": "AUTO-145",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T20:10:02.089200+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-147",
-      "content": "[cerebras:gpt-oss-120b] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top Vendo"
-    },
-    {
-      "ts": "2026-07-01T20:10:02.088213+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "AUTO-147",
-      "content": "business-analyst started work: Competitive Feature Matrix: AI FAQ Receptionist vs Top Vendo"
-    },
-    {
-      "ts": "2026-07-01T20:10:02.087048+00:00",
-      "agent": "Plutus",
-      "event": "working",
-      "ticket": "AUTO-145",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T20:10:02.085971+00:00",
-      "agent": "Plutus",
-      "event": "dispatched",
-      "ticket": "AUTO-145",
-      "content": "finance started work: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T20:04:51.994553+00:00",
-      "agent": "Plutus",
-      "event": "no_deliverable",
-      "ticket": "AUTO-145",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T20:04:51.993586+00:00",
-      "agent": "Gladiator",
-      "event": "delivered",
-      "ticket": "AUTO-148",
-      "content": "[openclaw] Produced AUTO-148-deliverable.md (2456b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T20:04:51.992449+00:00",
-      "agent": "Hermes",
-      "event": "no_deliverable",
-      "ticket": "AUTO-147",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T20:04:51.975313+00:00",
-      "agent": "Metis",
-      "event": "delivered",
-      "ticket": "AUTO-146",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-146-deliverable.md (8290b) \u2192 in_validation"
     }
   ],
   "problems": {}
