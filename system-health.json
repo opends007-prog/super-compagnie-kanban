@@ -1,119 +1,122 @@
 {
-  "generatedAt": "2026-07-01T09:50:01.997859+00:00",
+  "generatedAt": "2026-07-01T10:00:01.367650+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 10.0,
+    "work-executor": 5.2,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 2850.0,
-    "backup": 20.0,
+    "guard": 2860.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 146,
-    "backlog": 12,
-    "in_progress": 13,
+    "backlog": 9,
+    "in_progress": 16,
     "planned": 4
   },
   "tickets_total": 175,
   "done_today": 35,
-  "delivered_today": 40,
-  "delivered_week": 40,
+  "delivered_today": 43,
+  "delivered_week": 43,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 35,
+    "cerebras:gpt-oss-120b": 38,
     "openclaw": 5
   },
   "live_agents": [
-    "nemesis"
+    "Fortuna",
+    "Hades",
+    "Minerva",
+    "Thor"
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T09:27:19.705999+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-116",
-      "content": "PASS: The deliverable provides a comprehensive one-page markdown guide for the sales team, addressing the top ten sales "
-    },
-    {
-      "ts": "2026-07-01T09:27:19.703070+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-115",
-      "content": "PASS: The deliverable provides a comprehensive knowledge base with 55 Q&A pairs covering common patient and provider inq"
-    },
-    {
-      "ts": "2026-07-01T09:27:19.696774+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-114",
-      "content": "PASS: The deliverable is a comprehensive markdown script that includes a detailed 15-minute live demonstration flow for "
-    },
-    {
-      "ts": "2026-07-01T09:27:19.682758+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-113",
-      "content": "PASS: The deliverable provides researched market-backed tiered packages with feature lists and price points in a ready\u2011t"
-    },
-    {
-      "ts": "2026-07-01T09:23:50.122153+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-116",
-      "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
-    },
-    {
-      "ts": "2026-07-01T09:22:21.215945+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-115",
-      "content": "[claude,openclaw,groq] Independently reviewing business-analyst's deliverable"
-    },
-    {
-      "ts": "2026-07-01T09:20:02.145422+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-114",
-      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-07-01T09:20:02.143434+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-113",
-      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-07-01T09:10:06.017952+00:00",
-      "agent": "Hermes",
-      "event": "delivered",
-      "ticket": "AUTO-115",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-115-deliverable.md (32456b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T09:10:01.756270+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-115",
-      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare FAQ Knowledge Base for AI Receptionist"
-    },
-    {
-      "ts": "2026-07-01T09:10:01.754718+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "AUTO-115",
-      "content": "business-analyst started work: Healthcare FAQ Knowledge Base for AI Receptionist"
-    },
-    {
-      "ts": "2026-07-01T09:04:50.409864+00:00",
-      "agent": "Hermes",
+      "ts": "2026-07-01T09:54:47.393937+00:00",
+      "agent": "Thor",
       "event": "no_deliverable",
-      "ticket": "AUTO-115",
+      "ticket": "AUTO-120",
       "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-01T09:54:47.392440+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-117",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-117-deliverable.md (9273b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-01T09:54:47.388921+00:00",
+      "agent": "Minerva",
+      "event": "delivered",
+      "ticket": "AUTO-118",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-118-deliverable.md (11483b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-01T09:54:47.361965+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-119",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-119-deliverable.md (10916b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-01T09:50:07.070011+00:00",
+      "agent": "Thor",
+      "event": "working",
+      "ticket": "AUTO-120",
+      "content": "[openclaw] attempting: VM Deployment Blueprint for Single\u2011Agent POC"
+    },
+    {
+      "ts": "2026-07-01T09:50:04.458195+00:00",
+      "agent": "Thor",
+      "event": "working",
+      "ticket": "AUTO-120",
+      "content": "[claude:owl-alpha] attempting: VM Deployment Blueprint for Single\u2011Agent POC"
+    },
+    {
+      "ts": "2026-07-01T09:50:04.288581+00:00",
+      "agent": "Thor",
+      "event": "working",
+      "ticket": "AUTO-120",
+      "content": "[cerebras:gpt-oss-120b] attempting: VM Deployment Blueprint for Single\u2011Agent POC"
+    },
+    {
+      "ts": "2026-07-01T09:50:04.286893+00:00",
+      "agent": "Thor",
+      "event": "dispatched",
+      "ticket": "AUTO-120",
+      "content": "devops started work: VM Deployment Blueprint for Single\u2011Agent POC"
+    },
+    {
+      "ts": "2026-07-01T09:50:02.183960+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-119",
+      "content": "[cerebras:gpt-oss-120b] attempting: Security Checklist for FAQ Receptionist Data Handling"
+    },
+    {
+      "ts": "2026-07-01T09:50:02.182369+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-118",
+      "content": "[cerebras:gpt-oss-120b] attempting: Client Persona Profiles for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T09:50:02.180810+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-117",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T09:50:02.179386+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-119",
+      "content": "security started work: Security Checklist for FAQ Receptionist Data Handling"
     }
   ],
   "problems": {}
