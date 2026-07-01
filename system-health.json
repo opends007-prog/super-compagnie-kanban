@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-07-01T19:10:01.748579+00:00",
+  "generatedAt": "2026-07-01T19:20:01.504311+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.5,
-    "validator": 10.0,
+    "work-executor": 10.0,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 3410.0,
-    "backup": 10.0,
+    "guard": 3420.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 171,
     "backlog": 8,
-    "in_progress": 15,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 2
+    "in_validation": 4
   },
   "tickets_total": 200,
   "done_today": 60,
-  "delivered_today": 26,
-  "delivered_week": 26,
+  "delivered_today": 28,
+  "delivered_week": 28,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 24,
+    "cerebras:gpt-oss-120b": 26,
     "openclaw": 2
   },
   "live_agents": [
@@ -35,6 +35,48 @@
     "Plutus"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T19:10:04.160641+00:00",
+      "agent": "Hermes",
+      "event": "delivered",
+      "ticket": "AUTO-144",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-144-deliverable.md (7907b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T19:10:04.159373+00:00",
+      "agent": "Plutus",
+      "event": "delivered",
+      "ticket": "AUTO-141",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-141-deliverable.md (7830b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T19:10:01.897958+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-144",
+      "content": "[cerebras:gpt-oss-120b] attempting: Competitive Comparison Matrix for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T19:10:01.895981+00:00",
+      "agent": "Plutus",
+      "event": "working",
+      "ticket": "AUTO-141",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T19:10:01.895188+00:00",
+      "agent": "Hermes",
+      "event": "dispatched",
+      "ticket": "AUTO-144",
+      "content": "business-analyst started work: Competitive Comparison Matrix for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T19:10:01.894196+00:00",
+      "agent": "Plutus",
+      "event": "dispatched",
+      "ticket": "AUTO-141",
+      "content": "finance started work: AI FAQ Receptionist Pricing Sheet"
+    },
     {
       "ts": "2026-07-01T19:04:30.828728+00:00",
       "agent": "Plutus",
@@ -76,48 +118,6 @@
       "event": "working",
       "ticket": "AUTO-141",
       "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T19:00:05.607093+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-144",
-      "content": "[claude:owl-alpha] attempting: Competitive Comparison Matrix for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T19:00:05.125983+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-144",
-      "content": "[cerebras:gpt-oss-120b] attempting: Competitive Comparison Matrix for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T19:00:05.124732+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "AUTO-144",
-      "content": "business-analyst started work: Competitive Comparison Matrix for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T19:00:02.885426+00:00",
-      "agent": "Plutus",
-      "event": "working",
-      "ticket": "AUTO-141",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T19:00:02.241575+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-143",
-      "content": "[cerebras:gpt-oss-120b] attempting: Landing Page Copy & HTML Skeleton for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T19:00:02.240126+00:00",
-      "agent": "Iris",
-      "event": "dispatched",
-      "ticket": "AUTO-143",
-      "content": "pm started work: Landing Page Copy & HTML Skeleton for AI FAQ Receptionist"
     }
   ],
   "problems": {}
