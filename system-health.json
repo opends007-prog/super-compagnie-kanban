@@ -1,31 +1,32 @@
 {
-  "generatedAt": "2026-07-01T04:00:01.648573+00:00",
+  "generatedAt": "2026-07-01T04:10:02.113111+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 0.0,
-    "validator": 0.0,
+    "work-executor": 5.2,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 2500.0,
-    "backup": 30.0,
+    "guard": 2510.0,
+    "backup": 9.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 122,
     "backlog": 8,
-    "in_progress": 17,
-    "planned": 4
+    "in_progress": 13,
+    "planned": 4,
+    "in_validation": 4
   },
   "tickets_total": 151,
   "done_today": 11,
-  "delivered_today": 30,
-  "delivered_week": 43,
+  "delivered_today": 34,
+  "delivered_week": 46,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 39,
-    "openclaw": 4
+    "cerebras:gpt-oss-120b": 41,
+    "openclaw": 5
   },
   "live_agents": [
     "Hades",
@@ -34,6 +35,69 @@
     "Vulcan"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T04:04:48.824220+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-095",
+      "content": "[openclaw] Produced AUTO-095-deliverable.md (4520b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T04:04:48.818195+00:00",
+      "agent": "Plutus",
+      "event": "delivered",
+      "ticket": "AUTO-093",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-093-deliverable.md (45176b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T04:04:48.808631+00:00",
+      "agent": "Vulcan",
+      "event": "delivered",
+      "ticket": "AUTO-096",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-096-deliverable.md (12584b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T04:04:48.791103+00:00",
+      "agent": "Minerva",
+      "event": "delivered",
+      "ticket": "AUTO-094",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-094-deliverable.md (6341b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T04:00:08.451191+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-095",
+      "content": "[openclaw] attempting: Security Hardening Checklist for AI FAQ Receptionist Deploym"
+    },
+    {
+      "ts": "2026-07-01T04:00:04.249459+00:00",
+      "agent": "Vulcan",
+      "event": "working",
+      "ticket": "AUTO-096",
+      "content": "[cerebras:gpt-oss-120b] attempting: FAQ Knowledge Base Schema Specification"
+    },
+    {
+      "ts": "2026-07-01T04:00:04.248208+00:00",
+      "agent": "Vulcan",
+      "event": "dispatched",
+      "ticket": "AUTO-096",
+      "content": "data-engineer started work: FAQ Knowledge Base Schema Specification"
+    },
+    {
+      "ts": "2026-07-01T04:00:03.142986+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-095",
+      "content": "[claude:owl-alpha] attempting: Security Hardening Checklist for AI FAQ Receptionist Deploym"
+    },
+    {
+      "ts": "2026-07-01T04:00:01.845155+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-094",
+      "content": "[cerebras:gpt-oss-120b] attempting: Landing Page Copy for AI FAQ Receptionist"
+    },
     {
       "ts": "2026-07-01T04:00:01.838345+00:00",
       "agent": "Minerva",
@@ -54,69 +118,6 @@
       "event": "dispatched",
       "ticket": "AUTO-095",
       "content": "security started work: Security Hardening Checklist for AI FAQ Receptionist Deploym"
-    },
-    {
-      "ts": "2026-07-01T04:00:01.786898+00:00",
-      "agent": "Plutus",
-      "event": "working",
-      "ticket": "AUTO-093",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Tiered Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T04:00:01.762455+00:00",
-      "agent": "Plutus",
-      "event": "dispatched",
-      "ticket": "AUTO-093",
-      "content": "finance started work: AI FAQ Receptionist Tiered Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T03:51:50.457923+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-095",
-      "content": "[openclaw] Produced AUTO-095-deliverable.md (4536b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-01T03:51:50.434947+00:00",
-      "agent": "Vulcan",
-      "event": "delivered",
-      "ticket": "AUTO-096",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-096-deliverable.md (11357b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-01T03:51:50.433346+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-094",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-094-deliverable.md (4709b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-01T03:51:50.421251+00:00",
-      "agent": "Plutus",
-      "event": "delivered",
-      "ticket": "AUTO-093",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-093-deliverable.md (7683b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-01T03:50:10.446736+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-095",
-      "content": "[openclaw] attempting: Security Hardening Checklist for AI FAQ Receptionist Deploym"
-    },
-    {
-      "ts": "2026-07-01T03:50:08.018488+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-095",
-      "content": "[claude:owl-alpha] attempting: Security Hardening Checklist for AI FAQ Receptionist Deploym"
-    },
-    {
-      "ts": "2026-07-01T03:50:07.530200+00:00",
-      "agent": "Vulcan",
-      "event": "working",
-      "ticket": "AUTO-096",
-      "content": "[cerebras:gpt-oss-120b] attempting: FAQ Knowledge Base Schema Specification"
     }
   ],
   "problems": {}
