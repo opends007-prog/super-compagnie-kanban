@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-01T22:30:01.849076+00:00",
+  "updated": "2026-07-01T22:40:01.857858+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T22:40:01.857858+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-154: cerebras dispatch error: HTTP Error 429: Too Many Requests"
+    },
     {
       "ts": "2026-07-01T22:30:01.849076+00:00",
       "job": "validate-work",
@@ -1290,6 +1297,13 @@
       "msg": "4h ago"
     },
     {
+      "ts": "2026-07-01T11:40:01.857858+00:00",
+      "job": "Daily 8 AM Security A...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "11h ago"
+    },
+    {
       "ts": "2026-07-01T11:40:01.737574+00:00",
       "job": "Daily 8 AM Security A...",
       "kind": "discord-cron",
@@ -1736,20 +1750,6 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "5h ago"
-    },
-    {
-      "ts": "2026-07-01T10:30:01.835117+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "5h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-07-01T10:30:01.736628+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "8h ago \u00b7 groq/meta-llama/l..."
     }
   ]
 }
