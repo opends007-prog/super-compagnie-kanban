@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-07-01T00:30:01.516175+00:00",
+  "generatedAt": "2026-07-01T00:40:01.894377+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.1,
-    "validator": 10.0,
+    "work-executor": 10.0,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 2290.0,
-    "backup": 30.0,
+    "guard": 2300.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 111,
     "backlog": 7,
-    "in_progress": 14,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 3
+    "in_validation": 4
   },
   "tickets_total": 139,
   "done_today": 0,
-  "delivered_today": 7,
-  "delivered_week": 25,
+  "delivered_today": 8,
+  "delivered_week": 26,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 23,
+    "cerebras:gpt-oss-120b": 24,
     "openclaw": 2
   },
   "live_agents": [
@@ -35,6 +35,27 @@
     "Vulcan"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T00:30:03.895206+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-081",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-081-deliverable.md (8696b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T00:30:01.693816+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-081",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T00:30:01.691822+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-081",
+      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
+    },
     {
       "ts": "2026-07-01T00:20:53.375784+00:00",
       "agent": "Fortuna",
@@ -97,27 +118,6 @@
       "event": "working",
       "ticket": "AUTO-082",
       "content": "[cerebras:gpt-oss-120b] attempting: One-Page Sales Pitch for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T00:20:01.378121+00:00",
-      "agent": "Vulcan",
-      "event": "working",
-      "ticket": "AUTO-083",
-      "content": "[cerebras:gpt-oss-120b] attempting: Industry FAQ Category Dataset for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T00:20:01.376667+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-081",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T00:20:01.374973+00:00",
-      "agent": "Vulcan",
-      "event": "dispatched",
-      "ticket": "AUTO-083",
-      "content": "data-engineer started work: Industry FAQ Category Dataset for AI FAQ Receptionist"
     }
   ],
   "problems": {}
