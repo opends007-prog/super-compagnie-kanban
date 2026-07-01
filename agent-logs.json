@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-01T15:20:02.186511+00:00",
+  "generated": "2026-07-01T15:30:01.800688+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -1774,38 +1774,7 @@
     "AUTO-125": {
       "agent": "Minerva",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-07-01T13:00:04.658303+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-125-deliverable.md (8631b) \u2192 in_validation"
-        },
-        {
-          "ts": "2026-07-01T13:10:02.215496+00:00",
-          "event": "dispatched",
-          "content": "analyst started work: AI FAQ Receptionist Pricing Sheet"
-        },
-        {
-          "ts": "2026-07-01T13:10:02.216404+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-        },
-        {
-          "ts": "2026-07-01T13:10:08.269616+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-125-deliverable.md (10472b) \u2192 in_validation"
-        },
-        {
-          "ts": "2026-07-01T13:20:01.549818+00:00",
-          "event": "validating",
-          "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
-        },
-        {
-          "ts": "2026-07-01T13:23:11.895657+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable provides a comprehensive competitive analysis of the AI FAQ Receptionist pricing landscape, identifies key competitors, and proposes a well-structured three-tier pricing plan (Basic, Pro, Enterprise) with clear feature lists and price points, fully satisfying the requirements of tick"
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "analyst/work/AUTO-125-deliverable.md",
         "size": 10472,
@@ -1815,18 +1784,7 @@
     "AUTO-126": {
       "agent": "Vulcan",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-07-01T13:00:02.284081+00:00",
-          "event": "validating",
-          "content": "[claude,openclaw,groq] Independently reviewing data-engineer's deliverable"
-        },
-        {
-          "ts": "2026-07-01T13:07:19.632471+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable provides a complete and detailed CSV dataset of high-value prospect segments for an AI-driven FAQ Receptionist product, along with a comprehensive data dictionary and methodology for generating the illustrative AI-FAQ spend figures."
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "data-engineer/work/AUTO-126-deliverable.md",
         "size": 13649,
@@ -1836,18 +1794,7 @@
     "AUTO-127": {
       "agent": "Metis",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-07-01T13:00:02.288638+00:00",
-          "event": "validating",
-          "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
-        },
-        {
-          "ts": "2026-07-01T13:07:19.636732+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable provides a complete markdown playbook with the top 10 objections, concise core answers, rebuttal points, illustrative proof, usage guidance, impact metrics, and maintenance plan, fully satisfying the ticket requirements."
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "org-excellence/work/AUTO-127-deliverable.md",
         "size": 14260,
@@ -1857,18 +1804,7 @@
     "AUTO-128": {
       "agent": "Hades",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-07-01T13:03:40.399541+00:00",
-          "event": "validating",
-          "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
-        },
-        {
-          "ts": "2026-07-01T13:07:19.640255+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable provides a comprehensive and detailed checklist covering all aspects of data security for FAQ Receptionist deployments, including data handling, encryption, access controls, GDPR/CCPA considerations, client-side security, and pre-deployment verification steps. The checklist is well-s"
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "security/work/AUTO-128-deliverable.md",
         "size": 14592,
@@ -1880,122 +1816,21 @@
       "status": "in_progress",
       "events": [
         {
-          "ts": "2026-07-01T14:50:10.189777+00:00",
-          "event": "working",
-          "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-        },
-        {
-          "ts": "2026-07-01T14:54:50.793447+00:00",
-          "event": "no_deliverable",
-          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-        },
-        {
-          "ts": "2026-07-01T15:00:02.495693+00:00",
-          "event": "dispatched",
-          "content": "income started work: AI FAQ Receptionist Pricing Sheet"
-        },
-        {
-          "ts": "2026-07-01T15:00:02.497522+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-        },
-        {
-          "ts": "2026-07-01T15:00:03.003002+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-        },
-        {
-          "ts": "2026-07-01T15:00:12.321320+00:00",
-          "event": "working",
-          "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-        },
-        {
-          "ts": "2026-07-01T15:04:11.472320+00:00",
-          "event": "no_deliverable",
-          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-        },
-        {
-          "ts": "2026-07-01T15:10:01.616651+00:00",
-          "event": "dispatched",
-          "content": "income started work: AI FAQ Receptionist Pricing Sheet"
-        },
-        {
-          "ts": "2026-07-01T15:10:01.619477+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-        },
-        {
-          "ts": "2026-07-01T15:10:05.534816+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-        },
-        {
-          "ts": "2026-07-01T15:10:12.168778+00:00",
-          "event": "working",
-          "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-        },
-        {
-          "ts": "2026-07-01T15:14:16.531366+00:00",
-          "event": "no_deliverable",
-          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+          "ts": "2026-07-01T15:20:10.376959+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced AUTO-129-deliverable.md (8624b) \u2192 in_validation"
         }
       ],
       "deliverable": {
         "file": "income/work/AUTO-129-deliverable.md",
-        "size": 9749,
-        "content": "# AI FAQ Receptionist \u2013 Pricing Sheet  \n*Ready for publishing on the landing page*  \n\n---  \n\n## 1. Quick Summary  \n\n| Plan | Monthly Price* | Call/Minute Allocation | Key Features |\n|------|----------------|------------------------|--------------|\n| **Basic** | **$49\u202f/mo** | 200\u202fminutes (incl.)\u202f| \u2022 AI\u2011driven FAQ answering  <br>\u2022 1\u202fuser seat  <br>\u2022 Calendar & basic CRM integration  <br>\u2022 Email support (24\u202fh)  <br>\u2022 Standard analytics |\n| **Pro** | **$99\u202f/mo** | Unlimited calls (flat\u2011rate) | \u2022 All Basic features  <br>\u2022 5\u202fuser seats  <br>\u2022 Advanced CRM & SIP/VoIP integration  <br>\u2022 Multi\u2011language support (up to 5 languages)  <br>\u2022 Priority email\u202f+\u202fphone support  <br>\u2022 Custom branding & reporting |\n| **Enterprise** | **$199\u202f/mo** | Unlimited calls (flat\u2011rate) | \u2022 All Pro features  <br>\u2022 Unlimited user seats  <br>\u2022 Dedicated account manager  <br>\u2022 SLA 99.9\u202f% uptime guarantee  <br>\u2022 On\u2011premise or private\u2011cloud deployment option  <br>\u2022 Advanced analytics, AI training & custom workflow automation |\n\n\\* Prices are **flat\u2011rate monthly fees** (no per\u2011call or per\u2011minute overage charges).  \n\n---  \n\n## 2. Feature Matrix  \n\n| Feature | Basic | Pro | Enterprise |\n|---------|-------|-----|------------|\n| **AI FAQ Engine** (natural\u2011language answer generation) | \u2705 | \u2705 | \u2705 |\n| **Call Handling** (answer, route, voicemail) | \u2705 (200\u202fmin) | \u2705 (unlimited) | \u2705 (unlimited) |\n| **User Seats** | 1 | 5 | Unlimited |\n| **Calendar Integration** (Google/Outlook) | \u2705 | \u2705 | \u2705 |\n| **CRM Integration** (HubSpot, Salesforce) | Basic | Advanced (custom fields) | Full (bidirectional sync) |\n| **Multi\u2011Language** | English only | Up to 5 languages | Unlimited languages |\n| **SIP/VoIP Integration** | \u2013 | \u2705 | \u2705 |\n| **Custom Branding** (logo, greeting) | Standard | \u2705 | \u2705 (white\u2011label) |\n| **Analytics Dashboard** | Standard metrics | Advanced KPIs & export | Full\u2011stack analytics + AI training insights |\n| **Support** | Email (within 24\u202fh) | Priority email + phone (within 4\u202fh) | Dedicated manager, 24/7 live chat & phone |\n| **Uptime SLA** | \u2013 | 99.5\u202f% | 99.9\u202f% |\n| **Deployment** | Cloud (shared) | Cloud (dedicated) | Cloud (private) **or** on\u2011premise |\n| **Setup Fee** | $0 | $0 | $0 (optional custom integration fee \u2013 quoted) |\n\n---  \n\n## 3. Pricing Assumptions & Cost Model  \n\n| Item | Source | How we derived the price |\n|------|--------|--------------------------|\n| **Basic tier price** | Voksha guide lists a **$29\u2011$49\u202f/mo budget tier** for flat\u2011rate plans\u30101\u2020L1-L4\u3011. We selected the **upper\u2011mid point** ($49) to cover a modest minute allowance while remaining competitive with the $49 flat\u2011rate offered by Voksha, Rosie AI, and My\u202fAI\u202fFront\u202fDesk\u30101\u2020L9-L12\u3011. |\n| **Pro tier price** | ai\u2011receptionist.com publishes a **$99\u202f/mo** plan for small businesses with 200\u202fminutes of usage\u30102\u2020L13-L16\u3011. This aligns with the mid\u2011tier range ($50\u2011$150\u202f/mo) described in the Voksha guide\u30101\u2020L4-L6\u3011. We adopt the $99 figure directly. |\n| **Enterprise tier price** | NextPhone\u2019s \u201cfull\u2011featured\u201d flat\u2011rate is **$199\u2011$299\u202f/mo** for unlimited calls\u30103\u2020L7-L9\u3011. We choose the **lower bound ($199)** to stay price\u2011competitive while providing the full feature set. |\n| **Minute allocation for Basic** | ai\u2011receptionist.com gives **60\u202fminutes for $14\u202f/mo**\u30102\u2020L13-L15\u3011. Scaling linearly (60\u202fmin \u2192 $14) gives **~$0.233\u202f/min**. At $49\u202f/mo, the implied minute budget is **\u2248\u202f210\u202fmin**. We round to **200\u202fminutes** for simplicity and label it **illustrative**. |\n| **Overage pricing (if needed)** | Not required for flat\u2011rate plans; however, a **per\u2011minute overage rate of $0.20\u202f/min** is a common industry figure (see budget tier per\u2011minute costs in Voksha\u2019s \u201cper\u2011minute\u201d example of ~$70 for 50 calls)\u30101\u2020L19-L22\u3011. This rate is **illustrative** and used only for internal cost modeling. |\n| **Support SLA** | NextPhone guarantees **99.9\u202f% uptime** for premium plans\u30103\u2020L7-L9\u3011. We adopt the same SLA for Enterprise. |\n| **Setup fees** | All three sources show **$0 setup** for flat\u2011rate plans (Voksha\u2019s providers list $0 setup)\u30101\u2020L9-L12\u3011. We therefore keep the launch fee at $0. |\n\n**Cost Model Example \u2013 Pro Plan**\n\n- Monthly fee: **$99** (flat)  \n- Unlimited calls \u2192 no per\u2011call or per\u2011minute cost.  \n- Support cost (internal) = $30\u202f/mo (estimated) \u2192 **margin** = $69.  \n\n**Cost Model Example \u2013 Basic Plan (illustrative)**  \n\n- Monthly fee: **$49**  \n- Included minutes: 200\u202fmin \u2192 value at $0.233\u202f/min = $46.6 (derived from $14/60\u202fmin)  \n- Overage (if any) = $0.20\u202f/min (illustrative)  \n- Net margin \u2248 $2.4 (illustrative) \u2013 shows the Basic tier is a **loss\u2011leader** designed to attract volume and upsell to Pro/Enterprise.  \n\n---  \n\n## 4. Why These Prices Are Competitive  \n\n| Competitor | Typical Price Range (2026) | Our Position |\n|------------|---------------------------|--------------|\n| **Budget tier** (Dialzara, Synthflow AI) | $29\u2011$49\u202f/mo (often per\u2011minute)\u30101\u2020L15-L22\u3011 | **Basic** matches the high end of budget tier, but offers a **flat\u2011rate** with 200\u202fmin included, avoiding hidden per\u2011minute fees. |\n| **Mid tier** (most providers) | $50\u2011$150\u202f/mo\u30101\u2020L4-L6\u3011 | **Pro** sits at $99\u202f/mo, directly in the middle, delivering unlimited calls and advanced features. |\n| **Premium tier** (NextPhone, etc.) | $199\u2011$500+\u202f/mo\u30101\u2020L6-L8\u3011\u30103\u2020L7-L9\u3011 | **Enterprise** at $199\u202f/mo provides the same unlimited\u2011call guarantee and adds dedicated support, matching the low\u2011end premium price. |\n\n---  \n\n## 5. Publication\u2011Ready Markdown  \n\n```markdown\n# AI FAQ Receptionist \u2013 Pricing\n\n## Quick Summary\n| Plan | Monthly Price* | Call/Minute Allocation | Key Features |\n|------|----------------|------------------------|--------------|\n| **Basic** | **$49\u202f/mo** | 200\u202fminutes (incl.) | \u2022 AI\u2011driven FAQ answering  <br>\u2022 1\u202fuser seat  <br>\u2022 Calendar & basic CRM integration  <br>\u2022 Email support (24\u202fh)  <br>\u2022 Standard analytics |\n| **Pro** | **$99\u202f/mo** | Unlimited calls (flat\u2011rate) | \u2022 All Basic features  <br>\u2022 5\u202fuser seats  <br>\u2022 Advanced CRM & SIP/VoIP integration  <br>\u2022 Multi\u2011language (up to 5)  <br>\u2022 Priority email\u202f+\u202fphone support  <br>\u2022 Custom branding & reporting |\n| **Enterprise** | **$199\u202f/mo** | Unlimited calls (flat\u2011rate) | \u2022 All Pro features  <br>\u2022 Unlimited user seats  <br>\u2022 Dedicated account manager  <br>\u2022 SLA 99.9\u202f% uptime  <br>\u2022 Private\u2011cloud or on\u2011premise deployment  <br>\u2022 Advanced analytics & AI training |\n\n\\*Flat\u2011rate monthly fees, no per\u2011call or per\u2011minute overage charges.\n\n## Feature Matrix\n| Feature | Basic | Pro | Enterprise |\n|---------|-------|-----|------------|\n| AI FAQ Engine | \u2705 | \u2705 | \u2705 |\n| Call Handling | \u2705 (200\u202fmin) | \u2705 (unlimited) | \u2705 (unlimited) |\n| User Seats | 1 | 5 | Unlimited |\n| Calendar Integration | \u2705 | \u2705 | \u2705 |\n| CRM Integration | Basic | Advanced | Full |\n| Multi\u2011Language | English only | Up to 5 languages | Unlimited |\n| SIP/VoIP Integration | \u2013 | \u2705 | \u2705 |\n| Custom Branding | Standard | \u2705 | \u2705 (white\u2011label) |\n| Analytics Dashboard | Standard | Advanced + export | Full\u2011stack + AI insights |\n| Support | Email (24\u202fh) | Priority email\u202f+\u202fphone (4\u202fh) | Dedicated manager, 24/7 live chat |\n| SLA | \u2013 | 99.5\u202f% | 99.9\u202f% |\n| Deployment | Cloud (shared) | Cloud (dedicated) | Private\u2011cloud / on\u2011premise |\n| Setup Fee | $0 | $0 | $0 (optional custom integration) |\n\n## Pricing Assumptions & Cost Model\n- **Basic price** derived from Voksha\u2019s budget tier ($29\u2011$49\u202f/mo flat\u2011rate)\u30101\u2020L1-L4\u3011; we selected $49\u202f/mo to include a modest minute allowance.\n- **Pro price** taken directly from ai\u2011receptionist.com\u2019s $99\u202f/mo small\u2011business plan\u30102\u2020L13-L16\u3011.\n- **Enterprise price** aligns with NextPhone\u2019s $199\u2011$299\u202f/mo unlimited\u2011call premium\u30103\u2020L7-L9\u3011; we use the lower bound $199\u202f/mo.\n- **Minute allocation for Basic** is illustrative: scaling $14/60\u202fmin \u2192 $0.233\u202f/min, giving ~200\u202fmin at $49\u202f/mo.\n- **Overage rate** (if needed) set at $0.20\u202f/min (illustrative) based on typical per\u2011minute costs shown in Voksha\u2019s per\u2011minute example (~$70 for 50 calls)\u30101\u2020L19-L22\u3011.\n- **Support SLA** mirrors NextPhone\u2019s 99.9\u202f% uptime guarantee for premium plans\u30103\u2020L7-L9\u3011.\n\n## Why It Works\n| Competitor | Typical Price Range (2026) | Our Position |\n|------------|---------------------------|--------------|\n| Budget tier (Dialzara, Synthflow AI) | $29\u2011$49\u202f/mo (often per\u2011minute)\u30101\u2020L15-L22\u3011 | Basic offers flat\u2011rate, 200\u202fmin included, no hidden fees. |\n| Mid tier (most providers) | $50\u2011$150\u202f/mo\u30101\u2020L4-L6\u3011 | Pro at $99\u202f/mo gives unlimited calls and advanced features. |\n| Premium tier (NextPhone, etc.) | $199\u2011$500+\u202f/mo\u30101\u2020L6-L8\u3011\u30103\u2020L7-L9\u3011 | Enterprise matches low\u2011end premium with dedicated support and SLA. |\n\n*All figures are based on publicly available 2026 pricing guides (see Sources). Any illustrative assumptions are clearly labeled.*\n\n---  \n\n## Sources  \n\n1. Voksha \u2013 *AI Receptionist Pricing Guide 2026* \u2013 pricing tiers, flat\u2011rate examples, per\u2011minute cost illustration. https://voksha.com/guide/ai-receptionist-pricing-guide  \n2. AI Receptionist \u2013 *How Much Does an AI Receptionist Cost? 2026 Pricing Guide & ROI Analysis*. https://ai-receptionist.com/blog/ai-receptionist-cost-and-pricing-guide  \n3. NextPhone \u2013 *AI Receptionist Cost"
+        "size": 8624,
+        "content": "# AI FAQ Receptionist \u2013 Pricing Sheet  \n*Prepared for the Finance team \u2013 Revenue Lead (\ud83c\udf40)*  \n\n---  \n\n## 1. Overview  \n\nThe AI FAQ Receptionist is positioned as an affordable, high\u2011value solution for small\u2011to\u2011medium businesses that need 24/7 call handling, appointment booking, and CRM integration. Competitive analysis (sources\u202f[1]\u2011[3]) shows a market range of **$25\u202f\u2013\u202f$500\u202f/\u202fmonth** (US) and **\u00a3100\u202f\u2013\u202f\u00a3400\u202f/\u202fmonth** (UK). Our three\u2011tiered pricing leverages the mid\u2011range of this spectrum to capture price\u2011sensitive SMBs while providing an upsell path to larger teams.  \n\n---  \n\n## 2. Tiered Plans  \n\n| Plan | Monthly Price* | Annual Price (10\u202f% discount) | Call Minutes Included | Key Features |\n|------|----------------|------------------------------|-----------------------|--------------|\n| **Basic** | **$99** | $1,069 | 200\u202fmin | \u2022 Answer & route FAQs<br>\u2022 Calendar integration (Google/Outlook)<br>\u2022 Email notifications<br>\u2022 Basic analytics dashboard |\n| **Pro** | **$199** | $2,149 | Unlimited | \u2022 All Basic features<br>\u2022 Unlimited call volume<br>\u2022 Multi\u2011user access (up to 5 seats)<br>\u2022 SIP/VoIP integration<br>\u2022 Advanced analytics & reporting |\n| **Enterprise** | **$299** | $3,239 | Unlimited | \u2022 All Pro features<br>\u2022 Custom branding & white\u2011label UI<br>\u2022 Dedicated account manager<br>\u2022 SLA\u2011backed 99.9\u202f% uptime<br>\u2022 On\u2011premise or private\u2011cloud deployment option |\n\n\\*Prices are **USD** and are derived from the market benchmarks in sources\u202f[1] ( $99\u202f/\u202fmonth for small\u2011business plan, $199\u202f/\u202fmonth for team plan) and\u202f[3] (full\u2011feature plans $199\u2011$299\u202f/\u202fmonth). The **Enterprise** price is an illustrative premium that aligns with the upper\u2011end of the market range ($500\u202f/\u202fmonth) while remaining competitive against the $2,900\u2011$4,100\u202f/\u202fmonth cost of a human receptionist (source\u202f[3]).\n\n---  \n\n## 3. Feature Matrix  \n\n| Feature | Basic | Pro | Enterprise |\n|---------|-------|-----|------------|\n| **AI Call Answering** | \u2713 | \u2713 | \u2713 |\n| **FAQ Routing** | \u2713 | \u2713 | \u2713 |\n| **Appointment Booking** | \u2713 | \u2713 | \u2713 |\n| **Calendar Sync (Google/Outlook)** | \u2713 | \u2713 | \u2713 |\n| **CRM Integration (HubSpot, Salesforce)** | Limited (single\u2011account) | \u2713 (multiple accounts) | \u2713 (custom) |\n| **Call Minutes** | 200\u202fmin (roll\u2011over not allowed) | Unlimited | Unlimited |\n| **Multi\u2011User Seats** | 1 | Up to 5 | Unlimited |\n| **SIP / VoIP Integration** | \u2013 | \u2713 | \u2713 |\n| **Analytics Dashboard** | Basic (call volume) | Advanced (conversion, SLA) | Full (custom reports, real\u2011time) |\n| **Custom Branding** | \u2013 | \u2013 | \u2713 |\n| **Dedicated Account Manager** | \u2013 | \u2013 | \u2713 |\n| **Uptime SLA** | 99\u202f% | 99.5\u202f% | 99.9\u202f% |\n| **Deployment Option** | Cloud (shared) | Cloud (dedicated) | Cloud (dedicated) **or** Private\u2011cloud/on\u2011premise |\n\n---  \n\n## 4. Pricing Rationale & Assumptions  \n\n| Assumption | Detail | Source |\n|------------|--------|--------|\n| **Base market price** | $99\u202f/\u202fmonth is the \u201csmall\u2011business\u201d benchmark from ai\u2011receptionist.com. | [1] |\n| **Team price** | $199\u202f/\u202fmonth is the \u201cteam\u201d benchmark from the same vendor. | [1] |\n| **Enterprise premium** | $299\u202f/\u202fmonth is set 50\u202f% above the team price to reflect added services (custom branding, SLA, dedicated support). This is **illustrative** but stays below the $500\u202f/\u202fmonth ceiling reported by NextPhone (source\u202f[3]). | [3] (illustrative) |\n| **Annual discount** | 10\u202f% discount is a common SaaS practice to encourage multi\u2011year contracts. | Industry norm (illustrative) |\n| **Call minute allocation** | 200\u202fmin for Basic matches the \u201csmall\u2011business\u201d plan in source\u202f[1]; unlimited for higher tiers aligns with NextPhone\u2019s unlimited offering (source\u202f[3]). | [1], [3] |\n| **Seat limits** | 5 seats for Pro is a typical mid\u2011tier limit; unlimited for Enterprise reflects enterprise\u2011grade flexibility. | Industry norm (illustrative) |\n| **Revenue forecast horizon** | 12\u2011month projection, assuming steady customer acquisition. | Internal planning (illustrative) |\n\n---  \n\n## 5. Revenue Model  \n\n### 5.1. Input Variables  \n\n| Variable | Value | Note |\n|----------|-------|------|\n| **B** = Number of Basic customers | 120 | Assumed based on market size (illustrative) |\n| **P** = Number of Pro customers | 45 | Illustrative |\n| **E** = Number of Enterprise customers | 15 | Illustrative |\n| **Price\\_B** = $99\u202f/\u202fmonth | Source\u202f[1] |\n| **Price\\_P** = $199\u202f/\u202fmonth | Source\u202f[1] |\n| **Price\\_E** = $299\u202f/\u202fmonth | Illustrative (source\u202f[3]) |\n| **Discount\\_annual** = 10\u202f% | Illustrative |\n| **Months\\_in\\_year** = 12 | Calendar |\n\n### 5.2. Monthly Recurring Revenue (MRR)  \n\n\\[\n\\text{MRR} = (B \\times \\text{Price\\_B}) + (P \\times \\text{Price\\_P}) + (E \\times \\text{Price\\_E})\n\\]\n\n\\[\n\\text{MRR} = (120 \\times 99) + (45 \\times 199) + (15 \\times 299) = 11{,}880 + 8{,}955 + 4{,}485 = \\mathbf{25{,}320\\;USD}\n\\]\n\n### 5.3. Annual Recurring Revenue (ARR) \u2013 before discount  \n\n\\[\n\\text{ARR}_{\\text{raw}} = \\text{MRR} \\times 12 = 25{,}320 \\times 12 = \\mathbf{303{,}840\\;USD}\n\\]\n\n### 5.4. ARR with 10\u202f% annual discount  \n\n\\[\n\\text{ARR}_{\\text{discounted}} = \\text{ARR}_{\\text{raw}} \\times (1 - 0.10) = 303{,}840 \\times 0.90 = \\mathbf{273{,}456\\;USD}\n\\]\n\n### 5.5. Revenue Summary Table  \n\n| Metric | Value (USD) |\n|--------|-------------|\n| Monthly Recurring Revenue (MRR) | **25,320** |\n| Annual Recurring Revenue \u2013 raw | **303,840** |\n| Annual Recurring Revenue \u2013 10\u202f% discount | **273,456** |\n| Average Revenue per User (ARPU) | **$84.14** (ARR\u202f/\u202f(120\u202f+\u202f45\u202f+\u202f15)) |\n\n---  \n\n## 6. Competitive Positioning  \n\n| Competitor | Price Range (USD) | Feature Highlights | Our Advantage |\n|------------|-------------------|--------------------|---------------|\n| **ai\u2011receptionist.com** | $14\u202f\u2013\u202f$199\u202f/\u202fmo | Tiered by minutes; basic integration | Our **Enterprise** tier adds custom branding, dedicated support, and higher SLA. |\n| **Intavia** (UK) | \u00a3100\u202f\u2013\u202f\u00a3400\u202f/\u202fmo | Emphasis on answer\u2011only vs route\u2011plus | US pricing is comparable; we provide unlimited calls at the Pro level. |\n| **NextPhone** | $199\u202f\u2013\u202f$299\u202f/\u202fmo (unlimited) | Unlimited calls, CRM integration | Same price, but we differentiate with multi\u2011seat licensing and white\u2011label options. |\n| **Live answering services** | $250\u202f\u2013\u202f$800\u202f/\u202fmo + per\u2011minute fees | Human agents, limited hours | AI reduces cost by 80\u201190\u202f% and offers 24/7 coverage. |\n\n---  \n\n## 7. Implementation Timeline (Pricing Launch)  \n\n| Phase | Duration | Milestones |\n|-------|----------|------------|\n| **Finalize Pricing Docs** | 1\u202fweek | Review with Legal & Marketing |\n| **Website Update** | 2\u202fweeks | Add pricing table, FAQ, and checkout flow |\n| **Sales Enablement** | 1\u202fweek | Train SDRs on tier benefits, objection handling |\n| **Public Launch** | Day\u202f0 | Press release, email campaign, paid ads |\n| **Post\u2011Launch Review** | 30\u202fdays | Track MRR, churn, and conversion; adjust tier limits if needed |\n\n---  \n\n## 8. Risks & Mitigations  \n\n| Risk | Impact | Mitigation |\n|------|--------|------------|\n| **Price sensitivity** \u2013 customers may balk at $199+ tiers. | Medium | Offer a 14\u2011day free trial and a \u201cpay\u2011as\u2011you\u2011grow\u201d add\u2011on for extra seats. |\n| **Feature creep** \u2013 adding too many features could inflate costs. | High | Keep feature set locked per tier; introduce optional add\u2011ons priced separately. |\n| **Competitive price wars** \u2013 new entrants may undercut $99 tier. | Medium | Emphasize superior AI accuracy (90\u201195\u202f% resolution) and ROI (5\u201110\u202f% of human cost) in messaging (source\u202f[3]). |\n| **Currency fluctuations** (if expanding to UK). | Low | Maintain separate GBP pricing based on Intavia\u2019s \u00a3100\u2011\u00a3400 range (source\u202f[2]). |\n\n---  \n\n## 9. Appendices  \n\n### 9.1. Source List  \n\n1. **How Much Does an AI Receptionist Cost? 2026 Pricing Guide & ROI Analysis** \u2013 ai\u2011receptionist.com. Pricing details: $14\u202f/\u202fmo (individual), $99\u202f/\u202fmo (small business), $199\u202f/\u202fmo (team). URL: <https://ai-receptionist.com/blog/ai-receptionist-cost-and-pricing-guide>  \n2. **AI Receptionist Pricing (2026): What It Actually Costs** \u2013 Intavia. UK market range \u00a3100\u2011\u00a3400\u202f/\u202fmo. URL: <https://www.intavia.ai/ai-receptionist-pricing>  \n3. **AI Receptionist Cost - 2026 Pricing Guide** \u2013 NextPhone. Full\u2011feature plans $199\u2011$299\u202f/\u202fmo; overall market $24.95\u2011$500\u202f/\u202fmo. URL: <https://www.getnextphone.com/blog/ai-receptionist-cost>  \n\n---  \n\n*End of document.*"
       }
     },
     "AUTO-130": {
       "agent": "Iris",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-07-01T13:50:02.179010+00:00",
-          "event": "dispatched",
-          "content": "pm started work: Landing Page Copy for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-07-01T13:50:02.179898+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Landing Page Copy for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-07-01T13:50:02.492260+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: Landing Page Copy for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-07-01T13:50:04.928727+00:00",
-          "event": "working",
-          "content": "[openclaw] attempting: Landing Page Copy for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-07-01T13:54:51.198217+00:00",
-          "event": "delivered",
-          "content": "[openclaw] Produced AUTO-130-deliverable.md (2621b) \u2192 in_progress"
-        },
-        {
-          "ts": "2026-07-01T14:00:01.997669+00:00",
-          "event": "dispatched",
-          "content": "pm started work: Landing Page Copy for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-07-01T14:00:02.005114+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Landing Page Copy for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-07-01T14:04:53.485628+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-130-deliverable.md (4450b) \u2192 in_validation"
-        },
-        {
-          "ts": "2026-07-01T14:25:11.936263+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable provides a comprehensive and complete copy for a single-page landing site promoting the AI FAQ Receptionist service, including a headline, sub-headline, benefits, call-to-action, and an FAQ section, all of which align with the requirements of ticket AUTO-130."
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "pm/work/AUTO-130-deliverable.md",
         "size": 4450,
@@ -2004,67 +1839,17 @@
     },
     "AUTO-131": {
       "agent": "Nemesis",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
-          "ts": "2026-07-01T14:46:14.503203+00:00",
-          "event": "no_deliverable",
-          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+          "ts": "2026-07-01T15:20:02.331444+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing nemesis's deliverable"
         },
         {
-          "ts": "2026-07-01T14:50:02.140809+00:00",
-          "event": "dispatched",
-          "content": "nemesis started work: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
-        },
-        {
-          "ts": "2026-07-01T14:50:02.143016+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
-        },
-        {
-          "ts": "2026-07-01T14:50:02.847473+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
-        },
-        {
-          "ts": "2026-07-01T14:50:10.200569+00:00",
-          "event": "working",
-          "content": "[openclaw] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
-        },
-        {
-          "ts": "2026-07-01T14:54:50.806021+00:00",
-          "event": "no_deliverable",
-          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-        },
-        {
-          "ts": "2026-07-01T15:00:02.501889+00:00",
-          "event": "dispatched",
-          "content": "nemesis started work: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
-        },
-        {
-          "ts": "2026-07-01T15:00:02.502821+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
-        },
-        {
-          "ts": "2026-07-01T15:04:11.468074+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-131-deliverable.md (11053b) \u2192 in_progress"
-        },
-        {
-          "ts": "2026-07-01T15:10:01.622385+00:00",
-          "event": "dispatched",
-          "content": "nemesis started work: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
-        },
-        {
-          "ts": "2026-07-01T15:10:01.626854+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
-        },
-        {
-          "ts": "2026-07-01T15:14:16.498482+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-131-deliverable.md (10646b) \u2192 in_validation"
+          "ts": "2026-07-01T15:24:54.315322+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable provides a comprehensive and detailed compliance gap analysis report for the AI FAQ Receptionist data handling, covering GDPR, CCPA, and relevant industry regulations, and includes concrete recommended mitigations for the identified gaps."
         }
       ],
       "deliverable": {
@@ -2076,68 +1861,7 @@
     "AUTO-132": {
       "agent": "Metis",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-07-01T14:04:53.493397+00:00",
-          "event": "no_deliverable",
-          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-        },
-        {
-          "ts": "2026-07-01T14:10:02.799552+00:00",
-          "event": "dispatched",
-          "content": "org-excellence started work: Agent Deployment Process Documentation"
-        },
-        {
-          "ts": "2026-07-01T14:10:02.806926+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Agent Deployment Process Documentation"
-        },
-        {
-          "ts": "2026-07-01T14:14:52.772937+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-132-deliverable.md (10697b) \u2192 in_progress"
-        },
-        {
-          "ts": "2026-07-01T14:20:03.252838+00:00",
-          "event": "dispatched",
-          "content": "org-excellence started work: Agent Deployment Process Documentation"
-        },
-        {
-          "ts": "2026-07-01T14:20:03.287908+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Agent Deployment Process Documentation"
-        },
-        {
-          "ts": "2026-07-01T14:25:10.765716+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-132-deliverable.md (9264b) \u2192 in_validation"
-        },
-        {
-          "ts": "2026-07-01T14:30:02.023238+00:00",
-          "event": "dispatched",
-          "content": "org-excellence started work: Agent Deployment Process Documentation"
-        },
-        {
-          "ts": "2026-07-01T14:30:02.034191+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Agent Deployment Process Documentation"
-        },
-        {
-          "ts": "2026-07-01T14:34:59.640036+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-132-deliverable.md (11181b) \u2192 in_validation"
-        },
-        {
-          "ts": "2026-07-01T14:40:05.340987+00:00",
-          "event": "validating",
-          "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
-        },
-        {
-          "ts": "2026-07-01T14:46:33.440007+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable provides a comprehensive and detailed Standard Operating Procedure (SOP) for deploying the full autonomous agent team to a VM, covering VM specs, environment variables, and post-deployment health checks. The document is well-structured, includes example commands, and addresses potent"
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "org-excellence/work/AUTO-132-deliverable.md",
         "size": 11181,
@@ -2146,67 +1870,17 @@
     },
     "STORY-204": {
       "agent": "Thor",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
-          "ts": "2026-07-01T14:30:18.793788+00:00",
-          "event": "working",
-          "content": "[openclaw] attempting: [self-heal] openclaw-gateway.service keeps crashing"
-        },
-        {
-          "ts": "2026-07-01T14:34:59.676869+00:00",
-          "event": "no_deliverable",
-          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-        },
-        {
-          "ts": "2026-07-01T14:40:05.171087+00:00",
-          "event": "dispatched",
-          "content": "devops started work: [self-heal] openclaw-gateway.service keeps crashing"
-        },
-        {
-          "ts": "2026-07-01T14:40:05.175034+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] openclaw-gateway.service keeps crashing"
-        },
-        {
-          "ts": "2026-07-01T14:40:05.875343+00:00",
-          "event": "working",
-          "content": "[claude:owl-alpha] attempting: [self-heal] openclaw-gateway.service keeps crashing"
-        },
-        {
-          "ts": "2026-07-01T14:41:27.690430+00:00",
-          "event": "working",
-          "content": "[openclaw] attempting: [self-heal] openclaw-gateway.service keeps crashing"
-        },
-        {
-          "ts": "2026-07-01T14:46:14.508865+00:00",
-          "event": "no_deliverable",
-          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-        },
-        {
-          "ts": "2026-07-01T14:50:02.140060+00:00",
-          "event": "dispatched",
-          "content": "devops started work: [self-heal] openclaw-gateway.service keeps crashing"
-        },
-        {
-          "ts": "2026-07-01T14:50:02.142267+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: [self-heal] openclaw-gateway.service keeps crashing"
-        },
-        {
-          "ts": "2026-07-01T14:54:50.765163+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced STORY-204-deliverable.md (8445b) \u2192 in_validation"
-        },
-        {
-          "ts": "2026-07-01T15:00:02.471002+00:00",
+          "ts": "2026-07-01T15:20:02.331924+00:00",
           "event": "validating",
           "content": "[claude,openclaw,groq] Independently reviewing devops's deliverable"
         },
         {
-          "ts": "2026-07-01T15:03:48.257160+00:00",
+          "ts": "2026-07-01T15:24:54.319707+00:00",
           "event": "validation_pass",
-          "content": "PASS: The deliverable provides a comprehensive solution to the issue of `openclaw-gateway.service` crashing, including collecting logs, enabling core dumps, creating a health-check script, adding a systemd drop-in override with a watchdog helper, and a verification suite. The solution appears to be comple"
+          "content": "PASS: The deliverable provides a comprehensive solution to the issue of the openclaw-gateway.service crashing, including collecting logs, enabling core dumps, creating a health-check script, adding a systemd drop-in override, and implementing a watchdog helper. The deliverable also includes a verification"
         }
       ],
       "deliverable": {
@@ -2218,28 +1892,22 @@
   },
   "active": [
     {
-      "agent": "Fortuna",
-      "ticket": "AUTO-129",
-      "event": "no_deliverable",
-      "ts": "2026-07-01T15:14:16.531366+00:00"
-    },
-    {
-      "agent": "Nemesis",
+      "agent": "qa",
       "ticket": "AUTO-131",
-      "event": "delivered",
-      "ts": "2026-07-01T15:14:16.498482+00:00"
-    },
-    {
-      "agent": "Thor",
-      "ticket": "STORY-204",
-      "event": "delivered",
-      "ts": "2026-07-01T14:54:50.765163+00:00"
+      "event": "validation_pass",
+      "ts": "2026-07-01T15:24:54.315322+00:00"
     },
     {
       "agent": "nemesis",
       "ticket": "STORY-204",
       "event": "validation_pass",
-      "ts": "2026-07-01T15:03:48.257160+00:00"
+      "ts": "2026-07-01T15:24:54.319707+00:00"
+    },
+    {
+      "agent": "Fortuna",
+      "ticket": "AUTO-129",
+      "event": "delivered",
+      "ts": "2026-07-01T15:20:10.376959+00:00"
     }
   ]
 }
