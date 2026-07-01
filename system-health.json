@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-07-01T18:20:01.933857+00:00",
+  "generatedAt": "2026-07-01T18:30:01.734635+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 13.7,
+    "work-executor": 10.0,
+    "validator": 6.8,
     "observability": 10.0,
-    "guard": 3360.0,
-    "backup": 19.9,
+    "guard": 3370.0,
+    "backup": 29.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 170,
+    "done": 171,
     "backlog": 8,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 1
+    "planned": 4
   },
   "tickets_total": 196,
-  "done_today": 59,
+  "done_today": 60,
   "delivered_today": 20,
   "delivered_week": 20,
   "model_mix_week": {
@@ -29,11 +28,24 @@
     "openclaw": 2
   },
   "live_agents": [
-    "Metis",
     "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T18:23:12.614466+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-138",
+      "content": "PASS: The markdown provides a complete 5\u2011email sequence with subject lines, personalized intros, AI FAQ Receptionist val"
+    },
+    {
+      "ts": "2026-07-01T18:20:02.022851+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-138",
+      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+    },
     {
       "ts": "2026-07-01T18:10:07.838231+00:00",
       "agent": "Minerva",
@@ -103,20 +115,6 @@
       "event": "dispatched",
       "ticket": "AUTO-138",
       "content": "analyst started work: Healthcare Provider Cold Outreach Email Sequence"
-    },
-    {
-      "ts": "2026-07-01T18:00:01.538290+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-139",
-      "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
-    },
-    {
-      "ts": "2026-07-01T18:00:01.535993+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-137",
-      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
     }
   ],
   "problems": {}
