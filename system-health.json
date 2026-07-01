@@ -1,125 +1,124 @@
 {
-  "generatedAt": "2026-07-01T23:40:02.091575+00:00",
+  "generatedAt": "2026-07-01T23:50:01.833027+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 20.0,
+    "work-executor": 7.6,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 3680.0,
-    "backup": 10.0,
+    "guard": 3690.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 185,
     "backlog": 8,
-    "in_progress": 17,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 2
+    "in_validation": 6
   },
   "tickets_total": 216,
   "done_today": 74,
-  "delivered_today": 38,
-  "delivered_week": 38,
+  "delivered_today": 4,
+  "delivered_week": 4,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 36,
-    "openclaw": 2
+    "cerebras:gpt-oss-120b": 3,
+    "openclaw": 1
   },
   "live_agents": [
     "Fortuna",
     "Hades",
     "Iris",
-    "Metis",
     "Plutus",
     "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T23:30:06.607979+00:00",
+      "ts": "2026-07-01T23:42:23.571166+00:00",
       "agent": "Plutus",
       "event": "delivered",
       "ticket": "AUTO-157",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-157-deliverable.md (6867b) \u2192 in_progress"
+      "content": "[openclaw] Produced AUTO-157-deliverable.md (4229b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T23:30:06.606932+00:00",
+      "ts": "2026-07-01T23:42:23.570653+00:00",
       "agent": "Hades",
       "event": "delivered",
       "ticket": "AUTO-160",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-160-deliverable.md (10638b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-160-deliverable.md (11601b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T23:30:06.605724+00:00",
+      "ts": "2026-07-01T23:42:23.570001+00:00",
       "agent": "Fortuna",
       "event": "delivered",
       "ticket": "AUTO-159",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-159-deliverable.md (14156b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-159-deliverable.md (10500b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T23:30:06.602406+00:00",
+      "ts": "2026-07-01T23:42:23.567800+00:00",
       "agent": "Iris",
       "event": "delivered",
       "ticket": "AUTO-158",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-158-deliverable.md (9203b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-158-deliverable.md (9162b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T23:30:03.604190+00:00",
+      "ts": "2026-07-01T23:40:08.338938+00:00",
+      "agent": "Plutus",
+      "event": "working",
+      "ticket": "AUTO-157",
+      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet & Tiered Packages"
+    },
+    {
+      "ts": "2026-07-01T23:40:04.289284+00:00",
       "agent": "Hades",
       "event": "working",
       "ticket": "AUTO-160",
       "content": "[cerebras:gpt-oss-120b] attempting: Operational Security Checklist for AI FAQ Receptionist Servi"
     },
     {
-      "ts": "2026-07-01T23:30:03.599446+00:00",
+      "ts": "2026-07-01T23:40:04.288357+00:00",
       "agent": "Hades",
       "event": "dispatched",
       "ticket": "AUTO-160",
       "content": "security started work: Operational Security Checklist for AI FAQ Receptionist Servi"
     },
     {
-      "ts": "2026-07-01T23:30:01.822812+00:00",
+      "ts": "2026-07-01T23:40:02.978243+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-156",
+      "content": "PASS: The deliverable provides a comprehensive and detailed onboarding checklist for the AI FAQ Receptionist, covering a"
+    },
+    {
+      "ts": "2026-07-01T23:40:02.978099+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "AUTO-155",
+      "content": "Parked after 2 fails: The deliverable provided is a security audit report and does not address the requirements for a da"
+    },
+    {
+      "ts": "2026-07-01T23:40:02.733533+00:00",
+      "agent": "Plutus",
+      "event": "working",
+      "ticket": "AUTO-157",
+      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet & Tiered Packages"
+    },
+    {
+      "ts": "2026-07-01T23:40:02.189739+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-159",
       "content": "[cerebras:gpt-oss-120b] attempting: Objection Handling Guide for AI FAQ Receptionist Sales"
     },
     {
-      "ts": "2026-07-01T23:30:01.820036+00:00",
+      "ts": "2026-07-01T23:40:02.186554+00:00",
       "agent": "Fortuna",
       "event": "dispatched",
       "ticket": "AUTO-159",
       "content": "income started work: Objection Handling Guide for AI FAQ Receptionist Sales"
-    },
-    {
-      "ts": "2026-07-01T23:30:01.810671+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-158",
-      "content": "[cerebras:gpt-oss-120b] attempting: Demo Script and Slide Deck Outline for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T23:30:01.809250+00:00",
-      "agent": "Iris",
-      "event": "dispatched",
-      "ticket": "AUTO-158",
-      "content": "pm started work: Demo Script and Slide Deck Outline for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T23:30:01.796193+00:00",
-      "agent": "Plutus",
-      "event": "working",
-      "ticket": "AUTO-157",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet & Tiered Packages"
-    },
-    {
-      "ts": "2026-07-01T23:30:01.794605+00:00",
-      "agent": "Plutus",
-      "event": "dispatched",
-      "ticket": "AUTO-157",
-      "content": "finance started work: AI FAQ Receptionist Pricing Sheet & Tiered Packages"
     }
   ],
   "problems": {}

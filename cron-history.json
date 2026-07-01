@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-01T23:40:02.092456+00:00",
+  "updated": "2026-07-01T23:50:01.838872+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T23:50:01.838872+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-157: cerebras dispatch error: HTTP Error 429: Too Many Requests"
+    },
     {
       "ts": "2026-07-01T23:30:01.688037+00:00",
       "job": "validate-work",
@@ -105,6 +112,13 @@
       "kind": "system",
       "status": "warn",
       "msg": "[work]   AUTO-149: cerebras dispatch error: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-07-01T21:50:01.838872+00:00",
+      "job": "Hourly Check-in",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "2h ago"
     },
     {
       "ts": "2026-07-01T21:30:01.688037+00:00",
@@ -695,6 +709,13 @@
       "msg": "8h ago \u00b7 google/gemini-2.5..."
     },
     {
+      "ts": "2026-07-01T13:50:01.838872+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "10h ago \u00b7 google/gemini-2.5..."
+    },
+    {
       "ts": "2026-07-01T13:50:01.782267+00:00",
       "job": "Daily 10 AM Improvement",
       "kind": "discord-cron",
@@ -931,6 +952,13 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "2h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T12:50:01.838872+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "11h ago \u00b7 google/gemini-2.5..."
     },
     {
       "ts": "2026-07-01T12:50:01.782267+00:00",
@@ -1360,6 +1388,13 @@
       "msg": "3h ago"
     },
     {
+      "ts": "2026-07-01T11:50:01.838872+00:00",
+      "job": "Lucy 8 AM Morning Mot...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "12h ago \u00b7 google/gemini-2.5..."
+    },
+    {
       "ts": "2026-07-01T11:50:01.782267+00:00",
       "job": "Lucy 8 AM Morning Mot...",
       "kind": "discord-cron",
@@ -1715,41 +1750,6 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "3h ago"
-    },
-    {
-      "ts": "2026-07-01T10:50:02.056023+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "3h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-07-01T10:50:02.054155+00:00",
-      "job": "Velocity (daily)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "11h ago"
-    },
-    {
-      "ts": "2026-07-01T10:50:02.054155+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "11h ago \u00b7 google/gemini-2.5..."
-    },
-    {
-      "ts": "2026-07-01T10:50:01.849611+00:00",
-      "job": "Velocity (daily)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "4h ago"
-    },
-    {
-      "ts": "2026-07-01T10:50:01.849611+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "4h ago \u00b7 groq/meta-llama/l..."
     }
   ]
 }
