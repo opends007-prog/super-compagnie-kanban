@@ -1,6 +1,20 @@
 {
-  "updated": "2026-07-01T17:20:01.460641+00:00",
+  "updated": "2026-07-01T17:30:01.218921+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T17:30:01.218921+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "ok",
+      "msg": "[validate] no validations applied this run"
+    },
+    {
+      "ts": "2026-07-01T17:29:01.218921+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-07-01T17:10:01.538465+00:00",
       "job": "validate-work",
@@ -98,6 +112,13 @@
       "kind": "system",
       "status": "fail",
       "msg": "[validate]     STORY-204: reviewer run error (openclaw): Command '['openclaw', 'agent', '--agent', 'nemesis', '--session-key', 'review-STORY-204', '-m', 'You are an INDEPENDENT work reviewer. Strictly"
+    },
+    {
+      "ts": "2026-07-01T15:30:01.218921+00:00",
+      "job": "Hourly Check-in",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "2h ago"
     },
     {
       "ts": "2026-07-01T15:29:01.835117+00:00",
@@ -303,6 +324,13 @@
       "msg": "2h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-07-01T13:30:01.218921+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "4h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-07-01T13:29:02.049681+00:00",
       "job": "Queue Tick 30m",
       "kind": "discord-cron",
@@ -448,6 +476,13 @@
       "kind": "system",
       "status": "ok",
       "msg": "[validate] no validations applied this run"
+    },
+    {
+      "ts": "2026-07-01T12:30:01.218921+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "5h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T12:29:01.300084+00:00",
@@ -702,6 +737,13 @@
       "msg": "[validate] no validations applied this run"
     },
     {
+      "ts": "2026-07-01T11:30:01.218921+00:00",
+      "job": "Lucy 8 AM Morning Mot...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "6h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-07-01T11:29:01.366893+00:00",
       "job": "Queue Tick 30m",
       "kind": "discord-cron",
@@ -940,6 +982,20 @@
       "msg": "2h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-07-01T10:30:01.218921+00:00",
+      "job": "Velocity (daily)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "7h ago"
+    },
+    {
+      "ts": "2026-07-01T10:30:01.218921+00:00",
+      "job": "Daily 7 AM Standup",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "7h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-07-01T10:29:01.913770+00:00",
       "job": "Queue Tick 30m",
       "kind": "discord-cron",
@@ -1169,6 +1225,13 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "3h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T09:30:01.218921+00:00",
+      "job": "Daily 6 AM Memory Mai...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "8h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T09:29:02.149957+00:00",
@@ -1687,69 +1750,6 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "13h ago"
-    },
-    {
-      "ts": "2026-07-01T02:40:01.713538+00:00",
-      "job": "Daily 11 PM Backup (B...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "10h ago"
-    },
-    {
-      "ts": "2026-07-01T02:40:01.685742+00:00",
-      "job": "Daily 11 PM Backup (B...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "3h ago"
-    },
-    {
-      "ts": "2026-07-01T02:40:01.430914+00:00",
-      "job": "Daily 11 PM Backup (B...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "11h ago"
-    },
-    {
-      "ts": "2026-07-01T02:40:01.420011+00:00",
-      "job": "Daily 11 PM Backup (B...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "6h ago"
-    },
-    {
-      "ts": "2026-07-01T02:40:01.388852+00:00",
-      "job": "Daily 11 PM Backup (B...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "5h ago"
-    },
-    {
-      "ts": "2026-07-01T02:40:01.361604+00:00",
-      "job": "Daily 11 PM Backup (B...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "9h ago"
-    },
-    {
-      "ts": "2026-07-01T02:40:01.348299+00:00",
-      "job": "Daily 11 PM Backup (B...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "8h ago"
-    },
-    {
-      "ts": "2026-07-01T02:40:01.294552+00:00",
-      "job": "Daily 11 PM Backup (B...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "2h ago"
-    },
-    {
-      "ts": "2026-07-01T02:30:01.869434+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[validate]     AUTO-087: engine 'openclaw' gave no usable verdict \u2014 trying next in chain"
     }
   ]
 }
