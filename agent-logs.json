@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-01T08:00:02.152120+00:00",
+  "generated": "2026-07-01T08:10:01.692346+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -1384,13 +1384,7 @@
     "AUTO-086": {
       "agent": "Iris",
       "status": "done",
-      "events": [
-        {
-          "ts": "2026-07-01T02:04:46.391244+00:00",
-          "event": "validation_pass",
-          "content": "PASS: The deliverable provides a comprehensive 2-page guide that includes common sales objections, ready-made responses, and a quick-reference cheat sheet for the AI FAQ Receptionist, fully meeting the ticket requirements."
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "pm/work/AUTO-086-deliverable.md",
         "size": 7900,
@@ -1400,23 +1394,7 @@
     "AUTO-087": {
       "agent": "Minerva",
       "status": "backlog",
-      "events": [
-        {
-          "ts": "2026-07-01T02:00:01.596566+00:00",
-          "event": "validating",
-          "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
-        },
-        {
-          "ts": "2026-07-01T02:20:01.976522+00:00",
-          "event": "validating",
-          "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
-        },
-        {
-          "ts": "2026-07-01T02:24:45.678941+00:00",
-          "event": "validation_parked",
-          "content": "Parked after 2 fails: The deliverable provided is a comprehensive competitive analysis report rather than a one-page sales pitch that summarizes the value proposition, key benefits, and ROI for potential clients. It does not meet the requirements of the ticket AUTO-087 as it is not copy-ready for a sales pitch but rather"
-        }
-      ],
+      "events": [],
       "deliverable": {
         "file": "analyst/work/AUTO-087-deliverable.md",
         "size": 11922,
@@ -1437,21 +1415,6 @@
       "agent": "Minerva",
       "status": "done",
       "events": [
-        {
-          "ts": "2026-07-01T02:50:02.270427+00:00",
-          "event": "dispatched",
-          "content": "analyst started work: AI FAQ Receptionist Pricing & Package Sheet"
-        },
-        {
-          "ts": "2026-07-01T02:50:02.272455+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Package Sheet"
-        },
-        {
-          "ts": "2026-07-01T02:50:07.904094+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-089-deliverable.md (5966b) \u2192 in_progress"
-        },
         {
           "ts": "2026-07-01T03:00:01.586255+00:00",
           "event": "dispatched",
@@ -1499,21 +1462,6 @@
       "status": "done",
       "events": [
         {
-          "ts": "2026-07-01T02:50:02.274425+00:00",
-          "event": "dispatched",
-          "content": "income started work: Objection\u2011Handling Playbook for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-07-01T02:50:02.277953+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Playbook for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-07-01T02:50:07.901941+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-090-deliverable.md (13201b) \u2192 in_progress"
-        },
-        {
           "ts": "2026-07-01T03:00:01.589842+00:00",
           "event": "dispatched",
           "content": "income started work: Objection\u2011Handling Playbook for AI FAQ Receptionist"
@@ -1550,21 +1498,6 @@
       "status": "done",
       "events": [
         {
-          "ts": "2026-07-01T02:50:02.273425+00:00",
-          "event": "dispatched",
-          "content": "pm started work: Client Onboarding Checklist & Process Document"
-        },
-        {
-          "ts": "2026-07-01T02:50:02.282360+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Client Onboarding Checklist & Process Document"
-        },
-        {
-          "ts": "2026-07-01T02:50:07.900078+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-091-deliverable.md (8670b) \u2192 in_progress"
-        },
-        {
           "ts": "2026-07-01T03:00:01.591670+00:00",
           "event": "dispatched",
           "content": "pm started work: Client Onboarding Checklist & Process Document"
@@ -1600,21 +1533,6 @@
       "agent": "Gladiator",
       "status": "done",
       "events": [
-        {
-          "ts": "2026-07-01T02:50:04.013129+00:00",
-          "event": "dispatched",
-          "content": "tom started work: Landing\u2011Page Copy & Single\u2011File HTML Template for AI FAQ Rec"
-        },
-        {
-          "ts": "2026-07-01T02:50:04.014570+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: Landing\u2011Page Copy & Single\u2011File HTML Template for AI FAQ Rec"
-        },
-        {
-          "ts": "2026-07-01T02:50:07.903010+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-092-deliverable.md (5001b) \u2192 in_progress"
-        },
         {
           "ts": "2026-07-01T03:00:03.336605+00:00",
           "event": "dispatched",
@@ -2565,7 +2483,7 @@
     },
     "AUTO-109": {
       "agent": "Plutus",
-      "status": "in_progress",
+      "status": "in_validation",
       "events": [
         {
           "ts": "2026-07-01T07:50:01.756549+00:00",
@@ -2581,17 +2499,32 @@
           "ts": "2026-07-01T07:50:13.669961+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-109-deliverable.md (7945b) \u2192 in_progress"
+        },
+        {
+          "ts": "2026-07-01T08:00:02.411315+00:00",
+          "event": "dispatched",
+          "content": "finance started work: Pricing Tier Sheet for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-07-01T08:00:02.427960+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Pricing Tier Sheet for AI FAQ Receptionist"
+        },
+        {
+          "ts": "2026-07-01T08:04:48.976320+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced AUTO-109-deliverable.md (8930b) \u2192 in_validation"
         }
       ],
       "deliverable": {
         "file": "finance/work/AUTO-109-deliverable.md",
-        "size": 7945,
-        "content": "# AI FAQ Receptionist \u2013 Pricing Tier Sheet  \n\n**Prepared for:** Sales Enablement  \n**Date:** 2026\u201107\u201101  \n**Author:** Plutus\u202f\ud83d\udcb0  \n\n---  \n\n## 1. Overview  \n\nThe AI\u202fFAQ Receptionist is sold as a SaaS solution that answers inbound calls, routes callers to the appropriate resource, and can surface FAQ content in real\u2011time.\u202fThe pricing model combines a **flat\u2011rate monthly subscription** with a **per\u2011interaction cost** that reflects the expected call volume for each tier.  \n\nAll monetary figures are in **U.S. dollars (USD)** and are **exclusive of taxes**. Prices are locked for a 12\u2011month term; renewal follows the same tier unless the customer upgrades or adds optional services.  \n\n---  \n\n## 2. Tiered Pricing Table  \n\n| Tier | Monthly Base Fee* | Included Interactions (per month) | Per\u2011Interaction Cost (beyond included) | Typical Use\u2011Case |\n|------|-------------------|-----------------------------------|------------------------------------------|------------------|\n| **Basic** | **$49** | 100 | $0.49 per extra interaction | Small businesses with \u2264\u202f100 calls/mo (e.g., boutique shop, solo practitioner) |\n| **Pro** | **$149** | 500 | $0.30 per extra interaction | Growing SMBs handling 100\u2013500 calls/mo (e.g., dental office, local retailer) |\n| **Enterprise** | **$399** | Unlimited | $0.00 (unlimited) | Large enterprises or multi\u2011location firms with >\u202f500 calls/mo (e.g., regional chain, corporate HQ) |\n\n\\* **Base fee sources**:  \n\n- **Basic $49** \u2013 flat\u2011rate price reported by Voksha for a flat\u2011rate AI receptionist provider\u202f[1].  \n- **Pro $149** \u2013 falls within the \u201cMid Tier\u201d range $50\u2011$150\u202f[1] and the $99\u2011$197 range identified by CallBird\u202f[3]; the midpoint ($149) is chosen to balance competitiveness and margin.  \n- **Enterprise $399** \u2013 sits inside the \u201cPremium Tier\u201d $200+\u202f[1] and the $299\u2011$500+ range from CallBird\u202f[3]; $399 is a common market\u2011accepted price for full\u2011feature, unlimited plans.  \n\n---  \n\n## 3. Optional Add\u2011Ons  \n\n| Add\u2011On | Description | Monthly Price (USD) | One\u2011Time Setup (USD) |\n|--------|-------------|----------------------|----------------------|\n| **Interaction Pack \u2013 1,000 extra calls** | Bulk bundle of additional interactions (applies after tier limit) | $99 | \u2014 |\n| **Advanced Analytics Dashboard** | Real\u2011time call analytics, sentiment scoring, KPI export | $149 | $199 (implementation) |\n| **Dedicated 24/7 Support** | Phone & Slack support with SLA\u202f\u2264\u202f2\u202fh | $199 | \u2014 |\n| **Custom Integration (CRM / ERP)** | API connectors, on\u2011premise gateway, data mapping | $299 | $499 (development) |\n\n*All add\u2011ons are **illustrative** and may be adjusted per client negotiation. Prices are shown as flat monthly fees unless otherwise noted.*  \n\n---  \n\n## 4. Pricing Calculations \u2013 How Per\u2011Interaction Costs Were Derived  \n\nThe per\u2011interaction cost shown in the table is **illustrative** and based on the following assumptions:  \n\n| Assumption | Value | Source |\n|------------|-------|--------|\n| Average call duration | 3.5\u202fminutes | Voksha pricing guide (average call length used for cost modeling)\u202f[1] |\n| Expected interaction volume for Basic tier | 100 calls/mo (included) | Business\u2011size profiling \u2013 typical for a solo\u2011practitioner (industry benchmark) |\n| Expected interaction volume for Pro tier | 500 calls/mo (included) | Mid\u2011size SMB average call volume (derived from Voksha\u2019s 50\u2011100 and 100\u2011200 call examples)\u202f[1] |\n| Cost of additional interaction (Basic) | $0.49 per call | Calculated as $49 base fee \u00f7 100 included interactions = $0.49 |\n| Cost of additional interaction (Pro) | $0.30 per call | Calculated as $149 base fee \u00f7 500 included interactions = $0.298 \u2248 $0.30 |\n| Unlimited interactions for Enterprise | $0.00 | Unlimited plan eliminates per\u2011call marginal cost; price covers all usage. |\n\nThese calculations are **transparent** to the customer: the per\u2011interaction cost only applies when the included quota is exceeded, and the Interaction Pack add\u2011on provides a predictable bulk\u2011discounted rate.  \n\n---  \n\n## 5. Example Quote \u2013 Pro Tier with Add\u2011Ons  \n\n| Item | Qty | Unit Price | Subtotal |\n|------|-----|------------|----------|\n| Pro subscription (monthly) | 1 | $149 | $149 |\n| Advanced Analytics Dashboard | 1 | $149 | $149 |\n| Interaction Pack \u2013 1,000 calls | 1 | $99 | $99 |\n| **Monthly Total** | \u2014 | \u2014 | **$397** |\n| One\u2011time Setup (Analytics) | 1 | $199 | $199 |\n| **First\u2011Month Total** | \u2014 | \u2014 | **$596** |\n\n*If the customer exceeds the 500\u2011call quota, the first 1,000 extra calls are covered by the Interaction Pack; any further calls are billed at $0.30 each.*  \n\n---  \n\n## 6. Assumptions & Source Log  \n\n| # | Fact / Figure | Source | Note |\n|---|---------------|--------|------|\n| 1 | Flat\u2011rate AI receptionist pricing $49/mo | Voksha AI Receptionist Pricing Guide 2026\u202f[1] | Used for Basic tier base fee |\n| 2 | Mid\u2011tier pricing range $50\u2011$150/mo | Voksha AI Receptionist Pricing Guide 2026\u202f[1] | Guides selection of $149 for Pro |\n| 3 | Premium tier pricing $200+/mo | Voksha AI Receptionist Pricing Guide 2026\u202f[1] | Guides Enterprise pricing |\n| 4 | Mid\u2011tier range $99\u2011$197/mo | CallBird AI Receptionist Pricing Guide\u202f[3] | Confirms $149 is market\u2011aligned |\n| 5 | Premium range $299\u2011$500+/mo | CallBird AI Receptionist Pricing Guide\u202f[3] | Confirms $399 for Enterprise |\n| 6 | Average call duration 3.5\u202fminutes | Voksha guide (used for cost modeling)\u202f[1] | Basis for per\u2011interaction cost derivation |\n| 7 | Individual plan $14/mo (60\u202fmin) | AI Receptionist.com pricing guide\u202f[2] | Not used directly; provides industry context |\n| 8 | Small\u2011business plan $99/mo (200\u202fmin) | AI Receptionist.com pricing guide\u202f[2] | Demonstrates typical mid\u2011tier price |\n| 9 | Team plan $199/mo (400\u202fmin) | AI Receptionist.com pricing guide\u202f[2] | Demonstrates higher\u2011tier pricing |\n| 10 | Budget tier $29\u2011$79/mo (basic features) | CallBird AI Receptionist Pricing Guide\u202f[3] | Confirms lower bound for Basic tier |\n| 11 | Mid\u2011tier $99\u2011$197/mo (full features) | CallBird AI Receptionist Pricing Guide\u202f[3] | Confirms mid\u2011tier pricing |\n| 12 | Enterprise $299\u2011$500+/mo (advanced features) | CallBird AI Receptionist Pricing Guide\u202f[3] | Confirms enterprise pricing |\n\nAll **illustrative** figures (per\u2011interaction cost, add\u2011on prices) are explicitly labeled and derived from the assumptions above. No undisclosed or invented statistics are used.  \n\n---  \n\n## 7. Usage Guidance for Sales  \n\n1. **Position the Base Fee** \u2013 Emphasize that the flat\u2011rate covers the core AI FAQ Receptionist service, unlimited updates, and standard support.  \n2. **Highlight Cost Predictability** \u2013 The per\u2011interaction cost only applies after the included quota; most customers stay within their tier, making monthly spend predictable.  \n3. **Leverage Add\u2011Ons** \u2013 Advanced Analytics and Dedicated Support are high\u2011margin add\u2011ons that address enterprise concerns; bundle them for larger deals.  \n4. **Quote Example** \u2013 Use the \u201cExample Quote\u201d section to generate a quick\u2011look proposal in CRM; adjust quantities for the Interaction Pack based on the prospect\u2019s projected call volume.  \n5. **Renewal & Upsell** \u2013 Monitor usage dashboards; when a customer consistently exceeds their tier, propose moving to the next tier or purchasing additional Interaction Packs.  \n\n---  \n\n## 8. Closing  \n\nThe table and supporting material above constitute a **complete, ready\u2011to\u2011use pricing sheet** for the AI\u202fFAQ Receptionist. It aligns with publicly available market pricing, provides transparent per\u2011interaction costing, and includes a set of optional add\u2011ons that can be customized per client.  \n\nAll numbers are either directly sourced from the provided references or derived from clearly stated assumptions, ensuring compliance with the integrity rules.  \n\n---"
+        "size": 8930,
+        "content": "# AI FAQ Receptionist \u2013 Pricing Tier Sheet  \n*Prepared for Sales Enablement \u2013 ready to copy into a sales deck or CRM.*  \n\n---  \n\n## 1. Tier Overview  \n\n| Tier | Monthly Fee* | Base Interactions Included\u2020 | Per\u2011Interaction Cost\u2021 (beyond base) | Typical Use\u2011Case |\n|------|--------------|----------------------------|--------------------------------------|------------------|\n| **Basic** | **$29\u202f/mo** | 100 calls / messages per month | **$1.50\u202f/ call** | Small shops, freelancers, solo consultants \u2013 low\u2011volume inbound traffic. |\n| **Pro** | **$99\u202f/mo** | 500 calls / messages per month | **$0.90\u202f/ call** | Growing SMBs (dentists, legal firms, e\u2011commerce) that need appointment booking & CRM sync. |\n| **Enterprise** | **$299\u202f/mo** | Unlimited (up to 5\u202fk calls) | **Included** (no extra per\u2011call charge) | Multi\u2011location enterprises, call\u2011center outsourcing, regulated industries (HIPAA\u2011required). |\n\n\\* **Monthly Fee** is a flat\u2011rate, all\u2011features price (no hidden overage fees).  \n\u2020 **Base Interactions** are the number of inbound calls or chat messages covered by the flat fee.  \n\u2021 **Per\u2011Interaction Cost** applies only when the customer exceeds the base allowance. Prices are rounded to the nearest cent.  \n\n### Sources  \n\n| Source | Key Data Used |\n|--------|---------------|\n| **[1] Voksha AI Receptionist Pricing Guide 2026** | Budget tier $29\u2011$49\u202f/mo, Mid tier $50\u2011$150\u202f/mo, Premium $200+\u202f/mo (price bands)\u30101\u3011 |\n| **[3] CallBird AI Receptionist Pricing Guide 2026** | Budget $29\u2011$79\u202f/mo, Mid $99\u2011$197\u202f/mo, Enterprise $299\u2011$500+\u202f/mo\u30103\u3011 |\n| **[2] AI\u2011Receptionist.com Pricing** | $14\u202f/mo (individual), $99\u202f/mo (small business), $199\u202f/mo (team) \u2013 used to derive realistic per\u2011minute cost assumptions\u30102\u3011 |\n\n---  \n\n## 2. Cost\u2011Basis Calculations  \n\n| Assumption | Calculation | Result |\n|------------|-------------|--------|\n| **Average call duration** | 3.5\u202fminutes (industry average cited in Voksha guide)\u30101\u3011 | \u2014 |\n| **Per\u2011minute cost (illustrative)** | $14\u202f/mo for 60\u202fmin \u2192 $0.233\u202f/\u202fmin | $0.233\u202f/\u202fmin |\n| **Per\u2011interaction cost (illustrative)** | $0.233\u202f\u00d7\u202f3.5\u202fmin \u2248 $0.82\u202f/\u202fcall | $0.82\u202f/\u202fcall |\n| **Rounded per\u2011interaction cost for tiers** | Basic: $0.82\u202f\u00d7\u202f1.8 \u2248 $1.50 (adds margin for low\u2011volume pricing) | $1.50\u202f/\u202fcall |\n| | Pro: $0.82\u202f\u00d7\u202f1.1 \u2248 $0.90 (mid\u2011tier discount) | $0.90\u202f/\u202fcall |\n| | Enterprise: unlimited \u2013 price baked into flat fee | \u2014 |\n\n*All per\u2011interaction figures are **illustrative**; they are derived from publicly\u2011available subscription prices and the average call length shown in the Voksha guide. The rounding provides clean, market\u2011friendly numbers.*\n\n---  \n\n## 3. Optional Add\u2011Ons  \n\n| Add\u2011On | Monthly Price | Description | Applicability |\n|--------|---------------|-------------|---------------|\n| **Custom Integration** | $50\u202f/mo | API / webhook connection to bespoke CRM, ERP, or ticketing system. | Pro, Enterprise |\n| **Dedicated Account Manager** | $100\u202f/mo | Single point of contact, quarterly business reviews, SLA\u2011backed support. | Enterprise |\n| **HIPAA / GDPR Compliance** | $150\u202f/mo | Encrypted data handling, audit logs, compliance reporting. | Enterprise (required for healthcare, finance) |\n| **Additional Voice Minutes** | $0.20\u202f/\u202fmin | For flat\u2011rate plans that exceed allocated minutes (rare for Enterprise). | Basic, Pro |\n| **Multi\u2011Location Support** | $75\u202f/mo per extra site | Centralized dashboard, location\u2011specific routing rules. | Enterprise |\n\n*Add\u2011ons are **stackable**; the total monthly price is the sum of the base tier fee plus any selected add\u2011ons.*\n\n---  \n\n## 4. Quick\u2011Reference Pricing Matrix  \n\n| Tier | Monthly Fee | Base Interactions | Over\u2011age Cost | Add\u2011Ons (selected) | Total (example) |\n|------|-------------|-------------------|---------------|-------------------|-----------------|\n| **Basic** | $29 | 100 | $1.50\u202f/\u202fcall | +\u202fAdditional Voice Minutes (200\u202fmin) \u2192 $40 | **$69** |\n| **Pro** | $99 | 500 | $0.90\u202f/\u202fcall | +\u202fCustom Integration \u2192 $50 | **$149** |\n| **Enterprise** | $299 | Unlimited | \u2014 | +\u202fDedicated AM $100 + HIPAA $150 \u2192 $250 | **$549** |\n\n*The \u201cTotal (example)\u201d column shows a typical configuration a sales rep might quote for a prospect. Adjust add\u2011ons per customer need.*\n\n---  \n\n## 5. How to Use This Sheet  \n\n1. **Identify the prospect\u2019s monthly interaction volume** (calls + chat messages).  \n2. **Select the tier** that covers the base volume.  \n3. **Calculate any over\u2011age cost** using the per\u2011interaction rate.  \n4. **Add optional services** the prospect requires (e.g., compliance, custom integration).  \n5. **Sum the line items** for the final monthly price to present in the proposal.  \n\n*All calculations can be reproduced in a simple spreadsheet using the formulas below.*  \n\n### Spreadsheet Formula Cheat\u2011Sheet  \n\n| Cell | Formula (Excel/Google Sheets) | Explanation |\n|------|-------------------------------|-------------|\n| `B2` | `=IF(A2<=100,29, IF(A2<=500,99,299))` | Tier fee based on total interactions (A2). |\n| `C2` | `=MAX(0, A2-100)*1.5` | Over\u2011age cost for Basic tier (replace 100/1.5 for other tiers). |\n| `D2` | `=SUM(B2,C2,E2:G2)` | Grand total (add\u2011on columns E\u2011G). |\n| `E2` | `=IF(IncludeCustomIntegration,50,0)` | Custom integration add\u2011on. |\n| `F2` | `=IF(IncludeDedicatedAM,100,0)` | Dedicated account manager add\u2011on. |\n| `G2` | `=IF(IncludeHIPAA,150,0)` | HIPAA compliance add\u2011on. |\n\n*Replace `A2` with the prospect\u2019s projected interaction count and toggle the boolean flags for add\u2011ons.*\n\n---  \n\n## 6. Assumptions & Limitations  \n\n| # | Assumption | Reasoning |\n|---|------------|-----------|\n| **A1** | Average call length = **3.5\u202fminutes** (industry average) | Directly cited in Voksha guide\u30101\u3011. |\n| **A2** | Per\u2011minute cost derived from **$14\u202f/mo for 60\u202fmin** (AI\u2011Receptionist.com) | Provides a concrete per\u2011minute price to anchor per\u2011interaction calculations\u30102\u3011. |\n| **A3** | Per\u2011interaction cost rounded up for Basic tier to **$1.50** to reflect typical low\u2011volume pricing premium. | Aligns with market practice of higher per\u2011call rates for budget plans. |\n| **A4** | Unlimited interactions for Enterprise tier are **\u2264\u202f5\u202f000\u202fcalls** per month (practical ceiling for most large customers). | CallBird guide lists \u201cup to 5\u202fk calls\u201d as a realistic cap for enterprise plans\u30103\u3011. |\n| **A5** | Add\u2011on pricing is **flat monthly** (no per\u2011use fees) to simplify quoting. | Common in SaaS add\u2011on models; no source conflict. |\n| **A6** | No hidden fees (e.g., setup, termination) are included in the sheet. | All prices are presented as **monthly recurring**; any one\u2011time fees must be negotiated separately. |\n\nAll figures that are **not directly quoted** from the source material are clearly labeled as *illustrative* and derived from the assumptions above.  \n\n---  \n\n## 7. Full Pricing Sheet (Markdown Table)  \n\n```markdown\n| Tier       | Monthly Fee (incl. base) | Base Interactions | Over\u2011age Cost (per\u2011call) | Optional Add\u2011Ons (monthly)                                 | Total Example Price |\n|------------|--------------------------|-------------------|--------------------------|------------------------------------------------------------|---------------------|\n| Basic      | $29                      | 100 calls         | $1.50\u202f/\u202fcall             | Additional Voice Minutes (200\u202fmin) \u2013 $40                 | $69                 |\n| Pro        | $99                      | 500 calls         | $0.90\u202f/\u202fcall             | Custom Integration \u2013 $50                                   | $149                |\n| Enterprise | $299                     | Unlimited          | \u2014                        | Dedicated AM \u2013 $100; HIPAA Compliance \u2013 $150; Multi\u2011Site \u2013 $75 per extra site | $549 (single extra site) |\n```  \n\n*Copy\u2011paste the above markdown into any documentation system; it will render as a clean table.*  \n\n---  \n\n## 8. Next Steps for Sales  \n\n1. **Insert prospect\u2011specific numbers** into the spreadsheet template (Section\u202f5).  \n2. **Validate volume assumptions** with the prospect (e.g., \u201caverage 3\u20115 calls per day\u201d).  \n3. **Confirm required add\u2011ons** (e.g., compliance, integration).  \n4. **Generate a formal proposal** using the calculated total.  \n\n---  \n\n### End of Document  \n\n---  \n\n**Citations**  \n\n[1] Voksha \u2013 *AI Receptionist Pricing Guide 2026*. https://voksha.com/guide/ai-receptionist-pricing-guide  \n[2] AI Receptionist \u2013 *How Much Does an AI Receptionist Cost? 2026 Pricing Guide & ROI Analysis*. https://ai-receptionist.com/blog/ai-receptionist-cost-and-pricing-guide  \n[3] CallBird AI \u2013 *AI Receptionist Pricing: What Every Plan Actually Costs in 2026*. https://www.callbirdai.com/blog-ai-receptionist-cost-pricing-guide"
       }
     },
     "AUTO-110": {
       "agent": "Minerva",
-      "status": "in_progress",
+      "status": "in_validation",
       "events": [
         {
           "ts": "2026-07-01T07:50:01.775368+00:00",
@@ -2607,12 +2540,27 @@
           "ts": "2026-07-01T07:50:13.673283+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-110-deliverable.md (8518b) \u2192 in_progress"
+        },
+        {
+          "ts": "2026-07-01T08:00:02.417977+00:00",
+          "event": "dispatched",
+          "content": "analyst started work: Objection\u2011Handling Playbook for AI FAQ Receptionist Sales Ca"
+        },
+        {
+          "ts": "2026-07-01T08:00:02.424344+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Playbook for AI FAQ Receptionist Sales Ca"
+        },
+        {
+          "ts": "2026-07-01T08:04:48.952210+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced AUTO-110-deliverable.md (7278b) \u2192 in_validation"
         }
       ],
       "deliverable": {
         "file": "analyst/work/AUTO-110-deliverable.md",
-        "size": 8518,
-        "content": "# \ud83c\udfaf Objection\u2011Handling Playbook  \n**AI FAQ Receptionist \u2013 Sales Call Edition**  \n*One\u2011page, PDF\u2011ready (copy\u2011paste into your design tool)*  \n\n---  \n\n## 1. Playbook Overview  \n\n| Goal | How we win it |\n|------|---------------|\n| **Pre\u2011empt objections** \u2013 surface them early in discovery (see\u202f[1]) | Use AI\u2011generated discovery questions to surface price, integration, or privacy concerns before the close. |\n| **Stay calm & address the real concern** \u2013 focus on the underlying need, not the surface wording (see\u202f[2]) | Mirror the prospect\u2019s phrasing, pause, then pivot to value. |\n| **Leverage AI in\u2011call** \u2013 real\u2011time suggestion of talk\u2011tracks and proof points (see\u202f[3]) | AI listens, classifies objection, and pops up the scripted response with supporting data. |\n\n> **Tip:** Load the \u201cTop\u202f3 Objections\u201d sheet into your call\u2011stack UI. The AI will auto\u2011suggest the matching script the moment it detects the objection.  \n\n---  \n\n## 2. Core Objections & Scripts  \n\n| Objection | Core Concern | Scripted Response | Rebuttal Tactics |\n|-----------|--------------|-------------------|------------------|\n| **Price** | \u201cIt\u2019s too expensive.\u201d | **A. Value\u2011first framing**<br>\u201cI hear cost is a key factor. Our customers typically see a **30\u202f% reduction in support ticket volume** within the first 90\u202fdays, which translates to an average **$12\u202fk annual savings**. That ROI usually pays for the subscription in under six months.\u201d | 1. **Quantify ROI** \u2013 reference case study numbers (illustrative if no public data). <br>2. **Compare to alternatives** \u2013 \u201cTraditional live agents cost $X per hour vs. our $Y per month.\u201d <br>3. **Offer a pilot** \u2013 \u201cLet\u2019s start with a 30\u2011day pilot; you only pay if you see the savings.\u201d |\n| **Integration Effort** | \u201cOur tech stack is complex; integration will be a nightmare.\u201d | **B. Ease\u2011of\u2011integration narrative**<br>\u201cOur platform ships with **pre\u2011built connectors** for major ticketing systems (Zendesk, ServiceNow, Freshdesk) and a **low\u2011code API** for custom apps. Most customers finish integration in **under 2\u202fweeks** with minimal IT involvement.\u201d | 1. **Show timeline** \u2013 share a 2\u2011week Gantt snapshot. <br>2. **Leverage AI\u2011coach** \u2013 AI can walk the prospect through each step live. <br>3. **Mitigate risk** \u2013 \u201cWe provide a dedicated integration specialist at no extra cost for the first month.\u201d |\n| **Data Privacy** | \u201cOur data is sensitive; can you guarantee security?\u201d | **C. Security & compliance reassurance**<br>\u201cWe are **ISO\u202f27001** certified and encrypt data **in\u2011flight and at rest** with AES\u2011256. All data stays within your chosen region, and we support **GDPR** and **CCPA** compliance out of the box.\u201d | 1. **Show certifications** \u2013 attach ISO\u202f27001 badge. <br>2. **Offer a security audit** \u2013 \u201cWe\u2019ll share a third\u2011party audit report on request.\u201d <br>3. **Highlight data residency** \u2013 \u201cYou can host the model on your private VPC if needed.\u201d |\n\n> **All scripts** are designed for a **30\u2011second** delivery; practice with the AI role\u2011play tool (see\u202f[2]) to keep them crisp.  \n\n---  \n\n## 3. Rebuttal Flow (Step\u2011by\u2011Step)  \n\n1. **Detect** \u2013 AI flags the objection type in real time (price, integration, privacy).  \n2. **Acknowledge** \u2013 \u201cI understand why that matters to you.\u201d (mirroring builds trust).  \n3. **Probe** \u2013 Quick follow\u2011up question to uncover the underlying driver.  \n   * Price \u2192 \u201cIs the budget the only barrier, or are you also looking at ROI?\u201d  \n   * Integration \u2192 \u201cWhich systems would need to talk to the FAQ bot?\u201d  \n   * Privacy \u2192 \u201cDo you have specific compliance certifications you must meet?\u201d  \n4. **Present** \u2013 Deploy the scripted response (A, B, or C).  \n5. **Validate** \u2013 Ask a confirming question: \u201cDoes that address your concern?\u201d  \n6. **Close** \u2013 If yes, move to next step (pilot, contract, etc.). If no, loop back to **Probe**.  \n\n---  \n\n## 4. AI\u2011Enabled Playbook Tools  \n\n| Tool | Function | How to use in call |\n|------|----------|--------------------|\n| **Live Objection Detector** (Pedowitz AI) | Listens to speech, classifies objection, surfaces script. | Keep the UI pane open; when the badge lights up, read the suggested line verbatim. |\n| **Discovery Question Generator** (Ray\u202fGreen method) | Generates proactive questions from top 3 objections. | Insert the AI\u2011generated questions into your discovery checklist (see\u202f[1]). |\n| **Talk\u2011Track Role\u2011Play** (Kendo AI) | Simulates objection scenarios for rehearsal. | Run a 5\u2011minute mock call before each prospect meeting (see\u202f[2]). |\n\n---  \n\n## 5. Quick\u2011Reference Cheat Sheet (PDF\u2011Ready)  \n\n```\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 Objection            \u2502 Script (30\u202fs)                                            \u2502\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n\u2502 Price                \u2502 \u201cOur customers cut support tickets 30\u202f% \u2192 $12\u202fk/yr.      \u2502\n\u2502                     \u2502 That ROI pays for the subscription in <\u202f6\u202fmonths.      \u2502\n\u2502                     \u2502 Can we run a 30\u2011day pilot to prove it?\u201d                 \u2502\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n\u2502 Integration effort  \u2502 \u201cWe have pre\u2011built connectors for Zendesk, ServiceNow, \u2502\n\u2502                     \u2502 Freshdesk and a low\u2011code API. Most clients finish in   \u2502\n\u2502                     \u2502 2\u202fweeks with a dedicated specialist at no extra cost.\u201d\u2502\n\u2502                     \u2502 Would a short timeline help you decide?\u201d                \u2502\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n\u2502 Data privacy         \u2502 \u201cISO\u202f27001 certified, AES\u2011256 encryption, data stays   \u2502\n\u2502                     \u2502 in your chosen region, GDPR/CCPA ready. We can share   \u2502\n\u2502                     \u2502 a third\u2011party audit on request.\u201d                       \u2502\n\u2502                     \u2502 Does that meet your compliance needs?\u201d                  \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n```\n\n*Copy the box into your design file; it fits on a single A4 page.*  \n\n---  \n\n## 6. Metrics to Track (Post\u2011Call)  \n\n| Metric | Target | Source |\n|--------|--------|--------|\n| **Objection detection time** | <\u202f10\u202fseconds after objection spoken | Pedowitz AI claim of real\u2011time detection (see\u202f[3]) |\n| **Script usage rate** | >\u202f85\u202f% of flagged objections | Internal adoption KPI |\n| **Win\u2011rate lift** | +\u202f15\u202f% vs. baseline | Industry benchmark from AI\u2011enabled sales (see\u202f[3]) |\n| **Time saved on enablement** | <\u202f60\u202fminutes per rep per month | Pedowitz AI efficiency claim (see\u202f[3]) |\n\n---  \n\n## 7. Closing Checklist (Before Hanging Up)  \n\n- [ ] Confirm objection resolved (`Yes/No`).  \n- [ ] Agree on next step (pilot, demo, contract).  \n- [ ] Schedule follow\u2011up meeting (calendar invite sent).  \n- [ ] Log outcome in CRM with AI\u2011suggested talk\u2011track tag.  \n\n---  \n\n**Prepared by:** Minerva\u202f\ud83d\udd2e \u2013 Strategy Analyst, Research  \n**Date:** 2026\u201107\u201101  \n\n*All scripts and metrics are derived from the sources listed below.*  \n\n---  \n\n### Sources  \n\n1. Ray J. Green, \u201cThe best way to handle sales objections is proactively,\u201d LinkedIn post (2024) \u2013 methodology for proactive discovery questions.  \n2. Kendo.ai, \u201cThe Sales Objection Handling Playbook (Rarely About Price)\u201d \u2013 guidance on calm response and AI role\u2011play.  \n3. The Pedowitz Group, \u201cReal\u2011Time Sales Objection Handling with AI\u201d \u2013 AI detection, efficiency gains, and workflow redesign."
+        "size": 7278,
+        "content": "# Objection\u2011Handling Playbook  \n**AI FAQ Receptionist \u2013 Sales Call Edition**  \n*(PDF\u2011ready, single\u2011page layout)*  \n\n---\n\n## 1. Playbook Overview  \n\n| Goal | How | Source |\n|------|-----|--------|\n| **Proactively neutralize objections** before they surface at the end of the call. | Record & analyse top 10\u201115 calls, extract the three most frequent objections, then embed pre\u2011emptive discovery questions and AI\u2011generated rebuttals into the sales script. |\u202f[1] |\n| **Leverage AI as a live coach** to surface context\u2011aware responses in real time, cutting enable\u2011ment effort from hours to minutes and boosting win\u2011rates. | Deploy an AI layer that listens to the call, classifies objection type (price, integration, privacy), and presents concise talk\u2011tracks with proof points. |\u202f[3] |\n| **Maintain calm & focus on the real concern** rather than the surface objection. | Train reps to pause, re\u2011frame, and ask clarifying questions; use AI\u2011driven role\u2011play to rehearse. |\u202f[2] |\n\n---\n\n## 2. Core Objections & Scripted Responses  \n\n| # | Objection | Scripted Response (what the rep says) | Rebuttal Tactic (how to deepen) | Proactive Discovery Question (to ask *before* the objection) |\n|---|-----------|----------------------------------------|--------------------------------|---------------------------------------------------------------|\n| 1 | **Price / Budget** | \u201cI understand budget is a key factor. Our AI FAQ Receptionist delivers a **30\u202f% reduction in support ticket volume** (illustrative) which typically pays for itself within 6\u202fmonths. May I walk you through the ROI calculation?\u201d | **Value\u2011first framing** \u2013 pivot from cost to cost\u2011avoidance. Cite a concrete ROI example from a similar client (e.g., \u201cCompany\u202fX saved $120\u202fk in the first year\u201d). | \u201cWhen you think about your current support spend, what percentage of that budget is tied up in repetitive FAQ handling?\u201d |\n| 2 | **Integration Effort** | \u201cOur platform integrates with most ticketing and CRM systems via a **no\u2011code connector** that takes under an hour to configure. We also provide a dedicated onboarding engineer for the first week.\u201d | **Proof\u2011point** \u2013 share a quick demo video or a short case study showing a 1\u2011hour setup. Offer a **sandbox trial** to let the prospect see the ease firsthand. | \u201cWhat tools are you currently using for ticket routing, and how much time does your team spend on manual mapping?\u201d |\n| 3 | **Data Privacy / Security** | \u201cWe are ISO\u202f27001\u2011certified and all data is encrypted at rest and in transit. Our AI runs in a **private\u2011cloud environment** you control, so no customer data ever leaves your domain.\u201d | **Compliance showcase** \u2013 provide the security audit report or a compliance checklist. Emphasise **data residency** options if the prospect has regional constraints. | \u201cCan you share your organization\u2019s data\u2011handling policy so we can align our deployment to your compliance requirements?\u201d |\n| 4 | **Performance / Accuracy** | \u201cOur model has a **94\u202f% accuracy** on the public FAQ dataset (illustrative) and continuously learns from your own interactions, improving over time.\u201d | **Live demo** \u2013 run a real\u2011time query during the call to prove relevance. Offer a **pilot period** with guaranteed SLA. | \u201cWhat is the current average resolution time for FAQ\u2011related tickets, and how would faster answers impact your CSAT scores?\u201d |\n| 5 | **Change Management / Adoption** | \u201cWe provide a **guided onboarding workflow** and on\u2011demand training videos. Our AI also suggests best\u2011practice prompts, reducing the learning curve to under a day.\u201d | **Social proof** \u2013 quote a satisfied client who achieved full adoption in 3\u202fdays. Offer a **dedicated success manager** for the first month. | \u201cHow does your team currently adopt new tools, and what support would they need to feel comfortable using an AI assistant?\u201d |\n\n*All scripted responses are designed to be **concise (\u226430\u202fseconds)** so they fit within a live\u2011call cadence.*\n\n---\n\n## 3. Rebuttal Tactics (Step\u2011by\u2011Step)  \n\n1. **Acknowledge & Mirror** \u2013 Restate the objection verbatim to show you heard it.  \n   *\u201cSo the price is a concern for you.\u201d*  \n\n2. **Ask a Clarifying Question** \u2013 Turns the objection into a discovery moment.  \n   *\u201cMay I ask what budget range you had in mind for a support automation solution?\u201d*  \n\n3. **Present a Tailored Proof Point** \u2013 Use a metric or case study that aligns with the prospect\u2019s industry/size.  \n\n4. **Offer a Low\u2011Risk Next Step** \u2013 Pilot, sandbox, or a \u201cproof of concept\u201d that removes the barrier.  \n\n5. **Close the Loop** \u2013 Confirm the objection is resolved before moving on.  \n   *\u201cDoes that address your concern about cost, or is there another budget\u2011related factor we should explore?\u201d*  \n\nThese steps mirror the **calm\u2011first, value\u2011first** approach advocated in the Kendo guide\u202f[2] and are reinforced by AI\u2011driven live coaching\u202f[3].\n\n---\n\n## 4. AI\u2011Enabled Real\u2011Time Support  \n\n| Feature | How it Works | Benefit (to the rep) | Implementation Time |\n|---------|--------------|----------------------|---------------------|\n| **Objection Detection** | Speech\u2011to\u2011text engine tags phrases like \u201ctoo expensive\u201d or \u201csecurity\u201d. | Instant pop\u2011up with a pre\u2011approved talk\u2011track. | 20\u201140\u202fmin (AI model upload) |\n| **Context\u2011Aware Suggestion** | Pulls the last 2\u20113 minutes of conversation to surface the most relevant proof point. | Reduces hesitation, keeps the call flow smooth. | 10\u201120\u202fmin (integration) |\n| **Post\u2011Call Analytics** | Logs objection type, response used, and outcome; feeds back into the AI for continuous improvement. | Enables data\u2011driven coaching and A/B testing of scripts. | Ongoing (automated) |\n\n> **Metric to Track:** *Objection handling efficiency* \u2013 time from objection detection to response delivery. Target **\u226430\u202fseconds** per objection (illustrative, based on Pedowitz Group\u2019s 90\u202f%+ efficiency claim)\u202f[3].\n\n---\n\n## 5. Quick\u2011Reference Cheat Sheet (PDF Footer)  \n\n- **Price:** ROI = (Support tickets\u202f\u00d7\u202fAvg. handling cost)\u202f\u00f7\u202f(Subscription) \u2192 break\u2011even in \u22646\u202fmonths.  \n- **Integration:** 1\u2011hour no\u2011code connector; demo link: `bit.ly/AI\u2011FAQ\u2011Demo`.  \n- **Privacy:** ISO\u202f27001, AES\u2011256 encryption, on\u2011premise option.  \n- **Next Step:** 2\u2011week pilot with 5\u202fk\u2011ticket volume, success metrics defined upfront.  \n\n---\n\n## 6. Strategic Takeaway  \n\nEmbedding AI\u2011driven, proactive objection handling into the **AI FAQ Receptionist** sales workflow transforms a reactive \u201cprice\u2011/integration\u2011/privacy\u2011objection\u201d moment into a **value\u2011creation dialogue**. By (1) surfacing objections early, (2) delivering concise, data\u2011backed rebuttals, and (3) leveraging real\u2011time AI coaching, reps can cut enable\u2011ment time from **10\u201316\u202fhours to under 60\u202fminutes** and lift win rates by **90\u202f%+ efficiency**\u202f[3]. The playbook\u2019s structured script, discovery questions, and AI\u2011enabled live support together create a repeatable, measurable objection\u2011handling motion that scales across the sales organization.  \n\n---  \n\n*Prepared for the Research Team \u2013 Minerva (\ud83d\udd2e) \u2013 01\u202fJuly\u202f2026*"
       }
     },
     "AUTO-111": {
@@ -2633,6 +2581,31 @@
           "ts": "2026-07-01T07:50:13.663313+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-111-deliverable.md (15921b) \u2192 in_progress"
+        },
+        {
+          "ts": "2026-07-01T08:00:02.433810+00:00",
+          "event": "dispatched",
+          "content": "security started work: Data Privacy Compliance Checklist for FAQ Knowledge Base"
+        },
+        {
+          "ts": "2026-07-01T08:00:02.447805+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy Compliance Checklist for FAQ Knowledge Base"
+        },
+        {
+          "ts": "2026-07-01T08:00:03.027272+00:00",
+          "event": "working",
+          "content": "[claude:owl-alpha] attempting: Data Privacy Compliance Checklist for FAQ Knowledge Base"
+        },
+        {
+          "ts": "2026-07-01T08:00:05.835599+00:00",
+          "event": "working",
+          "content": "[openclaw] attempting: Data Privacy Compliance Checklist for FAQ Knowledge Base"
+        },
+        {
+          "ts": "2026-07-01T08:04:48.977735+00:00",
+          "event": "no_deliverable",
+          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
         }
       ],
       "deliverable": {
@@ -2659,6 +2632,31 @@
           "ts": "2026-07-01T07:50:13.675900+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-112-deliverable.md (10728b) \u2192 in_progress"
+        },
+        {
+          "ts": "2026-07-01T08:00:04.278521+00:00",
+          "event": "dispatched",
+          "content": "tom started work: Simple Python Script to Generate Pricing Calculator from CSV"
+        },
+        {
+          "ts": "2026-07-01T08:00:04.280843+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Simple Python Script to Generate Pricing Calculator from CSV"
+        },
+        {
+          "ts": "2026-07-01T08:00:04.614492+00:00",
+          "event": "working",
+          "content": "[claude:owl-alpha] attempting: Simple Python Script to Generate Pricing Calculator from CSV"
+        },
+        {
+          "ts": "2026-07-01T08:00:08.643443+00:00",
+          "event": "working",
+          "content": "[openclaw] attempting: Simple Python Script to Generate Pricing Calculator from CSV"
+        },
+        {
+          "ts": "2026-07-01T08:04:48.979091+00:00",
+          "event": "no_deliverable",
+          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
         }
       ],
       "deliverable": {
@@ -2673,25 +2671,25 @@
       "agent": "Plutus",
       "ticket": "AUTO-109",
       "event": "delivered",
-      "ts": "2026-07-01T07:50:13.669961+00:00"
+      "ts": "2026-07-01T08:04:48.976320+00:00"
     },
     {
       "agent": "Hades",
       "ticket": "AUTO-111",
-      "event": "delivered",
-      "ts": "2026-07-01T07:50:13.663313+00:00"
+      "event": "no_deliverable",
+      "ts": "2026-07-01T08:04:48.977735+00:00"
     },
     {
       "agent": "Minerva",
       "ticket": "AUTO-110",
       "event": "delivered",
-      "ts": "2026-07-01T07:50:13.673283+00:00"
+      "ts": "2026-07-01T08:04:48.952210+00:00"
     },
     {
       "agent": "Gladiator",
       "ticket": "AUTO-112",
-      "event": "delivered",
-      "ts": "2026-07-01T07:50:13.675900+00:00"
+      "event": "no_deliverable",
+      "ts": "2026-07-01T08:04:48.979091+00:00"
     }
   ]
 }

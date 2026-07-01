@@ -1,30 +1,31 @@
 {
-  "generatedAt": "2026-07-01T08:00:02.158330+00:00",
+  "generatedAt": "2026-07-01T08:10:01.706946+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.8,
-    "validator": 20.0,
+    "work-executor": 5.2,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 2740.0,
-    "backup": 30.0,
+    "guard": 2750.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 138,
     "backlog": 8,
-    "in_progress": 17,
-    "planned": 4
+    "in_progress": 15,
+    "planned": 4,
+    "in_validation": 2
   },
   "tickets_total": 167,
   "done_today": 27,
-  "delivered_today": 44,
-  "delivered_week": 44,
+  "delivered_today": 42,
+  "delivered_week": 42,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 37,
+    "cerebras:gpt-oss-120b": 35,
     "openclaw": 7
   },
   "live_agents": [
@@ -35,88 +36,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T07:50:13.675900+00:00",
+      "ts": "2026-07-01T08:04:48.979091+00:00",
       "agent": "Gladiator",
-      "event": "delivered",
+      "event": "no_deliverable",
       "ticket": "AUTO-112",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-112-deliverable.md (10728b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-07-01T07:50:13.673283+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-110",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-110-deliverable.md (8518b) \u2192 in_progress"
+      "ts": "2026-07-01T08:04:48.977735+00:00",
+      "agent": "Hades",
+      "event": "no_deliverable",
+      "ticket": "AUTO-111",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-07-01T07:50:13.669961+00:00",
+      "ts": "2026-07-01T08:04:48.976320+00:00",
       "agent": "Plutus",
       "event": "delivered",
       "ticket": "AUTO-109",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-109-deliverable.md (7945b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-109-deliverable.md (8930b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T07:50:13.663313+00:00",
-      "agent": "Hades",
+      "ts": "2026-07-01T08:04:48.952210+00:00",
+      "agent": "Minerva",
       "event": "delivered",
-      "ticket": "AUTO-111",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-111-deliverable.md (15921b) \u2192 in_progress"
+      "ticket": "AUTO-110",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-110-deliverable.md (7278b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T07:50:06.759368+00:00",
+      "ts": "2026-07-01T08:00:08.643443+00:00",
+      "agent": "Gladiator",
+      "event": "working",
+      "ticket": "AUTO-112",
+      "content": "[openclaw] attempting: Simple Python Script to Generate Pricing Calculator from CSV"
+    },
+    {
+      "ts": "2026-07-01T08:00:05.835599+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-111",
+      "content": "[openclaw] attempting: Data Privacy Compliance Checklist for FAQ Knowledge Base"
+    },
+    {
+      "ts": "2026-07-01T08:00:04.614492+00:00",
+      "agent": "Gladiator",
+      "event": "working",
+      "ticket": "AUTO-112",
+      "content": "[claude:owl-alpha] attempting: Simple Python Script to Generate Pricing Calculator from CSV"
+    },
+    {
+      "ts": "2026-07-01T08:00:04.280843+00:00",
       "agent": "Gladiator",
       "event": "working",
       "ticket": "AUTO-112",
       "content": "[cerebras:gpt-oss-120b] attempting: Simple Python Script to Generate Pricing Calculator from CSV"
     },
     {
-      "ts": "2026-07-01T07:50:06.749394+00:00",
+      "ts": "2026-07-01T08:00:04.278521+00:00",
       "agent": "Gladiator",
       "event": "dispatched",
       "ticket": "AUTO-112",
       "content": "tom started work: Simple Python Script to Generate Pricing Calculator from CSV"
     },
     {
-      "ts": "2026-07-01T07:50:01.780996+00:00",
-      "agent": "Minerva",
+      "ts": "2026-07-01T08:00:03.027272+00:00",
+      "agent": "Hades",
       "event": "working",
-      "ticket": "AUTO-110",
-      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Playbook for AI FAQ Receptionist Sales Ca"
+      "ticket": "AUTO-111",
+      "content": "[claude:owl-alpha] attempting: Data Privacy Compliance Checklist for FAQ Knowledge Base"
     },
     {
-      "ts": "2026-07-01T07:50:01.775368+00:00",
-      "agent": "Minerva",
-      "event": "dispatched",
-      "ticket": "AUTO-110",
-      "content": "analyst started work: Objection\u2011Handling Playbook for AI FAQ Receptionist Sales Ca"
-    },
-    {
-      "ts": "2026-07-01T07:50:01.769512+00:00",
+      "ts": "2026-07-01T08:00:02.447805+00:00",
       "agent": "Hades",
       "event": "working",
       "ticket": "AUTO-111",
       "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy Compliance Checklist for FAQ Knowledge Base"
     },
     {
-      "ts": "2026-07-01T07:50:01.767458+00:00",
+      "ts": "2026-07-01T08:00:02.433810+00:00",
       "agent": "Hades",
       "event": "dispatched",
       "ticket": "AUTO-111",
       "content": "security started work: Data Privacy Compliance Checklist for FAQ Knowledge Base"
-    },
-    {
-      "ts": "2026-07-01T07:50:01.764739+00:00",
-      "agent": "Plutus",
-      "event": "working",
-      "ticket": "AUTO-109",
-      "content": "[cerebras:gpt-oss-120b] attempting: Pricing Tier Sheet for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T07:50:01.756549+00:00",
-      "agent": "Plutus",
-      "event": "dispatched",
-      "ticket": "AUTO-109",
-      "content": "finance started work: Pricing Tier Sheet for AI FAQ Receptionist"
     }
   ],
   "problems": {}
