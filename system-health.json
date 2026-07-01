@@ -1,30 +1,31 @@
 {
-  "generatedAt": "2026-07-01T11:40:01.358611+00:00",
+  "generatedAt": "2026-07-01T11:50:01.389134+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 8.5,
-    "validator": 20.0,
+    "work-executor": 5.2,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 2960.0,
-    "backup": 10.0,
+    "guard": 2970.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 150,
     "backlog": 8,
-    "in_progress": 17,
-    "planned": 4
+    "in_progress": 15,
+    "planned": 4,
+    "in_validation": 2
   },
   "tickets_total": 179,
   "done_today": 39,
-  "delivered_today": 6,
-  "delivered_week": 6,
+  "delivered_today": 8,
+  "delivered_week": 8,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 5,
+    "cerebras:gpt-oss-120b": 7,
     "openclaw": 1
   },
   "live_agents": [
@@ -35,88 +36,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T11:31:31.097929+00:00",
+      "ts": "2026-07-01T11:44:49.260256+00:00",
       "agent": "Minerva",
-      "event": "delivered",
+      "event": "no_deliverable",
       "ticket": "AUTO-121",
-      "content": "[openclaw] Produced AUTO-121-deliverable.md (3985b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-07-01T11:31:31.097421+00:00",
+      "ts": "2026-07-01T11:44:49.258778+00:00",
+      "agent": "Iris",
+      "event": "no_deliverable",
+      "ticket": "AUTO-122",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-01T11:44:49.257175+00:00",
       "agent": "Metis",
       "event": "delivered",
       "ticket": "AUTO-124",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-124-deliverable.md (5865b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-124-deliverable.md (7242b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T11:31:31.096938+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "AUTO-122",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-122-deliverable.md (10011b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-01T11:31:31.063026+00:00",
+      "ts": "2026-07-01T11:44:49.240570+00:00",
       "agent": "Fortuna",
       "event": "delivered",
       "ticket": "AUTO-123",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-123-deliverable.md (7069b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-123-deliverable.md (7220b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T11:30:06.589937+00:00",
+      "ts": "2026-07-01T11:40:09.018375+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "AUTO-122",
+      "content": "[openclaw] attempting: Demo Script & Walkthrough for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T11:40:08.994795+00:00",
       "agent": "Minerva",
       "event": "working",
       "ticket": "AUTO-121",
       "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Packages Sheet"
     },
     {
-      "ts": "2026-07-01T11:30:04.539343+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-121",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Packages Sheet"
-    },
-    {
-      "ts": "2026-07-01T11:30:03.255406+00:00",
+      "ts": "2026-07-01T11:40:03.213774+00:00",
       "agent": "Metis",
       "event": "working",
       "ticket": "AUTO-124",
       "content": "[cerebras:gpt-oss-120b] attempting: Landing Page Copy & SEO Keywords for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-07-01T11:30:03.253641+00:00",
+      "ts": "2026-07-01T11:40:03.211447+00:00",
       "agent": "Metis",
       "event": "dispatched",
       "ticket": "AUTO-124",
       "content": "org-excellence started work: Landing Page Copy & SEO Keywords for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-07-01T11:30:01.510145+00:00",
+      "ts": "2026-07-01T11:40:01.934379+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-121",
+      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Packages Sheet"
+    },
+    {
+      "ts": "2026-07-01T11:40:01.791520+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "AUTO-122",
+      "content": "[claude:owl-alpha] attempting: Demo Script & Walkthrough for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T11:40:01.485868+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-123",
       "content": "[cerebras:gpt-oss-120b] attempting: Objection Handling Guide for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-07-01T11:30:01.509807+00:00",
+      "ts": "2026-07-01T11:40:01.477840+00:00",
       "agent": "Fortuna",
       "event": "dispatched",
       "ticket": "AUTO-123",
       "content": "income started work: Objection Handling Guide for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T11:30:01.506952+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-122",
-      "content": "[cerebras:gpt-oss-120b] attempting: Demo Script & Walkthrough for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T11:30:01.506327+00:00",
-      "agent": "Iris",
-      "event": "dispatched",
-      "ticket": "AUTO-122",
-      "content": "pm started work: Demo Script & Walkthrough for AI FAQ Receptionist"
     }
   ],
   "problems": {}
