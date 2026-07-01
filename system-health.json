@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-07-01T17:00:01.664231+00:00",
+  "generatedAt": "2026-07-01T17:10:01.539266+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 11.1,
+    "work-executor": 10.0,
+    "validator": 5.2,
     "observability": 10.0,
-    "guard": 3280.0,
-    "backup": 30.0,
+    "guard": 3290.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 165,
+    "done": 167,
     "backlog": 8,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 2
+    "planned": 4
   },
   "tickets_total": 192,
-  "done_today": 54,
+  "done_today": 56,
   "delivered_today": 11,
   "delivered_week": 11,
   "model_mix_week": {
@@ -29,11 +28,38 @@
     "openclaw": 1
   },
   "live_agents": [
-    "Fortuna",
     "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T17:04:48.805156+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-136",
+      "content": "PASS: The deliverable provides a comprehensive and detailed checklist for VM security hardening, covering all required a"
+    },
+    {
+      "ts": "2026-07-01T17:04:48.802025+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-134",
+      "content": "PASS: The deliverable provides a comprehensive one-page markdown guide that addresses common objections to an AI FAQ Rec"
+    },
+    {
+      "ts": "2026-07-01T17:00:01.791860+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-136",
+      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-07-01T17:00:01.790187+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-134",
+      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+    },
     {
       "ts": "2026-07-01T16:50:06.974757+00:00",
       "agent": "Minerva",
@@ -89,34 +115,6 @@
       "event": "validating",
       "ticket": "AUTO-135",
       "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
-    },
-    {
-      "ts": "2026-07-01T16:40:02.196975+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-134",
-      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-07-01T16:40:02.190320+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-133",
-      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-07-01T16:30:05.215051+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-134",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-134-deliverable.md (12628b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T16:30:05.213245+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-133",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-133-deliverable.md (8302b) \u2192 in_validation"
     }
   ],
   "problems": {}
