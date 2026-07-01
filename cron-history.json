@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-01T06:00:01.980178+00:00",
+  "updated": "2026-07-01T06:10:01.261634+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T06:10:01.261634+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-104: cerebras dispatch error: HTTP Error 429: Too Many Requests"
+    },
     {
       "ts": "2026-07-01T05:59:01.980178+00:00",
       "job": "Queue Tick 30m",
@@ -1743,13 +1750,6 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "13h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T12:30:01.597592+00:00",
-      "job": "Validation Reviewer (...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "15h ago \u00b7 groq/meta-llama/l..."
     }
   ]
 }
