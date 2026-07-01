@@ -1,119 +1,122 @@
 {
-  "generatedAt": "2026-07-01T08:50:02.199605+00:00",
+  "generatedAt": "2026-07-01T09:00:01.977559+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 10.0,
+    "work-executor": 9.8,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 2790.0,
-    "backup": 20.0,
+    "guard": 2800.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 142,
-    "backlog": 12,
-    "in_progress": 13,
+    "backlog": 8,
+    "in_progress": 17,
     "planned": 4
   },
   "tickets_total": 171,
   "done_today": 31,
-  "delivered_today": 40,
-  "delivered_week": 40,
+  "delivered_today": 44,
+  "delivered_week": 44,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 34,
+    "cerebras:gpt-oss-120b": 38,
     "openclaw": 6
   },
   "live_agents": [
-    "nemesis"
+    "Fortuna",
+    "Hermes",
+    "Metis",
+    "Minerva"
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T08:29:04.686175+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-112",
-      "content": "PASS: The deliverable provides a complete and functional Python script that reads a CSV of usage metrics and outputs the"
-    },
-    {
-      "ts": "2026-07-01T08:29:04.679658+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-111",
-      "content": "PASS: The deliverable is a comprehensive and detailed checklist that fully addresses all requirements of the ticket, inc"
-    },
-    {
-      "ts": "2026-07-01T08:29:04.673345+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-110",
-      "content": "PASS: The deliverable fully provides a concise one\u2011page PDF\u2011ready playbook with identified objections, scripted response"
-    },
-    {
-      "ts": "2026-07-01T08:29:04.666389+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-109",
-      "content": "PASS: The deliverable provides a comprehensive and well-formatted pricing sheet that fully meets all the requirements of"
-    },
-    {
-      "ts": "2026-07-01T08:24:19.537322+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-112",
-      "content": "[claude,openclaw,groq] Independently reviewing tom's deliverable"
-    },
-    {
-      "ts": "2026-07-01T08:22:13.058581+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-111",
-      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-07-01T08:20:02.246876+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-110",
-      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-07-01T08:20:02.237081+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-109",
-      "content": "[claude,openclaw,groq] Independently reviewing finance's deliverable"
-    },
-    {
-      "ts": "2026-07-01T08:10:04.033439+00:00",
-      "agent": "Hades",
+      "ts": "2026-07-01T08:50:11.860374+00:00",
+      "agent": "Metis",
       "event": "delivered",
-      "ticket": "AUTO-111",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-111-deliverable.md (11481b) \u2192 in_validation"
+      "ticket": "AUTO-116",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-116-deliverable.md (8691b) \u2192 in_progress"
     },
     {
-      "ts": "2026-07-01T08:10:04.031947+00:00",
-      "agent": "Gladiator",
+      "ts": "2026-07-01T08:50:11.856926+00:00",
+      "agent": "Hermes",
       "event": "delivered",
-      "ticket": "AUTO-112",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-112-deliverable.md (11637b) \u2192 in_validation"
+      "ticket": "AUTO-115",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-115-deliverable.md (14564b) \u2192 in_progress"
     },
     {
-      "ts": "2026-07-01T08:10:01.857229+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-111",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy Compliance Checklist for FAQ Knowledge Base"
+      "ts": "2026-07-01T08:50:11.853337+00:00",
+      "agent": "Minerva",
+      "event": "delivered",
+      "ticket": "AUTO-113",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-113-deliverable.md (9278b) \u2192 in_progress"
     },
     {
-      "ts": "2026-07-01T08:10:01.853855+00:00",
-      "agent": "Gladiator",
+      "ts": "2026-07-01T08:50:11.849073+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-114",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-114-deliverable.md (11121b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-01T08:50:04.668902+00:00",
+      "agent": "Metis",
       "event": "working",
-      "ticket": "AUTO-112",
-      "content": "[cerebras:gpt-oss-120b] attempting: Simple Python Script to Generate Pricing Calculator from CSV"
+      "ticket": "AUTO-116",
+      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Guide for AI FAQ Receptionist Sales"
+    },
+    {
+      "ts": "2026-07-01T08:50:04.667361+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-116",
+      "content": "org-excellence started work: Objection\u2011Handling Guide for AI FAQ Receptionist Sales"
+    },
+    {
+      "ts": "2026-07-01T08:50:02.341691+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-115",
+      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare FAQ Knowledge Base for AI Receptionist"
+    },
+    {
+      "ts": "2026-07-01T08:50:02.339001+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-113",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T08:50:02.337417+00:00",
+      "agent": "Hermes",
+      "event": "dispatched",
+      "ticket": "AUTO-115",
+      "content": "business-analyst started work: Healthcare FAQ Knowledge Base for AI Receptionist"
+    },
+    {
+      "ts": "2026-07-01T08:50:02.336278+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-114",
+      "content": "[cerebras:gpt-oss-120b] attempting: Live Demo Script for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T08:50:02.334495+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-114",
+      "content": "income started work: Live Demo Script for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T08:50:02.331441+00:00",
+      "agent": "Minerva",
+      "event": "dispatched",
+      "ticket": "AUTO-113",
+      "content": "analyst started work: AI FAQ Receptionist Pricing Sheet"
     }
   ],
   "problems": {}

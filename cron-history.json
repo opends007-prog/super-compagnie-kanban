@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-01T08:50:02.213055+00:00",
+  "updated": "2026-07-01T09:00:01.979694+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T08:59:01.979694+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-07-01T08:50:02.213055+00:00",
       "job": "validate-work",
@@ -336,6 +343,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "3h ago"
+    },
+    {
+      "ts": "2026-07-01T03:00:01.979694+00:00",
+      "job": "Daily 11 PM Backup (B...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "6h ago"
     },
     {
       "ts": "2026-07-01T02:59:01.449955+00:00",
@@ -1736,20 +1750,6 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "5h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T13:20:01.987206+00:00",
-      "job": "Validation Reviewer (...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "10h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T13:20:01.982662+00:00",
-      "job": "Validation Reviewer (...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "14h ago \u00b7 groq/meta-llama/l..."
     }
   ]
 }
