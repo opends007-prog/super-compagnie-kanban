@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-01T16:50:01.545863+00:00",
+  "updated": "2026-07-01T17:00:01.617198+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T16:59:01.617198+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-07-01T16:50:01.545863+00:00",
       "job": "validate-work",
@@ -219,6 +226,13 @@
       "msg": "[work]   AUTO-131: openclaw run timed out"
     },
     {
+      "ts": "2026-07-01T14:00:01.617198+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "3h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-07-01T13:59:01.762058+00:00",
       "job": "Queue Tick 30m",
       "kind": "discord-cron",
@@ -329,6 +343,13 @@
       "kind": "system",
       "status": "warn",
       "msg": "[work]   AUTO-125: openclaw run timed out"
+    },
+    {
+      "ts": "2026-07-01T13:00:01.617198+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "4h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T12:59:02.058864+00:00",
@@ -518,6 +539,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "2h ago"
+    },
+    {
+      "ts": "2026-07-01T12:00:01.617198+00:00",
+      "job": "Lucy 8 AM Morning Mot...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "5h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T11:59:02.127461+00:00",
@@ -714,6 +742,13 @@
       "kind": "system",
       "status": "ok",
       "msg": "[work] tickets.json updated (only tickets with real deliverables advanced)"
+    },
+    {
+      "ts": "2026-07-01T11:00:01.617198+00:00",
+      "job": "Daily 7 AM Standup",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "6h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T10:59:01.754667+00:00",
@@ -994,6 +1029,20 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "4h ago"
+    },
+    {
+      "ts": "2026-07-01T10:00:01.617198+00:00",
+      "job": "Daily 6 AM Memory Mai...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "7h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T10:00:01.617198+00:00",
+      "job": "Velocity (daily)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "7h ago"
     },
     {
       "ts": "2026-07-01T10:00:01.479854+00:00",
@@ -1701,55 +1750,6 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "5h ago"
-    },
-    {
-      "ts": "2026-07-01T02:20:02.124617+00:00",
-      "job": "Hourly Check-in",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "4h ago"
-    },
-    {
-      "ts": "2026-07-01T02:20:02.030343+00:00",
-      "job": "Hourly Check-in",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "7h ago"
-    },
-    {
-      "ts": "2026-07-01T02:20:01.982662+00:00",
-      "job": "Hourly Check-in",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1h ago"
-    },
-    {
-      "ts": "2026-07-01T02:20:01.908810+00:00",
-      "job": "Hourly Check-in",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "3h ago"
-    },
-    {
-      "ts": "2026-07-01T02:10:02.123889+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[validate]     AUTO-087: no usable verdict #1 (model unavailable?) \u2014 staying in_validation, retry next run"
-    },
-    {
-      "ts": "2026-07-01T02:10:02.110219+00:00",
-      "job": "Hourly Check-in",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "2h ago"
-    },
-    {
-      "ts": "2026-07-01T02:00:02.183379+00:00",
-      "job": "Hourly Check-in",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "6h ago"
     }
   ]
 }

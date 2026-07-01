@@ -1,41 +1,60 @@
 {
-  "generatedAt": "2026-07-01T16:50:01.547181+00:00",
+  "generatedAt": "2026-07-01T17:00:01.664231+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 1,
+  "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 1.1,
+    "work-executor": 9.9,
+    "validator": 11.1,
     "observability": 10.0,
-    "guard": 3270.0,
-    "backup": 20.0,
+    "guard": 3280.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 165,
     "backlog": 8,
-    "in_progress": 14,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 1
+    "in_validation": 2
   },
   "tickets_total": 192,
   "done_today": 54,
-  "delivered_today": 10,
-  "delivered_week": 10,
+  "delivered_today": 11,
+  "delivered_week": 11,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 9,
+    "cerebras:gpt-oss-120b": 10,
     "openclaw": 1
   },
   "live_agents": [
     "Fortuna",
-    "Hades",
-    "Iris",
     "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T16:50:06.974757+00:00",
+      "agent": "Minerva",
+      "event": "delivered",
+      "ticket": "AUTO-134",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-134-deliverable.md (10183b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T16:50:01.721996+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-134",
+      "content": "[cerebras:gpt-oss-120b] attempting: Objection-Handling Guide for AI FAQ Receptionist Sales Calls"
+    },
+    {
+      "ts": "2026-07-01T16:50:01.721096+00:00",
+      "agent": "Minerva",
+      "event": "dispatched",
+      "ticket": "AUTO-134",
+      "content": "analyst started work: Objection-Handling Guide for AI FAQ Receptionist Sales Calls"
+    },
     {
       "ts": "2026-07-01T16:48:55.129200+00:00",
       "agent": "nemesis",
@@ -98,27 +117,6 @@
       "event": "delivered",
       "ticket": "AUTO-133",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-133-deliverable.md (8302b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T16:30:02.178889+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-133",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T16:30:02.178024+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-134",
-      "content": "[cerebras:gpt-oss-120b] attempting: Objection-Handling Guide for AI FAQ Receptionist Sales Calls"
-    },
-    {
-      "ts": "2026-07-01T16:30:02.177345+00:00",
-      "agent": "Minerva",
-      "event": "dispatched",
-      "ticket": "AUTO-134",
-      "content": "analyst started work: Objection-Handling Guide for AI FAQ Receptionist Sales Calls"
     }
   ],
   "problems": {}
