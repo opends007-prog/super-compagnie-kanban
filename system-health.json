@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-07-01T08:10:01.706946+00:00",
+  "generatedAt": "2026-07-01T08:20:02.127466+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.2,
-    "validator": 10.0,
+    "work-executor": 10.0,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 2750.0,
-    "backup": 10.0,
+    "guard": 2760.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 138,
     "backlog": 8,
-    "in_progress": 15,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 2
+    "in_validation": 4
   },
   "tickets_total": 167,
   "done_today": 27,
-  "delivered_today": 42,
-  "delivered_week": 42,
+  "delivered_today": 44,
+  "delivered_week": 44,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 35,
+    "cerebras:gpt-oss-120b": 37,
     "openclaw": 7
   },
   "live_agents": [
@@ -35,6 +35,48 @@
     "Plutus"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T08:10:04.033439+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-111",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-111-deliverable.md (11481b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T08:10:04.031947+00:00",
+      "agent": "Gladiator",
+      "event": "delivered",
+      "ticket": "AUTO-112",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-112-deliverable.md (11637b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T08:10:01.857229+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-111",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy Compliance Checklist for FAQ Knowledge Base"
+    },
+    {
+      "ts": "2026-07-01T08:10:01.853855+00:00",
+      "agent": "Gladiator",
+      "event": "working",
+      "ticket": "AUTO-112",
+      "content": "[cerebras:gpt-oss-120b] attempting: Simple Python Script to Generate Pricing Calculator from CSV"
+    },
+    {
+      "ts": "2026-07-01T08:10:01.852358+00:00",
+      "agent": "Gladiator",
+      "event": "dispatched",
+      "ticket": "AUTO-112",
+      "content": "tom started work: Simple Python Script to Generate Pricing Calculator from CSV"
+    },
+    {
+      "ts": "2026-07-01T08:10:01.850776+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-111",
+      "content": "security started work: Data Privacy Compliance Checklist for FAQ Knowledge Base"
+    },
     {
       "ts": "2026-07-01T08:04:48.979091+00:00",
       "agent": "Gladiator",
@@ -76,48 +118,6 @@
       "event": "working",
       "ticket": "AUTO-111",
       "content": "[openclaw] attempting: Data Privacy Compliance Checklist for FAQ Knowledge Base"
-    },
-    {
-      "ts": "2026-07-01T08:00:04.614492+00:00",
-      "agent": "Gladiator",
-      "event": "working",
-      "ticket": "AUTO-112",
-      "content": "[claude:owl-alpha] attempting: Simple Python Script to Generate Pricing Calculator from CSV"
-    },
-    {
-      "ts": "2026-07-01T08:00:04.280843+00:00",
-      "agent": "Gladiator",
-      "event": "working",
-      "ticket": "AUTO-112",
-      "content": "[cerebras:gpt-oss-120b] attempting: Simple Python Script to Generate Pricing Calculator from CSV"
-    },
-    {
-      "ts": "2026-07-01T08:00:04.278521+00:00",
-      "agent": "Gladiator",
-      "event": "dispatched",
-      "ticket": "AUTO-112",
-      "content": "tom started work: Simple Python Script to Generate Pricing Calculator from CSV"
-    },
-    {
-      "ts": "2026-07-01T08:00:03.027272+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-111",
-      "content": "[claude:owl-alpha] attempting: Data Privacy Compliance Checklist for FAQ Knowledge Base"
-    },
-    {
-      "ts": "2026-07-01T08:00:02.447805+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-111",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy Compliance Checklist for FAQ Knowledge Base"
-    },
-    {
-      "ts": "2026-07-01T08:00:02.433810+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-111",
-      "content": "security started work: Data Privacy Compliance Checklist for FAQ Knowledge Base"
     }
   ],
   "problems": {}
