@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-01T11:30:01.366893+00:00",
+  "updated": "2026-07-01T11:40:01.361604+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T11:40:01.361604+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-121: cerebras dispatch error: HTTP Error 429: Too Many Requests"
+    },
     {
       "ts": "2026-07-01T11:30:01.366893+00:00",
       "job": "validate-work",
@@ -616,6 +623,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "5h ago"
+    },
+    {
+      "ts": "2026-07-01T02:40:01.361604+00:00",
+      "job": "Daily 11 PM Backup (B...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "9h ago"
     },
     {
       "ts": "2026-07-01T02:40:01.348299+00:00",
@@ -1736,20 +1750,6 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "21h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T14:00:01.735249+00:00",
-      "job": "Daily 10 AM Improvement",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "5h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T14:00:01.697363+00:00",
-      "job": "ticket-processor",
-      "kind": "system",
-      "status": "fail",
-      "msg": "Processed: 1, Failed: 0"
     }
   ]
 }
