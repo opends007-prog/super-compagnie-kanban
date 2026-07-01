@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-07-01T11:00:01.754347+00:00",
+  "generatedAt": "2026-07-01T11:10:01.862769+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 16.8,
+    "work-executor": 10.0,
+    "validator": 1.9,
     "observability": 10.0,
-    "guard": 2920.0,
-    "backup": 30.0,
+    "guard": 2930.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 147,
+    "done": 150,
     "backlog": 8,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 3
+    "planned": 4
   },
   "tickets_total": 175,
-  "done_today": 36,
+  "done_today": 39,
   "delivered_today": 2,
   "delivered_week": 2,
   "model_mix_week": {
@@ -33,6 +32,48 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T11:08:10.455752+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-120",
+      "content": "PASS: The deliverable provides a comprehensive and detailed guide to provisioning a VM, installing required dependencies"
+    },
+    {
+      "ts": "2026-07-01T11:08:10.453938+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-118",
+      "content": "PASS: The deliverable provides a comprehensive and detailed document that includes five ideal client personas for the AI"
+    },
+    {
+      "ts": "2026-07-01T11:08:10.451054+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-117",
+      "content": "PASS: The deliverable provides a comprehensive and detailed pricing sheet for the AI FAQ Receptionist service, including"
+    },
+    {
+      "ts": "2026-07-01T11:03:24.699073+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-120",
+      "content": "[claude,openclaw,groq] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-07-01T11:00:01.919607+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-118",
+      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-07-01T11:00:01.915002+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-117",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-07-01T10:50:04.867903+00:00",
       "agent": "Fortuna",
@@ -74,48 +115,6 @@
       "event": "validation_pass",
       "ticket": "AUTO-120",
       "content": "PASS: The deliverable provides a comprehensive, step-by-step guide to provision a VM, install required dependencies, con"
-    },
-    {
-      "ts": "2026-07-01T10:40:07.447306+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-117",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T10:40:02.043311+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-117",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T10:40:01.491637+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-117",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T10:40:01.489411+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-118",
-      "content": "[cerebras:gpt-oss-120b] attempting: Client Persona Profiles for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T10:40:01.488919+00:00",
-      "agent": "Minerva",
-      "event": "dispatched",
-      "ticket": "AUTO-118",
-      "content": "analyst started work: Client Persona Profiles for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T10:40:01.483852+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-120",
-      "content": "[claude,openclaw,groq] Independently reviewing devops's deliverable"
     }
   ],
   "problems": {}
