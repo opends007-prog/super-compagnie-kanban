@@ -9534,7 +9534,7 @@
       "description": "Review GDPR, CCPA, and relevant industry regulations to pinpoint compliance gaps in the current FAQ Receptionist data flow. Deliverable: a concise compliance gap analysis report with recommended mitigations.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Nemesis",
       "team": "any",
       "epicId": "EPIC-010",
@@ -9542,7 +9542,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-01T13:40:03.098013+00:00",
-      "updatedAt": "2026-07-01T15:14:16.444425+00:00",
+      "updatedAt": "2026-07-01T15:24:54.312655+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -9560,8 +9560,14 @@
           "by": "Nemesis",
           "timestamp": "2026-07-01T15:14:16.444425+00:00",
           "text": "Delivered work/AUTO-131-deliverable.md (10646 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "qa",
+          "timestamp": "2026-07-01T15:24:54.312655+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-131-deliverable.md): The deliverable provides a comprehensive and detailed compliance gap analysis report for the AI FAQ Receptionist data handling, covering GDPR, CCPA, and relevant industry regulations, and includes concrete recommended mitigations for the identified gaps."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-132",
@@ -9607,7 +9613,7 @@
     {
       "id": "STORY-204",
       "title": "[self-heal] openclaw-gateway.service keeps crashing",
-      "status": "in_validation",
+      "status": "done",
       "priority": "high",
       "team": "any",
       "assigned_to": "Thor",
@@ -9621,7 +9627,7 @@
       "validation_fails": 0,
       "epicId": null,
       "createdAt": "2026-07-01T13:50:02.074485+00:00",
-      "updatedAt": "2026-07-01T14:54:50.675538+00:00",
+      "updatedAt": "2026-07-01T15:24:54.319302+00:00",
       "comments": [
         {
           "by": "self-heal",
@@ -9636,8 +9642,14 @@
           "by": "Thor",
           "timestamp": "2026-07-01T14:54:50.675538+00:00",
           "text": "Delivered work/STORY-204-deliverable.md (8445 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-07-01T15:24:54.319302+00:00",
+          "text": "VALIDATION PASS (independent review of STORY-204-deliverable.md): The deliverable provides a comprehensive solution to the issue of the openclaw-gateway.service crashing, including collecting logs, enabling core dumps, creating a health-check script, adding a systemd drop-in override, and implementing a watchdog helper. The deliverable also includes a verification"
         }
-      ]
+      ],
+      "review_attempts": 0
     }
   ],
   "stats": {

@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-07-01T15:10:01.431622+00:00",
+  "generatedAt": "2026-07-01T15:20:02.185636+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 5.8,
-    "validator": 6.2,
+    "validator": 16.2,
     "observability": 10.0,
-    "guard": 3170.0,
-    "backup": 9.9,
+    "guard": 3180.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 160,
     "backlog": 8,
-    "in_progress": 15,
+    "in_progress": 14,
     "planned": 4,
-    "in_validation": 1
+    "in_validation": 2
   },
   "tickets_total": 188,
   "done_today": 49,
-  "delivered_today": 11,
-  "delivered_week": 11,
+  "delivered_today": 12,
+  "delivered_week": 12,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 10,
+    "cerebras:gpt-oss-120b": 11,
     "openclaw": 1
   },
   "live_agents": [
@@ -35,6 +35,62 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T15:14:16.531366+00:00",
+      "agent": "Fortuna",
+      "event": "no_deliverable",
+      "ticket": "AUTO-129",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-01T15:14:16.498482+00:00",
+      "agent": "Nemesis",
+      "event": "delivered",
+      "ticket": "AUTO-131",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-131-deliverable.md (10646b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T15:10:12.168778+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-129",
+      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T15:10:05.534816+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-129",
+      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T15:10:01.626854+00:00",
+      "agent": "Nemesis",
+      "event": "working",
+      "ticket": "AUTO-131",
+      "content": "[cerebras:gpt-oss-120b] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
+    },
+    {
+      "ts": "2026-07-01T15:10:01.622385+00:00",
+      "agent": "Nemesis",
+      "event": "dispatched",
+      "ticket": "AUTO-131",
+      "content": "nemesis started work: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
+    },
+    {
+      "ts": "2026-07-01T15:10:01.619477+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-129",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T15:10:01.616651+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-129",
+      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
+    },
     {
       "ts": "2026-07-01T15:04:11.472320+00:00",
       "agent": "Fortuna",
@@ -62,62 +118,6 @@
       "event": "working",
       "ticket": "AUTO-129",
       "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T15:00:03.003002+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-129",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T15:00:02.502821+00:00",
-      "agent": "Nemesis",
-      "event": "working",
-      "ticket": "AUTO-131",
-      "content": "[cerebras:gpt-oss-120b] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
-    },
-    {
-      "ts": "2026-07-01T15:00:02.501889+00:00",
-      "agent": "Nemesis",
-      "event": "dispatched",
-      "ticket": "AUTO-131",
-      "content": "nemesis started work: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
-    },
-    {
-      "ts": "2026-07-01T15:00:02.497522+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-129",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T15:00:02.495693+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-129",
-      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T15:00:02.471002+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "STORY-204",
-      "content": "[claude,openclaw,groq] Independently reviewing devops's deliverable"
-    },
-    {
-      "ts": "2026-07-01T14:54:50.806021+00:00",
-      "agent": "Nemesis",
-      "event": "no_deliverable",
-      "ticket": "AUTO-131",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T14:54:50.793447+00:00",
-      "agent": "Fortuna",
-      "event": "no_deliverable",
-      "ticket": "AUTO-129",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     }
   ],
   "problems": {}
