@@ -1,40 +1,96 @@
 {
-  "generatedAt": "2026-07-01T08:20:02.127466+00:00",
+  "generatedAt": "2026-07-01T08:30:02.112884+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 20.0,
+    "work-executor": 0.0,
+    "validator": 1.0,
     "observability": 10.0,
-    "guard": 2760.0,
-    "backup": 20.0,
+    "guard": 2770.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 138,
+    "done": 142,
     "backlog": 8,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "planned": 4
   },
   "tickets_total": 167,
-  "done_today": 27,
-  "delivered_today": 44,
-  "delivered_week": 44,
+  "done_today": 31,
+  "delivered_today": 40,
+  "delivered_week": 40,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 37,
-    "openclaw": 7
+    "cerebras:gpt-oss-120b": 34,
+    "openclaw": 6
   },
   "live_agents": [
     "Gladiator",
     "Hades",
     "Minerva",
-    "Plutus"
+    "Plutus",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T08:29:04.686175+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-112",
+      "content": "PASS: The deliverable provides a complete and functional Python script that reads a CSV of usage metrics and outputs the"
+    },
+    {
+      "ts": "2026-07-01T08:29:04.679658+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-111",
+      "content": "PASS: The deliverable is a comprehensive and detailed checklist that fully addresses all requirements of the ticket, inc"
+    },
+    {
+      "ts": "2026-07-01T08:29:04.673345+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-110",
+      "content": "PASS: The deliverable fully provides a concise one\u2011page PDF\u2011ready playbook with identified objections, scripted response"
+    },
+    {
+      "ts": "2026-07-01T08:29:04.666389+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-109",
+      "content": "PASS: The deliverable provides a comprehensive and well-formatted pricing sheet that fully meets all the requirements of"
+    },
+    {
+      "ts": "2026-07-01T08:24:19.537322+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-112",
+      "content": "[claude,openclaw,groq] Independently reviewing tom's deliverable"
+    },
+    {
+      "ts": "2026-07-01T08:22:13.058581+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-111",
+      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-07-01T08:20:02.246876+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-110",
+      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-07-01T08:20:02.237081+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-109",
+      "content": "[claude,openclaw,groq] Independently reviewing finance's deliverable"
+    },
     {
       "ts": "2026-07-01T08:10:04.033439+00:00",
       "agent": "Hades",
@@ -62,62 +118,6 @@
       "event": "working",
       "ticket": "AUTO-112",
       "content": "[cerebras:gpt-oss-120b] attempting: Simple Python Script to Generate Pricing Calculator from CSV"
-    },
-    {
-      "ts": "2026-07-01T08:10:01.852358+00:00",
-      "agent": "Gladiator",
-      "event": "dispatched",
-      "ticket": "AUTO-112",
-      "content": "tom started work: Simple Python Script to Generate Pricing Calculator from CSV"
-    },
-    {
-      "ts": "2026-07-01T08:10:01.850776+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-111",
-      "content": "security started work: Data Privacy Compliance Checklist for FAQ Knowledge Base"
-    },
-    {
-      "ts": "2026-07-01T08:04:48.979091+00:00",
-      "agent": "Gladiator",
-      "event": "no_deliverable",
-      "ticket": "AUTO-112",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T08:04:48.977735+00:00",
-      "agent": "Hades",
-      "event": "no_deliverable",
-      "ticket": "AUTO-111",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T08:04:48.976320+00:00",
-      "agent": "Plutus",
-      "event": "delivered",
-      "ticket": "AUTO-109",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-109-deliverable.md (8930b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T08:04:48.952210+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-110",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-110-deliverable.md (7278b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T08:00:08.643443+00:00",
-      "agent": "Gladiator",
-      "event": "working",
-      "ticket": "AUTO-112",
-      "content": "[openclaw] attempting: Simple Python Script to Generate Pricing Calculator from CSV"
-    },
-    {
-      "ts": "2026-07-01T08:00:05.835599+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-111",
-      "content": "[openclaw] attempting: Data Privacy Compliance Checklist for FAQ Knowledge Base"
     }
   ],
   "problems": {}

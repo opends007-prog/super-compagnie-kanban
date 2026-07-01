@@ -1,6 +1,20 @@
 {
-  "updated": "2026-07-01T08:20:02.129952+00:00",
+  "updated": "2026-07-01T08:30:02.123556+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T08:30:02.123556+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "fail",
+      "msg": "[validate]     AUTO-112: reviewer run error (openclaw): Command '['openclaw', 'agent', '--agent', 'nemesis', '--session-key', 'review-AUTO-112', '-m', 'You are an INDEPENDENT work reviewer. Strictly r"
+    },
+    {
+      "ts": "2026-07-01T08:29:02.123556+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-07-01T08:20:02.129952+00:00",
       "job": "real-work-executor",
@@ -224,6 +238,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "4h ago"
+    },
+    {
+      "ts": "2026-07-01T03:30:02.123556+00:00",
+      "job": "Daily 11 PM Backup (B...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "5h ago"
     },
     {
       "ts": "2026-07-01T03:30:01.995196+00:00",
@@ -476,6 +497,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "6h ago"
+    },
+    {
+      "ts": "2026-07-01T01:30:02.123556+00:00",
+      "job": "Hourly Check-in",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "7h ago"
     },
     {
       "ts": "2026-07-01T01:30:01.995196+00:00",
@@ -1521,6 +1549,13 @@
       "msg": "18h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-06-30T13:30:02.123556+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "19h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-06-30T13:30:02.014230+00:00",
       "job": "Daily 10 AM Improvement",
       "kind": "discord-cron",
@@ -1715,41 +1750,6 @@
       "kind": "system",
       "status": "warn",
       "msg": "[validate]     STORY-201: engine 'claude' gave no usable verdict \u2014 trying next in chain"
-    },
-    {
-      "ts": "2026-06-30T13:10:02.175532+00:00",
-      "job": "generate-work",
-      "kind": "system",
-      "status": "ok",
-      "msg": "[gen] added 4 new backlog tickets (AUTO-*)"
-    },
-    {
-      "ts": "2026-06-30T13:10:02.175532+00:00",
-      "job": "builder-lane",
-      "kind": "system",
-      "status": "ok",
-      "msg": "[builder] no builder tickets to process"
-    },
-    {
-      "ts": "2026-06-30T13:10:02.175532+00:00",
-      "job": "quick-backup",
-      "kind": "system",
-      "status": "ok",
-      "msg": "be47e7b..af76166  master -> master"
-    },
-    {
-      "ts": "2026-06-30T13:10:02.123889+00:00",
-      "job": "Validation Reviewer (...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "13h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T13:10:02.110219+00:00",
-      "job": "Validation Reviewer (...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "15h ago \u00b7 groq/meta-llama/l..."
     }
   ]
 }
