@@ -1,40 +1,96 @@
 {
-  "generatedAt": "2026-07-01T04:20:01.661093+00:00",
+  "generatedAt": "2026-07-01T04:30:01.355731+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 20.0,
+    "validator": 3.9,
     "observability": 10.0,
-    "guard": 2520.0,
-    "backup": 19.9,
+    "guard": 2530.0,
+    "backup": 29.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 122,
+    "done": 126,
     "backlog": 8,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "planned": 4
   },
   "tickets_total": 151,
-  "done_today": 11,
+  "done_today": 15,
   "delivered_today": 34,
-  "delivered_week": 46,
+  "delivered_week": 43,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 41,
+    "cerebras:gpt-oss-120b": 38,
     "openclaw": 5
   },
   "live_agents": [
     "Hades",
     "Minerva",
     "Plutus",
-    "Vulcan"
+    "Vulcan",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T04:26:10.089707+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-096",
+      "content": "PASS: The deliverable provides a complete JSON schema, example data, validation rules, versioning strategy, ingestion co"
+    },
+    {
+      "ts": "2026-07-01T04:26:10.086350+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-095",
+      "content": "PASS: The checklist fully covers encryption at rest and in\u2011transit, API\u2011key management, access controls, logging, and vu"
+    },
+    {
+      "ts": "2026-07-01T04:26:10.083857+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-094",
+      "content": "PASS: The deliverable provides complete landing\u2011page copy with headline, sub\u2011headline, feature bullets, benefits, pricin"
+    },
+    {
+      "ts": "2026-07-01T04:26:10.080404+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-093",
+      "content": "PASS: The deliverable provides a comprehensive and detailed solution for the AI FAQ Receptionist Tiered Pricing Sheet, i"
+    },
+    {
+      "ts": "2026-07-01T04:23:46.850785+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-096",
+      "content": "[claude,openclaw,groq] Independently reviewing data-engineer's deliverable"
+    },
+    {
+      "ts": "2026-07-01T04:21:28.513791+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-095",
+      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-07-01T04:20:01.741462+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-094",
+      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-07-01T04:20:01.737700+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-093",
+      "content": "[claude,openclaw,groq] Independently reviewing finance's deliverable"
+    },
     {
       "ts": "2026-07-01T04:04:48.824220+00:00",
       "agent": "Hades",
@@ -62,62 +118,6 @@
       "event": "delivered",
       "ticket": "AUTO-094",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-094-deliverable.md (6341b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T04:00:08.451191+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-095",
-      "content": "[openclaw] attempting: Security Hardening Checklist for AI FAQ Receptionist Deploym"
-    },
-    {
-      "ts": "2026-07-01T04:00:04.249459+00:00",
-      "agent": "Vulcan",
-      "event": "working",
-      "ticket": "AUTO-096",
-      "content": "[cerebras:gpt-oss-120b] attempting: FAQ Knowledge Base Schema Specification"
-    },
-    {
-      "ts": "2026-07-01T04:00:04.248208+00:00",
-      "agent": "Vulcan",
-      "event": "dispatched",
-      "ticket": "AUTO-096",
-      "content": "data-engineer started work: FAQ Knowledge Base Schema Specification"
-    },
-    {
-      "ts": "2026-07-01T04:00:03.142986+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-095",
-      "content": "[claude:owl-alpha] attempting: Security Hardening Checklist for AI FAQ Receptionist Deploym"
-    },
-    {
-      "ts": "2026-07-01T04:00:01.845155+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-094",
-      "content": "[cerebras:gpt-oss-120b] attempting: Landing Page Copy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T04:00:01.838345+00:00",
-      "agent": "Minerva",
-      "event": "dispatched",
-      "ticket": "AUTO-094",
-      "content": "analyst started work: Landing Page Copy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T04:00:01.826777+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-095",
-      "content": "[cerebras:gpt-oss-120b] attempting: Security Hardening Checklist for AI FAQ Receptionist Deploym"
-    },
-    {
-      "ts": "2026-07-01T04:00:01.824439+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-095",
-      "content": "security started work: Security Hardening Checklist for AI FAQ Receptionist Deploym"
     }
   ],
   "problems": {}
