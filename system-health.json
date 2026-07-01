@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-07-01T19:20:01.504311+00:00",
+  "generatedAt": "2026-07-01T19:30:01.794375+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 20.0,
+    "work-executor": 0.0,
+    "validator": 0.5,
     "observability": 10.0,
-    "guard": 3420.0,
-    "backup": 20.0,
+    "guard": 3430.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 171,
+    "done": 175,
     "backlog": 8,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "planned": 4
   },
   "tickets_total": 200,
-  "done_today": 60,
+  "done_today": 64,
   "delivered_today": 28,
   "delivered_week": 28,
   "model_mix_week": {
@@ -32,9 +31,66 @@
     "Fortuna",
     "Hermes",
     "Iris",
-    "Plutus"
+    "Plutus",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T19:29:34.207880+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-144",
+      "content": "PASS: The deliverable provides a comprehensive competitive comparison matrix for AI FAQ Receptionist, including a CSV sp"
+    },
+    {
+      "ts": "2026-07-01T19:29:34.205345+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-143",
+      "content": "PASS: The deliverable provides a complete and genuine implementation of the landing page copy and HTML skeleton for the "
+    },
+    {
+      "ts": "2026-07-01T19:29:34.202291+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-142",
+      "content": "PASS: The document fully provides objection categories, detailed scripted replies, and a concise cheat\u2011sheet as required"
+    },
+    {
+      "ts": "2026-07-01T19:29:34.198682+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-141",
+      "content": "PASS: The deliverable provides a comprehensive and detailed solution for the AI FAQ Receptionist Pricing Sheet, includin"
+    },
+    {
+      "ts": "2026-07-01T19:24:47.560600+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-144",
+      "content": "[claude,openclaw,groq] Independently reviewing business-analyst's deliverable"
+    },
+    {
+      "ts": "2026-07-01T19:22:22.548712+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-143",
+      "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-07-01T19:20:01.571903+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-141",
+      "content": "[claude,openclaw,groq] Independently reviewing finance's deliverable"
+    },
+    {
+      "ts": "2026-07-01T19:20:01.565103+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-142",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-07-01T19:10:04.160641+00:00",
       "agent": "Hermes",
@@ -62,62 +118,6 @@
       "event": "working",
       "ticket": "AUTO-141",
       "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T19:10:01.895188+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "AUTO-144",
-      "content": "business-analyst started work: Competitive Comparison Matrix for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T19:10:01.894196+00:00",
-      "agent": "Plutus",
-      "event": "dispatched",
-      "ticket": "AUTO-141",
-      "content": "finance started work: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T19:04:30.828728+00:00",
-      "agent": "Plutus",
-      "event": "no_deliverable",
-      "ticket": "AUTO-141",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T19:04:30.823315+00:00",
-      "agent": "Hermes",
-      "event": "no_deliverable",
-      "ticket": "AUTO-144",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T19:04:30.819567+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-142",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-142-deliverable.md (12910b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T19:04:30.807785+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "AUTO-143",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-143-deliverable.md (5658b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T19:00:14.834599+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-144",
-      "content": "[openclaw] attempting: Competitive Comparison Matrix for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T19:00:14.778805+00:00",
-      "agent": "Plutus",
-      "event": "working",
-      "ticket": "AUTO-141",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
     }
   ],
   "problems": {}
