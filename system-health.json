@@ -1,31 +1,32 @@
 {
-  "generatedAt": "2026-07-01T20:00:01.842217+00:00",
+  "generatedAt": "2026-07-01T20:10:01.915184+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 20.0,
+    "work-executor": 5.2,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 3460.0,
-    "backup": 30.0,
+    "guard": 3470.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 175,
     "backlog": 8,
-    "in_progress": 17,
-    "planned": 4
+    "in_progress": 15,
+    "planned": 4,
+    "in_validation": 2
   },
   "tickets_total": 204,
   "done_today": 64,
-  "delivered_today": 32,
-  "delivered_week": 32,
+  "delivered_today": 34,
+  "delivered_week": 34,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 30,
-    "openclaw": 2
+    "cerebras:gpt-oss-120b": 31,
+    "openclaw": 3
   },
   "live_agents": [
     "Gladiator",
@@ -35,88 +36,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T19:50:10.671883+00:00",
+      "ts": "2026-07-01T20:04:51.994553+00:00",
+      "agent": "Plutus",
+      "event": "no_deliverable",
+      "ticket": "AUTO-145",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-01T20:04:51.993586+00:00",
       "agent": "Gladiator",
       "event": "delivered",
       "ticket": "AUTO-148",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-148-deliverable.md (6816b) \u2192 in_progress"
+      "content": "[openclaw] Produced AUTO-148-deliverable.md (2456b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T19:50:10.667421+00:00",
-      "agent": "Plutus",
-      "event": "delivered",
-      "ticket": "AUTO-145",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-145-deliverable.md (9109b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-01T19:50:10.663186+00:00",
+      "ts": "2026-07-01T20:04:51.992449+00:00",
       "agent": "Hermes",
-      "event": "delivered",
+      "event": "no_deliverable",
       "ticket": "AUTO-147",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-147-deliverable.md (9525b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-07-01T19:50:10.657344+00:00",
+      "ts": "2026-07-01T20:04:51.975313+00:00",
       "agent": "Metis",
       "event": "delivered",
       "ticket": "AUTO-146",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-146-deliverable.md (9194b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-146-deliverable.md (8290b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T19:50:03.519741+00:00",
+      "ts": "2026-07-01T20:00:12.387935+00:00",
+      "agent": "Gladiator",
+      "event": "working",
+      "ticket": "AUTO-148",
+      "content": "[openclaw] attempting: Static Landing Page Template for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T20:00:11.796866+00:00",
+      "agent": "Plutus",
+      "event": "working",
+      "ticket": "AUTO-145",
+      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T20:00:11.788245+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-147",
+      "content": "[openclaw] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top Vendo"
+    },
+    {
+      "ts": "2026-07-01T20:00:04.273512+00:00",
+      "agent": "Gladiator",
+      "event": "working",
+      "ticket": "AUTO-148",
+      "content": "[claude:owl-alpha] attempting: Static Landing Page Template for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T20:00:03.880898+00:00",
       "agent": "Gladiator",
       "event": "working",
       "ticket": "AUTO-148",
       "content": "[cerebras:gpt-oss-120b] attempting: Static Landing Page Template for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-07-01T19:50:03.506915+00:00",
+      "ts": "2026-07-01T20:00:03.879182+00:00",
       "agent": "Gladiator",
       "event": "dispatched",
       "ticket": "AUTO-148",
       "content": "tom started work: Static Landing Page Template for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-07-01T19:50:01.641964+00:00",
+      "ts": "2026-07-01T20:00:02.732494+00:00",
       "agent": "Hermes",
       "event": "working",
       "ticket": "AUTO-147",
-      "content": "[cerebras:gpt-oss-120b] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top Vendo"
+      "content": "[claude:owl-alpha] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top Vendo"
     },
     {
-      "ts": "2026-07-01T19:50:01.640251+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "AUTO-147",
-      "content": "business-analyst started work: Competitive Feature Matrix: AI FAQ Receptionist vs Top Vendo"
-    },
-    {
-      "ts": "2026-07-01T19:50:01.638978+00:00",
+      "ts": "2026-07-01T20:00:02.657674+00:00",
       "agent": "Plutus",
       "event": "working",
       "ticket": "AUTO-145",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T19:50:01.637232+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-146",
-      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Guide for AI FAQ Receptionist Sales"
-    },
-    {
-      "ts": "2026-07-01T19:50:01.635803+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-146",
-      "content": "org-excellence started work: Objection\u2011Handling Guide for AI FAQ Receptionist Sales"
-    },
-    {
-      "ts": "2026-07-01T19:50:01.634460+00:00",
-      "agent": "Plutus",
-      "event": "dispatched",
-      "ticket": "AUTO-145",
-      "content": "finance started work: AI FAQ Receptionist Pricing Sheet"
+      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
     }
   ],
   "problems": {}
