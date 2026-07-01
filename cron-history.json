@@ -1,6 +1,27 @@
 {
-  "updated": "2026-07-01T10:50:01.678465+00:00",
+  "updated": "2026-07-01T11:00:01.754667+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T11:00:01.754667+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "ok",
+      "msg": "[work] tickets.json updated (only tickets with real deliverables advanced)"
+    },
+    {
+      "ts": "2026-07-01T10:59:01.754667+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
+    {
+      "ts": "2026-07-01T10:59:01.754667+00:00",
+      "job": "Daily 7 AM Standup",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "1m ago \u00b7 groq/meta-llama/l..."
+    },
     {
       "ts": "2026-07-01T10:50:01.678465+00:00",
       "job": "real-work-executor",
@@ -492,6 +513,13 @@
       "msg": "6h ago"
     },
     {
+      "ts": "2026-07-01T03:00:01.754667+00:00",
+      "job": "Daily 11 PM Backup (B...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "8h ago"
+    },
+    {
       "ts": "2026-07-01T02:59:01.449955+00:00",
       "job": "Queue Tick 30m",
       "kind": "discord-cron",
@@ -637,6 +665,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "4h ago"
+    },
+    {
+      "ts": "2026-07-01T02:00:01.754667+00:00",
+      "job": "Hourly Check-in",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "9h ago"
     },
     {
       "ts": "2026-07-01T02:00:01.479854+00:00",
@@ -1626,6 +1661,13 @@
       "msg": "4h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-06-30T14:00:01.754667+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "21h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-06-30T14:00:01.735249+00:00",
       "job": "Daily 10 AM Improvement",
       "kind": "discord-cron",
@@ -1708,48 +1750,6 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "19h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T13:50:02.155436+00:00",
-      "job": "Daily 10 AM Improvement",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "13h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T13:50:01.978314+00:00",
-      "job": "Daily 10 AM Improvement",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "12h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T13:50:01.974605+00:00",
-      "job": "Daily 10 AM Improvement",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "17h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T13:50:01.931995+00:00",
-      "job": "ticket-processor",
-      "kind": "system",
-      "status": "ok",
-      "msg": "[2026-06-30 09:45:02] No pending requests. Exiting."
-    },
-    {
-      "ts": "2026-06-30T13:50:01.931995+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-056: openclaw run timed out"
-    },
-    {
-      "ts": "2026-06-30T13:50:01.800243+00:00",
-      "job": "Daily 10 AM Improvement",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "14h ago \u00b7 groq/meta-llama/l..."
     }
   ]
 }
