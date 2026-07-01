@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-07-01T09:10:01.626693+00:00",
+  "generatedAt": "2026-07-01T09:20:02.016738+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.2,
-    "validator": 10.0,
+    "work-executor": 9.9,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 2810.0,
-    "backup": 10.0,
+    "guard": 2820.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 142,
     "backlog": 8,
-    "in_progress": 14,
+    "in_progress": 13,
     "planned": 4,
-    "in_validation": 3
+    "in_validation": 4
   },
   "tickets_total": 171,
   "done_today": 31,
-  "delivered_today": 43,
-  "delivered_week": 43,
+  "delivered_today": 44,
+  "delivered_week": 44,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 37,
+    "cerebras:gpt-oss-120b": 38,
     "openclaw": 6
   },
   "live_agents": [
@@ -35,6 +35,27 @@
     "Minerva"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T09:10:06.017952+00:00",
+      "agent": "Hermes",
+      "event": "delivered",
+      "ticket": "AUTO-115",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-115-deliverable.md (32456b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T09:10:01.756270+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-115",
+      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare FAQ Knowledge Base for AI Receptionist"
+    },
+    {
+      "ts": "2026-07-01T09:10:01.754718+00:00",
+      "agent": "Hermes",
+      "event": "dispatched",
+      "ticket": "AUTO-115",
+      "content": "business-analyst started work: Healthcare FAQ Knowledge Base for AI Receptionist"
+    },
     {
       "ts": "2026-07-01T09:04:50.409864+00:00",
       "agent": "Hermes",
@@ -97,27 +118,6 @@
       "event": "working",
       "ticket": "AUTO-113",
       "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T09:00:02.673078+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-115",
-      "content": "[claude:owl-alpha] attempting: Healthcare FAQ Knowledge Base for AI Receptionist"
-    },
-    {
-      "ts": "2026-07-01T09:00:02.242948+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-115",
-      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare FAQ Knowledge Base for AI Receptionist"
-    },
-    {
-      "ts": "2026-07-01T09:00:02.241701+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "AUTO-115",
-      "content": "business-analyst started work: Healthcare FAQ Knowledge Base for AI Receptionist"
     }
   ],
   "problems": {}
