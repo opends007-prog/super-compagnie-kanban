@@ -1,27 +1,27 @@
 {
-  "generatedAt": "2026-07-01T16:40:02.095255+00:00",
+  "generatedAt": "2026-07-01T16:50:01.547181+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 20.0,
+    "work-executor": 10.0,
+    "validator": 1.1,
     "observability": 10.0,
-    "guard": 3260.0,
-    "backup": 10.0,
+    "guard": 3270.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 163,
+    "done": 165,
     "backlog": 8,
-    "in_progress": 13,
+    "in_progress": 14,
     "planned": 4,
-    "in_validation": 4
+    "in_validation": 1
   },
   "tickets_total": 192,
-  "done_today": 52,
+  "done_today": 54,
   "delivered_today": 10,
   "delivered_week": 10,
   "model_mix_week": {
@@ -32,9 +32,59 @@
     "Fortuna",
     "Hades",
     "Iris",
-    "Minerva"
+    "Minerva",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T16:48:55.129200+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-135",
+      "content": "PASS: The deliverable is complete, well-structured, and meets all the acceptance criteria specified in the ticket."
+    },
+    {
+      "ts": "2026-07-01T16:48:55.128209+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "AUTO-134",
+      "content": "FAIL #1: The deliverable is a competitive analysis rather than the required one-page objection\u2011handling guide, so it doe"
+    },
+    {
+      "ts": "2026-07-01T16:48:55.122590+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-133",
+      "content": "PASS: The deliverable provides a complete markdown pricing sheet with three tiered packages, feature lists, price points"
+    },
+    {
+      "ts": "2026-07-01T16:44:49.586889+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-136",
+      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-07-01T16:44:12.203963+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-135",
+      "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-07-01T16:40:02.196975+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-134",
+      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-07-01T16:40:02.190320+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-133",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-07-01T16:30:05.215051+00:00",
       "agent": "Minerva",
@@ -69,55 +119,6 @@
       "event": "dispatched",
       "ticket": "AUTO-134",
       "content": "analyst started work: Objection-Handling Guide for AI FAQ Receptionist Sales Calls"
-    },
-    {
-      "ts": "2026-07-01T16:30:02.176103+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-133",
-      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T16:24:46.378632+00:00",
-      "agent": "Minerva",
-      "event": "no_deliverable",
-      "ticket": "AUTO-134",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T16:24:46.377646+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-133",
-      "content": "[openclaw] Produced AUTO-133-deliverable.md (4114b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-01T16:24:46.376647+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-136",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-136-deliverable.md (11410b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T16:24:46.367444+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "AUTO-135",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-135-deliverable.md (5347b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T16:20:06.150995+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-134",
-      "content": "[openclaw] attempting: Objection-Handling Guide for AI FAQ Receptionist Sales Calls"
-    },
-    {
-      "ts": "2026-07-01T16:20:05.861104+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-133",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
     }
   ],
   "problems": {}
