@@ -1,6 +1,20 @@
 {
-  "updated": "2026-07-01T19:50:01.530345+00:00",
+  "updated": "2026-07-01T20:00:01.911631+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T19:59:01.911631+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
+    {
+      "ts": "2026-07-01T19:59:01.911631+00:00",
+      "job": "Hourly Check-in",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-07-01T19:50:01.530345+00:00",
       "job": "validate-work",
@@ -394,6 +408,13 @@
       "msg": "2h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-07-01T14:00:01.911631+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "6h ago \u00b7 google/gemini-2.5..."
+    },
+    {
       "ts": "2026-07-01T14:00:01.762058+00:00",
       "job": "ticket-processor",
       "kind": "system",
@@ -574,6 +595,13 @@
       "kind": "system",
       "status": "warn",
       "msg": "[work]   AUTO-125: openclaw run timed out"
+    },
+    {
+      "ts": "2026-07-01T13:00:01.911631+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "7h ago \u00b7 google/gemini-2.5..."
     },
     {
       "ts": "2026-07-01T13:00:01.617198+00:00",
@@ -840,6 +868,20 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "7h ago"
+    },
+    {
+      "ts": "2026-07-01T12:00:01.911631+00:00",
+      "job": "Lucy 8 AM Morning Mot...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "8h ago \u00b7 google/gemini-2.5..."
+    },
+    {
+      "ts": "2026-07-01T12:00:01.911631+00:00",
+      "job": "Daily 8 AM Security A...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "8h ago"
     },
     {
       "ts": "2026-07-01T12:00:01.762058+00:00",
@@ -1113,6 +1155,13 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "5h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T11:00:01.911631+00:00",
+      "job": "Daily 7 AM Standup",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "9h ago \u00b7 google/gemini-2.5..."
     },
     {
       "ts": "2026-07-01T11:00:01.754667+00:00",
@@ -1493,6 +1542,20 @@
       "msg": "3h ago"
     },
     {
+      "ts": "2026-07-01T10:00:01.911631+00:00",
+      "job": "Daily 6 AM Memory Mai...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "10h ago \u00b7 google/gemini-2.5..."
+    },
+    {
+      "ts": "2026-07-01T10:00:01.911631+00:00",
+      "job": "Velocity (daily)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "10h ago"
+    },
+    {
       "ts": "2026-07-01T10:00:01.762058+00:00",
       "job": "Velocity (daily)",
       "kind": "discord-cron",
@@ -1683,69 +1746,6 @@
     },
     {
       "ts": "2026-07-01T08:59:01.979694+00:00",
-      "job": "Queue Tick 30m",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1m ago"
-    },
-    {
-      "ts": "2026-07-01T08:50:02.213055+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "ok",
-      "msg": "[validate] no validations applied this run"
-    },
-    {
-      "ts": "2026-07-01T08:30:02.123556+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "fail",
-      "msg": "[validate]     AUTO-112: reviewer run error (openclaw): Command '['openclaw', 'agent', '--agent', 'nemesis', '--session-key', 'review-AUTO-112', '-m', 'You are an INDEPENDENT work reviewer. Strictly r"
-    },
-    {
-      "ts": "2026-07-01T08:29:02.123556+00:00",
-      "job": "Queue Tick 30m",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1m ago"
-    },
-    {
-      "ts": "2026-07-01T08:20:02.129952+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "ok",
-      "msg": "[work] tickets.json updated (only tickets with real deliverables advanced)"
-    },
-    {
-      "ts": "2026-07-01T08:10:01.725001+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-112: openclaw run timed out"
-    },
-    {
-      "ts": "2026-07-01T07:59:02.183379+00:00",
-      "job": "Queue Tick 30m",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1m ago"
-    },
-    {
-      "ts": "2026-07-01T07:50:01.641486+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "ok",
-      "msg": "[validate] no validations applied this run"
-    },
-    {
-      "ts": "2026-07-01T07:30:02.137376+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[validate]     AUTO-108: engine 'claude' gave no usable verdict \u2014 trying next in chain"
-    },
-    {
-      "ts": "2026-07-01T07:29:02.137376+00:00",
       "job": "Queue Tick 30m",
       "kind": "discord-cron",
       "status": "ok",
