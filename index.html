@@ -271,8 +271,8 @@ a{color:var(--blue);text-decoration:none}
 
 /* ═══ DETAIL PANEL ═══ */
 .dp{
-  width:380px;background:var(--bg2);border-left:1px solid var(--border);
-  display:none;flex-direction:column;flex-shrink:0;overflow:hidden;
+  position:absolute;inset:0;z-index:60;background:var(--bg2);
+  display:none;flex-direction:column;overflow:hidden;
 }
 .dp.op{display:flex}
 .dp-hdr{
@@ -443,7 +443,7 @@ a{color:var(--blue);text-decoration:none}
 .progress-bar{height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
 .progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .3s}
 .progress-text{font-size:9px;color:var(--text3);margin-top:3px;font-family:var(--font-mono)}
-.agent-ticket-list{margin-top:5px;border-top:1px solid var(--border);padding-top:4px}
+.agent-ticket-list{margin-top:5px;border-top:1px solid var(--border);padding-top:4px;max-height:108px;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .agent-ticket-item{font-size:9px;color:var(--text2);padding:2px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .agent-no-tickets{color:var(--text3);font-size:10px;margin-top:5px;font-style:italic}
 .agent-tickets{font-size:10px;color:var(--text2);margin-top:5px;font-family:var(--font-mono)}
@@ -1121,7 +1121,9 @@ function rTeam(){
           h+='<div class="agent-progress"><div class="progress-bar"><div class="progress-fill" style="width:'+a._progress+'%"></div></div>';
           h+='<div class="progress-text">'+bar+' '+a._progress+'% ('+a._done+'/'+a._total+')</div></div>';
           h+='<div class="agent-ticket-list">';
-          a._tickets.forEach(function(t){
+          a._tickets.slice().sort(function(x,y){
+            return (y.updatedAt||y.createdAt||'').localeCompare(x.updatedAt||x.createdAt||'');
+          }).forEach(function(t){
             var tIcon=t.status==='done'?'✅':(t.status==='in_progress'?'🔨':'📋');
             h+='<div class="agent-ticket-item">'+tIcon+' '+t.id+': '+t.title.substring(0,35)+'</div>';
           });
