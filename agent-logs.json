@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-01T12:50:01.715824+00:00",
+  "generated": "2026-07-01T13:00:02.042331+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -2073,11 +2073,6 @@
       "status": "in_progress",
       "events": [
         {
-          "ts": "2026-07-01T12:30:01.417663+00:00",
-          "event": "dispatched",
-          "content": "analyst started work: AI FAQ Receptionist Pricing Sheet"
-        },
-        {
           "ts": "2026-07-01T12:30:01.421599+00:00",
           "event": "working",
           "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
@@ -2109,6 +2104,31 @@
         },
         {
           "ts": "2026-07-01T12:44:45.763439+00:00",
+          "event": "no_deliverable",
+          "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+        },
+        {
+          "ts": "2026-07-01T12:50:01.838068+00:00",
+          "event": "dispatched",
+          "content": "analyst started work: AI FAQ Receptionist Pricing Sheet"
+        },
+        {
+          "ts": "2026-07-01T12:50:01.838920+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+        },
+        {
+          "ts": "2026-07-01T12:50:02.281672+00:00",
+          "event": "working",
+          "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
+        },
+        {
+          "ts": "2026-07-01T12:50:07.858259+00:00",
+          "event": "working",
+          "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
+        },
+        {
+          "ts": "2026-07-01T12:54:48.147844+00:00",
           "event": "no_deliverable",
           "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
         }
@@ -2213,7 +2233,7 @@
     },
     "AUTO-128": {
       "agent": "Hades",
-      "status": "in_progress",
+      "status": "in_validation",
       "events": [
         {
           "ts": "2026-07-01T12:30:04.027588+00:00",
@@ -2254,21 +2274,36 @@
           "ts": "2026-07-01T12:44:45.761487+00:00",
           "event": "no_deliverable",
           "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+        },
+        {
+          "ts": "2026-07-01T12:50:01.839895+00:00",
+          "event": "dispatched",
+          "content": "security started work: Data Security Checklist for FAQ Receptionist Deployments"
+        },
+        {
+          "ts": "2026-07-01T12:50:01.840428+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Data Security Checklist for FAQ Receptionist Deployments"
+        },
+        {
+          "ts": "2026-07-01T12:54:48.136096+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced AUTO-128-deliverable.md (14592b) \u2192 in_validation"
         }
       ],
       "deliverable": {
         "file": "security/work/AUTO-128-deliverable.md",
-        "size": 10492,
-        "content": "# Data Security Checklist \u2013 FAQ Receptionist Deployments  \n*Prepared for pre\u2011deployment review*  \n\n**Prepared by:** Hades\u202f\ud83d\udc80 \u2013 Security Specialist, Project Team  \n**Date:** 2026\u201107\u201101  \n**Scope:** This checklist applies to every instance of the **FAQ Receptionist** service that stores, processes, or transmits end\u2011user data (including query text, user identifiers, and any attached metadata). It covers data handling, encryption (at rest & in\u2011flight), access controls, GDPR/CCPA compliance, and client\u2011side security measures. All items must be verified as **PASS** before the deployment is approved.\n\n---  \n\n## 1. Data Handling & Classification  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 1.1 | **Identify and classify all data elements** (e.g., PII, health data, authentication tokens). Create a data\u2011inventory spreadsheet in the project repo (`/home/admin/.openclaw/workspace/workers/security/data_inventory.xlsx`). | Review the spreadsheet; confirm each field is marked **Public**, **Sensitive**, or **Highly Sensitive**. | Add missing entries; re\u2011classify any \u201cPublic\u201d items that contain PII. | High |\n| 1.2 | **Data minimisation** \u2013 only collect fields required for answering FAQs. | Inspect the request\u2011payload schema (`/home/admin/.openclaw/workspace/workers/security/faq_schema.json`). | Remove optional PII fields; adjust front\u2011end forms. | Medium |\n| 1.3 | **Retention policy** \u2013 define maximum storage period (e.g., 90\u202fdays for query logs). Document in `retention_policy.md`. | Verify policy file exists and matches regulatory limits. | Add automated purge job (cron or Kubernetes TTL). | Medium |\n| 1.4 | **Secure deletion** \u2013 ensure data is overwritten or cryptographically erased on purge. | Review deletion scripts (`/home/admin/.openclaw/workspace/workers/security/purge.sh`). | Implement `shred` or `scrypt`\u2011based erasure for on\u2011prem storage. | High |\n\n---  \n\n## 2. Encryption \u2013 Data\u2011at\u2011Rest  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 2.1 | **Full\u2011disk encryption (FDE)** on all nodes running the FAQ service (LUKS for Linux, BitLocker for Windows). | Run `lsblk -f` on each host; confirm `crypto_LUKS` flag. | Enable FDE on any unencrypted host; re\u2011image if necessary. | High |\n| 2.2 | **Database encryption** \u2013 enable Transparent Data Encryption (TDE) for the primary datastore (e.g., PostgreSQL `pgcrypto` or MySQL InnoDB encryption). | Query `SELECT * FROM pg_catalog.pg_encryption;` or `SHOW VARIABLES LIKE 'innodb_encrypt%';`. | Activate TDE; rotate the master key quarterly. | High |\n| 2.3 | **Encryption keys** stored in a dedicated KMS (e.g., AWS KMS, HashiCorp Vault). | Verify that the service retrieves keys via the KMS API (`/home/admin/.openclaw/workspace/workers/security/kms_config.yaml`). | Migrate any hard\u2011coded keys to KMS; enforce IAM policies. | Critical |\n| 2.4 | **Backup encryption** \u2013 all backups must be encrypted at rest using the same KMS key. | Inspect backup scripts (`backup.sh`) for `--encrypt` flag. | Add encryption step; store backup keys only in KMS. | High |\n| 2.5 | **Key rotation** \u2013 rotate data\u2011encryption keys every 90\u202fdays. | Review key\u2011rotation schedule (`key_rotation.cron`). | Implement automated rotation; log each rotation event. | Medium |\n\n---  \n\n## 3. Encryption \u2013 Data\u2011in\u2011Flight  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 3.1 | **TLS\u202f1.2+** enforced for all HTTP endpoints (including internal micro\u2011service calls). | Run `openssl s_client -connect <host>:443 -tls1_2` and verify `Cipher` is not `NULL`. | Upgrade any legacy TLS\u202f1.0/1.1 listeners; disable weak ciphers. | Critical |\n| 3.2 | **Certificate management** \u2013 certificates issued by a trusted CA, with a maximum validity of 90\u202fdays. | Check certificate expiry (`openssl x509 -enddate -noout -in cert.pem`). | Switch to automated issuance (e.g., Let\u2019s Encrypt or internal PKI). | High |\n| 3.3 | **Perfect Forward Secrecy (PFS)** \u2013 enable ECDHE suites. | Verify `Cipher` string contains `ECDHE`. | Reconfigure web server (`nginx.conf` or `httpd.conf`) to prefer ECDHE. | Medium |\n| 3.4 | **HSTS** \u2013 HTTP Strict Transport Security header set to at least 6\u202fmonths. | Curl request: `curl -I https://<host>` and inspect `strict-transport-security`. | Add `add_header Strict-Transport-Security \"max-age=15768000; includeSubDomains; preload\"` to server config. | Medium |\n| 3.5 | **Mutual TLS (mTLS)** for admin APIs. | Confirm client certificate verification (`ssl_verify_client on;`). | Enable mTLS; provision client certs via the internal PKI. | High |\n\n---  \n\n## 4. Access Controls  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 4.1 | **Principle of Least Privilege (PoLP)** \u2013 each service account has only the permissions required for its function. | Review IAM policies (`iam_policy.json`). | Remove any `*` or overly broad actions. | Critical |\n| 4.2 | **Role\u2011based access control (RBAC)** \u2013 separate roles for *Operator*, *Developer*, *Auditor*. | Verify role definitions in `rbac.yaml`. | Create missing roles; map users accordingly. | High |\n| 4.3 | **Multi\u2011factor authentication (MFA)** enforced for all privileged accounts. | Check MFA status via identity provider audit log (`/home/admin/.openclaw/workspace/workers/security/mfa_audit.log`). | Enforce MFA for any account lacking it. | Critical |\n| 4.4 | **Session timeout** \u2013 idle sessions terminated after 15\u202fminutes. | Inspect web\u2011app config (`session.timeout=900`). | Reduce timeout if set higher; enforce across all front\u2011ends. | Medium |\n| 4.5 | **Audit logging** \u2013 all access to data stores and admin APIs logged with immutable timestamps. | Verify log configuration (`/etc/rsyslog.d/faq.conf`). | Enable immutable log storage (e.g., append\u2011only S3 bucket). | High |\n| 4.6 | **Secret management** \u2013 no secrets stored in code repositories or Docker images. | Scan repo with `git-secrets` (`/home/admin/.openclaw/workspace/workers/security/secret_scan_report.txt`). | Remove any discovered secrets; replace with KMS references. | Critical |\n\n---  \n\n## 5. GDPR & CCPA Compliance  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 5.1 | **Lawful basis** \u2013 processing justification documented for each data type. | Review `privacy_basis.md`. | Add missing lawful bases (e.g., consent, legitimate interest). | High |\n| 5.2 | **Data Subject Rights (DSR) portal** \u2013 users can request access, rectification, erasure, and export. | Test the DSR endpoint (`/api/v1/dsr`). | Implement missing endpoints; ensure they trigger the purge job (see 1.4). | High |\n| 5.3 | **Consent records** \u2013 explicit consent captured before storing any PII. | Verify consent flag in `user_consent.db`. | Add consent UI; store timestamped consent logs. | Medium |\n| 5.4 | **Data breach notification** \u2013 procedure to notify authorities within 72\u202fhours. | Review `incident_response_plan.md`. | Draft breach notification template; assign responsible contact. | Critical |\n| 5.5 | **Data processor agreements** \u2013 contracts with any third\u2011party services (e.g., cloud providers) include GDPR clauses. | Confirm contracts stored in `contracts/processor_agreements/`. | Update any missing clauses; obtain signatures. | High |\n| 5.6 | **CCPA \u201cDo Not Sell\u201d flag** \u2013 honour opt\u2011out requests. | Verify flag handling in `ccpa_optout_handler.py`. | Ensure opt\u2011out prevents any data sharing with marketing partners. | Medium |\n\n---  \n\n## 6. Client\u2011Side Security  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 6.1 | **Content Security Policy (CSP)** \u2013 restrict script sources to trusted domains. | Inspect HTTP response headers (`curl -I`). | Add `Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.trusted.com;` to front\u2011end server. | Medium |\n| 6.2 | **X\u2011Content\u2011Type\u2011Options: nosniff** header set. | Verify header via `curl -I`. | Add header in web server config. | Low |\n| 6.3 | **Secure cookies** \u2013 `Secure; HttpOnly; SameSite=Strict` flags enabled for session cookies. | Check cookie attributes in browser dev tools. | Update cookie generation code (`set_cookie` function). | High |\n| 6.4 | **Input validation** \u2013 all user\u2011provided query text sanitized to prevent injection attacks. | Review sanitisation library usage (`sanitize_input.py`). | Switch to a vetted library (e.g., OWASP ESAPI). | Critical |\n| 6.5 | **Rate limiting** \u2013 prevent abuse of the FAQ endpoint (e.g., 100 requests per minute per IP). | Verify `rate_limit.conf`. | Deploy a reverse\u2011proxy rate\u2011limiter (e.g., `nginx limit_req`). | Medium |\n| 6.6 | **Dependency scanning** \u2013 all front\u2011end npm packages scanned for known vulnerabilities. | Run `npm audit` and review `npm_audit_report.txt`. "
+        "size": 14592,
+        "content": "# Data Security Checklist for FAQ Receptionist Deployments  \n*Prepared for pre\u2011deployment review \u2013\u202fTicket **AUTO\u2011128***  \n\n**Scope** \u2013 This checklist applies to every instance of the **FAQ Receptionist** service that processes, stores, or transmits end\u2011user data (including query text, user identifiers, and interaction logs). It covers data handling, encryption (at rest & in\u2011flight), access controls, GDPR/CCPA considerations, client\u2011side security, and verification steps required before the service goes live.  \n\n---  \n\n## 1. Data Handling & Storage  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 1.1 | **Data Classification** \u2013 All data processed by the FAQ Receptionist must be classified (e.g., PII, Sensitive Personal Data, Non\u2011PII). | Review the data\u2011flow diagram and confirm each field is tagged with a classification label in the source\u2011code metadata (e.g., `@PII`). | Add missing classification tags and update the data\u2011inventory spreadsheet. | High |\n| 1.2 | **Data Minimisation** \u2013 Only data required for answering FAQs may be collected; optional fields must be disabled by default. | Run a static analysis (e.g., `grep -R \"user_email\"`). Verify that optional fields are gated behind a feature\u2011flag and default to *off*. | Remove unnecessary collection points or implement opt\u2011in toggles. | Medium |\n| 1.3 | **Retention Policy** \u2013 Retain interaction logs no longer than **30\u202fdays** (or as required by contract). | Inspect the log\u2011rotation configuration (`/etc/logrotate.d/faq-receptionist`) and confirm `maxage 30`. | Adjust `logrotate` or add a scheduled purge job (`cron`) to enforce the policy. | High |\n| 1.4 | **Secure Deletion** \u2013 When data is purged, it must be overwritten to prevent recovery. | Verify that the purge script uses `shred -u` or an equivalent secure delete method. | Replace plain `rm` commands with `shred -u` or enable filesystem\u2011level secure delete (`mount -o discard`). | Medium |\n| 1.5 | **Data Export Controls** \u2013 Export of raw logs must be restricted to authorised service accounts. | Check IAM policies for the `faq-export` role; ensure `s3:GetObject` is limited to a specific bucket prefix. | Refine the IAM policy to `Condition`\u2011based access (e.g., `aws:SourceVpce`). | Critical |\n\n*Source: Ticket description & internal data\u2011flow review*\u30101\u3011  \n\n---  \n\n## 2. Encryption at Rest  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 2.1 | **Database Encryption** \u2013 All relational (PostgreSQL) and NoSQL (MongoDB) stores must use **AES\u2011256\u2011GCM** at the storage layer. | Connect to the DB and run `SELECT * FROM pg_settings WHERE name = 'data_encryption';` (PostgreSQL) or check `storageEngine.encryptionKeyFile` (MongoDB). | Enable Transparent Data Encryption (TDE) and rotate the master key quarterly. | Critical |\n| 2.2 | **File\u2011System Encryption** \u2013 Any on\u2011disk cache or temporary files must reside on an encrypted volume (e.g., LUKS). | `lsblk -f` \u2192 confirm `crypt` type for `/var/lib/faq-receptionist/tmp`. | Create a LUKS container for the temp directory and mount it at service start. | High |\n| 2.3 | **Key Management** \u2013 Encryption keys must be stored in a dedicated KMS (e.g., AWS KMS, HashiCorp Vault) and never hard\u2011coded. | Review environment variables; ensure `VAULT_ADDR` is set and no `*_KEY` values appear in source. | Migrate any hard\u2011coded keys to Vault secrets and enforce IAM policies for secret access. | Critical |\n| 2.4 | **Backup Encryption** \u2013 Backups (snapshot or dump) must be encrypted before transfer to off\u2011site storage. | Inspect backup script (`backup.sh`) for `gpg --symmetric --cipher-algo AES256`. | Add GPG encryption step or enable encrypted S3 bucket (`aws s3 cp --sse AES256`). | High |\n\n*Reference: NIST SP\u202f800\u201153 Rev.\u202f5 \u2013 SC\u201112, SC\u201113*\u30102\u3011  \n\n---  \n\n## 3. Encryption in Transit  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 3.1 | **TLS\u202f1.2+** \u2013 All HTTP endpoints must enforce TLS\u202f1.2 minimum, using **ECDHE\u2011RSA\u2011AES256\u2011GCM\u2011SHA384** cipher suite. | Run `openssl s_client -connect api.example.com:443 -tls1_2` and check `Cipher` line. | Update Nginx/Envoy config to `ssl_protocols TLSv1.2 TLSv1.3;` and `ssl_ciphers 'ECDHE\u2011RSA\u2011AES256\u2011GCM\u2011SHA384'`. | Critical |\n| 3.2 | **Certificate Management** \u2013 Certificates must be rotated every 90\u202fdays and validated via automated monitoring. | Verify `certbot renew --dry-run` runs without errors in CI. | Add a cron job for `certbot renew` and integrate with monitoring (e.g., Prometheus alert). | High |\n| 3.3 | **Mutual TLS for Internal Services** \u2013 Service\u2011to\u2011service calls (e.g., FAQ \u2192 Knowledge\u2011Base) must use mTLS. | Capture traffic with `tcpdump` and confirm client certificate exchange. | Deploy sidecar proxy (Envoy) with `tls_context` configured for mTLS. | Critical |\n| 3.4 | **HSTS Header** \u2013 All responses must include `Strict-Transport-Security: max-age=31536000; includeSubDomains`. | `curl -I https://api.example.com/health` \u2192 check for `strict-transport-security`. | Add header in reverse\u2011proxy configuration. | Medium |\n| 3.5 | **WebSocket Security** \u2013 If the FAQ UI uses WebSockets, they must be upgraded over `wss://` and enforce the same TLS settings. | Test with `wscat -c wss://api.example.com/ws` and verify TLS version. | Update client code to use `wss://` and enforce TLS version in server config. | Medium |\n\n*Reference: OWASP Transport Layer Protection Cheat Sheet*\u30103\u3011  \n\n---  \n\n## 4. Access Controls  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 4.1 | **Principle of Least Privilege (PoLP)** \u2013 Service accounts must have only the permissions required for their function. | Review IAM policies attached to `faq-service-account`. Ensure no `*:*` wildcards. | Refine policies to explicit actions (`dynamodb:Query`, `s3:PutObject`). | Critical |\n| 4.2 | **Role\u2011Based Access Control (RBAC)** \u2013 Admin UI must enforce RBAC with separate roles: *Viewer*, *Operator*, *Admin*. | Attempt to access admin endpoint with a `viewer` token; expect `403`. | Implement role checks in middleware and audit logs for denied attempts. | High |\n| 4.3 | **Multi\u2011Factor Authentication (MFA)** \u2013 All privileged accounts (admin, devops) must require MFA. | Verify MFA is enabled in IAM (`aws iam get-login-profile`). | Enforce MFA via IAM policy condition `aws:MultiFactorAuthPresent`. | Critical |\n| 4.4 | **Audit Trail for Privilege Changes** \u2013 Any change to IAM roles or policies must be logged. | Check CloudTrail for `PutRolePolicy` events. | Enable CloudTrail data events for IAM and set alerts on policy changes. | High |\n| 4.5 | **Secret Rotation** \u2013 API keys and tokens used by the FAQ Receptionist must rotate every 90\u202fdays. | Review CI pipeline for `rotate\u2011secrets` job. | Add automated rotation job and integrate with Vault. | High |\n\n*Reference: CIS Controls v8 \u2013 Control\u202f4.1, 4.2*\u30104\u3011  \n\n---  \n\n## 5. Logging, Monitoring & Incident Response  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 5.1 | **Centralised Logging** \u2013 All logs must be shipped to a SIEM (e.g., Elastic Stack) over TLS. | Confirm `filebeat.yml` includes `output.elasticsearch.hosts: [\"https://siem.example.com:9200\"]`. | Update Filebeat config to use TLS and enable certificate verification. | High |\n| 5.2 | **Log Integrity** \u2013 Logs must be tamper\u2011evident (e.g., signed or stored with immutable write\u2011once storage). | Verify that the SIEM index is configured with `index.lifecycle.name: immutable`. | Enable index lifecycle policy that sets `index.blocks.write: true` after 24\u202fh. | Medium |\n| 5.3 | **Alerting** \u2013 Generate alerts for: (a) failed authentication >\u202f5/min, (b) data export requests, (c) encryption key access. | Review Prometheus rules file (`alert.rules.yml`). | Add missing alert rules and configure PagerDuty webhook. | Critical |\n| 5.4 | **Incident Response Playbook** \u2013 A documented playbook must exist and be version\u2011controlled. | Locate `IR_PLAYBOOK.md` in the repo; verify last commit <\u202f30\u202fdays. | Draft missing sections (containment, forensic collection) and commit. | High |\n| 5.5 | **Retention of Security Logs** \u2013 Retain security\u2011relevant logs for at least **365\u202fdays**. | Check SIEM retention policy. | Adjust policy to `retention.days: 365`. | Medium |\n\n*Reference: ISO/IEC\u202f27001\u202fA.12.4*\u30105\u3011  \n\n---  \n\n## 6. GDPR & CCPA Compliance  \n\n| # | Requirement | Verification | Remediation | Severity |\n|---|-------------|--------------|------------|----------|\n| 6.1 | **Lawful Basis Documentation** \u2013 Each data field must have a documented lawful basis (e.g., consent, legitimate interest). | Review `privacy_matrix.xlsx` for every field. | Add missing entries and obtain consent where required. | High |\n| 6.2 | **Data Subject Rights (DSR) API** \u2013 Provide endpoints for **access**, **rectificat"
       }
     }
   },
   "active": [
     {
-      "agent": "Minerva",
-      "ticket": "AUTO-125",
-      "event": "no_deliverable",
-      "ts": "2026-07-01T12:44:45.763439+00:00"
+      "agent": "Hades",
+      "ticket": "AUTO-128",
+      "event": "delivered",
+      "ts": "2026-07-01T12:54:48.136096+00:00"
     },
     {
       "agent": "Vulcan",
@@ -2283,10 +2318,10 @@
       "ts": "2026-07-01T12:44:45.758886+00:00"
     },
     {
-      "agent": "Hades",
-      "ticket": "AUTO-128",
+      "agent": "Minerva",
+      "ticket": "AUTO-125",
       "event": "no_deliverable",
-      "ts": "2026-07-01T12:44:45.761487+00:00"
+      "ts": "2026-07-01T12:54:48.147844+00:00"
     }
   ]
 }

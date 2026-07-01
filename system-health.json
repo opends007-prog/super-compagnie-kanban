@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-07-01T12:50:01.724741+00:00",
+  "generatedAt": "2026-07-01T13:00:02.056989+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.3,
-    "validator": 10.0,
+    "work-executor": 5.2,
+    "validator": 20.0,
     "observability": 10.0,
-    "guard": 3030.0,
-    "backup": 20.0,
+    "guard": 3040.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 154,
     "backlog": 8,
-    "in_progress": 15,
+    "in_progress": 14,
     "planned": 4,
-    "in_validation": 2
+    "in_validation": 3
   },
   "tickets_total": 183,
   "done_today": 43,
-  "delivered_today": 16,
-  "delivered_week": 16,
+  "delivered_today": 17,
+  "delivered_week": 17,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 13,
+    "cerebras:gpt-oss-120b": 14,
     "openclaw": 3
   },
   "live_agents": [
@@ -35,6 +35,62 @@
     "Vulcan"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T12:54:48.147844+00:00",
+      "agent": "Minerva",
+      "event": "no_deliverable",
+      "ticket": "AUTO-125",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-01T12:54:48.136096+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-128",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-128-deliverable.md (14592b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T12:50:07.858259+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-125",
+      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T12:50:02.281672+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-125",
+      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T12:50:01.840428+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-128",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Security Checklist for FAQ Receptionist Deployments"
+    },
+    {
+      "ts": "2026-07-01T12:50:01.839895+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-128",
+      "content": "security started work: Data Security Checklist for FAQ Receptionist Deployments"
+    },
+    {
+      "ts": "2026-07-01T12:50:01.838920+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-125",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T12:50:01.838068+00:00",
+      "agent": "Minerva",
+      "event": "dispatched",
+      "ticket": "AUTO-125",
+      "content": "analyst started work: AI FAQ Receptionist Pricing Sheet"
+    },
     {
       "ts": "2026-07-01T12:44:45.763439+00:00",
       "agent": "Minerva",
@@ -62,62 +118,6 @@
       "event": "delivered",
       "ticket": "AUTO-126",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-126-deliverable.md (13649b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T12:40:10.558832+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-128",
-      "content": "[openclaw] attempting: Data Security Checklist for FAQ Receptionist Deployments"
-    },
-    {
-      "ts": "2026-07-01T12:40:05.414000+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-125",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T12:40:04.743370+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-128",
-      "content": "[claude:owl-alpha] attempting: Data Security Checklist for FAQ Receptionist Deployments"
-    },
-    {
-      "ts": "2026-07-01T12:40:04.476274+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-128",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Security Checklist for FAQ Receptionist Deployments"
-    },
-    {
-      "ts": "2026-07-01T12:40:04.475148+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-128",
-      "content": "security started work: Data Security Checklist for FAQ Receptionist Deployments"
-    },
-    {
-      "ts": "2026-07-01T12:40:02.339442+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-125",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T12:40:01.850628+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-127",
-      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Playbook for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T12:40:01.846904+00:00",
-      "agent": "Vulcan",
-      "event": "working",
-      "ticket": "AUTO-126",
-      "content": "[cerebras:gpt-oss-120b] attempting: Target Client Segmentation Dataset for FAQ Receptionist"
     }
   ],
   "problems": {}
