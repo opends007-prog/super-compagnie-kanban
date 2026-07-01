@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-01T15:30:01.835117+00:00",
+  "updated": "2026-07-01T15:40:01.902275+00:00",
   "events": [
     {
       "ts": "2026-07-01T15:30:01.835117+00:00",
@@ -469,6 +469,13 @@
       "kind": "system",
       "status": "warn",
       "msg": "[gen] cerebras error: HTTP Error 429: Too Many Requests \u2014 trying next engine"
+    },
+    {
+      "ts": "2026-07-01T11:40:01.902275+00:00",
+      "job": "Daily 8 AM Security A...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "4h ago"
     },
     {
       "ts": "2026-07-01T11:40:01.430914+00:00",
@@ -1409,6 +1416,13 @@
       "msg": "7h ago"
     },
     {
+      "ts": "2026-07-01T02:40:01.902275+00:00",
+      "job": "Daily 11 PM Backup (B...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "13h ago"
+    },
+    {
       "ts": "2026-07-01T02:40:01.713538+00:00",
       "job": "Daily 11 PM Backup (B...",
       "kind": "discord-cron",
@@ -1736,20 +1750,6 @@
       "kind": "system",
       "status": "ok",
       "msg": "[work] tickets.json updated (only tickets with real deliverables advanced)"
-    },
-    {
-      "ts": "2026-07-01T00:30:01.502924+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-081: cerebras dispatch error: HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-07-01T00:29:01.502924+00:00",
-      "job": "Queue Tick 30m",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1m ago"
     }
   ]
 }
