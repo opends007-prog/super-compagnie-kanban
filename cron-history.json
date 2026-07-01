@@ -1,6 +1,20 @@
 {
-  "updated": "2026-07-01T14:00:01.762058+00:00",
+  "updated": "2026-07-01T14:10:02.284817+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T14:10:02.284817+00:00",
+      "job": "ticket-processor",
+      "kind": "system",
+      "status": "ok",
+      "msg": "[2026-07-01 10:05:01] No pending requests. Exiting."
+    },
+    {
+      "ts": "2026-07-01T14:10:02.284817+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-131: openclaw run timed out"
+    },
     {
       "ts": "2026-07-01T14:00:01.762058+00:00",
       "job": "ticket-processor",
@@ -156,6 +170,13 @@
       "msg": "1h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-07-01T12:10:02.284817+00:00",
+      "job": "Lucy 8 AM Morning Mot...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "2h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-07-01T12:10:01.426341+00:00",
       "job": "real-work-executor",
       "kind": "system",
@@ -294,6 +315,13 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "1h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T11:10:02.284817+00:00",
+      "job": "Daily 7 AM Standup",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "3h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T11:10:02.033239+00:00",
@@ -469,6 +497,13 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "1h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T10:10:02.284817+00:00",
+      "job": "Daily 6 AM Memory Mai...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "4h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T10:10:02.107925+00:00",
@@ -1715,41 +1750,6 @@
       "kind": "system",
       "status": "warn",
       "msg": "[work]   AUTO-071: openclaw run timed out"
-    },
-    {
-      "ts": "2026-06-30T19:10:02.186999+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-065: cerebras dispatch error: HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-06-30T19:10:02.186999+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "ok",
-      "msg": "[validate] no validations applied this run"
-    },
-    {
-      "ts": "2026-06-30T19:00:01.735249+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-065: openclaw run timed out"
-    },
-    {
-      "ts": "2026-06-30T18:59:01.735249+00:00",
-      "job": "Queue Tick 30m",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1m ago"
-    },
-    {
-      "ts": "2026-06-30T18:50:02.070674+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-065: openclaw run timed out"
     }
   ]
 }
