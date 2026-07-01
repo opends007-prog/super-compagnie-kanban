@@ -1,123 +1,124 @@
 {
-  "generatedAt": "2026-07-01T10:10:02.109358+00:00",
+  "generatedAt": "2026-07-01T10:20:02.174344+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 5.7,
-    "validator": 10.0,
+    "work-executor": 0.0,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 2870.0,
-    "backup": 9.9,
+    "guard": 2880.0,
+    "backup": 19.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 146,
-    "backlog": 9,
-    "in_progress": 15,
+    "backlog": 8,
+    "in_progress": 16,
     "planned": 4,
     "in_validation": 1
   },
   "tickets_total": 175,
   "done_today": 35,
-  "delivered_today": 37,
-  "delivered_week": 37,
+  "delivered_today": 34,
+  "delivered_week": 34,
   "model_mix_week": {
-    "openclaw": 4,
-    "cerebras:gpt-oss-120b": 33
+    "cerebras:gpt-oss-120b": 31,
+    "openclaw": 3
   },
   "live_agents": [
     "Fortuna",
     "Hades",
     "Minerva",
-    "Thor"
+    "Thor",
+    "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T10:04:17.233672+00:00",
-      "agent": "Fortuna",
-      "event": "no_deliverable",
-      "ticket": "AUTO-117",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T10:04:17.230111+00:00",
-      "agent": "Thor",
-      "event": "no_deliverable",
-      "ticket": "AUTO-120",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T10:04:17.224803+00:00",
-      "agent": "Minerva",
-      "event": "no_deliverable",
-      "ticket": "AUTO-118",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T10:04:17.196144+00:00",
-      "agent": "Hades",
-      "event": "delivered",
+      "ts": "2026-07-01T10:20:02.347925+00:00",
+      "agent": "nemesis",
+      "event": "validating",
       "ticket": "AUTO-119",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-119-deliverable.md (12087b) \u2192 in_validation"
+      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
     },
     {
-      "ts": "2026-07-01T10:00:13.561970+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-118",
-      "content": "[openclaw] attempting: Client Persona Profiles for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T10:00:10.703823+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "AUTO-120",
-      "content": "[openclaw] attempting: VM Deployment Blueprint for Single\u2011Agent POC"
-    },
-    {
-      "ts": "2026-07-01T10:00:10.677134+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-117",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T10:00:04.065694+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "AUTO-120",
-      "content": "[claude:owl-alpha] attempting: VM Deployment Blueprint for Single\u2011Agent POC"
-    },
-    {
-      "ts": "2026-07-01T10:00:03.864389+00:00",
+      "ts": "2026-07-01T10:20:02.342338+00:00",
       "agent": "Thor",
       "event": "working",
       "ticket": "AUTO-120",
       "content": "[cerebras:gpt-oss-120b] attempting: VM Deployment Blueprint for Single\u2011Agent POC"
     },
     {
-      "ts": "2026-07-01T10:00:03.855592+00:00",
+      "ts": "2026-07-01T10:20:02.323704+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-117",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T10:20:02.318060+00:00",
       "agent": "Thor",
       "event": "dispatched",
       "ticket": "AUTO-120",
       "content": "devops started work: VM Deployment Blueprint for Single\u2011Agent POC"
     },
     {
-      "ts": "2026-07-01T10:00:02.205434+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-117",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T10:00:01.980628+00:00",
+      "ts": "2026-07-01T10:20:02.311322+00:00",
       "agent": "Minerva",
       "event": "working",
       "ticket": "AUTO-118",
-      "content": "[claude:owl-alpha] attempting: Client Persona Profiles for AI FAQ Receptionist"
+      "content": "[cerebras:gpt-oss-120b] attempting: Client Persona Profiles for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T10:20:02.283255+00:00",
+      "agent": "Minerva",
+      "event": "dispatched",
+      "ticket": "AUTO-118",
+      "content": "analyst started work: Client Persona Profiles for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T10:20:02.278204+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-117",
+      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T10:14:46.680410+00:00",
+      "agent": "Minerva",
+      "event": "no_deliverable",
+      "ticket": "AUTO-118",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-01T10:14:46.673434+00:00",
+      "agent": "Fortuna",
+      "event": "no_deliverable",
+      "ticket": "AUTO-117",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-01T10:14:46.650463+00:00",
+      "agent": "Thor",
+      "event": "delivered",
+      "ticket": "AUTO-120",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-120-deliverable.md (10436b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-01T10:10:06.450203+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-118",
+      "content": "[openclaw] attempting: Client Persona Profiles for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T10:10:06.438410+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-117",
+      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
     }
   ],
   "problems": {}
