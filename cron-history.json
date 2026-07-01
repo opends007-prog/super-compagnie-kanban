@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-01T14:10:02.284817+00:00",
+  "updated": "2026-07-01T14:20:02.929464+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T14:20:02.929464+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-129: openclaw run timed out"
+    },
     {
       "ts": "2026-07-01T14:10:02.284817+00:00",
       "job": "ticket-processor",
@@ -70,6 +77,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "1m ago"
+    },
+    {
+      "ts": "2026-07-01T13:20:02.929464+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "1h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T13:10:02.033239+00:00",
@@ -154,6 +168,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "1m ago"
+    },
+    {
+      "ts": "2026-07-01T12:20:02.929464+00:00",
+      "job": "Daily 8 AM Security A...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "2h ago"
     },
     {
       "ts": "2026-07-01T12:20:01.426482+00:00",
@@ -483,6 +504,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "1m ago"
+    },
+    {
+      "ts": "2026-07-01T10:20:02.929464+00:00",
+      "job": "Velocity (daily)",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "4h ago"
     },
     {
       "ts": "2026-07-01T10:20:02.218330+00:00",
@@ -945,6 +973,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "1m ago"
+    },
+    {
+      "ts": "2026-07-01T03:20:02.929464+00:00",
+      "job": "Daily 11 PM Backup (B...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "11h ago"
     },
     {
       "ts": "2026-07-01T03:20:02.187979+00:00",
@@ -1715,41 +1750,6 @@
       "kind": "system",
       "status": "warn",
       "msg": "[gen] cerebras error: HTTP Error 429: Too Many Requests \u2014 trying next engine"
-    },
-    {
-      "ts": "2026-06-30T19:40:02.106714+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-065: openclaw run timed out"
-    },
-    {
-      "ts": "2026-06-30T19:30:02.014230+00:00",
-      "job": "Hourly Check-in",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "2h ago"
-    },
-    {
-      "ts": "2026-06-30T19:30:01.532734+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-065: cerebras dispatch error: HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-06-30T19:29:01.532734+00:00",
-      "job": "Queue Tick 30m",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1m ago"
-    },
-    {
-      "ts": "2026-06-30T19:20:01.821755+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-071: openclaw run timed out"
     }
   ]
 }
