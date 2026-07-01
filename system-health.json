@@ -1,40 +1,96 @@
 {
-  "generatedAt": "2026-07-01T03:20:01.974701+00:00",
+  "generatedAt": "2026-07-01T03:30:01.595474+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 20.0,
+    "validator": 0.5,
     "observability": 10.0,
-    "guard": 2460.0,
-    "backup": 20.0,
+    "guard": 2470.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 118,
+    "done": 122,
     "backlog": 8,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "planned": 4
   },
   "tickets_total": 147,
-  "done_today": 7,
+  "done_today": 11,
   "delivered_today": 26,
-  "delivered_week": 44,
+  "delivered_week": 43,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 41,
+    "cerebras:gpt-oss-120b": 40,
     "openclaw": 3
   },
   "live_agents": [
     "Fortuna",
     "Gladiator",
     "Iris",
-    "Minerva"
+    "Minerva",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T03:29:34.093759+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-092",
+      "content": "PASS: The deliverable includes a complete headline, sub\u2011headline, benefits list, testimonial placeholder, CTA copy, and "
+    },
+    {
+      "ts": "2026-07-01T03:29:34.090734+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-091",
+      "content": "PASS: The document provides a complete step\u2011by\u2011step onboarding workflow, a concise process narrative, and a detailed sin"
+    },
+    {
+      "ts": "2026-07-01T03:29:34.077676+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-090",
+      "content": "PASS: The deliverable provides a complete, ready\u2011to\u2011use markdown playbook with live scripts, email snippets, FAQ entries"
+    },
+    {
+      "ts": "2026-07-01T03:29:34.058843+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-089",
+      "content": "PASS: The deliverable provides a complete Markdown pricing sheet with three tiered packages, feature lists, market conte"
+    },
+    {
+      "ts": "2026-07-01T03:24:45.957540+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-092",
+      "content": "[claude,openclaw,groq] Independently reviewing tom's deliverable"
+    },
+    {
+      "ts": "2026-07-01T03:24:45.945468+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-091",
+      "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-07-01T03:20:02.104960+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-090",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-07-01T03:20:02.100867+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-089",
+      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+    },
     {
       "ts": "2026-07-01T03:01:31.414749+00:00",
       "agent": "Minerva",
@@ -62,62 +118,6 @@
       "event": "delivered",
       "ticket": "AUTO-091",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-091-deliverable.md (8755b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T03:00:05.283397+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-089",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Package Sheet"
-    },
-    {
-      "ts": "2026-07-01T03:00:03.338404+00:00",
-      "agent": "Gladiator",
-      "event": "working",
-      "ticket": "AUTO-092",
-      "content": "[cerebras:gpt-oss-120b] attempting: Landing\u2011Page Copy & Single\u2011File HTML Template for AI FAQ Rec"
-    },
-    {
-      "ts": "2026-07-01T03:00:03.336605+00:00",
-      "agent": "Gladiator",
-      "event": "dispatched",
-      "ticket": "AUTO-092",
-      "content": "tom started work: Landing\u2011Page Copy & Single\u2011File HTML Template for AI FAQ Rec"
-    },
-    {
-      "ts": "2026-07-01T03:00:02.098577+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-089",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Package Sheet"
-    },
-    {
-      "ts": "2026-07-01T03:00:01.611692+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-089",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Package Sheet"
-    },
-    {
-      "ts": "2026-07-01T03:00:01.604074+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-090",
-      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Playbook for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T03:00:01.593388+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-091",
-      "content": "[cerebras:gpt-oss-120b] attempting: Client Onboarding Checklist & Process Document"
-    },
-    {
-      "ts": "2026-07-01T03:00:01.591670+00:00",
-      "agent": "Iris",
-      "event": "dispatched",
-      "ticket": "AUTO-091",
-      "content": "pm started work: Client Onboarding Checklist & Process Document"
     }
   ],
   "problems": {}

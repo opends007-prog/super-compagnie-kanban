@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-01T03:20:01.970201+00:00",
+  "generated": "2026-07-01T03:30:01.581001+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -1176,21 +1176,6 @@
       "status": "done",
       "events": [
         {
-          "ts": "2026-06-30T20:40:10.457864+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
-        },
-        {
-          "ts": "2026-06-30T20:40:22.707595+00:00",
-          "event": "delivered",
-          "content": "[cerebras:gpt-oss-120b] Produced AUTO-065-deliverable.md (10305b) \u2192 in_validation"
-        },
-        {
-          "ts": "2026-06-30T20:50:24.004348+00:00",
-          "event": "dispatched",
-          "content": "income started work: AI FAQ Receptionist Pricing & Packaging Guide"
-        },
-        {
           "ts": "2026-06-30T20:50:24.010202+00:00",
           "event": "working",
           "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing & Packaging Guide"
@@ -1251,11 +1236,6 @@
       "agent": "Fortuna",
       "status": "backlog",
       "events": [
-        {
-          "ts": "2026-06-30T20:40:10.430760+00:00",
-          "event": "validating",
-          "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
-        },
         {
           "ts": "2026-06-30T21:00:13.606008+00:00",
           "event": "validating",
@@ -2251,7 +2231,7 @@
     },
     "AUTO-089": {
       "agent": "Minerva",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-07-01T02:50:02.270427+00:00",
@@ -2292,6 +2272,16 @@
           "ts": "2026-07-01T03:01:31.414749+00:00",
           "event": "delivered",
           "content": "[openclaw] Produced AUTO-089-deliverable.md (4324b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-07-01T03:20:02.100867+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+        },
+        {
+          "ts": "2026-07-01T03:29:34.058843+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable provides a complete Markdown pricing sheet with three tiered packages, feature lists, market context, and sales points, fulfilling the ticket requirements."
         }
       ],
       "deliverable": {
@@ -2302,7 +2292,7 @@
     },
     "AUTO-090": {
       "agent": "Fortuna",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-07-01T02:50:02.274425+00:00",
@@ -2333,6 +2323,16 @@
           "ts": "2026-07-01T03:01:31.412215+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-090-deliverable.md (12334b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-07-01T03:20:02.104960+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+        },
+        {
+          "ts": "2026-07-01T03:29:34.077676+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable provides a complete, ready\u2011to\u2011use markdown playbook with live scripts, email snippets, FAQ entries, cheat sheet, and usage guidelines covering all listed objections."
         }
       ],
       "deliverable": {
@@ -2343,7 +2343,7 @@
     },
     "AUTO-091": {
       "agent": "Iris",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-07-01T02:50:02.273425+00:00",
@@ -2374,6 +2374,16 @@
           "ts": "2026-07-01T03:01:31.399787+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-091-deliverable.md (8755b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-07-01T03:24:45.945468+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+        },
+        {
+          "ts": "2026-07-01T03:29:34.090734+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The document provides a complete step\u2011by\u2011step onboarding workflow, a concise process narrative, and a detailed single-page checklist meeting the ticket requirements."
         }
       ],
       "deliverable": {
@@ -2384,7 +2394,7 @@
     },
     "AUTO-092": {
       "agent": "Gladiator",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-07-01T02:50:04.013129+00:00",
@@ -2415,6 +2425,16 @@
           "ts": "2026-07-01T03:01:31.413543+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-092-deliverable.md (5422b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-07-01T03:24:45.957540+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing tom's deliverable"
+        },
+        {
+          "ts": "2026-07-01T03:29:34.093759+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable includes a complete headline, sub\u2011headline, benefits list, testimonial placeholder, CTA copy, and a functional single\u2011file HTML with inline CSS ready for instant deployment."
         }
       ],
       "deliverable": {
@@ -2432,22 +2452,28 @@
       "ts": "2026-07-01T03:01:31.414749+00:00"
     },
     {
-      "agent": "Iris",
-      "ticket": "AUTO-091",
-      "event": "delivered",
-      "ts": "2026-07-01T03:01:31.399787+00:00"
-    },
-    {
       "agent": "Fortuna",
       "ticket": "AUTO-090",
       "event": "delivered",
       "ts": "2026-07-01T03:01:31.412215+00:00"
     },
     {
+      "agent": "Iris",
+      "ticket": "AUTO-091",
+      "event": "delivered",
+      "ts": "2026-07-01T03:01:31.399787+00:00"
+    },
+    {
       "agent": "Gladiator",
       "ticket": "AUTO-092",
       "event": "delivered",
       "ts": "2026-07-01T03:01:31.413543+00:00"
+    },
+    {
+      "agent": "nemesis",
+      "ticket": "AUTO-092",
+      "event": "validation_pass",
+      "ts": "2026-07-01T03:29:34.093759+00:00"
     }
   ]
 }
