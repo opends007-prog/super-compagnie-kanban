@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-01T02:20:01.838939+00:00",
+  "generated": "2026-07-01T02:30:01.842242+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -2129,18 +2129,8 @@
     },
     "AUTO-087": {
       "agent": "Minerva",
-      "status": "in_validation",
+      "status": "backlog",
       "events": [
-        {
-          "ts": "2026-07-01T01:10:02.016893+00:00",
-          "event": "dispatched",
-          "content": "analyst started work: One\u2011Page Sales Pitch for AI FAQ Receptionist"
-        },
-        {
-          "ts": "2026-07-01T01:10:02.019159+00:00",
-          "event": "working",
-          "content": "[cerebras:gpt-oss-120b] attempting: One\u2011Page Sales Pitch for AI FAQ Receptionist"
-        },
         {
           "ts": "2026-07-01T01:10:08.523280+00:00",
           "event": "delivered",
@@ -2190,6 +2180,16 @@
           "ts": "2026-07-01T02:00:01.596566+00:00",
           "event": "validating",
           "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+        },
+        {
+          "ts": "2026-07-01T02:20:01.976522+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+        },
+        {
+          "ts": "2026-07-01T02:24:45.678941+00:00",
+          "event": "validation_parked",
+          "content": "Parked after 2 fails: The deliverable provided is a comprehensive competitive analysis report rather than a one-page sales pitch that summarizes the value proposition, key benefits, and ROI for potential clients. It does not meet the requirements of the ticket AUTO-087 as it is not copy-ready for a sales pitch but rather"
         }
       ],
       "deliverable": {
@@ -2252,22 +2252,10 @@
   },
   "active": [
     {
-      "agent": "Iris",
-      "ticket": "AUTO-086",
-      "event": "delivered",
-      "ts": "2026-07-01T01:50:04.567234+00:00"
-    },
-    {
-      "agent": "Minerva",
-      "ticket": "AUTO-087",
-      "event": "delivered",
-      "ts": "2026-07-01T01:50:04.568401+00:00"
-    },
-    {
       "agent": "nemesis",
-      "ticket": "AUTO-086",
-      "event": "validation_pass",
-      "ts": "2026-07-01T02:04:46.391244+00:00"
+      "ticket": "AUTO-087",
+      "event": "validation_parked",
+      "ts": "2026-07-01T02:24:45.678941+00:00"
     }
   ]
 }

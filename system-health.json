@@ -1,24 +1,23 @@
 {
-  "generatedAt": "2026-07-01T02:20:01.862780+00:00",
+  "generatedAt": "2026-07-01T02:30:01.857085+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 15.3,
+    "validator": 5.3,
     "observability": 10.0,
-    "guard": 2400.0,
-    "backup": 20.0,
+    "guard": 2410.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 118,
-    "backlog": 7,
+    "backlog": 8,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 1
+    "planned": 4
   },
   "tickets_total": 143,
   "done_today": 7,
@@ -29,11 +28,23 @@
     "openclaw": 2
   },
   "live_agents": [
-    "Iris",
-    "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T02:24:45.678941+00:00",
+      "agent": "nemesis",
+      "event": "validation_parked",
+      "ticket": "AUTO-087",
+      "content": "Parked after 2 fails: The deliverable provided is a comprehensive competitive analysis report rather than a one-page sal"
+    },
+    {
+      "ts": "2026-07-01T02:20:01.976522+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-087",
+      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+    },
     {
       "ts": "2026-07-01T02:04:46.391244+00:00",
       "agent": "nemesis",
@@ -103,20 +114,6 @@
       "event": "validation_pass",
       "ticket": "AUTO-088",
       "content": "PASS: The deliverable provides a full markdown checklist covering relevance, accuracy, format, bias, and includes concre"
-    },
-    {
-      "ts": "2026-07-01T01:47:11.536411+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "AUTO-087",
-      "content": "FAIL #1: The deliverable is a competitive analysis, not a one\u2011page sales pitch with value proposition, benefits, and ROI"
-    },
-    {
-      "ts": "2026-07-01T01:47:11.534100+00:00",
-      "agent": "nemesis",
-      "event": "validation_fail",
-      "ticket": "AUTO-086",
-      "content": "FAIL #1: The deliverable is only a Markdown draft and does not include the required 2\u2011page PDF file, so it does not meet"
     }
   ],
   "problems": {}
