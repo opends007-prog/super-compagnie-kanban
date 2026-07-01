@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-07-01T01:40:01.282913+00:00",
+  "generatedAt": "2026-07-01T01:50:01.975060+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
     "work-executor": 10.0,
-    "validator": 20.0,
+    "validator": 2.8,
     "observability": 10.0,
-    "guard": 2360.0,
-    "backup": 10.0,
+    "guard": 2370.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 115,
+    "done": 117,
     "backlog": 7,
-    "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "in_progress": 15,
+    "planned": 4
   },
   "tickets_total": 143,
-  "done_today": 4,
+  "done_today": 6,
   "delivered_today": 16,
   "delivered_week": 34,
   "model_mix_week": {
@@ -32,9 +31,66 @@
     "Fortuna",
     "Iris",
     "Metis",
-    "Minerva"
+    "Minerva",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T01:47:11.547152+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-088",
+      "content": "PASS: The deliverable provides a full markdown checklist covering relevance, accuracy, format, bias, and includes concre"
+    },
+    {
+      "ts": "2026-07-01T01:47:11.536411+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "AUTO-087",
+      "content": "FAIL #1: The deliverable is a competitive analysis, not a one\u2011page sales pitch with value proposition, benefits, and ROI"
+    },
+    {
+      "ts": "2026-07-01T01:47:11.534100+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "AUTO-086",
+      "content": "FAIL #1: The deliverable is only a Markdown draft and does not include the required 2\u2011page PDF file, so it does not meet"
+    },
+    {
+      "ts": "2026-07-01T01:47:11.492705+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-085",
+      "content": "PASS: The deliverable provides a full markdown pricing sheet with three tiered plans, detailed feature lists, pricing ra"
+    },
+    {
+      "ts": "2026-07-01T01:44:43.383757+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-088",
+      "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-07-01T01:42:27.987395+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-087",
+      "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-07-01T01:40:01.386197+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-086",
+      "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-07-01T01:40:01.384890+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-085",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-07-01T01:30:03.980131+00:00",
       "agent": "Fortuna",
@@ -62,62 +118,6 @@
       "event": "no_deliverable",
       "ticket": "AUTO-085",
       "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T01:20:27.559375+00:00",
-      "agent": "Metis",
-      "event": "delivered",
-      "ticket": "AUTO-088",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-088-deliverable.md (10067b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T01:20:27.558500+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-087",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-087-deliverable.md (12827b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T01:20:27.556878+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "AUTO-086",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-086-deliverable.md (7720b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T01:20:04.885183+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-085",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T01:20:04.220553+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-088",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Quality Checklist for FAQ Training Corpus"
-    },
-    {
-      "ts": "2026-07-01T01:20:04.217906+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-088",
-      "content": "org-excellence started work: Data Quality Checklist for FAQ Training Corpus"
-    },
-    {
-      "ts": "2026-07-01T01:20:02.807998+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-085",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T01:20:02.345348+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-086",
-      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Guide for AI FAQ Receptionist"
     }
   ],
   "problems": {}

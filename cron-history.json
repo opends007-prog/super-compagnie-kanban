@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-01T01:40:01.292450+00:00",
+  "updated": "2026-07-01T01:50:01.978314+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T01:50:01.978314+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[validate]     AUTO-088: engine 'claude' gave no usable verdict \u2014 trying next in chain"
+    },
     {
       "ts": "2026-07-01T01:40:01.292450+00:00",
       "job": "real-work-executor",
@@ -98,6 +105,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "1m ago"
+    },
+    {
+      "ts": "2026-06-30T23:50:01.978314+00:00",
+      "job": "Hourly Check-in",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "2h ago"
     },
     {
       "ts": "2026-06-30T23:50:01.395659+00:00",
@@ -870,6 +884,13 @@
       "msg": "9h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-06-30T13:50:01.978314+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "12h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-06-30T13:50:01.931995+00:00",
       "job": "ticket-processor",
       "kind": "system",
@@ -1162,6 +1183,13 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "2h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-06-30T12:50:01.978314+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "13h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-06-30T12:50:01.715974+00:00",
@@ -1535,6 +1563,13 @@
       "msg": "3h ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed."
     },
     {
+      "ts": "2026-06-30T11:50:01.978314+00:00",
+      "job": "Lucy 8 AM Morning Mot...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "14h ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed."
+    },
+    {
       "ts": "2026-06-30T11:50:01.931995+00:00",
       "job": "Hourly Check-in",
       "kind": "discord-cron",
@@ -1715,41 +1750,6 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "13h ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed."
-    },
-    {
-      "ts": "2026-06-30T11:30:01.336367+00:00",
-      "job": "Lucy 8 AM Morning Mot...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "3h ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed."
-    },
-    {
-      "ts": "2026-06-30T11:30:01.331195+00:00",
-      "job": "Lucy 8 AM Morning Mot...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "12h ago \u00b7 groq/meta-llama/l... \u00b7 LLM request failed."
-    },
-    {
-      "ts": "2026-06-30T11:20:02.550497+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "3h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T11:20:02.328973+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "4h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-06-30T11:20:02.060294+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "7h ago \u00b7 groq/meta-llama/l..."
     }
   ]
 }
