@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-01T23:10:01.709906+00:00",
+  "updated": "2026-07-01T23:20:01.938615+00:00",
   "events": [
     {
       "ts": "2026-07-01T23:10:01.709906+00:00",
@@ -49,6 +49,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "1m ago"
+    },
+    {
+      "ts": "2026-07-01T22:20:01.938615+00:00",
+      "job": "Hourly Check-in",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1h ago"
     },
     {
       "ts": "2026-07-01T22:10:01.478319+00:00",
@@ -541,6 +548,13 @@
       "msg": "7h ago \u00b7 google/gemini-2.5..."
     },
     {
+      "ts": "2026-07-01T14:20:01.938615+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "9h ago \u00b7 google/gemini-2.5..."
+    },
+    {
       "ts": "2026-07-01T14:20:01.510886+00:00",
       "job": "Daily 10 AM Improvement",
       "kind": "discord-cron",
@@ -770,6 +784,13 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "8h ago \u00b7 google/gemini-2.5..."
+    },
+    {
+      "ts": "2026-07-01T13:20:01.938615+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "10h ago \u00b7 google/gemini-2.5..."
     },
     {
       "ts": "2026-07-01T13:20:01.510886+00:00",
@@ -1064,6 +1085,13 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "9h ago \u00b7 google/gemini-2.5..."
+    },
+    {
+      "ts": "2026-07-01T12:20:01.938615+00:00",
+      "job": "Lucy 8 AM Morning Mot...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "11h ago \u00b7 google/gemini-2.5..."
     },
     {
       "ts": "2026-07-01T12:20:01.510886+00:00",
@@ -1500,6 +1528,13 @@
       "msg": "10h ago \u00b7 google/gemini-2.5..."
     },
     {
+      "ts": "2026-07-01T11:20:01.938615+00:00",
+      "job": "Daily 7 AM Standup",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "12h ago \u00b7 google/gemini-2.5..."
+    },
+    {
       "ts": "2026-07-01T11:20:01.510886+00:00",
       "job": "Daily 7 AM Standup",
       "kind": "discord-cron",
@@ -1715,41 +1750,6 @@
       "kind": "system",
       "status": "warn",
       "msg": "[gen] cerebras error: HTTP Error 429: Too Many Requests \u2014 trying next engine"
-    },
-    {
-      "ts": "2026-07-01T10:50:01.400728+00:00",
-      "job": "Velocity (daily)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "1h ago"
-    },
-    {
-      "ts": "2026-07-01T10:50:01.281139+00:00",
-      "job": "Velocity (daily)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "7h ago"
-    },
-    {
-      "ts": "2026-07-01T10:50:01.281139+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "7h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-07-01T10:40:01.348299+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-117: cerebras dispatch error: HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-07-01T10:30:02.146016+00:00",
-      "job": "Velocity (daily)",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "10h ago"
     }
   ]
 }

@@ -1,40 +1,82 @@
 {
-  "generatedAt": "2026-07-01T23:10:01.711891+00:00",
+  "generatedAt": "2026-07-01T23:20:01.937124+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 5.2,
+    "work-executor": 9.9,
+    "validator": 15.2,
     "observability": 10.0,
-    "guard": 3650.0,
-    "backup": 10.0,
+    "guard": 3660.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 185,
     "backlog": 8,
-    "in_progress": 15,
-    "planned": 4
+    "in_progress": 13,
+    "planned": 4,
+    "in_validation": 2
   },
   "tickets_total": 212,
   "done_today": 74,
   "delivered_today": 36,
   "delivered_week": 36,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 33,
-    "openclaw": 3
+    "cerebras:gpt-oss-120b": 34,
+    "openclaw": 2
   },
   "live_agents": [
     "Fortuna",
     "Hades",
-    "Iris",
     "Metis",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T23:10:05.269429+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-155",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-155-deliverable.md (11857b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T23:10:05.267611+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-156",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-156-deliverable.md (10667b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T23:10:01.866155+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-156",
+      "content": "[cerebras:gpt-oss-120b] attempting: Client Onboarding Checklist for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T23:10:01.864317+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-156",
+      "content": "org-excellence started work: Client Onboarding Checklist for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T23:10:01.861913+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-155",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Privacy & Compliance Brief for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T23:10:01.860556+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-155",
+      "content": "security started work: Data Privacy & Compliance Brief for AI FAQ Receptionist"
+    },
     {
       "ts": "2026-07-01T23:04:49.024980+00:00",
       "agent": "nemesis",
@@ -76,48 +118,6 @@
       "event": "validation_pass",
       "ticket": "AUTO-151",
       "content": "PASS: The deliverable provides a comprehensive and detailed script for a 5-minute live demo of the AI FAQ Receptionist, "
-    },
-    {
-      "ts": "2026-07-01T23:02:31.013506+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-156",
-      "content": "[groq,claude,openclaw] Independently reviewing org-excellence's deliverable"
-    },
-    {
-      "ts": "2026-07-01T23:00:02.870202+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-155",
-      "content": "[groq,claude,openclaw] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-07-01T23:00:02.391233+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-154",
-      "content": "[groq,claude,openclaw] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-07-01T23:00:02.218640+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-153",
-      "content": "[groq,claude,openclaw] Independently reviewing pm's deliverable"
-    },
-    {
-      "ts": "2026-07-01T23:00:01.540363+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-152",
-      "content": "[groq,claude,openclaw] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-07-01T23:00:01.538673+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-151",
-      "content": "[groq,claude,openclaw] Independently reviewing pm's deliverable"
     }
   ],
   "problems": {}
