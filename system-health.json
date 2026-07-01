@@ -1,30 +1,32 @@
 {
-  "generatedAt": "2026-07-01T16:20:01.674037+00:00",
+  "generatedAt": "2026-07-01T16:30:02.018167+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.4,
-    "validator": 20.0,
+    "work-executor": 5.3,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 3240.0,
-    "backup": 19.9,
+    "guard": 3250.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 163,
-    "backlog": 9,
-    "in_progress": 16,
-    "planned": 4
+    "backlog": 8,
+    "in_progress": 15,
+    "planned": 4,
+    "in_validation": 2
   },
   "tickets_total": 192,
   "done_today": 52,
-  "delivered_today": 5,
-  "delivered_week": 5,
+  "delivered_today": 8,
+  "delivered_week": 8,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 5
+    "cerebras:gpt-oss-120b": 7,
+    "openclaw": 1
   },
   "live_agents": [
     "Fortuna",
@@ -34,88 +36,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T16:10:37.415044+00:00",
-      "agent": "Fortuna",
+      "ts": "2026-07-01T16:24:46.378632+00:00",
+      "agent": "Minerva",
       "event": "no_deliverable",
-      "ticket": "AUTO-133",
+      "ticket": "AUTO-134",
       "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-07-01T16:10:37.414184+00:00",
+      "ts": "2026-07-01T16:24:46.377646+00:00",
+      "agent": "Fortuna",
+      "event": "delivered",
+      "ticket": "AUTO-133",
+      "content": "[openclaw] Produced AUTO-133-deliverable.md (4114b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-01T16:24:46.376647+00:00",
       "agent": "Hades",
       "event": "delivered",
       "ticket": "AUTO-136",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-136-deliverable.md (9673b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-136-deliverable.md (11410b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T16:10:37.413438+00:00",
-      "agent": "Minerva",
-      "event": "delivered",
-      "ticket": "AUTO-134",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-134-deliverable.md (13669b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-01T16:10:37.410239+00:00",
+      "ts": "2026-07-01T16:24:46.367444+00:00",
       "agent": "Iris",
       "event": "delivered",
       "ticket": "AUTO-135",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-135-deliverable.md (4733b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-135-deliverable.md (5347b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T16:10:12.800997+00:00",
+      "ts": "2026-07-01T16:20:06.150995+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-134",
+      "content": "[openclaw] attempting: Objection-Handling Guide for AI FAQ Receptionist Sales Calls"
+    },
+    {
+      "ts": "2026-07-01T16:20:05.861104+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-133",
       "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
     },
     {
-      "ts": "2026-07-01T16:10:03.778198+00:00",
+      "ts": "2026-07-01T16:20:03.567186+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-133",
       "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
     },
     {
-      "ts": "2026-07-01T16:10:02.590621+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-136",
-      "content": "[cerebras:gpt-oss-120b] attempting: VM Security Hardening Checklist for Agent Deployment"
-    },
-    {
-      "ts": "2026-07-01T16:10:02.589550+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-136",
-      "content": "security started work: VM Security Hardening Checklist for Agent Deployment"
-    },
-    {
-      "ts": "2026-07-01T16:10:01.346493+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-135",
-      "content": "[cerebras:gpt-oss-120b] attempting: Landing Page Copy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T16:10:01.345378+00:00",
+      "ts": "2026-07-01T16:20:03.094573+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-133",
       "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
     },
     {
-      "ts": "2026-07-01T16:10:01.344738+00:00",
-      "agent": "Iris",
+      "ts": "2026-07-01T16:20:03.092305+00:00",
+      "agent": "Fortuna",
       "event": "dispatched",
-      "ticket": "AUTO-135",
-      "content": "pm started work: Landing Page Copy for AI FAQ Receptionist"
+      "ticket": "AUTO-133",
+      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
     },
     {
-      "ts": "2026-07-01T16:10:01.343770+00:00",
+      "ts": "2026-07-01T16:20:02.070300+00:00",
       "agent": "Minerva",
       "event": "working",
       "ticket": "AUTO-134",
-      "content": "[cerebras:gpt-oss-120b] attempting: Objection-Handling Guide for AI FAQ Receptionist Sales Calls"
+      "content": "[claude:owl-alpha] attempting: Objection-Handling Guide for AI FAQ Receptionist Sales Calls"
+    },
+    {
+      "ts": "2026-07-01T16:20:01.804866+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-136",
+      "content": "[cerebras:gpt-oss-120b] attempting: VM Security Hardening Checklist for Agent Deployment"
+    },
+    {
+      "ts": "2026-07-01T16:20:01.803094+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-136",
+      "content": "security started work: VM Security Hardening Checklist for Agent Deployment"
     }
   ],
   "problems": {}
