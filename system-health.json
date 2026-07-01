@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-07-01T00:40:01.894377+00:00",
+  "generatedAt": "2026-07-01T00:50:01.712943+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
     "work-executor": 10.0,
-    "validator": 20.0,
+    "validator": 3.9,
     "observability": 10.0,
-    "guard": 2300.0,
-    "backup": 10.0,
+    "guard": 2310.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 111,
+    "done": 115,
     "backlog": 7,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "planned": 4
   },
   "tickets_total": 139,
-  "done_today": 0,
+  "done_today": 4,
   "delivered_today": 8,
   "delivered_week": 26,
   "model_mix_week": {
@@ -32,9 +31,66 @@
     "Fortuna",
     "Hades",
     "Iris",
-    "Vulcan"
+    "Vulcan",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T00:46:10.296053+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-084",
+      "content": "PASS: The checklist fully covers GDPR, CCPA, data retention, encryption, access controls, and incident\u2011response with act"
+    },
+    {
+      "ts": "2026-07-01T00:46:10.291081+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-083",
+      "content": "PASS: The deliverable provides a complete CSV with 60 rows covering 20 FAQ topics for each of the three industries, incl"
+    },
+    {
+      "ts": "2026-07-01T00:46:10.287993+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-082",
+      "content": "PASS: The markdown document fully addresses the ticket requirements, covering pain points, solution, benefits, pricing t"
+    },
+    {
+      "ts": "2026-07-01T00:46:10.278663+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-081",
+      "content": "PASS: The deliverable provides a complete markdown pricing sheet with researched SaaS comparables, three tiered packages"
+    },
+    {
+      "ts": "2026-07-01T00:44:37.651539+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-084",
+      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-07-01T00:42:23.830301+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-083",
+      "content": "[claude,openclaw,groq] Independently reviewing data-engineer's deliverable"
+    },
+    {
+      "ts": "2026-07-01T00:40:01.997380+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-082",
+      "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-07-01T00:40:01.996040+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-081",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-07-01T00:30:03.895206+00:00",
       "agent": "Fortuna",
@@ -62,62 +118,6 @@
       "event": "no_deliverable",
       "ticket": "AUTO-081",
       "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T00:20:53.374652+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-084",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-084-deliverable.md (13655b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T00:20:53.372576+00:00",
-      "agent": "Vulcan",
-      "event": "delivered",
-      "ticket": "AUTO-083",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-083-deliverable.md (9361b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T00:20:53.370132+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "AUTO-082",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-082-deliverable.md (6044b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T00:20:05.647679+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-081",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T00:20:03.241173+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-084",
-      "content": "[cerebras:gpt-oss-120b] attempting: Client Data Privacy & Compliance Checklist for AI FAQ Recept"
-    },
-    {
-      "ts": "2026-07-01T00:20:03.239690+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-084",
-      "content": "security started work: Client Data Privacy & Compliance Checklist for AI FAQ Recept"
-    },
-    {
-      "ts": "2026-07-01T00:20:01.878445+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-081",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T00:20:01.387105+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-082",
-      "content": "[cerebras:gpt-oss-120b] attempting: One-Page Sales Pitch for AI FAQ Receptionist"
     }
   ],
   "problems": {}

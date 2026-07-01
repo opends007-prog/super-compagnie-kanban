@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-01T00:40:01.871145+00:00",
+  "generated": "2026-07-01T00:50:01.706869+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -1753,13 +1753,8 @@
     },
     "AUTO-081": {
       "agent": "Fortuna",
-      "status": "in_validation",
+      "status": "done",
       "events": [
-        {
-          "ts": "2026-07-01T00:10:01.890667+00:00",
-          "event": "dispatched",
-          "content": "income started work: AI FAQ Receptionist Pricing Sheet"
-        },
         {
           "ts": "2026-07-01T00:10:01.895695+00:00",
           "event": "working",
@@ -1809,6 +1804,16 @@
           "ts": "2026-07-01T00:30:03.895206+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-081-deliverable.md (8696b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-07-01T00:40:01.996040+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+        },
+        {
+          "ts": "2026-07-01T00:46:10.278663+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable provides a complete markdown pricing sheet with researched SaaS comparables, three tiered packages, fees, query limits, and supporting tables ready for web copy and sales collateral."
         }
       ],
       "deliverable": {
@@ -1819,7 +1824,7 @@
     },
     "AUTO-082": {
       "agent": "Iris",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-07-01T00:10:01.892184+00:00",
@@ -1860,6 +1865,16 @@
           "ts": "2026-07-01T00:20:53.370132+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-082-deliverable.md (6044b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-07-01T00:40:01.997380+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+        },
+        {
+          "ts": "2026-07-01T00:46:10.287993+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The markdown document fully addresses the ticket requirements, covering pain points, solution, benefits, pricing tiers, and a clear call\u2011to\u2011action in a concise, PDF\u2011ready format."
         }
       ],
       "deliverable": {
@@ -1870,7 +1885,7 @@
     },
     "AUTO-083": {
       "agent": "Vulcan",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-07-01T00:10:01.893403+00:00",
@@ -1901,6 +1916,16 @@
           "ts": "2026-07-01T00:20:53.372576+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-083-deliverable.md (9361b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-07-01T00:42:23.830301+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing data-engineer's deliverable"
+        },
+        {
+          "ts": "2026-07-01T00:46:10.291081+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The deliverable provides a complete CSV with 60 rows covering 20 FAQ topics for each of the three industries, includes example questions, answer categories, and citations, meeting all ticket requirements."
         }
       ],
       "deliverable": {
@@ -1911,7 +1936,7 @@
     },
     "AUTO-084": {
       "agent": "Hades",
-      "status": "in_validation",
+      "status": "done",
       "events": [
         {
           "ts": "2026-07-01T00:10:07.273598+00:00",
@@ -1942,6 +1967,16 @@
           "ts": "2026-07-01T00:20:53.374652+00:00",
           "event": "delivered",
           "content": "[cerebras:gpt-oss-120b] Produced AUTO-084-deliverable.md (13655b) \u2192 in_validation"
+        },
+        {
+          "ts": "2026-07-01T00:44:37.651539+00:00",
+          "event": "validating",
+          "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
+        },
+        {
+          "ts": "2026-07-01T00:46:10.296053+00:00",
+          "event": "validation_pass",
+          "content": "PASS: The checklist fully covers GDPR, CCPA, data retention, encryption, access controls, and incident\u2011response with actionable items and verification details, meeting the ticket requirements."
         }
       ],
       "deliverable": {
@@ -1959,6 +1994,12 @@
       "ts": "2026-07-01T00:30:03.895206+00:00"
     },
     {
+      "agent": "Hades",
+      "ticket": "AUTO-084",
+      "event": "delivered",
+      "ts": "2026-07-01T00:20:53.374652+00:00"
+    },
+    {
       "agent": "Iris",
       "ticket": "AUTO-082",
       "event": "delivered",
@@ -1971,10 +2012,10 @@
       "ts": "2026-07-01T00:20:53.372576+00:00"
     },
     {
-      "agent": "Hades",
+      "agent": "nemesis",
       "ticket": "AUTO-084",
-      "event": "delivered",
-      "ts": "2026-07-01T00:20:53.374652+00:00"
+      "event": "validation_pass",
+      "ts": "2026-07-01T00:46:10.296053+00:00"
     }
   ]
 }
