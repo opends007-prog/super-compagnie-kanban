@@ -1,35 +1,35 @@
 {
-  "generatedAt": "2026-07-01T14:30:01.416905+00:00",
+  "generatedAt": "2026-07-01T14:40:03.385293+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 4.8,
-    "validator": 4.8,
+    "work-executor": 5.1,
+    "validator": 14.9,
     "observability": 10.0,
-    "guard": 3130.0,
-    "backup": 29.9,
-    "site-sync": 5.0
+    "guard": 3140.0,
+    "backup": 10.0,
+    "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 159,
     "backlog": 9,
-    "in_progress": 16,
-    "planned": 4
+    "in_progress": 15,
+    "planned": 4,
+    "in_validation": 1
   },
   "tickets_total": 188,
   "done_today": 48,
-  "delivered_today": 8,
-  "delivered_week": 8,
+  "delivered_today": 9,
+  "delivered_week": 9,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 7,
+    "cerebras:gpt-oss-120b": 8,
     "openclaw": 1
   },
   "live_agents": [
     "Fortuna",
-    "Iris",
     "Metis",
     "Nemesis",
     "Thor",
@@ -37,88 +37,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T14:25:11.936263+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-130",
-      "content": "PASS: The deliverable provides a comprehensive and complete copy for a single-page landing site promoting the AI FAQ Rec"
-    },
-    {
-      "ts": "2026-07-01T14:25:10.778414+00:00",
-      "agent": "Nemesis",
-      "event": "no_deliverable",
-      "ticket": "AUTO-131",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T14:25:10.777352+00:00",
-      "agent": "Thor",
-      "event": "no_deliverable",
-      "ticket": "STORY-204",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T14:25:10.775221+00:00",
+      "ts": "2026-07-01T14:34:59.684680+00:00",
       "agent": "Fortuna",
       "event": "no_deliverable",
       "ticket": "AUTO-129",
       "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     },
     {
-      "ts": "2026-07-01T14:25:10.765716+00:00",
+      "ts": "2026-07-01T14:34:59.682906+00:00",
+      "agent": "Nemesis",
+      "event": "no_deliverable",
+      "ticket": "AUTO-131",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-01T14:34:59.676869+00:00",
+      "agent": "Thor",
+      "event": "no_deliverable",
+      "ticket": "STORY-204",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-01T14:34:59.640036+00:00",
       "agent": "Metis",
       "event": "delivered",
       "ticket": "AUTO-132",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-132-deliverable.md (9264b) \u2192 in_validation"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-132-deliverable.md (11181b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-01T14:20:30.336226+00:00",
-      "agent": "Nemesis",
-      "event": "working",
-      "ticket": "AUTO-131",
-      "content": "[openclaw] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
-    },
-    {
-      "ts": "2026-07-01T14:20:30.273402+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "STORY-204",
-      "content": "[openclaw] attempting: [self-heal] openclaw-gateway.service keeps crashing"
-    },
-    {
-      "ts": "2026-07-01T14:20:30.264260+00:00",
+      "ts": "2026-07-01T14:30:19.199875+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-129",
       "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
     },
     {
-      "ts": "2026-07-01T14:20:06.005370+00:00",
+      "ts": "2026-07-01T14:30:18.793788+00:00",
+      "agent": "Thor",
+      "event": "working",
+      "ticket": "STORY-204",
+      "content": "[openclaw] attempting: [self-heal] openclaw-gateway.service keeps crashing"
+    },
+    {
+      "ts": "2026-07-01T14:30:18.779234+00:00",
+      "agent": "Nemesis",
+      "event": "working",
+      "ticket": "AUTO-131",
+      "content": "[openclaw] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
+    },
+    {
+      "ts": "2026-07-01T14:30:07.059148+00:00",
       "agent": "Nemesis",
       "event": "working",
       "ticket": "AUTO-131",
       "content": "[claude:owl-alpha] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
     },
     {
-      "ts": "2026-07-01T14:20:05.474970+00:00",
+      "ts": "2026-07-01T14:30:05.601982+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-129",
+      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T14:30:04.601783+00:00",
       "agent": "Nemesis",
       "event": "working",
       "ticket": "AUTO-131",
       "content": "[cerebras:gpt-oss-120b] attempting: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
     },
     {
-      "ts": "2026-07-01T14:20:05.467351+00:00",
+      "ts": "2026-07-01T14:30:04.598089+00:00",
       "agent": "Nemesis",
       "event": "dispatched",
       "ticket": "AUTO-131",
       "content": "nemesis started work: Compliance Gap Analysis for AI FAQ Receptionist Data Handlin"
     },
     {
-      "ts": "2026-07-01T14:20:04.183157+00:00",
-      "agent": "Fortuna",
+      "ts": "2026-07-01T14:30:02.549718+00:00",
+      "agent": "Thor",
       "event": "working",
-      "ticket": "AUTO-129",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
+      "ticket": "STORY-204",
+      "content": "[claude:owl-alpha] attempting: [self-heal] openclaw-gateway.service keeps crashing"
     }
   ],
   "problems": {}
