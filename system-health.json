@@ -1,123 +1,84 @@
 {
-  "generatedAt": "2026-07-01T13:00:02.056989+00:00",
+  "generatedAt": "2026-07-01T13:10:02.030884+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
-    "work-executor": 5.2,
-    "validator": 20.0,
+    "work-executor": 10.0,
+    "validator": 2.7,
     "observability": 10.0,
-    "guard": 3040.0,
-    "backup": 30.0,
+    "guard": 3050.0,
+    "backup": 9.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 154,
+    "done": 157,
     "backlog": 8,
     "in_progress": 14,
-    "planned": 4,
-    "in_validation": 3
+    "planned": 4
   },
   "tickets_total": 183,
-  "done_today": 43,
-  "delivered_today": 17,
-  "delivered_week": 17,
+  "done_today": 46,
+  "delivered_today": 1,
+  "delivered_week": 1,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 14,
-    "openclaw": 3
+    "cerebras:gpt-oss-120b": 1
   },
   "live_agents": [
-    "Hades",
-    "Metis",
     "Minerva",
-    "Vulcan"
+    "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T12:54:48.147844+00:00",
-      "agent": "Minerva",
-      "event": "no_deliverable",
-      "ticket": "AUTO-125",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T12:54:48.136096+00:00",
-      "agent": "Hades",
-      "event": "delivered",
+      "ts": "2026-07-01T13:07:19.640255+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
       "ticket": "AUTO-128",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-128-deliverable.md (14592b) \u2192 in_validation"
+      "content": "PASS: The deliverable provides a comprehensive and detailed checklist covering all aspects of data security for FAQ Rece"
     },
     {
-      "ts": "2026-07-01T12:50:07.858259+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-125",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T12:50:02.281672+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-125",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T12:50:01.840428+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-128",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Security Checklist for FAQ Receptionist Deployments"
-    },
-    {
-      "ts": "2026-07-01T12:50:01.839895+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-128",
-      "content": "security started work: Data Security Checklist for FAQ Receptionist Deployments"
-    },
-    {
-      "ts": "2026-07-01T12:50:01.838920+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-125",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T12:50:01.838068+00:00",
-      "agent": "Minerva",
-      "event": "dispatched",
-      "ticket": "AUTO-125",
-      "content": "analyst started work: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T12:44:45.763439+00:00",
-      "agent": "Minerva",
-      "event": "no_deliverable",
-      "ticket": "AUTO-125",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T12:44:45.761487+00:00",
-      "agent": "Hades",
-      "event": "no_deliverable",
-      "ticket": "AUTO-128",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T12:44:45.758886+00:00",
-      "agent": "Metis",
-      "event": "delivered",
+      "ts": "2026-07-01T13:07:19.636732+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
       "ticket": "AUTO-127",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-127-deliverable.md (14260b) \u2192 in_validation"
+      "content": "PASS: The deliverable provides a complete markdown playbook with the top 10 objections, concise core answers, rebuttal p"
     },
     {
-      "ts": "2026-07-01T12:44:45.741346+00:00",
-      "agent": "Vulcan",
-      "event": "delivered",
+      "ts": "2026-07-01T13:07:19.632471+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
       "ticket": "AUTO-126",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-126-deliverable.md (13649b) \u2192 in_validation"
+      "content": "PASS: The deliverable provides a complete and detailed CSV dataset of high-value prospect segments for an AI-driven FAQ "
+    },
+    {
+      "ts": "2026-07-01T13:03:40.399541+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-128",
+      "content": "[claude,openclaw,groq] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-07-01T13:00:04.658303+00:00",
+      "agent": "Minerva",
+      "event": "delivered",
+      "ticket": "AUTO-125",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-125-deliverable.md (8631b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T13:00:02.288638+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-127",
+      "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-07-01T13:00:02.284081+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-126",
+      "content": "[claude,openclaw,groq] Independently reviewing data-engineer's deliverable"
     }
   ],
   "problems": {}
