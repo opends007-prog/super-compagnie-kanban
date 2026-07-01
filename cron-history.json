@@ -1,6 +1,27 @@
 {
-  "updated": "2026-07-01T14:20:02.929464+00:00",
+  "updated": "2026-07-01T14:30:01.490085+00:00",
   "events": [
+    {
+      "ts": "2026-07-01T14:30:01.490085+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-131: openclaw run timed out"
+    },
+    {
+      "ts": "2026-07-01T14:30:01.490085+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[validate]     AUTO-130: engine 'openclaw' gave no usable verdict \u2014 trying next in chain"
+    },
+    {
+      "ts": "2026-07-01T14:29:01.490085+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-07-01T14:20:02.929464+00:00",
       "job": "real-work-executor",
@@ -154,6 +175,13 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "1h ago"
+    },
+    {
+      "ts": "2026-07-01T12:30:01.490085+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "2h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T12:30:01.300084+00:00",
@@ -317,6 +345,13 @@
       "msg": "2h ago \u00b7 groq/meta-llama/l..."
     },
     {
+      "ts": "2026-07-01T11:30:01.490085+00:00",
+      "job": "Lucy 8 AM Morning Mot...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "3h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-07-01T11:30:01.366893+00:00",
       "job": "validate-work",
       "kind": "system",
@@ -478,6 +513,13 @@
       "msg": "[validate]     AUTO-119: engine 'openclaw' gave no usable verdict \u2014 trying next in chain"
     },
     {
+      "ts": "2026-07-01T10:30:01.490085+00:00",
+      "job": "Daily 7 AM Standup",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "4h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
       "ts": "2026-07-01T10:30:01.300084+00:00",
       "job": "Velocity (daily)",
       "kind": "discord-cron",
@@ -637,6 +679,13 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "4h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T09:30:01.490085+00:00",
+      "job": "Daily 6 AM Memory Mai...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "5h ago \u00b7 groq/meta-llama/l..."
     },
     {
       "ts": "2026-07-01T09:30:01.366893+00:00",
@@ -1701,55 +1750,6 @@
       "kind": "system",
       "status": "warn",
       "msg": "[work]   AUTO-069: openclaw run timed out"
-    },
-    {
-      "ts": "2026-06-30T20:10:03.411835+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-069: openclaw run timed out"
-    },
-    {
-      "ts": "2026-06-30T20:10:03.411835+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[validate]     AUTO-071: no usable verdict #1 (model unavailable?) \u2014 staying in_validation, retry next run"
-    },
-    {
-      "ts": "2026-06-30T20:10:03.411835+00:00",
-      "job": "generate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[gen] groq error: HTTP Error 429: Too Many Requests \u2014 trying next engine"
-    },
-    {
-      "ts": "2026-06-30T20:00:05.307238+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-072: openclaw run timed out"
-    },
-    {
-      "ts": "2026-06-30T19:50:02.267397+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-071: openclaw run timed out"
-    },
-    {
-      "ts": "2026-06-30T19:50:02.267397+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[validate]     AUTO-070: engine 'openclaw' gave no usable verdict \u2014 trying next in chain"
-    },
-    {
-      "ts": "2026-06-30T19:50:02.267397+00:00",
-      "job": "generate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[gen] cerebras error: HTTP Error 429: Too Many Requests \u2014 trying next engine"
     }
   ]
 }
