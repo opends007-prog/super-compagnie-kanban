@@ -1,40 +1,82 @@
 {
-  "generatedAt": "2026-07-01T01:50:01.975060+00:00",
+  "generatedAt": "2026-07-01T02:00:01.476487+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 1,
+  "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 2.8,
+    "work-executor": 9.9,
+    "validator": 12.8,
     "observability": 10.0,
-    "guard": 2370.0,
-    "backup": 20.0,
+    "guard": 2380.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 117,
     "backlog": 7,
-    "in_progress": 15,
-    "planned": 4
+    "in_progress": 13,
+    "planned": 4,
+    "in_validation": 2
   },
   "tickets_total": 143,
   "done_today": 6,
-  "delivered_today": 16,
-  "delivered_week": 34,
+  "delivered_today": 18,
+  "delivered_week": 36,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 32,
+    "cerebras:gpt-oss-120b": 34,
     "openclaw": 2
   },
   "live_agents": [
     "Fortuna",
     "Iris",
-    "Metis",
     "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T01:50:04.568401+00:00",
+      "agent": "Minerva",
+      "event": "delivered",
+      "ticket": "AUTO-087",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-087-deliverable.md (11922b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T01:50:04.567234+00:00",
+      "agent": "Iris",
+      "event": "delivered",
+      "ticket": "AUTO-086",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-086-deliverable.md (7900b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T01:50:02.148450+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-087",
+      "content": "[cerebras:gpt-oss-120b] attempting: One\u2011Page Sales Pitch for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T01:50:02.146748+00:00",
+      "agent": "Minerva",
+      "event": "dispatched",
+      "ticket": "AUTO-087",
+      "content": "analyst started work: One\u2011Page Sales Pitch for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T01:50:02.144845+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "AUTO-086",
+      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Guide for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T01:50:02.143249+00:00",
+      "agent": "Iris",
+      "event": "dispatched",
+      "ticket": "AUTO-086",
+      "content": "pm started work: Objection\u2011Handling Guide for AI FAQ Receptionist"
+    },
     {
       "ts": "2026-07-01T01:47:11.547152+00:00",
       "agent": "nemesis",
@@ -76,48 +118,6 @@
       "event": "validating",
       "ticket": "AUTO-087",
       "content": "[claude,openclaw,groq] Independently reviewing analyst's deliverable"
-    },
-    {
-      "ts": "2026-07-01T01:40:01.386197+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-086",
-      "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
-    },
-    {
-      "ts": "2026-07-01T01:40:01.384890+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-085",
-      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
-    },
-    {
-      "ts": "2026-07-01T01:30:03.980131+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-085",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-085-deliverable.md (8590b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T01:30:01.813654+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-085",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T01:30:01.812321+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-085",
-      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T01:20:27.560565+00:00",
-      "agent": "Fortuna",
-      "event": "no_deliverable",
-      "ticket": "AUTO-085",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
     }
   ],
   "problems": {}
