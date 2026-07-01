@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-07-01T10:20:02.174344+00:00",
+  "generatedAt": "2026-07-01T10:30:01.920205+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 0.0,
-    "validator": 0.0,
+    "work-executor": 5.2,
+    "validator": 5.2,
     "observability": 10.0,
-    "guard": 2880.0,
-    "backup": 19.9,
+    "guard": 2890.0,
+    "backup": 29.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 146,
+    "done": 147,
     "backlog": 8,
     "in_progress": 16,
-    "planned": 4,
-    "in_validation": 1
+    "planned": 4
   },
   "tickets_total": 175,
-  "done_today": 35,
+  "done_today": 36,
   "delivered_today": 34,
   "delivered_week": 34,
   "model_mix_week": {
@@ -36,6 +35,62 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T10:24:51.154758+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-119",
+      "content": "PASS: The deliverable provides a comprehensive and detailed security checklist for the FAQ Receptionist Data Handling, c"
+    },
+    {
+      "ts": "2026-07-01T10:24:50.349112+00:00",
+      "agent": "Minerva",
+      "event": "no_deliverable",
+      "ticket": "AUTO-118",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-01T10:24:50.345317+00:00",
+      "agent": "Fortuna",
+      "event": "no_deliverable",
+      "ticket": "AUTO-117",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-01T10:24:50.317192+00:00",
+      "agent": "Thor",
+      "event": "delivered",
+      "ticket": "AUTO-120",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-120-deliverable.md (8591b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T10:20:10.064805+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-117",
+      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T10:20:10.019187+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-118",
+      "content": "[openclaw] attempting: Client Persona Profiles for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-01T10:20:03.147200+00:00",
+      "agent": "Fortuna",
+      "event": "working",
+      "ticket": "AUTO-117",
+      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T10:20:02.914188+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-118",
+      "content": "[claude:owl-alpha] attempting: Client Persona Profiles for AI FAQ Receptionist"
+    },
     {
       "ts": "2026-07-01T10:20:02.347925+00:00",
       "agent": "nemesis",
@@ -63,62 +118,6 @@
       "event": "dispatched",
       "ticket": "AUTO-120",
       "content": "devops started work: VM Deployment Blueprint for Single\u2011Agent POC"
-    },
-    {
-      "ts": "2026-07-01T10:20:02.311322+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-118",
-      "content": "[cerebras:gpt-oss-120b] attempting: Client Persona Profiles for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T10:20:02.283255+00:00",
-      "agent": "Minerva",
-      "event": "dispatched",
-      "ticket": "AUTO-118",
-      "content": "analyst started work: Client Persona Profiles for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T10:20:02.278204+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-117",
-      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-01T10:14:46.680410+00:00",
-      "agent": "Minerva",
-      "event": "no_deliverable",
-      "ticket": "AUTO-118",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T10:14:46.673434+00:00",
-      "agent": "Fortuna",
-      "event": "no_deliverable",
-      "ticket": "AUTO-117",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T10:14:46.650463+00:00",
-      "agent": "Thor",
-      "event": "delivered",
-      "ticket": "AUTO-120",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-120-deliverable.md (10436b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-01T10:10:06.450203+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-118",
-      "content": "[openclaw] attempting: Client Persona Profiles for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-01T10:10:06.438410+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-117",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
     }
   ],
   "problems": {}
