@@ -1,36 +1,58 @@
 {
-  "generatedAt": "2026-07-01T13:10:02.030884+00:00",
+  "generatedAt": "2026-07-01T13:20:01.434656+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 1,
+  "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 2.7,
+    "work-executor": 9.9,
+    "validator": 12.7,
     "observability": 10.0,
-    "guard": 3050.0,
-    "backup": 9.9,
+    "guard": 3060.0,
+    "backup": 19.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 157,
     "backlog": 8,
-    "in_progress": 14,
-    "planned": 4
+    "in_progress": 13,
+    "planned": 4,
+    "in_validation": 1
   },
   "tickets_total": 183,
   "done_today": 46,
-  "delivered_today": 1,
-  "delivered_week": 1,
+  "delivered_today": 2,
+  "delivered_week": 2,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 1
+    "cerebras:gpt-oss-120b": 2
   },
   "live_agents": [
     "Minerva",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T13:10:08.269616+00:00",
+      "agent": "Minerva",
+      "event": "delivered",
+      "ticket": "AUTO-125",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-125-deliverable.md (10472b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T13:10:02.216404+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-125",
+      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-01T13:10:02.215496+00:00",
+      "agent": "Minerva",
+      "event": "dispatched",
+      "ticket": "AUTO-125",
+      "content": "analyst started work: AI FAQ Receptionist Pricing Sheet"
+    },
     {
       "ts": "2026-07-01T13:07:19.640255+00:00",
       "agent": "nemesis",
