@@ -1,40 +1,103 @@
 {
-  "generatedAt": "2026-07-01T18:00:01.315966+00:00",
+  "generatedAt": "2026-07-01T18:10:01.873038+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
-    "work-executor": 5.6,
-    "validator": 20.0,
+    "work-executor": 9.9,
+    "validator": 3.7,
     "observability": 10.0,
-    "guard": 3340.0,
-    "backup": 30.0,
+    "guard": 3350.0,
+    "backup": 9.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 167,
+    "done": 170,
     "backlog": 8,
     "in_progress": 14,
-    "planned": 4,
-    "in_validation": 3
+    "planned": 4
   },
   "tickets_total": 196,
-  "done_today": 56,
-  "delivered_today": 18,
-  "delivered_week": 18,
+  "done_today": 59,
+  "delivered_today": 19,
+  "delivered_week": 19,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 16,
+    "cerebras:gpt-oss-120b": 17,
     "openclaw": 2
   },
   "live_agents": [
     "Fortuna",
     "Iris",
     "Metis",
-    "Minerva"
+    "Minerva",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-01T18:06:19.113345+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-140",
+      "content": "PASS: The deliverable provides a comprehensive objection-handling guide for AI FAQ Receptionist sales calls, covering th"
+    },
+    {
+      "ts": "2026-07-01T18:06:19.109620+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-139",
+      "content": "PASS: The deliverable is complete, well-structured, and meets all specified criteria for the landing page copy."
+    },
+    {
+      "ts": "2026-07-01T18:06:19.101481+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-137",
+      "content": "PASS: The deliverable provides a comprehensive pricing sheet for the AI FAQ Receptionist, including three tiered plans ("
+    },
+    {
+      "ts": "2026-07-01T18:03:20.219988+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-140",
+      "content": "[claude,openclaw,groq] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-07-01T18:00:06.346562+00:00",
+      "agent": "Minerva",
+      "event": "delivered",
+      "ticket": "AUTO-138",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-138-deliverable.md (7825b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-01T18:00:01.550600+00:00",
+      "agent": "Minerva",
+      "event": "working",
+      "ticket": "AUTO-138",
+      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Provider Cold Outreach Email Sequence"
+    },
+    {
+      "ts": "2026-07-01T18:00:01.549872+00:00",
+      "agent": "Minerva",
+      "event": "dispatched",
+      "ticket": "AUTO-138",
+      "content": "analyst started work: Healthcare Provider Cold Outreach Email Sequence"
+    },
+    {
+      "ts": "2026-07-01T18:00:01.538290+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-139",
+      "content": "[claude,openclaw,groq] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-07-01T18:00:01.535993+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-137",
+      "content": "[claude,openclaw,groq] Independently reviewing income's deliverable"
+    },
     {
       "ts": "2026-07-01T17:54:26.221892+00:00",
       "agent": "Minerva",
@@ -55,69 +118,6 @@
       "event": "working",
       "ticket": "AUTO-138",
       "content": "[openclaw] attempting: Healthcare Provider Cold Outreach Email Sequence"
-    },
-    {
-      "ts": "2026-07-01T17:50:02.053781+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-138",
-      "content": "[claude:owl-alpha] attempting: Healthcare Provider Cold Outreach Email Sequence"
-    },
-    {
-      "ts": "2026-07-01T17:50:01.441722+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-138",
-      "content": "[cerebras:gpt-oss-120b] attempting: Healthcare Provider Cold Outreach Email Sequence"
-    },
-    {
-      "ts": "2026-07-01T17:50:01.441194+00:00",
-      "agent": "Minerva",
-      "event": "dispatched",
-      "ticket": "AUTO-138",
-      "content": "analyst started work: Healthcare Provider Cold Outreach Email Sequence"
-    },
-    {
-      "ts": "2026-07-01T17:50:01.439945+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-140",
-      "content": "[cerebras:gpt-oss-120b] attempting: Objection\u2011Handling Guide for AI FAQ Receptionist Sales Calls"
-    },
-    {
-      "ts": "2026-07-01T17:50:01.438983+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-140",
-      "content": "org-excellence started work: Objection\u2011Handling Guide for AI FAQ Receptionist Sales Calls"
-    },
-    {
-      "ts": "2026-07-01T17:44:47.949226+00:00",
-      "agent": "Metis",
-      "event": "no_deliverable",
-      "ticket": "AUTO-140",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T17:44:47.948640+00:00",
-      "agent": "Minerva",
-      "event": "no_deliverable",
-      "ticket": "AUTO-138",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
-    },
-    {
-      "ts": "2026-07-01T17:44:47.947643+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-137",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-137-deliverable.md (7305b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T17:44:47.939375+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "AUTO-139",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-139-deliverable.md (5692b) \u2192 in_validation"
     }
   ],
   "problems": {}
