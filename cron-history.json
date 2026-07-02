@@ -1,6 +1,20 @@
 {
-  "updated": "2026-07-02T04:40:01.906454+00:00",
+  "updated": "2026-07-02T04:50:01.719356+00:00",
   "events": [
+    {
+      "ts": "2026-07-02T04:50:01.719356+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-183: cerebras dispatch error: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-07-02T04:50:01.719356+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[validate]     AUTO-178: no usable verdict #1 (model unavailable?) \u2014 staying in_validation, retry next run"
+    },
     {
       "ts": "2026-07-02T04:40:01.906454+00:00",
       "job": "real-work-executor",
@@ -1736,20 +1750,6 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "7h ago"
-    },
-    {
-      "ts": "2026-07-01T12:00:01.911631+00:00",
-      "job": "Lucy 8 AM Morning Mot...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "8h ago \u00b7 google/gemini-2.5..."
-    },
-    {
-      "ts": "2026-07-01T12:00:01.911631+00:00",
-      "job": "Daily 8 AM Security A...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "8h ago"
     }
   ]
 }
