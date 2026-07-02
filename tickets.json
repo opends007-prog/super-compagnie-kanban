@@ -11919,7 +11919,7 @@
       "description": "Create a lightweight Python script that queries the VM's free\u2011tier resource usage (CPU, memory, API calls) and writes a daily JSON report to the repo. Include a README with execution instructions and a sample output file.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Thor",
       "team": "any",
       "epicId": "EPIC-014",
@@ -11927,7 +11927,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T04:40:02.869454+00:00",
-      "updatedAt": "2026-07-02T04:54:48.907032+00:00",
+      "updatedAt": "2026-07-02T05:00:09.053100+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11940,6 +11940,11 @@
           "by": "Thor",
           "timestamp": "2026-07-02T04:54:48.907032+00:00",
           "text": "Delivered work/AUTO-185-deliverable.md (10329 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
+        },
+        {
+          "by": "Thor",
+          "timestamp": "2026-07-02T05:00:09.053100+00:00",
+          "text": "Delivered work/AUTO-185-deliverable.md (11964 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ]
     },
@@ -11949,7 +11954,7 @@
       "description": "Document the current self\u2011improvement feedback loop, list its components, and identify failure points. Produce a concise markdown guide with concrete improvement recommendations and a short\u2011term implementation roadmap.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Metis",
       "team": "any",
       "epicId": "EPIC-007",
@@ -11957,7 +11962,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T04:40:02.869454+00:00",
-      "updatedAt": "2026-07-02T04:40:02.869454+00:00",
+      "updatedAt": "2026-07-02T05:00:09.058178+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11965,6 +11970,11 @@
           "by": "auto-planner",
           "timestamp": "2026-07-02T04:40:02.869454+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
+        },
+        {
+          "by": "Metis",
+          "timestamp": "2026-07-02T05:00:09.058178+00:00",
+          "text": "Delivered work/AUTO-186-deliverable.md (12157 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
         }
       ]
     },
@@ -11974,7 +11984,7 @@
       "description": "Audit the existing model\u2011routing configuration for security gaps (e.g., credential exposure, injection risks, rate\u2011limit abuse). Deliver a checklist and a prioritized mitigation plan that can be applied without external services.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Hades",
       "team": "any",
       "epicId": "EPIC-010",
@@ -11982,7 +11992,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T04:40:02.869454+00:00",
-      "updatedAt": "2026-07-02T04:40:02.869454+00:00",
+      "updatedAt": "2026-07-02T05:00:09.075203+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11990,6 +12000,11 @@
           "by": "auto-planner",
           "timestamp": "2026-07-02T04:40:02.869454+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
+        },
+        {
+          "by": "Hades",
+          "timestamp": "2026-07-02T05:00:09.075203+00:00",
+          "text": "Delivered work/AUTO-187-deliverable.md (9779 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
         }
       ]
     },
@@ -11999,7 +12014,7 @@
       "description": "Assess how Hermes' agentskills.io skill format could be incorporated into the OpenClaw pipeline, outlining required data transformations and runtime hooks. Produce a one\u2011page technical specification and effort estimate for a proof\u2011of\u2011concept integration.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Hermes",
       "team": "any",
       "epicId": "EPIC-015",
@@ -12007,13 +12022,93 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T04:40:02.869454+00:00",
-      "updatedAt": "2026-07-02T04:40:02.869454+00:00",
+      "updatedAt": "2026-07-02T05:00:09.060041+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
         {
           "by": "auto-planner",
           "timestamp": "2026-07-02T04:40:02.869454+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        },
+        {
+          "by": "Hermes",
+          "timestamp": "2026-07-02T05:00:09.060041+00:00",
+          "text": "Delivered work/AUTO-188-deliverable.md (11786 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-189",
+      "title": "Cron Job Failure Resilience Plan",
+      "description": "Audit the current cron schedule and failure handling mechanisms, identify weak points, and design a robust retry and alerting strategy. Deliver a concise one\u2011page plan with sample bash snippets and a monitoring checklist.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Thor",
+      "team": "any",
+      "epicId": "EPIC-014",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T05:00:03.085535+00:00",
+      "updatedAt": "2026-07-02T05:00:03.085535+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T05:00:03.085535+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-190",
+      "title": "Agent Persona Capability Audit",
+      "description": "Review each active agent's defined persona, responsibilities, and performance metrics; produce a markdown matrix highlighting gaps and concrete improvement suggestions. Deliver the audit document and a prioritized action list.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Metis",
+      "team": "any",
+      "epicId": "EPIC-013",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T05:00:03.085535+00:00",
+      "updatedAt": "2026-07-02T05:00:03.085535+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T05:00:03.085535+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-191",
+      "title": "Hermes vs OpenClaw Integration Blueprint",
+      "description": "Based on the existing Hermes architecture analysis, create a step\u2011by\u2011step integration/migration plan comparing Hermes and OpenClaw, estimating effort, required resources, and risk mitigation. Deliver a detailed integration blueprint document.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Hermes",
+      "team": "any",
+      "epicId": "EPIC-015",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T05:00:03.085535+00:00",
+      "updatedAt": "2026-07-02T05:00:03.085535+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T05:00:03.085535+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
         }
       ]

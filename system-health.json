@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-07-02T04:50:01.960863+00:00",
+  "generatedAt": "2026-07-02T05:00:02.049849+00:00",
   "gateway_up": true,
   "disk_pct": 32,
   "backup_unpushed": 0,
-  "site_unpushed": 1,
+  "site_unpushed": 0,
   "crons": {
-    "work-executor": 0.0,
-    "validator": 3.9,
+    "work-executor": 5.2,
+    "validator": 13.9,
     "observability": 10.0,
-    "guard": 3990.0,
-    "backup": 20.0,
+    "guard": 4000.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 216,
-    "backlog": 13,
+    "backlog": 12,
     "planned": 3,
-    "in_progress": 10,
-    "in_validation": 4
+    "in_progress": 9,
+    "in_validation": 6
   },
   "tickets_total": 246,
   "done_today": 31,
-  "delivered_today": 4,
-  "delivered_week": 4,
+  "delivered_today": 7,
+  "delivered_week": 7,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 3,
+    "cerebras:gpt-oss-120b": 6,
     "openclaw": 1
   },
   "live_agents": [
@@ -36,6 +36,62 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-02T04:54:48.948343+00:00",
+      "agent": "Metis",
+      "event": "no_deliverable",
+      "ticket": "AUTO-186",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-02T04:54:48.947816+00:00",
+      "agent": "Hermes",
+      "event": "delivered",
+      "ticket": "AUTO-183",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-183-deliverable.md (13490b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-02T04:54:48.946508+00:00",
+      "agent": "Thor",
+      "event": "delivered",
+      "ticket": "AUTO-184",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-184-deliverable.md (14829b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-02T04:54:48.934109+00:00",
+      "agent": "Thor",
+      "event": "delivered",
+      "ticket": "AUTO-185",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-185-deliverable.md (10329b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-02T04:50:08.646191+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-186",
+      "content": "[openclaw] attempting: Self\u2011Improvement Loop Documentation & Enhancement Plan"
+    },
+    {
+      "ts": "2026-07-02T04:50:04.271309+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-186",
+      "content": "[claude:owl-alpha] attempting: Self\u2011Improvement Loop Documentation & Enhancement Plan"
+    },
+    {
+      "ts": "2026-07-02T04:50:04.112317+00:00",
+      "agent": "Metis",
+      "event": "working",
+      "ticket": "AUTO-186",
+      "content": "[cerebras:gpt-oss-120b] attempting: Self\u2011Improvement Loop Documentation & Enhancement Plan"
+    },
+    {
+      "ts": "2026-07-02T04:50:04.111244+00:00",
+      "agent": "Metis",
+      "event": "dispatched",
+      "ticket": "AUTO-186",
+      "content": "org-excellence started work: Self\u2011Improvement Loop Documentation & Enhancement Plan"
+    },
     {
       "ts": "2026-07-02T04:50:02.074149+00:00",
       "agent": "Thor",
@@ -63,62 +119,6 @@
       "event": "dispatched",
       "ticket": "AUTO-184",
       "content": "devops started work: VM Backup & Recovery Playbook"
-    },
-    {
-      "ts": "2026-07-02T04:50:02.058706+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-183",
-      "content": "[cerebras:gpt-oss-120b] attempting: Hermes Agent Architecture & Feature Analysis"
-    },
-    {
-      "ts": "2026-07-02T04:50:02.046956+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "AUTO-183",
-      "content": "business-analyst started work: Hermes Agent Architecture & Feature Analysis"
-    },
-    {
-      "ts": "2026-07-02T04:46:10.111737+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-180",
-      "content": "PASS: The deliverable provides a full feature matrix, clear recommendation memo, and detailed migration roadmap with eff"
-    },
-    {
-      "ts": "2026-07-02T04:46:10.108998+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-179",
-      "content": "PASS: The deliverable provides a comprehensive guide that analyzes the current model routing configuration, identifies c"
-    },
-    {
-      "ts": "2026-07-02T04:46:10.097718+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-177",
-      "content": "PASS: The deliverable provides a comprehensive checklist and a working Python script for cron job resilience, along with"
-    },
-    {
-      "ts": "2026-07-02T04:44:39.399999+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-180",
-      "content": "[groq,claude,openclaw] Independently reviewing business-analyst's deliverable"
-    },
-    {
-      "ts": "2026-07-02T04:44:38.437027+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-179",
-      "content": "[groq,claude,openclaw] Independently reviewing security's deliverable"
-    },
-    {
-      "ts": "2026-07-02T04:42:37.290360+00:00",
-      "agent": "Hermes",
-      "event": "delivered",
-      "ticket": "AUTO-183",
-      "content": "[openclaw] Produced AUTO-183-deliverable.md (8538b) \u2192 in_progress"
     }
   ],
   "problems": {}
