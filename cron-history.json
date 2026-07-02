@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-02T00:30:01.317477+00:00",
+  "updated": "2026-07-02T00:40:01.580104+00:00",
   "events": [
+    {
+      "ts": "2026-07-02T00:40:01.580104+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-161: cerebras dispatch error: HTTP Error 429: Too Many Requests"
+    },
     {
       "ts": "2026-07-02T00:30:01.317477+00:00",
       "job": "validate-work",
@@ -1563,6 +1570,13 @@
       "msg": "7h ago"
     },
     {
+      "ts": "2026-07-01T11:40:01.580104+00:00",
+      "job": "Daily 8 AM Security A...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "13h ago"
+    },
+    {
       "ts": "2026-07-01T11:40:01.430914+00:00",
       "job": "Daily 8 AM Security A...",
       "kind": "discord-cron",
@@ -1736,20 +1750,6 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "11h ago \u00b7 google/gemini-2.5..."
-    },
-    {
-      "ts": "2026-07-01T11:20:01.255972+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "13h ago \u00b7 google/gemini-2.5..."
-    },
-    {
-      "ts": "2026-07-01T11:10:02.284817+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "3h ago \u00b7 groq/meta-llama/l..."
     }
   ]
 }
