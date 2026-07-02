@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-07-02T03:00:01.189730+00:00",
+  "generatedAt": "2026-07-02T03:10:01.781347+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 20.0,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 3880.0,
-    "backup": 30.0,
+    "guard": 3890.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 199,
-    "backlog": 9,
+    "done": 204,
+    "backlog": 13,
     "in_progress": 12,
-    "planned": 3,
-    "in_validation": 5
+    "planned": 3
   },
-  "tickets_total": 228,
-  "done_today": 14,
+  "tickets_total": 232,
+  "done_today": 19,
   "delivered_today": 4,
   "delivered_week": 4,
   "model_mix_week": {
@@ -37,6 +36,76 @@
   ],
   "recent_activity": [
     {
+      "ts": "2026-07-02T03:00:03.933990+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-172",
+      "content": "PASS: The deliverable provides a comprehensive and detailed checklist for the client onboarding process for the AI FAQ R"
+    },
+    {
+      "ts": "2026-07-02T03:00:03.933146+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-171",
+      "content": "PASS: The deliverable provides a comprehensive and detailed script for a demo of the AI FAQ Receptionist, including a wa"
+    },
+    {
+      "ts": "2026-07-02T03:00:03.932070+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-170",
+      "content": "PASS: The deliverable provides a comprehensive client persona guide for the AI FAQ Receptionist, covering target industr"
+    },
+    {
+      "ts": "2026-07-02T03:00:03.929555+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-169",
+      "content": "PASS: The deliverable provides a comprehensive and detailed pricing sheet for the AI FAQ Receptionist service, including"
+    },
+    {
+      "ts": "2026-07-02T03:00:03.928451+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-168",
+      "content": "PASS: The deliverable provides a comprehensive and detailed Data Retention & Deletion Policy for the AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-02T03:00:03.280403+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-172",
+      "content": "[groq,claude,openclaw] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-07-02T03:00:02.408291+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-171",
+      "content": "[groq,claude,openclaw] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-07-02T03:00:02.316610+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-170",
+      "content": "[groq,claude,openclaw] Independently reviewing analyst's deliverable"
+    },
+    {
+      "ts": "2026-07-02T03:00:01.365111+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-169",
+      "content": "[groq,claude,openclaw] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-07-02T03:00:01.339489+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-168",
+      "content": "[groq,claude,openclaw] Independently reviewing security's deliverable"
+    },
+    {
       "ts": "2026-07-02T02:41:49.724081+00:00",
       "agent": "Minerva",
       "event": "delivered",
@@ -49,76 +118,6 @@
       "event": "delivered",
       "ticket": "AUTO-172",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-172-deliverable.md (11758b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-02T02:41:49.722307+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "AUTO-171",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-171-deliverable.md (9714b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-02T02:41:49.715396+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
-      "ticket": "AUTO-169",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-169-deliverable.md (9371b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-02T02:40:06.740177+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-170",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Client Persona Guide"
-    },
-    {
-      "ts": "2026-07-02T02:40:04.193444+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-172",
-      "content": "[cerebras:gpt-oss-120b] attempting: Client Onboarding Checklist for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-02T02:40:04.192162+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-172",
-      "content": "org-excellence started work: Client Onboarding Checklist for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-02T02:40:02.555370+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-168",
-      "content": "PASS: The deliverable provides a comprehensive and detailed Data Retention & Deletion Policy for the AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-02T02:40:02.517870+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-170",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Client Persona Guide"
-    },
-    {
-      "ts": "2026-07-02T02:40:01.669124+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-171",
-      "content": "[cerebras:gpt-oss-120b] attempting: Demo Script for AI FAQ Receptionist (Retail Scenario)"
-    },
-    {
-      "ts": "2026-07-02T02:40:01.668429+00:00",
-      "agent": "Iris",
-      "event": "dispatched",
-      "ticket": "AUTO-171",
-      "content": "pm started work: Demo Script for AI FAQ Receptionist (Retail Scenario)"
-    },
-    {
-      "ts": "2026-07-02T02:40:01.665577+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-170",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Client Persona Guide"
     }
   ],
   "problems": {}
