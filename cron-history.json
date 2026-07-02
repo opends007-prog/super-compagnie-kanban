@@ -1,6 +1,20 @@
 {
-  "updated": "2026-07-02T00:20:01.255972+00:00",
+  "updated": "2026-07-02T00:30:01.317477+00:00",
   "events": [
+    {
+      "ts": "2026-07-02T00:30:01.317477+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "ok",
+      "msg": "[validate] no validations applied this run"
+    },
+    {
+      "ts": "2026-07-02T00:29:01.317477+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-07-02T00:10:01.581523+00:00",
       "job": "validate-work",
@@ -835,6 +849,13 @@
       "msg": "8h ago \u00b7 google/gemini-2.5..."
     },
     {
+      "ts": "2026-07-01T13:30:01.317477+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "11h ago \u00b7 google/gemini-2.5..."
+    },
+    {
       "ts": "2026-07-01T13:30:01.218921+00:00",
       "job": "Daily 10 AM Improvement",
       "kind": "discord-cron",
@@ -1141,6 +1162,20 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "2h ago \u00b7 groq/meta-llama/l..."
+    },
+    {
+      "ts": "2026-07-01T12:30:01.317477+00:00",
+      "job": "Daily 8 AM Security A...",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "12h ago"
+    },
+    {
+      "ts": "2026-07-01T12:30:01.317477+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "12h ago \u00b7 google/gemini-2.5..."
     },
     {
       "ts": "2026-07-01T12:30:01.300084+00:00",
@@ -1640,6 +1675,13 @@
       "msg": "[validate] no validations applied this run"
     },
     {
+      "ts": "2026-07-01T11:30:01.317477+00:00",
+      "job": "Lucy 8 AM Morning Mot...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "13h ago \u00b7 google/gemini-2.5..."
+    },
+    {
       "ts": "2026-07-01T11:30:01.218921+00:00",
       "job": "Lucy 8 AM Morning Mot...",
       "kind": "discord-cron",
@@ -1708,48 +1750,6 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "3h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-07-01T11:10:02.033239+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "2h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-07-01T11:10:01.866621+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "7h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-07-01T11:10:01.865609+00:00",
-      "job": "validate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[validate]     AUTO-120: engine 'openclaw' gave no usable verdict \u2014 trying next in chain"
-    },
-    {
-      "ts": "2026-07-01T11:10:01.865609+00:00",
-      "job": "generate-work",
-      "kind": "system",
-      "status": "ok",
-      "msg": "[gen] added 4 new backlog tickets (AUTO-*)"
-    },
-    {
-      "ts": "2026-07-01T11:00:02.096029+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "5h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-07-01T11:00:01.911631+00:00",
-      "job": "Daily 7 AM Standup",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "9h ago \u00b7 google/gemini-2.5..."
     }
   ]
 }
