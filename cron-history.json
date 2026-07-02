@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-02T01:20:01.858764+00:00",
+  "updated": "2026-07-02T01:30:01.297750+00:00",
   "events": [
+    {
+      "ts": "2026-07-02T01:29:01.297750+00:00",
+      "job": "Queue Tick 30m",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "1m ago"
+    },
     {
       "ts": "2026-07-02T01:00:01.249571+00:00",
       "job": "real-work-executor",
@@ -91,6 +98,13 @@
       "kind": "system",
       "status": "ok",
       "msg": "[validate] tickets.json updated"
+    },
+    {
+      "ts": "2026-07-01T23:30:01.297750+00:00",
+      "job": "Hourly Check-in",
+      "kind": "discord-cron",
+      "status": "ok",
+      "msg": "2h ago"
     },
     {
       "ts": "2026-07-01T23:29:01.688037+00:00",
@@ -905,6 +919,13 @@
       "msg": "11h ago \u00b7 google/gemini-2.5..."
     },
     {
+      "ts": "2026-07-01T13:30:01.297750+00:00",
+      "job": "Daily 10 AM Improvement",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "12h ago \u00b7 google/gemini-2.5..."
+    },
+    {
       "ts": "2026-07-01T13:30:01.218921+00:00",
       "job": "Daily 10 AM Improvement",
       "kind": "discord-cron",
@@ -1246,6 +1267,13 @@
       "kind": "system",
       "status": "ok",
       "msg": "[validate] no validations applied this run"
+    },
+    {
+      "ts": "2026-07-01T12:30:01.297750+00:00",
+      "job": "Validation Reviewer (...",
+      "kind": "discord-cron",
+      "status": "fail",
+      "msg": "13h ago \u00b7 google/gemini-2.5..."
     },
     {
       "ts": "2026-07-01T12:30:01.218921+00:00",
@@ -1722,34 +1750,6 @@
       "kind": "discord-cron",
       "status": "fail",
       "msg": "4h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-07-01T11:30:01.736628+00:00",
-      "job": "Lucy 8 AM Morning Mot...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "7h ago \u00b7 groq/meta-llama/l..."
-    },
-    {
-      "ts": "2026-07-01T11:30:01.688037+00:00",
-      "job": "Lucy 8 AM Morning Mot...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "12h ago \u00b7 google/gemini-2.5..."
-    },
-    {
-      "ts": "2026-07-01T11:30:01.615775+00:00",
-      "job": "Lucy 8 AM Morning Mot...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "8h ago \u00b7 google/gemini-2.5..."
-    },
-    {
-      "ts": "2026-07-01T11:30:01.521128+00:00",
-      "job": "Lucy 8 AM Morning Mot...",
-      "kind": "discord-cron",
-      "status": "fail",
-      "msg": "10h ago \u00b7 google/gemini-2.5..."
     }
   ]
 }
