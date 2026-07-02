@@ -11760,7 +11760,7 @@
       "description": "Create a concise specification for a Grafana dashboard that visualizes key metrics of each agent (CPU, memory, request latency, error rate, model token usage). Include Prometheus query snippets and a JSON dashboard config file. Deliverable: markdown spec plus JSON config.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Argus",
       "team": "any",
       "epicId": "EPIC-014",
@@ -11768,7 +11768,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T04:20:03.280750+00:00",
-      "updatedAt": "2026-07-02T04:30:07.626609+00:00",
+      "updatedAt": "2026-07-02T04:42:37.288553+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11781,6 +11781,11 @@
           "by": "Argus",
           "timestamp": "2026-07-02T04:30:07.626609+00:00",
           "text": "Delivered work/AUTO-181-deliverable.md (11622 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
+        },
+        {
+          "by": "Argus",
+          "timestamp": "2026-07-02T04:42:37.288553+00:00",
+          "text": "Delivered work/AUTO-181-deliverable.md (11529 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ]
     },
@@ -11790,7 +11795,7 @@
       "description": "Produce a short guide that sharpens existing agent personas, adds concrete behavior prompts, and defines a validation checklist to ensure consistency across the team. Deliverable: markdown guide with updated persona templates and checklist.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Metis",
       "team": "any",
       "epicId": "EPIC-013",
@@ -11798,7 +11803,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T04:20:03.280750+00:00",
-      "updatedAt": "2026-07-02T04:30:07.634083+00:00",
+      "updatedAt": "2026-07-02T04:42:37.143463+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11811,6 +11816,11 @@
           "by": "Metis",
           "timestamp": "2026-07-02T04:30:07.634083+00:00",
           "text": "Delivered work/AUTO-182-deliverable.md (9213 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
+        },
+        {
+          "by": "Metis",
+          "timestamp": "2026-07-02T04:42:37.143463+00:00",
+          "text": "Delivered work/AUTO-182-deliverable.md (10819 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ]
     },
@@ -11820,7 +11830,7 @@
       "description": "Research the open\u2011source Hermes Agent codebase and documentation to produce a detailed analysis of its architecture, core components, and feature set (persistent memory, skill creation, multi\u2011platform gateways, model\u2011agnostic routing). Deliverable: comprehensive markdown report with diagrams and a feature matrix.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Hermes",
       "team": "any",
       "epicId": "EPIC-015",
@@ -11828,7 +11838,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T04:20:03.280750+00:00",
-      "updatedAt": "2026-07-02T04:20:03.280750+00:00",
+      "updatedAt": "2026-07-02T04:42:37.290295+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11836,6 +11846,11 @@
           "by": "auto-planner",
           "timestamp": "2026-07-02T04:20:03.280750+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
+        },
+        {
+          "by": "Hermes",
+          "timestamp": "2026-07-02T04:42:37.290295+00:00",
+          "text": "Delivered work/AUTO-183-deliverable.md (8538 bytes) via openclaw \u2014 advanced to in_progress."
         }
       ]
     },
@@ -11845,7 +11860,7 @@
       "description": "Draft a playbook describing how to backup the VM image, agent state, and configuration files, and how to restore them after a failure. Include a small Bash script for automated snapshot creation. Deliverable: markdown playbook plus backup script.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Thor",
       "team": "any",
       "epicId": "EPIC-014",
@@ -11853,13 +11868,118 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T04:20:03.280750+00:00",
-      "updatedAt": "2026-07-02T04:20:03.280750+00:00",
+      "updatedAt": "2026-07-02T04:42:37.289195+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
         {
           "by": "auto-planner",
           "timestamp": "2026-07-02T04:20:03.280750+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        },
+        {
+          "by": "Thor",
+          "timestamp": "2026-07-02T04:42:37.289195+00:00",
+          "text": "Delivered work/AUTO-184-deliverable.md (11724 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-185",
+      "title": "Daily Free\u2011Tier Usage Monitoring Script",
+      "description": "Create a lightweight Python script that queries the VM's free\u2011tier resource usage (CPU, memory, API calls) and writes a daily JSON report to the repo. Include a README with execution instructions and a sample output file.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Thor",
+      "team": "any",
+      "epicId": "EPIC-014",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T04:40:02.869454+00:00",
+      "updatedAt": "2026-07-02T04:40:02.869454+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T04:40:02.869454+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-186",
+      "title": "Self\u2011Improvement Loop Documentation & Enhancement Plan",
+      "description": "Document the current self\u2011improvement feedback loop, list its components, and identify failure points. Produce a concise markdown guide with concrete improvement recommendations and a short\u2011term implementation roadmap.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Metis",
+      "team": "any",
+      "epicId": "EPIC-007",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T04:40:02.869454+00:00",
+      "updatedAt": "2026-07-02T04:40:02.869454+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T04:40:02.869454+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-187",
+      "title": "Model Routing Security Hardening Checklist",
+      "description": "Audit the existing model\u2011routing configuration for security gaps (e.g., credential exposure, injection risks, rate\u2011limit abuse). Deliver a checklist and a prioritized mitigation plan that can be applied without external services.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Hades",
+      "team": "any",
+      "epicId": "EPIC-010",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T04:40:02.869454+00:00",
+      "updatedAt": "2026-07-02T04:40:02.869454+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T04:40:02.869454+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-188",
+      "title": "Agentskills.io Integration Feasibility Spec for Hermes",
+      "description": "Assess how Hermes' agentskills.io skill format could be incorporated into the OpenClaw pipeline, outlining required data transformations and runtime hooks. Produce a one\u2011page technical specification and effort estimate for a proof\u2011of\u2011concept integration.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Hermes",
+      "team": "any",
+      "epicId": "EPIC-015",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T04:40:02.869454+00:00",
+      "updatedAt": "2026-07-02T04:40:02.869454+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T04:40:02.869454+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
         }
       ]
