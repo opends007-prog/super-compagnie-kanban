@@ -1,121 +1,128 @@
 {
-  "generatedAt": "2026-07-02T03:50:01.523985+00:00",
+  "generatedAt": "2026-07-02T04:00:02.177456+00:00",
   "gateway_up": true,
-  "disk_pct": 30,
+  "disk_pct": 32,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 10.0,
+    "validator": 0.0,
     "observability": 10.0,
-    "guard": 3930.0,
-    "backup": 19.9,
-    "site-sync": 0.0
+    "guard": 3940.0,
+    "backup": 30.0,
+    "site-sync": 5.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 212,
-    "backlog": 22
+    "backlog": 9,
+    "planned": 4,
+    "in_progress": 9
   },
   "tickets_total": 234,
   "done_today": 27,
-  "delivered_today": 12,
-  "delivered_week": 12,
+  "delivered_today": 14,
+  "delivered_week": 14,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 10,
+    "cerebras:gpt-oss-120b": 12,
     "openclaw": 2
   },
   "live_agents": [
-    "Argus",
-    "Hermes",
-    "Metis",
+    "Athena",
+    "Fortuna",
+    "Hades",
+    "Iris",
+    "Minerva",
+    "Nemesis",
+    "Prometheus",
     "Thor",
+    "Vulcan",
     "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-02T03:40:03.039253+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-176",
-      "content": "PASS: The deliverable provides a comprehensive and detailed playbook for VM backup and recovery, including a reliable ba"
+      "ts": "2026-07-02T04:00:00.466274+00:00",
+      "agent": "Prometheus",
+      "event": "started",
+      "ticket": "STORY-090",
+      "content": ""
     },
     {
-      "ts": "2026-07-02T03:40:03.038218+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-175",
-      "content": "PASS: The deliverable provides a comprehensive side-by-side feature comparison of Hermes and OpenClaw, covering memory h"
+      "ts": "2026-07-02T04:00:00.466274+00:00",
+      "agent": "Nemesis",
+      "event": "started",
+      "ticket": "STORY-036",
+      "content": ""
     },
     {
-      "ts": "2026-07-02T03:40:03.036665+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-174",
-      "content": "PASS: The deliverable provides a comprehensive and detailed Agent Persona Specification Document that audits existing ag"
+      "ts": "2026-07-02T04:00:00.466274+00:00",
+      "agent": "Fortuna",
+      "event": "started",
+      "ticket": "STORY-087",
+      "content": ""
     },
     {
-      "ts": "2026-07-02T03:40:03.035164+00:00",
-      "agent": "nemesis",
-      "event": "validation_pass",
-      "ticket": "AUTO-173",
-      "content": "PASS: The deliverable provides a comprehensive audit report, revised cron configuration file, and a detailed checklist f"
+      "ts": "2026-07-02T04:00:00.466274+00:00",
+      "agent": "Vulcan",
+      "event": "started",
+      "ticket": "STORY-037",
+      "content": ""
     },
     {
-      "ts": "2026-07-02T03:40:02.442401+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-176",
-      "content": "[groq,claude,openclaw] Independently reviewing monitor's deliverable"
+      "ts": "2026-07-02T04:00:00.466274+00:00",
+      "agent": "Minerva",
+      "event": "started",
+      "ticket": "STORY-205",
+      "content": ""
     },
     {
-      "ts": "2026-07-02T03:40:02.329250+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-175",
-      "content": "[groq,claude,openclaw] Independently reviewing business-analyst's deliverable"
+      "ts": "2026-07-02T04:00:00.466274+00:00",
+      "agent": "Hades",
+      "event": "started",
+      "ticket": "STORY-088",
+      "content": ""
     },
     {
-      "ts": "2026-07-02T03:40:01.487790+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-174",
-      "content": "[groq,claude,openclaw] Independently reviewing org-excellence's deliverable"
+      "ts": "2026-07-02T04:00:00.466274+00:00",
+      "agent": "Athena",
+      "event": "started",
+      "ticket": "STORY-067",
+      "content": ""
     },
     {
-      "ts": "2026-07-02T03:40:01.486267+00:00",
-      "agent": "nemesis",
-      "event": "validating",
-      "ticket": "AUTO-173",
-      "content": "[groq,claude,openclaw] Independently reviewing devops's deliverable"
-    },
-    {
-      "ts": "2026-07-02T03:22:35.212193+00:00",
-      "agent": "Hermes",
-      "event": "delivered",
-      "ticket": "AUTO-175",
-      "content": "[openclaw] Produced AUTO-175-deliverable.md (5854b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-02T03:22:35.211861+00:00",
-      "agent": "Argus",
-      "event": "delivered",
-      "ticket": "AUTO-176",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-176-deliverable.md (13046b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-02T03:22:35.210642+00:00",
+      "ts": "2026-07-02T03:50:03.591049+00:00",
       "agent": "Thor",
       "event": "delivered",
-      "ticket": "AUTO-173",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-173-deliverable.md (13063b) \u2192 in_validation"
+      "ticket": "STORY-209",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-209-deliverable.md (12084b) \u2192 in_progress"
     },
     {
-      "ts": "2026-07-02T03:22:35.208673+00:00",
-      "agent": "Metis",
+      "ts": "2026-07-02T03:50:03.589933+00:00",
+      "agent": "Iris",
       "event": "delivered",
-      "ticket": "AUTO-174",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-174-deliverable.md (15067b) \u2192 in_validation"
+      "ticket": "STORY-208",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-208-deliverable.md (6903b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-02T03:50:01.614377+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "STORY-208",
+      "content": "[cerebras:gpt-oss-120b] attempting: Free-Model Ticket-Sizing Guidelines"
+    },
+    {
+      "ts": "2026-07-02T03:50:01.612517+00:00",
+      "agent": "Thor",
+      "event": "working",
+      "ticket": "STORY-209",
+      "content": "[cerebras:gpt-oss-120b] attempting: Circuit-Breaker Design for Dead-Engine Rotation"
+    },
+    {
+      "ts": "2026-07-02T03:50:01.611453+00:00",
+      "agent": "Thor",
+      "event": "dispatched",
+      "ticket": "STORY-209",
+      "content": "devops started work: Circuit-Breaker Design for Dead-Engine Rotation"
     }
   ],
   "problems": {}
