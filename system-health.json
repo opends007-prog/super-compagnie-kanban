@@ -1,36 +1,37 @@
 {
-  "generatedAt": "2026-07-02T06:00:01.493628+00:00",
+  "generatedAt": "2026-07-02T06:10:01.579398+00:00",
   "gateway_up": true,
   "disk_pct": 32,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 8.4,
-    "validator": 15.6,
+    "work-executor": 5.2,
+    "validator": 5.2,
     "observability": 10.0,
-    "guard": 4060.0,
-    "backup": 30.0,
+    "guard": 4070.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 228,
-    "backlog": 12,
+    "done": 231,
+    "backlog": 14,
     "planned": 3,
     "in_progress": 10,
-    "in_validation": 4
+    "in_validation": 3
   },
-  "tickets_total": 257,
-  "done_today": 43,
-  "delivered_today": 30,
-  "delivered_week": 30,
+  "tickets_total": 261,
+  "done_today": 46,
+  "delivered_today": 34,
+  "delivered_week": 34,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 28,
-    "openclaw": 2
+    "cerebras:gpt-oss-120b": 31,
+    "openclaw": 3
   },
   "live_agents": [
     "Argus",
     "Gladiator",
+    "Hades",
     "Hermes",
     "Metis",
     "Thor",
@@ -38,88 +39,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-02T05:51:37.079447+00:00",
-      "agent": "Gladiator",
-      "event": "delivered",
-      "ticket": "AUTO-197",
-      "content": "[openclaw] Produced AUTO-197-deliverable.md (11600b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-02T05:51:37.078765+00:00",
+      "ts": "2026-07-02T06:04:48.064460+00:00",
       "agent": "Thor",
       "event": "delivered",
       "ticket": "AUTO-196",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-196-deliverable.md (15906b) \u2192 in_progress"
+      "content": "[openclaw] Produced AUTO-196-deliverable.md (6348b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-02T05:51:37.077933+00:00",
-      "agent": "Hermes",
+      "ts": "2026-07-02T06:04:48.062955+00:00",
+      "agent": "Hades",
       "event": "delivered",
-      "ticket": "AUTO-194",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-194-deliverable.md (13532b) \u2192 in_validation"
+      "ticket": "AUTO-199",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-199-deliverable.md (12088b) \u2192 in_progress"
     },
     {
-      "ts": "2026-07-02T05:51:37.075247+00:00",
-      "agent": "Argus",
+      "ts": "2026-07-02T06:04:48.059278+00:00",
+      "agent": "Metis",
       "event": "delivered",
+      "ticket": "AUTO-198",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-198-deliverable.md (19954b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-02T06:04:48.055788+00:00",
+      "agent": "Gladiator",
+      "event": "delivered",
+      "ticket": "AUTO-197",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-197-deliverable.md (18962b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-02T06:04:48.004899+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
       "ticket": "AUTO-195",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-195-deliverable.md (11940b) \u2192 in_validation"
+      "content": "PASS: The deliverable provides a comprehensive specification for a lightweight agent observability dashboard, including "
     },
     {
-      "ts": "2026-07-02T05:50:12.175921+00:00",
-      "agent": "Gladiator",
-      "event": "working",
-      "ticket": "AUTO-197",
-      "content": "[openclaw] attempting: Automated Health\u2011Check Script for Agent Cron Jobs"
+      "ts": "2026-07-02T06:04:48.001429+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-193",
+      "content": "PASS: The deliverable provides a comprehensive guide for standardizing agent prompts, including a reusable template, usa"
     },
     {
-      "ts": "2026-07-02T05:50:03.822363+00:00",
-      "agent": "Gladiator",
-      "event": "working",
-      "ticket": "AUTO-197",
-      "content": "[claude:owl-alpha] attempting: Automated Health\u2011Check Script for Agent Cron Jobs"
+      "ts": "2026-07-02T06:04:47.988307+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-192",
+      "content": "PASS: The report provides a full analysis of free\u2011tier usage, concrete optimization recommendations, and ready\u2011to\u2011apply "
     },
     {
-      "ts": "2026-07-02T05:50:03.663026+00:00",
-      "agent": "Gladiator",
-      "event": "working",
-      "ticket": "AUTO-197",
-      "content": "[cerebras:gpt-oss-120b] attempting: Automated Health\u2011Check Script for Agent Cron Jobs"
-    },
-    {
-      "ts": "2026-07-02T05:50:03.661712+00:00",
-      "agent": "Gladiator",
-      "event": "dispatched",
-      "ticket": "AUTO-197",
-      "content": "tom started work: Automated Health\u2011Check Script for Agent Cron Jobs"
-    },
-    {
-      "ts": "2026-07-02T05:50:01.418698+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-194",
-      "content": "[cerebras:gpt-oss-120b] attempting: Hermes Agent Architecture & Feature Summary"
-    },
-    {
-      "ts": "2026-07-02T05:50:01.418078+00:00",
-      "agent": "Argus",
-      "event": "working",
+      "ts": "2026-07-02T06:04:42.845032+00:00",
+      "agent": "nemesis",
+      "event": "validating",
       "ticket": "AUTO-195",
-      "content": "[cerebras:gpt-oss-120b] attempting: Lightweight Agent Observability Dashboard Spec"
+      "content": "[groq,claude,openclaw] Independently reviewing monitor's deliverable"
     },
     {
-      "ts": "2026-07-02T05:50:01.417353+00:00",
+      "ts": "2026-07-02T06:00:07.753859+00:00",
       "agent": "Thor",
       "event": "working",
       "ticket": "AUTO-196",
-      "content": "[cerebras:gpt-oss-120b] attempting: VM Backup & Disaster Recovery Playbook"
+      "content": "[openclaw] attempting: VM Backup & Disaster Recovery Playbook"
     },
     {
-      "ts": "2026-07-02T05:50:01.416601+00:00",
-      "agent": "Thor",
+      "ts": "2026-07-02T06:00:05.338960+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-199",
+      "content": "[cerebras:gpt-oss-120b] attempting: Hermes Agent Security Assessment Report"
+    },
+    {
+      "ts": "2026-07-02T06:00:05.328646+00:00",
+      "agent": "Hades",
       "event": "dispatched",
-      "ticket": "AUTO-196",
-      "content": "devops started work: VM Backup & Disaster Recovery Playbook"
+      "ticket": "AUTO-199",
+      "content": "security started work: Hermes Agent Security Assessment Report"
+    },
+    {
+      "ts": "2026-07-02T06:00:03.263076+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-194",
+      "content": "[groq,claude,openclaw] Independently reviewing business-analyst's deliverable"
     }
   ],
   "problems": {}
