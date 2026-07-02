@@ -12240,7 +12240,7 @@
       "description": "Analyze current model usage across free\u2011tier quotas, identify inefficiencies, and propose concrete adjustments (routing rules, batch sizes, schedule tweaks). Deliver a markdown report with actionable recommendations and sample configuration snippets.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Thor",
       "team": "any",
       "epicId": "EPIC-014",
@@ -12248,7 +12248,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T05:20:03.095259+00:00",
-      "updatedAt": "2026-07-02T05:40:10.909293+00:00",
+      "updatedAt": "2026-07-02T06:04:47.978182+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -12266,8 +12266,14 @@
           "by": "Thor",
           "timestamp": "2026-07-02T05:40:10.909293+00:00",
           "text": "Delivered work/AUTO-192-deliverable.md (13925 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-07-02T06:04:47.978182+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-192-deliverable.md): The report provides a full analysis of free\u2011tier usage, concrete optimization recommendations, and ready\u2011to\u2011apply configuration snippets with verification steps, fully meeting the ticket requirements."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-193",
@@ -12275,7 +12281,7 @@
       "description": "Create a standardized prompt template and usage guidelines for all agents to improve consistency and reduce hallucinations. Deliver a markdown guide with example prompts, parameter settings, and a reviewer checklist.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Metis",
       "team": "any",
       "epicId": "EPIC-013",
@@ -12283,7 +12289,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T05:20:03.095259+00:00",
-      "updatedAt": "2026-07-02T05:40:10.885329+00:00",
+      "updatedAt": "2026-07-02T06:04:48.001077+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -12301,8 +12307,14 @@
           "by": "Metis",
           "timestamp": "2026-07-02T05:40:10.885329+00:00",
           "text": "Delivered work/AUTO-193-deliverable.md (10409 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-07-02T06:04:48.001077+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-193-deliverable.md): The deliverable provides a comprehensive guide for standardizing agent prompts, including a reusable template, usage guidelines, parameter settings, example prompts, and a reviewer checklist. It fully addresses the requirements stated in the ticket AUTO-193, demonstrating a thorough and ready-to-use"
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-194",
@@ -12337,7 +12349,8 @@
           "timestamp": "2026-07-02T05:51:37.077046+00:00",
           "text": "Delivered work/AUTO-194-deliverable.md (13532 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
-      ]
+      ],
+      "review_attempts": 1
     },
     {
       "id": "AUTO-195",
@@ -12345,7 +12358,7 @@
       "description": "Design a specification for a simple monitoring dashboard that tracks agent health, cron execution status, error rates, and resource usage using existing Argus metrics. Deliver a markdown spec plus a sample Grafana JSON panel configuration.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Argus",
       "team": "any",
       "epicId": "EPIC-014",
@@ -12353,7 +12366,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T05:20:03.095259+00:00",
-      "updatedAt": "2026-07-02T05:51:37.061507+00:00",
+      "updatedAt": "2026-07-02T06:04:48.004375+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -12371,8 +12384,14 @@
           "by": "Argus",
           "timestamp": "2026-07-02T05:51:37.061507+00:00",
           "text": "Delivered work/AUTO-195-deliverable.md (11940 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-07-02T06:04:48.004375+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-195-deliverable.md): The deliverable provides a comprehensive specification for a lightweight agent observability dashboard, including a detailed layout, panel definitions, and a sample Grafana JSON configuration. It fully addresses the requirements outlined in ticket AUTO-195."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-196",
@@ -12380,7 +12399,7 @@
       "description": "Create a concise, step\u2011by\u2011step playbook describing how to back up the VM deployment, store snapshots securely, and recover the system after failure. Include schedule, verification procedures, and required tooling. Deliverable: a markdown document ready for the internal wiki.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Thor",
       "team": "any",
       "epicId": "EPIC-014",
@@ -12388,7 +12407,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T05:40:03.357246+00:00",
-      "updatedAt": "2026-07-02T05:51:37.078588+00:00",
+      "updatedAt": "2026-07-02T06:04:48.064138+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -12401,6 +12420,11 @@
           "by": "Thor",
           "timestamp": "2026-07-02T05:51:37.078588+00:00",
           "text": "Delivered work/AUTO-196-deliverable.md (15906 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
+        },
+        {
+          "by": "Thor",
+          "timestamp": "2026-07-02T06:04:48.064138+00:00",
+          "text": "Delivered work/AUTO-196-deliverable.md (6348 bytes) via openclaw \u2014 advanced to in_validation."
         }
       ]
     },
@@ -12410,7 +12434,7 @@
       "description": "Write a small Python script that inspects all agent cron jobs, reports last run timestamps, detects failures, and emits a simple alert (e.g., to a log file). Provide usage instructions and a one\u2011page README. Deliverable: the script file plus README.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Gladiator",
       "team": "any",
       "epicId": "EPIC-014",
@@ -12418,7 +12442,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T05:40:03.357246+00:00",
-      "updatedAt": "2026-07-02T05:51:37.079282+00:00",
+      "updatedAt": "2026-07-02T06:04:48.045563+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -12431,6 +12455,11 @@
           "by": "Gladiator",
           "timestamp": "2026-07-02T05:51:37.079282+00:00",
           "text": "Delivered work/AUTO-197-deliverable.md (11600 bytes) via openclaw \u2014 advanced to in_progress."
+        },
+        {
+          "by": "Gladiator",
+          "timestamp": "2026-07-02T06:04:48.045563+00:00",
+          "text": "Delivered work/AUTO-197-deliverable.md (18962 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ]
     },
@@ -12440,7 +12469,7 @@
       "description": "Compile a curated library of prompts that drive the self\u2011improvement loop, each with purpose, expected output format, and a quick test case. Document rationales for wording choices and versioning. Deliverable: a markdown library ready for inclusion in the agent prompt repository.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Metis",
       "team": "any",
       "epicId": "EPIC-007",
@@ -12448,7 +12477,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T05:40:03.357246+00:00",
-      "updatedAt": "2026-07-02T05:40:03.357246+00:00",
+      "updatedAt": "2026-07-02T06:04:48.059010+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -12456,6 +12485,11 @@
           "by": "auto-planner",
           "timestamp": "2026-07-02T05:40:03.357246+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
+        },
+        {
+          "by": "Metis",
+          "timestamp": "2026-07-02T06:04:48.059010+00:00",
+          "text": "Delivered work/AUTO-198-deliverable.md (19954 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
         }
       ]
     },
@@ -12465,7 +12499,7 @@
       "description": "Perform a security review of the Hermes Agent codebase, identify potential threat vectors (e.g., code injection, credential exposure, model routing risks), and propose mitigations. Summarize findings in a structured report with actionable recommendations. Deliverable: a PDF/markdown security assessment document.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "backlog",
+      "status": "in_progress",
       "assigned_to": "Hades",
       "team": "any",
       "epicId": "EPIC-015",
@@ -12473,13 +12507,118 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T05:40:03.357246+00:00",
-      "updatedAt": "2026-07-02T05:40:03.357246+00:00",
+      "updatedAt": "2026-07-02T06:04:48.062647+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
         {
           "by": "auto-planner",
           "timestamp": "2026-07-02T05:40:03.357246+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        },
+        {
+          "by": "Hades",
+          "timestamp": "2026-07-02T06:04:48.062647+00:00",
+          "text": "Delivered work/AUTO-199-deliverable.md (12088 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-200",
+      "title": "Cron Failure Alert Specification",
+      "description": "Draft a concise specification for detecting cron job failures and sending real\u2011time alerts via Discord and email. Include trigger conditions, alert payload format, and a simple Bash/Python snippet example. Deliverable: a markdown spec document.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Argus",
+      "team": "any",
+      "epicId": "EPIC-014",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T06:00:02.805747+00:00",
+      "updatedAt": "2026-07-02T06:00:02.805747+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T06:00:02.805747+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-201",
+      "title": "Agent Capability Audit & Improvement Plan",
+      "description": "Perform a systematic audit of each existing agent\u2019s functional capabilities, identify gaps against our internal competency matrix, and propose concrete improvement steps. Deliverable: a single report listing agents, missing capabilities, and prioritized action items.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Hermes",
+      "team": "any",
+      "epicId": "EPIC-013",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T06:00:02.805747+00:00",
+      "updatedAt": "2026-07-02T06:00:02.805747+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T06:00:02.805747+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-202",
+      "title": "Self\u2011Improvement Loop Evaluation Blueprint",
+      "description": "Design an evaluation framework for the self\u2011improvement system, defining success metrics, data collection methods, and a quarterly review schedule. Deliverable: a blueprint document outlining metrics, evaluation process, and validation checkpoints.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Prometheus",
+      "team": "any",
+      "epicId": "EPIC-007",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T06:00:02.805747+00:00",
+      "updatedAt": "2026-07-02T06:00:02.805747+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T06:00:02.805747+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-203",
+      "title": "Hermes vs OpenClaw Comparative Analysis & Recommendation",
+      "description": "Produce a feature\u2011by\u2011feature comparison of Hermes Agent and OpenClaw, assess impact on our free\u2011model routing, persistent memory, and skill creation, and recommend a migration or dual\u2011run strategy with effort estimates. Deliverable: a comparative analysis report with a clear recommendation and integration plan.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Gladiator",
+      "team": "any",
+      "epicId": "EPIC-015",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T06:00:02.805747+00:00",
+      "updatedAt": "2026-07-02T06:00:02.805747+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T06:00:02.805747+00:00",
           "text": "Auto-generated to keep the team busy (backlog was low)."
         }
       ]

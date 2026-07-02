@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-02T05:50:01.273107+00:00",
+  "updated": "2026-07-02T06:00:01.512404+00:00",
   "events": [
+    {
+      "ts": "2026-07-02T06:00:01.512404+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-197: cerebras dispatch error: HTTP Error 429: Too Many Requests"
+    },
     {
       "ts": "2026-07-02T05:50:01.273107+00:00",
       "job": "validate-work",
@@ -1743,13 +1750,6 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "9h ago"
-    },
-    {
-      "ts": "2026-07-01T12:05:01.426341+00:00",
-      "job": "Daily 8 AM Security A...",
-      "kind": "discord-cron",
-      "status": "ok",
-      "msg": "5m ago"
     }
   ]
 }
