@@ -1,27 +1,24 @@
 {
-  "generatedAt": "2026-07-02T03:40:01.374336+00:00",
+  "generatedAt": "2026-07-02T03:50:01.523985+00:00",
   "gateway_up": true,
-  "disk_pct": 27,
+  "disk_pct": 30,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 20.0,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 3920.0,
-    "backup": 9.9,
+    "guard": 3930.0,
+    "backup": 19.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 204,
-    "backlog": 9,
-    "in_progress": 12,
-    "planned": 3,
-    "in_validation": 4
+    "done": 212,
+    "backlog": 22
   },
-  "tickets_total": 232,
-  "done_today": 19,
+  "tickets_total": 234,
+  "done_today": 27,
   "delivered_today": 12,
   "delivered_week": 12,
   "model_mix_week": {
@@ -32,9 +29,66 @@
     "Argus",
     "Hermes",
     "Metis",
-    "Thor"
+    "Thor",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-02T03:40:03.039253+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-176",
+      "content": "PASS: The deliverable provides a comprehensive and detailed playbook for VM backup and recovery, including a reliable ba"
+    },
+    {
+      "ts": "2026-07-02T03:40:03.038218+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-175",
+      "content": "PASS: The deliverable provides a comprehensive side-by-side feature comparison of Hermes and OpenClaw, covering memory h"
+    },
+    {
+      "ts": "2026-07-02T03:40:03.036665+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-174",
+      "content": "PASS: The deliverable provides a comprehensive and detailed Agent Persona Specification Document that audits existing ag"
+    },
+    {
+      "ts": "2026-07-02T03:40:03.035164+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-173",
+      "content": "PASS: The deliverable provides a comprehensive audit report, revised cron configuration file, and a detailed checklist f"
+    },
+    {
+      "ts": "2026-07-02T03:40:02.442401+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-176",
+      "content": "[groq,claude,openclaw] Independently reviewing monitor's deliverable"
+    },
+    {
+      "ts": "2026-07-02T03:40:02.329250+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-175",
+      "content": "[groq,claude,openclaw] Independently reviewing business-analyst's deliverable"
+    },
+    {
+      "ts": "2026-07-02T03:40:01.487790+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-174",
+      "content": "[groq,claude,openclaw] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-07-02T03:40:01.486267+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-173",
+      "content": "[groq,claude,openclaw] Independently reviewing devops's deliverable"
+    },
     {
       "ts": "2026-07-02T03:22:35.212193+00:00",
       "agent": "Hermes",
@@ -62,62 +116,6 @@
       "event": "delivered",
       "ticket": "AUTO-174",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-174-deliverable.md (15067b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-02T03:20:21.472456+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-175",
-      "content": "[openclaw] attempting: Hermes vs OpenClaw Feature Matrix"
-    },
-    {
-      "ts": "2026-07-02T03:20:05.036252+00:00",
-      "agent": "Argus",
-      "event": "working",
-      "ticket": "AUTO-176",
-      "content": "[cerebras:gpt-oss-120b] attempting: VM Backup & Recovery Playbook"
-    },
-    {
-      "ts": "2026-07-02T03:20:05.035077+00:00",
-      "agent": "Argus",
-      "event": "dispatched",
-      "ticket": "AUTO-176",
-      "content": "monitor started work: VM Backup & Recovery Playbook"
-    },
-    {
-      "ts": "2026-07-02T03:20:03.047325+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-175",
-      "content": "[claude:owl-alpha] attempting: Hermes vs OpenClaw Feature Matrix"
-    },
-    {
-      "ts": "2026-07-02T03:20:02.283522+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-175",
-      "content": "[cerebras:gpt-oss-120b] attempting: Hermes vs OpenClaw Feature Matrix"
-    },
-    {
-      "ts": "2026-07-02T03:20:02.281311+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "AUTO-175",
-      "content": "business-analyst started work: Hermes vs OpenClaw Feature Matrix"
-    },
-    {
-      "ts": "2026-07-02T03:20:02.278173+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-174",
-      "content": "[cerebras:gpt-oss-120b] attempting: Agent Persona Specification Document"
-    },
-    {
-      "ts": "2026-07-02T03:20:02.276755+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "AUTO-173",
-      "content": "[cerebras:gpt-oss-120b] attempting: Cron Resilience Audit and Redesign"
     }
   ],
   "problems": {}
