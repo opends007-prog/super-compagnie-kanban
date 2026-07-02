@@ -1,35 +1,36 @@
 {
-  "generatedAt": "2026-07-02T05:00:02.049849+00:00",
+  "generatedAt": "2026-07-02T05:10:01.562864+00:00",
   "gateway_up": true,
   "disk_pct": 32,
   "backup_unpushed": 0,
-  "site_unpushed": 0,
+  "site_unpushed": 1,
   "crons": {
-    "work-executor": 5.2,
-    "validator": 13.9,
+    "work-executor": 9.9,
+    "validator": 2.8,
     "observability": 10.0,
-    "guard": 4000.0,
-    "backup": 30.0,
+    "guard": 4010.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 216,
+    "done": 221,
     "backlog": 12,
     "planned": 3,
-    "in_progress": 9,
-    "in_validation": 6
+    "in_progress": 11,
+    "in_validation": 2
   },
-  "tickets_total": 246,
-  "done_today": 31,
-  "delivered_today": 7,
-  "delivered_week": 7,
+  "tickets_total": 249,
+  "done_today": 36,
+  "delivered_today": 11,
+  "delivered_week": 11,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 6,
+    "cerebras:gpt-oss-120b": 10,
     "openclaw": 1
   },
   "live_agents": [
     "Argus",
+    "Hades",
     "Hermes",
     "Metis",
     "Thor",
@@ -37,88 +38,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-02T04:54:48.948343+00:00",
-      "agent": "Metis",
-      "event": "no_deliverable",
-      "ticket": "AUTO-186",
-      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+      "ts": "2026-07-02T05:07:14.985790+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-184",
+      "content": "PASS: The deliverable provides a complete markdown playbook with detailed backup and recovery procedures, includes a fun"
     },
     {
-      "ts": "2026-07-02T04:54:48.947816+00:00",
+      "ts": "2026-07-02T05:07:14.978303+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-183",
+      "content": "PASS: The deliverable provides a detailed architecture overview, diagrams, core component explanations, a comprehensive "
+    },
+    {
+      "ts": "2026-07-02T05:07:14.974897+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-182",
+      "content": "PASS: The deliverable provides a comprehensive guide for refining agent personas, including a detailed template, behavio"
+    },
+    {
+      "ts": "2026-07-02T05:07:14.971954+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-181",
+      "content": "PASS: The deliverable provides a full markdown specification with Prometheus queries and a complete Grafana JSON dashboa"
+    },
+    {
+      "ts": "2026-07-02T05:07:14.963916+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "STORY-209",
+      "content": "PASS: The deliverable provides a comprehensive design document with pseudo-code, implementation details, and test cases "
+    },
+    {
+      "ts": "2026-07-02T05:04:30.747579+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-184",
+      "content": "[groq,claude,openclaw] Independently reviewing devops's deliverable"
+    },
+    {
+      "ts": "2026-07-02T05:02:30.651289+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-183",
+      "content": "[groq,claude,openclaw] Independently reviewing business-analyst's deliverable"
+    },
+    {
+      "ts": "2026-07-02T05:02:29.905407+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-182",
+      "content": "[groq,claude,openclaw] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-07-02T05:00:09.075515+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-187",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-187-deliverable.md (9779b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-02T05:00:09.060453+00:00",
       "agent": "Hermes",
       "event": "delivered",
-      "ticket": "AUTO-183",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-183-deliverable.md (13490b) \u2192 in_validation"
+      "ticket": "AUTO-188",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-188-deliverable.md (11786b) \u2192 in_progress"
     },
     {
-      "ts": "2026-07-02T04:54:48.946508+00:00",
+      "ts": "2026-07-02T05:00:09.058687+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-186",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-186-deliverable.md (12157b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-02T05:00:09.054132+00:00",
       "agent": "Thor",
       "event": "delivered",
-      "ticket": "AUTO-184",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-184-deliverable.md (14829b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-02T04:54:48.934109+00:00",
-      "agent": "Thor",
-      "event": "delivered",
       "ticket": "AUTO-185",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-185-deliverable.md (10329b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-02T04:50:08.646191+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-186",
-      "content": "[openclaw] attempting: Self\u2011Improvement Loop Documentation & Enhancement Plan"
-    },
-    {
-      "ts": "2026-07-02T04:50:04.271309+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-186",
-      "content": "[claude:owl-alpha] attempting: Self\u2011Improvement Loop Documentation & Enhancement Plan"
-    },
-    {
-      "ts": "2026-07-02T04:50:04.112317+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-186",
-      "content": "[cerebras:gpt-oss-120b] attempting: Self\u2011Improvement Loop Documentation & Enhancement Plan"
-    },
-    {
-      "ts": "2026-07-02T04:50:04.111244+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-186",
-      "content": "org-excellence started work: Self\u2011Improvement Loop Documentation & Enhancement Plan"
-    },
-    {
-      "ts": "2026-07-02T04:50:02.074149+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "AUTO-185",
-      "content": "[cerebras:gpt-oss-120b] attempting: Daily Free\u2011Tier Usage Monitoring Script"
-    },
-    {
-      "ts": "2026-07-02T04:50:02.073095+00:00",
-      "agent": "Thor",
-      "event": "dispatched",
-      "ticket": "AUTO-185",
-      "content": "devops started work: Daily Free\u2011Tier Usage Monitoring Script"
-    },
-    {
-      "ts": "2026-07-02T04:50:02.064827+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "AUTO-184",
-      "content": "[cerebras:gpt-oss-120b] attempting: VM Backup & Recovery Playbook"
-    },
-    {
-      "ts": "2026-07-02T04:50:02.064185+00:00",
-      "agent": "Thor",
-      "event": "dispatched",
-      "ticket": "AUTO-184",
-      "content": "devops started work: VM Backup & Recovery Playbook"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-185-deliverable.md (11964b) \u2192 in_validation"
     }
   ],
   "problems": {}
