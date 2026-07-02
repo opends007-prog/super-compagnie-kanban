@@ -1,31 +1,32 @@
 {
-  "generatedAt": "2026-07-02T01:40:01.444584+00:00",
+  "generatedAt": "2026-07-02T01:50:01.614085+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 7.6,
-    "validator": 20.0,
+    "work-executor": 5.2,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 3800.0,
-    "backup": 10.0,
+    "guard": 3810.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 194,
     "backlog": 9,
-    "in_progress": 17,
-    "planned": 4
+    "in_progress": 13,
+    "planned": 4,
+    "in_validation": 4
   },
   "tickets_total": 224,
   "done_today": 9,
-  "delivered_today": 12,
-  "delivered_week": 16,
+  "delivered_today": 16,
+  "delivered_week": 20,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 12,
-    "openclaw": 4
+    "cerebras:gpt-oss-120b": 15,
+    "openclaw": 5
   },
   "live_agents": [
     "Fortuna",
@@ -35,88 +36,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-02T01:32:25.984354+00:00",
+      "ts": "2026-07-02T01:44:48.508594+00:00",
       "agent": "Fortuna",
       "event": "delivered",
       "ticket": "AUTO-166",
-      "content": "[openclaw] Produced AUTO-166-deliverable.md (4873b) \u2192 in_progress"
+      "content": "[openclaw] Produced AUTO-166-deliverable.md (4872b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-02T01:32:25.983929+00:00",
-      "agent": "Hermes",
-      "event": "delivered",
-      "ticket": "AUTO-167",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-167-deliverable.md (11128b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-02T01:32:25.983163+00:00",
+      "ts": "2026-07-02T01:44:48.508008+00:00",
       "agent": "Hades",
       "event": "delivered",
       "ticket": "AUTO-168",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-168-deliverable.md (9014b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-168-deliverable.md (13322b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-02T01:32:25.977326+00:00",
+      "ts": "2026-07-02T01:44:48.506707+00:00",
+      "agent": "Hermes",
+      "event": "delivered",
+      "ticket": "AUTO-167",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-167-deliverable.md (10520b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-02T01:44:48.478453+00:00",
       "agent": "Thor",
       "event": "delivered",
       "ticket": "AUTO-165",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-165-deliverable.md (8242b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-165-deliverable.md (11747b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-02T01:30:06.657330+00:00",
+      "ts": "2026-07-02T01:40:07.966328+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-166",
       "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
     },
     {
-      "ts": "2026-07-02T01:30:04.785725+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-166",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-02T01:30:03.098789+00:00",
+      "ts": "2026-07-02T01:40:03.541785+00:00",
       "agent": "Hades",
       "event": "working",
       "ticket": "AUTO-168",
       "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-07-02T01:30:03.095887+00:00",
+      "ts": "2026-07-02T01:40:03.540884+00:00",
       "agent": "Hades",
       "event": "dispatched",
       "ticket": "AUTO-168",
       "content": "security started work: Data Retention & Deletion Policy for AI FAQ Receptionist"
     },
     {
-      "ts": "2026-07-02T01:30:01.462717+00:00",
-      "agent": "Thor",
+      "ts": "2026-07-02T01:40:02.136040+00:00",
+      "agent": "Fortuna",
       "event": "working",
-      "ticket": "AUTO-165",
-      "content": "[cerebras:gpt-oss-120b] attempting: VM Deployment Playbook for Single-Agent Prototype"
+      "ticket": "AUTO-166",
+      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
     },
     {
-      "ts": "2026-07-02T01:30:01.453323+00:00",
+      "ts": "2026-07-02T01:40:01.647891+00:00",
       "agent": "Hermes",
       "event": "working",
       "ticket": "AUTO-167",
       "content": "[cerebras:gpt-oss-120b] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top Vendo"
     },
     {
-      "ts": "2026-07-02T01:30:01.450704+00:00",
+      "ts": "2026-07-02T01:40:01.647008+00:00",
       "agent": "Hermes",
       "event": "dispatched",
       "ticket": "AUTO-167",
       "content": "business-analyst started work: Competitive Feature Matrix: AI FAQ Receptionist vs Top Vendo"
     },
     {
-      "ts": "2026-07-02T01:30:01.448485+00:00",
+      "ts": "2026-07-02T01:40:01.644505+00:00",
       "agent": "Fortuna",
       "event": "working",
       "ticket": "AUTO-166",
       "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
+    },
+    {
+      "ts": "2026-07-02T01:40:01.640925+00:00",
+      "agent": "Fortuna",
+      "event": "dispatched",
+      "ticket": "AUTO-166",
+      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
     }
   ],
   "problems": {}
