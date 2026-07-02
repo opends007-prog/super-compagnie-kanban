@@ -11583,7 +11583,7 @@
       "id": "STORY-209",
       "title": "Circuit-Breaker Design for Dead-Engine Rotation",
       "description": "Spec a lightweight per-run backoff for WORK_ENGINE/REVIEW_ENGINE: once an engine has failed every attempt so far in a run, skip it for the rest of the run instead of paying its full timeout per ticket. Written design doc with pseudo-code.",
-      "status": "in_validation",
+      "status": "done",
       "priority": "high",
       "severity": "MEDIUM",
       "category": "chore",
@@ -11594,7 +11594,7 @@
       "validation_fails": 0,
       "created_by": "ceo-audit",
       "createdAt": "2026-07-02T03:44:10.847181+00:00",
-      "updatedAt": "2026-07-02T04:00:05.161756+00:00",
+      "updatedAt": "2026-07-02T05:07:14.949297+00:00",
       "comments": [
         {
           "by": "ceo-audit",
@@ -11610,9 +11610,14 @@
           "by": "Thor",
           "timestamp": "2026-07-02T04:00:05.161756+00:00",
           "text": "Delivered work/STORY-209-deliverable.md (17185 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-07-02T05:07:14.949297+00:00",
+          "text": "VALIDATION PASS (independent review of STORY-209-deliverable.md): The deliverable provides a comprehensive design document with pseudo-code, implementation details, and test cases for the circuit-breaker feature, satisfying the requirements for a lightweight per-run backoff for WORK_ENGINE/REVIEW_ENGINE."
         }
       ],
-      "review_attempts": 2
+      "review_attempts": 0
     },
     {
       "id": "AUTO-177",
@@ -11689,7 +11694,7 @@
           "text": "Delivered work/AUTO-178-deliverable.md (18314 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ],
-      "review_attempts": 1
+      "review_attempts": 2
     },
     {
       "id": "AUTO-179",
@@ -11779,7 +11784,7 @@
       "description": "Create a concise specification for a Grafana dashboard that visualizes key metrics of each agent (CPU, memory, request latency, error rate, model token usage). Include Prometheus query snippets and a JSON dashboard config file. Deliverable: markdown spec plus JSON config.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Argus",
       "team": "any",
       "epicId": "EPIC-014",
@@ -11787,7 +11792,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T04:20:03.280750+00:00",
-      "updatedAt": "2026-07-02T04:42:37.288553+00:00",
+      "updatedAt": "2026-07-02T05:07:14.971289+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11805,8 +11810,14 @@
           "by": "Argus",
           "timestamp": "2026-07-02T04:42:37.288553+00:00",
           "text": "Delivered work/AUTO-181-deliverable.md (11529 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-07-02T05:07:14.971289+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-181-deliverable.md): The deliverable provides a full markdown specification with Prometheus queries and a complete Grafana JSON dashboard ready for import, meeting the ticket requirements."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-182",
@@ -11814,7 +11825,7 @@
       "description": "Produce a short guide that sharpens existing agent personas, adds concrete behavior prompts, and defines a validation checklist to ensure consistency across the team. Deliverable: markdown guide with updated persona templates and checklist.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Metis",
       "team": "any",
       "epicId": "EPIC-013",
@@ -11822,7 +11833,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T04:20:03.280750+00:00",
-      "updatedAt": "2026-07-02T04:42:37.143463+00:00",
+      "updatedAt": "2026-07-02T05:07:14.974760+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11840,8 +11851,14 @@
           "by": "Metis",
           "timestamp": "2026-07-02T04:42:37.143463+00:00",
           "text": "Delivered work/AUTO-182-deliverable.md (10819 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-07-02T05:07:14.974760+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-182-deliverable.md): The deliverable provides a comprehensive guide for refining agent personas, including a detailed template, behavior prompts, and a validation checklist. It appears to be a complete and genuine implementation plan, addressing all aspects of the ticket AUTO-182."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-183",
@@ -11849,7 +11866,7 @@
       "description": "Research the open\u2011source Hermes Agent codebase and documentation to produce a detailed analysis of its architecture, core components, and feature set (persistent memory, skill creation, multi\u2011platform gateways, model\u2011agnostic routing). Deliverable: comprehensive markdown report with diagrams and a feature matrix.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Hermes",
       "team": "any",
       "epicId": "EPIC-015",
@@ -11857,7 +11874,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T04:20:03.280750+00:00",
-      "updatedAt": "2026-07-02T04:54:48.947737+00:00",
+      "updatedAt": "2026-07-02T05:07:14.978214+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11875,8 +11892,14 @@
           "by": "Hermes",
           "timestamp": "2026-07-02T04:54:48.947737+00:00",
           "text": "Delivered work/AUTO-183-deliverable.md (13490 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-07-02T05:07:14.978214+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-183-deliverable.md): The deliverable provides a detailed architecture overview, diagrams, core component explanations, a comprehensive feature matrix, and references, fully meeting the ticket requirements."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-184",
@@ -11884,7 +11907,7 @@
       "description": "Draft a playbook describing how to backup the VM image, agent state, and configuration files, and how to restore them after a failure. Include a small Bash script for automated snapshot creation. Deliverable: markdown playbook plus backup script.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Thor",
       "team": "any",
       "epicId": "EPIC-014",
@@ -11892,7 +11915,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T04:20:03.280750+00:00",
-      "updatedAt": "2026-07-02T04:54:48.946371+00:00",
+      "updatedAt": "2026-07-02T05:07:14.984858+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11910,8 +11933,14 @@
           "by": "Thor",
           "timestamp": "2026-07-02T04:54:48.946371+00:00",
           "text": "Delivered work/AUTO-184-deliverable.md (14829 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-07-02T05:07:14.984858+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-184-deliverable.md): The deliverable provides a complete markdown playbook with detailed backup and recovery procedures, includes a functional Bash script, verification steps, and retention policies, fully meeting the ticket requirements."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-185",
