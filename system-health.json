@@ -1,131 +1,125 @@
 {
-  "generatedAt": "2026-07-02T04:20:02.140257+00:00",
+  "generatedAt": "2026-07-02T04:30:01.682882+00:00",
   "gateway_up": true,
   "disk_pct": 32,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 9.9,
-    "validator": 20.0,
+    "work-executor": 5.2,
+    "validator": 5.4,
     "observability": 10.0,
-    "guard": 3960.0,
-    "backup": 19.9,
+    "guard": 3970.0,
+    "backup": 29.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 212,
-    "backlog": 9,
-    "planned": 4,
-    "in_progress": 11,
-    "in_validation": 2
+    "done": 213,
+    "backlog": 13,
+    "planned": 3,
+    "in_progress": 10,
+    "in_validation": 3
   },
-  "tickets_total": 238,
-  "done_today": 27,
-  "delivered_today": 20,
-  "delivered_week": 20,
+  "tickets_total": 242,
+  "done_today": 28,
+  "delivered_today": 22,
+  "delivered_week": 22,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 18,
+    "cerebras:gpt-oss-120b": 20,
     "openclaw": 2
   },
   "live_agents": [
-    "Athena",
-    "Fortuna",
     "Hades",
     "Hermes",
     "Iris",
     "Metis",
-    "Minerva",
-    "Nemesis",
-    "Prometheus",
     "Thor",
-    "Vulcan",
     "nemesis"
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-02T04:10:09.543843+00:00",
-      "agent": "Hermes",
-      "event": "delivered",
-      "ticket": "AUTO-180",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-180-deliverable.md (12311b) \u2192 in_progress"
+      "ts": "2026-07-02T04:30:00.433635+00:00",
+      "agent": "Thor",
+      "event": "started",
+      "ticket": "STORY-083",
+      "content": ""
     },
     {
-      "ts": "2026-07-02T04:10:09.542212+00:00",
+      "ts": "2026-07-02T04:24:47.232032+00:00",
+      "agent": "Hermes",
+      "event": "no_deliverable",
+      "ticket": "AUTO-180",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-02T04:24:47.231237+00:00",
+      "agent": "Metis",
+      "event": "no_deliverable",
+      "ticket": "AUTO-178",
+      "content": "[cerebras:gpt-oss-120b,claude:owl-alpha,openclaw] No work produced \u2014 status unchanged"
+    },
+    {
+      "ts": "2026-07-02T04:24:47.228663+00:00",
       "agent": "Thor",
       "event": "delivered",
       "ticket": "AUTO-177",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-177-deliverable.md (16264b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-177-deliverable.md (17229b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-02T04:10:09.539685+00:00",
+      "ts": "2026-07-02T04:24:47.222932+00:00",
       "agent": "Hades",
       "event": "delivered",
       "ticket": "AUTO-179",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-179-deliverable.md (9831b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-179-deliverable.md (11150b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-02T04:10:09.537374+00:00",
+      "ts": "2026-07-02T04:24:37.189231+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "STORY-208",
+      "content": "PASS: The deliverable provides a comprehensive and detailed guideline document that defines the max scope of a ticket a "
+    },
+    {
+      "ts": "2026-07-02T04:20:06.933514+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-180",
+      "content": "[openclaw] attempting: Hermes Agent vs OpenClaw Feature Comparison & Migration Plan"
+    },
+    {
+      "ts": "2026-07-02T04:20:06.442693+00:00",
       "agent": "Metis",
-      "event": "delivered",
+      "event": "working",
       "ticket": "AUTO-178",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-178-deliverable.md (11369b) \u2192 in_progress"
+      "content": "[openclaw] attempting: Agent Persona Specification Template and Audit"
     },
     {
-      "ts": "2026-07-02T04:10:05.417681+00:00",
+      "ts": "2026-07-02T04:20:04.979795+00:00",
+      "agent": "Hermes",
+      "event": "working",
+      "ticket": "AUTO-180",
+      "content": "[claude:owl-alpha] attempting: Hermes Agent vs OpenClaw Feature Comparison & Migration Plan"
+    },
+    {
+      "ts": "2026-07-02T04:20:04.524068+00:00",
       "agent": "Hermes",
       "event": "working",
       "ticket": "AUTO-180",
       "content": "[cerebras:gpt-oss-120b] attempting: Hermes Agent vs OpenClaw Feature Comparison & Migration Plan"
     },
     {
-      "ts": "2026-07-02T04:10:05.413968+00:00",
+      "ts": "2026-07-02T04:20:04.521873+00:00",
       "agent": "Hermes",
       "event": "dispatched",
       "ticket": "AUTO-180",
       "content": "business-analyst started work: Hermes Agent vs OpenClaw Feature Comparison & Migration Plan"
     },
     {
-      "ts": "2026-07-02T04:10:01.710718+00:00",
+      "ts": "2026-07-02T04:20:02.773646+00:00",
       "agent": "Metis",
       "event": "working",
       "ticket": "AUTO-178",
-      "content": "[cerebras:gpt-oss-120b] attempting: Agent Persona Specification Template and Audit"
-    },
-    {
-      "ts": "2026-07-02T04:10:01.704834+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-179",
-      "content": "[cerebras:gpt-oss-120b] attempting: Free\u2011Model Routing Cost & Security Guide"
-    },
-    {
-      "ts": "2026-07-02T04:10:01.703706+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-179",
-      "content": "security started work: Free\u2011Model Routing Cost & Security Guide"
-    },
-    {
-      "ts": "2026-07-02T04:10:01.702735+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-178",
-      "content": "org-excellence started work: Agent Persona Specification Template and Audit"
-    },
-    {
-      "ts": "2026-07-02T04:10:01.701999+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "AUTO-177",
-      "content": "[cerebras:gpt-oss-120b] attempting: Cron Resilience Checklist & Auto\u2011Recovery Script"
-    },
-    {
-      "ts": "2026-07-02T04:10:01.700762+00:00",
-      "agent": "Thor",
-      "event": "dispatched",
-      "ticket": "AUTO-177",
-      "content": "devops started work: Cron Resilience Checklist & Auto\u2011Recovery Script"
+      "content": "[claude:owl-alpha] attempting: Agent Persona Specification Template and Audit"
     }
   ],
   "problems": {}
