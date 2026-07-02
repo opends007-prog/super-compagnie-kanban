@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-07-02T00:00:02.063847+00:00",
+  "generatedAt": "2026-07-02T00:10:01.581089+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 20.0,
+    "validator": 4.3,
     "observability": 10.0,
-    "guard": 3700.0,
-    "backup": 30.0,
+    "guard": 3710.0,
+    "backup": 9.9,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 185,
-    "backlog": 8,
+    "done": 190,
+    "backlog": 9,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 6
+    "planned": 4
   },
   "tickets_total": 216,
-  "done_today": 0,
+  "done_today": 5,
   "delivered_today": 0,
   "delivered_week": 4,
   "model_mix_week": {
@@ -37,88 +36,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-01T23:42:23.571166+00:00",
-      "agent": "Plutus",
-      "event": "delivered",
-      "ticket": "AUTO-157",
-      "content": "[openclaw] Produced AUTO-157-deliverable.md (4229b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-01T23:42:23.570653+00:00",
-      "agent": "Hades",
-      "event": "delivered",
+      "ts": "2026-07-02T00:05:42.595415+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
       "ticket": "AUTO-160",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-160-deliverable.md (11601b) \u2192 in_validation"
+      "content": "PASS: The deliverable provides a complete, detailed markdown checklist covering authentication, API\u2011key management, logg"
     },
     {
-      "ts": "2026-07-01T23:42:23.570001+00:00",
-      "agent": "Fortuna",
-      "event": "delivered",
+      "ts": "2026-07-02T00:05:42.593111+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
       "ticket": "AUTO-159",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-159-deliverable.md (10500b) \u2192 in_validation"
+      "content": "PASS: The deliverable provides a complete markdown guide covering the top five objections with detailed scripts, data po"
     },
     {
-      "ts": "2026-07-01T23:42:23.567800+00:00",
-      "agent": "Iris",
-      "event": "delivered",
+      "ts": "2026-07-02T00:05:42.590176+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
       "ticket": "AUTO-158",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-158-deliverable.md (9162b) \u2192 in_validation"
+      "content": "PASS: The deliverable provides a complete 10\u2011minute demo script with detailed talking points, sample Q&A, and a clear sl"
     },
     {
-      "ts": "2026-07-01T23:40:08.338938+00:00",
-      "agent": "Plutus",
-      "event": "working",
+      "ts": "2026-07-02T00:05:42.586990+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
       "ticket": "AUTO-157",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet & Tiered Packages"
+      "content": "PASS: The deliverable provides a comprehensive and detailed pricing sheet for the AI FAQ Receptionist, including three t"
     },
     {
-      "ts": "2026-07-01T23:40:04.289284+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-160",
-      "content": "[cerebras:gpt-oss-120b] attempting: Operational Security Checklist for AI FAQ Receptionist Servi"
-    },
-    {
-      "ts": "2026-07-01T23:40:04.288357+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-160",
-      "content": "security started work: Operational Security Checklist for AI FAQ Receptionist Servi"
-    },
-    {
-      "ts": "2026-07-01T23:40:02.978243+00:00",
+      "ts": "2026-07-02T00:05:42.582386+00:00",
       "agent": "nemesis",
       "event": "validation_pass",
       "ticket": "AUTO-156",
       "content": "PASS: The deliverable provides a comprehensive and detailed onboarding checklist for the AI FAQ Receptionist, covering a"
     },
     {
-      "ts": "2026-07-01T23:40:02.978099+00:00",
+      "ts": "2026-07-02T00:05:42.579239+00:00",
       "agent": "nemesis",
       "event": "validation_parked",
       "ticket": "AUTO-155",
-      "content": "Parked after 2 fails: The deliverable provided is a security audit report and does not address the requirements for a da"
+      "content": "Parked after 2 fails: The deliverable is a security audit of unrelated infrastructure, not a data\u2011privacy & compliance b"
     },
     {
-      "ts": "2026-07-01T23:40:02.733533+00:00",
-      "agent": "Plutus",
-      "event": "working",
+      "ts": "2026-07-02T00:02:59.135783+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-160",
+      "content": "[groq,claude,openclaw] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-07-02T00:01:40.801499+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-159",
+      "content": "[groq,claude,openclaw] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-07-02T00:00:03.823728+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-158",
+      "content": "[groq,claude,openclaw] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-07-02T00:00:03.217758+00:00",
+      "agent": "nemesis",
+      "event": "validating",
       "ticket": "AUTO-157",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet & Tiered Packages"
+      "content": "[groq,claude,openclaw] Independently reviewing finance's deliverable"
     },
     {
-      "ts": "2026-07-01T23:40:02.189739+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-159",
-      "content": "[cerebras:gpt-oss-120b] attempting: Objection Handling Guide for AI FAQ Receptionist Sales"
+      "ts": "2026-07-02T00:00:02.394120+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-156",
+      "content": "[groq,claude,openclaw] Independently reviewing org-excellence's deliverable"
     },
     {
-      "ts": "2026-07-01T23:40:02.186554+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-159",
-      "content": "income started work: Objection Handling Guide for AI FAQ Receptionist Sales"
+      "ts": "2026-07-02T00:00:02.389428+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-155",
+      "content": "[groq,claude,openclaw] Independently reviewing security's deliverable"
     }
   ],
   "problems": {}
