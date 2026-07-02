@@ -1,30 +1,31 @@
 {
-  "generatedAt": "2026-07-02T04:00:02.177456+00:00",
+  "generatedAt": "2026-07-02T04:10:01.643996+00:00",
   "gateway_up": true,
   "disk_pct": 32,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
-    "work-executor": 10.0,
-    "validator": 0.0,
+    "work-executor": 9.9,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 3940.0,
-    "backup": 30.0,
-    "site-sync": 5.0
+    "guard": 3950.0,
+    "backup": 9.9,
+    "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 212,
-    "backlog": 9,
+    "backlog": 13,
     "planned": 4,
-    "in_progress": 9
+    "in_progress": 7,
+    "in_validation": 2
   },
-  "tickets_total": 234,
+  "tickets_total": 238,
   "done_today": 27,
-  "delivered_today": 14,
-  "delivered_week": 14,
+  "delivered_today": 16,
+  "delivered_week": 16,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 12,
+    "cerebras:gpt-oss-120b": 14,
     "openclaw": 2
   },
   "live_agents": [
@@ -40,6 +41,55 @@
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-02T04:01:56.373213+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "STORY-208",
+      "content": "[groq,claude,openclaw] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-07-02T04:00:05.162028+00:00",
+      "agent": "Thor",
+      "event": "delivered",
+      "ticket": "STORY-209",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-209-deliverable.md (17185b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-02T04:00:05.159088+00:00",
+      "agent": "Iris",
+      "event": "delivered",
+      "ticket": "STORY-208",
+      "content": "[cerebras:gpt-oss-120b] Produced STORY-208-deliverable.md (7348b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-02T04:00:02.404140+00:00",
+      "agent": "Thor",
+      "event": "working",
+      "ticket": "STORY-209",
+      "content": "[cerebras:gpt-oss-120b] attempting: Circuit-Breaker Design for Dead-Engine Rotation"
+    },
+    {
+      "ts": "2026-07-02T04:00:02.391360+00:00",
+      "agent": "Thor",
+      "event": "dispatched",
+      "ticket": "STORY-209",
+      "content": "devops started work: Circuit-Breaker Design for Dead-Engine Rotation"
+    },
+    {
+      "ts": "2026-07-02T04:00:02.368231+00:00",
+      "agent": "Iris",
+      "event": "working",
+      "ticket": "STORY-208",
+      "content": "[cerebras:gpt-oss-120b] attempting: Free-Model Ticket-Sizing Guidelines"
+    },
+    {
+      "ts": "2026-07-02T04:00:02.356230+00:00",
+      "agent": "Iris",
+      "event": "dispatched",
+      "ticket": "STORY-208",
+      "content": "pm started work: Free-Model Ticket-Sizing Guidelines"
+    },
     {
       "ts": "2026-07-02T04:00:00.466274+00:00",
       "agent": "Prometheus",
@@ -74,55 +124,6 @@
       "event": "started",
       "ticket": "STORY-205",
       "content": ""
-    },
-    {
-      "ts": "2026-07-02T04:00:00.466274+00:00",
-      "agent": "Hades",
-      "event": "started",
-      "ticket": "STORY-088",
-      "content": ""
-    },
-    {
-      "ts": "2026-07-02T04:00:00.466274+00:00",
-      "agent": "Athena",
-      "event": "started",
-      "ticket": "STORY-067",
-      "content": ""
-    },
-    {
-      "ts": "2026-07-02T03:50:03.591049+00:00",
-      "agent": "Thor",
-      "event": "delivered",
-      "ticket": "STORY-209",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-209-deliverable.md (12084b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-02T03:50:03.589933+00:00",
-      "agent": "Iris",
-      "event": "delivered",
-      "ticket": "STORY-208",
-      "content": "[cerebras:gpt-oss-120b] Produced STORY-208-deliverable.md (6903b) \u2192 in_progress"
-    },
-    {
-      "ts": "2026-07-02T03:50:01.614377+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "STORY-208",
-      "content": "[cerebras:gpt-oss-120b] attempting: Free-Model Ticket-Sizing Guidelines"
-    },
-    {
-      "ts": "2026-07-02T03:50:01.612517+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "STORY-209",
-      "content": "[cerebras:gpt-oss-120b] attempting: Circuit-Breaker Design for Dead-Engine Rotation"
-    },
-    {
-      "ts": "2026-07-02T03:50:01.611453+00:00",
-      "agent": "Thor",
-      "event": "dispatched",
-      "ticket": "STORY-209",
-      "content": "devops started work: Circuit-Breaker Design for Dead-Engine Rotation"
     }
   ],
   "problems": {}
