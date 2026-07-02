@@ -11543,7 +11543,7 @@
       "id": "STORY-208",
       "title": "Free-Model Ticket-Sizing Guidelines",
       "description": "Write a short guideline doc defining the max scope of a ticket a free model can reliably finish (word count, single-file only, turns). Goal: stop generating oversized multi-file tickets that structurally fail review (e.g. old STORY-019/067).",
-      "status": "in_validation",
+      "status": "done",
       "priority": "high",
       "severity": "MEDIUM",
       "category": "chore",
@@ -11554,7 +11554,7 @@
       "validation_fails": 0,
       "created_by": "ceo-audit",
       "createdAt": "2026-07-02T03:44:10.847181+00:00",
-      "updatedAt": "2026-07-02T04:00:05.157382+00:00",
+      "updatedAt": "2026-07-02T04:24:37.107560+00:00",
       "comments": [
         {
           "by": "ceo-audit",
@@ -11570,8 +11570,14 @@
           "by": "Iris",
           "timestamp": "2026-07-02T04:00:05.157382+00:00",
           "text": "Delivered work/STORY-208-deliverable.md (7348 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-07-02T04:24:37.107560+00:00",
+          "text": "VALIDATION PASS (independent review of STORY-208-deliverable.md): The deliverable provides a comprehensive and detailed guideline document that defines the max scope of a ticket a free model can reliably finish, including word count, single-file only, and turns. The document is well-structured, clear, and complete, addressing all aspects of the ticket STORY-208."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "STORY-209",
@@ -11605,7 +11611,8 @@
           "timestamp": "2026-07-02T04:00:05.161756+00:00",
           "text": "Delivered work/STORY-209-deliverable.md (17185 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
-      ]
+      ],
+      "review_attempts": 1
     },
     {
       "id": "AUTO-177",
@@ -11613,7 +11620,7 @@
       "description": "Produce a concise markdown checklist covering detection, logging, and fallback for all scheduled cron jobs. Include a lightweight Python script that can be run by the VM to automatically restart any job that failed on its last run and write a summary log. Deliverable: checklist + script.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Thor",
       "team": "any",
       "epicId": "EPIC-014",
@@ -11621,7 +11628,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T04:00:04.349321+00:00",
-      "updatedAt": "2026-07-02T04:10:09.541683+00:00",
+      "updatedAt": "2026-07-02T04:24:47.228425+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11634,6 +11641,11 @@
           "by": "Thor",
           "timestamp": "2026-07-02T04:10:09.541683+00:00",
           "text": "Delivered work/AUTO-177-deliverable.md (16264 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
+        },
+        {
+          "by": "Thor",
+          "timestamp": "2026-07-02T04:24:47.228425+00:00",
+          "text": "Delivered work/AUTO-177-deliverable.md (17229 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ]
     },
@@ -11673,7 +11685,7 @@
       "description": "Analyze the current model routing configuration to identify cost\u2011inefficient paths and potential security exposures. Produce a guide that recommends routing rules, quota\u2011monitoring alerts, and best\u2011practice security settings for free\u2011tier usage. Deliverable: written guide with cost matrix and security checklist.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "in_validation",
       "assigned_to": "Hades",
       "team": "any",
       "epicId": "EPIC-003",
@@ -11681,7 +11693,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T04:00:04.349321+00:00",
-      "updatedAt": "2026-07-02T04:10:09.539095+00:00",
+      "updatedAt": "2026-07-02T04:24:47.195996+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11694,6 +11706,11 @@
           "by": "Hades",
           "timestamp": "2026-07-02T04:10:09.539095+00:00",
           "text": "Delivered work/AUTO-179-deliverable.md (9831 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
+        },
+        {
+          "by": "Hades",
+          "timestamp": "2026-07-02T04:24:47.195996+00:00",
+          "text": "Delivered work/AUTO-179-deliverable.md (11150 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
         }
       ]
     },
@@ -11724,6 +11741,106 @@
           "by": "Hermes",
           "timestamp": "2026-07-02T04:10:09.543592+00:00",
           "text": "Delivered work/AUTO-180-deliverable.md (12311 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_progress."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-181",
+      "title": "Observability Dashboard Spec for Multi-Agent Health",
+      "description": "Create a concise specification for a Grafana dashboard that visualizes key metrics of each agent (CPU, memory, request latency, error rate, model token usage). Include Prometheus query snippets and a JSON dashboard config file. Deliverable: markdown spec plus JSON config.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Argus",
+      "team": "any",
+      "epicId": "EPIC-014",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T04:20:03.280750+00:00",
+      "updatedAt": "2026-07-02T04:20:03.280750+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T04:20:03.280750+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-182",
+      "title": "Agent Persona Refinement Guide",
+      "description": "Produce a short guide that sharpens existing agent personas, adds concrete behavior prompts, and defines a validation checklist to ensure consistency across the team. Deliverable: markdown guide with updated persona templates and checklist.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Metis",
+      "team": "any",
+      "epicId": "EPIC-013",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T04:20:03.280750+00:00",
+      "updatedAt": "2026-07-02T04:20:03.280750+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T04:20:03.280750+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-183",
+      "title": "Hermes Agent Architecture & Feature Analysis",
+      "description": "Research the open\u2011source Hermes Agent codebase and documentation to produce a detailed analysis of its architecture, core components, and feature set (persistent memory, skill creation, multi\u2011platform gateways, model\u2011agnostic routing). Deliverable: comprehensive markdown report with diagrams and a feature matrix.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Hermes",
+      "team": "any",
+      "epicId": "EPIC-015",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T04:20:03.280750+00:00",
+      "updatedAt": "2026-07-02T04:20:03.280750+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T04:20:03.280750+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
+        }
+      ]
+    },
+    {
+      "id": "AUTO-184",
+      "title": "VM Backup & Recovery Playbook",
+      "description": "Draft a playbook describing how to backup the VM image, agent state, and configuration files, and how to restore them after a failure. Include a small Bash script for automated snapshot creation. Deliverable: markdown playbook plus backup script.",
+      "severity": "MEDIUM",
+      "category": "feature",
+      "status": "backlog",
+      "assigned_to": "Thor",
+      "team": "any",
+      "epicId": "EPIC-014",
+      "blockedBy": null,
+      "blocks": null,
+      "created_by": "auto-planner",
+      "createdAt": "2026-07-02T04:20:03.280750+00:00",
+      "updatedAt": "2026-07-02T04:20:03.280750+00:00",
+      "progress": 0,
+      "validation_fails": 0,
+      "comments": [
+        {
+          "by": "auto-planner",
+          "timestamp": "2026-07-02T04:20:03.280750+00:00",
+          "text": "Auto-generated to keep the team busy (backlog was low)."
         }
       ]
     }
