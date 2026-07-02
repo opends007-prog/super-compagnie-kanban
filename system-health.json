@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-07-02T02:00:01.838589+00:00",
+  "generatedAt": "2026-07-02T02:10:02.052313+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 20.0,
+    "validator": 5.5,
     "observability": 10.0,
-    "guard": 3820.0,
-    "backup": 30.0,
+    "guard": 3830.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 194,
+    "done": 197,
     "backlog": 9,
-    "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "in_progress": 14,
+    "planned": 4
   },
   "tickets_total": 224,
-  "done_today": 9,
+  "done_today": 12,
   "delivered_today": 16,
   "delivered_week": 20,
   "model_mix_week": {
@@ -32,9 +31,66 @@
     "Fortuna",
     "Hades",
     "Hermes",
-    "Thor"
+    "Thor",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-02T02:04:35.052638+00:00",
+      "agent": "nemesis",
+      "event": "validation_fail",
+      "ticket": "AUTO-168",
+      "content": "FAIL #1: The deliverable is a security audit report unrelated to a data retention and deletion policy and does not provi"
+    },
+    {
+      "ts": "2026-07-02T02:04:35.045568+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-167",
+      "content": "PASS: The deliverable provides a full CSV matrix and concise summary covering language support, integrations, customizat"
+    },
+    {
+      "ts": "2026-07-02T02:04:35.042956+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-166",
+      "content": "PASS: The deliverable provides a comprehensive and detailed pricing sheet for the AI FAQ Receptionist service, including"
+    },
+    {
+      "ts": "2026-07-02T02:04:35.023998+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-165",
+      "content": "PASS: The deliverable provides a comprehensive, step-by-step guide to deploying a VM, installing required runtimes, and "
+    },
+    {
+      "ts": "2026-07-02T02:00:03.659226+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-168",
+      "content": "[groq,claude,openclaw] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-07-02T02:00:03.473675+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-167",
+      "content": "[groq,claude,openclaw] Independently reviewing business-analyst's deliverable"
+    },
+    {
+      "ts": "2026-07-02T02:00:02.020291+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-166",
+      "content": "[groq,claude,openclaw] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-07-02T02:00:02.017924+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-165",
+      "content": "[groq,claude,openclaw] Independently reviewing devops's deliverable"
+    },
     {
       "ts": "2026-07-02T01:44:48.508594+00:00",
       "agent": "Fortuna",
@@ -62,62 +118,6 @@
       "event": "delivered",
       "ticket": "AUTO-165",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-165-deliverable.md (11747b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-02T01:40:07.966328+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-166",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-02T01:40:03.541785+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-168",
-      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-02T01:40:03.540884+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-168",
-      "content": "security started work: Data Retention & Deletion Policy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-02T01:40:02.136040+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-166",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-02T01:40:01.647891+00:00",
-      "agent": "Hermes",
-      "event": "working",
-      "ticket": "AUTO-167",
-      "content": "[cerebras:gpt-oss-120b] attempting: Competitive Feature Matrix: AI FAQ Receptionist vs Top Vendo"
-    },
-    {
-      "ts": "2026-07-02T01:40:01.647008+00:00",
-      "agent": "Hermes",
-      "event": "dispatched",
-      "ticket": "AUTO-167",
-      "content": "business-analyst started work: Competitive Feature Matrix: AI FAQ Receptionist vs Top Vendo"
-    },
-    {
-      "ts": "2026-07-02T01:40:01.644505+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-166",
-      "content": "[cerebras:gpt-oss-120b] attempting: AI FAQ Receptionist Pricing Sheet"
-    },
-    {
-      "ts": "2026-07-02T01:40:01.640925+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-166",
-      "content": "income started work: AI FAQ Receptionist Pricing Sheet"
     }
   ],
   "problems": {}
