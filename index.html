@@ -275,6 +275,8 @@ a{color:var(--blue);text-decoration:none}
   display:none;flex-direction:column;overflow:hidden;
 }
 .dp.op{display:flex}
+/* let tab-switching hide the board: 2-class specificity beats the responsive .board{display:*!important} rules */
+.board.hidden,.board-mobile.hidden{display:none !important}
 .dp-hdr{
   padding:14px 16px;border-bottom:1px solid var(--border);
   display:flex;justify-content:space-between;align-items:center;
@@ -697,14 +699,14 @@ function goView(v){
   ['kanban','list','backlog','team','activity','office','ops'].forEach(function(view){
     var el=document.getElementById('view-'+view);
     if(el){
-      if(view==='kanban'){el.style.display=(v===view)?'flex':'none';}
+      if(view==='kanban'){el.classList.toggle('hidden', v!=='kanban');}
       else if(view==='office'){el.style.display=(v===view)?'flex':'none';}
       else{el.style.display=(v===view)?'block':'none';}
     }
   });
   if(v==='ops'){renderOps();}
   var km=document.getElementById('view-kanban-mobile');
-  if(km){km.style.display=(v==='kanban')?'flex':'none';}
+  if(km){km.classList.toggle('hidden', v!=='kanban');}
   var picker=document.getElementById('colPicker');
   var dots=document.getElementById('colDots');
   if(picker){picker.style.display=(v==='kanban')?'flex':'none';}
