@@ -1,27 +1,26 @@
 {
-  "generatedAt": "2026-07-02T01:00:01.193689+00:00",
+  "generatedAt": "2026-07-02T01:10:01.389720+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 20.0,
+    "validator": 10.0,
     "observability": 10.0,
-    "guard": 3760.0,
-    "backup": 30.0,
+    "guard": 3770.0,
+    "backup": 10.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 190,
+    "done": 194,
     "backlog": 9,
     "in_progress": 13,
-    "planned": 4,
-    "in_validation": 4
+    "planned": 4
   },
   "tickets_total": 220,
-  "done_today": 5,
+  "done_today": 9,
   "delivered_today": 8,
   "delivered_week": 12,
   "model_mix_week": {
@@ -32,9 +31,66 @@
     "Fortuna",
     "Iris",
     "Metis",
-    "Minerva"
+    "Minerva",
+    "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-02T01:00:03.741003+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-164",
+      "content": "PASS: The deliverable provides a comprehensive copy deck for the landing page, including a compelling headline, sub-head"
+    },
+    {
+      "ts": "2026-07-02T01:00:03.738755+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-163",
+      "content": "PASS: The deliverable provides a comprehensive objection-handling playbook for the AI FAQ Receptionist, including top 8 "
+    },
+    {
+      "ts": "2026-07-02T01:00:03.736661+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-162",
+      "content": "PASS: The deliverable provides a comprehensive and detailed script for a 10-minute live demo of the AI FAQ Receptionist,"
+    },
+    {
+      "ts": "2026-07-02T01:00:03.731767+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-161",
+      "content": "PASS: The deliverable provides a comprehensive and well-researched pricing sheet for an AI FAQ Receptionist, including t"
+    },
+    {
+      "ts": "2026-07-02T01:00:02.714772+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-164",
+      "content": "[groq,claude,openclaw] Independently reviewing org-excellence's deliverable"
+    },
+    {
+      "ts": "2026-07-02T01:00:02.593353+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-163",
+      "content": "[groq,claude,openclaw] Independently reviewing income's deliverable"
+    },
+    {
+      "ts": "2026-07-02T01:00:01.426966+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-162",
+      "content": "[groq,claude,openclaw] Independently reviewing pm's deliverable"
+    },
+    {
+      "ts": "2026-07-02T01:00:01.422245+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-161",
+      "content": "[groq,claude,openclaw] Independently reviewing analyst's deliverable"
+    },
     {
       "ts": "2026-07-02T00:41:25.498426+00:00",
       "agent": "Minerva",
@@ -62,62 +118,6 @@
       "event": "delivered",
       "ticket": "AUTO-163",
       "content": "[cerebras:gpt-oss-120b] Produced AUTO-163-deliverable.md (8845b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-02T00:40:05.880398+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-161",
-      "content": "[openclaw] attempting: AI FAQ Receptionist Pricing & Tier Sheet"
-    },
-    {
-      "ts": "2026-07-02T00:40:03.447671+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-164",
-      "content": "[cerebras:gpt-oss-120b] attempting: Landing Page Copy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-02T00:40:03.446885+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-164",
-      "content": "org-excellence started work: Landing Page Copy for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-02T00:40:02.204424+00:00",
-      "agent": "Minerva",
-      "event": "working",
-      "ticket": "AUTO-161",
-      "content": "[claude:owl-alpha] attempting: AI FAQ Receptionist Pricing & Tier Sheet"
-    },
-    {
-      "ts": "2026-07-02T00:40:01.743825+00:00",
-      "agent": "Iris",
-      "event": "working",
-      "ticket": "AUTO-162",
-      "content": "[cerebras:gpt-oss-120b] attempting: Live Demo Script for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-02T00:40:01.741883+00:00",
-      "agent": "Fortuna",
-      "event": "working",
-      "ticket": "AUTO-163",
-      "content": "[cerebras:gpt-oss-120b] attempting: Objection Handling Playbook for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-02T00:40:01.741475+00:00",
-      "agent": "Fortuna",
-      "event": "dispatched",
-      "ticket": "AUTO-163",
-      "content": "income started work: Objection Handling Playbook for AI FAQ Receptionist"
-    },
-    {
-      "ts": "2026-07-02T00:40:01.735377+00:00",
-      "agent": "Iris",
-      "event": "dispatched",
-      "ticket": "AUTO-162",
-      "content": "pm started work: Live Demo Script for AI FAQ Receptionist"
     }
   ],
   "problems": {}
