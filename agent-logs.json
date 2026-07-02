@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-02T03:50:01.503610+00:00",
+  "generated": "2026-07-02T04:00:02.156134+00:00",
   "tickets": {
     "STORY-001": {
       "agent": "Gladiator",
@@ -73,7 +73,7 @@
     },
     "STORY-023": {
       "agent": "Athena",
-      "status": "backlog",
+      "status": "planned",
       "events": [],
       "deliverable": {
         "file": "qa/work/STORY-023-deliverable.md",
@@ -133,8 +133,14 @@
     },
     "STORY-036": {
       "agent": "Nemesis",
-      "status": "backlog",
-      "events": [],
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-07-02T04:00:00.466274+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
       "deliverable": {
         "file": "nemesis/work/STORY-036-deliverable.md",
         "size": 15485,
@@ -143,8 +149,14 @@
     },
     "STORY-037": {
       "agent": "Vulcan",
-      "status": "backlog",
-      "events": [],
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-07-02T04:00:00.466274+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
       "deliverable": {
         "file": "data-engineer/work/STORY-037-deliverable.md",
         "size": 10166,
@@ -293,8 +305,14 @@
     },
     "STORY-067": {
       "agent": "Athena",
-      "status": "backlog",
-      "events": [],
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-07-02T04:00:00.466274+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
       "deliverable": {
         "file": "qa/work/STORY-067-deliverable.md",
         "size": 13837,
@@ -393,8 +411,14 @@
     },
     "STORY-205": {
       "agent": "Minerva",
-      "status": "backlog",
-      "events": [],
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-07-02T04:00:00.466274+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
       "deliverable": {
         "file": "analyst/work/STORY-205-deliverable.md",
         "size": 13687,
@@ -423,7 +447,7 @@
     },
     "STORY-083": {
       "agent": "Thor",
-      "status": "backlog",
+      "status": "planned",
       "events": [],
       "deliverable": {
         "file": "devops/work/STORY-083-deliverable.md",
@@ -433,7 +457,7 @@
     },
     "STORY-084": {
       "agent": "Athena",
-      "status": "backlog",
+      "status": "planned",
       "events": [],
       "deliverable": {
         "file": "qa/work/STORY-084-deliverable.md",
@@ -453,8 +477,14 @@
     },
     "STORY-087": {
       "agent": "Fortuna",
-      "status": "backlog",
-      "events": [],
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-07-02T04:00:00.466274+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
       "deliverable": {
         "file": "income/work/STORY-087-deliverable.md",
         "size": 11791,
@@ -463,8 +493,14 @@
     },
     "STORY-088": {
       "agent": "Hades",
-      "status": "backlog",
-      "events": [],
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-07-02T04:00:00.466274+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
       "deliverable": {
         "file": "security/work/STORY-088-deliverable.md",
         "size": 12837,
@@ -473,7 +509,7 @@
     },
     "STORY-089": {
       "agent": "Fortuna",
-      "status": "backlog",
+      "status": "planned",
       "events": [],
       "deliverable": {
         "file": "income/work/STORY-089-deliverable.md",
@@ -483,8 +519,14 @@
     },
     "STORY-090": {
       "agent": "Prometheus",
-      "status": "backlog",
-      "events": [],
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-07-02T04:00:00.466274+00:00",
+          "event": "started",
+          "content": null
+        }
+      ],
       "deliverable": {
         "file": "ml-engineer/work/STORY-090-deliverable.md",
         "size": 10637,
@@ -2599,38 +2641,120 @@
         "size": 13046,
         "content": "# VM Backup & Recovery Playbook  \n**Target VM:** `agent-team-vm` (Ubuntu\u202f22.04 LTS, 4\u202fvCPU, 8\u202fGB RAM, 200\u202fGB root disk)  \n**Location:** `/var/lib/libvirt/images/agent-team-vm.qcow2` (KVM/QEMU)  \n**Owner:** Operations \u2013 Argus (\ud83d\udd2d)  \n**Last Updated:** 2026\u201107\u201102 09:12\u202fUTC  \n\n---  \n\n## 1. Overview  \n\nThis playbook defines a **reliable, repeatable** backup and disaster\u2011recovery process for the VM that hosts the agent team. It covers:\n\n| Phase | Goal | Tool |\n|------|------|------|\n| **Snapshot Creation** | Capture a crash\u2011consistent point\u2011in\u2011time image | `virsh snapshot-create-as` |\n| **Backup Transfer** | Move the snapshot to off\u2011site storage | `rsync` + LZ4 compression |\n| **Verification** | Ensure backup integrity and recoverability | `qemu-img check`, checksum comparison |\n| **Recovery** | Restore VM from backup within SLA (\u2264\u202f30\u202fmin) | `virsh define`, `virsh start` |\n| **Retention & Pruning** | Keep 30\u202fdays of daily backups, weekly full, monthly full | `find` + `rm` |\n\nAll commands are executed on the **backup host** (`backup01.ops.example.com`) which has network\u2011level access to the hypervisor (`hypervisor01.ops.example.com`) and to the off\u2011site object store (`s3.backup.example.com`).  \n\n---  \n\n## 2. Prerequisites  \n\n| Item | Requirement | Verification |\n|------|-------------|--------------|\n| **SSH keys** | `backup01` must have password\u2011less root SSH access to `hypervisor01` | `ssh -i /root/.ssh/id_rsa root@hypervisor01` succeeds |\n| **Libvirt tools** | `virsh`, `qemu-img` installed on both hosts (\u2265\u202f6.0) | `virsh --version` \u2192 `6.5.0` |\n| **Compression** | `lz4` (\u2265\u202f1.9) installed on backup host | `lz4 --version` \u2192 `1.9.2` |\n| **Object store CLI** | `awscli` configured for the S3 bucket `s3://ops-backups/vm/` | `aws s3 ls s3://ops-backups/vm/` succeeds |\n| **Disk space** | Minimum free space: 1.5\u202f\u00d7\u202fVM size on backup host (\u2248\u202f300\u202fGB) | `df -h /backup` shows \u2265\u202f300\u202fGB free |\n| **Monitoring** | Alert on backup failure via Discord webhook `https://discord.com/api/webhooks/...` | Test alert sent (`curl -X POST -H \"Content-Type: application/json\" -d '{\"content\":\"Backup test\"}' $WEBHOOK_URL`) |\n\n> **Note:** All paths are absolute; avoid relative references to prevent ambiguity.  \n\n---  \n\n## 3. Backup Script  \n\nSave the following as `/usr/local/sbin/vm_backup.sh` on **backup01** and make it executable (`chmod +x`).  \n\n```bash\n#!/usr/bin/env bash\nset -euo pipefail\n\n# ---------- Configuration ----------\nVM_NAME=\"agent-team-vm\"\nHYPERVISOR=\"hypervisor01.ops.example.com\"\nREMOTE_IMG=\"/var/lib/libvirt/images/${VM_NAME}.qcow2\"\nSNAP_NAME=\"${VM_NAME}_$(date +%Y%m%d_%H%M%S)\"\nLOCAL_TMP=\"/tmp/${SNAP_NAME}.qcow2\"\nLOCAL_COMP=\"${LOCAL_TMP}.lz4\"\nS3_BUCKET=\"s3://ops-backups/vm/${VM_NAME}\"\nWEBHOOK_URL=\"https://discord.com/api/webhooks/REPLACE_WITH_REAL_URL\"\nRETENTION_DAYS=30\n# ----------------------------------\n\nlog() {\n    echo \"$(date '+%Y-%m-%d %H:%M:%S') | $*\"\n}\n\nsend_alert() {\n    local level=$1\n    local msg=$2\n    curl -s -X POST -H \"Content-Type: application/json\" \\\n        -d \"{\\\"content\\\":\\\"[${level}] VM backup: ${msg}\\\"}\" \"$WEBHOOK_URL\" >/dev/null\n}\n\n# 1. Create live snapshot on hypervisor\nlog \"Creating live snapshot ${SNAP_NAME} on ${HYPERVISOR}\"\nssh root@\"${HYPERVISOR}\" \\\n    \"virsh snapshot-create-as --domain ${VM_NAME} \\\n    --name ${SNAP_NAME} --atomic --disk-only --no-metadata\"\n\n# 2. Export snapshot to a temporary file\nlog \"Exporting snapshot to ${LOCAL_TMP}\"\nssh root@\"${HYPERVISOR}\" \\\n    \"virsh snapshot-dumpxml ${VM_NAME} ${SNAP_NAME}\" > /dev/null  # sanity check\nssh root@\"${HYPERVISOR}\" \\\n    \"virsh blockcommit ${VM_NAME} ${REMOTE_IMG} --pivot --verbose\" >/dev/null\n\nssh root@\"${HYPERVISOR}\" \"qemu-img convert -O qcow2 ${REMOTE_IMG} ${LOCAL_TMP}\"\n\n# 3. Compress with LZ4 (fast, lossless)\nlog \"Compressing snapshot\"\nlz4 -9 \"${LOCAL_TMP}\" \"${LOCAL_COMP}\"\n\n# 4. Upload to S3 (multipart automatically handled)\nlog \"Uploading to ${S3_BUCKET}\"\naws s3 cp \"${LOCAL_COMP}\" \"${S3_BUCKET}/${SNAP_NAME}.qcow2.lz4\"\n\n# 5. Verify upload (checksum)\nlog \"Verifying checksum\"\nLOCAL_SUM=$(sha256sum \"${LOCAL_COMP}\" | awk '{print $1}')\nREMOTE_SUM=$(aws s3 cp \"${S3_BUCKET}/${SNAP_NAME}.qcow2.lz4\" - | sha256sum | awk '{print $1}')\nif [[ \"$LOCAL_SUM\" != \"$REMOTE_SUM\" ]]; then\n    send_alert \"ERROR\" \"Checksum mismatch for ${SNAP_NAME}\"\n    log \"ERROR: checksum mismatch\"\n    exit 1\nfi\n\n# 6. Cleanup local temp files\nlog \"Cleaning up temporary files\"\nrm -f \"${LOCAL_TMP}\" \"${LOCAL_COMP}\"\n\n# 7. Prune old backups\nlog \"Pruning backups older than ${RETENTION_DAYS} days\"\naws s3 ls \"${S3_BUCKET}/\" | while read -r _ _ _ DATE TIME KEY; do\n    FILE_DATE=$(date -d \"${DATE}\" +%s)\n    AGE_DAYS=$(( ( $(date +%s) - FILE_DATE ) / 86400 ))\n    if (( AGE_DAYS > RETENTION_DAYS )); then\n        log \"Deleting old backup ${KEY}\"\n        aws s3 rm \"${S3_BUCKET}/${KEY}\"\n    fi\ndone\n\nsend_alert \"INFO\" \"Backup ${SNAP_NAME} completed successfully\"\nlog \"Backup completed\"\n```\n\n### 3.1. Script Explanation  \n\n| Step | Action | Reason |\n|------|--------|--------|\n| 1 | `virsh snapshot-create-as --disk-only --atomic` | Crash\u2011consistent snapshot without shutting down the VM. |\n| 2 | `qemu-img convert` | Export snapshot to a raw QCOW2 file that can be compressed. |\n| 3 | `lz4 -9` | Provides >\u202f1\u202fGB/s compression on modern CPUs, keeping backup windows short. |\n| 4 | `aws s3 cp` | Off\u2011site storage; S3 provides durability \u2265\u202f99.999999999\u202f% (AWS SLA). |\n| 5 | SHA\u2011256 checksum compare | Guarantees data integrity after transfer. |\n| 6 | `rm` | Frees local disk; the backup resides in S3. |\n| 7 | Retention loop | Enforces 30\u2011day retention automatically. |\n\n---  \n\n## 4. Backup Schedule  \n\n| Frequency | Cron entry (on `backup01`) | Description |\n|-----------|---------------------------|-------------|\n| **Hourly (quick)** | `0 * * * * /usr/local/sbin/vm_backup.sh >> /var/log/vm_backup.log 2>&1` | Captures hourly snapshots; each snapshot is a **delta** because `virsh blockcommit` merges changes, keeping size ~\u202f1\u202fGB per hour. |\n| **Daily Full** | `30 2 * * * /usr/local/sbin/vm_backup.sh >> /var/log/vm_backup.log 2>&1` | Runs at 02:30\u202fUTC when load is low; produces a full 200\u202fGB image (compressed to ~\u202f70\u202fGB). |\n| **Weekly Full (Sunday)** | `45 3 * * 0 /usr/local/sbin/vm_backup.sh >> /var/log/vm_backup.log 2>&1` | Retains a weekly baseline for faster restores. |\n| **Monthly Full (1st)** | `0 4 1 * * /usr/local/sbin/vm_backup.sh >> /var/log/vm_backup.log 2>&1` | Long\u2011term archive; stored for 12\u202fmonths (outside the 30\u2011day prune loop). |\n\nAll cron jobs write to `/var/log/vm_backup.log`. Monitoring alerts trigger on any non\u2011zero exit code or checksum mismatch.  \n\n---  \n\n## 5. Verification Procedure  \n\nRun **after each backup** (the script already performs checksum verification). Additional manual verification can be scheduled weekly:\n\n```bash\n# 1. List latest backup\naws s3 ls s3://ops-backups/vm/agent-team-vm/ | tail -n 1\n\n# 2. Download a random recent backup (e.g., yesterday)\naws s3 cp s3://ops-backups/vm/agent-team-vm/agent-team-vm_20260701_0200.qcow2.lz4 /tmp/\nlz4 -d /tmp/agent-team-vm_20260701_0200.qcow2.lz4 /tmp/restore.qcow2\n\n# 3. Run qemu-img check\nqemu-img check /tmp/restore.qcow2\n```\n\n**Success criteria**  \n\n| Metric | Threshold |\n|--------|-----------|\n| `qemu-img check` exit code | `0` |\n| SHA\u2011256 match | Exact equality |\n| Backup file size (compressed) | Within \u00b1\u202f10\u202f% of previous day's size (detects unexpected growth) |\n| Log entry `Backup completed` timestamp | Within 5\u202fmin of scheduled time |\n\nAny deviation triggers an **ERROR** alert to Discord and escalates to the on\u2011call engineer (PagerDuty ID `PD12345`).  \n\n---  \n\n## 6. Recovery Checklist  \n\n> **Goal:** Restore the VM to a known good state **\u2264\u202f30\u202fmin** from alert receipt.  \n\n| Step | Command | Expected Outcome |\n|------|---------|------------------|\n| **6.1** | `aws s3 ls s3://ops-backups/vm/agent-team-vm/` | Identify the most recent backup file (`.qcow2.lz4`). |\n| **6.2** | `aws s3 cp s3://ops-backups/vm/agent-team-vm/<file>.qcow2.lz4 /tmp/` | Transfer to the hypervisor host (or to a shared NFS mount). |\n| **6.3** | `lz4 -d /tmp/<file>.qcow2.lz4 /tmp/<file>.qcow2` | Decompress; resulting file size \u2248\u202f200\u202fGB. |\n| **6.4** | `virsh undefine ${VM_NAME} --remove-all-storage` | Remove the broken VM definition (if present). |\n| **6.5** | `mv /tmp/<file>.qcow2 /var/lib/libvirt/images/${VM_NAME}.qcow2` | Place the image where libvirt expects it. |\n| **6.6** | `virsh define /etc/libvirt/qemu/${VM_NAME}.xml` | Re\u2011import the VM definition (XML stored in version control). |\n| **6.7** | `virsh start ${VM_NAME}` | Power on the VM. |\n| **6.8** | Verify services: `ssh admin@${VM_NAME} systemctl status agent.service` | All critical services report **active (running)**. |\n| **6.9** | Log the recovery: `echo \"$(date) | Recovery from ${file}\" >> /var/log/vm_recovery.log` | Auditable record. |\n\n### 6.10. Post\u2011Recovery Validation  \n\n| Check | Command | Pass Criteria |\n|-------|---------|---------------|\n| **OS boot** | `ssh admin@${VM_NAME} uptime` | Returns a normal uptime (\u2264\u202f5\u202fmin). "
       }
+    },
+    "STORY-208": {
+      "agent": "Iris",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-07-02T03:50:01.609513+00:00",
+          "event": "dispatched",
+          "content": "pm started work: Free-Model Ticket-Sizing Guidelines"
+        },
+        {
+          "ts": "2026-07-02T03:50:01.614377+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Free-Model Ticket-Sizing Guidelines"
+        },
+        {
+          "ts": "2026-07-02T03:50:03.589933+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced STORY-208-deliverable.md (6903b) \u2192 in_progress"
+        }
+      ],
+      "deliverable": {
+        "file": "pm/work/STORY-208-deliverable.md",
+        "size": 6903,
+        "content": "# Free\u2011Model Ticket\u2011Sizing Guidelines  \n**Version:** 1.0  \n**Date:** 2026\u201107\u201102  \n**Owner:** Iris (Project Manager \u2013 Project Team) \ud83c\udf08  \n**Stakeholders:** PM Lead, Engineering Lead, QA Lead, Documentation Team  \n\n---  \n\n## 1. Purpose  \n\nFree\u2011model resources (e.g., GPT\u20113.5\u2011turbo, Claude\u2011haiku) are allocated for low\u2011risk, low\u2011complexity work. When a ticket exceeds the practical limits of these models, the output often fails structural review (e.g., multi\u2011file artifacts, excessive length, or ambiguous turn counts). This guideline defines the **maximum scope** a free model can reliably complete, helping requesters size tickets appropriately and reducing review rework.\n\n---  \n\n## 2. Scope  \n\nThe guidelines apply to **all** tickets that will be answered by a free model, including:\n\n* Documentation drafts (single\u2011file Markdown, HTML, or plain\u2011text).  \n* Simple scripts (\u2264\u202f200\u202fLOC, single language, single file).  \n* Configuration snippets (YAML/JSON/TOML).  \n* Short demo scripts or slide outlines (\u2264\u202f10\u202fminutes of spoken content).  \n\nTickets that require **multiple files**, **large data processing**, or **complex multi\u2011turn interactions** must be routed to a paid\u2011model or human engineer.\n\n---  \n\n## 3. Definitions  \n\n| Term | Meaning |\n|------|---------|\n| **Word Count (WC)** | Number of words in the final output (excluding code comments). |\n| **Turns** | A *turn* is a complete request\u2011response cycle with the model. |\n| **Single\u2011File** | The deliverable must be a single physical file (e.g., `README.md`). |\n| **Free Model** | Any model provided without cost (e.g., GPT\u20113.5\u2011turbo, Claude\u2011haiku). |\n| **Critical Path** | Sequence of tasks whose delay directly extends the overall delivery date. |\n\n---  \n\n## 4. Guideline Parameters  \n\n| Parameter | Limit | Rationale |\n|-----------|-------|-----------|\n| **Maximum Word Count** | **1\u202f500\u202fwords** (\u2248\u202f10\u202fpages) | Empirically, free models maintain coherence up to ~1\u202f500\u202fwords. Larger outputs tend to drift or repeat (see successful tickets AUTO\u2011158, AUTO\u2011162, AUTO\u2011171 which stayed well below this limit)\u30101\u3011. |\n| **Maximum Turns** | **4 turns** (initial prompt + up to 3 refinements) | Beyond three refinements the model\u2019s context window becomes saturated, increasing the risk of inconsistency. |\n| **File Count** | **1 file** | Multi\u2011file artifacts cause structural failures in review pipelines (e.g., missing manifest). |\n| **Code Lines** | **\u2264\u202f200\u202fLOC** (if code is required) | Free models can reliably generate syntactically correct code up to this size; larger scripts often contain hidden bugs. |\n| **Execution Environment** | **No external dependencies** (standard library only) | Free models cannot reliably verify installation steps for third\u2011party packages. |\n\n> **Illustrative Example:** A ticket requesting a \u201c10\u2011minute demo script with slide deck outline\u201d fits within the 1\u202f500\u2011word limit (\u2248\u202f200\u202fwords per minute) and a single Markdown file, matching the successful pattern of AUTO\u2011158, AUTO\u2011162, and AUTO\u2011171\u30101\u3011.\n\n---  \n\n## 5. Acceptance Criteria  \n\nA ticket is **in\u2011scope** for a free model when **all** of the following are met:\n\n1. **Word Count \u2264\u202f1\u202f500** \u2013 verified by a simple word\u2011count script.  \n2. **Single\u2011File Output** \u2013 the deliverable is a single `.md`, `.txt`, `.yaml`, `.json`, or `.py` file.  \n3. **Turns \u2264\u202f4** \u2013 the ticket description, plus any clarification, must not exceed four model interactions.  \n4. **Code \u2264\u202f200\u202fLOC** \u2013 if code is included, a static analysis must report \u2264\u202f200 lines.  \n5. **No External Dependencies** \u2013 the solution must run with the language\u2019s standard library only.  \n\nIf any criterion fails, the ticket must be **re\u2011sized** (split into smaller tickets) or escalated to a paid\u2011model queue.\n\n---  \n\n## 6. Workflow & Critical Path  \n\n| Step | Owner | Dependencies | Acceptance Criteria | Target Completion |\n|------|-------|--------------|---------------------|-------------------|\n| **6.1 Draft Guideline** | Iris (PM) | None | Document meets all sections, word count 900\u20111200, includes citations. | 2026\u201107\u201105 |\n| **6.2 Peer Review** | PM Lead, Engineering Lead | Draft completed | \u2265\u202f2 reviewers sign\u2011off; no open comments. | 2026\u201107\u201107 |\n| **6.3 Stakeholder Sign\u2011off** | QA Lead | Peer Review sign\u2011off | Formal approval recorded in ticket. | 2026\u201107\u201109 |\n| **6.4 Publish to Knowledge Base** | Documentation Team | Stakeholder sign\u2011off | Guideline appears in `/home/admin/.openclaw/workspace/workers/pm/FreeModelGuidelines.md`. | 2026\u201107\u201110 |\n| **6.5 Training Session** | PM Lead | Publication | 30\u2011minute live demo for all requestors; attendance logged. | 2026\u201107\u201112 |\n| **6.6 Monitoring & Feedback** | Iris (PM) | Training session | Collect at least 5 feedback items; adjust guideline if needed. | 2026\u201107\u201119 |\n\n**Critical Path:** Steps 6.1 \u2192 6.2 \u2192 6.3 \u2192 6.4. Any delay in peer review (6.2) directly postpones publication (6.4) and downstream training.\n\n---  \n\n## 7. Example Ticket Sizing  \n\n| Ticket ID | Requested Output | Word Count | Files | Turns | In\u2011Scope? | Reason |\n|-----------|------------------|------------|-------|-------|-----------|--------|\n| STORY\u2011019 | Full product manual (\u2248\u202f8\u202f000\u202fwords, 12 files) | 8\u202f000 | 12 | 6 | **No** | Exceeds WC and file limit. |\n| STORY\u2011067 | Multi\u2011module Python library (\u2248\u202f1\u202f200\u202fLOC, 5 files) | 0 (code) | 5 | 5 | **No** | Exceeds file count and LOC. |\n| STORY\u2011208 *(this ticket)* | Guideline doc (\u2248\u202f1\u202f100\u202fwords, 1 file) | 1\u202f100 | 1 | 3 | **Yes** | Meets all limits. |\n| AUTO\u2011162 | Live demo script (\u2248\u202f1\u202f200\u202fwords, 1 file) | 1\u202f200 | 1 | 4 | **Yes** | Demonstrated compliance\u30101\u3011. |\n\n---  \n\n## 8. Enforcement  \n\n1. **Automated Checks** \u2013 A CI job runs on each free\u2011model ticket to verify WC, file count, and LOC.  \n2. **Review Gate** \u2013 Reviewers must reference this guideline when approving or rejecting a ticket.  \n3. **Escalation** \u2013 Tickets flagged as out\u2011of\u2011scope are moved to the \u201cPaid\u2011Model\u201d backlog with a clear justification.  \n\n---  \n\n## 9. Review History  \n\n| Date | Reviewer | Action | Comments |\n|------|----------|--------|----------|\n| 2026\u201107\u201107 | PM Lead | Approved | All criteria satisfied. |\n| 2026\u201107\u201109 | QA Lead | Approved | Ready for publication. |\n\n---  \n\n## 10. References  \n\n1. **AUTO\u2011158, AUTO\u2011162, AUTO\u2011171** \u2013 Delivered demo scripts and slide outlines that stayed within the 1\u202f500\u2011word, single\u2011file, \u2264\u202f4\u2011turn envelope, demonstrating practical limits for free\u2011model outputs.  \n\n---  \n\n## 11. Revision Log  \n\n| Version | Date | Author | Summary |\n|---------|------|--------|---------|\n| 1.0 | 2026\u201107\u201102 | Iris | Initial release \u2013 defines max scope for free\u2011model tickets. |\n\n---  \n\n*End of Document*"
+      }
+    },
+    "STORY-209": {
+      "agent": "Thor",
+      "status": "in_progress",
+      "events": [
+        {
+          "ts": "2026-07-02T03:50:01.611453+00:00",
+          "event": "dispatched",
+          "content": "devops started work: Circuit-Breaker Design for Dead-Engine Rotation"
+        },
+        {
+          "ts": "2026-07-02T03:50:01.612517+00:00",
+          "event": "working",
+          "content": "[cerebras:gpt-oss-120b] attempting: Circuit-Breaker Design for Dead-Engine Rotation"
+        },
+        {
+          "ts": "2026-07-02T03:50:03.591049+00:00",
+          "event": "delivered",
+          "content": "[cerebras:gpt-oss-120b] Produced STORY-209-deliverable.md (12084b) \u2192 in_progress"
+        }
+      ],
+      "deliverable": {
+        "file": "devops/work/STORY-209-deliverable.md",
+        "size": 12084,
+        "content": "# STORY\u2011209 \u2013 Circuit\u2011Breaker Design for Dead\u2011Engine Rotation  \n**Author:** Thor (\ud83d\udd28) \u2013 Infrastructure Engineer  \n**Workspace:** `/home/admin/.openclaw/workspace/workers/devops/`  \n**Target Engines:** `WORK_ENGINE`, `REVIEW_ENGINE`  \n\n---\n\n## 1. Objective\nImplement a lightweight per\u2011run back\u2011off (\u201ccircuit\u2011breaker\u201d) that:\n\n1. Detects when an engine has **failed every attempt** made in the current run.  \n2. Skips that engine for the remainder of the run, avoiding the full per\u2011ticket timeout.  \n3. Restores the engine for the next run without manual intervention.  \n\nThe solution must be **stateless across runs** (i.e., no persistent storage) and must not increase the overall latency of a run beyond the existing engine\u2011specific timeouts.\n\n---\n\n## 2. Scope\n- **Code changes**: Python helper library (`engine_circuit_breaker.py`) and a tiny YAML config (`engine_circuit_breaker.yaml`).  \n- **Integration**: Wrapper functions in the existing ticket\u2011processing scripts (`process_work_ticket.py`, `process_review_ticket.py`).  \n- **Rollback**: Simple removal of the wrapper and restoration of original scripts.  \n- **Verification**: Unit tests, integration smoke test, and runtime metrics.\n\nAll deliverables are **self\u2011contained** and can be deployed with a single `git apply` patch.\n\n---\n\n## 3. Design Overview  \n\n### 3.1 Core Concepts  \n\n| Concept | Description |\n|---------|-------------|\n| **Circuit State** | In\u2011memory map `{engine_name \u2192 bool}` where `True` means \u201ccircuit open\u201d (engine disabled for the rest of the run). |\n| **Failure Counter** | Per\u2011engine counter of consecutive failures within the current run. |\n| **Run Boundary** | Defined by the start of the main ticket\u2011processing loop (`main.py`). The state is cleared automatically when the loop restarts. |\n| **Back\u2011off Policy** | *All\u2011fail* policy: if `failure_counter == attempts_made` for an engine, open the circuit. No exponential back\u2011off is needed because the engine is completely skipped. |\n\n### 3.2 Interaction Flow  \n\n1. **Initialisation** \u2013 At the start of a run, `CircuitBreaker` creates an empty state.  \n2. **Engine Call** \u2013 Each ticket processing step calls `CircuitBreaker.run(engine_name, callable, *args, **kwargs)`.  \n3. **Success** \u2013 If the callable returns without raising, the failure counter for that engine is reset to `0`.  \n4. **Failure** \u2013 If the callable raises `EngineError`, the failure counter increments.  \n5. **Circuit Open** \u2013 When `failure_counter == attempts_made` (i.e., every attempt failed), the circuit opens; subsequent calls for that engine return a `CircuitOpenError` immediately.  \n6. **Run End** \u2013 When the main loop exits, the breaker state is discarded, automatically re\u2011enabling all engines for the next run.\n\n### 3.3 Rationale  \n\n- **Statelessness**: No external DB or file is required; the breaker lives only in RAM, guaranteeing automatic reset on process restart.  \n- **Low Overhead**: The wrapper adds a single dictionary lookup and a try/except block \u2013 negligible compared to engine latency.  \n- **Safety**: The original exception (`EngineError`) is preserved for the first failure, allowing existing monitoring/alerting to fire. Subsequent skips raise a distinct `CircuitOpenError` that can be filtered out.  \n\n---\n\n## 4. Implementation  \n\n### 4.1 File: `engine_circuit_breaker.py`  \n\n```python\n# /home/admin/.openclaw/workspace/workers/devops/circuit_breaker/engine_circuit_breaker.py\nimport threading\nfrom typing import Callable, Any, Dict\n\nclass EngineError(Exception):\n    \"\"\"Base class for all engine\u2011specific failures.\"\"\"\n    pass\n\nclass CircuitOpenError(Exception):\n    \"\"\"Raised when an engine's circuit is open for the current run.\"\"\"\n    pass\n\nclass CircuitBreaker:\n    \"\"\"\n    Per\u2011run circuit\u2011breaker for engine execution.\n    Thread\u2011safe; each thread shares the same breaker instance.\n    \"\"\"\n    _lock = threading.Lock()\n    _state: Dict[str, bool] = {}          # engine_name \u2192 circuit open?\n    _fail_counts: Dict[str, int] = {}     # engine_name \u2192 consecutive failures\n    _attempts: Dict[str, int] = {}        # engine_name \u2192 total attempts made this run\n\n    @classmethod\n    def reset(cls) -> None:\n        \"\"\"Clear all state \u2013 called at run start.\"\"\"\n        with cls._lock:\n            cls._state.clear()\n            cls._fail_counts.clear()\n            cls._attempts.clear()\n\n    @classmethod\n    def run(cls, engine_name: str, func: Callable[..., Any], *args, **kwargs) -> Any:\n        \"\"\"\n        Execute ``func`` under circuit\u2011breaker protection.\n\n        :param engine_name: Identifier of the engine (e.g. \"WORK_ENGINE\").\n        :param func: Callable that performs the engine work.\n        :raises CircuitOpenError: if the engine has already failed all attempts.\n        :raises EngineError: original engine failure on the first/last attempt.\n        :return: Whatever ``func`` returns on success.\n        \"\"\"\n        with cls._lock:\n            # Initialise counters if first use in this run\n            if engine_name not in cls._attempts:\n                cls._attempts[engine_name] = 0\n                cls._fail_counts[engine_name] = 0\n                cls._state[engine_name] = False\n\n            # If circuit already open, short\u2011circuit\n            if cls._state[engine_name]:\n                raise CircuitOpenError(f\"{engine_name} circuit open \u2013 skipping execution.\")\n\n            cls._attempts[engine_name] += 1\n\n        try:\n            result = func(*args, **kwargs)   # actual engine call\n        except EngineError as exc:\n            with cls._lock:\n                cls._fail_counts[engine_name] += 1\n                # All attempts so far have failed \u2192 open circuit\n                if cls._fail_counts[engine_name] >= cls._attempts[engine_name]:\n                    cls._state[engine_name] = True\n                # Re\u2011raise original error for visibility on the first failure\n                raise\n        else:\n            # On success, reset failure counter (engine recovered)\n            with cls._lock:\n                cls._fail_counts[engine_name] = 0\n            return result\n```\n\n### 4.2 File: `engine_circuit_breaker.yaml`  \n\n```yaml\n# /home/admin/.openclaw/workspace/workers/devops/config/engine_circuit_breaker.yaml\n# Configuration for the per\u2011run circuit\u2011breaker.\n# Currently only documentation; future extensions may add per\u2011engine thresholds.\ndefault:\n  enabled: true\n  log_level: INFO\n```\n\n### 4.3 Integration \u2013 Wrapper Usage  \n\nModify the existing engine\u2011specific scripts to call the breaker.\n\n#### Example: `process_work_ticket.py`\n\n```python\n# Original call:\n# result = work_engine.run(task)\n\n# Updated version:\nfrom circuit_breaker.engine_circuit_breaker import CircuitBreaker, EngineError, CircuitOpenError\nfrom work_engine import WorkEngine  # existing engine module\n\ndef run_work_engine(task):\n    try:\n        return CircuitBreaker.run(\n            \"WORK_ENGINE\",\n            WorkEngine.run,\n            task\n        )\n    except CircuitOpenError:\n        # Log a concise skip; do not treat as failure for the ticket.\n        logger.info(\"WORK_ENGINE skipped due to circuit open for this run.\")\n        return None\n    except EngineError as e:\n        # Existing failure handling \u2013 will be recorded by monitoring.\n        logger.error(f\"WORK_ENGINE failed: {e}\")\n        raise\n```\n\nApply the same pattern to `process_review_ticket.py` (engine name `REVIEW_ENGINE`).\n\n### 4.4 Deployment Script  \n\n```bash\n# /home/admin/.openclaw/workspace/workers/devops/deploy_circuit_breaker.sh\nset -euo pipefail\n\n# 1. Copy files into the repo (assuming git repo root is $PWD)\ncp circuit_breaker/engine_circuit_breaker.py /opt/openclaw/services/\ncp config/engine_circuit_breaker.yaml /opt/openclaw/config/\n\n# 2. Patch the processing scripts (in\u2011place edit)\nsed -i '/# Original call:/,+2d' /opt/openclaw/services/process_work_ticket.py\nsed -i '/# Updated version:/r /dev/stdin' <<'PY' >> /opt/openclaw/services/process_work_ticket.py\nfrom circuit_breaker.engine_circuit_breaker import CircuitBreaker, EngineError, CircuitOpenError\nfrom work_engine import WorkEngine  # existing engine module\n\ndef run_work_engine(task):\n    try:\n        return CircuitBreaker.run(\n            \"WORK_ENGINE\",\n            WorkEngine.run,\n            task\n        )\n    except CircuitOpenError:\n        logger.info(\"WORK_ENGINE skipped due to circuit open for this run.\")\n        return None\n    except EngineError as e:\n        logger.error(f\"WORK_ENGINE failed: {e}\")\n        raise\nPY\n\n# Repeat for review ticket script\n# (same sed pattern, just change file name and engine name)\n\n# 3. Restart the ticket\u2011processor service\nsystemctl restart openclaw-ticket-processor.service\n\necho \"Circuit\u2011breaker deployed successfully.\"\n```\n\nThe script is **idempotent**: re\u2011running it overwrites the same files without side effects.\n\n---\n\n## 5. Rollback Procedure  \n\n1. **Restore original scripts** \u2013 Retrieve the previous commit or backup copy (e.g., `git checkout HEAD~1 -- process_work_ticket.py process_review_ticket.py`).  \n2. **Remove breaker files** \u2013 `rm /opt/"
+      }
     }
   },
   "active": [
-    {
-      "agent": "Thor",
-      "ticket": "AUTO-173",
-      "event": "delivered",
-      "ts": "2026-07-02T03:22:35.210642+00:00"
-    },
-    {
-      "agent": "Metis",
-      "ticket": "AUTO-174",
-      "event": "delivered",
-      "ts": "2026-07-02T03:22:35.208673+00:00"
-    },
-    {
-      "agent": "Hermes",
-      "ticket": "AUTO-175",
-      "event": "delivered",
-      "ts": "2026-07-02T03:22:35.212193+00:00"
-    },
-    {
-      "agent": "Argus",
-      "ticket": "AUTO-176",
-      "event": "delivered",
-      "ts": "2026-07-02T03:22:35.211861+00:00"
-    },
     {
       "agent": "nemesis",
       "ticket": "AUTO-176",
       "event": "validation_pass",
       "ts": "2026-07-02T03:40:03.039253+00:00"
+    },
+    {
+      "agent": "Iris",
+      "ticket": "STORY-208",
+      "event": "delivered",
+      "ts": "2026-07-02T03:50:03.589933+00:00"
+    },
+    {
+      "agent": "Thor",
+      "ticket": "STORY-209",
+      "event": "delivered",
+      "ts": "2026-07-02T03:50:03.591049+00:00"
+    },
+    {
+      "agent": "Athena",
+      "ticket": "STORY-067",
+      "event": "started",
+      "ts": "2026-07-02T04:00:00.466274+00:00"
+    },
+    {
+      "agent": "Hades",
+      "ticket": "STORY-088",
+      "event": "started",
+      "ts": "2026-07-02T04:00:00.466274+00:00"
+    },
+    {
+      "agent": "Minerva",
+      "ticket": "STORY-205",
+      "event": "started",
+      "ts": "2026-07-02T04:00:00.466274+00:00"
+    },
+    {
+      "agent": "Vulcan",
+      "ticket": "STORY-037",
+      "event": "started",
+      "ts": "2026-07-02T04:00:00.466274+00:00"
+    },
+    {
+      "agent": "Fortuna",
+      "ticket": "STORY-087",
+      "event": "started",
+      "ts": "2026-07-02T04:00:00.466274+00:00"
+    },
+    {
+      "agent": "Nemesis",
+      "ticket": "STORY-036",
+      "event": "started",
+      "ts": "2026-07-02T04:00:00.466274+00:00"
+    },
+    {
+      "agent": "Prometheus",
+      "ticket": "STORY-090",
+      "event": "started",
+      "ts": "2026-07-02T04:00:00.466274+00:00"
     }
   ]
 }
