@@ -1023,7 +1023,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "backlog",
       "assigned_to": "Athena",
       "team": "any",
       "epicId": "EPIC-002",
@@ -1031,7 +1031,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-30T00:00:00.314263+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "Athena",
@@ -1074,6 +1074,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-29T17:01:31.918927+00:00",
           "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The implementation and test suite are internally inconsistent: test_eval_with_constant_is_allowed expects exec('print(42)') to be flagged as S001, but _detect_eval_exec skips ALL eval/exec calls with constant arguments \u2014 causing this test to FAIL when actually run. Additionally, S004's bare-name det"
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "Parked to backlog (2026-07-02): validation_fails>=2 but status still showed active \u2014 the executor skips these, so the board was overstating in-progress work."
         }
       ],
       "progress": 40,
@@ -1389,7 +1394,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "backlog",
       "assigned_to": "Nemesis",
       "team": "any",
       "epicId": "EPIC-003",
@@ -1397,7 +1402,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-29T09:00:01.063645+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "reconcile",
@@ -1423,6 +1428,11 @@
           "by": "reconciliation",
           "timestamp": "2026-06-28T15:02:51.201449+00:00",
           "text": "Auto-parked: build/security ticket the free engine can't truly complete (a document isn't a real pen-test/pipeline). Needs a capable/paid model or real build tooling \u2014 removed from the active queue to stop the validation ping-pong."
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "Parked to backlog (2026-07-02): validation_fails>=2 but status still showed active \u2014 the executor skips these, so the board was overstating in-progress work."
         }
       ],
       "progress": 40,
@@ -1465,7 +1475,7 @@
       "description": "",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_progress",
+      "status": "backlog",
       "assigned_to": "Vulcan",
       "team": "any",
       "epicId": "EPIC-009",
@@ -1473,7 +1483,7 @@
       "blocks": null,
       "created_by": "CEO",
       "createdAt": "2026-06-03T00:00:00Z",
-      "updatedAt": "2026-06-29T09:00:01.063645+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "reconcile",
@@ -1507,6 +1517,11 @@
           "by": "reconciliation",
           "timestamp": "2026-06-28T15:02:51.201449+00:00",
           "text": "Auto-parked: build/security ticket the free engine can't truly complete (a document isn't a real pen-test/pipeline). Needs a capable/paid model or real build tooling \u2014 removed from the active queue to stop the validation ping-pong."
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "Parked to backlog (2026-07-02): validation_fails>=2 but status still showed active \u2014 the executor skips these, so the board was overstating in-progress work."
         }
       ],
       "progress": 40,
@@ -1926,7 +1941,7 @@
       "description": "Set up automated health checks for all critical services: OpenClaw gateway, Tailscale, Discord bot, Jira sync, and agent workspaces. Include alerting via Discord webhook on failure.",
       "severity": "HIGH",
       "category": "feature",
-      "status": "in_progress",
+      "status": "done",
       "assigned_to": "Argus",
       "team": "Operations",
       "epicId": "EPIC-009",
@@ -1934,7 +1949,7 @@
       "blocks": null,
       "created_by": "Zeus",
       "createdAt": "2026-06-17T04:10:26.614001+00:00",
-      "updatedAt": "2026-06-29T14:30:00.391927+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "Zeus",
@@ -1976,9 +1991,14 @@
           "by": "nemesis",
           "timestamp": "2026-06-29T14:03:40.808641+00:00",
           "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The deliverable is a markdown specification containing code samples and a fabricated sample log, not the actual implemented health-check files or any verifiable evidence of a live system sending real Discord alerts \u2014 the spec has 2 of 5 services reported as failing, contradicting its own claim of be"
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "CLOSED as SUPERSEDED (2026-07-02): watchdog.py + self-heal.py + cron-history already provide automated service health checks."
         }
       ],
-      "progress": 40,
+      "progress": 100,
       "eta_hours": 8,
       "last_agent_update": "2026-06-29T14:30:00.391927+00:00",
       "pushed_comments": [
@@ -2231,14 +2251,14 @@
       "id": "STORY-060",
       "title": "Research and install VoxCPM2 on Mac M1",
       "description": "Install VoxCPM2 with MPS support, test speech generation, verify voice cloning",
-      "status": "in_progress",
+      "status": "done",
       "priority": "high",
       "team": "any",
       "assignee": "lucy",
-      "progress": 25,
+      "progress": 100,
       "epicId": "EPIC-012",
       "createdAt": "2026-06-17T15:56:52.413900+00:00",
-      "updatedAt": "2026-06-17T15:56:52.413900+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "Lucy",
@@ -2248,6 +2268,11 @@
         {
           "by": "reconcile",
           "text": "Reset done\u2192in_progress: no verifiable deliverable artifact (board marked done without real work). Re-queued for the real work executor."
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "CLOSED as OBSOLETE (2026-07-02): VoxCPM2 TTS retired \u2014 voice is native via Lucy/OpenClaw since 2026-06-27."
         }
       ],
       "pushed_comments": [
@@ -2267,14 +2292,14 @@
       "id": "STORY-061",
       "title": "Create VoxCPM2 speech generation scripts",
       "description": "Create voxcpm-speak.sh and discord-speak.sh for TTS and Discord voice messages",
-      "status": "in_progress",
+      "status": "done",
       "priority": "high",
       "team": "any",
       "assignee": "lucy",
-      "progress": 25,
+      "progress": 100,
       "epicId": "EPIC-012",
       "createdAt": "2026-06-17T15:56:52.413900+00:00",
-      "updatedAt": "2026-06-17T15:56:52.413900+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "Lucy",
@@ -2284,6 +2309,11 @@
         {
           "by": "reconcile",
           "text": "Reset done\u2192in_progress: no verifiable deliverable artifact (board marked done without real work). Re-queued for the real work executor."
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "CLOSED as OBSOLETE (2026-07-02): VoxCPM2 TTS retired \u2014 voice is native via Lucy/OpenClaw."
         }
       ],
       "pushed_comments": [
@@ -2331,14 +2361,14 @@
       "id": "STORY-063",
       "title": "Set up Discord voice message integration",
       "description": "Enable Lucy to send voice messages to Discord using VoxCPM2-generated audio",
-      "status": "in_progress",
+      "status": "done",
       "priority": "medium",
       "team": "any",
       "assignee": "lucy",
-      "progress": 40,
+      "progress": 100,
       "epicId": null,
       "createdAt": "2026-06-17T15:56:52.413900+00:00",
-      "updatedAt": "2026-06-29T15:00:00.325539+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "Lucy",
@@ -2368,6 +2398,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-29T14:36:19.124967+00:00",
           "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The deliverable is a planning/specification document (authored by Iris PM with work items, timelines, and architecture diagrams) describing what to build, but no actual implementation artifacts exist on disk \u2014 no src/bot.py, Dockerfile, tests, or real code were produced; it is an outline, not comple"
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "CLOSED as OBSOLETE (2026-07-02): Discord voice integration already native via Lucy/OpenClaw."
         }
       ],
       "pushed_comments": [
@@ -2456,14 +2491,14 @@
       "id": "STORY-067",
       "title": "Create comprehensive test suite and safety scanner",
       "description": "Create test-suite/ with test_agents.sh, test_crons.sh, test_workspace.sh, test_security.sh, and safety-scanner.sh",
-      "status": "planned",
+      "status": "backlog",
       "priority": "high",
       "team": "Project",
       "assignee": "qa",
       "progress": 40,
       "epicId": "EPIC-013",
       "createdAt": "2026-06-17T15:56:52.413900+00:00",
-      "updatedAt": "2026-06-30T01:30:00.234157+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "Athena",
@@ -2497,6 +2532,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-30T01:01:02.007567+00:00",
           "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The deliverable is a markdown design document with embedded code blocks, but the actual test-suite/ directory and scripts were never created on disk. No files exist at the specified paths \u2014 writing about code is not delivering code. Additionally, the embedded scripts contain bugs (e.g., pathlib.Path"
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "Parked to backlog (2026-07-02): validation_fails>=2 but status still showed active \u2014 the executor skips these, so the board was overstating in-progress work."
         }
       ],
       "pushed_comments": [
@@ -2874,7 +2914,7 @@
     {
       "id": "STORY-205",
       "title": "Operations & Infrastructure",
-      "status": "in_progress",
+      "status": "backlog",
       "severity": "MEDIUM",
       "category": "tech-debt",
       "team": "Research",
@@ -2882,7 +2922,7 @@
       "epicId": null,
       "progress": 40,
       "createdAt": "2026-06-23T00:05:53.080493+00:00",
-      "updatedAt": "2026-06-29T18:00:00.346114+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "reconcile",
@@ -2912,6 +2952,11 @@
           "by": "cleanup",
           "timestamp": "2026-07-02T02:21:42.266592+00:00",
           "text": "Renamed from Jira-style id TD-257 -> STORY-205 (Jira dropped; board is VM + GitHub Pages only)."
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "Parked to backlog (2026-07-02): validation_fails>=2 but status still showed active \u2014 the executor skips these, so the board was overstating in-progress work."
         }
       ],
       "pushed_comments": [
@@ -3120,14 +3165,14 @@
     {
       "id": "STORY-083",
       "title": "Set up payment gateway CI/CD",
-      "status": "in_progress",
+      "status": "backlog",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
       "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592306+00:00",
-      "updatedAt": "2026-06-29T21:30:00.383546+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "api",
@@ -3152,6 +3197,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-29T21:03:11.627557+00:00",
           "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The deliverable omits the Kubernetes Deployment manifest that deploy.sh, rollback.sh, and the CI workflow all depend on (explicitly noted as 'not included here'), so the pipeline cannot actually run. Additionally, the optional smoke-test step uses a cluster-internal .svc.cluster.local URL that is un"
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "Parked to backlog (2026-07-02): validation_fails>=2 but status still showed active \u2014 the executor skips these, so the board was overstating in-progress work."
         }
       ],
       "pushed_comments": [
@@ -3188,14 +3238,14 @@
     {
       "id": "STORY-084",
       "title": "Integrate payment gateway testing",
-      "status": "planned",
+      "status": "backlog",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
       "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592321+00:00",
-      "updatedAt": "2026-06-30T00:30:00.242155+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "api",
@@ -3220,6 +3270,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-30T00:03:06.275672+00:00",
           "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The test suite cannot run green as claimed: the conftest.py gateway teardown calls the non-existent `pytest.run(asyncio.run(gw.close()))`, which raises AttributeError after every test; the timeout test relies on a real 6-second asyncio.sleep that may never trigger httpx.ReadTimeout and is intrinsica"
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "Parked to backlog (2026-07-02): validation_fails>=2 but status still showed active \u2014 the executor skips these, so the board was overstating in-progress work."
         }
       ],
       "pushed_comments": [
@@ -3324,14 +3379,14 @@
     {
       "id": "STORY-087",
       "title": "Enterprise client revenue analysis",
-      "status": "in_progress",
+      "status": "backlog",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
       "progress": 40,
       "epicId": "EPIC-002",
       "createdAt": "2026-06-24T11:25:01.592345+00:00",
-      "updatedAt": "2026-06-30T05:00:00.376460+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "api",
@@ -3356,6 +3411,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-30T04:42:37.264018+00:00",
           "text": "AUTO-PARKED after 4 reviews produced no usable verdict \u2014 the reviewer model could not evaluate this deliverable (too large / unavailable). Needs a manual or paid review."
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "Parked to backlog (2026-07-02): validation_fails>=2 but status still showed active \u2014 the executor skips these, so the board was overstating in-progress work."
         }
       ],
       "pushed_comments": [
@@ -3378,14 +3438,14 @@
     {
       "id": "STORY-088",
       "title": "Audit payment gateway compliance",
-      "status": "in_progress",
+      "status": "backlog",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
       "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592357+00:00",
-      "updatedAt": "2026-06-30T04:00:01.152904+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "api",
@@ -3415,6 +3475,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-30T03:10:49.891055+00:00",
           "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The deliverable cites specific file paths, line numbers, and tool outputs as evidence but does not include the referenced source files for verification. Without access to the actual Dockerfile, api_client.py, requirements.txt, config.yaml, logger.py, ci.yml, and tool output files, this reads as a st"
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "Parked to backlog (2026-07-02): validation_fails>=2 but status still showed active \u2014 the executor skips these, so the board was overstating in-progress work."
         }
       ],
       "pushed_comments": [
@@ -3451,14 +3516,14 @@
     {
       "id": "STORY-089",
       "title": "Optimize revenue workflow processes",
-      "status": "planned",
+      "status": "backlog",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
       "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592368+00:00",
-      "updatedAt": "2026-06-30T05:00:00.336119+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "api",
@@ -3488,6 +3553,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-30T04:42:37.265325+00:00",
           "text": "AUTO-PARKED after 4 reviews produced no usable verdict \u2014 the reviewer model could not evaluate this deliverable (too large / unavailable). Needs a manual or paid review."
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "Parked to backlog (2026-07-02): validation_fails>=2 but status still showed active \u2014 the executor skips these, so the board was overstating in-progress work."
         }
       ],
       "pushed_comments": [
@@ -3514,14 +3584,14 @@
     {
       "id": "STORY-090",
       "title": "Develop AI-driven revenue forecasting model",
-      "status": "in_progress",
+      "status": "backlog",
       "priority": "medium",
       "team": "any",
       "assignee": "unassigned",
       "progress": 40,
       "epicId": "EPIC-008",
       "createdAt": "2026-06-24T11:25:01.592378+00:00",
-      "updatedAt": "2026-06-30T04:30:00.474669+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
       "comments": [
         {
           "by": "api",
@@ -3551,6 +3621,11 @@
           "by": "nemesis",
           "timestamp": "2026-06-30T04:02:39.075385+00:00",
           "text": "AUTO-PARKED after 2 failed validations \u2014 likely needs a capable/paid model or real build tooling, not endless retries. Last reason: The deliverable is a design document with illustrative code sketches, not a completed implementation \u2014 no actual trained model artifact (model.pkl) or feature spec (features.json) is produced, and the claimed experimental results ($1.32M MAE, 4.7% MAPE) are stated without evidence that the code was "
+        },
+        {
+          "by": "cleanup",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "Parked to backlog (2026-07-02): validation_fails>=2 but status still showed active \u2014 the executor skips these, so the board was overstating in-progress work."
         }
       ],
       "pushed_comments": [
@@ -11306,7 +11381,7 @@
       "description": "Review all scheduled cron jobs in the current VM deployment, identify points of failure and race conditions, and propose robust fallback mechanisms. Deliver a concise audit report with a revised cron configuration file and a checklist for future additions.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Thor",
       "team": "any",
       "epicId": "EPIC-014",
@@ -11314,7 +11389,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T03:00:26.291306+00:00",
-      "updatedAt": "2026-07-02T03:22:35.210508+00:00",
+      "updatedAt": "2026-07-02T03:40:03.034985+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11332,8 +11407,14 @@
           "by": "Thor",
           "timestamp": "2026-07-02T03:22:35.210508+00:00",
           "text": "Delivered work/AUTO-173-deliverable.md (13063 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-07-02T03:40:03.034985+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-173-deliverable.md): The deliverable provides a comprehensive audit report, revised cron configuration file, and a detailed checklist for future additions, fully addressing the requirements for cron resilience audit and redesign. The implementation includes lockfiles, retry mechanisms, structured logging, and fallback t"
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-174",
@@ -11341,7 +11422,7 @@
       "description": "Audit the existing agent SOUL prompts and persona definitions, then produce a standardized specification template that clarifies role, tone, and decision\u2011making guidelines. The deliverable is a single markdown document with updated personas for each core agent.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Metis",
       "team": "any",
       "epicId": "EPIC-013",
@@ -11349,7 +11430,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T03:00:26.291306+00:00",
-      "updatedAt": "2026-07-02T03:22:35.178274+00:00",
+      "updatedAt": "2026-07-02T03:40:03.036552+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11367,8 +11448,14 @@
           "by": "Metis",
           "timestamp": "2026-07-02T03:22:35.178274+00:00",
           "text": "Delivered work/AUTO-174-deliverable.md (15067 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-07-02T03:40:03.036552+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-174-deliverable.md): The deliverable provides a comprehensive and detailed Agent Persona Specification Document that audits existing agent SOUL prompts and persona definitions, then delivers a standardized specification template for core AI agents. The document includes updated personas for each core agent, implementati"
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-175",
@@ -11376,7 +11463,7 @@
       "description": "Research the open\u2011source Hermes Agent codebase and compile a side\u2011by\u2011side feature comparison with Super Compagnie's OpenClaw framework, covering memory, skill creation, platform gateways, and model routing. Provide a one\u2011page matrix and brief analysis of trade\u2011offs.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Hermes",
       "team": "any",
       "epicId": "EPIC-015",
@@ -11384,7 +11471,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T03:00:26.291306+00:00",
-      "updatedAt": "2026-07-02T03:22:35.212118+00:00",
+      "updatedAt": "2026-07-02T03:40:03.038121+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11402,8 +11489,14 @@
           "by": "Hermes",
           "timestamp": "2026-07-02T03:22:35.212118+00:00",
           "text": "Delivered work/AUTO-175-deliverable.md (5854 bytes) via openclaw \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-07-02T03:40:03.038121+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-175-deliverable.md): The deliverable provides a comprehensive side-by-side feature comparison of Hermes and OpenClaw, covering memory handling, skill creation, platform gateways, and model routing, along with a detailed analysis of trade-offs and a recommendation for usage."
         }
-      ]
+      ],
+      "review_attempts": 0
     },
     {
       "id": "AUTO-176",
@@ -11411,7 +11504,7 @@
       "description": "Design a reliable backup and disaster\u2011recovery process for the VM hosting the agent team, including snapshot scripts, verification steps, and a recovery checklist. The final artifact is a step\u2011by\u2011step playbook (markdown) plus the minimal backup script.",
       "severity": "MEDIUM",
       "category": "feature",
-      "status": "in_validation",
+      "status": "done",
       "assigned_to": "Argus",
       "team": "any",
       "epicId": "EPIC-014",
@@ -11419,7 +11512,7 @@
       "blocks": null,
       "created_by": "auto-planner",
       "createdAt": "2026-07-02T03:00:26.291306+00:00",
-      "updatedAt": "2026-07-02T03:22:35.211776+00:00",
+      "updatedAt": "2026-07-02T03:40:03.039131+00:00",
       "progress": 0,
       "validation_fails": 0,
       "comments": [
@@ -11437,6 +11530,60 @@
           "by": "Argus",
           "timestamp": "2026-07-02T03:22:35.211776+00:00",
           "text": "Delivered work/AUTO-176-deliverable.md (13046 bytes) via cerebras:gpt-oss-120b \u2014 advanced to in_validation."
+        },
+        {
+          "by": "nemesis",
+          "timestamp": "2026-07-02T03:40:03.039131+00:00",
+          "text": "VALIDATION PASS (independent review of AUTO-176-deliverable.md): The deliverable provides a comprehensive and detailed playbook for VM backup and recovery, including a reliable backup script, verification steps, and a recovery checklist, which genuinely and completely satisfies the requirements of ticket AUTO-176."
+        }
+      ],
+      "review_attempts": 0
+    },
+    {
+      "id": "STORY-208",
+      "title": "Free-Model Ticket-Sizing Guidelines",
+      "description": "Write a short guideline doc defining the max scope of a ticket a free model can reliably finish (word count, single-file only, turns). Goal: stop generating oversized multi-file tickets that structurally fail review (e.g. old STORY-019/067).",
+      "status": "backlog",
+      "priority": "high",
+      "severity": "MEDIUM",
+      "category": "chore",
+      "team": "any",
+      "assigned_to": "Iris",
+      "epicId": "EPIC-013",
+      "progress": 0,
+      "validation_fails": 0,
+      "created_by": "ceo-audit",
+      "createdAt": "2026-07-02T03:44:10.847181+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
+      "comments": [
+        {
+          "by": "ceo-audit",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "Created from the 2026-07-02 code/board audit."
+        }
+      ]
+    },
+    {
+      "id": "STORY-209",
+      "title": "Circuit-Breaker Design for Dead-Engine Rotation",
+      "description": "Spec a lightweight per-run backoff for WORK_ENGINE/REVIEW_ENGINE: once an engine has failed every attempt so far in a run, skip it for the rest of the run instead of paying its full timeout per ticket. Written design doc with pseudo-code.",
+      "status": "backlog",
+      "priority": "high",
+      "severity": "MEDIUM",
+      "category": "chore",
+      "team": "any",
+      "assigned_to": "Thor",
+      "epicId": "EPIC-014",
+      "progress": 0,
+      "validation_fails": 0,
+      "created_by": "ceo-audit",
+      "createdAt": "2026-07-02T03:44:10.847181+00:00",
+      "updatedAt": "2026-07-02T03:44:10.847181+00:00",
+      "comments": [
+        {
+          "by": "ceo-audit",
+          "timestamp": "2026-07-02T03:44:10.847181+00:00",
+          "text": "Created from the 2026-07-02 code/board audit."
         }
       ]
     }

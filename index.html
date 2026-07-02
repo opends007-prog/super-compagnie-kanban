@@ -602,6 +602,7 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
   <button class="tab" id="tab-activity" onclick="goView('activity')">⚡ Activity <span class="num" id="activity-count">0</span></button>
   <button class="tab" id="tab-office" onclick="goView('office')">🏢 Office</button>
   <button class="tab" id="tab-ops" onclick="goView('ops')">🩺 Ops</button>
+  <button class="tab" id="tab-tokens" onclick="goView('tokens')">🪙 Tokens</button>
 </div>
 
 <!-- ═══ BOARD MODE FILTER (All / Epics / Stories) ═══ -->
@@ -640,6 +641,8 @@ body.light{--bg:#f8fafc;--bg2:#ffffff;--bg3:#f1f5f9;--bg4:#e2e8f0;--border:#e2e8
 	<div id="view-office" class="office-view"><canvas id="office-canvas"></canvas></div>
   <!-- Ops / Health View -->
   <div id="view-ops" class="ops-view" style="display:none;padding:16px;overflow:auto"></div>
+  <!-- Token Usage View -->
+  <div id="view-tokens" class="tokens-view" style="display:none;padding:16px;overflow:auto;flex:1;min-height:0"></div>
   <!-- Detail Panel -->
   <div class="dp" id="dp">
     <div class="dp-hdr"><h2 id="dtitle">Detail</h2><button class="dp-close" onclick="closeDetail()" aria-label="Close">✕</button></div>
@@ -696,7 +699,7 @@ function goView(v){
   CV=v;
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
   document.getElementById('tab-'+v).classList.add('active');
-  ['kanban','list','backlog','team','activity','office','ops'].forEach(function(view){
+  ['kanban','list','backlog','team','activity','office','ops','tokens'].forEach(function(view){
     var el=document.getElementById('view-'+view);
     if(el){
       if(view==='kanban'){el.classList.toggle('hidden', v!=='kanban');}
@@ -705,6 +708,7 @@ function goView(v){
     }
   });
   if(v==='ops'){renderOps();}
+  if(v==='tokens'){renderTokens();}
   var km=document.getElementById('view-kanban-mobile');
   if(km){km.classList.toggle('hidden', v!=='kanban');}
   var picker=document.getElementById('colPicker');
@@ -1082,6 +1086,7 @@ function rTeam(){
   try{
     var el=document.getElementById('view-team');
     if(!el){console.error('view-team element not found');return;}
+    if(typeof loadTok==='function'){loadTok(function(){});}
     var teams={};
     var agents=D.agents||[];
     var tickets=D.tickets||[];
@@ -1119,6 +1124,9 @@ function rTeam(){
         h+='<div class="agent-top"><span class="agent-emoji">'+(a.emoji||'👤')+'</span><span class="agent-status-badge '+badgeClass+'">'+badgeIcon+' '+badgeText+'</span></div>';
         h+='<div class="agent-name">'+a.name+'</div><div class="agent-title">'+a.title+'</div>';
         h+='<div class="agent-role">'+a.role+'</div>';
+        var _tr=(typeof TOK_ROLE!=='undefined')?(TOK_ROLE[a.id]||TOK_ROLE[a.name]||''):'';
+        var _tu=(typeof TOKD!=='undefined'&&TOKD&&TOKD.by_agent)?TOKD.by_agent[_tr]:null;
+        if(_tu){h+='<div style="font-size:10px;color:var(--text3);margin-top:3px">🪙 '+fmtTok(_tu.total)+' tokens · 7d '+fmtTok(_tu.last7||0)+' · 30d '+fmtTok(_tu.last30||0)+'</div>';}
         if(a._total>0){
           h+='<div class="agent-progress"><div class="progress-bar"><div class="progress-fill" style="width:'+a._progress+'%"></div></div>';
           h+='<div class="progress-text">'+bar+' '+a._progress+'% ('+a._done+'/'+a._total+')</div></div>';
@@ -1592,6 +1600,10 @@ function renderOps(){
   if(!el)return;
   fetch('system-health.json?t='+Date.now()).then(function(r){return r.json();}).then(function(h){
     el.innerHTML=opsHtml(h);
+    loadTok(function(d){
+      var slot=document.getElementById('ops-tokens-section');
+      if(slot&&d)slot.innerHTML=opsTokensHtml(d);
+    });
     fetch('cron-history.json?t='+Date.now()).then(function(r){return r.json();}).then(function(ch){
       var slot=document.getElementById('cron-history-section'); if(slot)slot.innerHTML=cronHistHtml(ch);
     }).catch(function(){var slot=document.getElementById('cron-history-section'); if(slot)slot.innerHTML='<div style="color:var(--text3);font-size:12px;margin-bottom:18px">Cron history not available yet — populated every 10 min.</div>';});
@@ -1667,6 +1679,7 @@ function opsHtml(h){
     html+='<span style="background:var(--bg3);border-radius:6px;padding:4px 8px;color:'+(stale?'#e0a85a':'var(--text3)')+'">'+escapeHtml(k)+': '+lbl+'</span>';
   });
   html+='</div>';
+  html+='<div id="ops-tokens-section"></div>';
   html+='<div id="cron-history-section" style="margin-bottom:4px">loading cron history…</div>';
   var live=h.live_agents||[];
   html+='<div style="font-size:12px;font-weight:700;color:var(--text3);margin:0 0 8px;letter-spacing:.5px">LIVE NOW ('+live.length+')</div>'
@@ -1680,6 +1693,146 @@ function opsHtml(h){
   html+='</div><div style="margin-top:16px;font-size:11px;color:var(--text3)">Updated '+fmtET(h.generatedAt)+' · refreshes every 10 min</div>';
   return html;
 }
+
+// ═══ TOKEN USAGE (token-usage.json, built by collect-token-usage.py every 10 min) ═══
+var TOKD=null,TOKTS=0;
+var TOK_ROLE={'Minerva':'analyst','Iris':'pm','Athena':'qa','Thor':'devops','Hades':'security',
+  'Vulcan':'data-engineer','Clio':'data-analyst','Plutus':'finance','Zeus':'tom','Gladiator':'tom',
+  'Hermes':'business-analyst','Hestia':'accounting','Juno':'budget','Fortuna':'income','Nemesis':'nemesis',
+  'Argus':'monitor','Metis':'org-excellence','Claude':'claude','Prometheus':'ml-engineer','Lucy':'main'};
+var TOK_NAME={};Object.keys(TOK_ROLE).forEach(function(k){TOK_NAME[TOK_ROLE[k]]=k;});
+TOK_NAME['auto-planner']='Auto-Planner';TOK_NAME['main']='Lucy';
+function loadTok(cb){
+  if(TOKD&&Date.now()-TOKTS<120000){cb(TOKD);return;}
+  fetch('token-usage.json?t='+Date.now()).then(function(r){return r.json();}).then(function(d){
+    TOKD=d;TOKTS=Date.now();cb(d);
+  }).catch(function(){cb(null);});
+}
+function fmtTok(n){
+  n=n||0;
+  if(n>=1e9)return (n/1e9).toFixed(2)+'B';
+  if(n>=1e6)return (n/1e6).toFixed(1)+'M';
+  if(n>=1e3)return (n/1e3).toFixed(1)+'K';
+  return ''+n;
+}
+function tokBar(label,val,max,sub){
+  var pct=max?Math.round(100*val/max):0;
+  return '<div style="margin-bottom:6px"><div style="font-size:12px;color:var(--text);margin-bottom:2px;display:flex;justify-content:space-between">'
+    +'<span>'+escapeHtml(label)+'</span><span style="color:var(--text3)">'+fmtTok(val)+(sub?' · '+sub:'')+'</span></div>'
+    +'<div style="background:var(--bg4);border-radius:6px;height:8px"><div style="width:'+pct+'%;background:var(--blue);height:8px;border-radius:6px"></div></div></div>';
+}
+function opsTokensHtml(d){
+  var bm=d.by_model||{},ks=Object.keys(bm).sort(function(a,b){return bm[b].total-bm[a].total;});
+  var mx=ks.length?bm[ks[0]].total:0,h='<div style="font-size:12px;font-weight:700;color:var(--text3);margin:0 0 8px;letter-spacing:.5px">TOKENS — ALL TIME '
+    +'<span style="font-weight:400">('+fmtTok((d.totals||{}).total)+' total · details in the 🪙 Tokens tab)</span></div><div style="margin-bottom:18px">';
+  ks.slice(0,5).forEach(function(k){h+=tokBar(k,bm[k].total,mx,fmtTok(bm[k].input)+' in / '+fmtTok(bm[k].output)+' out');});
+  return h+'</div>';
+}
+var tokF={agent:'',model:'',period:'all'};
+function tokSum(d){
+  // returns {total,input,output,by_model,by_agent,by_day} honoring the filters (period uses the
+  // per-day detail window; 'all' = all-time aggregates and ignores day filtering)
+  var res={total:0,input:0,output:0,by_model:{},by_agent:{},by_day:{}};
+  var cut='';
+  if(tokF.period==='7d')cut=new Date(Date.now()-7*864e5).toISOString().slice(0,10);
+  if(tokF.period==='30d')cut=new Date(Date.now()-30*864e5).toISOString().slice(0,10);
+  if(tokF.period==='all'&&!tokF.agent&&!tokF.model){
+    res.total=(d.totals||{}).total;res.input=(d.totals||{}).input;res.output=(d.totals||{}).output;
+    res.by_model=d.by_model||{};res.by_agent={};
+    Object.keys(d.by_agent||{}).forEach(function(a){res.by_agent[a]=d.by_agent[a];});
+    res.by_day=d.by_day||{};
+    return res;
+  }
+  // filtered: walk the per-day detail (window_days deep). 'all' with a filter = whole window.
+  var det=d.detail||{};
+  Object.keys(det).forEach(function(a){
+    if(tokF.agent&&a!==tokF.agent)return;
+    Object.keys(det[a]).forEach(function(m){
+      if(tokF.model&&m!==tokF.model)return;
+      Object.keys(det[a][m]).forEach(function(day){
+        if(cut&&day<cut)return;
+        var v=det[a][m][day];
+        res.total+=v[2];res.input+=v[0];res.output+=v[1];
+        var bm=res.by_model[m]=res.by_model[m]||{total:0,input:0,output:0};bm.total+=v[2];bm.input+=v[0];bm.output+=v[1];
+        var ba=res.by_agent[a]=res.by_agent[a]||{total:0,input:0,output:0};ba.total+=v[2];ba.input+=v[0];ba.output+=v[1];
+        var bd=res.by_day[day]=res.by_day[day]||{total:0,input:0,output:0};bd.total+=v[2];bd.input+=v[0];bd.output+=v[1];
+      });
+    });
+  });
+  return res;
+}
+function renderTokens(){
+  var el=document.getElementById('view-tokens');
+  if(!el)return;
+  loadTok(function(d){
+    if(!d){el.innerHTML='<div style="color:var(--text3);padding:20px">Token data not available yet — token-usage.json is generated every 10 min.</div>';return;}
+    var agents=Object.keys(d.by_agent||{}).sort();
+    var models=Object.keys(d.by_model||{}).sort();
+    var s=tokSum(d);
+    var h='<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px">'
+      +'<span style="font-size:12px;font-weight:700;color:var(--text3);letter-spacing:.5px">🪙 TOKEN USAGE</span>'
+      +'<select id="tokf-agent" onchange="tokF.agent=this.value;renderTokens()" style="background:var(--bg3);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:12px">'
+      +'<option value="">All agents</option>'+agents.map(function(a){return '<option value="'+a+'"'+(tokF.agent===a?' selected':'')+'>'+escapeHtml(TOK_NAME[a]||a)+'</option>';}).join('')+'</select>'
+      +'<select id="tokf-model" onchange="tokF.model=this.value;renderTokens()" style="background:var(--bg3);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:12px">'
+      +'<option value="">All models</option>'+models.map(function(m){return '<option value="'+m+'"'+(tokF.model===m?' selected':'')+'>'+escapeHtml(m)+'</option>';}).join('')+'</select>'
+      +'<select id="tokf-period" onchange="tokF.period=this.value;renderTokens()" style="background:var(--bg3);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:12px">'
+      +'<option value="all"'+(tokF.period==='all'?' selected':'')+'>All time</option>'
+      +'<option value="30d"'+(tokF.period==='30d'?' selected':'')+'>Last 30 days</option>'
+      +'<option value="7d"'+(tokF.period==='7d'?' selected':'')+'>Last 7 days</option></select>'
+      +((tokF.agent||tokF.model)&&tokF.period==='all'?'<span style="font-size:11px;color:var(--text3)">filtered views cover the last '+(d.window_days||35)+' days</span>':'')
+      +'</div>';
+    h+='<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px">'
+      +opsCard('Total tokens',fmtTok(s.total),'','var(--blue)')
+      +opsCard('Input',fmtTok(s.input),'prompt/context')
+      +opsCard('Output',fmtTok(s.output),'generated')
+      +opsCard('Agents',Object.keys(s.by_agent).length,'')+'</div>';
+    // daily trend
+    var days=Object.keys(s.by_day).sort().slice(-14);
+    if(days.length){
+      var dmax=Math.max.apply(null,days.map(function(k){return s.by_day[k].total;}));
+      h+='<div style="font-size:12px;font-weight:700;color:var(--text3);margin:0 0 8px;letter-spacing:.5px">DAILY TREND (last '+days.length+' days)</div><div style="margin-bottom:18px">';
+      days.forEach(function(k){h+=tokBar(k,s.by_day[k].total,dmax,fmtTok(s.by_day[k].output)+' out');});
+      h+='</div>';
+    }
+    // by model
+    var mks=Object.keys(s.by_model).sort(function(a,b){return s.by_model[b].total-s.by_model[a].total;});
+    if(mks.length){
+      var mmax=s.by_model[mks[0]].total;
+      h+='<div style="font-size:12px;font-weight:700;color:var(--text3);margin:0 0 8px;letter-spacing:.5px">BY MODEL</div><div style="margin-bottom:18px">';
+      mks.forEach(function(k){h+=tokBar(k,s.by_model[k].total,mmax,fmtTok(s.by_model[k].input)+' in / '+fmtTok(s.by_model[k].output)+' out');});
+      h+='</div>';
+    }
+    // by agent (with 7d/30d columns when unfiltered all-time)
+    var aks=Object.keys(s.by_agent).sort(function(a,b){return s.by_agent[b].total-s.by_agent[a].total;});
+    if(aks.length){
+      var amax=s.by_agent[aks[0]].total;
+      h+='<div style="font-size:12px;font-weight:700;color:var(--text3);margin:0 0 8px;letter-spacing:.5px">BY AGENT</div><div style="margin-bottom:18px">';
+      aks.forEach(function(k){
+        var e=s.by_agent[k];
+        var sub=(e.last7!==undefined)?('7d '+fmtTok(e.last7)+' · 30d '+fmtTok(e.last30)):(fmtTok(e.input)+' in / '+fmtTok(e.output)+' out');
+        h+=tokBar((TOK_NAME[k]||k),e.total,amax,sub);
+      });
+      h+='</div>';
+    }
+    // agent × model matrix (top agents)
+    var mtx=d.matrix||{};
+    var mrows=Object.keys(mtx).sort(function(a,b){
+      var ta=Object.values(mtx[a]).reduce(function(x,y){return x+y;},0),tb=Object.values(mtx[b]).reduce(function(x,y){return x+y;},0);return tb-ta;});
+    if(mrows.length&&!tokF.agent&&!tokF.model){
+      h+='<div style="font-size:12px;font-weight:700;color:var(--text3);margin:0 0 8px;letter-spacing:.5px">AGENT × MODEL (all time)</div>'
+        +'<div style="overflow:auto;border:1px solid var(--bg3);border-radius:8px;margin-bottom:18px"><table style="border-collapse:collapse;font-size:11px;min-width:100%">'
+        +'<tr><th style="text-align:left;padding:6px 10px;color:var(--text3)">Agent</th>'+models.map(function(m){return '<th style="text-align:right;padding:6px 10px;color:var(--text3)">'+escapeHtml(m)+'</th>';}).join('')+'</tr>';
+      mrows.forEach(function(a){
+        h+='<tr style="border-top:1px solid var(--bg3)"><td style="padding:5px 10px;color:var(--text)">'+escapeHtml(TOK_NAME[a]||a)+'</td>'
+          +models.map(function(m){var v=mtx[a][m]||0;return '<td style="text-align:right;padding:5px 10px;color:'+(v?'var(--text)':'var(--text3)')+'">'+(v?fmtTok(v):'—')+'</td>';}).join('')+'</tr>';
+      });
+      h+='</table></div>';
+    }
+    h+='<div style="font-size:11px;color:var(--text3)">Updated '+fmtET(d.updated)+' · gateway turns + direct-API calls · refreshes every 10 min</div>';
+    el.innerHTML=h;
+  });
+}
+setInterval(function(){if(typeof CV!=='undefined'&&CV==='tokens'){TOKTS=0;renderTokens();}},120000);
 
 loadData();
 setInterval(loadData,30000);
