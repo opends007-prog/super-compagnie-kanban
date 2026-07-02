@@ -1,40 +1,59 @@
 {
-  "generatedAt": "2026-07-02T02:10:02.052313+00:00",
+  "generatedAt": "2026-07-02T02:20:02.006033+00:00",
   "gateway_up": true,
   "disk_pct": 27,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 10.0,
-    "validator": 5.5,
+    "validator": 15.4,
     "observability": 10.0,
-    "guard": 3830.0,
-    "backup": 10.0,
+    "guard": 3840.0,
+    "backup": 20.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
     "done": 197,
     "backlog": 9,
-    "in_progress": 14,
-    "planned": 4
+    "in_progress": 13,
+    "planned": 4,
+    "in_validation": 1
   },
   "tickets_total": 224,
   "done_today": 12,
-  "delivered_today": 16,
-  "delivered_week": 20,
+  "delivered_today": 17,
+  "delivered_week": 21,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 15,
+    "cerebras:gpt-oss-120b": 16,
     "openclaw": 5
   },
   "live_agents": [
-    "Fortuna",
     "Hades",
-    "Hermes",
-    "Thor",
     "nemesis"
   ],
   "recent_activity": [
+    {
+      "ts": "2026-07-02T02:10:04.260378+00:00",
+      "agent": "Hades",
+      "event": "delivered",
+      "ticket": "AUTO-168",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-168-deliverable.md (10302b) \u2192 in_validation"
+    },
+    {
+      "ts": "2026-07-02T02:10:02.183666+00:00",
+      "agent": "Hades",
+      "event": "working",
+      "ticket": "AUTO-168",
+      "content": "[cerebras:gpt-oss-120b] attempting: Data Retention & Deletion Policy for AI FAQ Receptionist"
+    },
+    {
+      "ts": "2026-07-02T02:10:02.182549+00:00",
+      "agent": "Hades",
+      "event": "dispatched",
+      "ticket": "AUTO-168",
+      "content": "security started work: Data Retention & Deletion Policy for AI FAQ Receptionist"
+    },
     {
       "ts": "2026-07-02T02:04:35.052638+00:00",
       "agent": "nemesis",
@@ -97,27 +116,6 @@
       "event": "delivered",
       "ticket": "AUTO-166",
       "content": "[openclaw] Produced AUTO-166-deliverable.md (4872b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-02T01:44:48.508008+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-168",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-168-deliverable.md (13322b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-02T01:44:48.506707+00:00",
-      "agent": "Hermes",
-      "event": "delivered",
-      "ticket": "AUTO-167",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-167-deliverable.md (10520b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-02T01:44:48.478453+00:00",
-      "agent": "Thor",
-      "event": "delivered",
-      "ticket": "AUTO-165",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-165-deliverable.md (11747b) \u2192 in_validation"
     }
   ],
   "problems": {}
