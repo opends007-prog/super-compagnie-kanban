@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-07-02T05:20:02.064999+00:00",
+  "generatedAt": "2026-07-02T05:30:01.793649+00:00",
   "gateway_up": true,
   "disk_pct": 32,
   "backup_unpushed": 0,
   "site_unpushed": 0,
   "crons": {
     "work-executor": 9.9,
-    "validator": 12.8,
+    "validator": 5.1,
     "observability": 10.0,
-    "guard": 4020.0,
-    "backup": 20.0,
+    "guard": 4030.0,
+    "backup": 30.0,
     "site-sync": 0.0
   },
   "guard_recent_restore": false,
   "status_counts": {
-    "done": 221,
-    "backlog": 11,
+    "done": 225,
+    "backlog": 13,
     "planned": 3,
-    "in_progress": 9,
-    "in_validation": 5
+    "in_progress": 10,
+    "in_validation": 2
   },
-  "tickets_total": 249,
-  "done_today": 36,
-  "delivered_today": 15,
-  "delivered_week": 15,
+  "tickets_total": 253,
+  "done_today": 40,
+  "delivered_today": 18,
+  "delivered_week": 18,
   "model_mix_week": {
-    "cerebras:gpt-oss-120b": 14,
+    "cerebras:gpt-oss-120b": 17,
     "openclaw": 1
   },
   "live_agents": [
@@ -37,88 +37,88 @@
   ],
   "recent_activity": [
     {
-      "ts": "2026-07-02T05:10:10.619258+00:00",
+      "ts": "2026-07-02T05:24:56.554740+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-188",
+      "content": "PASS: The deliverable provides a complete technical specification with data\u2011transformation mapping, runtime hook design,"
+    },
+    {
+      "ts": "2026-07-02T05:24:56.552609+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-187",
+      "content": "PASS: The deliverable provides a comprehensive review of the model-routing configuration, identifying security gaps and "
+    },
+    {
+      "ts": "2026-07-02T05:24:56.551171+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-186",
+      "content": "PASS: The document fully describes the current self\u2011improvement loop, enumerates its components, identifies failure poin"
+    },
+    {
+      "ts": "2026-07-02T05:24:56.539572+00:00",
+      "agent": "nemesis",
+      "event": "validation_pass",
+      "ticket": "AUTO-185",
+      "content": "PASS: The deliverable provides a complete and functional Python script for daily free-tier usage monitoring, along with "
+    },
+    {
+      "ts": "2026-07-02T05:22:33.797426+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-188",
+      "content": "[groq,claude,openclaw] Independently reviewing business-analyst's deliverable"
+    },
+    {
+      "ts": "2026-07-02T05:22:33.220503+00:00",
+      "agent": "nemesis",
+      "event": "validating",
+      "ticket": "AUTO-187",
+      "content": "[groq,claude,openclaw] Independently reviewing security's deliverable"
+    },
+    {
+      "ts": "2026-07-02T05:20:09.835487+00:00",
+      "agent": "Hermes",
+      "event": "delivered",
+      "ticket": "AUTO-191",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-191-deliverable.md (11364b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-02T05:20:09.820361+00:00",
+      "agent": "Metis",
+      "event": "delivered",
+      "ticket": "AUTO-190",
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-190-deliverable.md (11805b) \u2192 in_progress"
+    },
+    {
+      "ts": "2026-07-02T05:20:09.817722+00:00",
       "agent": "Thor",
       "event": "delivered",
       "ticket": "AUTO-189",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-189-deliverable.md (10823b) \u2192 in_progress"
+      "content": "[cerebras:gpt-oss-120b] Produced AUTO-189-deliverable.md (9858b) \u2192 in_validation"
     },
     {
-      "ts": "2026-07-02T05:10:10.618304+00:00",
-      "agent": "Hades",
-      "event": "delivered",
-      "ticket": "AUTO-187",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-187-deliverable.md (12240b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-02T05:10:10.617297+00:00",
-      "agent": "Metis",
-      "event": "delivered",
+      "ts": "2026-07-02T05:20:03.259472+00:00",
+      "agent": "nemesis",
+      "event": "validating",
       "ticket": "AUTO-186",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-186-deliverable.md (12277b) \u2192 in_validation"
+      "content": "[groq,claude,openclaw] Independently reviewing org-excellence's deliverable"
     },
     {
-      "ts": "2026-07-02T05:10:10.614992+00:00",
-      "agent": "Hermes",
-      "event": "delivered",
-      "ticket": "AUTO-188",
-      "content": "[cerebras:gpt-oss-120b] Produced AUTO-188-deliverable.md (10971b) \u2192 in_validation"
-    },
-    {
-      "ts": "2026-07-02T05:10:03.623331+00:00",
-      "agent": "Thor",
-      "event": "working",
-      "ticket": "AUTO-189",
-      "content": "[cerebras:gpt-oss-120b] attempting: Cron Job Failure Resilience Plan"
-    },
-    {
-      "ts": "2026-07-02T05:10:03.620196+00:00",
-      "agent": "Thor",
-      "event": "dispatched",
-      "ticket": "AUTO-189",
-      "content": "devops started work: Cron Job Failure Resilience Plan"
-    },
-    {
-      "ts": "2026-07-02T05:10:01.702286+00:00",
+      "ts": "2026-07-02T05:20:02.164232+00:00",
       "agent": "Hermes",
       "event": "working",
-      "ticket": "AUTO-188",
-      "content": "[cerebras:gpt-oss-120b] attempting: Agentskills.io Integration Feasibility Spec for Hermes"
+      "ticket": "AUTO-191",
+      "content": "[cerebras:gpt-oss-120b] attempting: Hermes vs OpenClaw Integration Blueprint"
     },
     {
-      "ts": "2026-07-02T05:10:01.700254+00:00",
+      "ts": "2026-07-02T05:20:02.162974+00:00",
       "agent": "Hermes",
       "event": "dispatched",
-      "ticket": "AUTO-188",
-      "content": "business-analyst started work: Agentskills.io Integration Feasibility Spec for Hermes"
-    },
-    {
-      "ts": "2026-07-02T05:10:01.698107+00:00",
-      "agent": "Hades",
-      "event": "working",
-      "ticket": "AUTO-187",
-      "content": "[cerebras:gpt-oss-120b] attempting: Model Routing Security Hardening Checklist"
-    },
-    {
-      "ts": "2026-07-02T05:10:01.695623+00:00",
-      "agent": "Hades",
-      "event": "dispatched",
-      "ticket": "AUTO-187",
-      "content": "security started work: Model Routing Security Hardening Checklist"
-    },
-    {
-      "ts": "2026-07-02T05:10:01.693117+00:00",
-      "agent": "Metis",
-      "event": "working",
-      "ticket": "AUTO-186",
-      "content": "[cerebras:gpt-oss-120b] attempting: Self\u2011Improvement Loop Documentation & Enhancement Plan"
-    },
-    {
-      "ts": "2026-07-02T05:10:01.692009+00:00",
-      "agent": "Metis",
-      "event": "dispatched",
-      "ticket": "AUTO-186",
-      "content": "org-excellence started work: Self\u2011Improvement Loop Documentation & Enhancement Plan"
+      "ticket": "AUTO-191",
+      "content": "business-analyst started work: Hermes vs OpenClaw Integration Blueprint"
     }
   ],
   "problems": {}

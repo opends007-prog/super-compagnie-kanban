@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-02T05:20:02.071825+00:00",
+  "updated": "2026-07-02T05:30:01.787433+00:00",
   "events": [
+    {
+      "ts": "2026-07-02T05:30:01.787433+00:00",
+      "job": "validate-work",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[validate]     AUTO-178: no usable verdict #3 (model unavailable?) \u2014 staying in_validation, retry next run"
+    },
     {
       "ts": "2026-07-02T05:10:01.559234+00:00",
       "job": "real-work-executor",
@@ -1743,13 +1750,6 @@
       "kind": "discord-cron",
       "status": "ok",
       "msg": "12h ago"
-    },
-    {
-      "ts": "2026-07-01T12:00:02.127461+00:00",
-      "job": "real-work-executor",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[work]   AUTO-121: openclaw run timed out"
     }
   ]
 }
