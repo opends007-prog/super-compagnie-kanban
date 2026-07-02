@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-02T02:40:01.471582+00:00",
+  "updated": "2026-07-02T02:50:01.607434+00:00",
   "events": [
+    {
+      "ts": "2026-07-02T02:50:01.607434+00:00",
+      "job": "real-work-executor",
+      "kind": "system",
+      "status": "warn",
+      "msg": "[work]   AUTO-170: cerebras dispatch error: HTTP Error 429: Too Many Requests"
+    },
     {
       "ts": "2026-07-02T02:30:01.607810+00:00",
       "job": "validate-work",
@@ -1743,13 +1750,6 @@
       "kind": "system",
       "status": "warn",
       "msg": "[work]   AUTO-121: openclaw run timed out"
-    },
-    {
-      "ts": "2026-07-01T11:50:01.400728+00:00",
-      "job": "generate-work",
-      "kind": "system",
-      "status": "warn",
-      "msg": "[gen] cerebras error: HTTP Error 429: Too Many Requests \u2014 trying next engine"
     }
   ]
 }
