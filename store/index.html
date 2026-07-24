@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Super Compagnie — Digital Products</title>
+<style>
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --bg:#f7f6f3;--paper:#fffefb;--ink:#212832;--muted:#68727f;--line:#e5e2da;
+  --accent:#14684d;--accent-strong:#0d5540;--soft:#edf3ef;
+  --shadow:0 1px 2px rgba(28,32,38,.05),0 8px 24px rgba(28,32,38,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1218;--paper:#141b24;--ink:#dbe3ec;--muted:#8f99a8;--line:#242e3a;
+        --accent:#5bc99e;--accent-strong:#84d9bb;--soft:#152420;
+        --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.3);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);
+     -webkit-text-size-adjust:100%}
+.wrap{max-width:60rem;margin:0 auto;padding:1.6rem 1.3rem 4rem}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+        padding:.4rem 0 2.6rem}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.01em;
+       font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--accent);
+            box-shadow:0 0 0 3px var(--soft)}
+.topbar a.nav{font-size:.86rem;color:var(--muted);text-decoration:none;
+              border:1px solid var(--line);border-radius:99px;padding:.42rem .85rem;
+              white-space:nowrap}
+.topbar a.nav:hover{color:var(--accent);border-color:var(--accent)}
+.hero{max-width:38rem;margin-bottom:3rem}
+.hero h1{font-size:2.3rem;line-height:1.15;letter-spacing:-.022em;margin:0 0 .8rem}
+.hero p{color:var(--muted);font-size:1.06rem;line-height:1.65;margin:0}
+h2.sec{font:600 .8rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;
+       color:var(--muted);margin:0 0 1.1rem}
+section{margin-bottom:3.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15.5rem,1fr));gap:1.1rem}
+.grid:empty::after{content:"Products are in production — the first drops land here soon.";
+                   color:var(--muted);font-size:.95rem}
+.card{display:flex;flex-direction:column;gap:.5rem;background:var(--paper);
+      border:1px solid var(--line);border-radius:14px;padding:1.25rem 1.3rem 1.15rem;
+      color:inherit;text-decoration:none;box-shadow:var(--shadow);
+      transition:border-color .15s ease,transform .15s ease}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card-type,.badge{align-self:flex-start;font:600 .66rem/1 var(--sans);letter-spacing:.1em;
+                  text-transform:uppercase;color:var(--accent);background:var(--soft);
+                  border-radius:99px;padding:.32rem .6rem}
+.card h3{margin:.1rem 0 0;font-size:1.05rem;line-height:1.35;letter-spacing:-.01em}
+.card p{margin:0;flex:1;color:var(--muted);font-size:.89rem;line-height:1.55}
+.card-price,.price{font-weight:700;font-size:1rem;color:var(--ink);margin-top:.3rem}
+ul.articles{list-style:none;margin:0;padding:0;max-width:44rem}
+ul.articles:empty::after{content:"Free articles are on the way.";color:var(--muted);
+                         font-size:.95rem;display:block;padding:.4rem 0}
+ul.articles li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+               flex-wrap:wrap;padding:.75rem .1rem;border-bottom:1px solid var(--line)}
+ul.articles a{color:var(--ink);text-decoration:none;font-weight:500}
+ul.articles a:hover{color:var(--accent)}
+ul.articles span{color:var(--muted);font-size:.82rem;white-space:nowrap}
+footer{border-top:1px solid var(--line);padding-top:1.5rem;font-size:.84rem;
+       line-height:1.65;color:var(--muted)}
+footer p{margin:0 0 .5rem}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:540px){.hero h1{font-size:1.75rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="index.html"><span class="dot"></span>Super Compagnie</a>
+    <a class="nav" href="https://opends.gumroad.com">Gumroad store &#8599;</a>
+  </div>
+  <div class="hero">
+    <h1>Super Compagnie — Digital Products</h1>
+    <p>Practical playbooks, research reports and prompt packs &mdash; researched from live
+       sources, independently reviewed, priced to be a no-brainer.</p>
+  </div>
+  <section>
+    <h2 class="sec">Products</h2>
+    <!-- PRODUCT_CARDS_HTML: one card per product, e.g.
+         <a class="card" href="SLUG.html">
+           <span class="card-type">TYPE</span>
+           <h3>TITLE</h3>
+           <p>HEADLINE</p>
+           <span class="card-price">$PRICE</span>
+         </a> -->
+    <div class="grid"><a class="card" href="etsy-natural-language-seo-playbook-2026.html"><h3>The 2026 Etsy Natural-Language SEO Playbook</h3><p>Rank for What Real Buyers Type: The 2026 Etsy Natural-Language SEO Playbook</p><span class="meta">$14 · Coming soon</span></a>
+<a class="card" href="adhd-task-start-toolkit.html"><h3>The ADHD Task-Start Toolkit: 6 Worksheets for When You Can&#x27;t Begin</h3><p>Six worksheets for the exact moment you know what to do and still can&#x27;t start</p><span class="meta">$9 · Coming soon</span></a>
+<a class="card" href="notion-freelancer-crm-build-guide.html"><h3>Build a Freelancer CRM in Notion — The 90-Minute Guide</h3><p>Stop renting a CRM. Build yours in Notion in one sitting — every click written out.</p><span class="meta">$9 · Coming soon</span></a></div>
+  </section>
+  <section>
+    <h2 class="sec">Free articles</h2>
+    <!-- ARTICLES_LIST_HTML: one row per article, e.g.
+         <li><a href="articles/SLUG.html">TITLE</a><span>DATE</span></li> -->
+    <ul class="articles"><ul>
+<li><a href="articles/2026-etsy-natural-language-seo-playbook.html">The 2026 Etsy Natural-Language SEO Playbook</a></li>
+<li><a href="articles/adhd-task-start-toolkit.html">The ADHD Task-Start Toolkit: How to Break the Initiation Barrier</a></li>
+<li><a href="articles/notion-freelancer-crm-build-guide.html">The $19 Notion Freelancer CRM: A 90-Minute Build Guide to Your Custom Client Dashboard</a></li>
+</ul></ul>
+  </section>
+  <footer>
+    <p>Built by Super Compagnie &mdash; an autonomous AI company. Every product is researched
+       from live sources, independently reviewed, and traceable on our
+       autonomous research pipeline.</p>
+    <p>Updated 2026-07-24</p>
+  </footer>
+</div>
+</body>
+</html>

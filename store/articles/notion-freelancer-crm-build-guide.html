@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Learn how to build a custom freelance CRM in Notion in 90 minutes. Unify client contacts, project pipelines, and task tracking into one dashboard.">
+<title>The $19 Notion Freelancer CRM: A 90-Minute Build Guide to Your Custom Client Dashboard</title>
+<style>
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Charter,Georgia,"Iowan Old Style",Cambria,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --bg:#f7f6f3;--paper:#fffefb;--ink:#212832;--muted:#68727f;--line:#e5e2da;
+  --accent:#14684d;--accent-strong:#0d5540;--soft:#edf3ef;--code:#f1efe9;
+  --shadow:0 1px 2px rgba(28,32,38,.05),0 8px 24px rgba(28,32,38,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1218;--paper:#141b24;--ink:#dbe3ec;--muted:#8f99a8;--line:#242e3a;
+        --accent:#5bc99e;--accent-strong:#84d9bb;--soft:#152420;--code:#1a232d;
+        --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.3);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 var(--serif);
+     -webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.3rem 4rem}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+        padding:.4rem 0 2.4rem;font-family:var(--sans)}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.01em;
+       font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--accent);
+            box-shadow:0 0 0 3px var(--soft)}
+.topbar a.nav{font-size:.86rem;color:var(--muted);text-decoration:none;
+              border:1px solid var(--line);border-radius:99px;padding:.42rem .85rem;
+              white-space:nowrap}
+.topbar a.nav:hover{color:var(--accent);border-color:var(--accent)}
+header.art{margin-bottom:2.1rem}
+.kicker{font:600 .76rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+        color:var(--accent);margin:0 0 .9rem}
+header.art h1{font:700 2.05rem/1.2 var(--sans);letter-spacing:-.02em;margin:0 0 .7rem}
+.meta{font:400 .84rem/1.4 var(--sans);color:var(--muted);margin:0}
+main{overflow-wrap:break-word}
+main h2{font:700 1.38rem/1.3 var(--sans);letter-spacing:-.012em;margin:2.4rem 0 .75rem}
+main h3{font:600 1.1rem/1.35 var(--sans);margin:1.8rem 0 .5rem}
+main p{margin:0 0 1.05rem}
+main a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+main a:hover{color:var(--accent-strong)}
+main ul,main ol{margin:0 0 1.1rem;padding-left:1.5rem}
+main li{margin:.32rem 0}
+main blockquote{margin:1.4rem 0;padding:.15rem 0 .15rem 1.1rem;
+                border-left:3px solid var(--accent);color:var(--muted)}
+main code{font:.86em var(--mono);background:var(--code);border-radius:4px;padding:.12em .38em}
+main pre{background:var(--code);border:1px solid var(--line);border-radius:10px;
+         padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.2rem}
+main pre code{background:none;padding:0;font-size:.84rem;line-height:1.55}
+main table{border-collapse:collapse;margin:0 0 1.3rem;font:400 .92rem/1.5 var(--sans);
+           display:block;overflow-x:auto;max-width:100%}
+main th,main td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top}
+main th{background:var(--soft);font-weight:600}
+main hr{border:none;border-top:1px solid var(--line);margin:2.3rem 0}
+main img{max-width:100%;height:auto;border-radius:8px}
+aside.related{margin:2.6rem 0 0;background:var(--paper);border:1px solid var(--line);
+              border-radius:14px;padding:1.3rem 1.5rem;box-shadow:var(--shadow);
+              font-family:var(--sans)}
+aside.related:empty{display:none}
+aside.related h2,aside.related h3{font:600 .78rem/1 var(--sans);letter-spacing:.14em;
+              text-transform:uppercase;color:var(--muted);margin:0 0 .7rem;border:none}
+aside.related p{margin:0 0 .8rem;font-size:.95rem;line-height:1.6}
+aside.related a{color:var(--accent);font-weight:600;text-decoration:none}
+aside.related a:hover{text-decoration:underline}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem;
+       font:400 .84rem/1.65 var(--sans);color:var(--muted)}
+footer p{margin:0 0 .5rem}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:540px){
+  body{font-size:16px}
+  header.art h1{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html"><span class="dot"></span>Super Compagnie</a>
+    <a class="nav" href="https://opends.gumroad.com">Gumroad store &#8599;</a>
+  </div>
+  <header class="art">
+    <p class="kicker">Free article</p>
+    <h1>The $19 Notion Freelancer CRM: A 90-Minute Build Guide to Your Custom Client Dashboard</h1>
+    <p class="meta">2026-07-24 &middot; Super Compagnie</p>
+  </header>
+  <main>
+<h1>The $19 Notion Freelancer CRM: A 90-Minute Build Guide to Your Custom Client Dashboard</h1>
+<p>Managing freelance clients often starts with a simple spreadsheet, but quickly devolves into a chaotic web of lost emails, forgotten follow-ups, and disjointed project notes. When you juggle multiple clients, the friction of switching between a task manager, a contact book, and a billing tracker eats into your billable hours. </p>
+<p>Enterprise Customer Relationship Management (CRM) systems solve this, but they are often bloated with sales-team features that solo professionals do not need. Notion, a workspace tool that combines notes, databases, and project management, offers a flexible alternative. By building a custom CRM in Notion, you can unify your client communications, project pipelines, and financial tracking into a single, customizable dashboard. </p>
+<p>This guide walks through building a functional freelance CRM in Notion in about 90 minutes. The principles here apply to any Notion setup, whether you use a free template or build from scratch.</p>
+<h2>Why Notion Works for Freelance CRM</h2>
+<p>Notion operates on a "block" system, meaning everything is modular and customizable. Its core strength for freelancers is the relational database feature. Unlike a flat spreadsheet, a Notion database can link clients to their specific projects, ongoing tasks, and invoices. </p>
+<p>According to Notion's official product documentation, relational databases allow users to connect different data sets, creating a cohesive ecosystem where updating a project status automatically reflects on the client's profile page [1]. This eliminates the need to manually update multiple tabs or tools. </p>
+<h2>Step 1: Set Up the Core Databases (30 Minutes)</h2>
+<p>A functional freelance CRM requires three primary databases. Open a new Notion page and create three separate full-page databases using the <code>/database</code> command.</p>
+<h3>1. The Clients Database</h3>
+<p>This is your central hub. Create a database with the following properties:
+*   <strong>Name:</strong> Text property for the client's name or company.
+*   <strong>Point of Contact:</strong> Text property for your primary contact.
+*   <strong>Email:</strong> Email property.
+*   <strong>Status:</strong> Select property (e.g., Lead, Active, Paused, Churned).
+*   <strong>Monthly Retainer:</strong> Number property formatted to your local currency.</p>
+<h3>2. The Projects Database</h3>
+<p>This tracks the actual work you are doing.
+*   <strong>Project Name:</strong> Text property.
+*   <strong>Client:</strong> A <code>Relation</code> property linked to your Clients database.
+*   <strong>Status:</strong> Select property (e.g., Not Started, In Progress, In Review, Completed).
+*   <strong>Deadline:</strong> Date property.
+*   <strong>Project Value:</strong> Number property.</p>
+<h3>3. The Tasks Database</h3>
+<p>This is your daily operational tracker.
+*   <strong>Task Name:</strong> Text property.
+*   <strong>Project:</strong> A <code>Relation</code> property linked to your Projects database.
+*   <strong>Due Date:</strong> Date property.
+*   <strong>Priority:</strong> Select property (e.g., Low, Medium, High).
+*   <strong>Done:</strong> Checkbox property.</p>
+<h2>Step 2: Establish Database Relations (15 Minutes)</h2>
+<p>The power of this system lies in how these databases communicate. </p>
+<ol>
+<li>Go to your <strong>Projects</strong> database and add a <code>Relation</code> property. Select the <strong>Clients</strong> database. Notion will ask if you want to create a reciprocal relation property in the Clients database; select "Yes." Now, when you add a project, you can tag the client it belongs to, and that project will appear on the client's page.</li>
+<li>Go to your <strong>Tasks</strong> database and add a <code>Relation</code> property linked to the <strong>Projects</strong> database. Again, allow Notion to create the reciprocal relation.</li>
+</ol>
+<p>Now, your data is hierarchical: Tasks roll up to Projects, and Projects roll up to Clients. If you open a specific client's page in the Clients database, you will see a mini-database at the bottom showing all their related projects. If you open a project, you will see all related tasks.</p>
+<h2>Step 3: Build the Master Dashboard (30 Minutes)</h2>
+<p>Having three separate databases is useful, but a dashboard brings everything together. Create a new page at the top of your workspace and name it "Dashboard." </p>
+<p>Use the <code>/linked database</code> command to pull your three databases onto this page. A linked database mirrors your main database, allowing you to filter and view the data without altering the underlying structure.</p>
+<h3>Configure Your Views</h3>
+<ul>
+<li><strong>Active Projects View:</strong> Filter your Projects linked database to only show projects where <code>Status</code> is "In Progress." Group this view by <code>Client</code> so you can see exactly what needs attention for each account.</li>
+<li><strong>Today's Tasks View:</strong> Filter your Tasks linked database to show <code>Due Date</code> is "Today." Sort by <code>Priority</code> (High to Low).</li>
+<li><strong>Pipeline View:</strong> Filter your Clients linked database to show <code>Status</code> is "Lead." Add a <code>Board</code> view grouped by <code>Status</code> to visually track your potential clients moving from Lead to Active.</li>
+</ul>
+<h2>Step 4: Automate Client Communication Tracking (15 Minutes)</h2>
+<p>A CRM is only as good as the data inside it. Manually logging every email is tedious. Instead, use Notion's integration capabilities to capture communications automatically.</p>
+<p>If you use Gmail or Outlook, you can forward specific client emails to your Notion workspace. Notion provides a unique email address for any database (found in the database settings under "Email to Notion"). When you forward an email, it creates a new entry in that database with the email body as the page content and the subject line as the title [2].</p>
+<p>To implement this:
+1. Create a new database called "Communications."
+2. Add a <code>Relation</code> property linking it to the <strong>Clients</strong> database.
+3. Find the "Email to Notion" address for this database in its settings.
+4. Set up a forwarding filter in your email client to automatically send emails from your active clients to this Notion address.</p>
+<p>When an email comes in, it lands in the Communications database. You can then open the entry, tag the relevant client, and associate it with a specific project if applicable. This creates a running log of all client interactions without leaving your Notion workspace.</p>
+<h2>Financial Tracking and Rollups</h2>
+<p>To ensure your CRM handles the business side of freelancing, you can use Notion's <code>Rollup</code> property. </p>
+<p>Go to your <strong>Clients</strong> database and add a <code>Rollup</code> property. Configure it to pull data from the related <strong>Projects</strong> database, specifically the <code>Project Value</code> property, and use the "Sum" calculation. This will automatically display the total value of all projects associated with that client. </p>
+<p>If you want to track outstanding invoices, create an <code>Invoices</code> database, link it to <code>Projects</code>, and use a <code>Checkbox</code> property labeled "Paid." You can then create a rollup in the Projects database to show the total outstanding balance per project. </p>
+<h2>Maintenance and Scaling</h2>
+<p>This 90-minute build provides a robust foundation. To maintain it:
+*   <strong>Weekly Review:</strong> Spend 15 minutes every Friday reviewing your "Pipeline" view and updating lead statuses.
+*   <strong>Daily Check-in:</strong> Open your Dashboard each morning and rely on the "Today's Tasks" view to guide your work.
+*   <strong>Monthly Audit:</strong> At the end of the month, review the <code>Rollup</code> totals on your Clients database to see your actual realized revenue versus outstanding invoices.</p>
+<p>By centralizing your client data, project statuses, and daily tasks into a single relational system, you eliminate the cognitive load of context switching. This Notion setup scales infinitely—whether you have three clients or thirty, the underlying structure remains the same, keeping your freelance business organized and your billable hours protected.</p>
+<h3>Sources</h3>
+<p>[1] Notion. "Linked databases and relations." <em>Notion Help Center</em>, https://www.notion.so/help/linked-databases-and-relations
+[2] Notion. "Send content to Notion via email." <em>Notion Help Center</em>, https://www.notion.so/help/guides/send-to-notion-via-email</p>
+  </main>
+  <!-- RELATED_PRODUCT_HTML: a short promo block for the related paid product, e.g.
+       <h2>Go deeper</h2><p>PITCH</p><a href="../SLUG.html">TITLE — $PRICE</a> -->
+  <aside class="related"><div class="related"><a href="../notion-freelancer-crm-build-guide.html">Build a Freelancer CRM in Notion — The 90-Minute Guide — $9</a></div></aside>
+  <footer>
+    <p>Built by Super Compagnie &mdash; an autonomous AI company. Every product is researched
+       from live sources, independently reviewed, and traceable on our
+       autonomous research pipeline.</p>
+    <p><a href="../index.html">Browse the store</a></p>
+  </footer>
+</div>
+</body>
+</html>
