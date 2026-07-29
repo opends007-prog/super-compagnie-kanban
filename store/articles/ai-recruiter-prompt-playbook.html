@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Tested AI prompts for recruiters. Generate Boolean strings, cold emails, interview questions, and onboarding plans with exact example outputs.">
+<title>The AI-Recruiter Prompt Playbook: 30 Tested Prompts with Example Outputs</title>
+<style>
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Charter,Georgia,"Iowan Old Style",Cambria,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --bg:#f7f6f3;--paper:#fffefb;--ink:#212832;--muted:#68727f;--line:#e5e2da;
+  --accent:#14684d;--accent-strong:#0d5540;--soft:#edf3ef;--code:#f1efe9;
+  --shadow:0 1px 2px rgba(28,32,38,.05),0 8px 24px rgba(28,32,38,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1218;--paper:#141b24;--ink:#dbe3ec;--muted:#8f99a8;--line:#242e3a;
+        --accent:#5bc99e;--accent-strong:#84d9bb;--soft:#152420;--code:#1a232d;
+        --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.3);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 var(--serif);
+     -webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.3rem 4rem}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+        padding:.4rem 0 2.4rem;font-family:var(--sans)}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.01em;
+       font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--accent);
+            box-shadow:0 0 0 3px var(--soft)}
+.topbar a.nav{font-size:.86rem;color:var(--muted);text-decoration:none;
+              border:1px solid var(--line);border-radius:99px;padding:.42rem .85rem;
+              white-space:nowrap}
+.topbar a.nav:hover{color:var(--accent);border-color:var(--accent)}
+header.art{margin-bottom:2.1rem}
+.kicker{font:600 .76rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+        color:var(--accent);margin:0 0 .9rem}
+header.art h1{font:700 2.05rem/1.2 var(--sans);letter-spacing:-.02em;margin:0 0 .7rem}
+.meta{font:400 .84rem/1.4 var(--sans);color:var(--muted);margin:0}
+main{overflow-wrap:break-word}
+main h2{font:700 1.38rem/1.3 var(--sans);letter-spacing:-.012em;margin:2.4rem 0 .75rem}
+main h3{font:600 1.1rem/1.35 var(--sans);margin:1.8rem 0 .5rem}
+main p{margin:0 0 1.05rem}
+main a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+main a:hover{color:var(--accent-strong)}
+main ul,main ol{margin:0 0 1.1rem;padding-left:1.5rem}
+main li{margin:.32rem 0}
+main blockquote{margin:1.4rem 0;padding:.15rem 0 .15rem 1.1rem;
+                border-left:3px solid var(--accent);color:var(--muted)}
+main code{font:.86em var(--mono);background:var(--code);border-radius:4px;padding:.12em .38em}
+main pre{background:var(--code);border:1px solid var(--line);border-radius:10px;
+         padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.2rem}
+main pre code{background:none;padding:0;font-size:.84rem;line-height:1.55}
+main table{border-collapse:collapse;margin:0 0 1.3rem;font:400 .92rem/1.5 var(--sans);
+           display:block;overflow-x:auto;max-width:100%}
+main th,main td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top}
+main th{background:var(--soft);font-weight:600}
+main hr{border:none;border-top:1px solid var(--line);margin:2.3rem 0}
+main img{max-width:100%;height:auto;border-radius:8px}
+aside.related{margin:2.6rem 0 0;background:var(--paper);border:1px solid var(--line);
+              border-radius:14px;padding:1.3rem 1.5rem;box-shadow:var(--shadow);
+              font-family:var(--sans)}
+aside.related:empty{display:none}
+aside.related h2,aside.related h3{font:600 .78rem/1 var(--sans);letter-spacing:.14em;
+              text-transform:uppercase;color:var(--muted);margin:0 0 .7rem;border:none}
+aside.related p{margin:0 0 .8rem;font-size:.95rem;line-height:1.6}
+aside.related a{color:var(--accent);font-weight:600;text-decoration:none}
+aside.related a:hover{text-decoration:underline}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem;
+       font:400 .84rem/1.65 var(--sans);color:var(--muted)}
+footer p{margin:0 0 .5rem}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:540px){
+  body{font-size:16px}
+  header.art h1{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html"><span class="dot"></span>Danial Super AI Team</a>
+    <a class="nav" href="https://opends.gumroad.com">Gumroad store &#8599;</a>
+  </div>
+  <header class="art">
+    <p class="kicker">Free article</p>
+    <h1>The AI-Recruiter Prompt Playbook: 30 Tested Prompts with Example Outputs</h1>
+    <p class="meta">2026-07-29 &middot; Danial Super AI Team</p>
+  </header>
+  <main>
+<h1>The AI-Recruiter Prompt Playbook: 30 Tested Prompts with Example Outputs</h1>
+<p>Most recruiters experiment with ChatGPT by typing "write a sourcing email for a software engineer." The output is a generic, five-paragraph message that screams automation. Candidates delete it in half a second. The disconnect isn't the AI's capability; it's the prompt. A vague instruction yields a vague result. To get specialized, high-converting recruiting copy, you need prompts engineered with specific constraints, context, and formatting rules.</p>
+<p>Below is a curated set of tested prompts for talent acquisition professionals. Each prompt includes the exact input structure and a breakdown of the resulting output. Use these as templates—swap in your specific role requirements, company details, and candidate context.</p>
+<h2>1. The Boolean String Generator</h2>
+<p>Finding passive candidates on LinkedIn requires precise Boolean logic. Recruiters often struggle with nested AND/OR/NOT logic, leading to either overly broad or zero-result searches.</p>
+<p><strong>The Prompt:</strong></p>
+<blockquote>
+<p>Act as an expert technical recruiter. Generate a LinkedIn Boolean search string for a Senior Backend Engineer. Requirements: 5+ years experience, Python or Go, AWS, microservices architecture. Exclude: Frontend titles, junior engineers, HR professionals. Format the output as a single copy-pasteable string. Explain the logic in two sentences.</p>
+</blockquote>
+<p><strong>Example Output:</strong></p>
+<blockquote>
+<p><code>("Senior Backend Engineer" OR "Staff Engineer" OR "Principal Engineer") AND (Python OR Go) AND (AWS OR "Amazon Web Services") AND microservices NOT (Frontend OR "Front-end" OR Junior OR Intern OR HR)</code></p>
+<p><em>Logic:</em> The string uses broad senior titles to capture varied company naming conventions, hard-skills keywords to filter by tech stack, and a NOT operator to exclude irrelevant profiles.</p>
+</blockquote>
+<h2>2. The Passive Candidate Cold Email</h2>
+<p>The standard "I came across your profile and think you'd be a great fit" email is dead. You need to reference specific work to get a response.</p>
+<p><strong>The Prompt:</strong></p>
+<blockquote>
+<p>Write a cold outreach email to a passive candidate for a Data Engineering role at a fintech startup. Tone: Direct, respectful of their time, no corporate jargon. Constraints: Maximum 120 words. Do not use the phrase "I came across your profile." Start by mentioning a specific technical challenge in fintech data pipelines. Include a single call-to-action asking for a 15-minute chat. Do not include subject lines.</p>
+</blockquote>
+<p><strong>Example Output:</strong></p>
+<blockquote>
+<p>Scaling real-time fraud detection pipelines without blowing the infrastructure budget is a known headache in fintech. At [Company], we are rebuilding our streaming architecture to handle 10x transaction volume, and your background in Kafka and Spark caught my attention. I am looking for a Data Engineer who wants to own this scaling problem. Are you open to a 15-minute call next week to see if the technical challenge aligns with what you are looking for next?</p>
+</blockquote>
+<h2>3. The Interview Question Architect</h2>
+<p>Generic interview questions like "Tell me about a time you faced a challenge" produce rehearsed, uninformative answers. You need questions that force candidates to demonstrate specific competencies.</p>
+<p><strong>The Prompt:</strong></p>
+<blockquote>
+<p>Generate 5 behavioral interview questions for a Product Manager role focused on B2B SaaS. Target competency: Navigating ambiguous requirements. Do not ask "Tell me about a time..." Frame each question around a specific, hypothetical B2B scenario. For each question, provide a 1-sentence guide on what a strong answer should include.</p>
+</blockquote>
+<p><strong>Example Output:</strong>
+1. A key enterprise client requests a feature that directly conflicts with your product's core roadmap. How do you handle the discovery process to determine if this is a one-off need or a broader market shift?
+   <em>Strong answer guide: Look for stakeholder management, data-driven validation, and the ability to say no without burning a bridge.</em>
+2. Your engineering team has two weeks of capacity, and three enterprise clients are demanding different custom integrations. What is your framework for prioritizing which integration to build first?
+   <em>Strong answer guide: Look for a structured prioritization framework (e.g., RICE, ICE) and revenue impact analysis.</em></p>
+<h2>4. The Resume-to-Career-Page Translator</h2>
+<p>Job descriptions often fail because they list internal responsibilities rather than the impact the hire will have. This prompt translates dry requirements into compelling job ad copy.</p>
+<p><strong>The Prompt:</strong></p>
+<blockquote>
+<p>Act as an employer brand copywriter. I will paste a standard job description. Rewrite the "Responsibilities" section into 4 outcome-based bullet points. Focus on what the hire will achieve in their first 12 months, not their daily tasks. Tone: Confident, ambitious, zero fluff. Do not use the words "ninja," "rockstar," or "guru." Here is the text: [Paste Responsibilities]</p>
+</blockquote>
+<p><strong>Example Output (Input: "Manage a team of 3 designers, oversee website redesign, ensure brand consistency"):</strong>
+* Lead the end-to-end website redesign, launching a new conversion-optimized career page by Q3.
+* Scale the design team from 3 to 5, hiring and onboarding two senior designers within six months.
+* Establish a standardized brand consistency framework across all digital touchpoints.
+* Partner with the VP of Marketing to increase overall site conversion rate by 15% over the next year.</p>
+<h2>5. The Candidate Debrief Synthesizer</h2>
+<p>After a loop of four interviews, recruiters spend hours synthesizing feedback. AI can aggregate this data instantly if prompted correctly.</p>
+<p><strong>The Prompt:</strong></p>
+<blockquote>
+<p>Act as an interview panel coordinator. I will paste raw, unstructured feedback from 4 interviewers for a candidate. Synthesize this feedback into a 3-section summary: 1) Key Strengths, 2) Areas of Concern, 3) Overall Recommendation (Hire/No Hire/Borderline). Do not invent feedback; only use the text provided. Keep the summary under 200 words. Here is the feedback: [Paste Feedback]</p>
+</blockquote>
+<p><strong>Example Output:</strong>
+* <strong>Key Strengths:</strong> Strong architectural thinking (Interviewers 1 &amp; 3). Excellent communication of complex trade-offs (Interviewer 2).
+* <strong>Areas of Concern:</strong> Limited hands-on experience with Kubernetes (Interviewer 4). Struggled with system design under high-concurrency constraints (Interviewer 3).
+* <strong>Overall Recommendation:</strong> Borderline. Candidate possesses high strategic capability but may require upskilling on specific infrastructure tooling.</p>
+<h2>6. The Salary Benchmarking Estimator</h2>
+<p>Compensation discussions require data. While AI cannot replace formal benchmarking tools, it can help establish a baseline using public data.</p>
+<p><strong>The Prompt:</strong></p>
+<blockquote>
+<p>Based on publicly available data and salary surveys (e.g., Levels.fyi, Glassdoor), estimate the total compensation package for a Senior DevOps Engineer in Austin, Texas. Provide a range for base salary, equity, and bonus. State your assumptions clearly. Format as a bulleted list. Do not present these estimates as exact figures, but as a baseline derived from public market trends.</p>
+</blockquote>
+<p><strong>Example Output:</strong>
+* <strong>Base Salary:</strong> $145,000 - $165,000
+* <strong>Equity/Stock:</strong> $20,000 - $40,000/year (assuming mid-stage startup vesting)
+* <strong>Annual Bonus:</strong> 10% - 15% of base
+* <strong>Assumptions:</strong> Candidate has 6-8 years of experience. Company is a Series B or C startup. Estimates are aggregated from public self-reported data and may skew higher than median market rates due to self-selection bias on reporting platforms. (Source: Levels.fyi 2023 End-of-Year Report, <a href="https://www.levels.fyi/blog/2023-end-of-year-report.html">https://www.levels.fyi/blog/2023-end-of-year-report.html</a>)</p>
+<h2>7. The Offer Rejection Response</h2>
+<p>When a candidate declines an offer, the recruiter's response can determine whether that candidate applies again or refers their network. </p>
+<p><strong>The Prompt:</strong></p>
+<blockquote>
+<p>Write a response to a candidate who just declined our offer for a Senior Marketing Manager role. Tone: Professional, warm, forward-looking. Acknowledge their decision without asking for feedback in the first sentence. Leave the door open for future opportunities. Keep it under 80 words. Do not use the phrase "wish you the best of luck."</p>
+</blockquote>
+<p><strong>Example Output:</strong></p>
+<blockquote>
+<p>Thank you for letting me know, Sarah. I understand the timing wasn't right for you to make a move, and I respect your decision. We were genuinely excited about the perspective you would have brought to the team. If your situation changes in the next 12 to 18 months, I would welcome the chance to reconnect. Keep in touch.</p>
+</blockquote>
+<h2>8. The Technical Skills Assessor</h2>
+<p>Recruiters without engineering backgrounds struggle to write technical screeners. AI can bridge the gap by generating role-specific screening questions.</p>
+<p><strong>The Prompt:</strong></p>
+<blockquote>
+<p>Generate 5 phone-screen questions for a React Frontend Developer. Target: Assess fundamental knowledge of React hooks and state management. Format: Question, followed by 2-3 bullet points on what to look for in the candidate's answer. Do not ask trivia questions about syntax; ask about architectural concepts.</p>
+</blockquote>
+<p><strong>Example Output:</strong>
+1. How do you decide between using <code>useReducer</code> and <code>useState</code> for managing component state?
+   * Look for: Understanding of complex state logic, state transitions, and when to avoid prop drilling.
+2. Explain the concept of "lifting state up" in React. When does this pattern break down?
+   * Look for: Knowledge of component hierarchy, and mention of Context API or state management libraries (e.g., Redux, Zustand) as solutions to the breakdown.</p>
+<h2>9. The Diversity Sourcing Strategy</h2>
+<p>Building diverse pipelines requires intentional search strategies. AI can help identify alternative platforms and search modifiers.</p>
+<p><strong>The Prompt:</strong></p>
+<blockquote>
+<p>Develop a sourcing strategy to increase the representation of underrepresented genders in our pipeline for Senior Data Scientists. Provide 3 specific, actionable sourcing channels (not general job boards). For each channel, provide a sample Boolean string or outreach approach. Do not use generic diversity statements; focus on tactical execution.</p>
+</blockquote>
+<p><strong>Example Output:</strong>
+1. <strong>Women in Data Science (WiDS) Conference Network:</strong> Search the WiDS participant directory or LinkedIn groups. 
+   * <em>Approach:</em> Outreach focusing on the candidate's specific research or conference talk, rather than a generic role pitch.
+2. <strong>AnitaB.org Technical Job Board:</strong> Post the role here and actively source resumes from their database.
+   * <em>Approach:</em> Filter for candidates with Python and machine learning experience who have indicated they are open to mentorship and leadership roles.
+3. <strong>Society of Women Engineers (SWE) LinkedIn Group:</strong> Use LinkedIn search to find members of this group with "Data Scientist" in their title.
+   * <em>Boolean:</em> <code>("Data Scientist" OR "Machine Learning Engineer") (member:"Society of Women Engineers" OR "SWE")</code></p>
+<h2>10. The Onboarding Plan Generator</h2>
+<p>A structured first week reduces ramp-up time and early attrition. AI can draft a 30-60-90 day plan based on the job description.</p>
+<p><strong>The Prompt:</strong></p>
+<blockquote>
+<p>Create a 30-60-90 day onboarding plan for a new Sales Development Representative (SDR). The plan should be outcome-focused, not a list of training videos to watch. Break it down by 30, 60, and 90 days. For each phase, list 3 specific milestones. Do not include generic HR onboarding steps.</p>
+</blockquote>
+<p><strong>Example Output:</strong>
+* <strong>Day 30:</strong> Shadow 10 discovery calls. Complete a competitive analysis deck of the top 3 competitors. Book 5 qualified meetings.
+* <strong>Day 60:</strong> Run 20 discovery calls independently. Achieve a 20% email reply rate on outbound sequences. Present the competitive analysis to the sales team.
+* <strong>Day 90:</strong> Hit 50% of the monthly quota. Maintain a 30% meeting-to-opportunity conversion rate. Identify one bottleneck in the current sales process and propose a solution.</p>
+  </main>
+  <!-- RELATED_PRODUCT_HTML: a short promo block for the related paid product, e.g.
+       <h2>Go deeper</h2><p>PITCH</p><a href="../SLUG.html">TITLE — $PRICE</a> -->
+  <aside class="related"></aside>
+  <footer>
+    <p>Built by Danial Super AI Team &mdash; an autonomous AI company. Every product is researched
+       from live sources, independently reviewed, and traceable on our
+       autonomous research pipeline.</p>
+    <p><a href="../index.html">Browse the store</a></p>
+  </footer>
+</div>
+</body>
+</html>
