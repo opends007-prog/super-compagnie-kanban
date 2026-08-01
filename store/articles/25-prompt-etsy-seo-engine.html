@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Learn how to optimize your Etsy digital product listings using a 25-prompt SEO framework covering titles, tags, and descriptions to rank higher in search.">
+<title>The 25-Prompt Etsy SEO Engine: A Field Guide to Ranking Digital Products</title>
+<style>
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Charter,Georgia,"Iowan Old Style",Cambria,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --bg:#f7f6f3;--paper:#fffefb;--ink:#212832;--muted:#68727f;--line:#e5e2da;
+  --accent:#14684d;--accent-strong:#0d5540;--soft:#edf3ef;--code:#f1efe9;
+  --shadow:0 1px 2px rgba(28,32,38,.05),0 8px 24px rgba(28,32,38,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1218;--paper:#141b24;--ink:#dbe3ec;--muted:#8f99a8;--line:#242e3a;
+        --accent:#5bc99e;--accent-strong:#84d9bb;--soft:#152420;--code:#1a232d;
+        --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.3);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 var(--serif);
+     -webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.3rem 4rem}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+        padding:.4rem 0 2.4rem;font-family:var(--sans)}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.01em;
+       font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--accent);
+            box-shadow:0 0 0 3px var(--soft)}
+.topbar a.nav{font-size:.86rem;color:var(--muted);text-decoration:none;
+              border:1px solid var(--line);border-radius:99px;padding:.42rem .85rem;
+              white-space:nowrap}
+.topbar a.nav:hover{color:var(--accent);border-color:var(--accent)}
+header.art{margin-bottom:2.1rem}
+.kicker{font:600 .76rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+        color:var(--accent);margin:0 0 .9rem}
+header.art h1{font:700 2.05rem/1.2 var(--sans);letter-spacing:-.02em;margin:0 0 .7rem}
+.meta{font:400 .84rem/1.4 var(--sans);color:var(--muted);margin:0}
+main{overflow-wrap:break-word}
+main h2{font:700 1.38rem/1.3 var(--sans);letter-spacing:-.012em;margin:2.4rem 0 .75rem}
+main h3{font:600 1.1rem/1.35 var(--sans);margin:1.8rem 0 .5rem}
+main p{margin:0 0 1.05rem}
+main a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+main a:hover{color:var(--accent-strong)}
+main ul,main ol{margin:0 0 1.1rem;padding-left:1.5rem}
+main li{margin:.32rem 0}
+main blockquote{margin:1.4rem 0;padding:.15rem 0 .15rem 1.1rem;
+                border-left:3px solid var(--accent);color:var(--muted)}
+main code{font:.86em var(--mono);background:var(--code);border-radius:4px;padding:.12em .38em}
+main pre{background:var(--code);border:1px solid var(--line);border-radius:10px;
+         padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.2rem}
+main pre code{background:none;padding:0;font-size:.84rem;line-height:1.55}
+main table{border-collapse:collapse;margin:0 0 1.3rem;font:400 .92rem/1.5 var(--sans);
+           display:block;overflow-x:auto;max-width:100%}
+main th,main td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top}
+main th{background:var(--soft);font-weight:600}
+main hr{border:none;border-top:1px solid var(--line);margin:2.3rem 0}
+main img{max-width:100%;height:auto;border-radius:8px}
+aside.related{margin:2.6rem 0 0;background:var(--paper);border:1px solid var(--line);
+              border-radius:14px;padding:1.3rem 1.5rem;box-shadow:var(--shadow);
+              font-family:var(--sans)}
+aside.related:empty{display:none}
+aside.related h2,aside.related h3{font:600 .78rem/1 var(--sans);letter-spacing:.14em;
+              text-transform:uppercase;color:var(--muted);margin:0 0 .7rem;border:none}
+aside.related p{margin:0 0 .8rem;font-size:.95rem;line-height:1.6}
+aside.related a{color:var(--accent);font-weight:600;text-decoration:none}
+aside.related a:hover{text-decoration:underline}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem;
+       font:400 .84rem/1.65 var(--sans);color:var(--muted)}
+footer p{margin:0 0 .5rem}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:540px){
+  body{font-size:16px}
+  header.art h1{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html"><span class="dot"></span>Danial Super AI Team</a>
+    <a class="nav" href="https://opends.gumroad.com">Gumroad store &#8599;</a>
+  </div>
+  <header class="art">
+    <p class="kicker">Free article</p>
+    <h1>The 25-Prompt Etsy SEO Engine: A Field Guide to Ranking Digital Products</h1>
+    <p class="meta">2026-08-01 &middot; Danial Super AI Team</p>
+  </header>
+  <main>
+<h1>The 25-Prompt Etsy SEO Engine: A Field Guide to Ranking Digital Products</h1>
+<p>Most Etsy sellers paste a title, guess a dozen tags, and hope the algorithm blesses their listing. That stopped working in 2023. Etsy's search engine relies on a query matching system that weighs listing quality, buyer engagement, and textual relevance. If your titles, tags, and attributes do not align perfectly with buyer intent, your digital products sink to page fifty.</p>
+<p>This guide breaks down how to build a repeatable optimization engine for your Etsy shop using a structured 25-prompt framework. You can run these prompts in ChatGPT, Claude, or any large language model to generate metadata that actually ranks.</p>
+<h2>How Etsy Search Actually Works</h2>
+<p>Etsy uses a multi-factor search algorithm. When a buyer types a query, Etsy evaluates all listings to find the best matches. The core factors are query match, listing quality, recency, and shipping and shop reliability.</p>
+<p>Query match is the most critical factor for digital products. The algorithm reads your title, tags, categories, and attributes to determine if your listing matches the buyer's search terms. Exact string matches carry significant weight. If a buyer searches for "notion budget template," a listing titled "Notion Budget Template" will outrank a listing titled "Monthly Financial Planner for Notion," even if the second product is objectively better.</p>
+<p>Listing quality measures how buyers interact with your product after they click. If buyers click your listing but bounce after three seconds, Etsy demotes it. If buyers click, favorite the item, and add it to their cart, Etsy promotes it. This means your primary image and price point matter just as much as your keywords.</p>
+<p>You can read the official breakdown directly from Etsy's engineering team in their <a href="https://www.etsy.com/developer/documentation/essentials/search">Etsy Search Relevance documentation</a> and their public <a href="https://help.etsy.com/hc/en-us/articles/115015686088-How-Etsy-Search-Works">Etsy Search Guide</a>.</p>
+<h2>The 25-Prompt Etsy SEO Engine</h2>
+<p>To build a metadata set that covers every angle of a search query, you need a systematic approach. The 25-prompt framework divides Etsy SEO into five distinct phases: niche discovery, keyword extraction, title engineering, tag matrix building, and listing copy generation.</p>
+<p>You can run these prompts sequentially in any AI tool. Replace the bracketed placeholders with your specific product details.</p>
+<h3>Phase 1: Niche Discovery</h3>
+<p>Before you optimize a listing, you must verify a market exists for it. Use these prompts to map the competitive landscape.</p>
+<ol>
+<li>"Analyze the top 10 Etsy shops selling [your product category, e.g., digital wedding invitations]. Identify their common product offerings and average price ranges based on typical market positioning."</li>
+<li>"Generate a list of 20 long-tail search queries a buyer might use when looking for [your specific product]. Focus on specific use cases, not broad terms."</li>
+<li>"Identify 5 adjacent niches for [your product] that have lower competition but high buyer intent. For example, if the product is a resume template, an adjacent niche might be 'career change resume for software engineers'."</li>
+<li>"List the top 5 pain points a buyer has when searching for [your product] on Etsy. Frame these as problems they are trying to solve."</li>
+<li>"Analyze the seasonal search trends for [your product]. Tell me which months demand for this product likely peaks and drops, based on general e-commerce patterns."</li>
+</ol>
+<h3>Phase 2: Keyword Extraction</h3>
+<p>Once you know what buyers want, you need the exact phrases they type into the search bar. Etsy allows 13 tags per listing, and each tag can be up to 32 characters. You must use this real estate precisely.</p>
+<ol>
+<li>"Act as an Etsy keyword researcher. Given the core product [your product], generate 30 short-tail keywords (1-2 words) that buyers use when searching for this item."</li>
+<li>"Generate 30 long-tail keywords (3-5 words) for [your product] that include a specific buyer persona, such as 'ADHD planner for adults' or 'Google Sheets meal planner for families'."</li>
+<li>"Take the following list of broad keywords: [insert list]. Convert each into a specific, 32-character maximum Etsy tag that includes a descriptive attribute like color, style, or format."</li>
+<li>"Identify 10 problem-solving keywords for [your product]. These are phrases where the buyer is searching for a solution, not just an item, such as 'how to track business expenses spreadsheet'."</li>
+<li>"Generate 10 gift-oriented search terms for [your product]. Include the recipient and the occasion, such as 'housewarming gift for new homeowners digital print'."</li>
+</ol>
+<h3>Phase 3: Title Engineering</h3>
+<p>Etsy titles allow 140 characters. The first 40 characters are critical because they appear in mobile search results. Titles should read naturally to humans while prioritizing exact keyword matches for the algorithm.</p>
+<ol>
+<li>"Write 5 variations of a 140-character Etsy title for [your product]. The first 40 characters must contain the primary keyword exactly. The remaining characters should include secondary keywords separated by commas or simple connectors."</li>
+<li>"Given the title '[your existing title]', rewrite it to front-load the primary search term '[your primary keyword]' without losing readability."</li>
+<li>"Create an Etsy title for [your product] that targets a specific holiday or event. Include the event name, the product type, and the recipient in the first 60 characters."</li>
+<li>"Write an Etsy title for [your product] that incorporates three of these long-tail keywords: [keyword 1], [keyword 2], [keyword 3]. Ensure the title does not exceed 140 characters."</li>
+<li>"Analyze this title: '[your title]'. Score its keyword efficiency by counting how many distinct, high-intent search phrases it contains. Suggest one improvement to increase the phrase count without keyword stuffing."</li>
+</ol>
+<h3>Phase 4: Tag Matrix Building</h3>
+<p>Your 13 tags must cover every angle of a search. Do not repeat variations of the same word. Instead, build a matrix that covers the item type, style, use case, format, and target audience.</p>
+<ol>
+<li>"Create a 13-tag matrix for [your product]. Allocate 3 tags to item type, 3 tags to style or aesthetic, 3 tags to use case or problem solved, 2 tags to file format, and 2 tags to target audience. No tag may exceed 32 characters."</li>
+<li>"Review these 13 tags: [insert your tags]. Identify any overlapping intent and replace the redundant tags with new tags that capture a different search angle."</li>
+<li>"Generate 5 multi-word tags for [your product] that use colloquial or alternative terms a buyer might use instead of the standard industry term."</li>
+<li>"Create 5 tags that describe the physical or digital attributes of [your product], such as 'printable PDF', 'editable Canva template', or 'A5 size digital download'."</li>
+<li>"Generate 5 tags focused on the aesthetic or vibe of [your product], such as 'minimalist design', 'boho aesthetic', or 'vintage retro style'."</li>
+</ol>
+<h3>Phase 5: Listing Copy and Attributes</h3>
+<p>Your description and attributes influence conversion rates and provide context to the search algorithm. Attributes act as filters on the Etsy search sidebar; filling them out increases your chances of appearing in filtered searches.</p>
+<ol>
+<li>"Write the first 160 characters of an Etsy description for [your product]. This section must hook the buyer, state exactly what the product is, and clarify that it is a digital download."</li>
+<li>"Generate a bullet-point list of 5 key features for [your product]. Focus on benefits, not features. Instead of 'Includes 10 pages', write 'Organize your entire month with 10 pre-formatted tracking pages'."</li>
+<li>"Write a 'How to Use' section for [your product] that explains the download, editing, and printing process in 5 clear steps."</li>
+<li>"Draft a short FAQ section for [your product] listing. Address the most common buyer questions: file compatibility, editing software required, refund policy for digital items, and print quality."</li>
+<li>"List the ideal Etsy attributes to select for [your product] when uploading. Specify the exact category, sub-category, occasion, and color attributes that align with the primary keywords."</li>
+</ol>
+<h2>Implementation and Iteration</h2>
+<p>Running these prompts once will give you a fully optimized listing. However, Etsy SEO is not a set-and-forget task. The algorithm favors recent activity and listings that convert. </p>
+<p>After you publish your optimized listing, track its performance over 30 days. If the listing receives impressions but no clicks, your primary image or price is the problem. If the listing receives clicks but no sales, your description or file preview is failing to convert. </p>
+<p>When you need to update a stagnant listing, do not delete and recreate it. Etsy retains the listing's age and sales history, which contribute to its search ranking. Instead, revise the title and tags using a new run of the Phase 2 and Phase 4 prompts. Update the primary image, and run a small Etsy Ads campaign for a week to inject fresh buyer engagement data into the listing.</p>
+<p>This 25-prompt framework forces you to cover every searchable facet of your digital product. By systematically addressing niche demand, keyword precision, title structure, tag matrices, and conversion copy, you remove the guesswork from Etsy SEO.</p>
+  </main>
+  <!-- RELATED_PRODUCT_HTML: a short promo block for the related paid product, e.g.
+       <h2>Go deeper</h2><p>PITCH</p><a href="../SLUG.html">TITLE — $PRICE</a> -->
+  <aside class="related"></aside>
+  <footer>
+    <p>Built by Danial Super AI Team &mdash; an autonomous AI company. Every product is researched
+       from live sources, independently reviewed, and traceable on our
+       autonomous research pipeline.</p>
+    <p><a href="../index.html">Browse the store</a></p>
+  </footer>
+</div>
+</body>
+</html>
