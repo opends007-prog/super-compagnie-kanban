@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="A practical guide to using rubric-to-draft chained prompts for AI-assisted grant writing. Learn how to constrain LLMs to generate compliant, structured grant proposals.">
+<title>The AI Grant Proposal Framework: Rubric-to-Draft Chained Prompts</title>
+<style>
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Charter,Georgia,"Iowan Old Style",Cambria,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --bg:#f7f6f3;--paper:#fffefb;--ink:#212832;--muted:#68727f;--line:#e5e2da;
+  --accent:#14684d;--accent-strong:#0d5540;--soft:#edf3ef;--code:#f1efe9;
+  --shadow:0 1px 2px rgba(28,32,38,.05),0 8px 24px rgba(28,32,38,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1218;--paper:#141b24;--ink:#dbe3ec;--muted:#8f99a8;--line:#242e3a;
+        --accent:#5bc99e;--accent-strong:#84d9bb;--soft:#152420;--code:#1a232d;
+        --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.3);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 var(--serif);
+     -webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.3rem 4rem}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+        padding:.4rem 0 2.4rem;font-family:var(--sans)}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.01em;
+       font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--accent);
+            box-shadow:0 0 0 3px var(--soft)}
+.topbar a.nav{font-size:.86rem;color:var(--muted);text-decoration:none;
+              border:1px solid var(--line);border-radius:99px;padding:.42rem .85rem;
+              white-space:nowrap}
+.topbar a.nav:hover{color:var(--accent);border-color:var(--accent)}
+header.art{margin-bottom:2.1rem}
+.kicker{font:600 .76rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+        color:var(--accent);margin:0 0 .9rem}
+header.art h1{font:700 2.05rem/1.2 var(--sans);letter-spacing:-.02em;margin:0 0 .7rem}
+.meta{font:400 .84rem/1.4 var(--sans);color:var(--muted);margin:0}
+main{overflow-wrap:break-word}
+main h2{font:700 1.38rem/1.3 var(--sans);letter-spacing:-.012em;margin:2.4rem 0 .75rem}
+main h3{font:600 1.1rem/1.35 var(--sans);margin:1.8rem 0 .5rem}
+main p{margin:0 0 1.05rem}
+main a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+main a:hover{color:var(--accent-strong)}
+main ul,main ol{margin:0 0 1.1rem;padding-left:1.5rem}
+main li{margin:.32rem 0}
+main blockquote{margin:1.4rem 0;padding:.15rem 0 .15rem 1.1rem;
+                border-left:3px solid var(--accent);color:var(--muted)}
+main code{font:.86em var(--mono);background:var(--code);border-radius:4px;padding:.12em .38em}
+main pre{background:var(--code);border:1px solid var(--line);border-radius:10px;
+         padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.2rem}
+main pre code{background:none;padding:0;font-size:.84rem;line-height:1.55}
+main table{border-collapse:collapse;margin:0 0 1.3rem;font:400 .92rem/1.5 var(--sans);
+           display:block;overflow-x:auto;max-width:100%}
+main th,main td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top}
+main th{background:var(--soft);font-weight:600}
+main hr{border:none;border-top:1px solid var(--line);margin:2.3rem 0}
+main img{max-width:100%;height:auto;border-radius:8px}
+aside.related{margin:2.6rem 0 0;background:var(--paper);border:1px solid var(--line);
+              border-radius:14px;padding:1.3rem 1.5rem;box-shadow:var(--shadow);
+              font-family:var(--sans)}
+aside.related:empty{display:none}
+aside.related h2,aside.related h3{font:600 .78rem/1 var(--sans);letter-spacing:.14em;
+              text-transform:uppercase;color:var(--muted);margin:0 0 .7rem;border:none}
+aside.related p{margin:0 0 .8rem;font-size:.95rem;line-height:1.6}
+aside.related a{color:var(--accent);font-weight:600;text-decoration:none}
+aside.related a:hover{text-decoration:underline}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem;
+       font:400 .84rem/1.65 var(--sans);color:var(--muted)}
+footer p{margin:0 0 .5rem}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:540px){
+  body{font-size:16px}
+  header.art h1{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html"><span class="dot"></span>Danial Super AI Team</a>
+    <a class="nav" href="https://opends.gumroad.com">Gumroad store &#8599;</a>
+  </div>
+  <header class="art">
+    <p class="kicker">Free article</p>
+    <h1>The AI Grant Proposal Framework: Rubric-to-Draft Chained Prompts</h1>
+    <p class="meta">2026-08-01 &middot; Danial Super AI Team</p>
+  </header>
+  <main>
+<h1>The Mechanics of Rubric-to-Draft Chained Prompts for Grant Proposals</h1>
+<p>Grant writing is a constrained writing problem. You have a fixed set of scoring criteria, a strict page limit, and a reviewer who spends roughly fifteen minutes deciding if your application advances to the panel. Generative AI can help bridge the gap between a rough program outline and a polished narrative, but only if you constrain the model as tightly as the funder constrains you.</p>
+<p>A single, monolithic prompt—“write a grant proposal for a community literacy program”—will produce generic, committee-speak prose. It will hit word counts but miss scoring criteria. The alternative is a chained prompt architecture, where you break the rubric into discrete sections, generate each section against its specific scoring weights, and stitch the outputs together. This is the core of a rubric-to-draft chained prompt framework.</p>
+<h2>Why Single-Prompt Generation Fails</h2>
+<p>When you ask a large language model to write a full proposal in one pass, it suffers from attention dilution. The model attempts to satisfy every requirement simultaneously, resulting in shallow treatment of complex sections like evaluation methodology or sustainability planning.</p>
+<p>The federal grant review process relies on published rubrics. The reviewer assigns a score for each criterion, which are then weighted according to the specific Notice of Funding Opportunity (NOFO). If your narrative does not explicitly signal where one criterion ends and the next begins, the reviewer has to hunt for the answers. A chained prompt approach solves this by forcing the AI to generate text that maps directly to the rubric’s structure.</p>
+<h2>Building the Chained Prompt Framework</h2>
+<p>To build a rubric-to-draft pipeline, you need the funding opportunity rubric, your program logic model, and a sequence of targeted prompts. You will run these prompts sequentially, carrying the context forward.</p>
+<h3>Step 1: The Context Anchor</h3>
+<p>Start by giving the AI the exact scoring criteria. Do not paraphrase the rubric. Paste the text directly from the NOFO.</p>
+<p><strong>Prompt 1: Context Ingestion</strong></p>
+<pre><code>You are an expert grant writer. I am providing the scoring rubric for the [Funder Name] [Program Name] grant. 
+Rubric: [Paste exact rubric text]
+Acknowledge receipt of this rubric and summarize the maximum points allocated to each section. Do not write proposal text yet.
+</code></pre>
+<p>This step grounds the model. By asking it to summarize the point allocations, you verify that the AI has parsed the weighting correctly before it generates any narrative.</p>
+<h3>Step 2: Section-by-Section Generation</h3>
+<p>Once the context is anchored, you generate the proposal section by section. You must carry the context from previous sections into the new prompt to maintain narrative continuity.</p>
+<p><strong>Prompt 2: Statement of Need</strong></p>
+<pre><code>Using the rubric provided, draft the "Statement of Need" section. 
+This section is worth [X] points. 
+Use the following data points to build the case:
+- [Data point 1, e.g., local poverty rate]
+- [Data point 2, e.g., literacy gap statistics]
+Write 400 words. Do not introduce the solution here; focus strictly on establishing the problem and the urgency, citing the provided data.
+</code></pre>
+<p>Notice the constraints. You specify the word count, the exact rubric section, the allowed data, and the narrative boundary. You explicitly forbid the model from drifting into the solution section, which is a common failure mode in AI-generated drafts.</p>
+<p><strong>Prompt 3: Project Description and Activities</strong></p>
+<pre><code>We have established the need. Now draft the "Project Description" section, worth [Y] points. 
+The project is a [brief description of intervention]. 
+Map the activities directly to the stated needs. Outline the timeline in a structured format. 
+Write 600 words. Ensure the tone is active and direct. Do not use passive voice for activity descriptions.
+</code></pre>
+<h3>Step 3: The Evaluation and Logic Model Linkage</h3>
+<p>Reviewers score evaluation plans harshly if they do not connect back to the proposed activities. You can use a prompt chain to force the AI to build that bridge.</p>
+<p><strong>Prompt 4: Evaluation Plan</strong></p>
+<pre><code>Draft the "Evaluation Plan" section, worth [Z] points. 
+Review the Project Description you just wrote. For every activity listed in the Project Description, define exactly one corresponding output measure and one outcome measure. 
+Format this as a table. 
+Then, write a 200-word narrative explaining how these measures will be collected and analyzed.
+</code></pre>
+<p>This prompt structure prevents the AI from inventing an evaluation framework that does not match the proposed intervention. By instructing the model to review its own previous output, you create a logical dependency that mirrors how a human grant writer operates.</p>
+<h3>Step 4: The Stitching Pass</h3>
+<p>Once you have generated the sections individually, you need to check the seams. AI models often change tone or repeat introductory phrases when sections are generated in isolation.</p>
+<p><strong>Prompt 5: Cohesion Edit</strong></p>
+<pre><code>Here is the full draft proposal, assembled from the previous sections: [Paste assembled text]
+Review this draft for transitional flow. Remove redundant introductory sentences. Ensure that the data cited in the Statement of Need is directly addressed in the Project Description. Output the revised text.
+</code></pre>
+<h2>Managing the Risk of Hallucination</h2>
+<p>AI models hallucinate citations and statistics. In grant proposals, fabricated data is a disqualifying offense. When using a chained prompt framework, you must enforce a strict data boundary.</p>
+<p>If you do not have a statistic, do not ask the AI to find one. Prompt the model to leave a placeholder.</p>
+<p><strong>Data Boundary Prompt Modification:</strong></p>
+<pre><code>If you require a statistic to support a claim in the Statement of Need, do not generate one. Write [STAT NEEDED: description of required data] and I will fill it in.
+</code></pre>
+<p>This keeps the proposal factually honest. The AI handles the structural heavy lifting—transitioning from problem to solution, mapping activities to outcomes—while you retain control over the evidence.</p>
+<h2>Practical Application: The Logic Model Prompt</h2>
+<p>A logic model is a standard requirement in federal grant applications. The Corporation for National and Community Service outlines logic models as a tool to map inputs, activities, outputs, and outcomes [1]. You can prompt the AI to generate the skeleton of this model based on your rough notes.</p>
+<p><strong>Prompt 6: Logic Model Generation</strong></p>
+<pre><code>I am providing rough notes for a program logic model.
+Notes: [Paste rough bullet points about resources, activities, and goals]
+Structure these notes into a formal logic model with four columns: Inputs, Activities, Outputs, and Outcomes. 
+Distinguish between short-term, intermediate, and long-term outcomes. Do not invent new resources or activities; use only what is in the notes.
+</code></pre>
+<h2>The Reviewer’s Perspective</h2>
+<p>Grant reviewers read dozens of applications. They look for alignment. If the rubric asks for a sustainability plan, and your proposal ends abruptly after the budget, you lose points. A chained prompt framework ensures every rubric item gets its own dedicated generation pass. This increases the density of relevant keywords and concepts in each section.</p>
+<p>The goal is not to automate the grant writing process entirely. The goal is to accelerate the drafting phase so you can spend more time on the human elements of grant procurement: building community partnerships, refining the budget, and gathering letters of support. By breaking the rubric into a chain of constrained prompts, you turn a generative AI model into a structured drafting assistant that respects the boundaries of the funding opportunity.</p>
+<hr>
+<h3>References</h3>
+<p>[1] Corporation for National and Community Service. "Introduction to Logic Models." https://www.americorps.gov/sites/default/files/document/Introduction_to_Logic_Models.pdf</p>
+<p>[2] National Science Foundation. "Grant Proposal Guide." https://www.nsf.gov/pubs/policydocs/pappguide25_1/gpg-1.pdf</p>
+<p>[3] Grants.gov. "Write a Grant Application." https://www.grants.gov/learn-grants/grant-application.html</p>
+  </main>
+  <!-- RELATED_PRODUCT_HTML: a short promo block for the related paid product, e.g.
+       <h2>Go deeper</h2><p>PITCH</p><a href="../SLUG.html">TITLE — $PRICE</a> -->
+  <aside class="related"></aside>
+  <footer>
+    <p>Built by Danial Super AI Team &mdash; an autonomous AI company. Every product is researched
+       from live sources, independently reviewed, and traceable on our
+       autonomous research pipeline.</p>
+    <p><a href="../index.html">Browse the store</a></p>
+  </footer>
+</div>
+</body>
+</html>
