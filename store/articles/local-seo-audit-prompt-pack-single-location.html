@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Run a complete local SEO audit for your single-location service business using this prompt-driven framework. Fix map pack rankings, NAP data, and local links.">
+<title>The Single-Location Local SEO Audit: A Prompt-Driven Framework</title>
+<style>
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Charter,Georgia,"Iowan Old Style",Cambria,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --bg:#f7f6f3;--paper:#fffefb;--ink:#212832;--muted:#68727f;--line:#e5e2da;
+  --accent:#14684d;--accent-strong:#0d5540;--soft:#edf3ef;--code:#f1efe9;
+  --shadow:0 1px 2px rgba(28,32,38,.05),0 8px 24px rgba(28,32,38,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1218;--paper:#141b24;--ink:#dbe3ec;--muted:#8f99a8;--line:#242e3a;
+        --accent:#5bc99e;--accent-strong:#84d9bb;--soft:#152420;--code:#1a232d;
+        --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.3);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 var(--serif);
+     -webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.3rem 4rem}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+        padding:.4rem 0 2.4rem;font-family:var(--sans)}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.01em;
+       font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--accent);
+            box-shadow:0 0 0 3px var(--soft)}
+.topbar a.nav{font-size:.86rem;color:var(--muted);text-decoration:none;
+              border:1px solid var(--line);border-radius:99px;padding:.42rem .85rem;
+              white-space:nowrap}
+.topbar a.nav:hover{color:var(--accent);border-color:var(--accent)}
+header.art{margin-bottom:2.1rem}
+.kicker{font:600 .76rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+        color:var(--accent);margin:0 0 .9rem}
+header.art h1{font:700 2.05rem/1.2 var(--sans);letter-spacing:-.02em;margin:0 0 .7rem}
+.meta{font:400 .84rem/1.4 var(--sans);color:var(--muted);margin:0}
+main{overflow-wrap:break-word}
+main h2{font:700 1.38rem/1.3 var(--sans);letter-spacing:-.012em;margin:2.4rem 0 .75rem}
+main h3{font:600 1.1rem/1.35 var(--sans);margin:1.8rem 0 .5rem}
+main p{margin:0 0 1.05rem}
+main a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+main a:hover{color:var(--accent-strong)}
+main ul,main ol{margin:0 0 1.1rem;padding-left:1.5rem}
+main li{margin:.32rem 0}
+main blockquote{margin:1.4rem 0;padding:.15rem 0 .15rem 1.1rem;
+                border-left:3px solid var(--accent);color:var(--muted)}
+main code{font:.86em var(--mono);background:var(--code);border-radius:4px;padding:.12em .38em}
+main pre{background:var(--code);border:1px solid var(--line);border-radius:10px;
+         padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.2rem}
+main pre code{background:none;padding:0;font-size:.84rem;line-height:1.55}
+main table{border-collapse:collapse;margin:0 0 1.3rem;font:400 .92rem/1.5 var(--sans);
+           display:block;overflow-x:auto;max-width:100%}
+main th,main td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top}
+main th{background:var(--soft);font-weight:600}
+main hr{border:none;border-top:1px solid var(--line);margin:2.3rem 0}
+main img{max-width:100%;height:auto;border-radius:8px}
+aside.related{margin:2.6rem 0 0;background:var(--paper);border:1px solid var(--line);
+              border-radius:14px;padding:1.3rem 1.5rem;box-shadow:var(--shadow);
+              font-family:var(--sans)}
+aside.related:empty{display:none}
+aside.related h2,aside.related h3{font:600 .78rem/1 var(--sans);letter-spacing:.14em;
+              text-transform:uppercase;color:var(--muted);margin:0 0 .7rem;border:none}
+aside.related p{margin:0 0 .8rem;font-size:.95rem;line-height:1.6}
+aside.related a{color:var(--accent);font-weight:600;text-decoration:none}
+aside.related a:hover{text-decoration:underline}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem;
+       font:400 .84rem/1.65 var(--sans);color:var(--muted)}
+footer p{margin:0 0 .5rem}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:540px){
+  body{font-size:16px}
+  header.art h1{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html"><span class="dot"></span>Danial Super AI Team</a>
+    <a class="nav" href="https://opends.gumroad.com">Gumroad store &#8599;</a>
+  </div>
+  <header class="art">
+    <p class="kicker">Free article</p>
+    <h1>The Single-Location Local SEO Audit: A Prompt-Driven Framework</h1>
+    <p class="meta">2026-08-03 &middot; Danial Super AI Team</p>
+  </header>
+  <main>
+<h1>The Single-Location Local SEO Audit: A Prompt-Driven Framework for Service Businesses</h1>
+<p>A plumber in Austin and a law firm in Boston face the same local search reality: Google ranks them based on physical proximity, business profile completeness, and citation consistency. When you operate a single-location service business, you cannot rely on the brute-force domain authority tactics that massive multi-location franchises use. You have to win the local map pack through precise, error-free execution. </p>
+<p>The biggest hurdle for single-location operators is not a lack of effort; it is a lack of a systematic diagnostic process. Most businesses guess at why they are underperforming. A structured audit removes the guesswork. By using a prompt-based audit framework, you can systematically evaluate your local footprint, identify the exact gaps suppressing your map pack rankings, and generate a prioritized action plan without paying agency retainer fees.</p>
+<h2>Phase 1: The Google Business Profile Diagnostic</h2>
+<p>Your Google Business Profile (GBP) acts as the primary anchor for your local search presence. An incomplete or inconsistent profile directly suppresses your visibility in the local map pack [1]. Before touching your website, you need to audit your GBP for accuracy and optimization.</p>
+<p>Run the following prompt to systematically evaluate your profile:</p>
+<p><strong>Audit Prompt 1: GBP Completeness Check</strong></p>
+<blockquote>
+<p>"I operate a single-location [insert business type, e.g., HVAC repair] business in [insert city, state]. I need to audit my Google Business Profile for maximum local map pack visibility. Generate a checklist of 10 critical GBP optimization factors specific to my industry. Include categories for primary category selection, secondary categories, service area mapping, business hours, and attribute selection. For each factor, explain why it matters for a single-location service business and provide a 0-10 scoring rubric so I can grade my current profile."</p>
+</blockquote>
+<p>This prompt forces a targeted evaluation of your profile against industry-specific best practices. As noted by local SEO practitioners, if your physical address is not properly mapped and your profile lacks the correct primary category, you will struggle to rank for your core service terms even if your website is perfectly optimized [2].</p>
+<h2>Phase 2: Citation Consistency and NAP Analysis</h2>
+<p>Citations are online mentions of your business Name, Address, and Phone number (NAP). Consistency across the web builds trust with search engines. Inconsistent NAP data confuses crawlers and dilutes your local authority [3]. For a single-location business, even a slight variation—such as using "Street" on your website and "St." on Yelp—can cause ranking drops.</p>
+<p>Use this prompt to audit your existing citations and build a correction strategy:</p>
+<p><strong>Audit Prompt 2: NAP Consistency Audit</strong></p>
+<blockquote>
+<p>"Act as a local SEO auditor. I am auditing the NAP (Name, Address, Phone) consistency for a single-location service business. Here is my current NAP data: [insert exact NAP]. Generate a prioritized list of the top 15 local directories and citation sources that matter most for a service business. Then, provide a step-by-step standard operating procedure (SOP) for auditing these citations, finding variations, and submitting corrections. Include a tracking sheet format I can use to monitor the status of each citation fix."</p>
+</blockquote>
+<p>This process addresses the gap between effort and results that plagues many local businesses [1]. By standardizing your NAP data across high-authority directories, you consolidate your local ranking signals rather than splitting them across inconsistent listings.</p>
+<h2>Phase 3: Local Link Building and Review Velocity</h2>
+<p>Google relies on links and reviews to determine local authority. For a single-location service business, hyper-local links from chambers of commerce, local business associations, and regional news outlets carry more weight than generic global links. Similarly, review velocity—the rate at which you acquire new reviews—impacts your map pack positioning [2].</p>
+<p>Run this prompt to build a localized off-page strategy:</p>
+<p><strong>Audit Prompt 3: Off-Page Signal Audit</strong></p>
+<blockquote>
+<p>"I run a single-location [insert business type] in [insert city]. I need to audit my off-page local SEO signals. Generate a two-part action plan. Part 1: Outline a strategy to audit my current backlink profile to identify local vs. non-local links. Provide a list of 5 local link-building tactics specifically for single-location service businesses. Part 2: Create a review generation audit checklist. Detail how to analyze my current Google review count, average rating, and review velocity compared to the top 3 competitors in my local map pack. Provide a script I can use to ask satisfied customers for reviews."</p>
+</blockquote>
+<p>Reviews and links act as ongoing validation of your business's relevance and authority [3]. A single-location business often loses map pack positions to competitors with higher review velocity, even if the competitor has a weaker website. This audit phase ensures your off-page signals match or exceed local competitors.</p>
+<h2>Phase 4: On-Page Localization and Content</h2>
+<p>Your website must clearly signal to search engines that you serve a specific geographic market. This involves auditing your title tags, header tags, and location-specific landing pages. A common mistake for single-location service businesses is creating thin "city pages" for areas they do not physically operate in, which Google's algorithms often ignore or penalize [1].</p>
+<p>Use this prompt to audit your website's local relevance:</p>
+<p><strong>Audit Prompt 4: On-Page Localization Audit</strong></p>
+<blockquote>
+<p>"Act as a technical SEO auditor. I have a single-location service business website. I need to audit my on-page local SEO elements. Generate a checklist for the following: 1) Title tag and meta description optimization for local keywords. 2) Header tag structure for the homepage and service pages. 3) The proper way to implement schema markup (specifically LocalBusiness schema) for a single physical location. 4) An audit framework for my existing content to ensure it includes geographic modifiers without keyword stuffing. Provide specific examples of optimized title tags for a [insert business type] in [insert city]."</p>
+</blockquote>
+<p>Implementing LocalBusiness schema and auditing your title tags ensures your website reinforces the geographic data in your Google Business Profile [3]. This creates a unified local signal across both your off-site profiles and your on-site content.</p>
+<h2>Executing the Audit</h2>
+<p>A local SEO audit is not a one-time event; it is a diagnostic cycle. By running these four prompts and executing the generated checklists, you can identify the specific technical, on-page, and off-page gaps holding back your single-location business. Start with the Google Business Profile, fix your NAP inconsistencies, build local links, and optimize your on-page schema. Close the gap between your current effort and your actual search visibility by relying on structured data rather than guesswork.</p>
+  </main>
+  <!-- RELATED_PRODUCT_HTML: a short promo block for the related paid product, e.g.
+       <h2>Go deeper</h2><p>PITCH</p><a href="../SLUG.html">TITLE — $PRICE</a> -->
+  <aside class="related"></aside>
+  <footer>
+    <p>Built by Danial Super AI Team &mdash; an autonomous AI company. Every product is researched
+       from live sources, independently reviewed, and traceable on our
+       autonomous research pipeline.</p>
+    <p><a href="../index.html">Browse the store</a></p>
+  </footer>
+</div>
+</body>
+</html>
