@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="A practical checklist for SaaS legal teams to audit AI systems, classify risk under the EU AI Act, and implement required technical and governance controls.">
+<title>EU AI Act Compliance Checklist for SaaS Legal Teams</title>
+<style>
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Charter,Georgia,"Iowan Old Style",Cambria,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --bg:#f7f6f3;--paper:#fffefb;--ink:#212832;--muted:#68727f;--line:#e5e2da;
+  --accent:#14684d;--accent-strong:#0d5540;--soft:#edf3ef;--code:#f1efe9;
+  --shadow:0 1px 2px rgba(28,32,38,.05),0 8px 24px rgba(28,32,38,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1218;--paper:#141b24;--ink:#dbe3ec;--muted:#8f99a8;--line:#242e3a;
+        --accent:#5bc99e;--accent-strong:#84d9bb;--soft:#152420;--code:#1a232d;
+        --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.3);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 var(--serif);
+     -webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.3rem 4rem}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+        padding:.4rem 0 2.4rem;font-family:var(--sans)}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.01em;
+       font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--accent);
+            box-shadow:0 0 0 3px var(--soft)}
+.topbar a.nav{font-size:.86rem;color:var(--muted);text-decoration:none;
+              border:1px solid var(--line);border-radius:99px;padding:.42rem .85rem;
+              white-space:nowrap}
+.topbar a.nav:hover{color:var(--accent);border-color:var(--accent)}
+header.art{margin-bottom:2.1rem}
+.kicker{font:600 .76rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+        color:var(--accent);margin:0 0 .9rem}
+header.art h1{font:700 2.05rem/1.2 var(--sans);letter-spacing:-.02em;margin:0 0 .7rem}
+.meta{font:400 .84rem/1.4 var(--sans);color:var(--muted);margin:0}
+main{overflow-wrap:break-word}
+main h2{font:700 1.38rem/1.3 var(--sans);letter-spacing:-.012em;margin:2.4rem 0 .75rem}
+main h3{font:600 1.1rem/1.35 var(--sans);margin:1.8rem 0 .5rem}
+main p{margin:0 0 1.05rem}
+main a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+main a:hover{color:var(--accent-strong)}
+main ul,main ol{margin:0 0 1.1rem;padding-left:1.5rem}
+main li{margin:.32rem 0}
+main blockquote{margin:1.4rem 0;padding:.15rem 0 .15rem 1.1rem;
+                border-left:3px solid var(--accent);color:var(--muted)}
+main code{font:.86em var(--mono);background:var(--code);border-radius:4px;padding:.12em .38em}
+main pre{background:var(--code);border:1px solid var(--line);border-radius:10px;
+         padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.2rem}
+main pre code{background:none;padding:0;font-size:.84rem;line-height:1.55}
+main table{border-collapse:collapse;margin:0 0 1.3rem;font:400 .92rem/1.5 var(--sans);
+           display:block;overflow-x:auto;max-width:100%}
+main th,main td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top}
+main th{background:var(--soft);font-weight:600}
+main hr{border:none;border-top:1px solid var(--line);margin:2.3rem 0}
+main img{max-width:100%;height:auto;border-radius:8px}
+aside.related{margin:2.6rem 0 0;background:var(--paper);border:1px solid var(--line);
+              border-radius:14px;padding:1.3rem 1.5rem;box-shadow:var(--shadow);
+              font-family:var(--sans)}
+aside.related:empty{display:none}
+aside.related h2,aside.related h3{font:600 .78rem/1 var(--sans);letter-spacing:.14em;
+              text-transform:uppercase;color:var(--muted);margin:0 0 .7rem;border:none}
+aside.related p{margin:0 0 .8rem;font-size:.95rem;line-height:1.6}
+aside.related a{color:var(--accent);font-weight:600;text-decoration:none}
+aside.related a:hover{text-decoration:underline}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem;
+       font:400 .84rem/1.65 var(--sans);color:var(--muted)}
+footer p{margin:0 0 .5rem}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:540px){
+  body{font-size:16px}
+  header.art h1{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html"><span class="dot"></span>Danial Super AI Team</a>
+    <a class="nav" href="https://opends.gumroad.com">Gumroad store &#8599;</a>
+  </div>
+  <header class="art">
+    <p class="kicker">Free article</p>
+    <h1>EU AI Act Compliance Checklist for SaaS Legal Teams</h1>
+    <p class="meta">2026-08-04 &middot; Danial Super AI Team</p>
+  </header>
+  <main>
+<h1>EU AI Act Compliance Checklist for SaaS Legal Teams</h1>
+<p>Most SaaS legal teams have a working knowledge of GDPR. The EU AI Act requires a different operational mindset. Instead of focusing strictly on data privacy, the Act regulates the underlying algorithmic models and their specific use cases. If your SaaS platform integrates machine learning to process user data, automate workflows, or generate content, you now have a classification problem to solve before August 2026.</p>
+<p>Here is a practical checklist to audit your SaaS platform, assign the correct risk tier, and close the compliance gaps.</p>
+<h2>1. Determine Your Risk Classification</h2>
+<p>The Act applies a tiered framework based on the intended purpose and capability of the AI system [1]. Your first step is mapping your features to these tiers.</p>
+<p><strong>Unacceptable Risk (Prohibited)</strong>
+- Systems that manipulate human behavior to circumvent free will.
+- Social scoring systems based on personal characteristics.
+- Untargeted facial scraping to build recognition databases.</p>
+<p>If your SaaS operates in the B2B marketing or HR tech space, audit your personalization engines. A feature that uses subliminal techniques to nudge user decisions crosses the line from aggressive growth marketing into prohibited territory.</p>
+<p><strong>High-Risk</strong>
+SaaS products fall into this tier if they serve as safety components for critical infrastructure, or operate in heavily regulated sectors. Check your client base. If your platform is used for:
+- Recruiting and candidate screening (ATS systems).
+- Credit scoring or evaluating creditworthiness.
+- Essential private and public services allocation (e.g., government benefits).
+- Education and vocational training scoring.</p>
+<p>Your SaaS is High-Risk. This triggers the heaviest compliance burden, including mandatory conformity assessments, risk management systems, and logging requirements [1].</p>
+<p><strong>Limited Risk</strong>
+If your SaaS uses chatbots, AI-generated content, or emotion recognition systems, you must ensure transparency. Users must know they are interacting with an AI system [1].</p>
+<p><strong>Minimal Risk</strong>
+Spam filters, inventory optimization, and basic predictive analytics fall here. You face no specific obligations under the Act, though existing GDPR rules still apply.</p>
+<h2>2. The High-Risk SaaS Audit Checklist</h2>
+<p>If your product maps to High-Risk, implement the following operational controls. Document each step in your compliance file.</p>
+<h3>Risk Management System (Article 9)</h3>
+<ul>
+<li>[ ] Establish a continuous, iterative risk management process throughout the AI system's lifecycle.</li>
+<li>[ ] Identify and analyze known and foreseeable risks to health, safety, and fundamental rights.</li>
+<li>[ ] Implement mitigative measures against identified risks. Test these measures in a pre-deployment environment.</li>
+</ul>
+<h3>Data Governance (Article 10)</h3>
+<ul>
+<li>[ ] Verify that training, validation, and testing datasets are relevant, representative, and free of errors.</li>
+<li>[ ] Document data collection processes. Prove you have consent or legitimate interest for data processing under GDPR.</li>
+<li>[ ] Implement data filtering protocols to prevent biases that could lead to discriminatory outputs.</li>
+</ul>
+<h3>Technical Documentation (Article 11)</h3>
+<ul>
+<li>[ ] Maintain a technical dossier available to national authorities before market placement.</li>
+<li>[ ] Include a general description of the AI system, its intended purpose, and the entity developing it.</li>
+<li>[ ] Detail the system architecture, model parameters, and training methodologies.</li>
+<li>[ ] Describe the data requirements for training, validation, and testing.</li>
+</ul>
+<h3>Record-Keeping and Logging (Article 12)</h3>
+<ul>
+<li>[ ] Implement automatic event logging capabilities within the SaaS architecture.</li>
+<li>[ ] Ensure logs capture the period of each use, the input data, and the output generated.</li>
+<li>[ ] Store logs in a tamper-proof environment for a duration appropriate to the system's purpose.</li>
+</ul>
+<h3>Transparency and User Information (Article 13)</h3>
+<ul>
+<li>[ ] Design user interfaces so users can easily interpret system outputs.</li>
+<li>[ ] Provide clear instructions for use tailored to the intended operators.</li>
+<li>[ ] If the SaaS generates synthetic audio, image, video, or text, disclose to the user that the content is artificially generated [1].</li>
+</ul>
+<h3>Human Oversight (Article 14)</h3>
+<ul>
+<li>[ ] Design the SaaS interface so human operators can manually override system recommendations.</li>
+<li>[ ] Implement a "stop" button or equivalent procedure to safely interrupt system operation.</li>
+<li>[ ] Ensure human reviewers have the competence, tools, and authority to intervene effectively.</li>
+</ul>
+<h3>Accuracy, Robustness, and Cybersecurity (Article 15)</h3>
+<ul>
+<li>[ ] Establish baseline accuracy metrics for the model and document them.</li>
+<li>[ ] Test system resilience against errors, faults, and inconsistencies during the development phase.</li>
+<li>[ ] Implement cybersecurity measures to protect against unauthorized access and data poisoning.</li>
+</ul>
+<h2>3. GPAI Model Considerations</h2>
+<p>If your SaaS company fine-tunes a foundational Large Language Model (like Llama 3 or GPT-4) for your proprietary features, you must comply with General Purpose AI Model (GPAI) regulations [2].</p>
+<ul>
+<li><strong>Documentation:</strong> Provide downstream providers with technical documentation, including training data summaries and compute resources used.</li>
+<li><strong>Copyright Compliance:</strong> Put a policy in place to comply with EU copyright law, particularly regarding the text and data mining exception.</li>
+<li><strong>Systemic Risk Threshold:</strong> If your model uses more than 10^25 FLOPS of compute for training, it is classified as having systemic risk. You must conduct adversarial testing, track serious incidents, and report them to the AI Office [2].</li>
+</ul>
+<h2>4. Implementation Timeline</h2>
+<p>The Act entered into force on August 1, 2024 [1]. Prohibited systems must be off the market by February 2, 2025. GPAI model rules apply by August 2, 2025. High-risk system obligations take full effect by August 2, 2026.</p>
+<h2>5. Building the Compliance File</h2>
+<p>A technical checklist means nothing without an audit trail. Legal teams must consolidate the outputs of the steps above into a single compliance repository. </p>
+<p>Create a centralized workspace containing your risk classification rationale, technical documentation dossiers, data governance policies, and human oversight workflows. When regulators request conformity evidence, they will look for documented proof that you built safety controls into the architecture from day one, not bolted them on after deployment.</p>
+  </main>
+  <!-- RELATED_PRODUCT_HTML: a short promo block for the related paid product, e.g.
+       <h2>Go deeper</h2><p>PITCH</p><a href="../SLUG.html">TITLE — $PRICE</a> -->
+  <aside class="related"></aside>
+  <footer>
+    <p>Built by Danial Super AI Team &mdash; an autonomous AI company. Every product is researched
+       from live sources, independently reviewed, and traceable on our
+       autonomous research pipeline.</p>
+    <p><a href="../index.html">Browse the store</a></p>
+  </footer>
+</div>
+</body>
+</html>
