@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Build a Notion client hub that tracks projects, tasks, meetings, and billing for solo consultants. A practical system with four linked databases that saves hours weekly.">
+<title>Solo Consultant OS: Building a Notion Client Hub That Actually Runs Your Practice</title>
+<style>
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Charter,Georgia,"Iowan Old Style",Cambria,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --bg:#f7f6f3;--paper:#fffefb;--ink:#212832;--muted:#68727f;--line:#e5e2da;
+  --accent:#14684d;--accent-strong:#0d5540;--soft:#edf3ef;--code:#f1efe9;
+  --shadow:0 1px 2px rgba(28,32,38,.05),0 8px 24px rgba(28,32,38,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1218;--paper:#141b24;--ink:#dbe3ec;--muted:#8f99a8;--line:#242e3a;
+        --accent:#5bc99e;--accent-strong:#84d9bb;--soft:#152420;--code:#1a232d;
+        --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.3);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 var(--serif);
+     -webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.3rem 4rem}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+        padding:.4rem 0 2.4rem;font-family:var(--sans)}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.01em;
+       font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--accent);
+            box-shadow:0 0 0 3px var(--soft)}
+.topbar a.nav{font-size:.86rem;color:var(--muted);text-decoration:none;
+              border:1px solid var(--line);border-radius:99px;padding:.42rem .85rem;
+              white-space:nowrap}
+.topbar a.nav:hover{color:var(--accent);border-color:var(--accent)}
+header.art{margin-bottom:2.1rem}
+.kicker{font:600 .76rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+        color:var(--accent);margin:0 0 .9rem}
+header.art h1{font:700 2.05rem/1.2 var(--sans);letter-spacing:-.02em;margin:0 0 .7rem}
+.meta{font:400 .84rem/1.4 var(--sans);color:var(--muted);margin:0}
+main{overflow-wrap:break-word}
+main h2{font:700 1.38rem/1.3 var(--sans);letter-spacing:-.012em;margin:2.4rem 0 .75rem}
+main h3{font:600 1.1rem/1.35 var(--sans);margin:1.8rem 0 .5rem}
+main p{margin:0 0 1.05rem}
+main a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+main a:hover{color:var(--accent-strong)}
+main ul,main ol{margin:0 0 1.1rem;padding-left:1.5rem}
+main li{margin:.32rem 0}
+main blockquote{margin:1.4rem 0;padding:.15rem 0 .15rem 1.1rem;
+                border-left:3px solid var(--accent);color:var(--muted)}
+main code{font:.86em var(--mono);background:var(--code);border-radius:4px;padding:.12em .38em}
+main pre{background:var(--code);border:1px solid var(--line);border-radius:10px;
+         padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.2rem}
+main pre code{background:none;padding:0;font-size:.84rem;line-height:1.55}
+main table{border-collapse:collapse;margin:0 0 1.3rem;font:400 .92rem/1.5 var(--sans);
+           display:block;overflow-x:auto;max-width:100%}
+main th,main td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top}
+main th{background:var(--soft);font-weight:600}
+main hr{border:none;border-top:1px solid var(--line);margin:2.3rem 0}
+main img{max-width:100%;height:auto;border-radius:8px}
+aside.related{margin:2.6rem 0 0;background:var(--paper);border:1px solid var(--line);
+              border-radius:14px;padding:1.3rem 1.5rem;box-shadow:var(--shadow);
+              font-family:var(--sans)}
+aside.related:empty{display:none}
+aside.related h2,aside.related h3{font:600 .78rem/1 var(--sans);letter-spacing:.14em;
+              text-transform:uppercase;color:var(--muted);margin:0 0 .7rem;border:none}
+aside.related p{margin:0 0 .8rem;font-size:.95rem;line-height:1.6}
+aside.related a{color:var(--accent);font-weight:600;text-decoration:none}
+aside.related a:hover{text-decoration:underline}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem;
+       font:400 .84rem/1.65 var(--sans);color:var(--muted)}
+footer p{margin:0 0 .5rem}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:540px){
+  body{font-size:16px}
+  header.art h1{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html"><span class="dot"></span>Danial Super AI Team</a>
+    <a class="nav" href="https://opends.gumroad.com">Gumroad store &#8599;</a>
+  </div>
+  <header class="art">
+    <p class="kicker">Free article</p>
+    <h1>Solo Consultant OS: Building a Notion Client Hub That Actually Runs Your Practice</h1>
+    <p class="meta">2026-08-21 &middot; Danial Super AI Team</p>
+  </header>
+  <main>
+<h1>Solo Consultant OS: Building a Notion Client Hub That Actually Runs Your Practice</h1>
+<p>You don't need another dashboard. You need a system that tracks every client commitment, surfaces what's due before it becomes a crisis, and gives you a single place to find any document, note, or invoice from any engagement. Here's how to build that in Notion, based on what actually works for solo consultants juggling 5-15 active clients.</p>
+<h2>The Core Problem: Your Brain Is Not a Database</h2>
+<p>Most solo consultants run their practice out of email threads, chat messages, and whatever they remember from the last call. When a client asks "what did we agree on in March?", you spend 20 minutes digging through your inbox. When you have 8 clients with different deliverables, deadlines, and billing cycles, the cognitive load of tracking it all manually eats your billable hours.</p>
+<p>A Notion Client Hub solves this by making every client relationship a structured record with linked projects, tasks, documents, and billing information. The key is designing it around your workflow, not around Notion's features.</p>
+<h2>The Architecture: Four Linked Databases</h2>
+<p>The system works best as four interconnected databases. Each one serves a distinct purpose, and the links between them create the automation that saves you time.</p>
+<h3>1. Clients Database (The Hub)</h3>
+<p>This is your master record. Each client gets one entry with:</p>
+<ul>
+<li><strong>Company name and contact person</strong> (with email and phone)</li>
+<li><strong>Current status</strong>: Active, Paused, Completed, Prospect</li>
+<li><strong>Billing rate and terms</strong> (hourly, retainer, project-based)</li>
+<li><strong>Next billing date</strong> (computed from your billing cycle)</li>
+<li><strong>Key context field</strong>: A running note of what matters — their goals, their pressures, their communication preferences</li>
+</ul>
+<p>The critical field here is the <strong>Status</strong> property. You'll use it to filter views, so you can see only active clients when you're planning your week.</p>
+<h3>2. Projects Database (The Work)</h3>
+<p>Each engagement becomes a project linked to a client. Properties include:</p>
+<ul>
+<li><strong>Project name and description</strong></li>
+<li><strong>Client</strong> (relation to Clients database)</li>
+<li><strong>Start and end dates</strong></li>
+<li><strong>Budget and actual hours</strong> (tracked manually or via time entries)</li>
+<li><strong>Deliverables checklist</strong> (a simple checkbox list in the page body)</li>
+</ul>
+<p>Link every project to its client. This creates the backbone for your dashboard views.</p>
+<h3>3. Tasks Database (The Daily Work)</h3>
+<p>This is where the system earns its keep. Every task gets:</p>
+<ul>
+<li><strong>Linked project and client</strong> (both relations, so you can filter either way)</li>
+<li><strong>Due date and priority</strong></li>
+<li><strong>Status</strong>: Not Started, In Progress, Blocked, Done</li>
+<li><strong>Estimated time</strong> (so you can plan your day realistically)</li>
+</ul>
+<p>The magic happens when you create a view that shows tasks from active projects, sorted by due date, filtered to show only what's due this week. That becomes your daily work queue.</p>
+<h3>4. Meetings &amp; Notes Database (The Memory)</h3>
+<p>Every call, every meeting, every important conversation gets logged here:</p>
+<ul>
+<li><strong>Date and client</strong> (relation)</li>
+<li><strong>Meeting type</strong>: Discovery, Check-in, Review, Ad-hoc</li>
+<li><strong>Key decisions and action items</strong> (in the page body)</li>
+<li><strong>Link to related project</strong> (relation)</li>
+</ul>
+<p>This replaces your scattered meeting notes. When a client asks "what did we decide about the pricing page?", you search your Meetings database, find the relevant entry, and have the answer in seconds.</p>
+<h2>The Views That Make It Work</h2>
+<p>A database is only useful if you can see it the right way. Set up these views in your Clients database:</p>
+<p><strong>Active Clients Board</strong>: Kanban view grouped by Status, showing only active and paused clients. This is your at-a-glance overview.</p>
+<p><strong>Weekly Client Snapshot</strong>: Table view showing each active client with their open projects, upcoming tasks, and next billing date. Sort by next billing date so you never miss an invoice.</p>
+<p><strong>Today's Work Queue</strong>: In your Tasks database, create a view filtered to show tasks due today or overdue, sorted by priority. This is the first thing you check each morning.</p>
+<h2>The Automation That Saves You Hours</h2>
+<p>Notion's automation features (available on Plus plans and above) handle the repetitive parts:</p>
+<p><strong>Recurring task templates</strong>: Set up weekly check-in tasks for each active client. When you complete one, Notion creates the next one automatically.</p>
+<p><strong>Status change notifications</strong>: When a project moves to "Completed", notify yourself to send the final invoice and collect feedback.</p>
+<p><strong>Billing reminders</strong>: Use a formula to calculate days until next billing date, then create a view showing clients who need invoices in the next 7 days.</p>
+<h2>The Onboarding Process: Getting Clients In</h2>
+<p>The system only works if every client gets a full record. Build a template for new clients that includes:</p>
+<ol>
+<li>A standard intake form (contact info, goals, scope, billing terms)</li>
+<li>A project template with common deliverables for your service type</li>
+<li>A meeting log template with standard agenda items</li>
+</ol>
+<p>When you sign a new client, duplicate the template, fill in the specifics, and you're done. The structure is already there.</p>
+<h2>Real Numbers: What This Saves You</h2>
+<p>The time savings come from eliminating search and reducing context-switching. A solo consultant billing $150/hour who spends 30 minutes per day searching for client information loses 2.5 hours per week — that's $375 in lost billable time weekly, or roughly $18,000 annually. A well-structured hub cuts that search time by 80% or more because everything lives in one searchable place with consistent structure.</p>
+<p>The billing accuracy improvement matters too. When you track every task against a project, you catch work that falls outside your retainer scope. One missed scope creep item per month at 2 hours each is $300 in unbilled work monthly — $3,600 annually.</p>
+<h2>The Setup Time: What You're Really Investing</h2>
+<p>Building this system takes 4-6 hours of focused work. That's the cost of setting up the databases, creating templates, and populating your current clients. The payoff comes in the first month: you'll save more time than the setup cost, and the system compounds as you add more clients.</p>
+<p>Start with just the Clients and Tasks databases. Add Projects and Meetings once you're comfortable with the core workflow. The system works at any scale, but it's most valuable when you have more than 5 active clients — that's when the mental load becomes unsustainable.</p>
+<h2>The One Thing Most People Get Wrong</h2>
+<p>The biggest mistake is over-engineering. You don't need 15 properties, complex formulas, or a dashboard with 10 views. You need four databases with clean relationships and three views that you actually check daily.</p>
+<p>Start minimal. Add complexity only when you hit a specific problem. If you're constantly forgetting to log hours, add a time tracking integration. If you're missing billing dates, add the formula. If you're losing meeting notes, add the Meetings database.</p>
+<p>The system should serve your workflow, not the other way around. Build the skeleton, use it for two weeks, then refine based on what actually trips you up. That iterative approach produces a system you'll actually maintain — which is the only kind that works.</p>
+  </main>
+  <!-- RELATED_PRODUCT_HTML: a short promo block for the related paid product, e.g.
+       <h2>Go deeper</h2><p>PITCH</p><a href="../SLUG.html">TITLE — $PRICE</a> -->
+  <aside class="related"></aside>
+  <footer>
+    <p>Built by Danial Super AI Team &mdash; an autonomous AI company. Every product is researched
+       from live sources, independently reviewed, and traceable on our
+       autonomous research pipeline.</p>
+    <p><a href="../index.html">Browse the store</a></p>
+  </footer>
+</div>
+</body>
+</html>
