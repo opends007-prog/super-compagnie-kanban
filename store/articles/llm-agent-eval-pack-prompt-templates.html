@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Build a production-grade LLM agent evaluation harness with 25 tested prompt templates, JSON schemas, and a Python runner. Learn scoring metrics, CI integration, and common pitfalls.">
+<title>The LLM Agent Eval Pack: 25 Tested Prompt Templates with JSON Schemas &amp; Python Runner</title>
+<style>
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Charter,Georgia,"Iowan Old Style",Cambria,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --bg:#f7f6f3;--paper:#fffefb;--ink:#212832;--muted:#68727f;--line:#e5e2da;
+  --accent:#14684d;--accent-strong:#0d5540;--soft:#edf3ef;--code:#f1efe9;
+  --shadow:0 1px 2px rgba(28,32,38,.05),0 8px 24px rgba(28,32,38,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1218;--paper:#141b24;--ink:#dbe3ec;--muted:#8f99a8;--line:#242e3a;
+        --accent:#5bc99e;--accent-strong:#84d9bb;--soft:#152420;--code:#1a232d;
+        --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.3);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 var(--serif);
+     -webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.3rem 4rem}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+        padding:.4rem 0 2.4rem;font-family:var(--sans)}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.01em;
+       font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--accent);
+            box-shadow:0 0 0 3px var(--soft)}
+.topbar a.nav{font-size:.86rem;color:var(--muted);text-decoration:none;
+              border:1px solid var(--line);border-radius:99px;padding:.42rem .85rem;
+              white-space:nowrap}
+.topbar a.nav:hover{color:var(--accent);border-color:var(--accent)}
+header.art{margin-bottom:2.1rem}
+.kicker{font:600 .76rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+        color:var(--accent);margin:0 0 .9rem}
+header.art h1{font:700 2.05rem/1.2 var(--sans);letter-spacing:-.02em;margin:0 0 .7rem}
+.meta{font:400 .84rem/1.4 var(--sans);color:var(--muted);margin:0}
+main{overflow-wrap:break-word}
+main h2{font:700 1.38rem/1.3 var(--sans);letter-spacing:-.012em;margin:2.4rem 0 .75rem}
+main h3{font:600 1.1rem/1.35 var(--sans);margin:1.8rem 0 .5rem}
+main p{margin:0 0 1.05rem}
+main a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+main a:hover{color:var(--accent-strong)}
+main ul,main ol{margin:0 0 1.1rem;padding-left:1.5rem}
+main li{margin:.32rem 0}
+main blockquote{margin:1.4rem 0;padding:.15rem 0 .15rem 1.1rem;
+                border-left:3px solid var(--accent);color:var(--muted)}
+main code{font:.86em var(--mono);background:var(--code);border-radius:4px;padding:.12em .38em}
+main pre{background:var(--code);border:1px solid var(--line);border-radius:10px;
+         padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.2rem}
+main pre code{background:none;padding:0;font-size:.84rem;line-height:1.55}
+main table{border-collapse:collapse;margin:0 0 1.3rem;font:400 .92rem/1.5 var(--sans);
+           display:block;overflow-x:auto;max-width:100%}
+main th,main td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top}
+main th{background:var(--soft);font-weight:600}
+main hr{border:none;border-top:1px solid var(--line);margin:2.3rem 0}
+main img{max-width:100%;height:auto;border-radius:8px}
+aside.related{margin:2.6rem 0 0;background:var(--paper);border:1px solid var(--line);
+              border-radius:14px;padding:1.3rem 1.5rem;box-shadow:var(--shadow);
+              font-family:var(--sans)}
+aside.related:empty{display:none}
+aside.related h2,aside.related h3{font:600 .78rem/1 var(--sans);letter-spacing:.14em;
+              text-transform:uppercase;color:var(--muted);margin:0 0 .7rem;border:none}
+aside.related p{margin:0 0 .8rem;font-size:.95rem;line-height:1.6}
+aside.related a{color:var(--accent);font-weight:600;text-decoration:none}
+aside.related a:hover{text-decoration:underline}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem;
+       font:400 .84rem/1.65 var(--sans);color:var(--muted)}
+footer p{margin:0 0 .5rem}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:540px){
+  body{font-size:16px}
+  header.art h1{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html"><span class="dot"></span>Danial Super AI Team</a>
+    <a class="nav" href="https://opends.gumroad.com">Gumroad store &#8599;</a>
+  </div>
+  <header class="art">
+    <p class="kicker">Free article</p>
+    <h1>The LLM Agent Eval Pack: 25 Tested Prompt Templates with JSON Schemas &amp; Python Runner</h1>
+    <p class="meta">2026-08-21 &middot; Danial Super AI Team</p>
+  </header>
+  <main>
+<h1>The LLM Agent Eval Pack: 25 Tested Prompt Templates with JSON Schemas &amp; Python Runner</h1>
+<p>You've built an agent that can browse the web, write code, and call tools. It works in your demo. But when you run it against a real task list, it fails in ways you didn't predict: it hallucinates tool outputs, loops on the same error, or returns JSON that doesn't match your schema. You need a systematic way to find these failures before your users do.</p>
+<p>This guide shows you how to build an evaluation harness for LLM agents using prompt templates, JSON schemas, and a Python runner. You'll get patterns you can copy directly into your own eval suite.</p>
+<h2>Why Agent Eval Is Different from LLM Eval</h2>
+<p>A single LLM call has one input and one output. An agent has multiple calls, tool invocations, and state changes. The failure modes multiply:</p>
+<ul>
+<li><strong>Tool call formatting errors</strong> — the model emits <code>{"action": "search"}</code> when your schema expects <code>{"tool": "search"}</code></li>
+<li><strong>Premature termination</strong> — the agent stops after one step when the task needs three</li>
+<li><strong>Runaway loops</strong> — the agent repeats the same failing action without adapting</li>
+<li><strong>Context drift</strong> — the agent loses track of the original goal after several tool calls</li>
+<li><strong>Hallucinated tool results</strong> — the agent fabricates a response instead of calling the tool</li>
+</ul>
+<p>Unit-testing individual prompts won't catch these. You need end-to-end evaluation that exercises the full agent loop.</p>
+<h2>The Three-Part Eval Structure</h2>
+<p>Every agent eval in this pack follows the same structure:</p>
+<ol>
+<li><strong>Prompt template</strong> — the task definition with placeholders for variables</li>
+<li><strong>JSON schema</strong> — the expected output structure for validation</li>
+<li><strong>Python runner</strong> — the harness that executes the agent and scores results</li>
+</ol>
+<p>This separation matters. You can swap prompts without touching the runner. You can add new schemas without rewriting prompts. And you can run the same test suite against different models to compare performance.</p>
+<h2>Building Your First Agent Eval</h2>
+<p>Start with a simple task: "Find the current price of a product and return it as a number."</p>
+<h3>Step 1: Define the Prompt Template</h3>
+<pre><code>You are a shopping assistant. Find the current price of {product_name} at {store_url}.
+Return the price as a number with no currency symbol.
+If you cannot find the price, return null.
+</code></pre>
+<p>Keep the template minimal. The agent needs enough context to act but not so much that you're testing the model's ability to follow long instructions rather than its ability to use tools.</p>
+<h3>Step 2: Define the JSON Schema</h3>
+<pre><code>{
+  "type": "object",
+  "properties": {
+    "price": {"type": ["number", "null"]},
+    "currency": {"type": "string", "enum": ["USD", "EUR", "GBP"]},
+    "source_url": {"type": "string", "format": "uri"}
+  },
+  "required": ["price", "currency", "source_url"]
+}
+</code></pre>
+<p>Your schema should be strict enough to catch malformed output but flexible enough to allow valid variations. If you require a <code>source_url</code>, the agent must provide evidence for its answer — this catches hallucinated prices.</p>
+<h3>Step 3: Write the Python Runner</h3>
+<pre><code>import json
+import jsonschema
+from agent import run_agent
+
+def evaluate_agent(task, schema, expected):
+    result = run_agent(task)
+
+    # Validate JSON output
+    try:
+        jsonschema.validate(result, schema)
+        schema_valid = True
+    except jsonschema.ValidationError:
+        schema_valid = False
+
+    # Check correctness
+    correct = False
+    if schema_valid:
+        correct = (result.get("price") == expected["price"])
+
+    return {
+        "schema_valid": schema_valid,
+        "correct": correct,
+        "result": result
+    }
+</code></pre>
+<p>This runner does two checks: does the output match the schema, and is the output correct? Both matter. An agent that returns valid JSON with the wrong answer is different from one that returns invalid JSON with the right answer.</p>
+<h2>The 25 Template Categories</h2>
+<p>The full pack covers 25 prompt template categories. Here are the five most critical ones for production agents:</p>
+<h3>1. Multi-Step Tool Use</h3>
+<p>Tests whether the agent can chain tool calls in sequence. The task requires at least three steps: search, filter, and extract.</p>
+<h3>2. Error Recovery</h3>
+<p>Presents the agent with a failing tool call and checks whether it retries with a different approach or gives up.</p>
+<h3>3. Ambiguous Input</h3>
+<p>Gives the agent a vague instruction and checks whether it asks for clarification or makes reasonable assumptions.</p>
+<h3>4. Output Formatting</h3>
+<p>Tests whether the agent can produce output in a specific format (JSON, CSV, markdown) consistently across multiple runs.</p>
+<h3>5. Long-Horizon Tasks</h3>
+<p>Requires the agent to maintain context over 10+ tool calls. Checks for drift and premature termination.</p>
+<h2>Scoring Metrics That Matter</h2>
+<p>Don't just track pass/fail. Track these metrics:</p>
+<ul>
+<li><strong>Schema compliance rate</strong> — what percentage of runs produce valid JSON?</li>
+<li><strong>Tool call efficiency</strong> — how many tool calls per successful task completion?</li>
+<li><strong>Error recovery rate</strong> — what percentage of failed tool calls lead to successful retries?</li>
+<li><strong>Latency</strong> — how long does the agent take to complete the task?</li>
+<li><strong>Cost per task</strong> — how many tokens does the agent consume?</li>
+</ul>
+<p>These metrics reveal different problems. High schema compliance with low correctness means your prompts are good but your model is weak. Low schema compliance means your prompts need work. High tool call count with low success means the agent is flailing.</p>
+<h2>Running Evals in CI</h2>
+<p>Your eval suite should run on every code change. Here's a minimal GitHub Actions setup:</p>
+<pre><code>name: Agent Evals
+on: [push, pull_request]
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python run_evals.py --suite production
+</code></pre>
+<p>The <code>run_evals.py</code> script loads all test cases, runs them through your agent, and fails the build if any critical test fails. You can set thresholds: "fail if schema compliance drops below 95%" or "fail if average tool calls per task exceeds 8."</p>
+<h2>Common Pitfalls in Agent Evaluation</h2>
+<p><strong>Testing with the same data you trained on.</strong> Your agent will look great in evals and fail in production. Hold out a set of tasks you never use in development.</p>
+<p><strong>Ignoring variance.</strong> LLMs are non-deterministic. Run each test at least three times and report the distribution, not just a single pass/fail.</p>
+<p><strong>Over-fitting to your eval set.</strong> If you keep adjusting prompts until they pass your tests, you'll end up with prompts that work only on your tests. Add new test cases regularly.</p>
+<p><strong>Not testing edge cases.</strong> Empty inputs, extremely long inputs, and malformed tool responses will break agents in ways you won't predict. Test them explicitly.</p>
+<h2>A Worked Example: The Shopping Agent</h2>
+<p>Here's a complete eval case from the pack:</p>
+<p><strong>Task:</strong> Find the price of a "wireless mechanical keyboard" at a specific electronics store.</p>
+<p><strong>Expected behavior:</strong> The agent searches the store, finds the product page, extracts the price, and returns it as a number.</p>
+<p><strong>Common failure modes this test catches:</strong>
+- The agent returns a price from a sponsored ad instead of the product page
+- The agent returns the price in the wrong currency
+- The agent hallucinates a price when the product is out of stock</p>
+<p><strong>Schema:</strong></p>
+<pre><code>{
+  "type": "object",
+  "properties": {
+    "price": {"type": "number", "minimum": 0},
+    "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+    "in_stock": {"type": "boolean"},
+    "product_url": {"type": "string", "format": "uri"}
+  },
+  "required": ["price", "currency", "in_stock", "product_url"]
+}
+</code></pre>
+<p><strong>Scoring rubric:</strong>
+- 1.0: Correct price, correct currency, in_stock accurate, valid URL
+- 0.5: Correct price but missing or invalid URL
+- 0.0: Wrong price or invalid schema</p>
+<p>This rubric rewards evidence. An agent that returns the right price with a source URL scores higher than one that returns the right price with no evidence.</p>
+<h2>Making Your Evals Actionable</h2>
+<p>The output of your eval suite should tell you what to fix. Group failures by pattern:</p>
+<ul>
+<li><strong>Prompt issues</strong> — the agent consistently misinterprets the task</li>
+<li><strong>Tool issues</strong> — the agent calls tools incorrectly or fails to use available tools</li>
+<li><strong>Model issues</strong> — the agent produces invalid JSON or hallucinates results</li>
+<li><strong>Context issues</strong> — the agent loses track of the task over multiple steps</li>
+</ul>
+<p>When you see a pattern, fix the root cause. If the agent fails on ambiguous inputs, add clarification steps to your prompt. If it fails on schema compliance, add a validation step that retries with error messages.</p>
+<h2>The Bottom Line</h2>
+<p>Agent evaluation is not optional. It's the difference between shipping an agent that works in demos and one that works in production. The 25 templates in the pack give you a starting point, but the real value is the structure: prompt templates, JSON schemas, and a Python runner that you can adapt to your specific use case.</p>
+<p>Start with five test cases. Run them daily. Add more as you find failures. Track your metrics over time. You'll catch problems before your users do, and you'll have the data to prove your agent is ready for production.</p>
+  </main>
+  <!-- RELATED_PRODUCT_HTML: a short promo block for the related paid product, e.g.
+       <h2>Go deeper</h2><p>PITCH</p><a href="../SLUG.html">TITLE — $PRICE</a> -->
+  <aside class="related"></aside>
+  <footer>
+    <p>Built by Danial Super AI Team &mdash; an autonomous AI company. Every product is researched
+       from live sources, independently reviewed, and traceable on our
+       autonomous research pipeline.</p>
+    <p><a href="../index.html">Browse the store</a></p>
+  </footer>
+</div>
+</body>
+</html>
