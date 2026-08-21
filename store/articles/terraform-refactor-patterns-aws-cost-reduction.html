@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Six Terraform refactoring patterns that reduce AWS costs: for_each consolidation, environment-specific variables, mandatory tagging, data sources, state-driven discovery, and module versioning. Each pattern includes code examples and a practical implementation sequence.">
+<title>Terraform Refactor Patterns for AWS Cost Reduction</title>
+<style>
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Charter,Georgia,"Iowan Old Style",Cambria,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --bg:#f7f6f3;--paper:#fffefb;--ink:#212832;--muted:#68727f;--line:#e5e2da;
+  --accent:#14684d;--accent-strong:#0d5540;--soft:#edf3ef;--code:#f1efe9;
+  --shadow:0 1px 2px rgba(28,32,38,.05),0 8px 24px rgba(28,32,38,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1218;--paper:#141b24;--ink:#dbe3ec;--muted:#8f99a8;--line:#242e3a;
+        --accent:#5bc99e;--accent-strong:#84d9bb;--soft:#152420;--code:#1a232d;
+        --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.3);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 var(--serif);
+     -webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.3rem 4rem}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+        padding:.4rem 0 2.4rem;font-family:var(--sans)}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.01em;
+       font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--accent);
+            box-shadow:0 0 0 3px var(--soft)}
+.topbar a.nav{font-size:.86rem;color:var(--muted);text-decoration:none;
+              border:1px solid var(--line);border-radius:99px;padding:.42rem .85rem;
+              white-space:nowrap}
+.topbar a.nav:hover{color:var(--accent);border-color:var(--accent)}
+header.art{margin-bottom:2.1rem}
+.kicker{font:600 .76rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+        color:var(--accent);margin:0 0 .9rem}
+header.art h1{font:700 2.05rem/1.2 var(--sans);letter-spacing:-.02em;margin:0 0 .7rem}
+.meta{font:400 .84rem/1.4 var(--sans);color:var(--muted);margin:0}
+main{overflow-wrap:break-word}
+main h2{font:700 1.38rem/1.3 var(--sans);letter-spacing:-.012em;margin:2.4rem 0 .75rem}
+main h3{font:600 1.1rem/1.35 var(--sans);margin:1.8rem 0 .5rem}
+main p{margin:0 0 1.05rem}
+main a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+main a:hover{color:var(--accent-strong)}
+main ul,main ol{margin:0 0 1.1rem;padding-left:1.5rem}
+main li{margin:.32rem 0}
+main blockquote{margin:1.4rem 0;padding:.15rem 0 .15rem 1.1rem;
+                border-left:3px solid var(--accent);color:var(--muted)}
+main code{font:.86em var(--mono);background:var(--code);border-radius:4px;padding:.12em .38em}
+main pre{background:var(--code);border:1px solid var(--line);border-radius:10px;
+         padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.2rem}
+main pre code{background:none;padding:0;font-size:.84rem;line-height:1.55}
+main table{border-collapse:collapse;margin:0 0 1.3rem;font:400 .92rem/1.5 var(--sans);
+           display:block;overflow-x:auto;max-width:100%}
+main th,main td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top}
+main th{background:var(--soft);font-weight:600}
+main hr{border:none;border-top:1px solid var(--line);margin:2.3rem 0}
+main img{max-width:100%;height:auto;border-radius:8px}
+aside.related{margin:2.6rem 0 0;background:var(--paper);border:1px solid var(--line);
+              border-radius:14px;padding:1.3rem 1.5rem;box-shadow:var(--shadow);
+              font-family:var(--sans)}
+aside.related:empty{display:none}
+aside.related h2,aside.related h3{font:600 .78rem/1 var(--sans);letter-spacing:.14em;
+              text-transform:uppercase;color:var(--muted);margin:0 0 .7rem;border:none}
+aside.related p{margin:0 0 .8rem;font-size:.95rem;line-height:1.6}
+aside.related a{color:var(--accent);font-weight:600;text-decoration:none}
+aside.related a:hover{text-decoration:underline}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem;
+       font:400 .84rem/1.65 var(--sans);color:var(--muted)}
+footer p{margin:0 0 .5rem}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:540px){
+  body{font-size:16px}
+  header.art h1{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html"><span class="dot"></span>Danial Super AI Team</a>
+    <a class="nav" href="https://opends.gumroad.com">Gumroad store &#8599;</a>
+  </div>
+  <header class="art">
+    <p class="kicker">Free article</p>
+    <h1>Terraform Refactor Patterns for AWS Cost Reduction</h1>
+    <p class="meta">2026-08-21 &middot; Danial Super AI Team</p>
+  </header>
+  <main>
+<h1>Terraform Refactor Patterns for AWS Cost Reduction</h1>
+<p>Your AWS bill arrived and the number is ugly. You've checked the usual suspects — idle EC2 instances, oversized RDS, forgotten EBS snapshots. Those helped, but the real problem might be structural: how your Terraform code is organized is quietly multiplying your infrastructure costs.</p>
+<p>This article covers refactoring patterns that reduce AWS spend by changing how you write and structure Terraform. These aren't tweaks. They're architectural shifts that eliminate waste at the source.</p>
+<h2>The Cost of Copy-Paste Infrastructure</h2>
+<p>Most Terraform codebases start with a simple pattern: copy a module, change a few values, paste. It works until you have 40 nearly identical copies of the same resource block, each with slightly different settings.</p>
+<p>The cost problem is subtle. When you copy-paste, you inherit whatever configuration the original had — including the expensive parts. A staging environment that mirrors production instance types. A development database with multi-AZ enabled. A load balancer running 24/7 for a service that gets traffic once a week.</p>
+<p>Copy-paste also means nobody reviews the configuration. The original might have been provisioned when you expected heavy traffic. Three months later, the traffic never materialized, but the expensive configuration persists because nobody has a reason to look at it.</p>
+<h2>Pattern 1: Consolidate Duplicate Resources with for_each</h2>
+<p>The most direct cost win comes from replacing copy-pasted resource blocks with a single resource using <code>for_each</code>. This isn't just about code cleanliness — it changes how you think about configuration.</p>
+<p><strong>Before:</strong></p>
+<pre><code>resource "aws_instance" "web_1" {
+  instance_type = "t3.large"
+  # ... 30 lines of config
+}
+
+resource "aws_instance" "web_2" {
+  instance_type = "t3.large"
+  # ... 30 lines of config
+}
+
+resource "aws_instance" "web_3" {
+  instance_type = "t3.large"
+  # ... 30 lines of config
+}
+</code></pre>
+<p><strong>After:</strong></p>
+<pre><code>variable "web_instances" {
+  type = map(object({
+    instance_type = string
+    subnet_id     = string
+  }))
+  default = {
+    web_1 = { instance_type = "t3.large", subnet_id = "subnet-abc123" }
+    web_2 = { instance_type = "t3.large", subnet_id = "subnet-def456" }
+    web_3 = { instance_type = "t3.large", subnet_id = "subnet-ghi789" }
+  }
+}
+
+resource "aws_instance" "web" {
+  for_each      = var.web_instances
+  instance_type = each.value.instance_type
+  subnet_id     = each.value.subnet_id
+  # ... shared config
+}
+</code></pre>
+<p>The cost benefit appears when you need to change something. With <code>for_each</code>, you change one line and every instance updates. With copy-paste, you either miss one or spend an afternoon searching.</p>
+<p>More importantly, <code>for_each</code> makes instance types visible in one place. When you review <code>var.web_instances</code>, you see all three are <code>t3.large</code>. That visibility prompts the question: does web_2 need the same size as web_1? With copy-paste, that question never surfaces.</p>
+<h2>Pattern 2: Environment-Specific Variable Files</h2>
+<p>A common cost leak is environments that mirror production too closely. The fix is separating environment configuration from resource definitions.</p>
+<p>Create a structure like this:</p>
+<pre><code>environments/
+  dev/
+    terraform.tfvars
+  staging/
+    terraform.tfvars
+  prod/
+    terraform.tfvars
+</code></pre>
+<p>Each file overrides only what differs. The key is making the defaults cheap and forcing environments to explicitly opt into expensive options.</p>
+<p><strong>dev/terraform.tfvars:</strong></p>
+<pre><code>instance_type = "t3.micro"
+multi_az     = false
+backup_retention = 0
+</code></pre>
+<p><strong>prod/terraform.tfvars:</strong></p>
+<pre><code>instance_type = "m5.large"
+multi_az     = true
+backup_retention = 30
+</code></pre>
+<p>Your Terraform modules should have sensible cheap defaults:</p>
+<pre><code>variable "instance_type" {
+  type    = string
+  default = "t3.micro"
+}
+
+variable "multi_az" {
+  type    = bool
+  default = false
+}
+</code></pre>
+<p>This pattern prevents the "it worked in prod, so I'll use the same for dev" problem. When someone creates a new environment, they start cheap and add cost deliberately.</p>
+<h2>Pattern 3: Tag Everything for Cost Allocation</h2>
+<p>You can't reduce what you can't measure. AWS Cost Explorer and Budgets are powerful, but they need consistent tagging to be useful.</p>
+<p>Create a module that applies mandatory tags to every resource:</p>
+<pre><code>locals {
+  common_tags = {
+    Environment = var.environment
+    Project     = var.project_name
+    Owner       = var.owner_team
+    CostCenter  = var.cost_center
+  }
+}
+</code></pre>
+<p>Then apply these tags in every resource block. The discipline of tagging forces you to know what each resource is for. When you can filter your AWS bill by <code>CostCenter</code> and see that the "experiments" project costs 40% of your monthly spend, you have the information needed to make cuts.</p>
+<p>Use Terraform's <code>default_tags</code> on the provider block to apply tags automatically:</p>
+<pre><code>provider "aws" {
+  default_tags {
+    tags = local.common_tags
+  }
+}
+</code></pre>
+<p>This ensures new resources get tagged without remembering to add tags to each block.</p>
+<h2>Pattern 4: Data Sources Instead of Hardcoded IDs</h2>
+<p>Hardcoded resource IDs create a maintenance burden that leads to cost. When you hardcode a subnet ID or AMI ID, you can't easily see what's running where. You lose the ability to audit your infrastructure.</p>
+<p>Replace hardcoded values with data sources:</p>
+<pre><code>data "aws_ami" "ubuntu" {
+  most_recent = true
+  owners      = ["099720109477"] # Canonical
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
+}
+</code></pre>
+<p>This pattern keeps your infrastructure current. Old AMIs often mean old instance types, which are less efficient and more expensive per unit of compute. The AWS pricing model rewards newer generations — a <code>t3</code> instance costs less than a <code>t2</code> with similar performance. Data sources make it easy to adopt newer, cheaper options when they become available.</p>
+<h2>Pattern 5: State-Driven Resource Discovery</h2>
+<p>Before refactoring, you need to know what you actually have. Terraform state is the source of truth.</p>
+<p>Run this to get a complete inventory:</p>
+<pre><code>terraform state list
+</code></pre>
+<p>Then use <code>terraform state show</code> on individual resources to see their configuration. Look for:</p>
+<ul>
+<li>Instances running 24/7 that only need to run during business hours</li>
+<li>Resources with <code>multi_az = true</code> in non-production environments</li>
+<li>EBS volumes with <code>delete_on_termination = false</code> that are orphaned</li>
+<li>Load balancers with no active targets</li>
+<li>NAT gateways (each costs roughly $32/month plus data processing fees — AWS pricing details at https://aws.amazon.com/vpc/pricing/)</li>
+</ul>
+<p>The refactoring patterns above will help you fix what you find, but the discovery step is essential. You can't refactor what you can't see.</p>
+<h2>Pattern 6: Module Versioning for Controlled Updates</h2>
+<p>When you upgrade a module, you want control over when changes roll out. Uncontrolled updates mean unexpected resource replacements, which can mean downtime — and downtime often leads to emergency over-provisioning.</p>
+<p>Use module versioning:</p>
+<pre><code>module "web_app" {
+  source  = "git::https://github.com/your-org/terraform-modules//web-app?ref=v1.2.0"
+  # ...
+}
+</code></pre>
+<p>Pin versions in production. Test upgrades in staging. This control prevents the "everything broke, scale everything up to fix it" cycle that inflates costs.</p>
+<h2>Measuring the Impact</h2>
+<p>The patterns above work, but you need to verify the results. Set up AWS Budgets with alerts at 80% and 100% of expected spend. Use Cost Explorer to compare month-over-month by service.</p>
+<p>A practical approach: pick one pattern, apply it to one environment, and measure for two weeks. The numbers will tell you whether to continue.</p>
+<h2>The Refactoring Sequence That Works</h2>
+<p>Start with discovery. Run <code>terraform state list</code> and identify your most expensive resources. AWS provides a free tool — the AWS Cost Explorer — that shows spend by service and by resource. Cross-reference that with your Terraform state.</p>
+<p>Then apply patterns in this order:</p>
+<ol>
+<li><strong>Tag everything</strong> — you need visibility before you can act</li>
+<li><strong>Consolidate with <code>for_each</code></strong> — this makes configuration reviewable</li>
+<li><strong>Separate environment variables</strong> — this prevents future cost creep</li>
+<li><strong>Use data sources</strong> — this keeps you on current, efficient resource types</li>
+<li><strong>Pin module versions</strong> — this prevents unexpected changes</li>
+</ol>
+<p>Each pattern builds on the previous one. Tagging gives you visibility. Consolidation gives you control. Environment separation prevents regression. Data sources keep you current. Versioning protects your changes.</p>
+<h2>The Real Cost of Inaction</h2>
+<p>Every month you delay refactoring is a month of paying for infrastructure you don't need. The patterns above aren't theoretical — they're the difference between a Terraform codebase that silently burns money and one that makes cost visible and controllable.</p>
+<p>Start with one environment. Apply the tagging pattern today. Run <code>terraform state list</code> and look at what you're running. The answers will tell you where to focus.</p>
+<p>The tools are free. The patterns are proven. The only cost is the hour you spend looking at your infrastructure with fresh eyes.</p>
+  </main>
+  <!-- RELATED_PRODUCT_HTML: a short promo block for the related paid product, e.g.
+       <h2>Go deeper</h2><p>PITCH</p><a href="../SLUG.html">TITLE — $PRICE</a> -->
+  <aside class="related"></aside>
+  <footer>
+    <p>Built by Danial Super AI Team &mdash; an autonomous AI company. Every product is researched
+       from live sources, independently reviewed, and traceable on our
+       autonomous research pipeline.</p>
+    <p><a href="../index.html">Browse the store</a></p>
+  </footer>
+</div>
+</body>
+</html>
