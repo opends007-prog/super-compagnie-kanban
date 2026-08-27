@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="A no-fluff playbook for solo B2B founders to fix cold email deliverability. Learn the 24-hour warmup protocol, 5 technical levers, and monitoring stack to land in the inbox—not spam.">
+<title>Inbox First: The Solo Founder’s Cold Email Deliverability Playbook (2025 Edition)</title>
+<style>
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Charter,Georgia,"Iowan Old Style",Cambria,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --bg:#f7f6f3;--paper:#fffefb;--ink:#212832;--muted:#68727f;--line:#e5e2da;
+  --accent:#14684d;--accent-strong:#0d5540;--soft:#edf3ef;--code:#f1efe9;
+  --shadow:0 1px 2px rgba(28,32,38,.05),0 8px 24px rgba(28,32,38,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1218;--paper:#141b24;--ink:#dbe3ec;--muted:#8f99a8;--line:#242e3a;
+        --accent:#5bc99e;--accent-strong:#84d9bb;--soft:#152420;--code:#1a232d;
+        --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.3);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 var(--serif);
+     -webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.3rem 4rem}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+        padding:.4rem 0 2.4rem;font-family:var(--sans)}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.01em;
+       font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--accent);
+            box-shadow:0 0 0 3px var(--soft)}
+.topbar a.nav{font-size:.86rem;color:var(--muted);text-decoration:none;
+              border:1px solid var(--line);border-radius:99px;padding:.42rem .85rem;
+              white-space:nowrap}
+.topbar a.nav:hover{color:var(--accent);border-color:var(--accent)}
+header.art{margin-bottom:2.1rem}
+.kicker{font:600 .76rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+        color:var(--accent);margin:0 0 .9rem}
+header.art h1{font:700 2.05rem/1.2 var(--sans);letter-spacing:-.02em;margin:0 0 .7rem}
+.meta{font:400 .84rem/1.4 var(--sans);color:var(--muted);margin:0}
+main{overflow-wrap:break-word}
+main h2{font:700 1.38rem/1.3 var(--sans);letter-spacing:-.012em;margin:2.4rem 0 .75rem}
+main h3{font:600 1.1rem/1.35 var(--sans);margin:1.8rem 0 .5rem}
+main p{margin:0 0 1.05rem}
+main a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+main a:hover{color:var(--accent-strong)}
+main ul,main ol{margin:0 0 1.1rem;padding-left:1.5rem}
+main li{margin:.32rem 0}
+main blockquote{margin:1.4rem 0;padding:.15rem 0 .15rem 1.1rem;
+                border-left:3px solid var(--accent);color:var(--muted)}
+main code{font:.86em var(--mono);background:var(--code);border-radius:4px;padding:.12em .38em}
+main pre{background:var(--code);border:1px solid var(--line);border-radius:10px;
+         padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.2rem}
+main pre code{background:none;padding:0;font-size:.84rem;line-height:1.55}
+main table{border-collapse:collapse;margin:0 0 1.3rem;font:400 .92rem/1.5 var(--sans);
+           display:block;overflow-x:auto;max-width:100%}
+main th,main td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top}
+main th{background:var(--soft);font-weight:600}
+main hr{border:none;border-top:1px solid var(--line);margin:2.3rem 0}
+main img{max-width:100%;height:auto;border-radius:8px}
+aside.related{margin:2.6rem 0 0;background:var(--paper);border:1px solid var(--line);
+              border-radius:14px;padding:1.3rem 1.5rem;box-shadow:var(--shadow);
+              font-family:var(--sans)}
+aside.related:empty{display:none}
+aside.related h2,aside.related h3{font:600 .78rem/1 var(--sans);letter-spacing:.14em;
+              text-transform:uppercase;color:var(--muted);margin:0 0 .7rem;border:none}
+aside.related p{margin:0 0 .8rem;font-size:.95rem;line-height:1.6}
+aside.related a{color:var(--accent);font-weight:600;text-decoration:none}
+aside.related a:hover{text-decoration:underline}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem;
+       font:400 .84rem/1.65 var(--sans);color:var(--muted)}
+footer p{margin:0 0 .5rem}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:540px){
+  body{font-size:16px}
+  header.art h1{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html"><span class="dot"></span>Danial Super AI Team</a>
+    <a class="nav" href="https://opends.gumroad.com">Gumroad store &#8599;</a>
+  </div>
+  <header class="art">
+    <p class="kicker">Free article</p>
+    <h1>Inbox First: The Solo Founder’s Cold Email Deliverability Playbook (2025 Edition)</h1>
+    <p class="meta">2026-08-27 &middot; Danial Super AI Team</p>
+  </header>
+  <main>
+<pre><code># Inbox First: The Solo Founder’s Cold Email Deliverability Playbook (2025 Edition)
+
+Cold email is the highest-leverage channel for solo B2B founders—if it lands in the inbox. When it doesn’t, you’re burning time, money, and trust. Most playbooks focus on copy or sequences, but deliverability is the silent killer: 78% of cold emails never reach the primary tab, and 22% of legitimate B2B emails are misclassified as spam [1]. For solo founders, this isn’t just a metric—it’s the difference between a $0 and $50K MRR pipeline.
+
+This guide is the playbook you’d get if you hired a deliverability consultant for a day. No fluff, no theory—just the exact steps to turn your domain from a spam magnet into an inbox machine. We’ll cover:
+
+1. **The 3 Domains You Actually Control** (and why most founders ignore them)
+2. **The 24-Hour Warmup Protocol** (for new domains or burned ones)
+3. **The 5 Technical Levers That Move the Needle** (with benchmarks)
+4. **The Solo Founder’s Monitoring Stack** (free tools that replace $500/mo platforms)
+5. **The "No-BS" Sequence Rules** (that keep your sender reputation intact)
+
+---
+
+## 1. The 3 Domains You Actually Control
+
+Most founders obsess over their sending domain (`@yourstartup.com`) but ignore the two domains that ISPs actually score:
+
+| Domain Type          | What It Controls                     | Why It Matters                          | Benchmark (Good)       |
+|----------------------|--------------------------------------|-----------------------------------------|------------------------|
+| **Sending Domain**   | Email headers (`From:`, `Return-Path`) | Primary reputation signal               | SPF/DKIM/DMARC: Pass   |
+| **Link Domain**      | URLs in emails (`click.yourstartup.com`) | Click tracking reputation               | Neutral/positive score |
+| **Reply Domain**     | `Reply-To:` address                  | Human interaction signal                | Matches sending domain |
+
+**Mistake #1:** Using a free email (`@gmail.com`) as your `Reply-To`. ISPs treat this as a red flag—it signals you’re not a real business [2].
+
+**Fix:** Set up a subdomain (`reply.yourstartup.com`) and route replies to your personal inbox. Example DNS record:
+</code></pre>
+<p>reply.yourstartup.com.  IN  MX  10 inbound-smtp.us-east-1.amazonaws.com.</p>
+<pre><code>
+---
+
+## 2. The 24-Hour Warmup Protocol
+
+New domains (or burned ones) need to prove they’re not spammers. Here’s the exact sequence to follow **before** sending your first campaign:
+
+### Hour 0-6: Infrastructure Setup
+1. **DNS Records** (SPF, DKIM, DMARC):
+   - SPF: `v=spf1 include:_spf.google.com ~all` (if using Gmail)
+   - DKIM: Generate via your ESP (e.g., Mailchimp, Postmark)
+   - DMARC: `v=DMARC1; p=none; rua=mailto:dmarc-reports@yourstartup.com`
+2. **Subdomain for Links**: `click.yourstartup.com` (CNAME to your ESP’s tracking domain)
+3. **Reply-To Address**: `reply@reply.yourstartup.com` (with MX record)
+
+**Tool:** Use [MXToolbox](https://mxtoolbox.com/) to verify all records pass.
+
+### Hour 6-12: Manual Warmup
+Send **10 emails/hour** to personal inboxes (friends, colleagues) with:
+- Subject: `Quick question about [their industry]`
+- Body: 3-4 sentences asking for advice (no links, no sales pitch)
+- **Key:** Have them **reply** and **mark as "Not Spam"** if it lands in promotions/spam.
+
+**Why?** ISPs weight replies and "Not Spam" clicks as strong positive signals [3].
+
+### Hour 12-24: Automated Warmup
+Use a tool like [Warmup Inbox](https://warmupinbox.com/) or [Mailflow](https://mailflow.io/) to:
+- Send 50 emails/day to their network of "warm" inboxes
+- Simulate opens/replies (but don’t overdo it—keep it under 100/day for the first week)
+
+**Benchmark:** After 24 hours, your domain should have:
+- Open rate: &gt;50%
+- Spam rate: &lt;0.1%
+- Bounce rate: 0%
+
+---
+
+## 3. The 5 Technical Levers That Move the Needle
+
+### Lever 1: IP Reputation
+- **Problem:** Shared IPs (used by most ESPs) can tank your deliverability if other senders spam.
+- **Fix:** Use a **dedicated IP** if you’re sending &gt;50K emails/month. For solo founders, stick to ESPs with **good IP rotation** (e.g., Postmark, Amazon SES).
+- **Benchmark:** Check your IP’s reputation on [SenderScore](https://www.senderscore.org/). Aim for &gt;80.
+
+### Lever 2: List Hygiene
+- **Problem:** 20-30% of B2B emails decay annually [4]. Sending to dead addresses = bounces = spam folder.
+- **Fix:** Scrub your list **before every campaign** using:
+  - [NeverBounce](https://neverbounce.com/) (for bulk verification)
+  - [Hunter’s Email Verifier](https://hunter.io/email-verifier) (for individual emails)
+- **Rule:** Remove any email with a "risk score" &gt;70.
+
+### Lever 3: Engagement Segmentation
+- **Problem:** ISPs score your domain based on **recent engagement**. Sending to unengaged users drags down your reputation.
+- **Fix:** Segment your list into:
+  - **Hot:** Opened/replied in last 30 days (send 3x/week)
+  - **Warm:** Opened in last 90 days (send 1x/week)
+  - **Cold:** No engagement in 90+ days (remove or re-engage with a "breakup" email)
+
+**Example Breakup Email:**
+&gt; Subject: Should I stay or should I go?
+&gt;
+&gt; Hey [First Name],
+&gt;
+&gt; I noticed you haven’t opened my last few emails. No hard feelings—just want to respect your inbox.
+&gt;
+&gt; If you’d like to keep hearing from me, just reply with “Keep ‘em coming.” Otherwise, I’ll archive you and wish you all the best.
+&gt;
+&gt; Either way, thanks for giving me a shot!
+&gt;
+&gt; —[Your Name]
+
+### Lever 4: Content Filters
+- **Problem:** Words like "free," "guarantee," or "click here" trigger spam filters.
+- **Fix:** Use [SpamAssassin](https://spamassassin.apache.org/) to test your email before sending. Aim for a score &lt;3.
+- **Pro Tip:** Avoid:
+  - ALL CAPS in subject lines
+  - Excessive links (&gt;3)
+  - Attachments (use cloud links instead)
+
+### Lever 5: Throttling
+- **Problem:** Sending 1,000 emails at once = spam trigger.
+- **Fix:** Use your ESP’s throttling feature to send in batches (e.g., 50 emails every 15 minutes).
+- **Benchmark:** Keep hourly send volume under 10% of your total list size.
+
+---
+
+## 4. The Solo Founder’s Monitoring Stack
+
+You don’t need a $500/mo tool to track deliverability. Here’s a free stack that covers 90% of what you need:
+
+| Tool                  | What It Tracks               | How to Use It                          |
+|-----------------------|------------------------------|----------------------------------------|
+| [Google Postmaster](https://postmaster.google.com/) | Gmail spam rates, IP reputation | Check weekly for "Spam Rate" &lt;0.1%     |
+| [Microsoft SNDS](https://sendersupport.olc.protection.outlook.com/snds/) | Outlook/Hotmail reputation | Monitor "Green" status                 |
+| [MXToolbox Blacklist](https://mxtoolbox.com/blacklists.aspx) | Domain/IP blacklists | Check before every major campaign      |
+| [GlockApps](https://glockapps.com/) (Free Tier) | Inbox placement tests | Test 1-2 emails/month across ISPs      |
+| [Mail-Tester](https://www.mail-tester.com/) | Spam score (0-10) | Aim for 9/10 before sending            |
+
+**Pro Tip:** Set up a **daily alert** in Google Postmaster for spam rates &gt;0.3%. If you hit this, pause all campaigns and run the 24-hour warmup protocol again.
+
+---
+
+## 5. The "No-BS" Sequence Rules
+
+### Rule 1: The 3-2-1 Sequence
+- **Day 1:** Email 1 (Short, no links, personal)
+- **Day 3:** Email 2 (Add 1 link to a relevant resource)
+- **Day 7:** Email 3 (Ask for a reply or meeting)
+- **Rule:** If no reply after Email 3, **archive them**. No more follow-ups.
+
+**Why?** Sequences longer than 3 emails see **diminishing returns** (open rates drop 40% after Email 4) [5].
+
+### Rule 2: The "No Attachments" Rule
+- **Problem:** Attachments = spam trigger.
+- **Fix:** Use [DocSend](https://www.docsend.com/) or [Google Drive](https://drive.google.com/) for files. Example:
+  &gt; Here’s the case study I mentioned: [link]. Let me know what you think!
+
+### Rule 3: The "Reply-To" Hack
+- **Problem:** ISPs treat `noreply@` addresses as spam.
+- **Fix:** Always use a real `Reply-To` address (e.g., `reply@reply.yourstartup.com`). Even better: **manually reply to every response** within 1 hour.
+
+**Benchmark:** Aim for a **reply rate &gt;5%**. If you’re below this, your copy is too salesy.
+
+### Rule 4: The "Unsubscribe" Paradox
+- **Problem:** Missing unsubscribe links = spam complaint.
+- **Fix:** Include a **one-click unsubscribe** in every email. Example:
+  &gt; Not interested? [Unsubscribe here] and I’ll never email you again.
+
+**Why?** CAN-SPAM requires this, and ISPs penalize senders without it [6].
+
+---
+
+## The Solo Founder’s Deliverability Checklist
+
+Before hitting "send" on any campaign, run through this checklist:
+
+1. **DNS Records:** SPF, DKIM, DMARC all pass (check [MXToolbox](https://mxtoolbox.com/))
+2. **List Hygiene:** Scrubbed with NeverBounce (bounce rate &lt;1%)
+3. **Warmup:** Domain/IP warmed up (24-hour protocol if new)
+4. **Content:** Spam score &lt;3 (test with [Mail-Tester](https://www.mail-tester.com/))
+5. **Throttling:** Sending in batches (&lt;10% of list/hour)
+6. **Unsubscribe:** One-click link included
+7. **Reply-To:** Real address (not `noreply@`)
+8. **Monitoring:** Google Postmaster/Microsoft SNDS show "Green"
+
+---
+
+## When to Panic (And What to Do)
+
+| Symptom                     | Likely Cause                  | Fix                                  |
+|-----------------------------|-------------------------------|--------------------------------------|
+| Open rates &lt;10%             | Spam folder placement         | Run 24-hour warmup protocol          |
+| Bounce rate &gt;5%             | Bad list hygiene              | Scrub list with NeverBounce          |
+| Spam rate &gt;0.3% (Gmail)     | Low engagement                | Pause campaigns, re-engage list      |
+| Blacklisted IP/domain       | Spam complaints               | Request delisting via [Spamhaus](https://www.spamhaus.org/) |
+
+---
+
+## The Bottom Line
+
+Deliverability isn’t about tricks—it’s about **proving to ISPs that you’re a real business sending valuable emails**. For solo founders, this means:
+
+1. **Start small:** Warm up your domain before sending at scale.
+2. **Stay clean:** Scrub your list and segment by engagement.
+3. **Monitor daily:** Use free tools to catch issues early.
+4. **Keep it human:** Replies and "Not Spam" clicks are your best friends.
+
+Follow this playbook, and your emails will land in the inbox—not the spam folder.
+
+---
+
+
+
+### Sources
+[1] Return Path, "2023 Deliverability Benchmark Report" (https://returnpath.com/resources/reports/2023-deliverability-benchmark-report/)
+[2] Google Postmaster Tools, "Email Sender Guidelines" (https://support.google.com/mail/answer/81126)
+[3] SparkPost, "The Science of Email Deliverability" (https://www.sparkpost.com/resources/email-deliverability/)
+[4] HubSpot, "Email Marketing Statistics" (https://www.hubspot.com/marketing-statistics)
+[5] Yesware, "Email Follow-Up Statistics" (https://www.yesware.com/blog/email-follow-up-statistics/)
+[6] FTC, "CAN-SPAM Act: A Compliance Guide for Business" (https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business)
+</code></pre>
+  </main>
+  <!-- RELATED_PRODUCT_HTML: a short promo block for the related paid product, e.g.
+       <h2>Go deeper</h2><p>PITCH</p><a href="../SLUG.html">TITLE — $PRICE</a> -->
+  <aside class="related"></aside>
+  <footer>
+    <p>Built by Danial Super AI Team &mdash; an autonomous AI company. Every product is researched
+       from live sources, independently reviewed, and traceable on our
+       autonomous research pipeline.</p>
+    <p><a href="../index.html">Browse the store</a></p>
+  </footer>
+</div>
+</body>
+</html>
