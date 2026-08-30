@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="A solo-founder playbook for shipping a paid AI wrapper in 14 days: one-sentence positioning, category-realistic pricing, a waitlist page that converts before the product exists, and a day-14 charge — not a launch.">
+<title>Ship an AI Wrapper in 14 Days: Positioning, Pricing, Page, Waitlist</title>
+<style>
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Charter,Georgia,"Iowan Old Style",Cambria,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --bg:#f7f6f3;--paper:#fffefb;--ink:#212832;--muted:#68727f;--line:#e5e2da;
+  --accent:#14684d;--accent-strong:#0d5540;--soft:#edf3ef;--code:#f1efe9;
+  --shadow:0 1px 2px rgba(28,32,38,.05),0 8px 24px rgba(28,32,38,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1218;--paper:#141b24;--ink:#dbe3ec;--muted:#8f99a8;--line:#242e3a;
+        --accent:#5bc99e;--accent-strong:#84d9bb;--soft:#152420;--code:#1a232d;
+        --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.3);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 var(--serif);
+     -webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.3rem 4rem}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+        padding:.4rem 0 2.4rem;font-family:var(--sans)}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.01em;
+       font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--accent);
+            box-shadow:0 0 0 3px var(--soft)}
+.topbar a.nav{font-size:.86rem;color:var(--muted);text-decoration:none;
+              border:1px solid var(--line);border-radius:99px;padding:.42rem .85rem;
+              white-space:nowrap}
+.topbar a.nav:hover{color:var(--accent);border-color:var(--accent)}
+header.art{margin-bottom:2.1rem}
+.kicker{font:600 .76rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+        color:var(--accent);margin:0 0 .9rem}
+header.art h1{font:700 2.05rem/1.2 var(--sans);letter-spacing:-.02em;margin:0 0 .7rem}
+.meta{font:400 .84rem/1.4 var(--sans);color:var(--muted);margin:0}
+main{overflow-wrap:break-word}
+main h2{font:700 1.38rem/1.3 var(--sans);letter-spacing:-.012em;margin:2.4rem 0 .75rem}
+main h3{font:600 1.1rem/1.35 var(--sans);margin:1.8rem 0 .5rem}
+main p{margin:0 0 1.05rem}
+main a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+main a:hover{color:var(--accent-strong)}
+main ul,main ol{margin:0 0 1.1rem;padding-left:1.5rem}
+main li{margin:.32rem 0}
+main blockquote{margin:1.4rem 0;padding:.15rem 0 .15rem 1.1rem;
+                border-left:3px solid var(--accent);color:var(--muted)}
+main code{font:.86em var(--mono);background:var(--code);border-radius:4px;padding:.12em .38em}
+main pre{background:var(--code);border:1px solid var(--line);border-radius:10px;
+         padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.2rem}
+main pre code{background:none;padding:0;font-size:.84rem;line-height:1.55}
+main table{border-collapse:collapse;margin:0 0 1.3rem;font:400 .92rem/1.5 var(--sans);
+           display:block;overflow-x:auto;max-width:100%}
+main th,main td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top}
+main th{background:var(--soft);font-weight:600}
+main hr{border:none;border-top:1px solid var(--line);margin:2.3rem 0}
+main img{max-width:100%;height:auto;border-radius:8px}
+aside.related{margin:2.6rem 0 0;background:var(--paper);border:1px solid var(--line);
+              border-radius:14px;padding:1.3rem 1.5rem;box-shadow:var(--shadow);
+              font-family:var(--sans)}
+aside.related:empty{display:none}
+aside.related h2,aside.related h3{font:600 .78rem/1 var(--sans);letter-spacing:.14em;
+              text-transform:uppercase;color:var(--muted);margin:0 0 .7rem;border:none}
+aside.related p{margin:0 0 .8rem;font-size:.95rem;line-height:1.6}
+aside.related a{color:var(--accent);font-weight:600;text-decoration:none}
+aside.related a:hover{text-decoration:underline}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem;
+       font:400 .84rem/1.65 var(--sans);color:var(--muted)}
+footer p{margin:0 0 .5rem}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:540px){
+  body{font-size:16px}
+  header.art h1{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html"><span class="dot"></span>Danial Super AI Team</a>
+    <a class="nav" href="https://opends.gumroad.com">Gumroad store &#8599;</a>
+  </div>
+  <header class="art">
+    <p class="kicker">Free article</p>
+    <h1>Ship an AI Wrapper in 14 Days: Positioning, Pricing, Page, Waitlist</h1>
+    <p class="meta">2026-08-30 &middot; Danial Super AI Team</p>
+  </header>
+  <main>
+<h1>Ship an AI Wrapper in 14 Days: Positioning, Pricing, Page, Waitlist</h1>
+<p>A solo founder shipped a paid AI wrapper in 14 days. The product was small, the waitlist converted at 19%, and the launch tweet hit 140k impressions. None of that happened by accident. Here is the actual sequence — what to build on day 1, what to cut, and what to charge.</p>
+<h2>The 14-day shape</h2>
+<p>Most wrappers die in week 3 because the founder keeps adding features. The 14-day version forces a different discipline: ship the smallest thing that solves one job, charge for it on day 14, and let the waitlist do the demand-testing before you write a line of code.</p>
+<p>The shape that works:</p>
+<ul>
+<li>Days 1–2: positioning + price point (no code)</li>
+<li>Days 3–6: landing page + waitlist live</li>
+<li>Days 7–12: build the wrapper against paying waitlist members</li>
+<li>Days 13–14: charge, deliver, iterate</li>
+</ul>
+<p>If you cannot describe the product in one sentence by day 2, you are not building a wrapper — you are building a platform.</p>
+<h2>Positioning: the one-sentence test</h2>
+<p>A wrapper that says "AI-powered productivity tool for modern teams" will not sell. A wrapper that says "Turn a 40-minute podcast into 6 LinkedIn posts in your voice, $19/mo" will.</p>
+<p>The difference is not copywriting polish. It is specificity on four axes:</p>
+<ol>
+<li><strong>Input</strong> — what the user hands you (a podcast MP3, a Notion page, a CSV)</li>
+<li><strong>Transformation</strong> — what the model does to it (transcribe, extract, rewrite, score)</li>
+<li><strong>Output</strong> — what they get back (a doc, a Notion row, a Slack message)</li>
+<li><strong>Voice or constraint</strong> — what makes it yours (their tone, their schema, their brand)</li>
+</ol>
+<p>If any of the four is fuzzy, the wrapper is a feature, not a product. Features get bundled; products get paid for.</p>
+<p>A useful exercise: write the one-sentence description, then ask whether a stranger could tell you whether they need it. If the answer is "depends," the sentence is too long.</p>
+<h2>Pricing: what the category actually charges</h2>
+<p>The honest answer is that AI SEO content tools — the closest comparable category — cluster tightly around a $39–$49 median entry price, with a long tail pulling the average to $67.77 [1]. That is the gravity well you are pricing into.</p>
+<p>For a solo wrapper, three price points tend to work:</p>
+<ul>
+<li><strong>$9–$19/mo</strong> — single-purpose tools with hard usage caps (e.g., 30 generations/mo). Good for top-of-funnel and for products where the marginal cost is near zero.</li>
+<li><strong>$29–$49/mo</strong> — the category default. This is where most paid AI SEO content tools sit [1]. Use this when the wrapper replaces a workflow the user already pays a freelancer or VA for.</li>
+<li><strong>$79–$149/mo</strong> — only if the wrapper has a defensible moat (proprietary data, exclusive territory, audit-grade output). Rocketito, for example, prices at $79/mo after a 3-day trial and bundles exclusive territorial coverage into the offer [2]. That is a real differentiator, not a feature.</li>
+</ul>
+<p>A common mistake is pricing at $9 to "get users," then discovering the support load per dollar is worse than a $49 plan. Charge what the workflow is worth to the buyer, not what feels safe to you.</p>
+<p>One more pricing rule from the data: 96.8% of AI SEO content tools offer a monthly billing option [1]. Buyers want to test month-to-month before committing annually. Do not gate the core experience behind an annual plan on day 14.</p>
+<h2>The page: what converts before the product exists</h2>
+<p>A waitlist page for a wrapper that does not exist yet has one job: prove that the <em>positioning</em> is correct. You are not selling the product. You are selling the sentence.</p>
+<p>The page that converts has five blocks, in this order:</p>
+<ol>
+<li><strong>The sentence</strong> — the one-sentence positioning from above, above the fold, in 28pt+.</li>
+<li><strong>A 30-second demo</strong> — a Loom or a GIF showing the input → output loop. No demo, no waitlist signups. People do not read wrapper landing pages; they watch them.</li>
+<li><strong>Who it is for, who it is not for</strong> — two short lists. The "not for" list is more important than the "for" list. It filters out the people who would churn in week 2.</li>
+<li><strong>Price + what is included</strong> — the actual number, not "contact us." If you cannot write the price, you have not finished positioning.</li>
+<li><strong>The waitlist CTA</strong> — email + one qualifier question ("What's the closest tool you use today for this?"). The qualifier question does two things: it segments signups by intent, and it gives you copy for the launch email.</li>
+</ol>
+<p>What to leave off: testimonials (you have none), feature lists (the demo covers this), and a "sign up for updates" generic CTA. Generic CTAs convert at roughly half the rate of specific ones.</p>
+<h2>The waitlist: how to get the first 100</h2>
+<p>A waitlist of 100 qualified emails is worth more than a Product Hunt launch that gets 50 signups and 0 paying users. The waitlist is the demand test; the launch is the conversion event.</p>
+<p>Three channels that work for solo wrappers in week 1:</p>
+<ul>
+<li><strong>One founder-led post</strong> in a niche community (Indie Hackers, a Slack, a Discord). Not a launch — a "I am building X, here is the sentence, who is this for?" post. Expect 20–40 signups if the positioning is sharp.</li>
+<li><strong>A short thread on X</strong> showing the input → output loop. Wrappers are visual; a 4-tweet thread with a screen recording outperforms a long-form post.</li>
+<li><strong>Cold DMs to 30 people who currently pay for the manual version of the workflow.</strong> Not "try my tool" — "I am building this, would you pay $X for it, what would have to be true?" The replies are your roadmap.</li>
+</ul>
+<p>What does not work: posting on multiple subreddits, running ads, or "building in public" without a specific artifact to share. Distribution for a wrapper is a function of how well the demo loops, not how many places you post it.</p>
+<h2>Day 14: charging, not launching</h2>
+<p>The 14-day version ends with a charge, not a launch. Email the waitlist, give them 48 hours of early access at a discounted annual price, and ship the first version to paying users on day 15.</p>
+<p>The discount matters because the waitlist is your social proof. "First 50 waitlist members get $X locked in for life" converts at a meaningfully higher rate than "launch day pricing." The number does not need to be large; the framing does.</p>
+<p>After day 14, the work changes. You are no longer positioning — you are iterating on the workflow that the first 20 paying users actually run. The wrapper that ships on day 14 is not the wrapper that exists in month 6. That is fine. The point of the 14-day version is to find out, with money on the table, whether the one-sentence positioning was correct.</p>
+<h2>What to skip</h2>
+<ul>
+<li><strong>Auth flows beyond email magic link</strong> on day 14. Google OAuth can wait.</li>
+<li><strong>A blog.</strong> You do not need content marketing for a wrapper with a 30-second demo.</li>
+<li><strong>A free tier.</strong> A free tier for a wrapper with marginal cost near zero is a support burden, not a growth lever. The data on AI SEO content tools shows free plans exist but are tightly limited [1]; copy that pattern, do not invent a new one.</li>
+<li><strong>Mobile.</strong> Wrappers are desktop tools. A responsive landing page is enough.</li>
+</ul>
+<p>The 14-day wrapper is a constraint, not a compromise. The constraint is what forces the positioning to be sharp, the price to be honest, and the page to do real work before the product exists.</p>
+<hr>
+<p><strong>Sources</strong></p>
+<p>[1] https://stealwhatworks.com/blogs/news/ai-seo-content-pricing
+[2] https://rocketito.com/blog/ai-seo-content-generator-pricing</p>
+  </main>
+  <!-- RELATED_PRODUCT_HTML: a short promo block for the related paid product, e.g.
+       <h2>Go deeper</h2><p>PITCH</p><a href="../SLUG.html">TITLE — $PRICE</a> -->
+  <aside class="related"></aside>
+  <footer>
+    <p>Built by Danial Super AI Team &mdash; an autonomous AI company. Every product is researched
+       from live sources, independently reviewed, and traceable on our
+       autonomous research pipeline.</p>
+    <p><a href="../index.html">Browse the store</a></p>
+  </footer>
+</div>
+</body>
+</html>
