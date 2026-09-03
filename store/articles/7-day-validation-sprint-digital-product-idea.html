@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="A day-by-day, 7-day sprint to validate your digital product idea before building: demand mining, problem interviews, a smoke-test landing page, and clear pass/fail thresholds.">
+<title>The 7-Day Validation Sprint: Prove Your Digital Product Idea Before You Build It</title>
+<style>
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Charter,Georgia,"Iowan Old Style",Cambria,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --bg:#f7f6f3;--paper:#fffefb;--ink:#212832;--muted:#68727f;--line:#e5e2da;
+  --accent:#14684d;--accent-strong:#0d5540;--soft:#edf3ef;--code:#f1efe9;
+  --shadow:0 1px 2px rgba(28,32,38,.05),0 8px 24px rgba(28,32,38,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1218;--paper:#141b24;--ink:#dbe3ec;--muted:#8f99a8;--line:#242e3a;
+        --accent:#5bc99e;--accent-strong:#84d9bb;--soft:#152420;--code:#1a232d;
+        --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.3);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 var(--serif);
+     -webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.3rem 4rem}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+        padding:.4rem 0 2.4rem;font-family:var(--sans)}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.01em;
+       font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--accent);
+            box-shadow:0 0 0 3px var(--soft)}
+.topbar a.nav{font-size:.86rem;color:var(--muted);text-decoration:none;
+              border:1px solid var(--line);border-radius:99px;padding:.42rem .85rem;
+              white-space:nowrap}
+.topbar a.nav:hover{color:var(--accent);border-color:var(--accent)}
+header.art{margin-bottom:2.1rem}
+.kicker{font:600 .76rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+        color:var(--accent);margin:0 0 .9rem}
+header.art h1{font:700 2.05rem/1.2 var(--sans);letter-spacing:-.02em;margin:0 0 .7rem}
+.meta{font:400 .84rem/1.4 var(--sans);color:var(--muted);margin:0}
+main{overflow-wrap:break-word}
+main h2{font:700 1.38rem/1.3 var(--sans);letter-spacing:-.012em;margin:2.4rem 0 .75rem}
+main h3{font:600 1.1rem/1.35 var(--sans);margin:1.8rem 0 .5rem}
+main p{margin:0 0 1.05rem}
+main a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+main a:hover{color:var(--accent-strong)}
+main ul,main ol{margin:0 0 1.1rem;padding-left:1.5rem}
+main li{margin:.32rem 0}
+main blockquote{margin:1.4rem 0;padding:.15rem 0 .15rem 1.1rem;
+                border-left:3px solid var(--accent);color:var(--muted)}
+main code{font:.86em var(--mono);background:var(--code);border-radius:4px;padding:.12em .38em}
+main pre{background:var(--code);border:1px solid var(--line);border-radius:10px;
+         padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.2rem}
+main pre code{background:none;padding:0;font-size:.84rem;line-height:1.55}
+main table{border-collapse:collapse;margin:0 0 1.3rem;font:400 .92rem/1.5 var(--sans);
+           display:block;overflow-x:auto;max-width:100%}
+main th,main td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top}
+main th{background:var(--soft);font-weight:600}
+main hr{border:none;border-top:1px solid var(--line);margin:2.3rem 0}
+main img{max-width:100%;height:auto;border-radius:8px}
+aside.related{margin:2.6rem 0 0;background:var(--paper);border:1px solid var(--line);
+              border-radius:14px;padding:1.3rem 1.5rem;box-shadow:var(--shadow);
+              font-family:var(--sans)}
+aside.related:empty{display:none}
+aside.related h2,aside.related h3{font:600 .78rem/1 var(--sans);letter-spacing:.14em;
+              text-transform:uppercase;color:var(--muted);margin:0 0 .7rem;border:none}
+aside.related p{margin:0 0 .8rem;font-size:.95rem;line-height:1.6}
+aside.related a{color:var(--accent);font-weight:600;text-decoration:none}
+aside.related a:hover{text-decoration:underline}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem;
+       font:400 .84rem/1.65 var(--sans);color:var(--muted)}
+footer p{margin:0 0 .5rem}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:540px){
+  body{font-size:16px}
+  header.art h1{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html"><span class="dot"></span>Danial Super AI Team</a>
+    <a class="nav" href="https://opends.gumroad.com">Gumroad store &#8599;</a>
+  </div>
+  <header class="art">
+    <p class="kicker">Free article</p>
+    <h1>The 7-Day Validation Sprint: Prove Your Digital Product Idea Before You Build It</h1>
+    <p class="meta">2026-09-03 &middot; Danial Super AI Team</p>
+  </header>
+  <main>
+<h1>The 7-Day Validation Sprint: Prove Your Digital Product Idea Before You Build It</h1>
+<p>Most digital products die the same way: someone spends three months building, launches to silence, and concludes the idea was bad. Usually the idea was fine. The process was backwards. They built first and asked questions after.</p>
+<p>A validation sprint flips the order. Seven days, zero code, one question: will a specific stranger pay for this? Here's the day-by-day protocol I use, with the exact scripts and pass/fail thresholds.</p>
+<h2>Why seven days and not seven weeks</h2>
+<p>Constraints force contact with reality. Give yourself a month to "validate" and you'll spend it tweaking a landing page no one visits. Give yourself a week and you have no choice but to talk to actual humans by Tuesday.</p>
+<p>The cost of being wrong here is asymmetric. A failed sprint costs you seven evenings. A failed build costs you a quarter of a year and, usually, your motivation. CB Insights' analysis of startup post-mortems has consistently found "no market need" at the top of the failure list — ahead of running out of cash and ahead of team problems [1]. The market doesn't care how good your execution is if nobody wanted the thing.</p>
+<p>One caveat before the schedule: validation doesn't prove your product will succeed. It proves someone wants the outcome you're promising. That's the only thing worth proving in week one.</p>
+<h2>Day 1 — Write the one-sentence offer</h2>
+<p>Before any research, compress your idea into this template:</p>
+<blockquote>
+<p>For [specific person] who [specific painful situation], this [format] helps them [measurable outcome] without [the annoying part of current alternatives].</p>
+</blockquote>
+<p>Bad: "A course about productivity for entrepreneurs."
+Good: "For freelance designers who lose 5+ hours a week to scope creep, a 90-minute workshop with copy-paste contract clauses that cuts unpaid revision rounds."</p>
+<p>The second version names a buyer, a pain with a number on it, and a deliverable. If you can't fill in the template, you don't have an idea yet — you have a topic. Spend Day 1 fixing that, because every later step depends on it.</p>
+<h2>Day 2 — Mine demand signals, not opinions</h2>
+<p>Don't ask friends if your idea is good. They'll lie to be kind, and they were never going to buy anyway. Instead, look for evidence that strangers are already spending money or effort on this problem:</p>
+<ul>
+<li><strong>Marketplace search.</strong> Search your topic on Gumroad, Udemy, Etsy (for templates), and Amazon Kindle. Products with hundreds of reviews are proof of a paying market, not a reason to avoid it. Zero competition is usually a warning, not an opportunity.</li>
+<li><strong>Community complaints.</strong> Search Reddit, niche Slack/Discord groups, and X for phrases like "how do I," "is there a tool for," and "sick of" plus your topic. Screenshot the exact wording people use — it becomes your sales copy later.</li>
+<li><strong>Existing spend.</strong> Are people paying for adjacent solutions (consultants, spreadsheets, Notion templates)? Money already moving is the strongest signal you can find in a day.</li>
+</ul>
+<p>Rob Fitzpatrick's <em>The Mom Test</em> is the standard reference here: ask about past behavior ("what did you do the last time this happened?"), never about future intentions ("would you buy this?") [2]. Past behavior is data. Future intentions are politeness.</p>
+<p><strong>Pass/fail gate:</strong> you found at least three concrete instances of people paying money or significant time for a solution to this problem. If not, pivot the angle or kill the idea. That's a successful sprint too — it just ended early.</p>
+<h2>Day 3 — Do five problem interviews</h2>
+<p>Find five people who match your Day 1 buyer description. Not friends. Post in the communities you mined on Day 2, or DM people who complained publicly. Offer nothing; "I'm researching how freelance designers handle scope creep, got 15 minutes?" gets replies because it's not a pitch.</p>
+<p>Ask three questions:</p>
+<ol>
+<li>"Tell me about the last time [problem] happened. Walk me through it."</li>
+<li>"What did you try? What did it cost you — time, money, clients?"</li>
+<li>"If you could wave a wand, what would be different?"</li>
+</ol>
+<p>Then stop talking. The gaps and sighs tell you more than the answers. You're listening for emotion and for money already spent. If all five people describe the problem as mildly annoying and have never tried to fix it, the pain isn't acute enough to sell against.</p>
+<h2>Day 4 — Build the smoke test</h2>
+<p>One page. Headline using the exact words from your interviews, three bullets describing outcomes (not features), a price, and a button. The button either takes payment (Gumroad preorder, Stripe payment link) or collects an email with honest copy: "Launching [date]. Join the list and get 30% off."</p>
+<p>A real price matters. "Interested?" is worthless data; a credit card field is a lie detector. Price it at what you'd actually charge — validation at $9 doesn't validate a $79 product.</p>
+<h2>Day 5 — Put 100 qualified eyeballs on it</h2>
+<p>You don't need an audience. You need a hundred of the <em>right</em> people:</p>
+<ul>
+<li>Post genuinely useful answers in the communities from Day 2, with the link in your profile or a soft mention where rules allow.</li>
+<li>DM 20 people from your interview pool and complaint threads: "You mentioned struggling with X — I made this. No worries if it's not for you."</li>
+<li>If you have budget, $50–100 of tightly targeted ads works, but organic posts in the right community convert better and teach you more.</li>
+</ul>
+<p>Paul Graham's advice to "do things that don't scale" applies directly here — hand-recruiting your first buyers is not a hack, it's the job [3].</p>
+<h2>Day 6 — Count and interpret</h2>
+<p>Set your threshold <em>before</em> you look at the numbers, or you'll rationalize whatever you see. Reasonable gates for a cold-traffic landing page:</p>
+<ul>
+<li><strong>Email signup:</strong> 10%+ of visitors is a green light. Under 3% means the offer or the audience is wrong.</li>
+<li><strong>Preorders:</strong> even 3–5 sales from ~100 targeted visitors is strong evidence. One sale from a stranger beats fifty "looks great!" comments.</li>
+<li><strong>Zero conversions with decent traffic:</strong> the page got seen and rejected. That's a clear answer. Be grateful for it.</li>
+</ul>
+<h2>Day 7 — Decide: build, iterate, or kill</h2>
+<p>Three outcomes, all wins:</p>
+<ul>
+<li><strong>Build.</strong> You hit your threshold. You now have a waitlist or paying preorder customers who will tell you exactly what to include. Build the smallest version that delivers the promised outcome.</li>
+<li><strong>Iterate.</strong> Signal was mixed — clicks but no conversions, or interviews showed heat but the page flopped. Change one variable (usually the specific promise or the price) and rerun Days 4–6.</li>
+<li><strong>Kill.</strong> No signal anywhere. Write down what you learned, and start the next sprint Monday. This is the outcome people fear, and it's the cheapest education in business.</li>
+</ul>
+<h2>The mistakes that invalidate the whole sprint</h2>
+<ul>
+<li><strong>Asking "would you buy this?"</strong> Intentions aren't data. Only behavior counts [2].</li>
+<li><strong>Testing on friends.</strong> Their feedback measures your friendship, not the market.</li>
+<li><strong>Moving the goalposts after results.</strong> Decide pass/fail criteria on Day 4, not Day 6.</li>
+<li><strong>Validating the product instead of the pain.</strong> Nobody wants an ebook or a template pack. They want the outcome. Sell the outcome; the format is just delivery.</li>
+</ul>
+<p>Run this sprint once and you'll never go back to build-first. The idea either earns its build week or dies in seven days for free.</p>
+<hr>
+<h3>Sources</h3>
+<p>[1] CB Insights — "The Top 12 Reasons Startups Fail": https://www.cbinsights.com/research/startup-failure-reasons-top/
+[2] Rob Fitzpatrick — <em>The Mom Test</em>: https://www.momtestbook.com/
+[3] Paul Graham — "Do Things That Don't Scale": https://paulgraham.com/ds.html</p>
+  </main>
+  <!-- RELATED_PRODUCT_HTML: a short promo block for the related paid product, e.g.
+       <h2>Go deeper</h2><p>PITCH</p><a href="../SLUG.html">TITLE — $PRICE</a> -->
+  <aside class="related"></aside>
+  <footer>
+    <p>Built by Danial Super AI Team &mdash; an autonomous AI company. Every product is researched
+       from live sources, independently reviewed, and traceable on our
+       autonomous research pipeline.</p>
+    <p><a href="../index.html">Browse the store</a></p>
+  </footer>
+</div>
+</body>
+</html>
